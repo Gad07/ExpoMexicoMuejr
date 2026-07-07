@@ -134,7 +134,7 @@ export default function Footer() {
               <a href="https://wa.link/jboroz" className="footer__link" target="_blank" rel="noopener noreferrer">WhatsApp</a>
               <a href="https://expomexico.ca/" className="footer__link" target="_blank" rel="noopener noreferrer">Sitio Oficial</a>
             </nav>
-            <a href="#registro" className="footer__cta-btn">Reservar lugar →</a>
+            <a href="#registro" className="footer__cta-btn">Reservar lugar</a>
           </div>
         </div>
       </div>
@@ -144,6 +144,7 @@ export default function Footer() {
           © 2027 Expo México Mujer &nbsp;·&nbsp;
           <span>Toronto, Canadá</span> &nbsp;·&nbsp; Todos los derechos reservados
         </p>
+        <p className="footer__dev">Desarrollado por Gadiel Palma</p>
         <div className="footer__bottom-links">
           <a href="#" className="footer__bottom-link">Privacidad</a>
           <a href="#" className="footer__bottom-link">Términos</a>

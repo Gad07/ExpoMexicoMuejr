@@ -32,6 +32,30 @@ export default function Nav() {
     setOpenDropdown(null);
   }, [pathname]);
 
+  // Block body scroll when mobile menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.dataset.scrollY = String(scrollY);
+    } else {
+      const scrollY = Number(document.body.dataset.scrollY || '0');
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, scrollY);
+    }
+    return () => {
+      const scrollY = Number(document.body.dataset.scrollY || '0');
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, scrollY);
+    };
+  }, [menuOpen]);
+
   if (isV2) {
     return (
       <nav className={`v2-nav ${scrolled ? 'v2-nav--scrolled' : ''}`} role="navigation" aria-label="Navegación V2">
