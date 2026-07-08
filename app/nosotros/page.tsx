@@ -29,10 +29,26 @@ function Reveal({
    DATA
 ══════════════════════════════════════════════════════════════ */
 const stats = [
-  { value: '9–13', label: 'Junio 2027' },
-  { value: '12+', label: 'Industrias' },
-  { value: 'MX+CA', label: 'Plataforma binacional' },
-  { value: '5 días', label: 'En Toronto' },
+  { 
+    value: '+5,000', 
+    label: 'Asistentes Proyectados',
+    desc: 'Mujeres líderes, ejecutivas y emprendedoras de alto impacto.'
+  },
+  { 
+    value: '50+', 
+    label: 'Conferencias Magistrales',
+    desc: 'Voces internacionales que inspiran y transforman industrias.'
+  },
+  { 
+    value: 'B2B', 
+    label: 'Networking Estratégico',
+    desc: 'Mesas de negocios para cerrar alianzas comerciales binacionales.'
+  },
+  { 
+    value: '100%', 
+    label: 'Talento Mexicano',
+    desc: 'Proyección global de nuestra cultura, innovación y excelencia.'
+  },
 ];
 
 const values = [
@@ -65,42 +81,6 @@ const milestones = [
    COMPONENTS
 ══════════════════════════════════════════════════════════════ */
 
-function AboutHero() {
-  return (
-    <section className="about-hero" aria-label="Nosotros">
-      <div className="about-hero__bg">
-        <img
-          className="about-hero__image"
-          src="/Galeria/Ponencias/IMG_6323.JPG"
-          alt=""
-        />
-        <div className="about-hero__overlay" />
-      </div>
-      <div className="about-hero__content-wrapper">
-        <div className="about-hero__content">
-          <div className="about-hero__eyebrow">Expo México Mujer 2027</div>
-          <h1 className="about-hero__title">
-            Nosotros
-            <em>Nuestra historia</em>
-          </h1>
-          <p className="about-hero__desc">
-            Una plataforma binacional que nace con la convicción de que el liderazgo
-            mexicano femenino merece un escenario global. Cinco días en Toronto que
-            transforman identidad en oportunidad.
-          </p>
-          <div className="hero-gradient__actions">
-            <a href="#mision" className="btn btn--primary">
-              Conocer más
-            </a>
-            <a href="#contacto" className="btn btn--outline">
-              Contáctanos
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function MissionVision() {
   return (
@@ -142,15 +122,53 @@ function MissionVision() {
 
 function StatsBar() {
   return (
-    <section className="stats-bar" aria-label="Estadísticas">
-      <div className="stats-bar__inner">
-        <div className="stats-bar__grid">
-          {stats.map((s) => (
-            <div key={s.label} className="stat-item">
-              <div className="stat-item__number">{s.value}</div>
-              <div className="stat-item__label">{s.label}</div>
-            </div>
-          ))}
+    <section className="stmt" id="estadisticas" aria-label="Estadísticas">
+      <div className="stmt__scanlines" aria-hidden="true" />
+      <img src="/recursos/Recurso 8.png" alt="" aria-hidden="true" className="stmt__butterfly" />
+      <div className="stmt__ghost-date" aria-hidden="true" style={{ fontSize: '15rem', opacity: 0.5 }}>IMPACTO</div>
+      
+      <div className="stmt__grid" style={{ alignItems: 'flex-start' }}>
+        {/* LEFT COLUMN */}
+        <div className="stmt__col stmt__col--left">
+          <Reveal>
+            <span className="stmt__location">
+              <span className="stmt__location-dot" />
+              Toronto · Canadá
+            </span>
+            <h2 className="stmt__headline" style={{ marginTop: '16px' }}>
+              El liderazgo<br />
+              mexicano<br />
+              <em>no tiene<br />fronteras</em>
+            </h2>
+          </Reveal>
+        </div>
+
+        {/* CENTER COLUMN */}
+        <div className="stmt__col stmt__col--center" aria-hidden="true">
+          <div className="stmt__rule" />
+          <img src="/recursos/Recurso 8.png" alt="" className="stmt__center-butterfly" />
+          <div className="stmt__rule" />
+        </div>
+
+        {/* RIGHT COLUMN */}
+        <div className="stmt__col stmt__col--right">
+          <div className="stats-bar__grid">
+            {stats.map((s, i) => (
+              <Reveal key={s.label} delay={i * 100} className="stat-card">
+                <div className="stat-card__glow"></div>
+                <div className="stat-card__number">{s.value}</div>
+                <div className="stat-card__label">{s.label}</div>
+                <div className="stat-card__desc" style={{ 
+                  marginTop: '12px', 
+                  fontSize: '0.8rem', 
+                  lineHeight: 1.5, 
+                  color: 'rgba(255,255,255,0.5)' 
+                }}>
+                  {s.desc}
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -218,36 +236,6 @@ function Timeline() {
   );
 }
 
-function AboutCTA() {
-  return (
-    <section className="about-cta" id="contacto" aria-labelledby="acta-title">
-      <div className="about-cta__inner">
-        <Reveal>
-          <div className="about-cta__eyebrow">Sé parte de la historia</div>
-          <h2 className="about-cta__title" id="acta-title">
-            ¿Listo para construir el futuro<br />
-            <em>del liderazgo mexicano?</em>
-          </h2>
-          <p className="about-cta__desc">
-            Cada edición construye un legado. Únete a la plataforma que transforma
-            el talento mexicano en oportunidades globales.
-          </p>
-        </Reveal>
-
-        <Reveal delay={200}>
-          <div className="about-cta__actions">
-            <a href="mailto:francisco@expomexico.ca" className="about-cta__btn about-cta__btn--primary">
-              Escribir por correo
-            </a>
-            <a href="https://wa.link/jboroz" className="about-cta__btn about-cta__btn--outline" target="_blank" rel="noopener noreferrer">
-              Abrir WhatsApp
-            </a>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
 
 /* ══════════════════════════════════════════════════════════════
    PAGE ROOT
@@ -255,12 +243,10 @@ function AboutCTA() {
 export default function NosotrosPage() {
   return (
     <>
-      <AboutHero />
       <MissionVision />
       <StatsBar />
       <ValuesGrid />
       <Timeline />
-      <AboutCTA />
     </>
   );
 }

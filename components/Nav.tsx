@@ -107,8 +107,10 @@ export default function Nav() {
     );
   }
 
+  const isInnerPage = pathname !== '/' && !isV2 && !isV3;
+
   return (
-    <nav className={`nav${scrolled ? ' nav--scrolled' : ''}`} role="navigation" aria-label="Navegación principal">
+    <nav className={`nav${scrolled ? ' nav--scrolled' : ''}${isInnerPage ? ' nav--inner' : ''}`} role="navigation" aria-label="Navegación principal">
       <div className="color-bar" aria-hidden="true">
         <span className="color-bar__swatch color-bar__swatch--1" />
         <span className="color-bar__swatch color-bar__swatch--2" />
@@ -131,18 +133,7 @@ export default function Nav() {
         </button>
 
         <div className={`nav__links ${menuOpen ? 'nav__links--open' : ''}`}>
-          <Link href="/" className="nav__link" onClick={() => setMenuOpen(false)}>Inicio</Link>
-          
-          <div className={`nav__dropdown ${openDropdown === 'expo' ? 'nav__dropdown--open' : ''}`}>
-            <span className="nav__link nav__link--has-dropdown" onClick={(e) => toggleDropdown(e, 'expo')}>
-              La Expo
-              <span className="nav__dropdown-icon"></span>
-            </span>
-            <div className="nav__dropdown-menu">
-              <Link href="/nosotros" className="nav__dropdown-item" onClick={() => setMenuOpen(false)}>Nosotros</Link>
-              <Link href="/expo" className="nav__dropdown-item" onClick={() => setMenuOpen(false)}>Expo México Mujer</Link>
-            </div>
-          </div>
+          <Link href="/nosotros" className="nav__link" onClick={() => setMenuOpen(false)}>Nosotros</Link>
 
           <div className={`nav__dropdown ${openDropdown === 'participantes' ? 'nav__dropdown--open' : ''}`}>
             <span className="nav__link nav__link--has-dropdown" onClick={(e) => toggleDropdown(e, 'participantes')}>
