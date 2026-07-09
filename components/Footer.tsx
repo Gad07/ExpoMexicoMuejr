@@ -38,6 +38,7 @@ export default function Footer() {
                 <Link href="/nosotros" className="v2-footer__link">Nosotros</Link>
                 <Link href="/expo" className="v2-footer__link">El Evento</Link>
                 <Link href="/expositores" className="v2-footer__link">Expositores</Link>
+                <Link href="/invitados" className="v2-footer__link">Invitados Especiales</Link>
               </nav>
             </div>
 
@@ -112,6 +113,7 @@ export default function Footer() {
               <Link href="/expo" className="footer__link">El Evento</Link>
               <Link href="/expositores" className="footer__link">Expositores</Link>
               <Link href="/patrocinadores" className="footer__link">Patrocinadores</Link>
+              <Link href="/invitados" className="footer__link">Invitados Especiales</Link>
             </nav>
           </div>
 

@@ -5,7 +5,7 @@ import Hero from './Hero';
 
 export default function GlobalHero() {
   const pathname = usePathname();
-  
+
   // En el home, el Hero se renderiza manualmente después del VideoHero
   if (pathname === '/') return null;
 
@@ -19,9 +19,11 @@ export default function GlobalHero() {
     return null;
   }
 
+  if (pathname === '/business-card') return null;
+
   if (pathname === '/nosotros') {
     return (
-      <Hero 
+      <Hero
         eyebrow="Expo México Mujer 2027"
         title={<>Nosotros<br /><em>Nuestra historia</em></>}
         description="Una plataforma binacional que nace con la convicción de que el liderazgo mexicano femenino merece un escenario global. Cinco días en Toronto que transforman identidad en oportunidad."

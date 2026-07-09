@@ -1,149 +1,303 @@
-export const industries = [
+export const mexicanStates = [
   {
-    name: 'Gastronomía',
+    name: 'Aguascalientes',
+    img: '/Galeria/Ponencias/IMG_6323.JPG',
+    size: 'tall',
+    desc: 'Tradición y dinamismo en el corazón de México.',
+    carousel: ['/Galeria/Ponencias/IMG_6323.JPG', '/Galeria/Arte_y_Cultura/IMG_5945.JPG', '/Galeria/Artesanias/IMG_5932.JPG']
+  },
+  {
+    name: 'Baja California',
+    img: '/Galeria/Gastronomia/IMG_5940.JPG',
+    size: 'wide',
+    desc: 'Innovación fronteriza y riqueza vitivinícola.',
+    carousel: ['/Galeria/Gastronomia/IMG_5940.JPG', '/Galeria/Gastronomia/IMG_5981.JPG', '/Galeria/Turismo/IMG_5986.JPG']
+  },
+  {
+    name: 'Baja California Sur',
+    img: '/Galeria/Turismo/IMG_6140.JPG',
+    size: 'large',
+    desc: 'Maravillas naturales y turismo sustentable.',
+    carousel: ['/Galeria/Turismo/IMG_6140.JPG', '/Galeria/Turismo/IMG_5990.JPG', '/Galeria/Otros/IMG_4805.JPG']
+  },
+  {
+    name: 'Campeche',
+    img: '/Galeria/Arte_y_Cultura/IMG_5945.JPG',
+    size: 'tall',
+    desc: 'Riqueza maya y encanto colonial en el golfo.',
+    carousel: ['/Galeria/Arte_y_Cultura/IMG_5945.JPG', '/Galeria/Arte_y_Cultura/IMG_5885.JPG', '/Galeria/Artesanias/IMG_5494.JPG']
+  },
+  {
+    name: 'Chiapas',
+    img: '/Galeria/Artesanias/IMG_5932.JPG',
+    size: 'wide',
+    desc: 'Diversidad biológica y cultural inigualable.',
+    carousel: ['/Galeria/Artesanias/IMG_5932.JPG', '/Galeria/Artesanias/IMG_5928.JPG', '/Galeria/Arte_y_Cultura/IMG_6116.JPG']
+  },
+  {
+    name: 'Chihuahua',
+    img: '/Galeria/Ponencias/IMG_5169.JPG',
+    size: 'large',
+    desc: 'Vastas llanuras y progreso industrial en el norte.',
+    carousel: ['/Galeria/Ponencias/IMG_5169.JPG', '/Galeria/Ponencias/IMG_4931.JPG', '/Galeria/Turismo/IMG_5990.JPG']
+  },
+  {
+    name: 'Ciudad de México',
     img: '/Galeria/Gastronomia/IMG_5924.JPG',
     size: 'large',
-    desc: 'Sabor tradicional con proyección y exportación internacional.',
-    carousel: [
-      '/Galeria/Gastronomia/IMG_5940.JPG',
-      '/Galeria/Gastronomia/IMG_6008.JPG',
-      '/Galeria/Gastronomia/IMG_5981.JPG'
-    ]
+    desc: 'Empresarias y emprendedoras de la capital del país.',
+    carousel: ['/Galeria/Gastronomia/IMG_5940.JPG', '/Galeria/Gastronomia/IMG_6008.JPG', '/Galeria/Gastronomia/IMG_5981.JPG']
   },
   {
-    name: 'Arte y Cultura',
+    name: 'Coahuila',
+    img: '/Galeria/Ponencias/IMG_5999.JPG',
+    size: 'tall',
+    desc: 'Motor productivo y riqueza histórica.',
+    carousel: ['/Galeria/Ponencias/IMG_5999.JPG', '/Galeria/Ponencias/IMG_6117.JPG', '/Galeria/Otros/IMG_4805.JPG']
+  },
+  {
+    name: 'Colima',
+    img: '/Galeria/Turismo/IMG_5986.JPG',
+    size: 'tall',
+    desc: 'Pequeño en territorio, gigante en oportunidades.',
+    carousel: ['/Galeria/Turismo/IMG_5986.JPG', '/Galeria/Gastronomia/IMG_5981.JPG', '/Galeria/Arte_y_Cultura/IMG_5967.JPG']
+  },
+  {
+    name: 'Durango',
+    img: '/Galeria/Arte_y_Cultura/IMG_6244.JPG',
+    size: 'wide',
+    desc: 'Tierra del cine, minería y paisajes asombrosos.',
+    carousel: ['/Galeria/Arte_y_Cultura/IMG_6244.JPG', '/Galeria/Arte_y_Cultura/IMG_6116.JPG', '/Galeria/Ponencias/IMG_6323.JPG']
+  },
+  {
+    name: 'Estado de México',
+    img: '/Galeria/Moda_y_textiles/IMG_6036.JPG',
+    size: 'large',
+    desc: 'Polo de desarrollo y gran diversidad cultural.',
+    carousel: ['/Galeria/Moda_y_textiles/IMG_6036.JPG', '/Galeria/Moda_y_textiles/IMG_6032.JPG', '/Galeria/Artesanias/IMG_5931.JPG']
+  },
+  {
+    name: 'Guanajuato',
+    img: '/Galeria/Artesanias/IMG_5928.JPG',
+    size: 'large',
+    desc: 'Cuna de la independencia y centro de innovación.',
+    carousel: ['/Galeria/Artesanias/IMG_5928.JPG', '/Galeria/Artesanias/IMG_5923.JPG', '/Galeria/Arte_y_Cultura/IMG_5885.JPG']
+  },
+  {
+    name: 'Guerrero',
+    img: '/Galeria/Turismo/IMG_5990.JPG',
+    size: 'tall',
+    desc: 'Belleza costera y rica herencia artesanal.',
+    carousel: ['/Galeria/Turismo/IMG_5990.JPG', '/Galeria/Artesanias/IMG_5494.JPG', '/Galeria/Gastronomia/IMG_6008.JPG']
+  },
+  {
+    name: 'Hidalgo',
+    img: '/Galeria/Ponencias/IMG_6117.JPG',
+    size: 'tall',
+    desc: 'Cuna de la minería, magia y tradición.',
+    carousel: ['/Galeria/Ponencias/IMG_6117.JPG', '/Galeria/Artesanias/IMG_5932.JPG', '/Galeria/Otros/IMG_4805.JPG']
+  },
+  {
+    name: 'Jalisco',
     img: '/Galeria/Arte_y_Cultura/IMG_5885.JPG',
     size: 'tall',
-    desc: 'Expresiones artísticas que proyectan el alma de México.',
-    carousel: [
-      '/Galeria/Arte_y_Cultura/IMG_5967.JPG',
-      '/Galeria/Arte_y_Cultura/IMG_6244.JPG',
-      '/Galeria/Arte_y_Cultura/IMG_6116.JPG'
-    ]
+    desc: 'Innovación, tradición y liderazgo tapatío.',
+    carousel: ['/Galeria/Arte_y_Cultura/IMG_5967.JPG', '/Galeria/Arte_y_Cultura/IMG_6244.JPG', '/Galeria/Arte_y_Cultura/IMG_6116.JPG']
   },
   {
-    name: 'Artesanías',
-    img: '/Galeria/Artesanias/IMG_5494.JPG',
-    size: 'large',
-    desc: 'Piezas únicas creadas por manos maestras mexicanas.',
-    carousel: [
-      '/Galeria/Artesanias/IMG_5928.JPG',
-      '/Galeria/Artesanias/IMG_5931.JPG',
-      '/Galeria/Artesanias/IMG_5923.JPG'
-    ]
+    name: 'Michoacán',
+    img: '/Galeria/Artesanias/IMG_5923.JPG',
+    size: 'wide',
+    desc: 'Riqueza purépecha y paisajes que inspiran.',
+    carousel: ['/Galeria/Artesanias/IMG_5923.JPG', '/Galeria/Gastronomia/IMG_5924.JPG', '/Galeria/Artesanias/IMG_5928.JPG']
   },
   {
-    name: 'Turismo',
+    name: 'Morelos',
+    img: '/Galeria/Gastronomia/IMG_5981.JPG',
+    size: 'tall',
+    desc: 'El estado de la eterna primavera y cultura viva.',
+    carousel: ['/Galeria/Gastronomia/IMG_5981.JPG', '/Galeria/Arte_y_Cultura/IMG_5945.JPG', '/Galeria/Ponencias/IMG_4931.JPG']
+  },
+  {
+    name: 'Nayarit',
+    img: '/Galeria/Arte_y_Cultura/IMG_6116.JPG',
+    size: 'tall',
+    desc: 'Tesoros del pacífico y raíces wixárikas.',
+    carousel: ['/Galeria/Arte_y_Cultura/IMG_6116.JPG', '/Galeria/Turismo/IMG_6140.JPG', '/Galeria/Artesanias/IMG_5931.JPG']
+  },
+  {
+    name: 'Nuevo León',
     img: '/Galeria/Turismo/IMG_5986.JPG',
     size: 'wide',
-    desc: 'Destinos inolvidables y experiencias culturales de primer nivel.',
-    carousel: [
-      '/Galeria/Turismo/IMG_5990.JPG',
-      '/Galeria/Turismo/IMG_6140.JPG',
-      '/Galeria/Turismo/IMG_5986.JPG'
-    ]
+    desc: 'Visión de negocios e industria del norte.',
+    carousel: ['/Galeria/Turismo/IMG_5990.JPG', '/Galeria/Turismo/IMG_6140.JPG', '/Galeria/Turismo/IMG_5986.JPG']
   },
   {
-    name: 'Ponencias',
+    name: 'Oaxaca',
+    img: '/Galeria/Artesanias/IMG_5494.JPG',
+    size: 'large',
+    desc: 'Cultura, raíces y creaciones maestras de Oaxaca.',
+    carousel: ['/Galeria/Artesanias/IMG_5928.JPG', '/Galeria/Artesanias/IMG_5931.JPG', '/Galeria/Artesanias/IMG_5923.JPG']
+  },
+  {
+    name: 'Puebla',
     img: '/Galeria/Ponencias/IMG_4931.JPG',
     size: 'wide',
-    desc: 'Intercambio académico y formación con visión global.',
-    carousel: [
-      '/Galeria/Ponencias/IMG_5999.JPG',
-      '/Galeria/Ponencias/IMG_5169.JPG',
-      '/Galeria/Ponencias/IMG_6117.JPG'
-    ]
+    desc: 'Riqueza culinaria, textil y comercial.',
+    carousel: ['/Galeria/Ponencias/IMG_5999.JPG', '/Galeria/Ponencias/IMG_5169.JPG', '/Galeria/Ponencias/IMG_6117.JPG']
   },
   {
-    name: 'Moda y textiles',
+    name: 'Querétaro',
+    img: '/Galeria/Ponencias/IMG_6323.JPG',
+    size: 'tall',
+    desc: 'Pujanza tecnológica y encanto virreinal.',
+    carousel: ['/Galeria/Ponencias/IMG_6323.JPG', '/Galeria/Turismo/IMG_5986.JPG', '/Galeria/Arte_y_Cultura/IMG_5967.JPG']
+  },
+  {
+    name: 'Quintana Roo',
+    img: '/Galeria/Turismo/IMG_6140.JPG',
+    size: 'large',
+    desc: 'Puerta al Caribe y paraíso turístico mundial.',
+    carousel: ['/Galeria/Turismo/IMG_6140.JPG', '/Galeria/Turismo/IMG_5990.JPG', '/Galeria/Gastronomia/IMG_6008.JPG']
+  },
+  {
+    name: 'San Luis Potosí',
+    img: '/Galeria/Arte_y_Cultura/IMG_5967.JPG',
+    size: 'tall',
+    desc: 'Corazón geográfico y belleza surrealista.',
+    carousel: ['/Galeria/Arte_y_Cultura/IMG_5967.JPG', '/Galeria/Artesanias/IMG_5932.JPG', '/Galeria/Ponencias/IMG_5999.JPG']
+  },
+  {
+    name: 'Sinaloa',
+    img: '/Galeria/Gastronomia/IMG_6008.JPG',
+    size: 'wide',
+    desc: 'Granero de México y joyas del pacífico.',
+    carousel: ['/Galeria/Gastronomia/IMG_6008.JPG', '/Galeria/Gastronomia/IMG_5940.JPG', '/Galeria/Turismo/IMG_5990.JPG']
+  },
+  {
+    name: 'Sonora',
+    img: '/Galeria/Otros/IMG_4805.JPG',
+    size: 'large',
+    desc: 'Fusión de mar, desierto y emprendimiento audaz.',
+    carousel: ['/Galeria/Otros/IMG_4805.JPG', '/Galeria/Turismo/IMG_5986.JPG', '/Galeria/Ponencias/IMG_5169.JPG']
+  },
+  {
+    name: 'Tabasco',
+    img: '/Galeria/Gastronomia/IMG_5924.JPG',
+    size: 'tall',
+    desc: 'Tierra del cacao, selva y ríos.',
+    carousel: ['/Galeria/Gastronomia/IMG_5924.JPG', '/Galeria/Artesanias/IMG_5923.JPG', '/Galeria/Turismo/IMG_6140.JPG']
+  },
+  {
+    name: 'Tamaulipas',
+    img: '/Galeria/Ponencias/IMG_5169.JPG',
+    size: 'wide',
+    desc: 'Frontera dinámica y espíritu comercial incansable.',
+    carousel: ['/Galeria/Ponencias/IMG_5169.JPG', '/Galeria/Ponencias/IMG_6117.JPG', '/Galeria/Gastronomia/IMG_5981.JPG']
+  },
+  {
+    name: 'Tlaxcala',
+    img: '/Galeria/Moda_y_textiles/IMG_6023.JPG',
+    size: 'tall',
+    desc: 'Historia profunda y riqueza textil arraigada.',
+    carousel: ['/Galeria/Moda_y_textiles/IMG_6023.JPG', '/Galeria/Artesanias/IMG_5931.JPG', '/Galeria/Arte_y_Cultura/IMG_5945.JPG']
+  },
+  {
+    name: 'Veracruz',
+    img: '/Galeria/Arte_y_Cultura/IMG_5945.JPG',
+    size: 'large',
+    desc: 'Puerto histórico, café y calidez incomparable.',
+    carousel: ['/Galeria/Arte_y_Cultura/IMG_5945.JPG', '/Galeria/Gastronomia/IMG_6008.JPG', '/Galeria/Artesanias/IMG_5494.JPG']
+  },
+  {
+    name: 'Yucatán',
     img: '/Galeria/Moda_y_textiles/IMG_6031.JPG',
     size: 'tall',
-    desc: 'Diseño, moda y tejidos con identidad artesanal única.',
-    carousel: [
-      '/Galeria/Moda_y_textiles/IMG_6032.JPG',
-      '/Galeria/Moda_y_textiles/IMG_6036.JPG',
-      '/Galeria/Moda_y_textiles/IMG_6023.JPG'
-    ]
+    desc: 'Emprendimientos mayas con proyección global.',
+    carousel: ['/Galeria/Moda_y_textiles/IMG_6032.JPG', '/Galeria/Moda_y_textiles/IMG_6036.JPG', '/Galeria/Moda_y_textiles/IMG_6023.JPG']
+  },
+  {
+    name: 'Zacatecas',
+    img: '/Galeria/Artesanias/IMG_5931.JPG',
+    size: 'wide',
+    desc: 'Legado minero y esplendor de cantera rosa.',
   }
 ];
 
 export const mockExhibitors = [
-  // Gastronomía
   {
-    id: 'gastro-1',
-    slug: 'sabores-de-origen',
+    id: '1',
+    slug: 'artesanias-zacatecas',
+    name: 'Artesanías Zacatecanas',
+    personName: 'María Rodríguez',
+    description: 'Producción de textiles y bordados tradicionales con un toque contemporáneo. Nuestro objetivo es llevar la cultura mexicana a Canadá con alta calidad y diseño único. Cada pieza está hecha a mano por artesanas de las comunidades rurales de Zacatecas.',
+    state: 'Zacatecas',
+    category: 'Artesanías',
+    website: 'https://ejemplo.com',
+    social: '@artesaniaszacatecanas',
+    contact: 'contacto@ejemplo.com',
+    booth: 'Pabellón B - Stand 104',
+    logo: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=150&q=80',
+    personPhoto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
+    bio: 'María es una emprendedora apasionada por preservar las técnicas textiles prehispánicas.',
+    gallery: ['/Galeria/Artesanias/IMG_5931.JPG']
+  },
+  {
+    id: '2',
+    slug: 'tech-women-sonora',
+    name: 'Tech Women Sonora',
+    personName: 'Ana Silvia',
+    description: 'Soluciones de software y automatización para pequeñas empresas. Liderando el sector STEM en el norte del país con desarrollo ágil y plataformas e-commerce a medida.',
+    state: 'Sonora',
+    category: 'Tecnología',
+    website: 'https://ejemplo.com',
+    social: '@techwomensonora',
+    contact: 'contacto@ejemplo.com',
+    booth: 'Pabellón Innovación - Stand 45',
+    logo: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=150&q=80',
+    personPhoto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
+    bio: 'Ana Silvia fundó Tech Women Sonora para empoderar a más mujeres en áreas STEM.',
+    gallery: ['/Galeria/Otros/IMG_4805.JPG']
+  },
+  {
+    id: '3',
+    slug: 'sabor-hidrocalido',
+    name: 'Sabor Hidrocálido',
+    personName: 'Elena Martínez',
+    description: 'Exportación de dulces típicos y productos de guayaba de Aguascalientes. Llevando el dulce sabor de México a todo el mundo con certificaciones internacionales de calidad.',
+    state: 'Aguascalientes',
     category: 'Gastronomía',
-    name: 'Sabores de Origen',
-    logo: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=200',
-    description: 'Sabores de Origen rescata recetas ancestrales mexicanas y las empaca para distribución internacional, llevando la auténtica cocina de humo a las mesas de Norteamérica.',
-    website: 'www.saboresorigen.mx',
-    booth: 'Pabellón A - Stand 14',
-    contact: 'contacto@saboresorigen.mx',
-    personName: 'Carmen Ruíz',
-    personPhoto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400',
-    bio: 'Chef y fundadora con más de 15 años de experiencia investigando la gastronomía indígena de Oaxaca. Ha sido galardonada internacionalmente por su labor de preservación culinaria.',
-    gallery: [
-      'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=800'
-    ]
+    website: 'https://ejemplo.com',
+    social: '@saborhidrocalido',
+    contact: 'contacto@ejemplo.com',
+    booth: 'Pabellón Gastronómico - Stand 08',
+    logo: 'https://images.unsplash.com/photo-1556910110-a5a63dfd393c?auto=format&fit=crop&w=150&q=80',
+    personPhoto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
+    bio: 'Con más de 10 años en la industria, Elena lleva el sabor tradicional de su tierra a nuevos mercados.',
+    gallery: ['/Galeria/Gastronomia/IMG_5940.JPG']
   },
   {
-    id: 'gastro-2',
-    slug: 'mezcal-tierra-viva',
-    category: 'Gastronomía',
-    name: 'Mezcal Tierra Viva',
-    logo: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=200',
-    description: 'Productora de mezcal artesanal liderada 100% por mujeres de Oaxaca. Destilados premium reconocidos internacionalmente por sus notas únicas.',
-    website: 'www.tierraviva.mx',
-    booth: 'Pabellón A - Stand 22',
-    contact: 'ventas@tierraviva.mx',
-    personName: 'Lucía Mendoza',
-    personPhoto: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400',
-    bio: 'Maestra mezcalera de tercera generación. Rompiendo estereotipos en la industria de los destilados y promoviendo el comercio justo para las mujeres productoras.',
-    gallery: [
-      'https://images.unsplash.com/photo-1590487532349-2ab251141cc1?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1575037614876-c385cc9697bc?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1567171465223-28f08f103b41?auto=format&fit=crop&q=80&w=800'
-    ]
-  },
-  // Arte y Cultura
-  {
-    id: 'arte-1',
-    slug: 'galeria-raices',
-    category: 'Arte y Cultura',
-    name: 'Galería Raíces',
-    logo: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&q=80&w=200',
-    description: 'Colectivo de artistas plásticas que fusionan el arte contemporáneo con técnicas prehispánicas.',
-    website: 'www.galeriaraices.com',
-    booth: 'Pabellón B - Stand 05',
-    contact: 'hola@galeriaraices.com',
-    personName: 'Isabel Torres',
-    personPhoto: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=400',
-    bio: 'Curadora y artista plástica, ha expuesto en Europa y Norteamérica. Su misión es visibilizar el talento femenino en las artes visuales.',
-    gallery: [
-      'https://images.unsplash.com/photo-1518998053401-a46274b7852c?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?auto=format&fit=crop&q=80&w=800'
-    ]
-  },
-  // Moda y Textiles
-  {
-    id: 'moda-1',
-    slug: 'hilos-de-jade',
-    category: 'Moda y textiles',
-    name: 'Hilos de Jade',
-    logo: 'https://images.unsplash.com/photo-1489987707023-afc660bc8755?auto=format&fit=crop&q=80&w=200',
-    description: 'Moda sustentable y alta costura. Colaboramos con comunidades indígenas para crear prendas exclusivas.',
-    website: 'www.hilosdejade.com',
-    booth: 'Pabellón C - Stand 31',
-    contact: 'info@hilosdejade.com',
-    personName: 'Valeria Guzmán',
-    personPhoto: 'https://images.unsplash.com/photo-1508214751196-bfd141134b44?auto=format&fit=crop&q=80&w=400',
-    bio: 'Diseñadora de modas enfocada en la sostenibilidad y el comercio ético. Ganadora del premio "Innovación Textil 2025".',
-    gallery: [
-      'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1550614000-4b95d466f244?auto=format&fit=crop&q=80&w=800'
-    ]
+    id: '4',
+    slug: 'moda-yucatan',
+    name: 'Henequén & Moda',
+    personName: 'Sofía Castillo',
+    description: 'Diseño de moda sustentable utilizando fibra de henequén de Yucatán, combinando las tendencias globales con la rica tradición maya de la península.',
+    state: 'Yucatán',
+    category: 'Moda y Textiles',
+    website: 'https://ejemplo.com',
+    social: '@henequenmoda',
+    contact: 'contacto@ejemplo.com',
+    booth: 'Pabellón Textil - Stand 22',
+    logo: 'https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=150&q=80',
+    personPhoto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
+    bio: 'Sofía es una diseñadora que rescata técnicas milenarias con diseños de impacto internacional.',
+    gallery: ['/Galeria/Moda_y_textiles/IMG_6031.JPG']
   }
+];
+
+export const industries = [
+  { name: 'Artesanías', img: '/Galeria/Artesanias/IMG_5931.JPG', size: 'large' },
+  { name: 'Tecnología', img: '/Galeria/Otros/IMG_4805.JPG', size: 'tall' },
+  { name: 'Gastronomía', img: '/Galeria/Gastronomia/IMG_5940.JPG', size: 'wide' },
+  { name: 'Moda y Textiles', img: '/Galeria/Moda_y_textiles/IMG_6031.JPG', size: 'tall' }
 ];

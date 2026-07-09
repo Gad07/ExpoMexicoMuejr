@@ -2,10 +2,10 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { MapPin, ExternalLink, Mail, CheckCircle2 } from 'lucide-react';
-import { industries } from './data/expositores';
+import { mexicanStates } from './data/expositores';
 import { WordMark, Mariposa, DecoMariposa, ArrowDown } from '../components/BrandAssets';
 import Hero from '../components/Hero';
-
+import Link from 'next/link';
 /* ══════════════════════════════════════════════════════════════
    HOOKS
 ══════════════════════════════════════════════════════════════ */
@@ -508,154 +508,98 @@ function Pillars() {
 /* ══════════════════════════════════════════════════════════════
    INDUSTRIES
 ══════════════════════════════════════════════════════════════ */
-function IndustryModal({
-  industry,
-  onClose
-}: {
-  industry: typeof industries[number] & { index: number };
-  onClose: () => void
-}) {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, []);
-
-  const handlePrev = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setCurrentSlide((prev) => (prev === 0 ? industry.carousel.length - 1 : prev - 1));
-  };
-
-  const handleNext = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setCurrentSlide((prev) => (prev === industry.carousel.length - 1 ? 0 : prev + 1));
-  };
-
+function MexicanStates() {
   return (
-    <div className="ind-modal-overlay" onClick={onClose}>
-      <div className="ind-modal" onClick={(e) => e.stopPropagation()}>
-        <button className="ind-modal__close" onClick={onClose} aria-label="Cerrar modal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        </button>
-
-        <div className="ind-modal__grid">
-          {/* Left Panel: Content */}
-          <div className="ind-modal__info">
-            <span className="ind-modal__num">{String(industry.index + 1).padStart(2, '0')}</span>
-            <h3 className="ind-modal__title">{industry.name}</h3>
-            <div className="ind-modal__divider" />
-            <p className="ind-modal__desc">{industry.desc}</p>
-
-            <div className="ind-modal__bullets">
-              <div className="ind-modal__bullet">
-                <span className="ind-modal__bullet-dot" />
-                <span>Oportunidades de exportación e inversión binacional.</span>
-              </div>
-              <div className="ind-modal__bullet">
-                <span className="ind-modal__bullet-dot" />
-                <span>Vinculación con compradores del mercado canadiense.</span>
-              </div>
-            </div>
-
-            <a href="#registro" className="btn btn--primary ind-modal__cta" onClick={onClose}>
-              Reservar espacio en este sector
-            </a>
-          </div>
-
-          {/* Right Panel: Image Carousel */}
-          <div className="ind-modal__carousel">
-            <div className="ind-modal__slides-wrap">
-              {industry.carousel.map((slideImg, slideIdx) => (
-                <div
-                  key={slideIdx}
-                  className={`ind-modal__slide ${slideIdx === currentSlide ? 'ind-modal__slide--active' : ''}`}
-                >
-                  <img src={slideImg} alt={`${industry.name} slide ${slideIdx + 1}`} className="ind-modal__slide-img" />
-                  <div className="ind-modal__slide-overlay" />
-                </div>
-              ))}
-            </div>
-
-            {/* Navigation buttons */}
-            <button className="ind-modal__arrow ind-modal__arrow--prev" onClick={handlePrev}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button className="ind-modal__arrow ind-modal__arrow--next" onClick={handleNext}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-
-            {/* Indicators / Dots */}
-            <div className="ind-modal__dots">
-              {industry.carousel.map((_, slideIdx) => (
-                <button
-                  key={slideIdx}
-                  className={`ind-modal__dot ${slideIdx === currentSlide ? 'ind-modal__dot--active' : ''}`}
-                  onClick={() => setCurrentSlide(slideIdx)}
-                  aria-label={`Ir al slide ${slideIdx + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Industries() {
-  const [activeIndustry, setActiveIndustry] = useState<number | null>(null);
-
-  return (
-    <section className="section" id="industrias" aria-labelledby="industrias-title">
+    <section className="section" id="estados" aria-labelledby="estados-title">
       <div className="section__inner" style={{ textAlign: 'center' }}>
         <Reveal>
-          <span className="section__label">Alcance sectorial</span>
-          <h2 className="section__title section__title--center" id="industrias-title">
-            Todas las industrias. <em>Un solo escenario.</em>
+          <span className="section__label">Directorio Nacional</span>
+          <h2 className="section__title section__title--center" id="estados-title">
+            Descubre el talento por. <em>Estados de México.</em>
           </h2>
           <p className="section__desc section__desc--center">
-            Doce sectores con presencia destacada en la expo, reflejando la
+            Diversos estados con presencia destacada en la expo, reflejando la
             diversidad y riqueza de la oferta mexicana.
           </p>
         </Reveal>
 
-        <div className="ind-grid">
-          {industries.map((ind, i) => (
-            <Reveal
-              key={ind.name}
-              className="ind-card"
-              onClick={() => setActiveIndustry(i)}
-            >
-              <div className="ind-card__img-wrap">
-                <img src={ind.img} alt={ind.name} loading="lazy" />
-                <div className="ind-card__overlay" />
-              </div>
-              <div className="ind-card__body">
-                <span className="ind-card__num">{String(i + 1).padStart(2, '0')}</span>
-                <h3 className="ind-card__title">{ind.name}</h3>
-                <p className="ind-card__desc">{ind.desc}</p>
-              </div>
+        <style>{`
+          .states-masonry {
+            columns: 1;
+            column-gap: 24px;
+            margin-top: 48px;
+          }
+          @media (min-width: 640px) { .states-masonry { columns: 2; } }
+          @media (min-width: 1024px) { .states-masonry { columns: 3; } }
+          @media (min-width: 1280px) { .states-masonry { columns: 4; } }
+          
+          .states-masonry-wrap {
+            break-inside: avoid;
+            margin-bottom: 24px;
+          }
+          .states-masonry-item {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            display: block;
+            transform: translateZ(0);
+            transition: transform 0.4s, box-shadow 0.4s;
+            box-shadow: 0 10px 30px rgba(0,46,81,0.05);
+          }
+          .states-masonry-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,46,81,0.15);
+          }
+          .states-masonry-item img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+          }
+          .states-masonry-item:hover img {
+            transform: scale(1.05);
+          }
+          .states-masonry-item--tall img { height: 400px; }
+          .states-masonry-item--wide img { height: 260px; }
+          .states-masonry-item--large img { height: 320px; }
+          
+          .states-masonry-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,25,76,0.9) 0%, transparent 50%);
+          }
+          .states-masonry-title {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 1.4rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin: 0;
+            line-height: 1.1;
+            text-align: left;
+          }
+        `}</style>
+
+        <div className="states-masonry">
+          {mexicanStates.map((st, i) => (
+            <Reveal key={st.name} delay={(i % 4) * 100} className="states-masonry-wrap">
+              <Link
+                href={`/expositores?estado=${encodeURIComponent(st.name)}`}
+                className={`states-masonry-item states-masonry-item--${st.size || 'large'}`}
+              >
+                <img src={st.img} alt={st.name} loading="lazy" />
+                <div className="states-masonry-overlay" />
+                <h3 className="states-masonry-title">{st.name}</h3>
+              </Link>
             </Reveal>
           ))}
         </div>
       </div>
-
-      {activeIndustry !== null && (
-        <IndustryModal
-          industry={{ ...industries[activeIndustry], index: activeIndustry }}
-          onClose={() => setActiveIndustry(null)}
-        />
-      )}
     </section>
   );
 }
@@ -803,7 +747,7 @@ function Noticias() {
         <div className="news-magazine">
           <div className="news-magazine__left">
             <Reveal>
-              <a href="#" className="news-feat-card">
+              <a href="/recursos" className="news-feat-card">
                 <div className="news-feat-img-wrap">
                   <img src={featured.image} alt={featured.title} />
                   <div className="news-feat-badge">Destacado</div>
@@ -821,7 +765,7 @@ function Noticias() {
             <div className="news-list">
               {list.map((news, i) => (
                 <Reveal key={news.id} delay={i * 100}>
-                  <a href="#" className="news-list-item">
+                  <a href="/recursos" className="news-list-item">
                     <div className="news-list-content">
                       <span className="news-list-date">{news.date}</span>
                       <h4 className="news-list-title">{news.title}</h4>
@@ -835,6 +779,12 @@ function Noticias() {
             </div>
           </div>
         </div>
+
+        <Reveal delay={200} style={{ textAlign: 'center', marginTop: '48px' }}>
+          <a href="/recursos" className="btn btn--primary">
+            Ver todas las noticias
+          </a>
+        </Reveal>
       </div>
     </section>
   );
@@ -934,48 +884,137 @@ function Ubicacion() {
 }
 
 /* ══════════════════════════════════════════════════════════════
+   SERVICIOS MIGRATORIOS SECTION
+══════════════════════════════════════════════════════════════ */
+function ServiciosMigratorios() {
+  return (
+    <section className="section" id="servicios-migratorios" aria-labelledby="servicios-title" style={{ background: '#fff' }}>
+      <div className="section__inner">
+        <Reveal>
+          <span className="section__label">Acompañamiento integral</span>
+          <h2 className="section__title" id="servicios-title">
+            Servicios <em>Migratorios</em>
+          </h2>
+          <p className="section__desc">
+            Ofrecemos asesoría y gestión especializada para asegurar tu participación en Expo México Mujer 2027 sin contratiempos.
+            <br />
+            <strong style={{ color: 'var(--magenta)', display: 'block', marginTop: '8px' }}>
+              Servicios ofrecidos por LET (Patrocinador Oficial EMM 2027)
+            </strong>
+          </p>
+        </Reveal>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px', marginTop: '48px' }}>
+          <Reveal delay={100}>
+            <div style={{ padding: '32px', background: 'var(--cream)', borderRadius: '16px', border: '1px solid rgba(0,0,0,0.05)', height: '100%', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ width: '48px', height: '48px', background: 'var(--navy)', color: '#fff', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="16" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              </div>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', color: 'var(--navy)', marginBottom: '12px' }}>Visa Canadiense</h3>
+              <p style={{ color: 'var(--text)', lineHeight: 1.6, flex: 1 }}>
+                Gestión completa para el trámite de visado, garantizando que tu delegación comercial cumpla con todos los requisitos para el viaje de negocios a Toronto.
+              </p>
+              <div style={{ marginTop: '24px', paddingTop: '24px', borderTop: '1px solid rgba(0,0,0,0.1)' }}>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '8px' }}>Canaliza tu información con nuestro asesor:</p>
+                <a href="mailto:luis.garcia@let.com" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--cyan)', fontWeight: 700, textDecoration: 'none' }}>
+                  <Mail size={16} /> Contactar a Luis García
+                </a>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={200}>
+            <div style={{ padding: '32px', background: 'var(--cream)', borderRadius: '16px', border: '1px solid rgba(0,0,0,0.05)', height: '100%', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ width: '48px', height: '48px', background: 'var(--magenta)', color: '#fff', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+              </div>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', color: 'var(--navy)', marginBottom: '12px' }}>eTA Canadiense</h3>
+              <p style={{ color: 'var(--text)', lineHeight: 1.6, flex: 1 }}>
+                Procesamiento ágil de la Autorización Electrónica de Viaje (eTA) para participantes elegibles, asegurando un tránsito rápido y seguro hacia el evento.
+              </p>
+              <div style={{ marginTop: '24px', paddingTop: '24px', borderTop: '1px solid rgba(0,0,0,0.1)' }}>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '8px' }}>Canaliza tu información con nuestro asesor:</p>
+                <a href="mailto:luis.garcia@let.com" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--cyan)', fontWeight: 700, textDecoration: 'none' }}>
+                  <Mail size={16} /> Contactar a Luis García
+                </a>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════════
    COSTOS SECTION
 ══════════════════════════════════════════════════════════════ */
 const costTiers = [
   {
-    name: 'General',
-    price: '$299',
-    sub: 'CAD — Entrada general',
+    name: 'Paquete Bronce',
+    type: 'Nuevas Expositoras',
+    discount: '20%',
+    price: '$4,000',
+    sub: 'CAD — Paquete base',
     featured: false,
+    theme: 'bronce',
+    color: '#cd7f32',
+    description: 'Ideal para organizaciones que desean incorporarse a Expo México Mujer y comenzar a posicionar sus servicios dentro de la comunidad y mercado canadiense.',
     features: [
-      'Acceso a los 5 días del evento',
-      'Participación en ruedas de negocio',
-      'Acceso a conferencias y paneles',
-      'Networking con expositores',
-      'Certificado de participación digital',
+      'Stand de 2 x 2 metros',
+      '1 acceso al Mexican Fashion Gala Show',
+      '1 acceso al Ontario – Mexico Business Summit',
+      'Presencia del logotipo en materiales promocionales',
+      'Promoción en redes sociales y sitio web oficial',
+      'Proyección del logotipo en pantallas',
+      'Presencia de marca mediante banners',
+      'Reconocimiento institucional como patrocinador'
     ],
   },
   {
-    name: 'Premium',
-    price: '$599',
-    sub: 'CAD — Acceso completo',
+    name: 'Paquete Plata',
+    type: 'Expositoras Referidas',
+    discount: '25%',
+    price: '$6,000',
+    sub: 'CAD — Precio preferencial',
+    featured: false,
+    theme: 'plata',
+    color: '#a0a0a0',
+    description: 'Una excelente alternativa para organizaciones que buscan una presencia destacada y una relación cercana con la comunidad empresarial mexicana – canadiense.',
+    features: [
+      'Stand de 4 x 3 metros',
+      '2 accesos al Mexican Fashion Gala Show',
+      '2 accesos al Ontario – Mexico Business Summit',
+      'Presencia del logotipo en materiales promocionales',
+      'Promoción en redes sociales y sitio web oficial',
+      'Proyección del logotipo en pantallas',
+      'Presencia de marca mediante banners',
+      'Reconocimiento institucional',
+      'Posibilidad de recibir la palabra en foro'
+    ],
+  },
+  {
+    name: 'Paquete Oro',
+    type: 'Expositoras 2026',
+    discount: '30%',
+    price: '$8,000',
+    sub: 'CAD — Beneficio de lealtad',
     featured: true,
+    theme: 'oro',
+    color: '#e4b000',
+    description: 'Nuestro paquete de mayor posicionamiento, diseñado para organizaciones que buscan una presencia sólida antes, durante y después del evento.',
     features: [
-      'Todo lo incluido en General',
-      'Asientos preferentes en auditorio',
-      'Agenda personalizada de reuniones',
-      'Acceso a eventos exclusivos VIP',
-      'Kit de bienvenida premium',
-      '1 año de membresía en red EMM',
-    ],
-  },
-  {
-    name: 'Expositor',
-    price: '$1,499',
-    sub: 'CAD — Stand + visibilidad',
-    featured: false,
-    features: [
-      'Stand de 3×3 m en el piso de exposición',
-      '2 pases generales incluidos',
-      'Perfil en plataforma digital EMM',
-      'Inclusión en materiales promocionales',
-      'Acceso a ruedas de negocio prioritarias',
-      'Sesión de pitch ante compradores',
+      'Stand premium de 6 x 4 metros',
+      '3 accesos al Mexican Fashion Gala Show',
+      '2 accesos al Ontario – Mexico Business Summit',
+      'Participación en la Misión Comercial a Montreal',
+      'Logotipo en todos los materiales promocionales',
+      'Promoción en redes sociales y sitio web oficial',
+      'Proyección del logotipo en pantallas',
+      'Presencia de marca mediante banners',
+      'Distribución de material promocional',
+      'Mensaje institucional durante el evento',
+      'Participación como ponentes'
     ],
   },
 ];
@@ -985,34 +1024,93 @@ function Costos() {
     <section className="section section--alt" id="costos" aria-labelledby="costos-title">
       <div className="section__inner" style={{ textAlign: 'center' }}>
         <Reveal>
-          <span className="section__label">Inversión</span>
+          <span className="section__label">Inversión y Costos</span>
           <h2 className="section__title section__title--center" id="costos-title">
-            Elige tu <em>paquete ideal</em>
+            Aparta tu <em>espacio</em>
           </h2>
           <p className="section__desc section__desc--center" style={{ marginBottom: 0 }}>
-            Precios en CAD. Tarifas preferenciales para compra temprana y grupos.
+            Pueden apartar su lugar con el <strong>50% de anticipo</strong> antes de la fecha límite (Por confirmar).
           </p>
         </Reveal>
 
-        <div className="pricing-tiers__grid" style={{ marginTop: 48 }}>
+        <style>{`
+          .pricing-card--bronce { border-top: 6px solid #cd7f32; }
+          .pricing-card--plata { border-top: 6px solid #a0a0a0; }
+          .pricing-card--oro { 
+            border-top: 6px solid #e4b000; 
+            transform: scale(1.05); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+            z-index: 10; 
+            position: relative;
+            padding-top: 64px !important;
+            padding-bottom: 64px !important;
+          }
+          .pricing-card--oro .pricing-card__name { color: #e4b000; font-size: 2.3rem !important; }
+          .pricing-card--oro .pricing-card__cta { background: #e4b000; color: #000; border: none; font-size: 1rem; padding: 20px; }
+          .pricing-card--oro .pricing-card__cta:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+        `}</style>
+
+        <div className="pricing-tiers__grid" style={{ marginTop: 48, alignItems: 'stretch' }}>
           {costTiers.map((t) => (
-            <Reveal key={t.name} delay={150} className={`pricing-card${t.featured ? ' pricing-card--featured' : ''}`}>
-              {t.featured && <div className="pricing-card__badge">Más popular</div>}
-              <div className="pricing-card__name">{t.name}</div>
+            <Reveal key={t.name} delay={150} className={`pricing-card pricing-card--${t.theme}`} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+              {t.featured && <div className="pricing-card__badge" style={{ background: t.color }}>Más Popular</div>}
+              
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+                <span style={{ padding: '6px 14px', background: `${t.color}20`, color: t.color, borderRadius: '20px', fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '0.85rem' }}>
+                  {t.type}
+                </span>
+                <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-muted)' }}>
+                  Ahorro del {t.discount}
+                </span>
+              </div>
+              
+              <div className="pricing-card__name" style={{ color: t.featured ? t.color : 'inherit', fontSize: '2rem' }}>{t.name}</div>
               <div className="pricing-card__price">{t.price} <span>CAD</span></div>
               <div className="pricing-card__sub">{t.sub}</div>
+              <p style={{fontSize: '0.9rem', color: 'var(--text-muted)', margin: '16px 0', lineHeight: 1.5, textAlign: 'left'}}>{t.description}</p>
+              
               <div className="pricing-card__divider" />
+              
               <ul className="pricing-card__features">
                 {t.features.map((f) => (
-                  <li key={f} className="pricing-card__feature">{f}</li>
+                  <li key={f} className="pricing-card__feature">
+                    <svg viewBox="0 0 24 24" fill="none" stroke={t.color} strokeWidth="2" style={{ width: 16, height: 16, marginRight: 8, flexShrink: 0 }}>
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    {f}
+                  </li>
                 ))}
               </ul>
-              <a href="mailto:francisco@expomexico.ca" className="pricing-card__cta">
-                Reservar lugar
+              <a href="mailto:francisco@expomexico.ca" className="pricing-card__cta" style={{ ...(!t.featured ? { border: `1px solid ${t.color}`, color: t.color, background: 'transparent' } : {}), marginTop: 'auto' }}>
+                Reservar con el 50%
               </a>
             </Reveal>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════════
+   EXPOSITORES CTA
+══════════════════════════════════════════════════════════════ */
+function ExpositoresCta() {
+  return (
+    <section className="section" style={{ background: 'var(--cream)', padding: '100px 24px', textAlign: 'center' }}>
+      <div className="section__inner">
+        <Reveal>
+          <span className="section__label">Directorio</span>
+          <h2 className="section__title section__title--center">
+            Conoce a nuestras <br /><em>Expositoras.</em>
+          </h2>
+          <p className="section__desc section__desc--center" style={{ marginBottom: '40px' }}>
+            Explora las marcas, productos y servicios que las mujeres emprendedoras de cada región de México traen a Toronto.
+          </p>
+          <Link href="/expositores" className="btn btn--primary">
+            Ver Directorio Completo
+          </Link>
+        </Reveal>
       </div>
     </section>
   );
@@ -1034,9 +1132,11 @@ export default function HomePage() {
         <Concept />
         <CrossoverButterfly side="left" speed={0.06} style={{ width: '200px', left: '-20px', bottom: '-100px' }} />
         <Pillars />
-        <Industries />
+        {/* <MexicanStates /> */}
+        <ExpositoresCta />
         <Agenda />
         {/* <Ubicacion /> */}
+        <ServiciosMigratorios />
         <Costos />
         <Audience />
         <Noticias />

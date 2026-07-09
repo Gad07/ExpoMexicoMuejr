@@ -54,8 +54,83 @@ export default function PatrocinadoresPage() {
       
       <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: '80px 48px' }}>
         
+        <div style={{ marginBottom: '80px' }}>
+          <Reveal>
+            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+              <span className="section__label">Patrocinios Expo México Mujer</span>
+              <h2 className="section__title" style={{ marginTop: '16px' }}>Paquetes de <br /><em>Patrocinio</em></h2>
+            </div>
+          </Reveal>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px' }}>
+            {/* ORO */}
+            <Reveal delay={100}>
+              <div style={{ background: '#fff', padding: '40px 32px', borderRadius: '24px', borderTop: '6px solid var(--gold)', boxShadow: '0 15px 35px rgba(0,0,0,0.05)', height: '100%', display: 'flex', flexDirection: 'column' }}>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', color: 'var(--navy)', marginBottom: '8px' }}>Patrocinio Oro</h3>
+                <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '2rem', color: 'var(--gold)', marginBottom: '16px' }}>CAD $8,000</div>
+                <p style={{ color: 'var(--text)', marginBottom: '24px', lineHeight: 1.6 }}>Nuestro paquete de mayor posicionamiento, diseñado para organizaciones que buscan una presencia sólida antes, durante y después del evento.</p>
+                <div style={{ fontWeight: 700, color: 'var(--navy)', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '0.85rem' }}>Incluye:</div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px', flex: 1 }}>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: 'var(--gold)' }}>•</span> Stand premium de 6 x 4 metros</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: 'var(--gold)' }}>•</span> 3 accesos al Mexican Fashion Gala Show</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: 'var(--gold)' }}>•</span> 2 accesos al Ontario – Mexico Business Summit, encuentro de negocios binacional</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: 'var(--gold)' }}>•</span> Participación en la agenda de la Misión Comercial a Montreal, ante empresarios, organismos, cámaras de comercio e instituciones, generando espacios adicionales de networking y oportunidades de negocio</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: 'var(--gold)' }}>•</span> Presencia del logotipo de su empresa en todos los materiales promocionales impresos y digitales del evento</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: 'var(--gold)' }}>•</span> Promoción de los productos o servicios profesionales a través de las redes sociales y del sitio web oficial de Expo México Mujer durante toda la campaña de difusión</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: 'var(--gold)' }}>•</span> Proyección del logotipo en pantallas durante el evento</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: 'var(--gold)' }}>•</span> Presencia de marca mediante banners en áreas estratégicas</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: 'var(--gold)' }}>•</span> Distribución de material promocional proporcionado por la empresa entre los asistentes</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: 'var(--gold)' }}>•</span> Espacio para dirigir un mensaje institucional durante el evento</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: 'var(--gold)' }}>•</span> Posibilidad de participar como ponentes dentro del Women Leaders Forum, en alguno de nuestros paneles o conferencias dependiendo de la industria a la que pertenezcan.</li>
+                </ul>
+              </div>
+            </Reveal>
+
+            {/* PLATA */}
+            <Reveal delay={200}>
+              <div style={{ background: '#fff', padding: '40px 32px', borderRadius: '24px', borderTop: '6px solid #B0BEC5', boxShadow: '0 15px 35px rgba(0,0,0,0.05)', height: '100%', display: 'flex', flexDirection: 'column' }}>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', color: 'var(--navy)', marginBottom: '8px' }}>Patrocinio Plata</h3>
+                <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '2rem', color: '#B0BEC5', marginBottom: '16px' }}>CAD $6,000</div>
+                <p style={{ color: 'var(--text)', marginBottom: '24px', lineHeight: 1.6 }}>Una excelente alternativa para organizaciones que buscan una presencia destacada y una relación cercana con la comunidad empresarial mexicana – canadiense.</p>
+                <div style={{ fontWeight: 700, color: 'var(--navy)', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '0.85rem' }}>Incluye:</div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px', flex: 1 }}>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: '#B0BEC5' }}>•</span> Stand de 4 x 3 metros</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: '#B0BEC5' }}>•</span> 2 accesos al Mexican Fashion Gala Show</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: '#B0BEC5' }}>•</span> 2 accesos al Ontario – Mexico Business Summit</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: '#B0BEC5' }}>•</span> Presencia del logotipo en materiales promocionales impresos y digitales</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: '#B0BEC5' }}>•</span> Promoción de sus productos o servicios mediante nuestras redes sociales y sitio web oficial durante la campaña de difusión</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: '#B0BEC5' }}>•</span> Proyección del logotipo en pantallas durante el evento</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: '#B0BEC5' }}>•</span> Presencia de marca mediante banners</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: '#B0BEC5' }}>•</span> Reconocimiento institucional como patrocinador</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: '#B0BEC5' }}>•</span> Posibilidad de recibir la palabra durante alguna actividad del Women Leaders Forum, sujeto a la integración del programa</li>
+                </ul>
+              </div>
+            </Reveal>
+
+            {/* BRONCE */}
+            <Reveal delay={300}>
+              <div style={{ background: '#fff', padding: '40px 32px', borderRadius: '24px', borderTop: '6px solid #CD7F32', boxShadow: '0 15px 35px rgba(0,0,0,0.05)', height: '100%', display: 'flex', flexDirection: 'column' }}>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', color: 'var(--navy)', marginBottom: '8px' }}>Patrocinio Bronce</h3>
+                <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '2rem', color: '#CD7F32', marginBottom: '16px' }}>CAD $4,000</div>
+                <p style={{ color: 'var(--text)', marginBottom: '24px', lineHeight: 1.6 }}>Ideal para organizaciones que desean incorporarse a Expo México Mujer y comenzar a posicionar sus servicios dentro de la comunidad y mercado canadiense.</p>
+                <div style={{ fontWeight: 700, color: 'var(--navy)', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '0.85rem' }}>Incluye:</div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px', flex: 1 }}>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: '#CD7F32' }}>•</span> Stand de 2 x 2 metros</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: '#CD7F32' }}>•</span> 1 acceso al Mexican Fashion Gala Show</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: '#CD7F32' }}>•</span> 1 acceso al Ontario – Mexico Business Summit</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: '#CD7F32' }}>•</span> Presencia del logotipo en materiales promocionales impresos y digitales</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: '#CD7F32' }}>•</span> Promoción de sus productos o servicios mediante nuestras redes sociales y sitio web oficial</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: '#CD7F32' }}>•</span> Proyección del logotipo en pantallas durante el evento</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: '#CD7F32' }}>•</span> Presencia de marca mediante banners</li>
+                  <li style={{ display: 'flex', gap: '12px', fontSize: '0.9rem', color: 'var(--text-muted)' }}><span style={{ color: '#CD7F32' }}>•</span> Reconocimiento institucional como patrocinador</li>
+                </ul>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+
         {/* Header & Search */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '64px' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '64px', paddingTop: '80px', borderTop: '1px solid rgba(0,0,0,0.1)' }}>
           <Reveal>
             <span style={{ display: 'inline-block', color: 'var(--magenta)', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '16px' }}>
               Nuestros Aliados
