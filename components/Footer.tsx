@@ -148,8 +148,8 @@ export default function Footer() {
         </p>
         <p className="footer__dev">Desarrollado por Gadiel Palma</p>
         <div className="footer__bottom-links">
-          <a href="#" className="footer__bottom-link">Privacidad</a>
-          <a href="#" className="footer__bottom-link">Términos</a>
+          <Link href="/privacidad" className="footer__bottom-link">Privacidad</Link>
+          <Link href="/terminos" className="footer__bottom-link">Términos</Link>
         </div>
       </div>
     </footer>

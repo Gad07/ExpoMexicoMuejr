@@ -237,7 +237,7 @@ function VideoHero() {
         <div className="video-hero__overlay" />
       </div>
       <div className="video-hero__content">
-        <h1 className="video-hero__title">Expo México Mujer 2028</h1>
+        <h1 className="video-hero__title">Expo México Mujer 2027</h1>
         <p className="video-hero__sub">Toronto · Canadá</p>
       </div>
     </section>
@@ -1054,7 +1054,7 @@ function Costos() {
           {costTiers.map((t) => (
             <Reveal key={t.name} delay={150} className={`pricing-card pricing-card--${t.theme}`} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
               {t.featured && <div className="pricing-card__badge" style={{ background: t.color }}>Más Popular</div>}
-              
+
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
                 <span style={{ padding: '6px 14px', background: `${t.color}20`, color: t.color, borderRadius: '20px', fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '0.85rem' }}>
                   {t.type}
@@ -1063,14 +1063,14 @@ function Costos() {
                   Ahorro del {t.discount}
                 </span>
               </div>
-              
+
               <div className="pricing-card__name" style={{ color: t.featured ? t.color : 'inherit', fontSize: '2rem' }}>{t.name}</div>
               <div className="pricing-card__price">{t.price} <span>CAD</span></div>
               <div className="pricing-card__sub">{t.sub}</div>
-              <p style={{fontSize: '0.9rem', color: 'var(--text-muted)', margin: '16px 0', lineHeight: 1.5, textAlign: 'left'}}>{t.description}</p>
-              
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: '16px 0', lineHeight: 1.5, textAlign: 'left' }}>{t.description}</p>
+
               <div className="pricing-card__divider" />
-              
+
               <ul className="pricing-card__features">
                 {t.features.map((f) => (
                   <li key={f} className="pricing-card__feature">
