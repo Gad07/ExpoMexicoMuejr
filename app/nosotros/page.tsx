@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 
 function Reveal({
-  children, className = '', delay = 0,
-}: { children: React.ReactNode; className?: string; delay?: number }) {
+  children, className = '', delay = 0, style = {},
+}: { children: React.ReactNode; className?: string; delay?: number; style?: React.CSSProperties }) {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
@@ -19,7 +19,7 @@ function Reveal({
   }, []);
   return (
     <div ref={ref} className={`reveal ${inView ? 'revealed' : ''} ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}>
+      style={{ ...style, transitionDelay: `${delay}ms` }}>
       {children}
     </div>
   );

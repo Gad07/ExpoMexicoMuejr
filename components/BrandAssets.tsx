@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const MEXICO_DATA = [
   { l: 'M', c: '#28ace3' },  // Cian
   { l: 'É', c: '#E4007C' },  // Pink
@@ -25,12 +27,20 @@ export function WordMark({ className, compact = false }: { className?: string; c
   );
 }
 
-export function Mariposa({ className, mono = false }: { className?: string; mono?: boolean }) {
-  return <img src="/recursos/Recurso 8.png" alt="" aria-hidden="true" className={className} />;
+type MariposaProps = React.ImgHTMLAttributes<HTMLImageElement> & {
+  mono?: boolean;
+};
+
+export function Mariposa({ className, mono = false, ...props }: MariposaProps) {
+  return <img src="/recursos/Recurso 8.png" alt="" aria-hidden="true" className={className} {...props} />;
 }
 
-export function DecoMariposa({ className, style }: { className?: string; style?: React.CSSProperties }) {
-  return <img src="/recursos/Recurso 8.png" alt="" aria-hidden="true" className={className} style={style} />;
+type DecoMariposaProps = React.ImgHTMLAttributes<HTMLImageElement> & {
+  style?: React.CSSProperties;
+};
+
+export function DecoMariposa({ className, style, ...props }: DecoMariposaProps) {
+  return <img src="/recursos/Recurso 8.png" alt="" aria-hidden="true" className={className} style={style} {...props} />;
 }
 
 export function ArrowDown() {

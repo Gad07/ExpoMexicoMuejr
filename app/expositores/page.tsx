@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { industries, mockExhibitors } from '../data/expositores';
 import { Search, ChevronLeft, MapPin, ArrowRight } from 'lucide-react';
 function Reveal({
-  children, className = '', delay = 0,
-}: { children: React.ReactNode; className?: string; delay?: number }) {
+  children, className = '', delay = 0, style = {},
+}: { children: React.ReactNode; className?: string; delay?: number; style?: React.CSSProperties }) {
   const ref = React.useRef<HTMLDivElement>(null);
   const [inView, setInView] = React.useState(false);
   React.useEffect(() => {
@@ -32,7 +32,7 @@ function Reveal({
   };
 
   return (
-    <div ref={ref} className={className} style={{ ...baseStyle, ...(inView ? inViewStyle : {}) }}>
+    <div ref={ref} className={className} style={{ ...style, ...baseStyle, ...(inView ? inViewStyle : {}) }}>
       {children}
     </div>
   );

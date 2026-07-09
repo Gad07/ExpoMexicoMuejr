@@ -6,8 +6,8 @@ import { Search, ChevronRight, Medal, ArrowRight } from 'lucide-react';
 import { mockSponsors } from '../data/patrocinadores';
 
 function Reveal({
-  children, className = '', delay = 0,
-}: { children: React.ReactNode; className?: string; delay?: number }) {
+  children, className = '', delay = 0, style = {},
+}: { children: React.ReactNode; className?: string; delay?: number; style?: React.CSSProperties }) {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
   
@@ -34,7 +34,7 @@ function Reveal({
   };
 
   return (
-    <div ref={ref} className={className} style={{ ...baseStyle, ...(inView ? inViewStyle : {}) }}>
+    <div ref={ref} className={className} style={{ ...style, ...baseStyle, ...(inView ? inViewStyle : {}) }}>
       {children}
     </div>
   );
