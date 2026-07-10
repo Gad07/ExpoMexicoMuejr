@@ -516,11 +516,9 @@ function EmbajadorasContent() {
           <div className="state-grid">
             {mexicanStates
               .filter(s => {
-                const count = mockAmbassadors.filter(a => a.state === s.name).length;
-                return count > 0 && s.name.toLowerCase().includes(stateSearchQuery.toLowerCase());
+                return s.name.toLowerCase().includes(stateSearchQuery.toLowerCase());
               })
               .map((state, i) => {
-                const count = mockAmbassadors.filter(a => a.state === state.name).length;
                 return (
                   <Reveal
                     key={state.name}
