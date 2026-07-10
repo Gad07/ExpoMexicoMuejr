@@ -231,7 +231,7 @@ function VideoHero() {
           muted
           loop
           playsInline
-          poster="/Galeria/Ponencias/IMG_6323.JPG"
+          poster=""
         >
           <source src="/Galeria/Videos/bg_home.mp4" type="video/mp4" />
         </video>
@@ -903,7 +903,7 @@ function ServiciosMigratorios() {
             </h2>
             <p className="section__desc" style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.25rem', color: '#555', lineHeight: 1.6 }}>
               Ofrecemos asesoría y gestión especializada para asegurar tu participación en <strong>Expo México Mujer 2027</strong> sin contratiempos.
-              <br/><br/>
+              <br /><br />
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: '#fff', padding: '16px 32px', borderRadius: '100px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', fontSize: '1rem', color: 'var(--navy)', fontWeight: 600 }}>
                 <CheckCircle2 size={22} color="var(--magenta)" /> Servicios operados por LET (Patrocinador Oficial)
               </span>
@@ -960,7 +960,7 @@ function ServiciosMigratorios() {
         `}</style>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '40px' }}>
-          
+
           {/* VISA CARD */}
           <Reveal delay={100}>
             <div className="sm-card">
@@ -971,7 +971,7 @@ function ServiciosMigratorios() {
               <p className="sm-text">
                 Gestión completa para el trámite de visado, garantizando que tu delegación comercial cumpla con todos los requisitos para tu viaje de negocios a Toronto.
               </p>
-              
+
               <div className="sm-advisor">
                 <div className="sm-advisor-label">Canaliza tu info con nuestro asesor:</div>
                 <a href="https://wa.me/527225514645" className="sm-advisor-action" target="_blank" rel="noopener noreferrer">
@@ -994,7 +994,7 @@ function ServiciosMigratorios() {
               <p className="sm-text">
                 Procesamiento ágil de la Autorización Electrónica de Viaje (eTA) para participantes elegibles, asegurando un tránsito rápido y seguro hacia el evento.
               </p>
-              
+
               <div className="sm-advisor">
                 <div className="sm-advisor-label">Canaliza tu info con nuestro asesor:</div>
                 <a href="https://wa.me/527225514645" className="sm-advisor-action" target="_blank" rel="noopener noreferrer">
@@ -1219,7 +1219,7 @@ function Contacto() {
             .c-action-icon { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
             .c-action:hover .c-action-icon { transform: translateX(6px); }
           `}</style>
-          
+
           <div className="c-grid">
             {/* Francisco Solorio */}
             <div className="c-card">
@@ -1228,7 +1228,7 @@ function Contacto() {
               </div>
               <h2 className="c-name">Francisco Solorio</h2>
               <div className="c-role">Director General</div>
-              
+
               <div className="c-links">
                 <a href="mailto:francisco@expomexico.ca" className="c-link-item">
                   <div className="c-link-icon-box"><Mail size={20} /></div>
@@ -1253,7 +1253,7 @@ function Contacto() {
               </div>
               <h2 className="c-name">Luis García</h2>
               <div className="c-role">Director de Operaciones</div>
-              
+
               <div className="c-links">
                 <a href="mailto:luis@expomexico.ca" className="c-link-item">
                   <div className="c-link-icon-box"><Mail size={20} /></div>
