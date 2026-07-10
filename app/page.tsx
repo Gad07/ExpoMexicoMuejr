@@ -231,7 +231,7 @@ function VideoHero() {
           muted
           loop
           playsInline
-          poster=""
+          poster="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/869347cb-5990-45c6-bcd0-a28e2753c6a8/d5nkmm3-3b44679c-a340-4789-8bc6-1464847344b3.jpg/v1/fill/w_1219,h_655,q_70,strp/toronto_at_night_colour_edit_by_falcon912_d5nkmm3-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Njg4IiwicGF0aCI6Ii9mLzg2OTM0N2NiLTU5OTAtNDVjNi1iY2QwLWEyOGUyNzUzYzZhOC9kNW5rbW0zLTNiNDQ2NzljLWEzNDAtNDc4OS04YmM2LTE0NjQ4NDczNDRiMy5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.rtQ5ItliGyKpz8dhVMlBn3v9vw8P3U_lgh08jr5ntDA"
         >
           <source src="/Galeria/Videos/bg_home.mp4" type="video/mp4" />
         </video>
