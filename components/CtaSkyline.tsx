@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import { Mail, Phone, ArrowRight } from 'lucide-react';
 
 function Reveal({
   children, className = '', delay = 0, onClick, style = {},
@@ -37,7 +39,6 @@ export default function CtaSkyline() {
             <em>esta edición?</em>
           </h2>
         </Reveal>
-
         <Reveal delay={200}>
           <div className="cta__lux-actions">
             <a href="mailto:francisco@expomexico.ca" className="cta__lux-btn cta__lux-btn--primary">

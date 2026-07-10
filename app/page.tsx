@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { MapPin, ExternalLink, Mail, CheckCircle2 } from 'lucide-react';
+import { MapPin, ExternalLink, Mail, CheckCircle2, Phone, ArrowRight } from 'lucide-react';
 import { mexicanStates } from './data/expositores';
 import { WordMark, Mariposa, DecoMariposa, ArrowDown } from '../components/BrandAssets';
 import Hero from '../components/Hero';
@@ -240,6 +240,7 @@ function VideoHero() {
       <div className="video-hero__content">
         <h1 className="video-hero__title">Expo México Mujer 2027</h1>
         <p className="video-hero__sub">Toronto · Canadá</p>
+        <p className="video-hero__sub" style={{ fontSize: '0.85em', marginTop: '0.5rem', fontWeight: 500 }}>9–13 Junio 2027</p>
       </div>
     </section>
   );
@@ -428,7 +429,7 @@ function Pillars() {
             Nuestros Resultados
           </h2>
           <p className="section__desc section__desc--center" style={{ marginBottom: 0 }}>
-            Expo México Mujer 2026, Toronto, Canadá.
+            Expo México Mujer 2026, Ottawa, Canadá.
           </p>
         </Reveal>
         <style>{`
@@ -891,58 +892,121 @@ function Ubicacion() {
 ══════════════════════════════════════════════════════════════ */
 function ServiciosMigratorios() {
   return (
-    <section className="section" id="servicios-migratorios" aria-labelledby="servicios-title" style={{ background: '#fff' }}>
-      <div className="section__inner">
+    <section className="section" id="servicios-migratorios" aria-labelledby="servicios-title" style={{ background: '#FAF8F5', position: 'relative', overflow: 'hidden', padding: '120px 24px' }}>
+      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(135deg, rgba(228,0,124,0.03) 0%, rgba(0,46,81,0.03) 100%)', pointerEvents: 'none' }} />
+      <div className="section__inner" style={{ position: 'relative', zIndex: 2, maxWidth: '1200px', margin: '0 auto' }}>
         <Reveal>
-          <span className="section__label">Acompañamiento integral</span>
-          <h2 className="section__title" id="servicios-title">
-            Servicios <em>Migratorios</em>
-          </h2>
-          <p className="section__desc">
-            Ofrecemos asesoría y gestión especializada para asegurar tu participación en Expo México Mujer 2027 sin contratiempos.
-            <br />
-            <strong style={{ color: 'var(--magenta)', display: 'block', marginTop: '8px' }}>
-              Servicios ofrecidos por LET (Patrocinador Oficial EMM 2027)
-            </strong>
-          </p>
+          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+            <span style={{ display: 'inline-block', padding: '8px 24px', borderRadius: '100px', background: 'rgba(228,0,124,0.08)', color: 'var(--magenta)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '24px' }}>Acompañamiento Integral</span>
+            <h2 className="section__title" id="servicios-title" style={{ fontSize: 'clamp(3rem, 5vw, 4rem)', color: 'var(--navy)', marginBottom: '24px', lineHeight: 1.1 }}>
+              Servicios <em>Migratorios</em>
+            </h2>
+            <p className="section__desc" style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.25rem', color: '#555', lineHeight: 1.6 }}>
+              Ofrecemos asesoría y gestión especializada para asegurar tu participación en <strong>Expo México Mujer 2027</strong> sin contratiempos.
+              <br/><br/>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: '#fff', padding: '16px 32px', borderRadius: '100px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', fontSize: '1rem', color: 'var(--navy)', fontWeight: 600 }}>
+                <CheckCircle2 size={22} color="var(--magenta)" /> Servicios operados por LET (Patrocinador Oficial)
+              </span>
+            </p>
+          </div>
         </Reveal>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px', marginTop: '48px' }}>
+        <style>{`
+          .sm-card {
+            background: #fff; border-radius: 32px; padding: 48px;
+            box-shadow: 0 10px 40px rgba(0,46,81,0.04); border: 1px solid rgba(0,46,81,0.05);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+            position: relative; overflow: hidden; display: flex; flex-direction: column;
+            text-align: center;
+          }
+          .sm-card:hover { transform: translateY(-8px); box-shadow: 0 25px 60px rgba(0,46,81,0.08); }
+          .sm-card::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: var(--blue);
+            transform: scaleX(0); transform-origin: left; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+          .sm-card:hover::before { transform: scaleX(1); background: var(--magenta); }
+          
+          .sm-icon-wrap {
+            width: 88px; height: 88px; border-radius: 24px; background: #FAF8F5;
+            display: flex; align-items: center; justify-content: center; margin: 0 auto 32px;
+            color: var(--magenta); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+          .sm-card:hover .sm-icon-wrap { background: var(--magenta); color: #fff; transform: scale(1.1) rotate(-5deg); box-shadow: 0 15px 30px rgba(228,0,124,0.2); }
+          
+          .sm-title { font-family: var(--font-display); font-size: 2.2rem; color: var(--navy); margin-bottom: 16px; font-weight: 400; line-height: 1.1; }
+          .sm-text { color: #555; line-height: 1.6; font-size: 1.15rem; flex: 1; margin-bottom: 48px; padding: 0 16px; }
+          
+          .sm-advisor {
+            background: #FAF8F5; border-radius: 24px; padding: 32px 24px;
+            text-align: left; margin-top: auto; border: 1px solid rgba(0,0,0,0.03);
+          }
+          .sm-advisor-label { font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; margin-bottom: 16px; text-align: center; }
+          .sm-advisor-action {
+            display: inline-flex; align-items: center; justify-content: space-between; width: 100%;
+            padding: 20px 28px; background: #fff; border-radius: 100px;
+            color: var(--navy); font-weight: 600; text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            font-size: 1.05rem;
+          }
+          .sm-advisor-action:hover { background: var(--magenta); color: #fff; border-color: var(--magenta); box-shadow: 0 15px 30px rgba(228,0,124,0.2); transform: translateY(-4px); }
+          .sm-advisor-icon { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+          .sm-advisor-action:hover .sm-advisor-icon { transform: translateX(6px); }
+
+          @media (max-width: 768px) {
+            .sm-card { padding: 32px 24px; }
+            .sm-text { padding: 0; font-size: 1.05rem; }
+            .sm-advisor-action { padding: 16px 20px; font-size: 1rem; }
+          }
+        `}</style>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '40px' }}>
+          
+          {/* VISA CARD */}
           <Reveal delay={100}>
-            <div style={{ padding: '32px', background: 'var(--cream)', borderRadius: '16px', border: '1px solid rgba(0,0,0,0.05)', height: '100%', display: 'flex', flexDirection: 'column' }}>
-              <div style={{ width: '48px', height: '48px', background: 'var(--navy)', color: '#fff', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="16" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <div className="sm-card">
+              <div className="sm-icon-wrap">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="4" width="18" height="16" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
               </div>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', color: 'var(--navy)', marginBottom: '12px' }}>Visa Canadiense</h3>
-              <p style={{ color: 'var(--text)', lineHeight: 1.6, flex: 1 }}>
-                Gestión completa para el trámite de visado, garantizando que tu delegación comercial cumpla con todos los requisitos para el viaje de negocios a Toronto.
+              <h3 className="sm-title">Visa Canadiense</h3>
+              <p className="sm-text">
+                Gestión completa para el trámite de visado, garantizando que tu delegación comercial cumpla con todos los requisitos para tu viaje de negocios a Toronto.
               </p>
-              <div style={{ marginTop: '24px', paddingTop: '24px', borderTop: '1px solid rgba(0,0,0,0.1)' }}>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '8px' }}>Canaliza tu información con nuestro asesor:</p>
-                <a href="mailto:luis.garcia@let.com" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--cyan)', fontWeight: 700, textDecoration: 'none' }}>
-                  <Mail size={16} /> Contactar a Luis García
+              
+              <div className="sm-advisor">
+                <div className="sm-advisor-label">Canaliza tu info con nuestro asesor:</div>
+                <a href="https://wa.me/527225514645" className="sm-advisor-action" target="_blank" rel="noopener noreferrer">
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <Phone size={20} /> Luis García
+                  </span>
+                  <ArrowRight size={20} className="sm-advisor-icon" />
                 </a>
               </div>
             </div>
           </Reveal>
 
+          {/* eTA CARD */}
           <Reveal delay={200}>
-            <div style={{ padding: '32px', background: 'var(--cream)', borderRadius: '16px', border: '1px solid rgba(0,0,0,0.05)', height: '100%', display: 'flex', flexDirection: 'column' }}>
-              <div style={{ width: '48px', height: '48px', background: 'var(--magenta)', color: '#fff', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+            <div className="sm-card">
+              <div className="sm-icon-wrap">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
               </div>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', color: 'var(--navy)', marginBottom: '12px' }}>eTA Canadiense</h3>
-              <p style={{ color: 'var(--text)', lineHeight: 1.6, flex: 1 }}>
+              <h3 className="sm-title">eTA Canadiense</h3>
+              <p className="sm-text">
                 Procesamiento ágil de la Autorización Electrónica de Viaje (eTA) para participantes elegibles, asegurando un tránsito rápido y seguro hacia el evento.
               </p>
-              <div style={{ marginTop: '24px', paddingTop: '24px', borderTop: '1px solid rgba(0,0,0,0.1)' }}>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '8px' }}>Canaliza tu información con nuestro asesor:</p>
-                <a href="mailto:luis.garcia@let.com" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--cyan)', fontWeight: 700, textDecoration: 'none' }}>
-                  <Mail size={16} /> Contactar a Luis García
+              
+              <div className="sm-advisor">
+                <div className="sm-advisor-label">Canaliza tu info con nuestro asesor:</div>
+                <a href="https://wa.me/527225514645" className="sm-advisor-action" target="_blank" rel="noopener noreferrer">
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <Phone size={20} /> Luis García
+                  </span>
+                  <ArrowRight size={20} className="sm-advisor-icon" />
                 </a>
               </div>
             </div>
           </Reveal>
+
         </div>
       </div>
     </section>
@@ -1120,13 +1184,107 @@ function ExpositoresCta() {
 }
 
 /* ══════════════════════════════════════════════════════════════
+   CONTACTO
+══════════════════════════════════════════════════════════════ */
+function Contacto() {
+  return (
+    <section className="section" id="contacto" aria-labelledby="contacto-title" style={{ background: '#fff', textAlign: 'center', padding: '100px 24px' }}>
+      <div className="section__inner">
+        <Reveal>
+          <style>{`
+            .c-grid { max-width: 1100px; margin: 40px auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; text-align: left; }
+            .c-card {
+              background: #fff; border-radius: 32px; padding: 48px; text-align: left;
+              box-shadow: 0 10px 40px rgba(0,46,81,0.04); border: 1px solid rgba(0,46,81,0.05);
+              transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+              position: relative; overflow: hidden; display: flex; flex-direction: column;
+            }
+            .c-card:hover { transform: translateY(-8px); box-shadow: 0 25px 60px rgba(0,46,81,0.08); }
+            .c-card::after {
+              content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 6px; background: var(--magenta);
+              transform: scaleX(0); transform-origin: left; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .c-card:hover::after { transform: scaleX(1); }
+            .c-avatar-box { width: 120px; height: 120px; border-radius: 24px; background: #FAF8F5; display: flex; align-items: center; justify-content: center; margin-bottom: 32px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+            .c-avatar-box img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+            .c-name { font-family: var(--font-display); font-size: 2.5rem; color: var(--blue); margin-bottom: 8px; font-weight: 400; line-height: 1.1; }
+            .c-role { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--magenta); margin-bottom: 40px; font-weight: 600; }
+            .c-links { display: flex; flex-direction: column; gap: 20px; margin-bottom: 48px; flex: 1; }
+            .c-link-item { display: flex; align-items: center; gap: 16px; color: #555; text-decoration: none; font-size: 1.1rem; transition: color 0.3s ease; }
+            .c-link-item:hover { color: var(--magenta); }
+            .c-link-icon-box { width: 48px; height: 48px; border-radius: 50%; background: #FAF8F5; display: flex; align-items: center; justify-content: center; color: var(--blue); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+            .c-link-item:hover .c-link-icon-box { background: var(--magenta); color: #fff; transform: scale(1.1); }
+            .c-action { display: inline-flex; align-items: center; justify-content: space-between; padding: 20px 28px; background: #FAF8F5; border-radius: 100px; color: var(--blue); font-weight: 600; text-decoration: none; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); font-size: 1.05rem; }
+            .c-action:hover { background: var(--magenta); color: #fff; box-shadow: 0 10px 20px rgba(214,0,110,0.2); }
+            .c-action-icon { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+            .c-action:hover .c-action-icon { transform: translateX(6px); }
+          `}</style>
+          
+          <div className="c-grid">
+            {/* Francisco Solorio */}
+            <div className="c-card">
+              <div className="c-avatar-box">
+                <img src="/fotos perfil/Foto Francisco.jpg" alt="Francisco Solorio" />
+              </div>
+              <h2 className="c-name">Francisco Solorio</h2>
+              <div className="c-role">Director General</div>
+              
+              <div className="c-links">
+                <a href="mailto:francisco@expomexico.ca" className="c-link-item">
+                  <div className="c-link-icon-box"><Mail size={20} /></div>
+                  <span>francisco@expomexico.ca</span>
+                </a>
+                <a href="tel:+525527199694" className="c-link-item">
+                  <div className="c-link-icon-box"><Phone size={20} /></div>
+                  <span>+52 55 2719 9694</span>
+                </a>
+              </div>
+
+              <a href="https://wa.me/525527199694" className="c-action" target="_blank" rel="noopener noreferrer">
+                <span>Iniciar chat en WhatsApp</span>
+                <ArrowRight size={22} className="c-action-icon" />
+              </a>
+            </div>
+
+            {/* Luis García */}
+            <div className="c-card">
+              <div className="c-avatar-box">
+                <img src="/fotos perfil/Foto Luis.jpg" alt="Luis García" />
+              </div>
+              <h2 className="c-name">Luis García</h2>
+              <div className="c-role">Director de Operaciones</div>
+              
+              <div className="c-links">
+                <a href="mailto:luis@expomexico.ca" className="c-link-item">
+                  <div className="c-link-icon-box"><Mail size={20} /></div>
+                  <span>luis@expomexico.ca</span>
+                </a>
+                <a href="tel:+527225514645" className="c-link-item">
+                  <div className="c-link-icon-box"><Phone size={20} /></div>
+                  <span>+52 722 551 4645</span>
+                </a>
+              </div>
+
+              <a href="https://wa.me/527225514645" className="c-action" target="_blank" rel="noopener noreferrer">
+                <span>Iniciar chat en WhatsApp</span>
+                <ArrowRight size={22} className="c-action-icon" />
+              </a>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════════
    PAGE ROOT
 ══════════════════════════════════════════════════════════════ */
 export default function HomePage() {
   return (
     <>
       <VideoHero />
-      <Hero />
+      <Hero image="/home-hero-2.jpg" />
 
       <div className="page-content-wrapper">
         <MarqueeTop />
@@ -1143,6 +1301,7 @@ export default function HomePage() {
         <Costos />
         <Audience />
         <Noticias />
+        <Contacto />
         <CrossoverButterfly side="right" speed={0.04} />
 
       </div>

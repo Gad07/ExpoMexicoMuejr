@@ -13,6 +13,8 @@ type HeroProps = {
     text: string;
     href: string;
   };
+  imagePosition?: string;
+  overlayVariant?: 'default' | 'strong';
 };
 
 export default function Hero({
@@ -21,7 +23,9 @@ export default function Hero({
   title = <>México en<br />Toronto<em>Con todo su poder</em></>,
   description = "La plataforma binacional que transforma el liderazgo mexicano en oportunidades concretas de negocio, cultura y desarrollo. Cinco días que conectan a México con Canadá.",
   primaryCta = { text: "Reservar Lugar", href: "#registro" },
-  secondaryCta = { text: "Ver Agenda", href: "#agenda" }
+  secondaryCta = { text: "Ver Agenda", href: "#agenda" },
+  imagePosition,
+  overlayVariant = 'default'
 }: HeroProps) {
   return (
     <section className="hero-gradient" id="inicio" aria-label="Sección principal">
@@ -30,8 +34,9 @@ export default function Hero({
           className="hero-gradient__image"
           src={image}
           alt=""
+          style={imagePosition ? { objectPosition: imagePosition } : undefined}
         />
-        <div className="hero-gradient__overlay"></div>
+        <div className={`hero-gradient__overlay ${overlayVariant === 'strong' ? 'hero-gradient__overlay--strong' : ''}`}></div>
       </div>
 
       {/* Content Layer */}

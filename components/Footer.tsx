@@ -136,7 +136,7 @@ export default function Footer() {
               <a href="https://wa.link/jboroz" className="footer__link" target="_blank" rel="noopener noreferrer">WhatsApp</a>
               <a href="https://expomexico.ca/" className="footer__link" target="_blank" rel="noopener noreferrer">Sitio Oficial</a>
             </nav>
-            <a href="#registro" className="footer__cta-btn">Reservar lugar</a>
+            <Link href="/contacto" className="footer__cta-btn">Reservar lugar</Link>
           </div>
         </div>
       </div>

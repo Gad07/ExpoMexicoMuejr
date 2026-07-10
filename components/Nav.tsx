@@ -8,7 +8,7 @@ import { ChevronRight, ChevronLeft } from 'lucide-react';
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeMenu, setActiveMenu] = useState<'main' | 'participantes' | 'actividades'>('main');
+  const [activeMenu, setActiveMenu] = useState<'main' | 'participantes' | 'herramientas'>('main');
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
 
@@ -23,7 +23,7 @@ export default function Nav() {
     }
   };
 
-  const handleMobileClick = (e: React.MouseEvent, name: 'participantes' | 'actividades') => {
+  const handleMobileClick = (e: React.MouseEvent, name: 'participantes' | 'herramientas') => {
     if (window.innerWidth <= 900) {
       e.preventDefault();
       setActiveMenu(name);
@@ -152,16 +152,16 @@ export default function Nav() {
         </button>
 
         <div className={`nav__mobile-wrapper ${menuOpen ? 'nav__mobile-wrapper--open' : ''}`}>
-          
+
           <div className={`nav__links ${activeMenu !== 'main' ? 'nav__links--slide-out' : ''}`}>
             <Link href="/nosotros" className="nav__link" onClick={closeMenu}>Nosotros</Link>
 
-            <div 
+            <div
               className={`nav__slide-dropdown ${openDropdown === 'participantes' ? 'nav__slide-dropdown--open' : ''}`}
               onMouseEnter={() => handleMouseEnter('participantes')}
               onMouseLeave={handleMouseLeave}
             >
-              <span className="nav__link nav__link--has-dropdown" onClick={(e) => handleMobileClick(e, 'participantes')}>
+              <span className={`nav__link nav__link--has-dropdown ${openDropdown === 'participantes' || pathname.startsWith('/expositores') || pathname.startsWith('/embajadoras') || pathname.startsWith('/patrocinadores') || pathname.startsWith('/invitados') ? 'nav__link--active' : ''}`} onClick={(e) => handleMobileClick(e, 'participantes')}>
                 Participantes
                 <ChevronRight className="nav__slide-icon-mobile" size={16} />
               </span>
@@ -173,24 +173,25 @@ export default function Nav() {
               </div>
             </div>
 
-            <div 
-              className={`nav__slide-dropdown ${openDropdown === 'actividades' ? 'nav__slide-dropdown--open' : ''}`}
-              onMouseEnter={() => handleMouseEnter('actividades')}
+            <div
+              className={`nav__slide-dropdown ${openDropdown === 'herramientas' ? 'nav__slide-dropdown--open' : ''}`}
+              onMouseEnter={() => handleMouseEnter('herramientas')}
               onMouseLeave={handleMouseLeave}
             >
-              <span className="nav__link nav__link--has-dropdown" onClick={(e) => handleMobileClick(e, 'actividades')}>
-                Actividades
+              <span className={`nav__link nav__link--has-dropdown ${openDropdown === 'herramientas' || pathname.startsWith('/agenda') || pathname.startsWith('/academy') || pathname.startsWith('/recursos') ? 'nav__link--active' : ''}`} onClick={(e) => handleMobileClick(e, 'herramientas')}>
+                Herramientas
                 <ChevronRight className="nav__slide-icon-mobile" size={16} />
               </span>
               <div className="nav__slide-panel-desktop">
                 <Link href="/agenda" className="nav__slide-item" onClick={closeMenu}>Agenda Oficial</Link>
                 <Link href="/academy" className="nav__slide-item" onClick={closeMenu}>Academy</Link>
+                <Link href="/recursos" className="nav__slide-item" onClick={closeMenu}>Noticias</Link>
               </div>
             </div>
 
-            <Link href="/recursos" className="nav__link" onClick={closeMenu}>Noticias</Link>
-
             <Link href="/visa" className="nav__link" onClick={closeMenu}>Trámites</Link>
+
+            <Link href="/#contacto" className="nav__link" onClick={closeMenu}>Contacto</Link>
 
             <div className="nav__socials">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="nav__social-icon">
@@ -207,10 +208,9 @@ export default function Nav() {
               </a>
             </div>
 
-            <a href="tel:+525551234567" className="nav__cta" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-              Reservar lugar
-            </a>
+            <Link href="/contacto" className="nav__cta" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              Contacto
+            </Link>
           </div>
 
           <div className={`nav__slide-panel-mobile ${activeMenu === 'participantes' ? 'nav__slide-panel-mobile--active' : ''}`}>
@@ -225,14 +225,15 @@ export default function Nav() {
             <Link href="/invitados" className="nav__slide-item-mobile" onClick={closeMenu}>Invitados Especiales</Link>
           </div>
 
-          <div className={`nav__slide-panel-mobile ${activeMenu === 'actividades' ? 'nav__slide-panel-mobile--active' : ''}`}>
+          <div className={`nav__slide-panel-mobile ${activeMenu === 'herramientas' ? 'nav__slide-panel-mobile--active' : ''}`}>
             <button className="nav__slide-back" onClick={() => setActiveMenu('main')}>
               <ChevronLeft size={20} />
               Volver al menú
             </button>
-            <h3 className="nav__slide-title">Actividades</h3>
+            <h3 className="nav__slide-title">Herramientas</h3>
             <Link href="/agenda" className="nav__slide-item-mobile" onClick={closeMenu}>Agenda Oficial</Link>
             <Link href="/academy" className="nav__slide-item-mobile" onClick={closeMenu}>Academy</Link>
+            <Link href="/recursos" className="nav__slide-item-mobile" onClick={closeMenu}>Noticias</Link>
           </div>
 
         </div>

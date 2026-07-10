@@ -1019,14 +1019,20 @@ ul {
 }
 
 .nav__link:hover,
+.nav__link--active,
 .nav.nav--scrolled .nav__link:hover,
-.nav.nav--inner .nav__link:hover {
+.nav.nav--scrolled .nav__link--active,
+.nav.nav--inner .nav__link:hover,
+.nav.nav--inner .nav__link--active {
   color: var(--magenta);
 }
 
 .nav__link:hover::after,
+.nav__link--active::after,
 .nav.nav--scrolled .nav__link:hover::after,
-.nav.nav--inner .nav__link:hover::after {
+.nav.nav--scrolled .nav__link--active::after,
+.nav.nav--inner .nav__link:hover::after,
+.nav.nav--inner .nav__link--active::after {
   width: 100%;
 }
 
@@ -1222,6 +1228,13 @@ ul {
     linear-gradient(to bottom, var(--cream) 0%, rgba(243, 236, 224, 0) 15%),
     linear-gradient(to right, var(--cream) 0%, var(--cream) 35%, rgba(243, 236, 224, 0) 75%);
   z-index: 2;
+}
+
+.hero-gradient__overlay--strong {
+  background:
+    linear-gradient(to bottom, var(--cream) 0%, rgba(243, 236, 224, 0) 15%),
+    linear-gradient(to right, var(--cream) 0%, var(--cream) 55%, rgba(243, 236, 224, 0) 85%),
+    linear-gradient(to right, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%);
 }
 
 .hero-gradient__content-wrapper {
@@ -7552,6 +7565,16 @@ ul {
   visibility: hidden;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
+}
+
+/* Invisible bridge to prevent hover loss when moving mouse down */
+.nav__slide-panel-desktop::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  height: 20px;
 }
 
 .nav__slide-dropdown--open .nav__slide-panel-desktop {

@@ -297,8 +297,8 @@ export const mockExhibitors = [
 
 export const businessCategories = [
   {
-    name: 'Alimentos Procesados',
-    img: '/Galeria/Gastronomia/IMG_5940.JPG',
+    name: 'Gastronomia',
+    img: '/Galeria/Gastronomia/IMG_6008.JPG',
     size: 'wide',
     desc: 'Productos alimenticios de alta calidad y valor agregado.',
     carousel: ['/Galeria/Gastronomia/IMG_5940.JPG', '/Galeria/Gastronomia/IMG_5981.JPG', '/Galeria/Gastronomia/IMG_6008.JPG']
@@ -347,14 +347,14 @@ export const businessCategories = [
   },
   {
     name: 'Textiles',
-    img: '/Galeria/Moda_y_textiles/IMG_6036.JPG',
+    img: '/Galeria/Moda_y_textiles/IMG_5423.JPG',
     size: 'wide',
     desc: 'Moda, confección y diseño textil con identidad mexicana.',
     carousel: ['/Galeria/Moda_y_textiles/IMG_6036.JPG', '/Galeria/Moda_y_textiles/IMG_6032.JPG', '/Galeria/Moda_y_textiles/IMG_6023.JPG']
   },
   {
     name: 'Arte y Cultura',
-    img: '/Galeria/Arte_y_Cultura/IMG_5885.JPG',
+    img: '/Galeria/Arte_y_Cultura/IMG_6072.JPG',
     size: 'large',
     desc: 'Expresiones artísticas, música, cine y patrimonio cultural.',
     carousel: ['/Galeria/Arte_y_Cultura/IMG_5885.JPG', '/Galeria/Arte_y_Cultura/IMG_5967.JPG', '/Galeria/Arte_y_Cultura/IMG_6244.JPG']
@@ -375,8 +375,8 @@ export const businessCategories = [
   },
   {
     name: 'Artesanías',
-    img: '/Galeria/Artesanias/IMG_5931.JPG',
-    size: 'large',
+    img: '/Galeria/Artesanias/IMG_5397.JPG',
+    size: 'wide',
     desc: 'Artesanía tradicional y productos hechos a mano con identidad única.',
     carousel: ['/Galeria/Artesanias/IMG_5931.JPG', '/Galeria/Artesanias/IMG_5928.JPG', '/Galeria/Artesanias/IMG_5932.JPG']
   },
