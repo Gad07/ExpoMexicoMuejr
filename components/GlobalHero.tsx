@@ -13,6 +13,7 @@ export default function GlobalHero() {
   if (
     (pathname.startsWith('/expositores/') && pathname !== '/expositores') ||
     (pathname.startsWith('/patrocinadores/') && pathname !== '/patrocinadores') ||
+    (pathname.startsWith('/embajadoras/') && pathname !== '/embajadoras') ||
     (pathname.startsWith('/invitados/') && pathname !== '/invitados') ||
     (pathname.startsWith('/academy/') && pathname !== '/academy') ||
     (pathname.startsWith('/recursos/noticia/') && pathname !== '/recursos/noticia')
@@ -28,7 +29,7 @@ export default function GlobalHero() {
     return (
       <Hero
         eyebrow="Expo México Mujer 2027"
-        title={<>Trámite de Visa<br /><em>Tu viaje a Canadá</em></>}
+        title={<>Servicios Migratorios<br /><em>Tu viaje a Canadá</em></>}
         description="Te brindamos asesoría integral y gestoría especializada para tramitar tu visa de ingreso a Canadá. Nos encargamos de la revisión y acompañamiento de tu expediente para asegurar tu presencia en Toronto de manera rápida y sin complicaciones."
         image="https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&q=80&w=800"
         primaryCta={{ text: "Iniciar Asesoría", href: "#solicitud" }}

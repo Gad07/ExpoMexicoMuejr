@@ -2970,6 +2970,8 @@ ul {
   text-transform: uppercase;
   color: var(--text);
   padding: 16px 24px;
+  display: block;
+  width: 100%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   transition: background 0.2s, color 0.2s;
   display: block;
@@ -5395,7 +5397,7 @@ ul {
     background: transparent;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     gap: 16px;
     border: none;
     max-height: 0;
@@ -5407,11 +5409,13 @@ ul {
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .nav__dropdown--open .nav__dropdown-menu {
+  .nav__dropdown--open .nav__dropdown-menu,
+  .nav__dropdown:hover .nav__dropdown-menu {
     max-height: 400px;
     opacity: 1;
     visibility: visible;
     padding-top: 16px;
+    transform: none !important;
   }
 
   .nav__dropdown-item {
@@ -5423,7 +5427,8 @@ ul {
 
   .nav__dropdown-item:hover,
   .nav__dropdown-item:active {
-    color: var(--navy);
+    color: var(--magenta);
+    background: transparent !important;
   }
 
   .nav__socials {
@@ -7335,4 +7340,397 @@ ul {
   background: var(--navy);
   color: #fff;
   box-shadow: 0 10px 20px rgba(0, 10, 20, 0.2);
-}
+}
+
+/* ─── GLOBAL RESPONSIVE MEDIA QUERIES (LIGHTHOUSE & MOBILE) ─── */
+@media (max-width: 900px) {
+  html {
+    font-size: 14px; /* Escala toda la tipografía rem en móviles */
+  }
+
+  .nav__links {
+    /* El menú hamburguesa ya lo gestiona, esto es por si acaso */
+  }
+
+  /* Reducir márgenes estructurales en móviles */
+  .section, .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  
+  :root {
+    --container-padding: 20px;
+    --section-padding: 60px; /* Reducir de 120px a 60px en móviles */
+  }
+
+  /* Ajustes en footer base */
+  .footer__inner, .v2-footer__inner {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+}
+
+/* ==========================================================================
+   MEGA MENU FULLSCREEN (LUXURY EDITORIAL)
+   ========================================================================== */
+
+/* DESKTOP BASE */
+.nav__mega-dropdown {
+  position: static; 
+}
+
+.nav__mega-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100vw;
+  background: rgba(238, 228, 214, 0.98);
+  backdrop-filter: blur(40px) saturate(2);
+  -webkit-backdrop-filter: blur(40px) saturate(2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 20px 50px rgba(0, 46, 81, 0.08);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.nav__mega-dropdown:hover .nav__mega-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav__mega-panel-inner {
+  width: 100%;
+  max-width: var(--container-width);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.5fr;
+  gap: 48px;
+}
+
+.nav__mega-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.nav__mega-title {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--magenta);
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 12px;
+}
+
+.nav__mega-item {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s, transform 0.3s;
+  display: block;
+}
+
+.nav__mega-item:hover {
+  color: var(--magenta);
+  transform: translateX(8px);
+}
+
+.nav__mega-featured {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(0, 46, 81, 0.03);
+  padding: 32px;
+  border-radius: 16px;
+}
+
+.nav__mega-featured p {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--navy);
+  margin-top: 16px;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* MOBILE FULLSCREEN MEGA MENU */
+@media (max-width: 900px) {
+  .nav__mega-dropdown {
+    width: 100%;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 46, 81, 0.05);
+  }
+
+  .nav__mega-panel {
+    position: static;
+    width: 100%;
+    opacity: 1;
+    visibility: visible;
+    transform: none !important;
+    box-shadow: none;
+    background: transparent;
+    border-bottom: none;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav__mega-dropdown--open .nav__mega-panel {
+    max-height: 600px;
+    padding: 16px 0 24px;
+  }
+
+  .nav__mega-panel-inner {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .nav__mega-featured {
+    display: none;
+  }
+
+  .nav__mega-title {
+    font-size: 0.8rem;
+    color: rgba(0, 46, 81, 0.5);
+  }
+
+  .nav__mega-item {
+    font-size: 1.4rem;
+    color: var(--navy);
+    padding: 8px 0;
+  }
+
+  .nav__mega-item:hover {
+    color: var(--magenta);
+    transform: translateX(12px);
+    background: transparent;
+  }
+}
+
+/* ==========================================================================
+   SLIDE-OUT MENU APP NATIVA
+   ========================================================================== */
+
+/* DESKTOP HOVER DROPDOWNS */
+.nav__slide-dropdown {
+  position: relative;
+}
+
+.nav__slide-icon-mobile {
+  display: none; /* Only show chevron on mobile */
+}
+
+.nav__slide-panel-desktop {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 46, 81, 0.08);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 220px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.nav__slide-dropdown--open .nav__slide-panel-desktop {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.nav__slide-item {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--navy);
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.nav__slide-item:hover {
+  background: rgba(0, 46, 81, 0.04);
+  color: var(--magenta);
+}
+
+/* MOBILE SLIDE-OUT PANELS */
+.nav__mobile-wrapper {
+  /* Not active on desktop */
+}
+
+.nav__slide-panel-mobile {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  /* Wrapper holds everything */
+  .nav__mobile-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    background: rgba(243, 236, 224, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    overflow-x: hidden; /* Important for sliding */
+  }
+
+  .nav__mobile-wrapper--open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  /* Main Links Layer */
+  .nav__links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    padding: 20px;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: translateX(0);
+    z-index: 100;
+  }
+
+  .nav__links--slide-out {
+    transform: translateX(-100%);
+  }
+
+  .nav__slide-dropdown {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav__slide-icon-mobile {
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: middle;
+    color: var(--magenta);
+  }
+
+  .nav__link {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .nav__slide-panel-desktop {
+    display: none !important; /* Hide desktop dropdowns on mobile completely */
+  }
+
+  /* Secondary Slide-out Panels */
+  .nav__slide-panel-mobile {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 120px 20px 40px;
+    background: transparent;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: translateX(0);
+    z-index: 101;
+    visibility: hidden;
+  }
+
+  .nav__slide-panel-mobile--active {
+    transform: translateX(-100%);
+    visibility: visible;
+  }
+
+  .nav__slide-back {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--navy);
+    background: none;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    background: rgba(0,0,0,0.05);
+  }
+
+  .nav__slide-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--magenta);
+    margin-bottom: 40px;
+    font-style: italic;
+  }
+
+  .nav__slide-item-mobile {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    text-decoration: none;
+    margin-bottom: 24px;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav__links {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav__links {
+    padding-top: 120px !important;
+    padding-bottom: 80px !important;
+    justify-content: flex-start !important; /* To make padding-top actually push items down instead of centering them */
+  }
+}

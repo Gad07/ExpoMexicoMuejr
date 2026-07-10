@@ -207,6 +207,7 @@ function CrossoverButterfly({ side = 'left', speed = 0.06, style }: { side?: 'le
         src="/recursos/Recurso 8.png"
         alt=""
         aria-hidden="true"
+        width={100} height={100}
         className={`crossover-butterfly${side === 'right' ? ' crossover-butterfly--right' : ''}`}
         style={{
           ...style,
@@ -260,6 +261,7 @@ function StatementStrip() {
         src="/recursos/Recurso 8.png"
         alt=""
         aria-hidden="true"
+        width={120} height={120}
         className="stmt__butterfly"
       />
 
@@ -285,7 +287,7 @@ function StatementStrip() {
         {/* CENTER — Vertical rule + decorative monogram */}
         <div className="stmt__col stmt__col--center" aria-hidden="true">
           <div className="stmt__rule" />
-          <img src="/recursos/Recurso 8.png" alt="" className="stmt__center-butterfly" />
+          <img src="/recursos/Recurso 8.png" alt="" aria-hidden="true" width={60} height={60} className="stmt__center-butterfly" />
           <div className="stmt__rule" />
         </div>
 
@@ -592,7 +594,7 @@ function MexicanStates() {
                 href={`/expositores?estado=${encodeURIComponent(st.name)}`}
                 className={`states-masonry-item states-masonry-item--${st.size || 'large'}`}
               >
-                <img src={st.img} alt={st.name} loading="lazy" />
+                <img src={st.img} alt={st.name} loading="lazy" width={400} height={300} />
                 <div className="states-masonry-overlay" />
                 <h3 className="states-masonry-title">{st.name}</h3>
               </Link>
@@ -749,7 +751,7 @@ function Noticias() {
             <Reveal>
               <a href="/recursos" className="news-feat-card">
                 <div className="news-feat-img-wrap">
-                  <img src={featured.image} alt={featured.title} />
+                  <img src={featured.image} alt={featured.title} width={600} height={400} loading="lazy" />
                   <div className="news-feat-badge">Destacado</div>
                 </div>
                 <div className="news-feat-meta">
@@ -771,7 +773,7 @@ function Noticias() {
                       <h4 className="news-list-title">{news.title}</h4>
                     </div>
                     <div className="news-list-img-wrap">
-                      <img src={news.image} alt={news.title} />
+                      <img src={news.image} alt={news.title} width={200} height={150} loading="lazy" />
                     </div>
                   </a>
                 </Reveal>
@@ -824,7 +826,7 @@ function Ubicacion() {
     <div style={{ position: 'relative', zIndex: 9999 }}>
       {/* Top Divider */}
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', zIndex: 10, lineHeight: 0, pointerEvents: 'none', transform: 'translateY(-28%)' }}>
-        <img src="/recursos svg/Recurso 10.svg" alt="" aria-hidden="true" style={{ width: '100%', height: 'auto', display: 'block', opacity: 0.9 }} />
+        <img src="/recursos svg/Recurso 10.svg" alt="" aria-hidden="true" width={1920} height={100} style={{ width: '100%', height: 'auto', display: 'block', opacity: 0.9 }} />
       </div>
 
       <section className="location-gradient" id="ubicacion" aria-labelledby="ubicacion-title" style={{ position: 'relative' }}>
@@ -833,6 +835,7 @@ function Ubicacion() {
             className="location-gradient__image"
             src="https://images.pexels.com/photos/935474/toronto-beauty-clouds-skyline-935474.jpeg?cs=srgb&dl=-935474.jpg&fm=jpg"
             alt="Toronto, Canadá"
+            width={1920} height={1080} loading="lazy"
           />
           <div className="location-gradient__overlay"></div>
         </div>
@@ -877,7 +880,7 @@ function Ubicacion() {
 
       {/* Bottom Divider */}
       <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', zIndex: 10, lineHeight: 0, pointerEvents: 'none', transform: 'translateY(28%)' }}>
-        <img src="/recursos svg/Recurso 10.svg" alt="" aria-hidden="true" style={{ width: '100%', height: 'auto', display: 'block', transform: 'rotate(180deg)', opacity: 0.9 }} />
+        <img src="/recursos svg/Recurso 10.svg" alt="" aria-hidden="true" width={1920} height={100} style={{ width: '100%', height: 'auto', display: 'block', transform: 'rotate(180deg)', opacity: 0.9 }} />
       </div>
     </div>
   );

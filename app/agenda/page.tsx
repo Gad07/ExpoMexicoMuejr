@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Calendar, Clock, MapPin, User, Tag } from 'lucide-react';
+import { Clock, MapPin, User } from 'lucide-react';
 import { mockAgenda } from '../data/agenda';
+import { Mariposa } from '../../components/BrandAssets';
 
 function Reveal({
   children, className = '', delay = 0, style = {},
@@ -15,25 +16,19 @@ function Reveal({
     if (!el) return;
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setInView(true); obs.unobserve(el); } },
-      { threshold: 0.08 }
+      { threshold: 0.1 }
     );
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
 
-  const baseStyle: React.CSSProperties = {
-    opacity: 0,
-    transform: 'translateY(30px)',
-    transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-  };
-  const inViewStyle: React.CSSProperties = {
-    opacity: 1,
-    transform: 'translateY(0)',
-    transitionDelay: `${delay}ms`,
-  };
-
   return (
-    <div ref={ref} className={className} style={{ ...style, ...baseStyle, ...(inView ? inViewStyle : {}) }}>
+    <div ref={ref} className={className} style={{
+      ...style,
+      opacity: inView ? 1 : 0,
+      transform: inView ? 'translateY(0)' : 'translateY(40px)',
+      transition: `all 1s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`
+    }}>
       {children}
     </div>
   );
@@ -41,142 +36,309 @@ function Reveal({
 
 export default function AgendaPage() {
   const [activeDay, setActiveDay] = useState(mockAgenda[0].id);
-
   const currentDay = mockAgenda.find(d => d.id === activeDay) || mockAgenda[0];
 
-  const getTypeColor = (type: string) => {
+  const getTypeStyle = (type: string) => {
     switch (type.toLowerCase()) {
-      case 'keynote': return { bg: 'rgba(228,0,124,0.1)', text: 'var(--magenta)' }; // Magenta
-      case 'panel': return { bg: 'rgba(0,186,211,0.1)', text: 'var(--cyan)' }; // Cyan
-      case 'workshop': return { bg: 'rgba(0,25,76,0.1)', text: 'var(--navy)' }; // Navy
-      case 'networking': return { bg: 'rgba(255,200,0,0.15)', text: '#d9a400' }; // Yellow
-      case 'break': return { bg: '#f5f5f5', text: '#888' };
-      default: return { bg: 'rgba(0,25,76,0.05)', text: 'var(--navy)' };
+      case 'keynote': return { bg: 'rgba(228,0,124,0.08)', text: 'var(--magenta)', border: 'var(--magenta)' };
+      case 'panel': return { bg: 'rgba(0,186,211,0.08)', text: 'var(--cyan)', border: 'var(--cyan)' };
+      case 'workshop': return { bg: 'rgba(0,25,76,0.05)', text: 'var(--navy)', border: 'var(--navy)' };
+      case 'networking': return { bg: 'rgba(255,200,0,0.1)', text: '#cc9900', border: '#cc9900' };
+      case 'break': return { bg: 'rgba(0,0,0,0.03)', text: '#888', border: '#ccc' };
+      default: return { bg: 'rgba(0,25,76,0.05)', text: 'var(--navy)', border: 'var(--navy)' };
     }
   };
 
   return (
-    <div className="agenda-page" style={{ background: 'var(--cream)', minHeight: '100vh', paddingBottom: '120px' }}>
-      
-      {/* HEADER SECTION */}
-      <div style={{ background: 'var(--navy)', color: '#fff', padding: '160px 48px 100px', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', right: '-10%', top: '-20%', width: '50%', height: '150%', background: 'radial-gradient(ellipse at center, rgba(0,186,211,0.2) 0%, rgba(0,25,76,0) 70%)', pointerEvents: 'none' }}></div>
-        <div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 2 }}>
-          <Reveal>
-            <span style={{ display: 'inline-block', color: 'var(--cyan)', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.9rem', marginBottom: '24px' }}>
-              Programa Oficial
-            </span>
-            <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(3rem, 6vw, 5rem)', fontWeight: 900, lineHeight: 1.1, margin: '0 0 24px 0' }}>
-              Agenda del Evento
-            </h1>
-            <p style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.7)', maxWidth: '600px', margin: '0 auto', lineHeight: 1.6 }}>
-              Explora las conferencias magistrales, paneles, talleres y espacios de networking diseñados para impulsar tu desarrollo.
-            </p>
-          </Reveal>
-        </div>
-      </div>
+    <div className="agenda-vertical-premium">
+      <style dangerouslySetInnerHTML={{ __html: `
+        .agenda-vertical-premium {
+          background: var(--cream);
+          min-height: 100vh;
+          color: var(--navy);
+          position: relative;
+          overflow: hidden;
+          padding-bottom: 160px;
+        }
 
-      {/* AGENDA CONTENT */}
-      <div style={{ maxWidth: '1000px', margin: '-40px auto 0', padding: '0 24px', position: 'relative', zIndex: 10 }}>
+        /* ─── DECORACIÓN DE FONDO ─── */
+        .agenda-bg-pattern {
+          position: absolute; top: -5%; right: -10%;
+          width: 800px; height: 800px;
+          background: radial-gradient(circle, rgba(228,0,124,0.03) 0%, transparent 70%);
+          pointer-events: none; z-index: 0;
+        }
+        .agenda-bg-mariposa {
+          position: absolute; top: 100px; left: -100px;
+          opacity: 0.03; pointer-events: none; z-index: 0;
+          transform: rotate(-15deg);
+        }
+
+        /* ─── HEADER EDITORIAL ─── */
+        .agenda-header {
+          position: relative; z-index: 10;
+          max-width: 1200px; margin: 0 auto;
+          padding: 180px 4% 80px;
+          text-align: center;
+        }
+        .agenda-label {
+          display: inline-block; padding: 6px 20px;
+          border: 1.5px solid var(--cyan);
+          border-radius: 100px; color: var(--cyan);
+          font-family: var(--font-display); font-weight: 800;
+          font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em;
+          margin-bottom: 32px;
+        }
+        .agenda-title {
+          font-family: var(--font-display);
+          font-size: clamp(4rem, 7vw, 7rem);
+          font-weight: 900; line-height: 0.9; letter-spacing: -0.04em;
+          color: var(--navy); margin: 0;
+        }
+        .agenda-subtitle {
+          font-family: var(--font-body); font-size: 1.25rem;
+          color: var(--text-muted); max-width: 600px; margin: 32px auto 0;
+          line-height: 1.7;
+        }
+
+        /* ─── STICKY DAY SELECTOR ─── */
+        .day-selector-wrapper {
+          position: sticky; top: 100px; z-index: 100;
+          display: flex; justify-content: center;
+          margin-bottom: 100px; padding: 0 4%;
+        }
+        .day-selector {
+          display: inline-flex; gap: 8px;
+          background: rgba(255,255,255,0.85);
+          backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+          border: 1px solid rgba(0,46,81,0.05);
+          padding: 10px; border-radius: 100px;
+          box-shadow: 0 20px 40px rgba(0,25,76,0.06);
+        }
+        .day-btn {
+          background: transparent; border: none;
+          padding: 16px 32px; border-radius: 100px; cursor: pointer;
+          font-family: var(--font-display); font-weight: 800;
+          font-size: 1.1rem; color: var(--navy); opacity: 0.6;
+          transition: all 0.3s ease;
+          display: flex; flex-direction: column; align-items: center; gap: 4px;
+        }
+        .day-btn:hover { opacity: 1; }
+        .day-btn.active {
+          background: var(--navy); color: #fff; opacity: 1;
+          box-shadow: 0 10px 20px rgba(0,25,76,0.2);
+        }
+        .day-date {
+          font-family: var(--font-body); font-weight: 400;
+          font-size: 0.8rem; letter-spacing: 0.05em; opacity: 0.8;
+        }
+
+        /* ─── EDITORIAL TIMELINE ─── */
+        .timeline-wrapper {
+          max-width: 1000px; margin: 0 auto; padding: 0 4%;
+          position: relative; z-index: 10;
+        }
+
+        .event-row {
+          display: flex; gap: 60px;
+          margin-bottom: 40px;
+        }
+
+        /* Columna de Tiempo */
+        .time-col {
+          flex: 0 0 200px;
+          text-align: right;
+          position: relative;
+          padding-top: 10px;
+        }
+        /* La línea de conexión vertical */
+        .time-col::after {
+          content: ''; position: absolute;
+          top: 30px; bottom: -70px; right: -30px;
+          width: 2px; background: rgba(0,46,81,0.06);
+        }
+        /* Ocultar la línea en el último elemento */
+        .event-row:last-child .time-col::after { display: none; }
+
+        /* El punto indicador en la línea */
+        .time-col::before {
+          content: ''; position: absolute;
+          top: 24px; right: -35px;
+          width: 12px; height: 12px; border-radius: 50%;
+          background: var(--event-border);
+          box-shadow: 0 0 0 6px var(--cream);
+          z-index: 2;
+          transition: transform 0.3s;
+        }
+
+        .event-row:hover .time-col::before {
+          transform: scale(1.3);
+        }
+
+        .time-start {
+          font-family: var(--font-display); font-weight: 900;
+          font-size: 2.2rem; color: var(--navy); line-height: 1;
+          margin-bottom: 8px; letter-spacing: -0.03em;
+        }
+        .time-end {
+          font-family: var(--font-body); color: var(--text-muted);
+          font-size: 0.95rem; font-weight: 500;
+        }
+
+        /* Tarjeta de Contenido */
+        .content-col {
+          flex: 1;
+        }
+        .event-card {
+          background: #fff;
+          border-radius: 32px;
+          padding: 40px;
+          box-shadow: 0 15px 35px rgba(0,25,76,0.03);
+          border: 1px solid rgba(0,0,0,0.02);
+          transition: transform 0.4s, box-shadow 0.4s;
+          position: relative;
+          overflow: hidden;
+        }
+        .event-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 30px 60px rgba(0,25,76,0.08);
+        }
         
-        {/* TABS */}
-        <Reveal delay={100}>
-          <div style={{ display: 'flex', gap: '16px', background: '#fff', padding: '16px', borderRadius: '100px', boxShadow: '0 20px 40px rgba(0,0,0,0.08)', marginBottom: '64px', overflowX: 'auto', flexWrap: 'nowrap', WebkitOverflowScrolling: 'touch' }}>
-            {mockAgenda.map(day => (
-              <button 
-                key={day.id}
-                onClick={() => setActiveDay(day.id)}
-                style={{
-                  flex: '1 0 auto',
-                  padding: '16px 32px',
-                  borderRadius: '100px',
-                  border: 'none',
-                  background: activeDay === day.id ? 'var(--magenta)' : 'transparent',
-                  color: activeDay === day.id ? '#fff' : 'var(--navy)',
-                  fontWeight: 700,
-                  fontSize: '1.1rem',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  gap: '4px'
-                }}
-              >
-                <span>{day.title.split(':')[0]}</span>
-                <span style={{ fontSize: '0.8rem', fontWeight: 500, opacity: activeDay === day.id ? 0.9 : 0.6 }}>{day.date}</span>
-              </button>
-            ))}
-          </div>
-        </Reveal>
+        /* Delicada línea superior del color del evento */
+        .event-card::before {
+          content: ''; position: absolute; top: 0; left: 0; right: 0;
+          height: 4px; background: var(--event-border);
+        }
 
-        {/* TIMELINE */}
-        <div style={{ background: '#fff', borderRadius: '32px', padding: '48px', boxShadow: '0 15px 35px rgba(0,25,76,0.04)' }}>
-          <Reveal delay={200}>
-            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '40px', borderBottom: '2px solid rgba(0,0,0,0.05)', paddingBottom: '24px' }}>
-              {currentDay.title}
-            </h2>
-          </Reveal>
+        .event-badge {
+          display: inline-block; padding: 6px 16px;
+          background: var(--event-bg); color: var(--event-text);
+          border-radius: 100px; font-family: var(--font-display);
+          font-weight: 800; font-size: 0.75rem; text-transform: uppercase;
+          letter-spacing: 0.15em; margin-bottom: 24px;
+        }
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-            {currentDay.events.map((event, idx) => {
-              const colors = getTypeColor(event.type);
-              
-              return (
-                <Reveal key={event.id} delay={idx * 100}>
-                  <div style={{ display: 'flex', gap: '32px', borderLeft: '3px solid', borderColor: colors.text, paddingLeft: '24px', position: 'relative' }}>
-                    
-                    {/* Time Column */}
-                    <div style={{ flex: '0 0 160px', paddingTop: '4px' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--navy)', fontWeight: 700, fontSize: '0.95rem' }}>
-                        <Clock size={16} color="var(--magenta)" />
-                        {event.time.split(' - ')[0]}
-                      </div>
-                      <div style={{ color: 'var(--text)', fontSize: '0.85rem', marginLeft: '24px', marginTop: '4px' }}>
-                        hasta {event.time.split(' - ')[1]}
-                      </div>
-                    </div>
+        .event-title {
+          font-family: var(--font-display); font-weight: 900;
+          font-size: 1.8rem; color: var(--navy); line-height: 1.25;
+          margin: 0 0 24px 0; letter-spacing: -0.02em;
+        }
 
-                    {/* Content Column */}
-                    <div style={{ flex: '1' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px', flexWrap: 'wrap' }}>
-                        <span style={{ background: colors.bg, color: colors.text, padding: '6px 12px', borderRadius: '100px', fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                          {event.type}
-                        </span>
-                      </div>
-                      
-                      <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '16px', lineHeight: 1.3 }}>
-                        {event.title}
-                      </h3>
+        .event-meta {
+          display: flex; gap: 32px; flex-wrap: wrap;
+          border-top: 1px solid rgba(0,46,81,0.06);
+          padding-top: 24px;
+        }
+        .meta-item {
+          display: flex; align-items: center; gap: 12px;
+          color: var(--navy); font-size: 1rem; font-family: var(--font-body);
+          font-weight: 500;
+        }
+        .meta-icon {
+          width: 36px; height: 36px; border-radius: 50%;
+          background: var(--cream);
+          display: flex; align-items: center; justify-content: center;
+          color: var(--magenta);
+        }
 
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                        {event.speaker && (
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--text)' }}>
-                            <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: 'rgba(0,25,76,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                              <User size={14} color="var(--navy)" />
-                            </div>
-                            <span style={{ fontSize: '0.95rem', fontWeight: 500 }}>{event.speaker}</span>
-                          </div>
-                        )}
-                        
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--text)' }}>
-                          <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: 'rgba(0,186,211,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <MapPin size={14} color="var(--cyan)" />
-                          </div>
-                          <span style={{ fontSize: '0.95rem' }}>{event.location}</span>
-                        </div>
-                      </div>
-                    </div>
+        @media (max-width: 900px) {
+          .day-selector-wrapper { padding: 0; margin-bottom: 60px; overflow-x: auto; justify-content: flex-start; }
+          .day-selector { border-radius: 0; width: 100%; border: none; border-bottom: 1px solid rgba(0,0,0,0.1); }
+          .day-btn { padding: 16px 24px; flex: 0 0 auto; border-radius: 20px; }
+          
+          .event-row { flex-direction: column; gap: 20px; }
+          .time-col { flex: none; text-align: left; padding-top: 0; }
+          .time-col::after, .time-col::before { display: none; }
+          
+          .time-start { font-size: 1.8rem; display: inline-block; margin-right: 12px; }
+          .time-end { display: inline-block; }
+          
+          .event-card { padding: 32px 24px; border-radius: 24px; }
+          .event-title { font-size: 1.4rem; }
+          .event-meta { gap: 16px; flex-direction: column; }
+        }
+      `}} />
 
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
-
-        </div>
-
+      <div className="agenda-bg-pattern" />
+      <div className="agenda-bg-mariposa">
+        <Mariposa width={600} height={600} />
       </div>
+
+      <div className="agenda-header">
+        <Reveal>
+          <div className="agenda-label">Programa Oficial</div>
+          <h1 className="agenda-title">Agenda del Evento</h1>
+          <p className="agenda-subtitle">
+            Conferencias magistrales, paneles y talleres diseñados para impulsar el liderazgo y la acción.
+          </p>
+        </Reveal>
+      </div>
+
+      <div className="day-selector-wrapper">
+        <div className="day-selector">
+          {mockAgenda.map((day) => (
+            <button 
+              key={day.id} 
+              onClick={() => setActiveDay(day.id)}
+              className={`day-btn ${activeDay === day.id ? 'active' : ''}`}
+            >
+              <span>{day.title.split(':')[0]}</span>
+              <span className="day-date">{day.date}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="timeline-wrapper">
+        {currentDay.events.map((event, idx) => {
+          const typeStyle = getTypeStyle(event.type);
+          
+          return (
+            <Reveal key={event.id} delay={idx * 100}>
+              <div 
+                className="event-row"
+                style={{
+                  '--event-bg': typeStyle.bg,
+                  '--event-text': typeStyle.text,
+                  '--event-border': typeStyle.border,
+                } as React.CSSProperties}
+              >
+                
+                {/* TIMELINE LEFT */}
+                <div className="time-col">
+                  <div className="time-start">{event.time.split(' - ')[0]}</div>
+                  <div className="time-end">
+                    hasta {event.time.split(' - ')[1]}
+                  </div>
+                </div>
+
+                {/* TIMELINE RIGHT (CARD) */}
+                <div className="content-col">
+                  <div className="event-card">
+                    <div className="event-badge">{event.type}</div>
+                    <h3 className="event-title">{event.title}</h3>
+                    
+                    <div className="event-meta">
+                      {event.speaker && (
+                        <div className="meta-item">
+                          <div className="meta-icon"><User size={16} /></div>
+                          {event.speaker}
+                        </div>
+                      )}
+                      <div className="meta-item">
+                        <div className="meta-icon"><MapPin size={16} color="var(--cyan)" /></div>
+                        {event.location}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </Reveal>
+          );
+        })}
+      </div>
+
     </div>
   );
 }

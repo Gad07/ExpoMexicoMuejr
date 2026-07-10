@@ -45,7 +45,7 @@ export const mexicanStates = [
     name: 'Ciudad de México',
     img: '/Galeria/Gastronomia/IMG_5924.JPG',
     size: 'large',
-    desc: 'Empresarias y emprendedoras de la capital del país.',
+    desc: 'Liderazgo, cultura y visión global desde la capital.',
     carousel: ['/Galeria/Gastronomia/IMG_5940.JPG', '/Galeria/Gastronomia/IMG_6008.JPG', '/Galeria/Gastronomia/IMG_5981.JPG']
   },
   {
@@ -224,167 +224,77 @@ export const mexicanStates = [
   }
 ];
 
-export const mockExhibitors = [
+export const mockAmbassadors = [
   {
-    id: '1',
-    slug: 'artesanias-zacatecas',
-    name: 'Artesanías Zacatecanas',
-    personName: 'María Rodríguez',
-    description: 'Producción de textiles y bordados tradicionales con un toque contemporáneo. Nuestro objetivo es llevar la cultura mexicana a Canadá con alta calidad y diseño único. Cada pieza está hecha a mano por artesanas de las comunidades rurales de Zacatecas.',
-    state: 'Zacatecas',
-    category: 'Artesanías',
-    website: 'https://ejemplo.com',
-    social: '@artesaniaszacatecanas',
-    contact: 'contacto@ejemplo.com',
-    booth: 'Pabellón B - Stand 104',
-    logo: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=150&q=80',
-    personPhoto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-    bio: 'María es una emprendedora apasionada por preservar las técnicas textiles prehispánicas.',
-    gallery: ['/Galeria/Artesanias/IMG_5931.JPG']
+    id: 'emb-1',
+    slug: 'claudia-ramirez',
+    name: 'Claudia Ramírez',
+    state: 'Jalisco',
+    photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
+    description: 'Embajadora apasionada por el desarrollo económico de las mujeres de Jalisco. Líder comunitaria con más de 15 años impulsando el talento femenino en el ámbito empresarial y cultural del occidente del país.',
+    booth: 'Pabellón Jalisco – Mesa A-01'
   },
   {
-    id: '2',
-    slug: 'tech-women-sonora',
-    name: 'Tech Women Sonora',
-    personName: 'Ana Silvia',
-    description: 'Soluciones de software y automatización para pequeñas empresas. Liderando el sector STEM en el norte del país con desarrollo ágil y plataformas e-commerce a medida.',
-    state: 'Sonora',
-    category: 'Tecnología',
-    website: 'https://ejemplo.com',
-    social: '@techwomensonora',
-    contact: 'contacto@ejemplo.com',
-    booth: 'Pabellón Innovación - Stand 45',
-    logo: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=150&q=80',
-    personPhoto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-    bio: 'Ana Silvia fundó Tech Women Sonora para empoderar a más mujeres en áreas STEM.',
-    gallery: ['/Galeria/Otros/IMG_4805.JPG']
+    id: 'emb-2',
+    slug: 'mariana-lopez',
+    name: 'Mariana López',
+    state: 'Jalisco',
+    photo: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=400&q=80',
+    description: 'Promotora cultural y representante de las artesanas jaliscienses en foros internacionales. Su misión es visibilizar el trabajo de las mujeres creativas en el mercado de Norteamérica.',
+    booth: 'Pabellón Jalisco – Mesa A-02'
   },
   {
-    id: '3',
-    slug: 'sabor-hidrocalido',
-    name: 'Sabor Hidrocálido',
-    personName: 'Elena Martínez',
-    description: 'Exportación de dulces típicos y productos de guayaba de Aguascalientes. Llevando el dulce sabor de México a todo el mundo con certificaciones internacionales de calidad.',
-    state: 'Aguascalientes',
-    category: 'Gastronomía',
-    website: 'https://ejemplo.com',
-    social: '@saborhidrocalido',
-    contact: 'contacto@ejemplo.com',
-    booth: 'Pabellón Gastronómico - Stand 08',
-    logo: 'https://images.unsplash.com/photo-1556910110-a5a63dfd393c?auto=format&fit=crop&w=150&q=80',
-    personPhoto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-    bio: 'Con más de 10 años en la industria, Elena lleva el sabor tradicional de su tierra a nuevos mercados.',
-    gallery: ['/Galeria/Gastronomia/IMG_5940.JPG']
+    id: 'emb-3',
+    slug: 'patricia-moreno',
+    name: 'Patricia Moreno',
+    state: 'Ciudad de México',
+    photo: 'https://images.unsplash.com/photo-1551836022-deb4988cc6c0?auto=format&fit=crop&w=400&q=80',
+    description: 'Representante de organizaciones de mujeres emprendedoras del Valle de México. Coordina redes de apoyo para mujeres en situación de vulnerabilidad que buscan independencia económica.',
+    booth: 'Pabellón CDMX – Mesa B-01'
   },
   {
-    id: '4',
-    slug: 'moda-yucatan',
-    name: 'Henequén & Moda',
-    personName: 'Sofía Castillo',
-    description: 'Diseño de moda sustentable utilizando fibra de henequén de Yucatán, combinando las tendencias globales con la rica tradición maya de la península.',
+    id: 'emb-4',
+    slug: 'sofia-hernandez',
+    name: 'Sofía Hernández',
+    state: 'Oaxaca',
+    photo: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80',
+    description: 'Vocera del movimiento de mujeres indígenas empresarias de Oaxaca. Conecta a comunidades artesanales con mercados internacionales, preservando lenguas y tradiciones ancestrales.',
+    booth: 'Pabellón Oaxaca – Mesa C-01'
+  },
+  {
+    id: 'emb-5',
+    slug: 'andrea-vega',
+    name: 'Andrea Vega',
+    state: 'Nuevo León',
+    photo: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=400&q=80',
+    description: 'Embajadora del ecosistema tech femenino de Monterrey. Mentora activa de startups lideradas por mujeres y promotora de la educación STEM en comunidades del noreste de México.',
+    booth: 'Pabellón NL – Mesa D-01'
+  },
+  {
+    id: 'emb-6',
+    slug: 'isabel-ruiz',
+    name: 'Isabel Ruiz',
     state: 'Yucatán',
-    category: 'Moda y Textiles',
-    website: 'https://ejemplo.com',
-    social: '@henequenmoda',
-    contact: 'contacto@ejemplo.com',
-    booth: 'Pabellón Textil - Stand 22',
-    logo: 'https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=150&q=80',
-    personPhoto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-    bio: 'Sofía es una diseñadora que rescata técnicas milenarias con diseños de impacto internacional.',
-    gallery: ['/Galeria/Moda_y_textiles/IMG_6031.JPG']
+    photo: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80',
+    description: 'Representante de la industria turística y textil de Yucatán. Promueve la integración de la cosmovisión maya en modelos de negocio contemporáneos con proyección global.',
+    booth: 'Pabellón Yucatán – Mesa E-01'
+  },
+  {
+    id: 'emb-7',
+    slug: 'valentina-cruz',
+    name: 'Valentina Cruz',
+    state: 'Puebla',
+    photo: 'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?auto=format&fit=crop&w=400&q=80',
+    description: 'Impulsora del sector gastronómico y textil poblano a nivel internacional. Trabaja estrechamente con cooperativas de bordadoras y cocineras tradicionales de la región de la Mixteca.',
+    booth: 'Pabellón Puebla – Mesa F-01'
+  },
+  {
+    id: 'emb-8',
+    slug: 'fernanda-delgado',
+    name: 'Fernanda Delgado',
+    state: 'Veracruz',
+    photo: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80',
+    description: 'Vocera del talento veracruzano en los foros de la economía del Pacífico. Especialista en agronegocios liderados por mujeres y en la cadena de valor del café de altura.',
+    booth: 'Pabellón Veracruz – Mesa G-01'
   }
-];
-
-export const businessCategories = [
-  {
-    name: 'Alimentos Procesados',
-    img: '/Galeria/Gastronomia/IMG_5940.JPG',
-    size: 'wide',
-    desc: 'Productos alimenticios de alta calidad y valor agregado.',
-    carousel: ['/Galeria/Gastronomia/IMG_5940.JPG', '/Galeria/Gastronomia/IMG_5981.JPG', '/Galeria/Gastronomia/IMG_6008.JPG']
-  },
-  {
-    name: 'Tecnología',
-    img: '/Galeria/Otros/IMG_4805.JPG',
-    size: 'tall',
-    desc: 'Innovación digital, software y soluciones tecnológicas.',
-    carousel: ['/Galeria/Otros/IMG_4805.JPG', '/Galeria/Ponencias/IMG_5169.JPG', '/Galeria/Ponencias/IMG_4931.JPG']
-  },
-  {
-    name: 'Educación',
-    img: '/Galeria/Ponencias/IMG_6323.JPG',
-    size: 'large',
-    desc: 'Plataformas educativas, capacitación y formación profesional.',
-    carousel: ['/Galeria/Ponencias/IMG_6323.JPG', '/Galeria/Ponencias/IMG_6117.JPG', '/Galeria/Ponencias/IMG_5999.JPG']
-  },
-  {
-    name: 'Energía',
-    img: '/Galeria/Ponencias/IMG_5999.JPG',
-    size: 'tall',
-    desc: 'Energías renovables y soluciones sustentables.',
-    carousel: ['/Galeria/Ponencias/IMG_5999.JPG', '/Galeria/Otros/IMG_4805.JPG', '/Galeria/Ponencias/IMG_4931.JPG']
-  },
-  {
-    name: 'Transporte y Logística',
-    img: '/Galeria/Turismo/IMG_5990.JPG',
-    size: 'wide',
-    desc: 'Servicios de transporte, distribución y cadena de suministro.',
-    carousel: ['/Galeria/Turismo/IMG_5990.JPG', '/Galeria/Turismo/IMG_6140.JPG', '/Galeria/Turismo/IMG_5986.JPG']
-  },
-  {
-    name: 'Turismo',
-    img: '/Galeria/Turismo/IMG_6140.JPG',
-    size: 'large',
-    desc: 'Destinos, hospitalidad y experiencias turísticas únicas.',
-    carousel: ['/Galeria/Turismo/IMG_6140.JPG', '/Galeria/Turismo/IMG_5986.JPG', '/Galeria/Turismo/IMG_5990.JPG']
-  },
-  {
-    name: 'Restaurantes',
-    img: '/Galeria/Gastronomia/IMG_5924.JPG',
-    size: 'tall',
-    desc: 'Gastronomía, cocina mexicana y experiencias culinarias.',
-    carousel: ['/Galeria/Gastronomia/IMG_5924.JPG', '/Galeria/Gastronomia/IMG_5940.JPG', '/Galeria/Gastronomia/IMG_6008.JPG']
-  },
-  {
-    name: 'Textiles',
-    img: '/Galeria/Moda_y_textiles/IMG_6036.JPG',
-    size: 'wide',
-    desc: 'Moda, confección y diseño textil con identidad mexicana.',
-    carousel: ['/Galeria/Moda_y_textiles/IMG_6036.JPG', '/Galeria/Moda_y_textiles/IMG_6032.JPG', '/Galeria/Moda_y_textiles/IMG_6023.JPG']
-  },
-  {
-    name: 'Arte y Cultura',
-    img: '/Galeria/Arte_y_Cultura/IMG_5885.JPG',
-    size: 'large',
-    desc: 'Expresiones artísticas, música, cine y patrimonio cultural.',
-    carousel: ['/Galeria/Arte_y_Cultura/IMG_5885.JPG', '/Galeria/Arte_y_Cultura/IMG_5967.JPG', '/Galeria/Arte_y_Cultura/IMG_6244.JPG']
-  },
-  {
-    name: 'Bienes Raíces',
-    img: '/Galeria/Ponencias/IMG_4931.JPG',
-    size: 'tall',
-    desc: 'Desarrollos inmobiliarios, inversión y gestión de propiedades.',
-    carousel: ['/Galeria/Ponencias/IMG_4931.JPG', '/Galeria/Ponencias/IMG_5169.JPG', '/Galeria/Turismo/IMG_6140.JPG']
-  },
-  {
-    name: 'Salud y Belleza',
-    img: '/Galeria/Arte_y_Cultura/IMG_5945.JPG',
-    size: 'wide',
-    desc: 'Bienestar, cosméticos, estética y servicios de salud.',
-    carousel: ['/Galeria/Arte_y_Cultura/IMG_5945.JPG', '/Galeria/Moda_y_textiles/IMG_6031.JPG', '/Galeria/Arte_y_Cultura/IMG_5967.JPG']
-  },
-  {
-    name: 'Artesanías',
-    img: '/Galeria/Artesanias/IMG_5931.JPG',
-    size: 'large',
-    desc: 'Artesanía tradicional y productos hechos a mano con identidad única.',
-    carousel: ['/Galeria/Artesanias/IMG_5931.JPG', '/Galeria/Artesanias/IMG_5928.JPG', '/Galeria/Artesanias/IMG_5932.JPG']
-  },
-];
-
-export const industries = [
-  { name: 'Artesanías', img: '/Galeria/Artesanias/IMG_5931.JPG', size: 'large' },
-  { name: 'Tecnología', img: '/Galeria/Otros/IMG_4805.JPG', size: 'tall' },
-  { name: 'Gastronomía', img: '/Galeria/Gastronomia/IMG_5940.JPG', size: 'wide' },
-  { name: 'Moda y Textiles', img: '/Galeria/Moda_y_textiles/IMG_6031.JPG', size: 'tall' }
 ];

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { mexicanStates, mockExhibitors } from '../data/expositores';
+import { mexicanStates, mockExhibitors, businessCategories } from '../data/expositores';
 import { Search, ChevronLeft, MapPin, Calendar, Clock, Map } from 'lucide-react';
 
 function Reveal({
@@ -45,22 +45,22 @@ function ExpositoresContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   
-  const [activeState, setActiveState] = useState<string | null>(searchParams ? searchParams.get('estado') : null);
+  const [activeCategory, setActiveCategory] = useState<string | null>(searchParams ? searchParams.get('categoria') : null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [stateSearchQuery, setStateSearchQuery] = useState('');
+  const [categorySearchQuery, setCategorySearchQuery] = useState('');
 
-  // Update URL when activeState changes to allow sharing links or going back
+  // Update URL when activeCategory changes
   useEffect(() => {
-    if (activeState) {
+    if (activeCategory) {
       const url = new URL(window.location.href);
-      url.searchParams.set('estado', activeState);
+      url.searchParams.set('categoria', activeCategory);
       router.replace(url.pathname + url.search, { scroll: false });
     } else {
       const url = new URL(window.location.href);
-      url.searchParams.delete('estado');
+      url.searchParams.delete('categoria');
       router.replace(url.pathname + url.search, { scroll: false });
     }
-  }, [activeState, router]);
+  }, [activeCategory, router]);
   
   // Modal states for Calendar and Map
   const [showCalendar, setShowCalendar] = useState(false);
@@ -69,22 +69,32 @@ function ExpositoresContent() {
   
   const [appointmentDate, setAppointmentDate] = useState('12');
   const [appointmentTime, setAppointmentTime] = useState('10:00');
+  const [appointmentName, setAppointmentName] = useState('');
+  const [appointmentEmail, setAppointmentEmail] = useState('');
+  const [appointmentPhone, setAppointmentPhone] = useState('');
+  const [appointmentSent, setAppointmentSent] = useState(false);
 
-  // VISTA 2: Lista de Expositores por Estado
-  if (activeState) {
-    const stateData = mexicanStates.find(st => st.name === activeState);
+  // VISTA 2: Lista de Expositoras por Categoría
+  if (activeCategory) {
+    const categoryData = businessCategories.find(cat => cat.name === activeCategory);
     
-    // Filtrar expositores
+    // Filtrar expositoras
     const filteredExhibitors = mockExhibitors.filter(ex => {
-      const matchState = ex.state === activeState;
+      const matchCategory = ex.category === activeCategory;
       const matchSearch = ex.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           ex.personName.toLowerCase().includes(searchQuery.toLowerCase()) ||
                           ex.description.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchState && matchSearch;
+      return matchCategory && matchSearch;
     });
 
     const openCalendar = (ex: typeof mockExhibitors[0]) => {
       setSelectedExhibitor(ex);
+      setAppointmentSent(false);
+      setAppointmentName('');
+      setAppointmentEmail('');
+      setAppointmentPhone('');
+      setAppointmentDate('12');
+      setAppointmentTime('10:00');
       setShowCalendar(true);
     };
 
@@ -140,29 +150,221 @@ function ExpositoresContent() {
           .btn-map { background: rgba(228,0,124,0.06); color: var(--magenta); }
           .btn-map:hover { background: var(--magenta); color: #fff; }
           
-          /* Modals */
+          /* ── PREMIUM APPOINTMENT MODAL ── */
           .modal-overlay {
-            position: fixed; inset: 0; background: rgba(0,46,81,0.8); backdrop-filter: blur(8px);
-            z-index: 100; display: flex; align-items: center; justify-content: center; padding: 20px;
+            position: fixed; inset: 0;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            z-index: 200;
+            display: flex; align-items: center; justify-content: center;
+            padding: 20px;
+            animation: fadeInOverlay 0.3s ease;
+          }
+          @keyframes fadeInOverlay {
+            from { opacity: 0; }
+            to   { opacity: 1; }
           }
           .modal-content {
-            background: #fff; border-radius: 24px; width: 100%; max-width: 500px;
-            padding: 40px; position: relative; box-shadow: 0 24px 60px rgba(0,0,0,0.2);
+            background: #fff;
+            border-radius: 28px; width: 100%; max-width: 820px;
+            position: relative; box-shadow: 0 40px 100px rgba(0,0,0,0.35);
+            display: flex; align-items: stretch; overflow: hidden;
+            animation: slideUpModal 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            max-height: 92vh;
+          }
+          /* pseudo-elemento que garantiza navy en toda la altura del panel izq */
+          .modal-content::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 240px;
+            background: #002E51;
+            z-index: 0;
+            pointer-events: none;
+          }
+          @keyframes slideUpModal {
+            from { opacity: 0; transform: translateY(30px) scale(0.97); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+          }
+          .modal-left {
+            width: 240px; flex-shrink: 0;
+            padding: 40px 28px;
+            display: flex; flex-direction: column;
+            position: relative; z-index: 1;
+            overflow: hidden;
+            align-self: stretch;
+          }
+          .modal-left::before {
+            content: '';
+            position: absolute; bottom: -60px; right: -60px;
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(228,0,124,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+          }
+          .modal-left-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+            font-family: var(--font-display); font-weight: 800;
+            font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;
+            padding: 5px 12px; border-radius: 100px; margin-bottom: 20px;
+          }
+          .modal-left-title {
+            font-family: var(--font-display);
+            font-size: 1.35rem; font-weight: 900;
+            color: #fff; line-height: 1.15;
+            margin: 0 0 8px;
+          }
+          .modal-left-sub {
+            font-size: 0.82rem; color: rgba(255,255,255,0.55);
+            margin: 0 0 28px;
+          }
+          .modal-left-divider {
+            height: 1px; background: rgba(255,255,255,0.12);
+            margin-bottom: 24px;
+          }
+          .modal-left-info-row {
+            display: flex; align-items: flex-start; gap: 10px;
+            margin-bottom: 16px;
+          }
+          .modal-left-info-icon {
+            width: 28px; height: 28px; border-radius: 8px;
+            background: rgba(255,255,255,0.08);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; color: var(--cyan);
+          }
+          .modal-left-info-label {
+            font-family: var(--font-display); font-size: 0.65rem; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.4); display: block; margin-bottom: 2px;
+          }
+          .modal-left-info-val {
+            font-size: 0.82rem; color: rgba(255,255,255,0.9); line-height: 1.4;
+          }
+          .modal-right {
+            flex: 1; padding: 40px; overflow-y: auto;
           }
           .modal-close {
-            position: absolute; top: 24px; right: 24px; background: none; border: none;
-            font-size: 24px; cursor: pointer; color: var(--text-muted);
+            position: absolute; top: 16px; right: 16px;
+            width: 36px; height: 36px; border-radius: 50%;
+            background: rgba(0,0,0,0.06); border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            color: #666; font-size: 18px; z-index: 10;
+            transition: background 0.2s, color 0.2s;
           }
-          .form-select {
-            width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1);
-            font-family: var(--font-body); font-size: 1rem; margin-top: 8px; outline: none;
+          .modal-close:hover { background: rgba(228,0,124,0.1); color: var(--magenta); }
+          .modal-section-label {
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 0.18em;
+            color: var(--magenta); margin-bottom: 14px; display: block;
           }
-          .btn-submit {
-            width: 100%; padding: 16px; border-radius: 8px; background: var(--navy); color: #fff;
-            border: none; font-family: var(--font-display); font-weight: 800; text-transform: uppercase;
-            letter-spacing: 0.1em; margin-top: 24px; cursor: pointer; transition: background 0.3s;
+          .modal-section-title {
+            font-family: var(--font-display); font-size: 1.4rem;
+            font-weight: 900; color: var(--navy); margin: 0 0 24px;
           }
-          .btn-submit:hover { background: var(--magenta); }
+          /* Date chips */
+          .date-chips {
+            display: flex; gap: 10px; margin-bottom: 28px; flex-wrap: wrap;
+          }
+          .date-chip {
+            flex: 1; min-width: 120px;
+            padding: 14px 12px; border-radius: 14px;
+            border: 2px solid rgba(0,0,0,0.08);
+            background: #fafafa; cursor: pointer;
+            text-align: center; transition: all 0.25s;
+            font-family: var(--font-display);
+          }
+          .date-chip:hover { border-color: var(--navy); background: rgba(0,46,81,0.03); }
+          .date-chip.active {
+            border-color: var(--navy); background: var(--navy); color: #fff;
+          }
+          .date-chip-day {
+            font-size: 0.65rem; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 0.12em;
+            opacity: 0.6; display: block; margin-bottom: 4px;
+          }
+          .date-chip.active .date-chip-day { opacity: 0.7; }
+          .date-chip-num {
+            font-size: 1.6rem; font-weight: 900; line-height: 1;
+            display: block; margin-bottom: 2px;
+          }
+          .date-chip-month {
+            font-size: 0.72rem; font-weight: 700;
+            opacity: 0.55;
+          }
+          .date-chip.active .date-chip-month { opacity: 0.8; }
+          /* Time chips */
+          .time-chips {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 8px; margin-bottom: 28px;
+          }
+          .time-chip {
+            padding: 12px 6px; border-radius: 10px;
+            border: 2px solid rgba(0,0,0,0.08);
+            background: #fafafa; cursor: pointer;
+            text-align: center;
+            font-family: var(--font-display); font-size: 0.82rem; font-weight: 800;
+            transition: all 0.25s;
+          }
+          .time-chip:hover { border-color: var(--magenta); color: var(--magenta); background: rgba(228,0,124,0.04); }
+          .time-chip.active {
+            border-color: var(--magenta); background: var(--magenta); color: #fff;
+          }
+          /* Form inputs */
+          .appt-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+          .appt-form-group { display: flex; flex-direction: column; gap: 6px; }
+          .appt-form-label {
+            font-family: var(--font-display); font-size: 0.68rem; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 0.12em; color: #555;
+          }
+          .appt-form-label span { color: var(--magenta); }
+          .appt-input {
+            padding: 12px 14px; border-radius: 10px;
+            border: 1.5px solid rgba(0,0,0,0.1);
+            font-family: var(--font-body); font-size: 0.9rem; outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s; background: #fafafa;
+          }
+          .appt-input:focus { border-color: var(--magenta); box-shadow: 0 0 0 4px rgba(228,0,124,0.07); background: #fff; }
+          .appt-btn-submit {
+            width: 100%; padding: 16px; border-radius: 14px;
+            background: linear-gradient(135deg, var(--magenta) 0%, #c0006a 100%);
+            color: #fff; border: none;
+            font-family: var(--font-display); font-weight: 900;
+            font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.15em;
+            cursor: pointer; margin-top: 4px;
+            box-shadow: 0 8px 24px rgba(228,0,124,0.35);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+          }
+          .appt-btn-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(228,0,124,0.45); }
+          .appt-btn-submit:active { transform: translateY(0); }
+          /* Success state */
+          .success-card {
+            display: flex; flex-direction: column; align-items: center;
+            text-align: center; padding: 40px 20px;
+          }
+          .success-ring {
+            width: 80px; height: 80px; border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0,46,81,0.06), rgba(228,0,124,0.06));
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 24px;
+            box-shadow: 0 0 0 12px rgba(228,0,124,0.04);
+            font-size: 2.2rem; color: var(--magenta);
+          }
+          .btn-submit { display: none; }
+          .form-select { display: none; }
+          @media (max-width: 900px) {
+            .modal-content { flex-direction: column; }
+            .modal-content::before { display: none; }
+            .modal-left { width: 100%; padding: 28px; background: #002E51; }
+            .time-chips { grid-template-columns: repeat(2, 1fr); }
+            .appt-form-row { grid-template-columns: 1fr; }
+            .exh-topbar { flex-direction: column; gap: 20px; align-items: stretch; }
+            .exhibitors-container { padding: 40px 16px !important; }
+            .category-card { padding: 24px; }
+            .exh-card-inner { padding: 20px; }
+          }
         `}</style>
 
         <section className="exhibitors-container" style={{ padding: '80px 48px', minHeight: '80vh', background: 'var(--cream)', position: 'relative' }}>
@@ -172,10 +374,10 @@ function ExpositoresContent() {
             <div className="exh-topbar">
               <button 
                 className="btn-back"
-                onClick={() => { setActiveState(null); setSearchQuery(''); }}
+                onClick={() => { setActiveCategory(null); setSearchQuery(''); }}
               >
                 <ChevronLeft size={24} />
-                Volver a Estados
+                Volver a Categorías
               </button>
               
               <div className="exh-search-wrapper">
@@ -192,9 +394,9 @@ function ExpositoresContent() {
 
             <Reveal>
               <div style={{ marginBottom: '64px' }}>
-                <span className="section__label">Directorio de Expositores</span>
+                <span className="section__label">Directorio de Expositoras</span>
                 <h2 className="section__title" style={{ marginTop: '8px' }}>
-                  Marcas en <br /><em>{activeState}</em>
+                  Marcas en <br /><em>{activeCategory}</em>
                 </h2>
               </div>
             </Reveal>
@@ -241,7 +443,12 @@ function ExpositoresContent() {
                       </Link>
 
                       {/* ACTIONS */}
-                      <div style={{ padding: '0 24px 24px', display: 'flex', gap: '12px', marginTop: 'auto' }}>
+                      <div style={{ padding: '0 24px 24px', display: 'flex', gap: '10px', marginTop: 'auto', flexDirection: 'column' }}>
+                        <button className="action-btn btn-calendar" onClick={() => openCalendar(ex)} style={{ width: '100%', padding: '12px', borderRadius: '10px', background: 'var(--magenta)', color: '#fff', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.1em', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', transition: 'background 0.25s, transform 0.2s' }}
+                          onMouseOver={e => (e.currentTarget.style.background = 'var(--navy)')}
+                          onMouseOut={e => (e.currentTarget.style.background = 'var(--magenta)')}>
+                          <Calendar size={15} /> Agendar Cita Presencial
+                        </button>
                         <button className="action-btn btn-map" onClick={() => openMap(ex)}>
                           <Map size={16} /> Ver en Mapa
                         </button>
@@ -260,35 +467,117 @@ function ExpositoresContent() {
           </div>
         </section>
 
-        {/* CALENDAR MODAL */}
+        {/* CALENDAR MODAL – PREMIUM REDESIGN */}
         {showCalendar && selectedExhibitor && (
           <div className="modal-overlay" onClick={(e) => { if (e.target === e.currentTarget) setShowCalendar(false); }}>
             <div className="modal-content">
               <button className="modal-close" onClick={() => setShowCalendar(false)}>×</button>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', color: 'var(--navy)', marginBottom: '8px' }}>Agendar Cita</h3>
-              <p style={{ color: 'var(--text-muted)', marginBottom: '32px' }}>Con <strong>{selectedExhibitor.name}</strong> ({selectedExhibitor.personName})</p>
-              
-              <div style={{ marginBottom: '20px' }}>
-                <label style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Día de la cita</label>
-                <select className="form-select" value={appointmentDate} onChange={e => setAppointmentDate(e.target.value)}>
-                  <option value="12">Viernes 12 de Junio, 2027</option>
-                  <option value="13">Sábado 13 de Junio, 2027</option>
-                </select>
+
+              {/* LEFT PANEL */}
+              <div className="modal-left">
+                <span className="modal-left-tag">Cita Presencial</span>
+                <p className="modal-left-title">{selectedExhibitor.name}</p>
+                <p className="modal-left-sub">por {selectedExhibitor.personName}</p>
+                <div className="modal-left-divider" />
+                <div className="modal-left-info-row">
+                  <div className="modal-left-info-icon">
+                    <MapPin size={14} />
+                  </div>
+                  <div>
+                    <span className="modal-left-info-label">Stand</span>
+                    <span className="modal-left-info-val">{selectedExhibitor.booth}</span>
+                  </div>
+                </div>
+                <div className="modal-left-info-row">
+                  <div className="modal-left-info-icon">
+                    <Calendar size={14} />
+                  </div>
+                  <div>
+                    <span className="modal-left-info-label">Evento</span>
+                    <span className="modal-left-info-val">Expo México Mujer 2027</span>
+                  </div>
+                </div>
+                <div className="modal-left-info-row">
+                  <div className="modal-left-info-icon">
+                    <Clock size={14} />
+                  </div>
+                  <div>
+                    <span className="modal-left-info-label">Duración</span>
+                    <span className="modal-left-info-val">30 minutos</span>
+                  </div>
+                </div>
               </div>
 
-              <div style={{ marginBottom: '20px' }}>
-                <label style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Horario disponible</label>
-                <select className="form-select" value={appointmentTime} onChange={e => setAppointmentTime(e.target.value)}>
-                  <option value="10:00">10:00 AM</option>
-                  <option value="11:30">11:30 AM</option>
-                  <option value="14:00">02:00 PM</option>
-                  <option value="16:00">04:00 PM</option>
-                </select>
-              </div>
+              {/* RIGHT PANEL */}
+              <div className="modal-right">
+                {appointmentSent ? (
+                  <div className="success-card">
+                    <div className="success-ring">✓</div>
+                    <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: 'var(--navy)', margin: '0 0 10px' }}>¡Cita Confirmada!</h3>
+                    <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '28px', fontSize: '0.92rem' }}>
+                      Nos vemos el <strong>{appointmentDate === '12' ? 'Viernes 12' : 'Sábado 13'} de Junio</strong> a las <strong>{appointmentTime}</strong>.<br />
+                      Te enviamos la confirmación a <strong>{appointmentEmail}</strong>.
+                    </p>
+                    <button className="appt-btn-submit" style={{ maxWidth: '220px' }} onClick={() => setShowCalendar(false)}>Cerrar</button>
+                  </div>
+                ) : (
+                  <>
+                    <span className="modal-section-label">Reserva tu lugar</span>
+                    <h3 className="modal-section-title">Elige fecha y hora</h3>
 
-              <button className="btn-submit" onClick={() => { alert(`Cita solicitada el ${appointmentDate} de Junio a las ${appointmentTime}`); setShowCalendar(false); }}>
-                Confirmar Cita
-              </button>
+                    {/* Fecha chips */}
+                    <div className="date-chips">
+                      {[{val:'12', day:'Viernes', num:'12', month:'Jun 2027'}, {val:'13', day:'Sábado', num:'13', month:'Jun 2027'}].map(d => (
+                        <div key={d.val} className={`date-chip ${appointmentDate === d.val ? 'active' : ''}`} onClick={() => setAppointmentDate(d.val)}>
+                          <span className="date-chip-day">{d.day}</span>
+                          <span className="date-chip-num">{d.num}</span>
+                          <span className="date-chip-month">{d.month}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Horario chips */}
+                    <span className="modal-section-label">Horario disponible</span>
+                    <div className="time-chips">
+                      {[{val:'10:00',label:'10:00 AM'},{val:'11:30',label:'11:30 AM'},{val:'14:00',label:'02:00 PM'},{val:'16:00',label:'04:00 PM'}].map(t => (
+                        <div key={t.val} className={`time-chip ${appointmentTime === t.val ? 'active' : ''}`} onClick={() => setAppointmentTime(t.val)}>
+                          {t.label}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Datos de contacto */}
+                    <span className="modal-section-label">Tus datos</span>
+                    <div className="appt-form-group" style={{ marginBottom: '14px' }}>
+                      <label className="appt-form-label">Nombre completo <span>*</span></label>
+                      <input type="text" className="appt-input" placeholder="Ej. Laura González" required
+                        value={appointmentName} onChange={e => setAppointmentName(e.target.value)} />
+                    </div>
+                    <div className="appt-form-row">
+                      <div className="appt-form-group">
+                        <label className="appt-form-label">Correo <span>*</span></label>
+                        <input type="email" className="appt-input" placeholder="correo@ejemplo.com" required
+                          value={appointmentEmail} onChange={e => setAppointmentEmail(e.target.value)} />
+                      </div>
+                      <div className="appt-form-group">
+                        <label className="appt-form-label">WhatsApp <span>*</span></label>
+                        <input type="tel" className="appt-input" placeholder="+52 55 1234 5678" required
+                          value={appointmentPhone} onChange={e => setAppointmentPhone(e.target.value)} />
+                      </div>
+                    </div>
+
+                    <button className="appt-btn-submit" onClick={() => {
+                      if (!appointmentName || !appointmentEmail || !appointmentPhone) {
+                        alert('Por favor completa todos los campos.');
+                        return;
+                      }
+                      setAppointmentSent(true);
+                    }}>
+                      <Calendar size={16} /> Confirmar Cita Presencial
+                    </button>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         )}
@@ -333,6 +622,13 @@ function ExpositoresContent() {
           grid-auto-rows: 280px;
           grid-auto-flow: dense;
           gap: 24px;
+        }
+        @media (max-width: 900px) {
+          .state-card {
+            grid-column: span 1 !important;
+            grid-row: span 1 !important;
+            min-height: 240px;
+          }
         }
         .state-card {
           position: relative;
@@ -395,12 +691,12 @@ function ExpositoresContent() {
           
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: '80px', maxWidth: '800px', margin: '0 auto 80px' }}>
-              <span className="section__label">Directorio de Expositores</span>
+              <span className="section__label">Directorio de Expositoras</span>
               <h2 className="section__title" style={{ marginTop: '16px' }}>
-                Descubre el talento por <br /><em>Estados de México</em>
+                Descubre el talento por <br /><em>Categoría de Negocio</em>
               </h2>
               <p className="section__desc">
-                Explora las marcas, productos y servicios que las mujeres emprendedoras de cada región de México traen a Toronto. Haz clic en un estado para ver su directorio.
+                Explora las marcas, productos y servicios que las mujeres emprendedoras de México traen a Toronto. Haz clic en una categoría para ver su directorio.
               </p>
             </div>
           </Reveal>
@@ -410,9 +706,9 @@ function ExpositoresContent() {
               <Search size={20} style={{ position: 'absolute', left: '20px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
               <input 
                 type="text"
-                placeholder="Buscar estado..."
-                value={stateSearchQuery}
-                onChange={(e) => setStateSearchQuery(e.target.value)}
+                placeholder="Buscar categoría..."
+                value={categorySearchQuery}
+                onChange={(e) => setCategorySearchQuery(e.target.value)}
                 style={{
                   width: '100%', padding: '16px 24px 16px 54px', borderRadius: '30px', border: '1px solid rgba(0,0,0,0.1)',
                   fontFamily: 'var(--font-body)', fontSize: '1rem', outline: 'none', boxShadow: '0 10px 30px rgba(0,0,0,0.02)'
@@ -422,21 +718,21 @@ function ExpositoresContent() {
           </div>
 
           <div className="state-grid">
-            {mexicanStates.filter(s => s.name.toLowerCase().includes(stateSearchQuery.toLowerCase())).map((state, i) => (
+            {businessCategories.filter(c => c.name.toLowerCase().includes(categorySearchQuery.toLowerCase())).map((cat, i) => (
               <Reveal 
-                key={state.name} 
+                key={cat.name} 
                 delay={i * 100} 
                 className="state-card"
-                onClick={() => setActiveState(state.name)}
+                onClick={() => setActiveCategory(cat.name)}
                 style={{
-                  gridColumn: state.size === 'wide' ? 'span 2' : 'span 1',
-                  gridRow: state.size === 'tall' ? 'span 2' : 'span 1',
+                  gridColumn: cat.size === 'wide' ? 'span 2' : 'span 1',
+                  gridRow: cat.size === 'tall' ? 'span 2' : 'span 1',
                 }}
               >
-                <img src={state.img} alt={state.name} className="state-img" />
+                <img src={cat.img} alt={cat.name} className="state-img" />
                 <div className="state-overlay">
-                  <h3 className="state-title">{state.name}</h3>
-                  <p className="state-desc">{state.desc}</p>
+                  <h3 className="state-title">{cat.name}</h3>
+                  <p className="state-desc">{cat.desc}</p>
                 </div>
               </Reveal>
             ))}

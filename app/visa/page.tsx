@@ -138,9 +138,8 @@ export default function VisaPage() {
         .visa-intro {
           padding: 80px 0;
           display: grid;
-          grid-template-columns: 1.2fr 1fr;
-          gap: 80px;
-          align-items: start;
+          grid-template-columns: 1fr;
+          gap: 40px;
           border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
 
@@ -796,42 +795,6 @@ export default function VisaPage() {
             </div>
           </div>
 
-          {/* Right Features Panel card */}
-          <div className="visa-intro__right">
-            <span className="visa-card__title">Garantía del Servicio</span>
-            
-            <div className="visa-features-list">
-              <div className="visa-feature-item">
-                <div className="visa-feature-icon-box">
-                  <ShieldCheck size={20} />
-                </div>
-                <div className="visa-feature-content">
-                  <span className="visa-feature-title">98% Aprobación</span>
-                  <span className="visa-feature-desc">Nuestras delegaciones binacionales logran tasas extraordinarias de aceptación gracias a expedientes robustos.</span>
-                </div>
-              </div>
-
-              <div className="visa-feature-item">
-                <div className="visa-feature-icon-box">
-                  <Award size={20} />
-                </div>
-                <div className="visa-feature-content">
-                  <span className="visa-feature-title">Soporte EMM Oficial</span>
-                  <span className="visa-feature-desc">Emitimos una carta de invitación institucional de negocios oficial de la Expo, requerida por el consulado.</span>
-                </div>
-              </div>
-
-              <div className="visa-feature-item">
-                <div className="visa-feature-icon-box">
-                  <Clock size={20} />
-                </div>
-                <div className="visa-feature-content">
-                  <span className="visa-feature-title">Acompañamiento 360°</span>
-                  <span className="visa-feature-desc">Revisión de documentos, traducción certificada al inglés, portal IRCC y agendamiento biométrico.</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </section>
       </div>
 
