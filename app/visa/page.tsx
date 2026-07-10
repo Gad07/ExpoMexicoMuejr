@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { 
   FileText, Check, ChevronDown, ChevronUp, AlertCircle, 
-  HelpCircle, Send, Passport, Award, Clock, ArrowRight, ShieldCheck 
+  HelpCircle, Send, IdCard, Award, Clock, ArrowRight, ShieldCheck 
 } from 'lucide-react';
 
 export default function VisaPage() {
