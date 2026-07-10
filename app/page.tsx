@@ -895,119 +895,82 @@ function ServiciosMigratorios() {
     <section className="section" id="servicios-migratorios" aria-labelledby="servicios-title" style={{ background: '#FAF8F5', position: 'relative', overflow: 'hidden', padding: '120px 24px' }}>
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(135deg, rgba(228,0,124,0.03) 0%, rgba(0,46,81,0.03) 100%)', pointerEvents: 'none' }} />
       <div className="section__inner" style={{ position: 'relative', zIndex: 2, maxWidth: '1200px', margin: '0 auto' }}>
-        <Reveal>
-          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-            <span style={{ display: 'inline-block', padding: '8px 24px', borderRadius: '100px', background: 'rgba(228,0,124,0.08)', color: 'var(--magenta)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '24px' }}>Acompañamiento Integral</span>
-            <h2 className="section__title" id="servicios-title" style={{ fontSize: 'clamp(3rem, 5vw, 4rem)', color: 'var(--navy)', marginBottom: '24px', lineHeight: 1.1 }}>
-              Servicios <em>Migratorios</em>
-            </h2>
-            <p className="section__desc" style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.25rem', color: '#555', lineHeight: 1.6 }}>
-              Ofrecemos asesoría y gestión especializada para asegurar tu participación en <strong>Expo México Mujer 2027</strong> sin contratiempos.
-              <br /><br />
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: '#fff', padding: '16px 32px', borderRadius: '100px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', fontSize: '1rem', color: 'var(--navy)', fontWeight: 600 }}>
-                <CheckCircle2 size={22} color="var(--magenta)" /> Servicios operados por LET (Patrocinador Oficial)
-              </span>
-            </p>
+
+        <div className="sm-grid">
+          {/* Left Column: Info & CTA */}
+          <div className="sm-info-col">
+            <Reveal>
+              <span className="sm-badge">Acompañamiento Integral</span>
+              <h2 className="section__title" id="servicios-title" style={{ fontSize: 'clamp(3rem, 5vw, 4rem)', color: 'var(--navy)', marginBottom: '24px', lineHeight: 1.1 }}>
+                Servicios <em>Migratorios</em>
+              </h2>
+              <p className="section__desc" style={{ fontSize: '1.2rem', color: '#555', lineHeight: 1.7, marginBottom: '32px' }}>
+                Facilitamos todos los trámites migratorios necesarios para que tu delegación comercial viaje a Toronto sin contratiempos. Nuestro equipo especializado te acompaña en cada paso, desde la solicitud hasta la aprobación.
+              </p>
+
+              <div className="sm-sponsor">
+                <CheckCircle2 size={24} color="var(--magenta)" />
+                <span>Servicios operados por <strong>LET</strong><br /><small>Patrocinador Oficial de Expo México Mujer</small></span>
+              </div>
+
+              <a href="https://grupo-let.com" className="sm-cta-btn" target="_blank" rel="noopener noreferrer">
+                <span>Conoce más en Grupo LET</span>
+                <ArrowRight size={20} />
+              </a>
+            </Reveal>
           </div>
-        </Reveal>
+
+          {/* Right Column: Services */}
+          <div className="sm-services-col">
+            <Reveal delay={200}>
+              <div className="sm-service-item">
+                <div className="sm-service-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="4" width="18" height="16" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                </div>
+                <div>
+                  <h3 className="sm-service-title">Visa Canadiense</h3>
+                  <p className="sm-service-desc">Gestión completa para el trámite de visado, garantizando que tu delegación comercial cumpla con todos los requisitos para tu viaje de negocios a Toronto.</p>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={300}>
+              <div className="sm-service-item">
+                <div className="sm-service-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                </div>
+                <div>
+                  <h3 className="sm-service-title">eTA Canadiense</h3>
+                  <p className="sm-service-desc">Procesamiento ágil de la Autorización Electrónica de Viaje (eTA) para participantes elegibles, asegurando un tránsito rápido y seguro hacia el evento.</p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
 
         <style>{`
-          .sm-card {
-            background: #fff; border-radius: 32px; padding: 48px;
-            box-shadow: 0 10px 40px rgba(0,46,81,0.04); border: 1px solid rgba(0,46,81,0.05);
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
-            position: relative; overflow: hidden; display: flex; flex-direction: column;
-            text-align: center;
-          }
-          .sm-card:hover { transform: translateY(-8px); box-shadow: 0 25px 60px rgba(0,46,81,0.08); }
-          .sm-card::before {
-            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: var(--blue);
-            transform: scaleX(0); transform-origin: left; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-          }
-          .sm-card:hover::before { transform: scaleX(1); background: var(--magenta); }
+          .sm-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center; }
+          .sm-badge { display: inline-block; padding: 8px 24px; border-radius: 100px; background: rgba(228,0,124,0.08); color: var(--magenta); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 24px; }
           
-          .sm-icon-wrap {
-            width: 88px; height: 88px; border-radius: 24px; background: #FAF8F5;
-            display: flex; align-items: center; justify-content: center; margin: 0 auto 32px;
-            color: var(--magenta); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-          }
-          .sm-card:hover .sm-icon-wrap { background: var(--magenta); color: #fff; transform: scale(1.1) rotate(-5deg); box-shadow: 0 15px 30px rgba(228,0,124,0.2); }
+          .sm-sponsor { display: flex; align-items: center; gap: 16px; background: #fff; padding: 24px 32px; border-radius: 24px; box-shadow: 0 10px 40px rgba(0,46,81,0.04); margin-bottom: 32px; border: 1px solid rgba(0,46,81,0.05); }
+          .sm-sponsor span { font-size: 1.05rem; color: var(--navy); line-height: 1.4; }
+          .sm-sponsor small { color: #888; font-size: 0.85rem; }
+          .sm-cta-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--navy); color: #fff; padding: 18px 36px; border-radius: 100px; font-weight: 700; text-decoration: none; font-size: 1.05rem; transition: all 0.3s ease; letter-spacing: 0.01em; }
+          .sm-cta-btn:hover { background: var(--magenta); transform: translateY(-3px); box-shadow: 0 15px 40px rgba(228,0,124,0.25); }
           
-          .sm-title { font-family: var(--font-display); font-size: 2.2rem; color: var(--navy); margin-bottom: 16px; font-weight: 400; line-height: 1.1; }
-          .sm-text { color: #555; line-height: 1.6; font-size: 1.15rem; flex: 1; margin-bottom: 48px; padding: 0 16px; }
-          
-          .sm-advisor {
-            background: #FAF8F5; border-radius: 24px; padding: 32px 24px;
-            text-align: left; margin-top: auto; border: 1px solid rgba(0,0,0,0.03);
-          }
-          .sm-advisor-label { font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; margin-bottom: 16px; text-align: center; }
-          .sm-advisor-action {
-            display: inline-flex; align-items: center; justify-content: space-between; width: 100%;
-            padding: 20px 28px; background: #fff; border-radius: 100px;
-            color: var(--navy); font-weight: 600; text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            font-size: 1.05rem;
-          }
-          .sm-advisor-action:hover { background: var(--magenta); color: #fff; border-color: var(--magenta); box-shadow: 0 15px 30px rgba(228,0,124,0.2); transform: translateY(-4px); }
-          .sm-advisor-icon { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-          .sm-advisor-action:hover .sm-advisor-icon { transform: translateX(6px); }
+          /* Service Items */
+          .sm-service-item { display: flex; gap: 24px; background: #fff; padding: 40px; border-radius: 32px; box-shadow: 0 10px 40px rgba(0,46,81,0.04); border: 1px solid rgba(0,46,81,0.05); margin-bottom: 24px; transition: transform 0.4s ease; }
+          .sm-service-item:hover { transform: translateX(10px); box-shadow: 0 20px 50px rgba(0,46,81,0.08); }
+          .sm-service-icon { width: 72px; height: 72px; flex-shrink: 0; background: #FAF8F5; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: var(--magenta); }
+          .sm-service-title { font-family: var(--font-display); font-size: 1.8rem; color: var(--navy); font-weight: 400; margin-bottom: 12px; }
+          .sm-service-desc { color: #555; line-height: 1.6; font-size: 1.05rem; }
 
-          @media (max-width: 768px) {
-            .sm-card { padding: 32px 24px; }
-            .sm-text { padding: 0; font-size: 1.05rem; }
-            .sm-advisor-action { padding: 16px 20px; font-size: 1rem; }
+          @media (max-width: 992px) {
+            .sm-grid { grid-template-columns: 1fr; gap: 40px; }
+            .sm-service-item { flex-direction: column; align-items: flex-start; padding: 32px; }
+            .sm-service-item { flex-direction: column; align-items: flex-start; padding: 32px; }
           }
         `}</style>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '40px' }}>
-
-          {/* VISA CARD */}
-          <Reveal delay={100}>
-            <div className="sm-card">
-              <div className="sm-icon-wrap">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="4" width="18" height="16" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              </div>
-              <h3 className="sm-title">Visa Canadiense</h3>
-              <p className="sm-text">
-                Gestión completa para el trámite de visado, garantizando que tu delegación comercial cumpla con todos los requisitos para tu viaje de negocios a Toronto.
-              </p>
-
-              <div className="sm-advisor">
-                <div className="sm-advisor-label">Canaliza tu info con nuestro asesor:</div>
-                <a href="https://wa.me/527225514645" className="sm-advisor-action" target="_blank" rel="noopener noreferrer">
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <Phone size={20} /> Luis García
-                  </span>
-                  <ArrowRight size={20} className="sm-advisor-icon" />
-                </a>
-              </div>
-            </div>
-          </Reveal>
-
-          {/* eTA CARD */}
-          <Reveal delay={200}>
-            <div className="sm-card">
-              <div className="sm-icon-wrap">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-              </div>
-              <h3 className="sm-title">eTA Canadiense</h3>
-              <p className="sm-text">
-                Procesamiento ágil de la Autorización Electrónica de Viaje (eTA) para participantes elegibles, asegurando un tránsito rápido y seguro hacia el evento.
-              </p>
-
-              <div className="sm-advisor">
-                <div className="sm-advisor-label">Canaliza tu info con nuestro asesor:</div>
-                <a href="https://wa.me/527225514645" className="sm-advisor-action" target="_blank" rel="noopener noreferrer">
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <Phone size={20} /> Luis García
-                  </span>
-                  <ArrowRight size={20} className="sm-advisor-icon" />
-                </a>
-              </div>
-            </div>
-          </Reveal>
-
-        </div>
       </div>
     </section>
   );

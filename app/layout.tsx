@@ -49,6 +49,7 @@ import Nav from '../components/Nav';
 import GlobalHero from '../components/GlobalHero';
 import Footer from '../components/Footer';
 import CtaSkyline from '../components/CtaSkyline';
+import ScrollToTop from '../components/ScrollToTop';
 
 export default function RootLayout({
   children,
@@ -56,6 +57,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${futura.variable} ${nunito.variable}`}>
       <body>
+        <ScrollToTop />
         <Nav />
         <GlobalHero />
         <main>{children}</main>

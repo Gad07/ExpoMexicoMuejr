@@ -191,7 +191,7 @@ export default function Nav() {
 
             <Link href="/visa" className="nav__link" onClick={closeMenu}>Trámites</Link>
 
-            <Link href="/#contacto" className="nav__link" onClick={closeMenu}>Contacto</Link>
+            <Link href="/contacto" className="nav__link" onClick={closeMenu}>Contacto</Link>
 
             <div className="nav__socials">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="nav__social-icon">

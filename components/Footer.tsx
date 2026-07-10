@@ -57,7 +57,7 @@ export default function Footer() {
                 <a href="mailto:francisco@expomexico.ca" className="v2-footer__link">francisco@expomexico.ca</a>
                 <a href="https://wa.link/jboroz" className="v2-footer__link" target="_blank" rel="noopener noreferrer">WhatsApp</a>
               </nav>
-              <a href="#contacto" className="v2-footer__cta-btn">Reservar Lugar</a>
+              <a href="/contacto" className="v2-footer__cta-btn">Reservar Lugar</a>
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@ export default function Footer() {
         <div className="v2-footer__bottom">
           <div className="v2-footer__bottom-inner">
             <p className="v2-footer__copy">
-              © 2027 Expo México Mujer · Toronto, Canadá · Todos los derechos reservados.
+              Todos los derechos reservados © 2027 Expo México Mujer .
             </p>
             <div className="v2-footer__bottom-links">
               <a href="#" className="v2-footer__bottom-link">Privacidad</a>
@@ -144,7 +144,7 @@ export default function Footer() {
       <div className="footer__bottom">
         <p className="footer__copy">
           © 2027 Expo México Mujer &nbsp;·&nbsp;
-          <span>Toronto, Canadá</span> &nbsp;·&nbsp; Todos los derechos reservados
+          Todos los derechos reservados
         </p>
         <p className="footer__dev">Desarrollado por Gadiel Palma</p>
         <div className="footer__bottom-links">
