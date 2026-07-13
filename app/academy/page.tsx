@@ -96,18 +96,19 @@ export default function AcademyPage() {
           {filteredCourses.length > 0 ? (
             filteredCourses.map((course, idx) => (
               <Reveal key={course.id} delay={idx * 50}>
-                <Link href={`/academy/${course.slug}`} style={{ display: 'block', textDecoration: 'none', height: '100%' }}>
-                  <div style={{ 
-                    background: '#fff', 
-                    borderRadius: '24px', 
-                    overflow: 'hidden', 
-                    boxShadow: '0 15px 35px rgba(0,25,76,0.06)',
-                    transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: '100%',
-                    position: 'relative'
-                  }}
+                <div id={course.id === 'acad-1' ? 'ingles' : course.id === 'acad-2' ? 'executive' : 'capacitacion'} style={{ scrollMarginTop: '120px' }}>
+                  <Link href={`/academy/${course.slug}`} style={{ display: 'block', textDecoration: 'none', height: '100%' }}>
+                    <div style={{ 
+                      background: '#fff', 
+                      borderRadius: '24px', 
+                      overflow: 'hidden', 
+                      boxShadow: '0 15px 35px rgba(0,25,76,0.06)',
+                      transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      height: '100%',
+                      position: 'relative'
+                    }}
                   onMouseOver={(e) => {
                     e.currentTarget.style.transform = 'translateY(-8px)';
                     e.currentTarget.style.boxShadow = '0 25px 50px rgba(0,25,76,0.12)';
@@ -151,9 +152,20 @@ export default function AcademyPage() {
                         {course.title}
                       </h3>
                       
-                      <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '24px', flexGrow: 1 }}>
+                      <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '16px', flexGrow: 1 }}>
                         {course.description.substring(0, 110)}...
                       </p>
+
+                      {course.features && (
+                        <div style={{ marginBottom: '24px' }}>
+                          <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--magenta)', display: 'block', marginBottom: '8px' }}>Incluye:</span>
+                          <ul style={{ margin: 0, paddingLeft: '16px', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.5, listStyleType: 'disc' }}>
+                            {course.features.map((feature, fIdx) => (
+                              <li key={fIdx} style={{ marginBottom: '4px' }}>{feature}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
 
                       <div style={{ display: 'flex', gap: '24px', marginBottom: '24px', fontSize: '0.8rem', color: 'var(--navy)', fontWeight: 600 }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><Clock size={14} color="var(--magenta)" /> {course.duration}</div>
@@ -169,7 +181,8 @@ export default function AcademyPage() {
                     </div>
                   </div>
                 </Link>
-              </Reveal>
+              </div>
+            </Reveal>
             ))
           ) : (
             <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '64px', background: '#fff', borderRadius: '24px' }}>

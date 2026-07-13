@@ -484,13 +484,58 @@ function EmbajadorasContent() {
       <section style={{ padding: '100px 48px', background: 'var(--cream)', minHeight: '90vh' }}>
         <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto' }}>
 
+          {/* Convocatoria Inicial */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'start', marginBottom: '100px' }}>
+            <Reveal delay={100}>
+              <div>
+                <span className="section__label" style={{ marginBottom: '12px' }}>Convocatoria Nacional</span>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '24px', lineHeight: 1.15 }}>
+                  Embajadoras de <br /><em>Expo México Mujer</em>
+                </h3>
+                <p style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'var(--text)', marginBottom: '32px' }}>
+                  Buscamos líderes empresariales, gestoras culturales y emprendedoras con visión global en cada estado de la República Mexicana para ser las portavoces del talento de sus regiones en Toronto, Canadá. 
+                </p>
+
+                {/* Requisitos y Fechas en dos sub-columnas */}
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginTop: '24px', borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '24px' }}>
+                  <div>
+                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.15rem', color: 'var(--navy)', fontWeight: 800, marginBottom: '12px' }}>Requisitos</h4>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+                      <li style={{ display: 'flex', gap: '8px' }}><span style={{ color: 'var(--magenta)' }}>•</span> Liderazgo y propuesta activa</li>
+                      <li style={{ display: 'flex', gap: '8px' }}><span style={{ color: 'var(--magenta)' }}>•</span> Proyecto con identidad regional</li>
+                      <li style={{ display: 'flex', gap: '8px' }}><span style={{ color: 'var(--magenta)' }}>•</span> Documentación de viaje vigente</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.15rem', color: 'var(--navy)', fontWeight: 800, marginBottom: '12px' }}>Fechas Clave</h4>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+                      <li style={{ display: 'flex', gap: '8px' }}><span style={{ color: 'var(--magenta)' }}>•</span> <strong>Apertura:</strong> Mayo 2026</li>
+                      <li style={{ display: 'flex', gap: '8px' }}><span style={{ color: 'var(--magenta)' }}>•</span> <strong>Cierre:</strong> Septiembre 2026</li>
+                      <li style={{ display: 'flex', gap: '8px' }}><span style={{ color: 'var(--magenta)' }}>•</span> <strong>Resultados:</strong> Octubre 2026</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={200}>
+              <div style={{ borderRadius: '32px', overflow: 'hidden', height: '480px', position: 'relative', boxShadow: '0 20px 40px rgba(0,46,81,0.06)' }}>
+                <img src="/Galeria/Arte_y_Cultura/IMG_5945.JPG" alt="Embajadoras Convocatoria" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px', background: 'rgba(255,255,255,0.9)', padding: '20px', borderRadius: '16px', backdropFilter: 'blur(10px)' }}>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--magenta)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Conexión Binacional</span>
+                  <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 800, margin: '4px 0 0 0', color: 'var(--navy)' }}>Representación Oficial 2027</h4>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
           <Reveal>
-            <div style={{ textAlign: 'center', marginBottom: '80px', maxWidth: '800px', margin: '0 auto 80px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '80px', maxWidth: '800px', margin: '0 auto 80px', paddingTop: '80px', borderTop: '1px solid rgba(0,0,0,0.1)' }}>
               <span className="section__label">Representantes por Estado</span>
-              <h2 className="section__title" style={{ marginTop: '16px' }}>
+              <h2 className="section__title section__title--center" style={{ marginTop: '16px' }}>
                 Conoce a nuestras <br /><em>Embajadoras de México</em>
               </h2>
-              <p className="section__desc">
+              <p className="section__desc section__desc--center">
                 Las Embajadoras de Expo México Mujer son líderes comprometidas con el desarrollo económico y social de sus comunidades. Selecciona un estado para conocerlas.
               </p>
             </div>
@@ -540,6 +585,29 @@ function EmbajadorasContent() {
               })
             }
           </div>
+
+          {/* Registro Oficial al final (Jotform) */}
+          <Reveal delay={250} style={{ textAlign: 'center', marginTop: '100px' }}>
+            <div style={{ background: '#fff', padding: '60px 40px', borderRadius: '32px', boxShadow: '0 20px 50px rgba(0,25,76,0.04)', maxWidth: '900px', margin: '0 auto' }}>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '16px' }}>Registro Oficial de Embajadoras</h3>
+              <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px' }}>
+                Completa el formulario de postulación oficial para solicitar ser la embajadora representante de tu estado en Expo México Mujer Toronto.
+              </p>
+              
+              <div style={{ width: '100%', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(0,0,0,0.05)', background: '#FAF8F5' }}>
+                <iframe
+                  id="JotFormIFrame-RegistroEmbajadoras"
+                  title="Registro Oficial de Embajadoras"
+                  src="https://form.jotform.com/241686259021053"
+                  frameBorder="0"
+                  style={{ width: '100%', height: '700px', border: 'none' }}
+                  scrolling="yes"
+                  allowFullScreen={true}
+                />
+              </div>
+            </div>
+          </Reveal>
+
         </div>
       </section>
     </div>

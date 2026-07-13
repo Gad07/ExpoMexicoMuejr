@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import styles from './WhatsAppChat.module.css';
 
@@ -8,7 +8,8 @@ export default function WhatsAppChat() {
   const [isOpen, setIsOpen] = useState(false);
   const [step, setStep] = useState(0); // 0: closed, 1: typing, 2: message shown
   const pathname = usePathname();
-
+  const [inputValue, setInputValue] = useState("");
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
   const toggleChat = () => {
     if (!isOpen) {
       setIsOpen(true);
@@ -62,7 +63,31 @@ export default function WhatsAppChat() {
     userMessage = "Hola, tengo una consulta general sobre la Expo México Mujer 2027.";
   }
 
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(userMessage)}`;
+  useEffect(() => {
+    setInputValue(userMessage);
+  }, [pathname, userMessage]);
+
+  useEffect(() => {
+    if (textareaRef.current) {
+      // Pequeño timeout para asegurar que el DOM haya renderizado el textarea
+      setTimeout(() => {
+        if (textareaRef.current) {
+          textareaRef.current.style.height = 'auto';
+          textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+        }
+      }, 0);
+    }
+  }, [inputValue, step]);
+
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(inputValue)}`;
+
+  const handleSend = () => {
+    if (!inputValue.trim()) return;
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    setInputValue("");
+    setIsOpen(false);
+    setTimeout(() => setStep(0), 300);
+  };
 
   const now = new Date();
   const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -74,13 +99,13 @@ export default function WhatsAppChat() {
         {/* Cabecera idéntica a WA */}
         <div className={styles.header}>
           <div className={styles.avatar}>
-            <img 
-              src="/recursos/logo-emm-corto.png" 
-              alt="Logo Expo México Mujer" 
+            <img
+              src="/recursos/logo-emm-corto.png"
+              alt="Logo Expo México Mujer"
             />
           </div>
           <div className={styles.headerInfo}>
-            <h3 className={styles.headerTitle}>Expo México Mujer</h3>
+            <h3 className={styles.headerTitle}>EXPO MEXICO MUJER 2027</h3>
             <p className={styles.headerSubtitle}>
               {step === 1 ? 'escribiendo...' : 'en línea'}
             </p>
@@ -101,7 +126,7 @@ export default function WhatsAppChat() {
           {step >= 1 && (
             <>
               {step === 1 ? (
-                <div className={`${styles.messageBubble} ${styles.typingBubble}`}>
+                <div key="typing" className={`${styles.messageBubble} ${styles.typingBubble}`}>
                   <div className={styles.typing}>
                     <div className={styles.dot}></div>
                     <div className={styles.dot}></div>
@@ -109,7 +134,7 @@ export default function WhatsAppChat() {
                   </div>
                 </div>
               ) : (
-                <div className={styles.messageBubble}>
+                <div key="message" className={styles.messageBubble}>
                   <span>
                     ¡Hola! 👋<br /><br />
                     {botMessage}
@@ -125,15 +150,45 @@ export default function WhatsAppChat() {
         <div className={styles.inputArea}>
           {step === 2 ? (
             <>
-              <div className={styles.fakeInput}>
-                {userMessage}
-              </div>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.sendIconBtn} aria-label="Enviar mensaje a WhatsApp">
-                {/* Ícono exacto de Enviar de WhatsApp Web */}
-                <svg viewBox="0 0 24 24" width="24" height="24">
-                  <path fill="currentColor" d="M1.101 21.757 23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z" />
+              <textarea
+                ref={textareaRef}
+                className={styles.realInput}
+                value={inputValue}
+                onChange={(e) => {
+                  setInputValue(e.target.value);
+                  e.target.style.height = 'auto';
+                  e.target.style.height = `${e.target.scrollHeight + 2}px`;
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    handleSend();
+                  }
+                }}
+                placeholder="Escribe un mensaje..."
+                rows={1}
+              />
+              <button
+                onClick={handleSend}
+                className={styles.sendIconBtn}
+                aria-label="Enviar mensaje a WhatsApp"
+                disabled={!inputValue.trim()}
+              >
+                <svg width="24" height="24" viewBox="0 0 400 400" aria-hidden="true">
+                  {/* Ícono 1: Avión de papel */}
+                  <path
+                    className={`${styles.sendIconPath} ${inputValue.trim() ? styles.iconActive : styles.iconInactive}`}
+                    style={{ fill: 'none', stroke: 'currentColor', strokeWidth: 32, strokeLinecap: 'round', strokeLinejoin: 'round' }}
+                    d="M168.83 200.504H79.218L33.04 44.284a1 1 0 0 1 1.386-1.188L365.083 199.04a1 1 0 0 1 .003 1.808L34.432 357.903a1 1 0 0 1-1.388-1.187l29.42-99.427"
+                  />
+                  {/* Ícono 2: Burbuja de WhatsApp */}
+                  <path
+                    className={`${styles.sendIconPath} ${!inputValue.trim() ? styles.iconActive : styles.iconInactive}`}
+                    style={{ fill: 'currentColor', stroke: 'none' }}
+                    d="M318.087 318.087c-52.982 52.982-132.708 62.922-195.725 29.82l-80.449 10.18 10.358-80.112C18.956 214.905 28.836 134.99 81.913 81.913c65.218-65.217 170.956-65.217 236.174 0 42.661 42.661 57.416 102.727 34.02 184.664-28.796 236.175-101.442 57.416-250.771 28.85-236.174-36.368zM93.364 290.963l18.423-11.838c35.617 20.916 71.055 30.686 112.592 30.686 112.181 0 203.447-91.246 203.447-203.447S336.56 3.02 224.379 3.02 20.933 94.162 20.933 206.342c0 38.647 13.916 77.295 34.298 107.618l-15.006 58.742 53.139-81.739z"
+                  />
                 </svg>
-              </a>
+              </button>
             </>
           ) : (
             <div style={{ height: '48px', width: '100%' }}></div> /* Espaciador proporcional al nuevo botón */
@@ -144,16 +199,18 @@ export default function WhatsAppChat() {
 
       {/* Botón flotante que desaparece cuando el chat está abierto */}
       <button
-        className={`${styles.toggleButton} ${isOpen ? styles.chatOpen : ''}`}
+        type="button"
+        aria-label="Abrir chat"
+        className={`${styles.jcCustomBtn} ${isOpen ? styles.chatOpen : ''}`}
         onClick={toggleChat}
-        aria-label="Abrir chat de WhatsApp"
       >
-        <div className={styles.iconWrapper}>
-          <svg className={styles.icon} viewBox="0 0 24 24">
-            {/* Ícono oficial de WA */}
+        <span aria-hidden="true" className={`${styles.jcPulse} ${styles.jcPulse1}`}></span>
+        <span aria-hidden="true" className={`${styles.jcPulse} ${styles.jcPulse2}`}></span>
+        <span aria-hidden="true" className={styles.jcIco}>
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="white">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.487-1.761-1.66-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
           </svg>
-        </div>
+        </span>
       </button>
     </div>
   );

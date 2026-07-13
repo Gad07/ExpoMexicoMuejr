@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Nunito_Sans, Jost } from 'next/font/google';
 import { LanguageProvider } from '@/context/LanguageContext';
 import './globals.css';
+import './mega-menu.css';
 
 /**
  * Jost — geometrisk sans-serif, el substituto open-source más fiel a Futura.

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { mexicanStates, mockExhibitors, businessCategories } from '../data/expositores';
-import { Search, ChevronLeft, MapPin, Calendar, Clock, Map } from 'lucide-react';
+import { Search, ChevronLeft, MapPin, Calendar, Clock, Map, Ruler, Lightbulb, Handshake, Folder, Megaphone } from 'lucide-react';
 
 function Reveal({
   children, className = '', delay = 0, style = {}, onClick
@@ -690,12 +690,106 @@ function ExpositoresContent() {
         <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto' }}>
           
           <Reveal>
-            <div style={{ textAlign: 'center', marginBottom: '80px', maxWidth: '800px', margin: '0 auto 80px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '40px', maxWidth: '800px', margin: '0 auto 40px' }}>
               <span className="section__label">Directorio de Expositoras</span>
               <h2 className="section__title" style={{ marginTop: '16px' }}>
                 Descubre el talento por <br /><em>Categoría de Negocio</em>
               </h2>
               <p className="section__desc">
+                Explora las marcas, productos y servicios que las mujeres emprendedoras de México traen a Toronto. Haz clic en una categoría para ver su directorio.
+              </p>
+            </div>
+          </Reveal>
+
+          {/* 1. Stands y Espacios */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center', marginBottom: '120px', marginTop: '60px' }}>
+            <Reveal delay={100}>
+              <div>
+                <span style={{ display: 'inline-block', color: 'var(--magenta)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '12px' }}>
+                  Infraestructura Premium
+                </span>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '24px', lineHeight: 1.15 }}>
+                  Stands y Espacios <br /><em>de Exhibición</em>
+                </h3>
+                <p style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'var(--text)', marginBottom: '32px' }}>
+                  Diseñamos cada espacio para proyectar la máxima presencia corporativa. Nuestros stands de 3x3 y 2x2 metros están completamente equipados con rotulación oficial de la marca, iluminación LED direccional y conexiones eléctricas de 110v listas para usar en el centro de convenciones de Toronto.
+                </p>
+                <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+                  <div style={{ width: '48px', height: '2px', background: 'var(--magenta)' }} />
+                  <span style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--navy)', textTransform: 'uppercase', letterSpacing: '1px' }}>Montaje Completo</span>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={200}>
+              <div style={{ borderRadius: '32px', overflow: 'hidden', height: '400px', position: 'relative', boxShadow: '0 20px 40px rgba(0,46,81,0.06)' }}>
+                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800" alt="Stands" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px', background: 'rgba(255,255,255,0.9)', padding: '20px', borderRadius: '16px', backdropFilter: 'blur(10px)' }}>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--magenta)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Centro de Convenciones</span>
+                  <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 800, margin: '4px 0 0 0', color: 'var(--navy)' }}>Toronto, Canadá 2027</h4>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* 2. Beneficios de participación (Horizontal Cards Layout) */}
+          <div style={{ marginBottom: '120px' }}>
+            <Reveal delay={100} style={{ textAlign: 'center', marginBottom: '48px' }}>
+              <span style={{ display: 'inline-block', color: 'var(--cyan)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '12px' }}>
+                Retorno de Inversión
+              </span>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', lineHeight: 1.15 }}>
+                Beneficios Clave de <br /><em>tu Participación</em>
+              </h3>
+            </Reveal>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px' }}>
+              <Reveal delay={150}>
+                <div style={{ background: '#fff', padding: '40px 32px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,25,76,0.02)', borderTop: '4px solid var(--cyan)', height: '100%', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                  <div style={{ background: 'rgba(0,186,211,0.06)', width: '56px', height: '56px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Folder size={24} color="var(--cyan)" />
+                  </div>
+                  <div>
+                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 10px 0' }}>Directorio de Expositoras</h4>
+                    <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.6 }}>Presencia destacada en el catálogo oficial para compradores y distribuidores en Norteamérica.</p>
+                  </div>
+                </div>
+              </Reveal>
+
+              <Reveal delay={200}>
+                <div style={{ background: '#fff', padding: '40px 32px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,25,76,0.02)', borderTop: '4px solid var(--magenta)', height: '100%', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                  <div style={{ background: 'rgba(228,0,124,0.06)', width: '56px', height: '56px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Megaphone size={24} color="var(--magenta)" />
+                  </div>
+                  <div>
+                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 10px 0' }}>Campañas de Difusión</h4>
+                    <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.6 }}>Aparece en comunicados de prensa binacionales, redes sociales oficiales y cobertura de prensa local.</p>
+                  </div>
+                </div>
+              </Reveal>
+
+              <Reveal delay={250}>
+                <div style={{ background: '#fff', padding: '40px 32px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,25,76,0.02)', borderTop: '4px solid var(--navy)', height: '100%', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                  <div style={{ background: 'rgba(0,25,76,0.04)', width: '56px', height: '56px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Calendar size={24} color="var(--navy)" />
+                  </div>
+                  <div>
+                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 10px 0' }}>Ruedas de Negocio B2B</h4>
+                    <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.6 }}>Agendamiento inteligente de citas uno a uno basado en intereses y perfiles de compradores.</p>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+
+          {/* Header del Grid de Estados */}
+          <Reveal>
+            <div style={{ textAlign: 'center', marginBottom: '40px', maxWidth: '800px', margin: '0 auto 40px' }}>
+              <span className="section__label">Directorio de Expositoras</span>
+              <h2 className="section__title section__title--center" style={{ marginTop: '16px' }}>
+                Descubre el talento por <br /><em>Categoría de Negocio</em>
+              </h2>
+              <p className="section__desc section__desc--center">
                 Explora las marcas, productos y servicios que las mujeres emprendedoras de México traen a Toronto. Haz clic en una categoría para ver su directorio.
               </p>
             </div>
@@ -717,7 +811,8 @@ function ExpositoresContent() {
             </div>
           </div>
 
-          <div className="state-grid">
+          {/* Grid de los Estados */}
+          <div className="state-grid" style={{ marginBottom: '80px' }}>
             {businessCategories.filter(c => c.name.toLowerCase().includes(categorySearchQuery.toLowerCase())).map((cat, i) => (
               <Reveal 
                 key={cat.name} 
@@ -737,6 +832,28 @@ function ExpositoresContent() {
               </Reveal>
             ))}
           </div>
+
+          {/* 4. Registro Oficial al final */}
+          <Reveal delay={250} style={{ textAlign: 'center', marginTop: '80px' }}>
+            <div style={{ background: '#fff', padding: '60px 40px', borderRadius: '32px', boxShadow: '0 20px 50px rgba(0,25,76,0.04)', maxWidth: '900px', margin: '0 auto' }}>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '16px' }}>Registro Oficial de Expositoras</h3>
+              <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px' }}>
+                Completa el formulario de inscripción oficial para solicitar tu stand de exhibición en Expo México Mujer Toronto.
+              </p>
+              
+              <div style={{ width: '100%', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(0,0,0,0.05)', background: '#FAF8F5' }}>
+                <iframe
+                  id="JotFormIFrame-RegistroExpositores"
+                  title="Registro Oficial de Expositoras"
+                  src="https://form.jotform.com/241686259021053"
+                  frameBorder="0"
+                  style={{ width: '100%', height: '700px', border: 'none' }}
+                  scrolling="yes"
+                  allowFullScreen={true}
+                />
+              </div>
+            </div>
+          </Reveal>
 
         </div>
       </section>

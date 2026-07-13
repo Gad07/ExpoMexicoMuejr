@@ -292,6 +292,57 @@ export const mockExhibitors = [
     personPhoto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
     bio: 'Sofía es una diseñadora que rescata técnicas milenarias con diseños de impacto internacional.',
     gallery: ['/Galeria/Moda_y_textiles/IMG_6031.JPG']
+  },
+  {
+    id: '5',
+    slug: 'alejandra-orozco',
+    name: 'Oaxacan Loom Designs',
+    personName: 'Alejandra Orozco',
+    description: 'Fusión de siluetas contemporáneas con técnicas ancestrales zapotecas de teñido natural y bordados en telar de cintura.',
+    state: 'Oaxaca',
+    category: 'Moda y Textiles',
+    website: 'https://ejemplo.com',
+    social: '@alejandraorozcotextiles',
+    contact: 'contacto@ejemplo.com',
+    booth: 'Pabellón de Moda - Stand 12',
+    logo: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
+    personPhoto: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400&q=80',
+    bio: 'Alejandra es una diseñadora oaxaqueña comprometida con la sustentabilidad y el rescate de tintes orgánicos tradicionales.',
+    gallery: ['https://images.unsplash.com/photo-1590736969955-71cb94801759?auto=format&fit=crop&q=80&w=800']
+  },
+  {
+    id: '6',
+    slug: 'fernanda-covarrubias',
+    name: 'Covarrubias Costura',
+    personName: 'Fernanda Covarrubias',
+    description: 'Vestidos de gala con aplicaciones metálicas e hilos de algodón orgánico inspirados en paisajes de agave jaliscienses.',
+    state: 'Jalisco',
+    category: 'Moda y Textiles',
+    website: 'https://ejemplo.com',
+    social: '@fernandacovarrubias',
+    contact: 'contacto@ejemplo.com',
+    booth: 'Pabellón de Moda - Stand 14',
+    logo: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=150&q=80',
+    personPhoto: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400&q=80',
+    bio: 'Fernanda Covarrubias es pionera en alta costura inspirada en la herencia cultural tequilera de Jalisco.',
+    gallery: ['https://images.unsplash.com/photo-1511406361295-0a1ee814c1e4?auto=format&fit=crop&q=80&w=800']
+  },
+  {
+    id: '7',
+    slug: 'gabriela-salazar',
+    name: 'Salazar Etnia',
+    personName: 'Gabriela Salazar',
+    description: 'Colección de abrigos y bolsos estructurados que integran iconografía tzotzil brocada a mano en comunidades chiapanecas.',
+    state: 'Chiapas',
+    category: 'Moda y Textiles',
+    website: 'https://ejemplo.com',
+    social: '@gabrielasalazar',
+    contact: 'contacto@ejemplo.com',
+    booth: 'Pabellón de Moda - Stand 16',
+    logo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80',
+    personPhoto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=400&w=80',
+    bio: 'Gabriela colabora activamente con cooperativas de tejedoras de los Altos de Chiapas para crear moda contemporánea con impacto social.',
+    gallery: ['https://images.unsplash.com/photo-1565192647048-f997ded87950?auto=format&fit=crop&q=80&w=800']
   }
 ];
 

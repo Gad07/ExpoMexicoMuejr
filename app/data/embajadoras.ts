@@ -219,7 +219,7 @@ export const mexicanStates = [
   {
     name: 'Zacatecas',
     img: '/Galeria/Artesanias/IMG_5931.JPG',
-    size: 'wide',
+    size: 'large',
     desc: 'Legado minero y esplendor de cantera rosa.',
   }
 ];

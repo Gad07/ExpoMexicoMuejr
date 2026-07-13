@@ -44,7 +44,10 @@ export default function AgendaPage() {
       case 'panel': return { bg: 'rgba(0,186,211,0.08)', text: 'var(--cyan)', border: 'var(--cyan)' };
       case 'workshop': return { bg: 'rgba(0,25,76,0.05)', text: 'var(--navy)', border: 'var(--navy)' };
       case 'networking': return { bg: 'rgba(255,200,0,0.1)', text: '#cc9900', border: '#cc9900' };
-      case 'break': return { bg: 'rgba(0,0,0,0.03)', text: '#888', border: '#ccc' };
+      case 'expo': return { bg: 'rgba(228,0,124,0.08)', text: 'var(--magenta)', border: 'var(--magenta)' };
+      case 'show': return { bg: 'rgba(0,186,211,0.08)', text: 'var(--cyan)', border: 'var(--cyan)' };
+      case 'b2b': return { bg: 'rgba(0,25,76,0.05)', text: 'var(--navy)', border: 'var(--navy)' };
+      case 'logística': return { bg: 'rgba(0,0,0,0.03)', text: '#888', border: '#ccc' };
       default: return { bg: 'rgba(0,25,76,0.05)', text: 'var(--navy)', border: 'var(--navy)' };
     }
   };
@@ -275,18 +278,27 @@ export default function AgendaPage() {
       </div>
 
       <div className="day-selector-wrapper">
-        <div className="day-selector">
+        <div className="day-selector" style={{ overflowX: 'auto', maxWidth: '100%', whiteSpace: 'nowrap' }}>
           {mockAgenda.map((day) => (
             <button 
               key={day.id} 
               onClick={() => setActiveDay(day.id)}
               className={`day-btn ${activeDay === day.id ? 'active' : ''}`}
+              style={{ flexShrink: 0 }}
             >
-              <span>{day.title.split(':')[0]}</span>
+              <span style={{ fontSize: '0.95rem' }}>{day.title}</span>
               <span className="day-date">{day.date}</span>
             </button>
           ))}
         </div>
+      </div>
+
+      <div style={{ maxWidth: '800px', margin: '-40px auto 60px', textAlign: 'center', padding: '0 4%', position: 'relative', zIndex: 10 }}>
+        <Reveal key={currentDay.id}>
+          <p style={{ fontSize: '1.25rem', color: 'var(--text)', lineHeight: 1.6, fontStyle: 'italic' }}>
+            {currentDay.description}
+          </p>
+        </Reveal>
       </div>
 
       <div className="timeline-wrapper">

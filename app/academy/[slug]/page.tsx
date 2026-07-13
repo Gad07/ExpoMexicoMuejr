@@ -150,9 +150,21 @@ export default function AcademyCourse({ params }: { params: Promise<{ slug: stri
               Acerca de este video
             </h2>
             <div style={{ width: '60px', height: '4px', background: 'var(--magenta)', marginBottom: '32px' }}></div>
-            <p style={{ fontSize: '1.25rem', lineHeight: 1.9, color: 'var(--text)', fontWeight: 400, letterSpacing: '0.01em' }}>
+            <p style={{ fontSize: '1.25rem', lineHeight: 1.9, color: 'var(--text)', fontWeight: 400, letterSpacing: '0.01em', marginBottom: '32px' }}>
               {course.description}
             </p>
+            {course.features && (
+              <div>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '16px' }}>
+                  Contenido y Especialidades
+                </h3>
+                <ul style={{ margin: 0, paddingLeft: '24px', fontSize: '1.1rem', color: 'var(--text)', lineHeight: 1.8, listStyleType: 'disc' }}>
+                  {course.features.map((feature, fIdx) => (
+                    <li key={fIdx} style={{ marginBottom: '8px' }}>{feature}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </Reveal>
 
         </div>
