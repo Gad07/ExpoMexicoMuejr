@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { mockAcademy } from '../../data/academy';
 import { Clock, BarChart, PlayCircle, Quote, ArrowRight } from 'lucide-react';
-import { Mariposa } from '../../../components/BrandAssets';
+import { Mariposa } from '@/components/BrandAssets';
 
 function Reveal({
   children, className = '', delay = 0, style = {}

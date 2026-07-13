@@ -5322,7 +5322,7 @@ ul {
   bottom: 11px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1150px) {
   .nav {
     padding: 24px;
     background: transparent;
@@ -5548,17 +5548,11 @@ ul {
 
 .stat-card {
   position: relative;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-top-color: rgba(255, 255, 255, 0.2);
-  border-left-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 48px 32px;
-  border-radius: 20px;
   text-align: center;
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.5s ease;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -5566,93 +5560,69 @@ ul {
   align-items: center;
 }
 
-/* Corner decorative dot */
-.stat-card::before {
-  content: '';
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  transition: all 0.4s ease;
-}
-
-.stat-card:hover::before {
-  background: var(--cyan);
-  box-shadow: 0 0 12px var(--cyan);
-}
-
 .stat-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
-  border-color: rgba(40, 172, 227, 0.5);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-}
-
-.stat-card__glow {
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at center, rgba(40, 172, 227, 0.2) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  pointer-events: none;
-}
-
-.stat-card:hover .stat-card__glow {
-  opacity: 1;
+  background: #fff;
+  border-color: #fff;
+  transform: translateY(-5px);
 }
 
 .stat-card__number {
+  display: inline-block;
   font-family: var(--font-display), sans-serif;
   font-size: clamp(3rem, 5vw, 4.5rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-weight: 300;
+  letter-spacing: -0.02em;
   line-height: 1;
-  margin-bottom: 16px;
-  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 50%, var(--cyan) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  margin-bottom: 24px;
+  color: #fff;
   position: relative;
   z-index: 1;
-  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
+  transition: color 0.5s ease;
+}
+
+.stat-card:hover .stat-card__number {
+  color: var(--navy);
 }
 
 /* Animated accent line under number */
 .stat-card__number::after {
   content: '';
   position: absolute;
-  bottom: -8px;
+  bottom: -12px;
   left: 50%;
   transform: translateX(-50%);
-  width: 0;
-  height: 2px;
+  width: 40px;
+  height: 1px;
   background: var(--magenta);
-  transition: width 0.4s ease;
+  transition: width 0.5s ease, background 0.5s ease;
 }
 
 .stat-card:hover .stat-card__number::after {
-  width: 40px;
+  width: 80px;
 }
 
 .stat-card__label {
-  font-family: var(--font-body), sans-serif;
+  font-family: var(--font-display), sans-serif;
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.7);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 600;
   position: relative;
   z-index: 1;
-  transition: color 0.4s ease;
+  transition: color 0.5s ease;
 }
 
 .stat-card:hover .stat-card__label {
-  color: #fff;
+  color: var(--magenta);
+}
+
+.stat-card__desc {
+  transition: color 0.5s ease;
+}
+
+.stat-card:hover .stat-card__desc {
+  color: var(--navy) !important;
 }
 
 /* ─── Values Grid Custom ─── */
@@ -7533,7 +7503,7 @@ ul {
   display: none;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1150px) {
 
   /* Wrapper holds everything */
   .nav__mobile-wrapper {
@@ -7669,7 +7639,7 @@ ul {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1150px) {
   .nav__mobile-wrapper--open .nav__links {
     opacity: 1 !important;
     pointer-events: auto !important;
@@ -7677,7 +7647,7 @@ ul {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1150px) {
   .nav__links {
     padding-top: 120px !important;
     padding-bottom: 80px !important;
@@ -7701,7 +7671,7 @@ body {
 }
 
 /* Nav mobile wrapper - fix iOS address bar */
-@media (max-width: 900px) {
+@media (max-width: 1150px) {
   .nav__mobile-wrapper {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;

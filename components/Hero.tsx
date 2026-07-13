@@ -4,15 +4,15 @@ type HeroProps = {
   image?: string;
   eyebrow?: string;
   title?: React.ReactNode;
-  description?: string;
+  description?: React.ReactNode;
   primaryCta?: {
     text: string;
     href: string;
-  };
+  } | null;
   secondaryCta?: {
     text: string;
     href: string;
-  };
+  } | null;
   imagePosition?: string;
   overlayVariant?: 'default' | 'strong';
 };
@@ -47,9 +47,9 @@ export default function Hero({
             <h1 className="hero-gradient__title">
               {title}
             </h1>
-            <p className="hero-gradient__desc">
+            <div className="hero-gradient__desc">
               {description}
-            </p>
+            </div>
             {(primaryCta || secondaryCta) && (
               <div className="hero-gradient__actions">
                 {primaryCta && (

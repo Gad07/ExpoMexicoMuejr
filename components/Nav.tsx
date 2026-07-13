@@ -4,27 +4,29 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Nav() {
+  const { language, setLanguage, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeMenu, setActiveMenu] = useState<'main' | 'participantes' | 'herramientas'>('main');
+  const [activeMenu, setActiveMenu] = useState<'main' | 'participantes' | 'herramientas' | 'idioma'>('main');
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
 
   const handleMouseEnter = (name: string) => {
-    if (window.innerWidth > 900) {
+    if (window.innerWidth > 1150) {
       setOpenDropdown(name);
     }
   };
   const handleMouseLeave = () => {
-    if (window.innerWidth > 900) {
+    if (window.innerWidth > 1150) {
       setOpenDropdown(null);
     }
   };
 
-  const handleMobileClick = (e: React.MouseEvent, name: 'participantes' | 'herramientas') => {
-    if (window.innerWidth <= 900) {
+  const handleMobileClick = (e: React.MouseEvent, name: 'participantes' | 'herramientas' | 'idioma') => {
+    if (window.innerWidth <= 1150) {
       e.preventDefault();
       setActiveMenu(name);
     }
@@ -154,7 +156,7 @@ export default function Nav() {
         <div className={`nav__mobile-wrapper ${menuOpen ? 'nav__mobile-wrapper--open' : ''}`}>
 
           <div className={`nav__links ${activeMenu !== 'main' ? 'nav__links--slide-out' : ''}`}>
-            <Link href="/nosotros" className="nav__link" onClick={closeMenu}>Nosotros</Link>
+            <Link href="/nosotros" className="nav__link" onClick={closeMenu}>{t('nav.nosotros')}</Link>
 
             <div
               className={`nav__slide-dropdown ${openDropdown === 'participantes' ? 'nav__slide-dropdown--open' : ''}`}
@@ -162,14 +164,14 @@ export default function Nav() {
               onMouseLeave={handleMouseLeave}
             >
               <span className={`nav__link nav__link--has-dropdown ${openDropdown === 'participantes' || pathname.startsWith('/expositores') || pathname.startsWith('/embajadoras') || pathname.startsWith('/patrocinadores') || pathname.startsWith('/invitados') ? 'nav__link--active' : ''}`} onClick={(e) => handleMobileClick(e, 'participantes')}>
-                Participantes
+                {t('nav.participantes')}
                 <ChevronRight className="nav__slide-icon-mobile" size={16} />
               </span>
               <div className="nav__slide-panel-desktop">
-                <Link href="/expositores" className="nav__slide-item" onClick={closeMenu}>Expositoras</Link>
-                <Link href="/embajadoras" className="nav__slide-item" onClick={closeMenu}>Embajadoras</Link>
-                <Link href="/patrocinadores" className="nav__slide-item" onClick={closeMenu}>Patrocinadores</Link>
-                <Link href="/invitados" className="nav__slide-item" onClick={closeMenu}>Invitados Especiales</Link>
+                <Link href="/expositores" className="nav__slide-item" onClick={closeMenu}>{t('nav.expositores')}</Link>
+                <Link href="/embajadoras" className="nav__slide-item" onClick={closeMenu}>{t('nav.embajadoras')}</Link>
+                <Link href="/patrocinadores" className="nav__slide-item" onClick={closeMenu}>{t('nav.patrocinadores')}</Link>
+                <Link href="/invitados" className="nav__slide-item" onClick={closeMenu}>{t('nav.invitados')}</Link>
               </div>
             </div>
 
@@ -179,19 +181,19 @@ export default function Nav() {
               onMouseLeave={handleMouseLeave}
             >
               <span className={`nav__link nav__link--has-dropdown ${openDropdown === 'herramientas' || pathname.startsWith('/agenda') || pathname.startsWith('/academy') || pathname.startsWith('/recursos') ? 'nav__link--active' : ''}`} onClick={(e) => handleMobileClick(e, 'herramientas')}>
-                Herramientas
+                {t('nav.herramientas')}
                 <ChevronRight className="nav__slide-icon-mobile" size={16} />
               </span>
               <div className="nav__slide-panel-desktop">
-                <Link href="/agenda" className="nav__slide-item" onClick={closeMenu}>Agenda Oficial</Link>
-                <Link href="/academy" className="nav__slide-item" onClick={closeMenu}>Academy</Link>
+                <Link href="/agenda" className="nav__slide-item" onClick={closeMenu}>{t('nav.agenda')}</Link>
+                <Link href="/academy" className="nav__slide-item" onClick={closeMenu}>{t('nav.academy')}</Link>
                 <Link href="/recursos" className="nav__slide-item" onClick={closeMenu}>Noticias</Link>
               </div>
             </div>
 
-            <Link href="/visa" className="nav__link" onClick={closeMenu}>Trámites</Link>
+            <Link href="/visa" className="nav__link" onClick={closeMenu}>{t('nav.visa')}</Link>
 
-            <Link href="/contacto" className="nav__link" onClick={closeMenu}>Contacto</Link>
+            <Link href="/contacto" className="nav__link" onClick={closeMenu}>{t('nav.contacto')}</Link>
 
             <div className="nav__socials">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="nav__social-icon">
@@ -208,32 +210,73 @@ export default function Nav() {
               </a>
             </div>
 
+            <div
+              className={`nav__slide-dropdown ${openDropdown === 'idioma' ? 'nav__slide-dropdown--open' : ''}`}
+              onMouseEnter={() => handleMouseEnter('idioma')}
+              onMouseLeave={handleMouseLeave}
+            >
+              <span className="nav__link nav__link--has-dropdown" onClick={(e) => handleMobileClick(e, 'idioma')} style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer' }}>
+                {language === 'es' ? <span style={{display: 'flex', alignItems: 'center', gap: '6px'}}><img src="https://flagcdn.com/w20/mx.png" width="20" alt="MX" /> ES</span> : 
+                 language === 'en' ? <span style={{display: 'flex', alignItems: 'center', gap: '6px'}}><img src="https://flagcdn.com/w20/us.png" width="20" alt="US" /> EN</span> : 
+                 <span style={{display: 'flex', alignItems: 'center', gap: '6px'}}><img src="https://flagcdn.com/w20/ca.png" width="20" alt="CA" /> FR</span>}
+                <ChevronRight className="nav__slide-icon-mobile" size={16} />
+              </span>
+              <div className="nav__slide-panel-desktop" style={{ minWidth: '140px' }}>
+                <a className="nav__slide-item" style={{cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px'}} onClick={() => { setLanguage('es'); closeMenu(); }}>
+                  <img src="https://flagcdn.com/w20/mx.png" width="20" alt="México" /> Español
+                </a>
+                <a className="nav__slide-item" style={{cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px'}} onClick={() => { setLanguage('en'); closeMenu(); }}>
+                  <img src="https://flagcdn.com/w20/us.png" width="20" alt="Estados Unidos" /> English
+                </a>
+                <a className="nav__slide-item" style={{cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px'}} onClick={() => { setLanguage('fr'); closeMenu(); }}>
+                  <img src="https://flagcdn.com/w20/ca.png" width="20" alt="Canadá" /> Français
+                </a>
+              </div>
+            </div>
+
             <Link href="/contacto" className="nav__cta" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              Contacto
+              {t('nav.registrate')}
             </Link>
           </div>
 
           <div className={`nav__slide-panel-mobile ${activeMenu === 'participantes' ? 'nav__slide-panel-mobile--active' : ''}`}>
             <button className="nav__slide-back" onClick={() => setActiveMenu('main')}>
               <ChevronLeft size={20} />
-              Volver al menú
+              {t('nav.volver')}
             </button>
-            <h3 className="nav__slide-title">Participantes</h3>
-            <Link href="/expositores" className="nav__slide-item-mobile" onClick={closeMenu}>Expositoras</Link>
-            <Link href="/embajadoras" className="nav__slide-item-mobile" onClick={closeMenu}>Embajadoras</Link>
-            <Link href="/patrocinadores" className="nav__slide-item-mobile" onClick={closeMenu}>Patrocinadores</Link>
-            <Link href="/invitados" className="nav__slide-item-mobile" onClick={closeMenu}>Invitados Especiales</Link>
+            <h3 className="nav__slide-title">{t('nav.participantes')}</h3>
+            <Link href="/expositores" className="nav__slide-item-mobile" onClick={closeMenu}>{t('nav.expositores')}</Link>
+            <Link href="/embajadoras" className="nav__slide-item-mobile" onClick={closeMenu}>{t('nav.embajadoras')}</Link>
+            <Link href="/patrocinadores" className="nav__slide-item-mobile" onClick={closeMenu}>{t('nav.patrocinadores')}</Link>
+            <Link href="/invitados" className="nav__slide-item-mobile" onClick={closeMenu}>{t('nav.invitados')}</Link>
           </div>
 
           <div className={`nav__slide-panel-mobile ${activeMenu === 'herramientas' ? 'nav__slide-panel-mobile--active' : ''}`}>
             <button className="nav__slide-back" onClick={() => setActiveMenu('main')}>
               <ChevronLeft size={20} />
-              Volver al menú
+              {t('nav.volver')}
             </button>
-            <h3 className="nav__slide-title">Herramientas</h3>
-            <Link href="/agenda" className="nav__slide-item-mobile" onClick={closeMenu}>Agenda Oficial</Link>
-            <Link href="/academy" className="nav__slide-item-mobile" onClick={closeMenu}>Academy</Link>
+            <h3 className="nav__slide-title">{t('nav.herramientas')}</h3>
+            <Link href="/agenda" className="nav__slide-item-mobile" onClick={closeMenu}>{t('nav.agenda')}</Link>
+            <Link href="/academy" className="nav__slide-item-mobile" onClick={closeMenu}>{t('nav.academy')}</Link>
             <Link href="/recursos" className="nav__slide-item-mobile" onClick={closeMenu}>Noticias</Link>
+          </div>
+
+          <div className={`nav__slide-panel-mobile ${activeMenu === 'idioma' ? 'nav__slide-panel-mobile--active' : ''}`}>
+            <button className="nav__slide-back" onClick={() => setActiveMenu('main')}>
+              <ChevronLeft size={20} />
+              {t('nav.volver')}
+            </button>
+            <h3 className="nav__slide-title">{t('nav.idiomaTitulo')}</h3>
+            <a className="nav__slide-item-mobile" style={{cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px'}} onClick={() => { setLanguage('es'); closeMenu(); }}>
+              <img src="https://flagcdn.com/w20/mx.png" width="20" alt="México" /> Español
+            </a>
+            <a className="nav__slide-item-mobile" style={{cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px'}} onClick={() => { setLanguage('en'); closeMenu(); }}>
+              <img src="https://flagcdn.com/w20/us.png" width="20" alt="Estados Unidos" /> English
+            </a>
+            <a className="nav__slide-item-mobile" style={{cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px'}} onClick={() => { setLanguage('fr'); closeMenu(); }}>
+              <img src="https://flagcdn.com/w20/ca.png" width="20" alt="Canadá" /> Français
+            </a>
           </div>
 
         </div>

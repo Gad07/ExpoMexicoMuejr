@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ArrowRight, Search } from "lucide-react";
 import Link from "next/link";
-import { WordMark } from "../../components/BrandAssets";
+import { WordMark } from '@/components/BrandAssets';
 
 function Reveal({ children, delay = 0, className = "", style = {} }: {
   children: React.ReactNode; delay?: number; className?: string; style?: React.CSSProperties;

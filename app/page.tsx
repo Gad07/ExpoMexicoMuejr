@@ -3,8 +3,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { MapPin, ExternalLink, Mail, CheckCircle2, Phone, ArrowRight } from 'lucide-react';
 import { mexicanStates } from './data/expositores';
-import { WordMark, Mariposa, DecoMariposa, ArrowDown } from '../components/BrandAssets';
-import Hero from '../components/Hero';
+import { WordMark, Mariposa, DecoMariposa, ArrowDown } from '@/components/BrandAssets';
+import Hero from '@/components/Hero';
+import Testimonials from '@/components/Testimonials';
 import Link from 'next/link';
 /* ══════════════════════════════════════════════════════════════
    HOOKS
@@ -235,12 +236,12 @@ function VideoHero() {
         >
           <source src="/Galeria/Videos/bg_home.mp4" type="video/mp4" />
         </video>
-        <div className="video-hero__overlay" />
+        <div className="video-hero__overlay" style={{ background: 'linear-gradient(to bottom, rgba(0,25,76,0.3) 0%, rgba(0,25,76,0.85) 100%)' }} />
       </div>
       <div className="video-hero__content">
         <h1 className="video-hero__title">Expo México Mujer 2027</h1>
         <p className="video-hero__sub">Toronto · Canadá</p>
-        <p className="video-hero__sub" style={{ fontSize: '0.85em', marginTop: '0.5rem', fontWeight: 500 }}>9–13 Junio 2027</p>
+        <p className="video-hero__sub" style={{ fontSize: '1.2em', marginTop: '0.5rem', fontWeight: 600, color: '#fff', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>9–13 Junio 2027</p>
       </div>
     </section>
   );
@@ -1241,32 +1242,139 @@ function Contacto() {
 }
 
 /* ══════════════════════════════════════════════════════════════
+   COUNTDOWN TAPE
+══════════════════════════════════════════════════════════════ */
+function CountdownTape() {
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    const targetDate = new Date('2027-06-09T09:00:00').getTime();
+
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000)
+        });
+      } else {
+        clearInterval(interval);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="countdown-tape" style={{
+      background: 'var(--magenta)',
+      color: '#fff',
+      padding: '40px 0',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      gap: '5vw',
+      flexWrap: 'wrap',
+      fontFamily: 'var(--font-display)',
+      position: 'relative',
+      zIndex: 10,
+      width: '100%',
+      borderBottom: '1px solid rgba(255,255,255,0.2)'
+    }}>
+      <div style={{ fontSize: '1.2rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '5px', opacity: 0.95 }}>
+        El evento comienza en
+      </div>
+
+      <div style={{ display: 'flex', gap: '48px', alignItems: 'center' }}>
+        {[
+          { label: 'Días', value: timeLeft.days },
+          { label: 'Hrs', value: timeLeft.hours },
+          { label: 'Min', value: timeLeft.minutes },
+          { label: 'Seg', value: timeLeft.seconds }
+        ].map((item, i) => (
+          <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: '48px' }}>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px' }}>
+              <span style={{ fontSize: '4.5rem', fontWeight: 300, lineHeight: 1, letterSpacing: '-0.02em', textShadow: '0 1px 15px rgba(0,0,0,0.05)' }}>
+                {String(item.value).padStart(2, '0')}
+              </span>
+              <span style={{ fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 700, opacity: 0.9 }}>
+                {item.label}
+              </span>
+            </div>
+            {i < 3 && <div style={{ width: '1px', height: '50px', background: 'rgba(255,255,255,0.4)' }} />}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+
+
+/* ══════════════════════════════════════════════════════════════
    PAGE ROOT
 ══════════════════════════════════════════════════════════════ */
 export default function HomePage() {
   return (
     <>
       <VideoHero />
-      <Hero image="/home-hero-2.jpg" />
 
       <div className="page-content-wrapper">
+        <CountdownTape />
         <MarqueeTop />
-        <StatementStrip />
+        <Hero
+          image="/home-hero-2.jpg"
+          eyebrow="Sobre el evento"
+          title={<>Nuestra<br /><em>Misión</em></>}
+          description={
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', textAlign: 'left', marginTop: '32px' }}>
+              <p style={{ margin: 0, fontSize: '1.15rem', lineHeight: 1.6 }}>
+                Expo México Mujer 2027 es una plataforma de encuentros internacionales que transforma el liderazgo mexicano en acciones concretas, creando oportunidades de desarrollo económico y fortaleciendo la identidad de México en el extranjero.
+              </p>
+              <p style={{ margin: 0, fontSize: '1.15rem', lineHeight: 1.6 }}>
+                Nuestra misión es fortalecer los puentes comerciales, culturales y sociales entre México y Canadá, consolidando una comunidad binacional que impulse el crecimiento de empresas, productos y talentos mexicanos.
+              </p>
+
+              <div style={{ marginTop: '48px' }}>
+                <h3 style={{ fontSize: '1.1rem', color: 'var(--magenta)', marginBottom: '16px', fontFamily: 'var(--font-display)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 700 }}>
+                  Para quién es
+                </h3>
+                <p style={{ margin: 0, marginBottom: '24px', fontSize: '1.1rem', color: '#555', lineHeight: 1.6, maxWidth: '600px' }}>
+                  Un espacio diseñado para que cada visitante encuentre su lugar en la expo y defina su rol en esta historia binacional. Esto es para quienes construyen puentes.
+                </p>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  {[
+                    'Emprendedoras buscando expandirse a Canadá',
+                    'Empresas que quieren patrocinar con propósito',
+                    'Expositoras y compradores binacionales',
+                    'Medios, cámaras y aliados institucionales'
+                  ].map((item, i) => (
+                    <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', fontSize: '1.05rem', color: 'var(--navy)', fontWeight: 500, lineHeight: 1.5 }}>
+                      <svg style={{ marginTop: '3px', flexShrink: 0, color: 'var(--magenta)' }} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          }
+          primaryCta={null}
+          secondaryCta={null}
+        />
         <MarqueeBottom />
-        <Concept />
-        <CrossoverButterfly side="left" speed={0.06} style={{ width: '200px', left: '-20px', bottom: '-100px' }} />
+
         <Pillars />
-        {/* <MexicanStates /> */}
-        <ExpositoresCta />
-        <Agenda />
-        {/* <Ubicacion /> */}
-        <ServiciosMigratorios />
+        <Testimonials />
         <Costos />
-        <Audience />
         <Noticias />
         <Contacto />
         <CrossoverButterfly side="right" speed={0.04} />
-
       </div>
     </>
   );

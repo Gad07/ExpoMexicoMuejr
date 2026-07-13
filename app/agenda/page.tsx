@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Clock, MapPin, User } from 'lucide-react';
 import { mockAgenda } from '../data/agenda';
-import { Mariposa } from '../../components/BrandAssets';
+import { Mariposa } from '@/components/BrandAssets';
 
 function Reveal({
   children, className = '', delay = 0, style = {},

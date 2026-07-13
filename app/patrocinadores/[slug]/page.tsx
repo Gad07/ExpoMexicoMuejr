@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { mockSponsors } from '../../data/patrocinadores';
 import { Medal, ExternalLink, Mail, ArrowRight, Quote } from 'lucide-react';
-import { Mariposa } from '../../../components/BrandAssets';
+import { Mariposa } from '@/components/BrandAssets';
 
 function Reveal({
   children, className = '', delay = 0, style = {}
