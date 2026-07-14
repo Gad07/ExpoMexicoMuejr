@@ -132,6 +132,7 @@ export const mexicanStates = [
     desc: 'Visión de negocios e industria del norte.',
     carousel: ['/Galeria/Turismo/IMG_5990.JPG', '/Galeria/Turismo/IMG_6140.JPG', '/Galeria/Turismo/IMG_5986.JPG']
   },
+
   {
     name: 'Oaxaca',
     img: '/Galeria/Artesanias/IMG_5494.JPG',
@@ -163,7 +164,7 @@ export const mexicanStates = [
   {
     name: 'San Luis Potosí',
     img: '/Galeria/Arte_y_Cultura/IMG_5967.JPG',
-    size: 'tall',
+    size: 'large',
     desc: 'Corazón geográfico y belleza surrealista.',
     carousel: ['/Galeria/Arte_y_Cultura/IMG_5967.JPG', '/Galeria/Artesanias/IMG_5932.JPG', '/Galeria/Ponencias/IMG_5999.JPG']
   },
@@ -198,7 +199,7 @@ export const mexicanStates = [
   {
     name: 'Tlaxcala',
     img: '/Galeria/Moda_y_textiles/IMG_6023.JPG',
-    size: 'tall',
+    size: 'large',
     desc: 'Historia profunda y riqueza textil arraigada.',
     carousel: ['/Galeria/Moda_y_textiles/IMG_6023.JPG', '/Galeria/Artesanias/IMG_5931.JPG', '/Galeria/Arte_y_Cultura/IMG_5945.JPG']
   },
@@ -212,7 +213,7 @@ export const mexicanStates = [
   {
     name: 'Yucatán',
     img: '/Galeria/Moda_y_textiles/IMG_6031.JPG',
-    size: 'tall',
+    size: 'large',
     desc: 'Emprendimientos mayas con proyección global.',
     carousel: ['/Galeria/Moda_y_textiles/IMG_6032.JPG', '/Galeria/Moda_y_textiles/IMG_6036.JPG', '/Galeria/Moda_y_textiles/IMG_6023.JPG']
   },

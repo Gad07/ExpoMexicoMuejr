@@ -75,11 +75,6 @@ export default function PrensaPage() {
 
       <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: '60px 48px 80px' }}>
         
-        {/* Back Link */}
-        <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--cyan)', textDecoration: 'none', fontWeight: 700, marginBottom: '40px' }}>
-          <ArrowLeft size={16} /> Volver al Inicio
-        </Link>
-
         {/* 1. Sala de Prensa & Comunicados */}
         <div id="comunicados" style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>

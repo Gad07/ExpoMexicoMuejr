@@ -94,11 +94,6 @@ export default function MontrealMissionPage() {
 
       <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: '60px 48px 80px' }}>
         
-        {/* Back Link */}
-        <Link href="/agenda" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--cyan)', textDecoration: 'none', fontWeight: 700, marginBottom: '40px' }}>
-          <ArrowLeft size={16} /> Volver a Agenda General
-        </Link>
-
         {/* 1. Programa General del 5 al 9 de Junio */}
         <div id="itinerario" style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>

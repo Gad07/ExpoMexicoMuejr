@@ -143,9 +143,6 @@ export default function TerminosPage() {
       `}</style>
 
       <div className="terms-container">
-        <Link href="/visa" className="terms-back-link">
-          <ArrowLeft size={14} /> Volver a visas
-        </Link>
 
         <header className="terms-header">
           <span className="terms-category">Información Legal</span>

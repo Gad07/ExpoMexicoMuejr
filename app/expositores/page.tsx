@@ -45,22 +45,9 @@ function ExpositoresContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   
-  const [activeCategory, setActiveCategory] = useState<string | null>(searchParams ? searchParams.get('categoria') : null);
+  const activeCategory = searchParams ? searchParams.get('categoria') : null;
   const [searchQuery, setSearchQuery] = useState('');
   const [categorySearchQuery, setCategorySearchQuery] = useState('');
-
-  // Update URL when activeCategory changes
-  useEffect(() => {
-    if (activeCategory) {
-      const url = new URL(window.location.href);
-      url.searchParams.set('categoria', activeCategory);
-      router.replace(url.pathname + url.search, { scroll: false });
-    } else {
-      const url = new URL(window.location.href);
-      url.searchParams.delete('categoria');
-      router.replace(url.pathname + url.search, { scroll: false });
-    }
-  }, [activeCategory, router]);
   
   // Modal states for Calendar and Map
   const [showCalendar, setShowCalendar] = useState(false);
@@ -371,14 +358,7 @@ function ExpositoresContent() {
           <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto' }}>
             
             {/* Top Bar: Back & Search */}
-            <div className="exh-topbar">
-              <button 
-                className="btn-back"
-                onClick={() => { setActiveCategory(null); setSearchQuery(''); }}
-              >
-                <ChevronLeft size={24} />
-                Volver a Categorías
-              </button>
+            <div className="exh-topbar" style={{ justifyContent: 'flex-end' }}>
               
               <div className="exh-search-wrapper">
                 <Search size={20} className="exh-search-icon" />
@@ -618,12 +598,21 @@ function ExpositoresContent() {
       <style>{`
         .state-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          grid-template-columns: repeat(4, 1fr);
           grid-auto-rows: 280px;
           grid-auto-flow: dense;
           gap: 24px;
         }
-        @media (max-width: 900px) {
+        @media (max-width: 1200px) {
+          .state-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 768px) {
+          .state-grid {
+            grid-template-columns: repeat(1, 1fr);
+            grid-auto-rows: auto;
+          }
           .state-card {
             grid-column: span 1 !important;
             grid-row: span 1 !important;
@@ -818,7 +807,9 @@ function ExpositoresContent() {
                 key={cat.name} 
                 delay={i * 100} 
                 className="state-card"
-                onClick={() => setActiveCategory(cat.name)}
+                onClick={() => {
+                  router.push(`/expositores?categoria=${encodeURIComponent(cat.name)}`);
+                }}
                 style={{
                   gridColumn: cat.size === 'wide' ? 'span 2' : 'span 1',
                   gridRow: cat.size === 'tall' ? 'span 2' : 'span 1',

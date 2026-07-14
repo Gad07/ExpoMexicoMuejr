@@ -427,7 +427,7 @@ export const businessCategories = [
   {
     name: 'Artesanías',
     img: '/Galeria/Artesanias/IMG_5397.JPG',
-    size: 'wide',
+    size: 'large',
     desc: 'Artesanía tradicional y productos hechos a mano con identidad única.',
     carousel: ['/Galeria/Artesanias/IMG_5931.JPG', '/Galeria/Artesanias/IMG_5928.JPG', '/Galeria/Artesanias/IMG_5932.JPG']
   },

@@ -69,11 +69,6 @@ export default function BusinessSummitPage() {
 
       <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: '60px 48px 80px' }}>
         
-        {/* Back Link */}
-        <Link href="/agenda" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--cyan)', textDecoration: 'none', fontWeight: 700, marginBottom: '40px' }}>
-          <ArrowLeft size={16} /> Volver a Agenda General
-        </Link>
-
         {/* Sección 1: Encuentro de Negocios */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center', marginBottom: '100px' }}>
           <Reveal delay={100}>

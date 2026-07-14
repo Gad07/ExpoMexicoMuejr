@@ -195,11 +195,7 @@ export default function EmbajadoraProfile({ params }: { params: Promise<{ slug: 
         {/* Columna Derecha: Contenido Minimalista */}
         <div className="amb-right">
           
-          <Reveal delay={100}>
-            <Link href="/embajadoras" className="amb-back">
-              <ArrowLeft size={16} /> Volver al directorio
-            </Link>
-          </Reveal>
+          
 
           <Reveal delay={200}>
             <div className="amb-subtitle">Embajadora Oficial</div>

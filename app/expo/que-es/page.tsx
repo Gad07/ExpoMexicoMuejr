@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Target, Globe, Award, ArrowLeft, Mail, Phone, Calendar, CheckCircle } from 'lucide-react';
+import { Target, Globe, Award, ArrowLeft, Mail, Phone, Calendar, CheckCircle, ArrowRight } from 'lucide-react';
 import { Mariposa } from '@/components/BrandAssets';
 
 function Reveal({
@@ -66,11 +66,6 @@ export default function QueEsPage() {
 
       <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: '60px 48px 80px' }}>
         
-        {/* Back Link */}
-        <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--cyan)', textDecoration: 'none', fontWeight: 700, marginBottom: '40px' }}>
-          <ArrowLeft size={16} /> Volver al Inicio
-        </Link>
-
         {/* 1. Presentación del evento */}
         <div style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center' }}>
@@ -172,56 +167,85 @@ export default function QueEsPage() {
             </h2>
           </Reveal>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '40px', justifyContent: 'center', maxWidth: '900px', margin: '0 auto' }}>
-            {mockDirectors.map((director, idx) => (
-              <Reveal key={director.name} delay={idx * 150}>
-                <div style={{ 
-                  background: '#fff', 
-                  borderRadius: '24px', 
-                  overflow: 'hidden', 
-                  boxShadow: '0 15px 35px rgba(0,25,76,0.06)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  height: '100%',
-                  position: 'relative'
-                }}>
-                  {/* COVER PHOTO */}
-                  <div style={{ height: '160px', width: '100%', position: 'relative', background: '#f0f0f0' }}>
-                    <img src={director.cover} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.4), transparent)' }}></div>
-                  </div>
+          <style>{`
+            .c-grid { max-width: 1100px; margin: 40px auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; text-align: left; }
+            .c-card {
+              background: #fff; border-radius: 32px; padding: 48px; text-align: left;
+              box-shadow: 0 10px 40px rgba(0,46,81,0.04); border: 1px solid rgba(0,46,81,0.05);
+              transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+              position: relative; overflow: hidden; display: flex; flex-direction: column;
+            }
+            .c-card:hover { transform: translateY(-8px); box-shadow: 0 25px 60px rgba(0,46,81,0.08); }
+            .c-card::after {
+              content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 6px; background: var(--magenta);
+              transform: scaleX(0); transform-origin: left; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .c-card:hover::after { transform: scaleX(1); }
+            .c-avatar-box { width: 120px; height: 120px; border-radius: 24px; background: #FAF8F5; display: flex; align-items: center; justify-content: center; margin-bottom: 32px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+            .c-avatar-box img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+            .c-name { font-family: var(--font-display); font-size: 2.5rem; color: var(--blue); margin-bottom: 8px; font-weight: 400; line-height: 1.1; }
+            .c-role { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--magenta); margin-bottom: 40px; font-weight: 600; }
+            .c-links { display: flex; flex-direction: column; gap: 20px; margin-bottom: 48px; flex: 1; }
+            .c-link-item { display: flex; align-items: center; gap: 16px; color: #555; text-decoration: none; font-size: 1.1rem; transition: color 0.3s ease; }
+            .c-link-item:hover { color: var(--magenta); }
+            .c-link-icon-box { width: 48px; height: 48px; border-radius: 50%; background: #FAF8F5; display: flex; align-items: center; justify-content: center; color: var(--blue); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+            .c-link-item:hover .c-link-icon-box { background: var(--magenta); color: #fff; transform: scale(1.1); }
+            .c-action { display: inline-flex; align-items: center; justify-content: space-between; padding: 20px 28px; background: #FAF8F5; border-radius: 100px; color: var(--blue); font-weight: 600; text-decoration: none; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); font-size: 1.05rem; }
+            .c-action:hover { background: var(--magenta); color: #fff; box-shadow: 0 10px 20px rgba(214,0,110,0.2); }
+            .c-action-icon { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+            .c-action:hover .c-action-icon { transform: translateX(6px); }
+          `}</style>
 
-                  {/* FLOATING LOGO */}
-                  <div style={{ 
-                    width: '80px', height: '80px', background: '#fff', borderRadius: '50%', padding: '4px',
-                    position: 'absolute', top: '120px', left: '24px', boxShadow: '0 10px 20px rgba(0,0,0,0.1)', zIndex: 10,
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden'
-                  }}>
-                    <img src={director.photo} alt={director.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
-                  </div>
+          <div className="c-grid">
+            {/* Francisco Solorio */}
+            <div className="c-card">
+              <div className="c-avatar-box">
+                <img src="/fotos perfil/Foto Francisco.jpg" alt="Francisco Solorio" />
+              </div>
+              <h2 className="c-name">Francisco Solorio</h2>
+              <div className="c-role">Director General</div>
 
-                  {/* BODY */}
-                  <div style={{ padding: '56px 24px 24px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                    <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '4px', lineHeight: 1.2, textTransform: 'uppercase' }}>{director.name}</h3>
-                    
-                    <span style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--magenta)', textTransform: 'uppercase', letterSpacing: '0.05em', display: 'block', marginBottom: '16px' }}>
-                      {director.role}
-                    </span>
+              <div className="c-links">
+                <a href="mailto:francisco@expomexico.ca" className="c-link-item">
+                  <div className="c-link-icon-box"><Mail size={20} /></div>
+                  <span>francisco@expomexico.ca</span>
+                </a>
+                <a href="tel:+525527199694" className="c-link-item">
+                  <div className="c-link-icon-box"><Phone size={20} /></div>
+                  <span>+52 55 2719 9694</span>
+                </a>
+              </div>
 
-                    <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text-muted)', marginBottom: '24px', flexGrow: 1 }}>{director.desc}</p>
+              <a href="https://wa.me/525527199694" className="c-action" target="_blank" rel="noopener noreferrer">
+                <span>Iniciar chat en WhatsApp</span>
+                <ArrowRight size={22} className="c-action-icon" />
+              </a>
+            </div>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '20px', fontSize: '0.85rem' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--navy)' }}>
-                        <Mail size={16} color="var(--cyan)" /> {director.email}
-                      </div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--navy)' }}>
-                        <Phone size={16} color="var(--cyan)" /> {director.phone}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+            {/* Luis García */}
+            <div className="c-card">
+              <div className="c-avatar-box">
+                <img src="/fotos perfil/Foto Luis.jpg" alt="Luis García" />
+              </div>
+              <h2 className="c-name">Luis García</h2>
+              <div className="c-role">Director de Operaciones</div>
+
+              <div className="c-links">
+                <a href="mailto:luis@expomexico.ca" className="c-link-item">
+                  <div className="c-link-icon-box"><Mail size={20} /></div>
+                  <span>luis@expomexico.ca</span>
+                </a>
+                <a href="tel:+527225514645" className="c-link-item">
+                  <div className="c-link-icon-box"><Phone size={20} /></div>
+                  <span>+52 722 551 4645</span>
+                </a>
+              </div>
+
+              <a href="https://wa.me/527225514645" className="c-action" target="_blank" rel="noopener noreferrer">
+                <span>Iniciar chat en WhatsApp</span>
+                <ArrowRight size={22} className="c-action-icon" />
+              </a>
+            </div>
           </div>
         </div>
 

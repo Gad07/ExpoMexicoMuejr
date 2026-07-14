@@ -749,10 +749,7 @@ export default async function NoticiaDetailPage({ params }: { params: Promise<{ 
       <div className="vogue-frame"></div>
 
       {/* Shared Top Navigation */}
-      <div className="vogue-nav">
-        <Link href="/recursos" className="vogue-back-link">
-          <ArrowLeft size={16} /> Volver al directorio
-        </Link>
+      <div className="vogue-nav" style={{ justifyContent: 'flex-end' }}>
         <span className="vogue-nav-date">Vol. 01 — {noticia.date}</span>
       </div>
 

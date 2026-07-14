@@ -45,24 +45,12 @@ function EmbajadorasContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const [activeState, setActiveState] = useState<string | null>(searchParams ? searchParams.get('estado') : null);
+  const activeState = searchParams ? searchParams.get('estado') : null;
   const [searchQuery, setSearchQuery] = useState('');
   const [stateSearchQuery, setStateSearchQuery] = useState('');
 
   const [showMap, setShowMap] = useState(false);
   const [selectedAmbassador, setSelectedAmbassador] = useState<typeof mockAmbassadors[0] | null>(null);
-
-  useEffect(() => {
-    if (activeState) {
-      const url = new URL(window.location.href);
-      url.searchParams.set('estado', activeState);
-      router.replace(url.pathname + url.search, { scroll: false });
-    } else {
-      const url = new URL(window.location.href);
-      url.searchParams.delete('estado');
-      router.replace(url.pathname + url.search, { scroll: false });
-    }
-  }, [activeState, router]);
 
   const openMap = (amb: typeof mockAmbassadors[0]) => {
     setSelectedAmbassador(amb);
@@ -334,12 +322,8 @@ function EmbajadorasContent() {
           <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto' }}>
 
             {/* Topbar */}
-            <div className="emb-topbar">
-              <button className="btn-back" onClick={() => { setActiveState(null); setSearchQuery(''); }}>
-                <ChevronLeft size={24} />
-                Volver a Estados
-              </button>
-
+            <div className="emb-topbar" style={{ justifyContent: 'flex-end' }}>
+              
               <div className="emb-search-wrapper">
                 <Search size={20} className="emb-search-icon" />
                 <input
@@ -441,12 +425,21 @@ function EmbajadorasContent() {
       <style>{`
         .state-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          grid-template-columns: repeat(4, 1fr);
           grid-auto-rows: 280px;
           grid-auto-flow: dense;
           gap: 24px;
         }
-        @media (max-width: 900px) {
+        @media (max-width: 1200px) {
+          .state-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 768px) {
+          .state-grid {
+            grid-template-columns: repeat(1, 1fr);
+            grid-auto-rows: auto;
+          }
           .state-card {
             grid-column: span 1 !important;
             grid-row: span 1 !important;
@@ -569,7 +562,9 @@ function EmbajadorasContent() {
                     key={state.name}
                     delay={i * 80}
                     className="state-card"
-                    onClick={() => setActiveState(state.name)}
+                    onClick={() => {
+                      router.push(`/embajadoras?estado=${encodeURIComponent(state.name)}`);
+                    }}
                     style={{
                       gridColumn: state.size === 'wide' ? 'span 2' : 'span 1',
                       gridRow: state.size === 'tall' ? 'span 2' : 'span 1',

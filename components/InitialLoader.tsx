@@ -7,14 +7,33 @@ export default function InitialLoader() {
   const [isFading, setIsFading] = useState(false);
   const [mounted, setMounted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const fallbackRef = useRef<any>(null);
 
   useEffect(() => {
     setMounted(true);
     const hasSeenLoader = sessionStorage.getItem('hasSeenLoader');
     if (hasSeenLoader) {
       setShow(false);
+      return;
     }
+
+    // Si el video tarda más de 1200ms en descargarse e iniciar, saltamos automáticamente el loader
+    fallbackRef.current = setTimeout(() => {
+      handleComplete();
+    }, 1200);
+
+    return () => {
+      if (fallbackRef.current) clearTimeout(fallbackRef.current);
+    };
   }, []);
+
+  const handlePlay = () => {
+    // Si el video inicia su reproducción antes de los 1200ms, cancelamos el fallback para ver la animación completa
+    if (fallbackRef.current) {
+      clearTimeout(fallbackRef.current);
+      fallbackRef.current = null;
+    }
+  };
 
   const handleComplete = () => {
     setIsFading(true);
@@ -107,6 +126,7 @@ export default function InitialLoader() {
         preload="auto"
         muted
         playsInline
+        onPlay={handlePlay}
         onEnded={handleComplete}
         style={{
           width: '50vw',

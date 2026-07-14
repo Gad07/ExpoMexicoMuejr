@@ -115,9 +115,6 @@ export default function PrivacidadPage() {
       `}</style>
 
       <div className="privacy-container">
-        <Link href="/visa" className="privacy-back-link">
-          <ArrowLeft size={14} /> Volver a visas
-        </Link>
 
         <header className="privacy-header">
           <span className="privacy-category">Información Legal</span>

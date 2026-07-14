@@ -5,11 +5,22 @@
 .nav__desktop-links {
   display: none;
   align-items: center;
-  gap: 2rem;
+  justify-content: center;
+  flex: 1;
+  gap: clamp(1rem, 1.8vw, 2.2rem);
   height: 100%;
 }
+
+.nav__desktop-actions {
+  display: none;
+  align-items: center;
+  gap: clamp(0.6rem, 1vw, 1.2rem);
+  height: 100%;
+}
+
 @media (min-width: 1025px) {
-  .nav__desktop-links {
+  .nav__desktop-links,
+  .nav__desktop-actions {
     display: flex;
   }
 }
@@ -189,3 +200,49 @@
   color: #475569;
   text-decoration: none;
 }
+
+/* ─── NAV SOCIAL LINKS ─── */
+.nav__social {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 14px;
+}
+
+.nav__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  opacity: 0.9;
+  transition: opacity 0.25s, transform 0.25s;
+  text-decoration: none;
+}
+
+.nav__social-link svg {
+  width: 15px;
+  height: 15px;
+  overflow: visible;
+  display: block;
+}
+
+.nav__social-link:hover {
+  opacity: 1;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Match icon color exactly to text color when scrolled or on inner pages */
+.nav.nav--scrolled .nav__social-link,
+.nav.nav--inner .nav__social-link {
+  color: var(--navy);
+  opacity: 0.9;
+}
+
+.nav.nav--scrolled .nav__social-link:hover,
+.nav.nav--inner .nav__social-link:hover {
+  color: var(--magenta);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
