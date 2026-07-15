@@ -234,7 +234,7 @@ function ExpositoresContent() {
           }
           .modal-close {
             position: absolute; top: 16px; right: 16px;
-            width: 36px; height: 36px; border-radius: 50%;
+            width: 44px; height: 44px; border-radius: 50%;
             background: rgba(0,0,0,0.06); border: none; cursor: pointer;
             display: flex; align-items: center; justify-content: center;
             color: #666; font-size: 18px; z-index: 10;
@@ -394,7 +394,7 @@ function ExpositoresContent() {
                         {/* COVER PHOTO */}
                         <div style={{ height: '160px', width: '100%', position: 'relative', background: '#f0f0f0' }}>
                           {ex.gallery && ex.gallery.length > 0 && (
-                            <img src={ex.gallery[0]} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            <img src={ex.gallery[0]} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="600" height="400" />
                           )}
                           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.4), transparent)' }}></div>
                         </div>
@@ -405,7 +405,7 @@ function ExpositoresContent() {
                           position: 'absolute', top: '125px', left: '24px', boxShadow: '0 10px 20px rgba(0,0,0,0.1)', zIndex: 10,
                           display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden'
                         }}>
-                          <img src={ex.logo} alt={ex.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+                          <img src={ex.logo} alt={ex.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} loading="lazy" width="200" height="80" />
                         </div>
 
                         {/* BODY */}
@@ -450,7 +450,7 @@ function ExpositoresContent() {
         {showCalendar && selectedExhibitor && (
           <div className="modal-overlay" onClick={(e) => { if (e.target === e.currentTarget) setShowCalendar(false); }}>
             <div className="modal-content">
-              <button className="modal-close" onClick={() => setShowCalendar(false)}>×</button>
+              <button className="modal-close" onClick={() => setShowCalendar(false)} aria-label="Cerrar">×</button>
 
               {/* LEFT PANEL */}
               <div className="modal-left">
@@ -570,7 +570,7 @@ function ExpositoresContent() {
                   <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: 'var(--navy)' }}>Ubicación del Stand</h3>
                   <p style={{ color: 'var(--magenta)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.85rem', marginTop: '4px' }}>{selectedExhibitor.booth}</p>
                 </div>
-                <button className="modal-close" style={{ position: 'static' }} onClick={() => setShowMap(false)}>×</button>
+                <button className="modal-close" style={{ position: 'static' }} onClick={() => setShowMap(false)} aria-label="Cerrar">×</button>
               </div>
               
               {/* Interactive map placeholder */}
@@ -710,7 +710,7 @@ function ExpositoresContent() {
 
             <Reveal delay={200}>
               <div style={{ borderRadius: '32px', overflow: 'hidden', height: '400px', position: 'relative', boxShadow: '0 20px 40px rgba(0,46,81,0.06)' }}>
-                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800" alt="Stands" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800" alt="Stands" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="800" height="600" />
                 <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px', background: 'rgba(255,255,255,0.9)', padding: '20px', borderRadius: '16px', backdropFilter: 'blur(10px)' }}>
                   <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--magenta)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Centro de Convenciones</span>
                   <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 800, margin: '4px 0 0 0', color: 'var(--navy)' }}>Toronto, Canadá 2027</h4>
@@ -812,7 +812,7 @@ function ExpositoresContent() {
                   gridRow: cat.size === 'tall' ? 'span 2' : 'span 1',
                 }}
               >
-                <img src={cat.img} alt={cat.name} className="state-img" />
+                <img src={cat.img} alt={cat.name} className="state-img" loading="lazy" width="600" height="400" />
                 <div className="state-overlay">
                   <h3 className="state-title">{cat.name}</h3>
                   <p className="state-desc">{cat.desc}</p>

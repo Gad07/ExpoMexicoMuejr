@@ -152,7 +152,7 @@ export default function FashionGalaPage() {
                   }}>
                     {/* COVER PHOTO */}
                     <div style={{ height: '160px', width: '100%', position: 'relative', background: '#f0f0f0' }}>
-                      <img src={designer.cover} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <img src={designer.cover} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="600" height="400" />
                       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.4), transparent)' }}></div>
                     </div>
 
@@ -162,7 +162,7 @@ export default function FashionGalaPage() {
                       position: 'absolute', top: '125px', left: '24px', boxShadow: '0 10px 20px rgba(0,0,0,0.1)', zIndex: 10,
                       display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden'
                     }}>
-                      <img src={designer.photo} alt={designer.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+                      <img src={designer.photo} alt={designer.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} loading="lazy" width="120" height="120" />
                     </div>
 
                     {/* BODY */}
@@ -221,7 +221,7 @@ export default function FashionGalaPage() {
 
           <Reveal delay={200}>
             <div style={{ position: 'relative', borderRadius: '32px', overflow: 'hidden', height: '420px', boxShadow: '0 20px 40px rgba(0,46,81,0.06)' }}>
-              <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800" alt="Pasarelas" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800" alt="Pasarelas" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="800" height="600" />
             </div>
           </Reveal>
         </div>

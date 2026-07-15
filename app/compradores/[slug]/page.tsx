@@ -100,6 +100,7 @@ export default function BuyerProfile({ params }: { params: Promise<{ slug: strin
               src={buyer.photo} 
               alt={buyer.name} 
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', animation: 'scaleDown 2s cubic-bezier(0.16, 1, 0.3, 1) forwards' }} 
+              loading="lazy" width="120" height="120"
             />
           </div>
           <style dangerouslySetInnerHTML={{__html: `
@@ -121,7 +122,7 @@ export default function BuyerProfile({ params }: { params: Promise<{ slug: strin
           
           <Reveal delay={100} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <div style={{ width: '100%', maxWidth: '300px', aspectRatio: '1/1', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--cream)', borderRadius: '50%', boxShadow: '0 30px 60px rgba(0,0,0,0.05)', overflow: 'hidden' }}>
-              <img src={buyer.photo} alt={buyer.company} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+              <img src={buyer.photo} alt={buyer.company} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} loading="lazy" width="120" height="120" />
             </div>
           </Reveal>
           
@@ -162,7 +163,7 @@ export default function BuyerProfile({ params }: { params: Promise<{ slug: strin
             {buyer.gallery.map((img, i) => (
               <Reveal key={img} delay={150 + i * 50}>
                 <div style={{ borderRadius: '20px', overflow: 'hidden', aspectRatio: '4/3', boxShadow: '0 20px 40px rgba(0,0,0,0.3)' }}>
-                  <img src={img} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={img} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="600" height="400" />
                 </div>
               </Reveal>
             ))}

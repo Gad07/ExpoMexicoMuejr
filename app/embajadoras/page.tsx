@@ -155,7 +155,7 @@ function EmbajadorasContent() {
           }
           .modal-close-btn {
             position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.05);
-            border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer;
+            border: none; width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
             display: flex; align-items: center; justify-content: center; color: var(--navy);
             transition: background 0.2s;
           }
@@ -247,7 +247,7 @@ function EmbajadorasContent() {
           .modal-left-info-val { font-size:0.82rem; color:rgba(255,255,255,0.9); line-height:1.4; }
           .modal-right { flex:1; padding:40px; overflow-y:auto; }
           .modal-close {
-            position:absolute; top:16px; right:16px; width:36px; height:36px; border-radius:50%;
+            position:absolute; top:16px; right:16px; width:44px; height:44px; border-radius:50%;
             background:rgba(0,0,0,0.06); border:none; cursor:pointer;
             display:flex; align-items:center; justify-content:center;
             color:#666; font-size:18px; z-index:10; transition:background 0.2s, color 0.2s;
@@ -352,7 +352,7 @@ function EmbajadorasContent() {
                     <div className="emb-card" style={{ cursor: 'pointer' }} onClick={() => router.push('/embajadoras/' + amb.slug)}>
                       {/* Foto */}
                       <div className="emb-photo-wrapper">
-                        <img src={amb.photo} alt={amb.name} />
+                        <img src={amb.photo} alt={amb.name} loading="lazy" width="120" height="120" />
                         <div className="emb-photo-overlay" />
                       </div>
 
@@ -398,7 +398,7 @@ function EmbajadorasContent() {
                     {selectedAmbassador.booth}
                   </p>
                 </div>
-                <button className="modal-close-btn" style={{ position: 'static' }} onClick={() => setShowMap(false)}>
+                <button className="modal-close-btn" style={{ position: 'static' }} onClick={() => setShowMap(false)} aria-label="Cerrar mapa">
                   <X size={18} />
                 </button>
               </div>
@@ -511,7 +511,7 @@ function EmbajadorasContent() {
 
             <Reveal delay={200}>
               <div style={{ borderRadius: '32px', overflow: 'hidden', height: '480px', position: 'relative', boxShadow: '0 20px 40px rgba(0,46,81,0.06)' }}>
-                <img src="/Galeria/Arte_y_Cultura/IMG_5945.JPG" alt="Embajadoras Convocatoria" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/Galeria/Arte_y_Cultura/IMG_5945.JPG" alt="Embajadoras Convocatoria" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="600" height="400" />
                 <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px', background: 'rgba(255,255,255,0.9)', padding: '20px', borderRadius: '16px', backdropFilter: 'blur(10px)' }}>
                   <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--magenta)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Conexión Binacional</span>
                   <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 800, margin: '4px 0 0 0', color: 'var(--navy)' }}>Representación Oficial 2027</h4>
@@ -567,7 +567,7 @@ function EmbajadorasContent() {
                       gridRow: state.size === 'tall' ? 'span 2' : 'span 1',
                     }}
                   >
-                    <img src={state.img} alt={state.name} className="state-img" />
+                    <img src={state.img} alt={state.name} className="state-img" loading="lazy" width="600" height="400" />
                     <div className="state-overlay">
                       <h3 className="state-title">{state.name}</h3>
                       <p className="state-desc">{state.desc}</p>

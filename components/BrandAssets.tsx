@@ -32,7 +32,7 @@ type MariposaProps = React.ImgHTMLAttributes<HTMLImageElement> & {
 };
 
 export function Mariposa({ className, mono = false, ...props }: MariposaProps) {
-  return <img src="/recursos/Recurso 8.png" alt="" aria-hidden="true" className={className} {...props} />;
+  return <img src="/recursos/Recurso 8.png" alt="" aria-hidden="true" loading="lazy" width="100" height="100" className={className} {...props} />;
 }
 
 type DecoMariposaProps = React.ImgHTMLAttributes<HTMLImageElement> & {
@@ -40,7 +40,7 @@ type DecoMariposaProps = React.ImgHTMLAttributes<HTMLImageElement> & {
 };
 
 export function DecoMariposa({ className, style, ...props }: DecoMariposaProps) {
-  return <img src="/recursos/Recurso 8.png" alt="" aria-hidden="true" className={className} style={style} {...props} />;
+  return <img src="/recursos/Recurso 8.png" alt="" aria-hidden="true" loading="lazy" width="100" height="100" className={className} style={style} {...props} />;
 }
 
 export function ArrowDown() {

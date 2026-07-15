@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { mockAcademy } from '../../data/academy';
 import { Clock, BarChart, PlayCircle, Quote, ArrowRight } from 'lucide-react';
 import { Mariposa } from '@/components/BrandAssets';
+import LazyVideo from '@/components/LazyVideo';
 
 function Reveal({
   children, className = '', delay = 0, style = {}
@@ -100,6 +101,7 @@ export default function AcademyCourse({ params }: { params: Promise<{ slug: stri
               src={course.instructorPhoto} 
               alt={course.instructor} 
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', animation: 'scaleDown 2s cubic-bezier(0.16, 1, 0.3, 1) forwards' }} 
+              loading="lazy" width="400" height="300"
             />
           </div>
           <style dangerouslySetInnerHTML={{__html: `
@@ -185,14 +187,12 @@ export default function AcademyCourse({ params }: { params: Promise<{ slug: stri
         
         <Reveal delay={200}>
           <div style={{ maxWidth: '1200px', margin: '0 auto', background: '#000', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.5)', aspectRatio: '16/9', position: 'relative' }}>
-            <video 
-              src={course.videoUrl} 
+            <LazyVideo
+              src={course.videoUrl}
               poster={course.coverImage}
-              controls 
+              controls
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            >
-              Tu navegador no soporta el formato de video.
-            </video>
+            />
           </div>
         </Reveal>
       </div>

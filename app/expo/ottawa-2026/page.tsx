@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Play, Eye, Users, Landmark, TrendingUp, Calendar } from 'lucide-react';
 import { Mariposa } from '@/components/BrandAssets';
+import LazyVideo from '@/components/LazyVideo';
 
 function Reveal({
   children, className = '', delay = 0, style = {},
@@ -148,7 +149,7 @@ export default function OttawaPage() {
                   border: '1px solid rgba(0,0,0,0.01)' 
                 }}>
                   <div style={{ height: '220px', width: '100%', position: 'relative' }}>
-                    <img src={item.url} alt={item.cap} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <img src={item.url} alt={item.cap} style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="600" height="400" />
                   </div>
                   <div style={{ padding: '24px 30px' }}>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.5, margin: 0 }}>{item.cap}</p>
@@ -169,14 +170,12 @@ export default function OttawaPage() {
 
           <Reveal delay={100}>
             <div style={{ maxWidth: '1000px', margin: '0 auto', background: '#000', borderRadius: '32px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,25,76,0.12)', aspectRatio: '16/9', position: 'relative' }}>
-              <video 
-                src="https://www.w3schools.com/html/mov_bbb.mp4" 
+              <LazyVideo
+                src="https://www.w3schools.com/html/mov_bbb.mp4"
                 poster="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800"
-                controls 
+                controls
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              >
-                Tu navegador no soporta el formato de video.
-              </video>
+              />
             </div>
           </Reveal>
         </div>

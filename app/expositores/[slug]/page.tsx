@@ -103,6 +103,7 @@ export default function ExhibitorProfile({ params }: { params: Promise<{ slug: s
               src={exhibitor.personPhoto} 
               alt={exhibitor.personName} 
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', animation: 'scaleDown 2s cubic-bezier(0.16, 1, 0.3, 1) forwards' }} 
+              loading="lazy" width="120" height="120"
             />
           </div>
           <style dangerouslySetInnerHTML={{__html: `
@@ -124,7 +125,7 @@ export default function ExhibitorProfile({ params }: { params: Promise<{ slug: s
           
           <Reveal delay={100} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <div style={{ width: '100%', maxWidth: '300px', aspectRatio: '1/1', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--cream)', borderRadius: '50%', boxShadow: '0 30px 60px rgba(0,0,0,0.05)', overflow: 'hidden' }}>
-              <img src={exhibitor.logo} alt={exhibitor.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+              <img src={exhibitor.logo} alt={exhibitor.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} loading="lazy" width="200" height="80" />
             </div>
             <div style={{ marginTop: '40px', display: 'inline-flex', alignItems: 'center', gap: '12px', color: 'var(--navy)', fontWeight: 800, fontSize: '1.2rem', padding: '16px 32px', background: 'rgba(0,186,211,0.1)', borderRadius: '100px' }}>
               <MapPin size={24} color="var(--cyan)" /> Ubicación: {exhibitor.booth}
@@ -165,6 +166,7 @@ export default function ExhibitorProfile({ params }: { params: Promise<{ slug: s
                 src={img} 
                 alt={`${exhibitor.name} gallery ${idx}`} 
                 style={{ width: '100%', display: 'block', transition: 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s' }}
+                loading="lazy" width="600" height="400"
                 onMouseOver={e => {
                   e.currentTarget.style.transform = 'scale(1.05)';
                   e.currentTarget.style.filter = 'brightness(1.1)';

@@ -50,6 +50,7 @@ export default function CompradoresPage() {
         
         {/* Header Principal */}
         <Reveal style={{ textAlign: 'center', marginBottom: '80px', marginTop: '40px' }}>
+          <h1 className="sr-only">Compradores e Inversionistas</h1>
           <span style={{ display: 'inline-block', color: 'var(--magenta)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '16px' }}>
             Vinculación Comercial B2B
           </span>
@@ -102,7 +103,7 @@ export default function CompradoresPage() {
 
           <Reveal delay={200}>
             <div style={{ borderRadius: '32px', overflow: 'hidden', height: '480px', position: 'relative', boxShadow: '0 20px 40px rgba(0,46,81,0.06)' }}>
-              <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800" alt="B2B Matchmaking" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800" alt="B2B Matchmaking" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="800" height="600" />
               <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px', background: 'rgba(255,255,255,0.9)', padding: '20px', borderRadius: '16px', backdropFilter: 'blur(10px)' }}>
                 <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--magenta)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Rueda de Negocios</span>
                 <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 800, margin: '4px 0 0 0', color: 'var(--navy)' }}>Ontario Business Summit 2027</h4>
@@ -174,7 +175,7 @@ export default function CompradoresPage() {
                     }}>
                       {/* COVER PHOTO */}
                       <div style={{ height: '160px', width: '100%', position: 'relative', background: '#f0f0f0' }}>
-                        <img src={buyer.cover} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src={buyer.cover} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="600" height="400" />
                         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.4), transparent)' }}></div>
                       </div>
 
@@ -184,7 +185,7 @@ export default function CompradoresPage() {
                         position: 'absolute', top: '125px', left: '24px', boxShadow: '0 10px 20px rgba(0,0,0,0.1)', zIndex: 10,
                         display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden'
                       }}>
-                        <img src={buyer.photo} alt={buyer.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+                        <img src={buyer.photo} alt={buyer.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} loading="lazy" width="120" height="120" />
                       </div>
 
                       {/* BODY */}

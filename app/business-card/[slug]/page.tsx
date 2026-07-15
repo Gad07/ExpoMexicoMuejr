@@ -492,7 +492,7 @@ export default function BusinessCardPage({ params }: { params: Promise<{ slug: s
 
             {/* Photo */}
             <div className="mag-photo-side">
-              <img src={D.foto} alt={`Foto de ${D.nombre}`} className="mag-photo" />
+              <img src={D.foto} alt={`Foto de ${D.nombre}`} className="mag-photo" loading="lazy" width="120" height="120" />
               <span className="mag-photo-label" aria-hidden="true">Expo México Mujer 2027</span>
               <span className="mag-photo-issue" aria-hidden="true">27</span>
             </div>
@@ -646,7 +646,7 @@ export default function BusinessCardPage({ params }: { params: Promise<{ slug: s
                 <Reveal key={i} delay={i * 80}>
                   <a href={n.link} className="mag-nc">
                     <div className="mag-nc__img-wrap">
-                      <img src={n.img} alt={n.titulo} className="mag-nc__img" />
+                      <img src={n.img} alt={n.titulo} className="mag-nc__img" loading="lazy" width="600" height="400" />
                     </div>
                     <span className="mag-nc__cat">{n.categoria}</span>
                     <h3 className="mag-nc__title">{n.titulo}</h3>

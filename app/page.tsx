@@ -8,6 +8,8 @@ import Hero from '@/components/Hero';
 import Testimonials from '@/components/Testimonials';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import LazyVideo from '@/components/LazyVideo';
+import OptImage from '@/components/OptImage';
 /* ══════════════════════════════════════════════════════════════
    HOOKS
 ══════════════════════════════════════════════════════════════ */
@@ -209,6 +211,7 @@ function CrossoverButterfly({ side = 'left', speed = 0.06, style }: { side?: 'le
         src="/recursos/Recurso 8.png"
         alt=""
         aria-hidden="true"
+        loading="lazy"
         width={100} height={100}
         className={`crossover-butterfly${side === 'right' ? ' crossover-butterfly--right' : ''}`}
         style={{
@@ -228,16 +231,16 @@ function VideoHero() {
   return (
     <section className="video-hero">
       <div className="video-hero__bg">
-        <video
+        <LazyVideo
           className="video-hero__video"
           autoPlay
           muted
           loop
           playsInline
-          poster="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/869347cb-5990-45c6-bcd0-a28e2753c6a8/d5nkmm3-3b44679c-a340-4789-8bc6-1464847344b3.jpg/v1/fill/w_1219,h_655,q_70,strp/toronto_at_night_colour_edit_by_falcon912_d5nkmm3-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Njg4IiwicGF0aCI6Ii9mLzg2OTM0N2NiLTU5OTAtNDVjNi1iY2QwLWEyOGUyNzUzYzZhOC9kNW5rbW0zLTNiNDQ2NzljLWEzNDAtNDc4OS04YmM2LTE0NjQ4NDczNDRiMy5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.rtQ5ItliGyKpz8dhVMlBn3v9vw8P3U_lgh08jr5ntDA"
+          poster="/home-hero-2.webp"
         >
           <source src="/Galeria/Videos/bg_home.mp4" type="video/mp4" />
-        </video>
+        </LazyVideo>
         <div className="video-hero__overlay" style={{ background: 'linear-gradient(to bottom, rgba(0,25,76,0.3) 0%, rgba(0,25,76,0.85) 100%)' }} />
       </div>
       <div className="video-hero__content">
@@ -266,6 +269,7 @@ function StatementStrip() {
         src="/recursos/Recurso 8.png"
         alt=""
         aria-hidden="true"
+        loading="lazy"
         width={120} height={120}
         className="stmt__butterfly"
       />
@@ -292,7 +296,7 @@ function StatementStrip() {
         {/* CENTER — Vertical rule + decorative monogram */}
         <div className="stmt__col stmt__col--center" aria-hidden="true">
           <div className="stmt__rule" />
-          <img src="/recursos/Recurso 8.png" alt="" aria-hidden="true" width={60} height={60} className="stmt__center-butterfly" />
+          <img src="/recursos/Recurso 8.png" alt="" aria-hidden="true" loading="lazy" width={60} height={60} className="stmt__center-butterfly" />
           <div className="stmt__rule" />
         </div>
 
@@ -826,7 +830,7 @@ function Ubicacion() {
     <div style={{ position: 'relative', zIndex: 9999 }}>
       {/* Top Divider */}
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', zIndex: 10, lineHeight: 0, pointerEvents: 'none', transform: 'translateY(-28%)' }}>
-        <img src="/recursos svg/Recurso 10.svg" alt="" aria-hidden="true" width={1920} height={100} style={{ width: '100%', height: 'auto', display: 'block', opacity: 0.9 }} />
+        <img src="/recursos svg/Recurso 10.svg" alt="" aria-hidden="true" loading="lazy" width={1920} height={100} style={{ width: '100%', height: 'auto', display: 'block', opacity: 0.9 }} />
       </div>
 
       <section className="location-gradient" id="ubicacion" aria-labelledby="ubicacion-title" style={{ position: 'relative' }}>
@@ -879,7 +883,7 @@ function Ubicacion() {
 
       {/* Bottom Divider */}
       <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', zIndex: 10, lineHeight: 0, pointerEvents: 'none', transform: 'translateY(28%)' }}>
-        <img src="/recursos svg/Recurso 10.svg" alt="" aria-hidden="true" width={1920} height={100} style={{ width: '100%', height: 'auto', display: 'block', transform: 'rotate(180deg)', opacity: 0.9 }} />
+        <img src="/recursos svg/Recurso 10.svg" alt="" aria-hidden="true" loading="lazy" width={1920} height={100} style={{ width: '100%', height: 'auto', display: 'block', transform: 'rotate(180deg)', opacity: 0.9 }} />
       </div>
     </div>
   );
@@ -951,7 +955,7 @@ function ServiciosMigratorios() {
           
           .sm-sponsor { display: flex; align-items: center; gap: 16px; background: #fff; padding: 24px 32px; border-radius: 24px; box-shadow: 0 10px 40px rgba(0,46,81,0.04); margin-bottom: 32px; border: 1px solid rgba(0,46,81,0.05); }
           .sm-sponsor span { font-size: 1.05rem; color: var(--navy); line-height: 1.4; }
-          .sm-sponsor small { color: #888; font-size: 0.85rem; }
+          .sm-sponsor small { color: #555; font-size: 0.85rem; }
           .sm-cta-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--navy); color: #fff; padding: 18px 36px; border-radius: 100px; font-weight: 700; text-decoration: none; font-size: 1.05rem; transition: all 0.3s ease; letter-spacing: 0.01em; }
           .sm-cta-btn:hover { background: var(--magenta); transform: translateY(-3px); box-shadow: 0 15px 40px rgba(228,0,124,0.25); }
           
@@ -1145,6 +1149,7 @@ function ExpositoresCta() {
    CONTACTO
 ══════════════════════════════════════════════════════════════ */
 function Contacto() {
+  const { t } = useLanguage();
   return (
     <section className="section" id="contacto" aria-labelledby="contacto-title" style={{ background: '#fff', textAlign: 'center', padding: '100px 24px' }}>
       <div className="section__inner">
@@ -1182,7 +1187,7 @@ function Contacto() {
             {/* Francisco Solorio */}
             <div className="c-card">
               <div className="c-avatar-box">
-                <img src="/fotos perfil/Foto Francisco.jpg" alt="Francisco Solorio" />
+                <img src="/fotos perfil/Foto Francisco.jpg" alt="" loading="lazy" width="120" height="120" />
               </div>
               <h2 className="c-name">Francisco Solorio</h2>
               <div className="c-role">Director General</div>
@@ -1199,7 +1204,7 @@ function Contacto() {
               </div>
 
               <a href="https://wa.me/525527199694" className="c-action" target="_blank" rel="noopener noreferrer">
-                <span>Iniciar chat en WhatsApp</span>
+                <span>{t('wa.chat.startChat')}</span>
                 <ArrowRight size={22} className="c-action-icon" />
               </a>
             </div>
@@ -1207,7 +1212,7 @@ function Contacto() {
             {/* Luis García */}
             <div className="c-card">
               <div className="c-avatar-box">
-                <img src="/fotos perfil/Foto Luis.jpg" alt="Luis García" />
+                <img src="/fotos perfil/Foto Luis.jpg" alt="" loading="lazy" width="120" height="120" />
               </div>
               <h2 className="c-name">Luis García</h2>
               <div className="c-role">Director de Operaciones</div>
@@ -1224,7 +1229,7 @@ function Contacto() {
               </div>
 
               <a href="https://wa.me/527225514645" className="c-action" target="_blank" rel="noopener noreferrer">
-                <span>Iniciar chat en WhatsApp</span>
+                <span>{t('wa.chat.startChat')}</span>
                 <ArrowRight size={22} className="c-action-icon" />
               </a>
             </div>

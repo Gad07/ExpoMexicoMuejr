@@ -188,7 +188,7 @@ export default function EmbajadoraProfile({ params }: { params: Promise<{ slug: 
             <div className="amb-watermark-icon">
               <Mariposa width={200} height={200} />
             </div>
-            <img src={ambassador.photo} alt={ambassador.name} className="amb-arch-photo" />
+            <img src={ambassador.photo} alt={ambassador.name} className="amb-arch-photo" loading="lazy" width="120" height="120" />
           </div>
         </div>
 

@@ -123,7 +123,7 @@ function StatsBar() {
   return (
     <section className="stmt" id="estadisticas" aria-label="Estadísticas">
       <div className="stmt__scanlines" aria-hidden="true" />
-      <img src="/recursos/Recurso 8.png" alt="" aria-hidden="true" className="stmt__butterfly" />
+      <img src="/recursos/Recurso 8.png" alt="" aria-hidden="true" className="stmt__butterfly" loading="lazy" width="100" height="100" />
       <div className="stmt__ghost-date" aria-hidden="true" style={{ fontSize: '15rem', opacity: 0.5 }}>IMPACTO</div>
       
       <div className="stmt__grid" style={{ alignItems: 'flex-start' }}>
@@ -145,7 +145,7 @@ function StatsBar() {
         {/* CENTER COLUMN */}
         <div className="stmt__col stmt__col--center" aria-hidden="true">
           <div className="stmt__rule" />
-          <img src="/recursos/Recurso 8.png" alt="" className="stmt__center-butterfly" />
+          <img src="/recursos/Recurso 8.png" alt="" className="stmt__center-butterfly" loading="lazy" width="100" height="100" />
           <div className="stmt__rule" />
         </div>
 

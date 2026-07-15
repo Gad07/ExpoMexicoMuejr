@@ -2,17 +2,20 @@
 
 import Link from 'next/link';
 import { navData } from '@/config/navData';
+import { useLanguage } from '@/context/LanguageContext';
+import OptImage from './OptImage';
 
 export default function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="v2-footer">
       <div className="v2-footer__top">
         <div className="v2-footer__inner">
           {/* Brand column */}
           <div className="v2-footer__brand">
-            <img src="/logo-emm.png" alt="Expo México Mujer" width={240} height={72} className="v2-footer__logomark" />
+            <OptImage src="/logo-emm.png" alt="Expo México Mujer" width={240} height={72} className="v2-footer__logomark" />
             <p className="v2-footer__brand-desc">
-              La plataforma binacional líder de vinculación, cultura y desarrollo comercial entre México y Canadá.
+              {t('footer.brandDesc')}
             </p>
             <div className="v2-footer__social">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="v2-footer__social-link" aria-label="LinkedIn">
@@ -33,10 +36,10 @@ export default function Footer() {
           {/* Links columns */}
           {navData.map((section, idx) => (
             <div key={idx} className="v2-footer__col">
-              <span className="v2-footer__col-title">{section.label}</span>
+              <span className="v2-footer__col-title">{t(section.label)}</span>
               <nav className="v2-footer__links">
                 {'items' in section && section.items.map((link, i) => (
-                  <Link key={i} href={link.href} className="v2-footer__link">{link.label}</Link>
+                  <Link key={i} href={link.href} className="v2-footer__link">{t(link.label)}</Link>
                 ))}
               </nav>
             </div>
@@ -44,12 +47,12 @@ export default function Footer() {
 
           {/* Contact Column */}
           <div className="v2-footer__col">
-            <span className="v2-footer__col-title">Contacto</span>
+            <span className="v2-footer__col-title">{t('footer.contacto')}</span>
             <nav className="v2-footer__links">
               <a href="mailto:francisco@expomexico.ca" className="v2-footer__link">francisco@expomexico.ca</a>
               <a href="https://wa.link/jboroz" className="v2-footer__link" target="_blank" rel="noopener noreferrer">WhatsApp</a>
               <div style={{ height: '8px' }}></div>
-              <a href="/contacto" className="v2-footer__cta-btn" style={{ width: 'fit-content' }}>Reservar Lugar</a>
+              <a href="/contacto" className="v2-footer__cta-btn" style={{ width: 'fit-content' }}>{t('footer.reservar')}</a>
             </nav>
           </div>
         </div>
@@ -58,12 +61,12 @@ export default function Footer() {
       <div className="v2-footer__bottom">
         <div className="v2-footer__bottom-inner">
           <p className="v2-footer__copy" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-            <span>Todos los derechos reservados © 2027 Expo México Mujer.</span>
-            <span style={{ fontSize: '0.8rem', opacity: 0.7 }}>Desarrollado por Gadiel Palma</span>
+            <span>{t('footer.derechos')}</span>
+            <span style={{ fontSize: '0.8rem', opacity: 0.7 }}>{t('footer.desarrollado')}</span>
           </p>
           <div className="v2-footer__bottom-links">
-            <a href="#" className="v2-footer__bottom-link">Privacidad</a>
-            <a href="#" className="v2-footer__bottom-link">Términos</a>
+            <a href="/privacidad" className="v2-footer__bottom-link">{t('footer.privacidad')}</a>
+            <a href="/terminos" className="v2-footer__bottom-link">{t('footer.terminos')}</a>
           </div>
         </div>
       </div>

@@ -109,5 +109,257 @@
       "featured": "En vedette",
       "verTodas": "Voir toutes les actualités"
     }
+  },
+  "hero": {
+    "visa": {
+      "eyebrow": "Expo Mexique Femme 2027",
+      "title": "Services Migratoires",
+      "titleEm": "Votre voyage au Canada",
+      "desc": "Nous vous offrons des conseils complets et une gestion spécialisée pour traiter votre visa d'entrée au Canada. Nous nous occupons de la révision et du suivi de votre dossier pour assurer votre présence à Toronto rapidement et sans complications.",
+      "cta1": "Commencer la Consultation",
+      "cta2": "Conditions"
+    },
+    "nosotros": {
+      "eyebrow": "Expo Mexique Femme 2027",
+      "title": "À Propos",
+      "titleEm": "Notre histoire",
+      "desc": "Une plateforme binationale née de la conviction que le leadership des femmes mexicaines mérite une scène mondiale. Cinq jours à Toronto qui transforment l'identité en opportunité.",
+      "cta1": "En savoir plus",
+      "cta2": "Nous contacter"
+    },
+    "contacto": {
+      "eyebrow": "Attention Personnalisée",
+      "title": "Connectez-vous avec",
+      "titleEm": "les Directeurs",
+      "desc": "Résolution immédiate pour les parrainages, espaces d'exposition et alliances stratégiques pour l'Expo Mexique Femme 2027.",
+      "cta1": "Écrire",
+      "cta2": "Lieu"
+    },
+    "queEs": {
+      "eyebrow": "Identité & Objectif",
+      "title": "Qu'est-ce que",
+      "titleEm": "l'Expo Mexique Femme?",
+      "desc": "Découvrez notre mission, vision et objectifs binationaux stratégiques qui consolident l'alliance commerciale et culturelle entre le Mexique et le Canada.",
+      "cta1": "Équipe Dirigeante",
+      "cta2": "Mission & Vision"
+    },
+    "industrias": {
+      "eyebrow": "Pavillons & Secteurs",
+      "title": "Industries",
+      "titleEm": "Participantes",
+      "desc": "Un tour complet des 12 secteurs commerciaux clés qui représentent l'innovation, la qualité et la tradition du Mexique à Toronto.",
+      "cta1": "Voir les Secteurs"
+    },
+    "ottawa2026": {
+      "eyebrow": "Notre Parcours",
+      "title": "Expo Mexique Femme",
+      "titleEm": "Ottawa 2026",
+      "desc": "Revivez les meilleurs moments de notre édition précédente dans la capitale canadienne. Résultats historiques de mise en réseau commerciale et culturelle.",
+      "cta1": "Voir les Résultats",
+      "cta2": "Galerie & Vidéos"
+    },
+    "expositores": {
+      "eyebrow": "Participants",
+      "title": "Exposantes",
+      "titleEm": "Talent Mexicain",
+      "desc": "Découvrez les femmes leaders et entrepreneures qui représenteront le Mexique à Toronto. Une vitrine exceptionnelle d'innovation, de culture et de qualité prête à conquérir le marché canadien.",
+      "cta1": "Voir le Répertoire",
+      "cta2": "Participer"
+    },
+    "embajadoras": {
+      "eyebrow": "Participants",
+      "title": "Ambassadrices",
+      "titleEm": "Voix d'Inspiration",
+      "desc": "Rencontrez les ambassadrices de l'Expo Mexique Femme. Des femmes exceptionnelles dont le parcours, le leadership et l'influence connectent les frontières et élèvent la fierté mexicaine au niveau international.",
+      "cta1": "Voir les Profils",
+      "cta2": "Participer"
+    },
+    "participa": {
+      "eyebrow": "Participez avec Nous",
+      "title": "Rejoignez la",
+      "titleEm": "Délégation Binationale",
+      "desc": "Faites partie active de la rencontre commerciale et culturelle la plus pertinente entre le Mexique et le Canada. Stands commerciaux, appels d'offres étatiques, parrainages premium et tables rondes d'affaires.",
+      "cta1": "Je veux participer",
+      "cta2": "Parrainages"
+    },
+    "aliados": {
+      "eyebrow": "Nos Partenaires",
+      "title": "Alliés &",
+      "titleEm": "Organisations",
+      "desc": "Découvrez les chambres binationales, gouvernements et institutions du Mexique et du Canada qui soutiennent activement l'Expo Mexique Femme.",
+      "cta1": "Voir les Chambres"
+    },
+    "compradores": {
+      "eyebrow": "Réseautage B2B",
+      "title": "Acheteurs &",
+      "titleEm": "Investisseurs",
+      "desc": "Des opportunités uniques de mise en réseau commerciale directe avec des marques premium du talent et de la culture d'affaires mexicaine au Canada.",
+      "cta1": "Inscription B2B"
+    },
+    "agenda": {
+      "eyebrow": "Outils",
+      "title": "Agenda",
+      "titleEm": "Officiel",
+      "desc": "Découvrez les événements, conférences principales, panels et activités culturelles qui donneront vie aux cinq jours de l'Expo Mexique Femme 2027 à Toronto.",
+      "cta1": "Télécharger l'Agenda",
+      "cta2": "S'inscrire"
+    },
+    "summit": {
+      "eyebrow": "Sommet Binationale de Haut Niveau",
+      "title": "Mexico Ontario",
+      "titleEm": "Business Summit",
+      "desc": "La rencontre stratégique conçue pour consolider les accords commerciaux, encourager les investissements mutuels et établir des ponts opérationnels directs entre la délégation d'entrepreneures mexicaines et les dirigeants corporatifs de l'Ontario.",
+      "cta1": "Voir l'Agenda"
+    },
+    "fashionshow": {
+      "eyebrow": "Célébration de l'Art et du Textile",
+      "title": "Mexican Fashion",
+      "titleEm": "Gala Show",
+      "desc": "Une soirée exceptionnelle où la richesse textile et artisanale du Mexique converge avec les défilés mondiaux à Toronto, mettant en valeur le talent de créatrices indépendantes auprès de distributeurs et médias canadiens.",
+      "cta1": "Voir le Programme"
+    },
+    "womenleaders": {
+      "eyebrow": "Autonomisation et Haute Direction",
+      "title": "Women Leaders",
+      "titleEm": "Forum",
+      "desc": "Un espace intellectuel et interactif pour débattre, partager et établir des directives sur le rôle fondamental du leadership féminin et de la croissance corporative mondiale dans la relation bilatérale Mexique-Canada.",
+      "cta1": "Voir le Programme"
+    },
+    "mision": {
+      "eyebrow": "Expansion & Délégations",
+      "title": "Mission Commerciale",
+      "titleEm": "Montréal",
+      "desc": "Exploration directe des marchés dans la province de Québec. La délégation d'affaires voyage pour analyser les canaux locaux et concrétiser des rencontres d'affaires avant l'exposition centrale à Toronto.",
+      "cta1": "Voir l'Itinéraire"
+    },
+    "academy": {
+      "eyebrow": "Outils",
+      "title": "Academy",
+      "titleEm": "Formation & Leadership",
+      "desc": "Boostez vos compétences et connaissances avec notre programme éducatif. Sessions exclusives conçues pour favoriser la croissance des femmes entrepreneures sur le marché mondial.",
+      "cta1": "Explorer les Cours",
+      "cta2": "Inscriptions"
+    },
+    "informacion": {
+      "eyebrow": "Ressources & Services",
+      "title": "Guide des",
+      "titleEm": "Participants",
+      "desc": "Trouvez le manuel technique de montage, les outils d'exportation et de logistique, les tarifs des hôtels et les canaux de contact directs.",
+      "cta1": "Manuel de l'Exposant",
+      "cta2": "Logistique"
+    },
+    "prensa": {
+      "eyebrow": "Salle de Presse",
+      "title": "Couverture &",
+      "titleEm": "Communiqués",
+      "desc": "Accédez aux communiqués de presse, couverture médiatique, entrevues de la délégation et galerie photos de l'Expo Mexique Femme.",
+      "cta1": "Voir les Communiqués",
+      "cta2": "Multimédia"
+    },
+    "participantes": {
+      "eyebrow": "Délégation d'Exposants",
+      "title": "Manuel de",
+      "titleEm": "l'Exposant",
+      "desc": "Instructions techniques de montage, exigences de stands, règlements généraux et réponses aux questions fréquentes.",
+      "cta1": "Manuel Technique",
+      "cta2": "FAQ"
+    },
+    "logistica": {
+      "eyebrow": "Commerce Binationale",
+      "title": "Logistique Internationale",
+      "titleEm": "& Exportation",
+      "desc": "Directives opérationnelles pour les importations temporaires et définitives, la consolidation de marchandises et les services douaniers Mexique-Canada.",
+      "cta1": "Conseil en Douane",
+      "cta2": "Partenaires Logistiques"
+    },
+    "viajero": {
+      "eyebrow": "Support & Hébergement",
+      "title": "Services aux",
+      "titleEm": "Voyageurs",
+      "desc": "Tarifs préférentiels d'hébergement, informations de vols recommandés et guides opérationnels de transport local à Toronto.",
+      "cta1": "Hôtels Partenaires",
+      "cta2": "Vols & Transferts"
+    },
+    "contactoInfo": {
+      "eyebrow": "Attention Directe",
+      "title": "Contact",
+      "desc": "Adresse du lieu, cartes de visite numériques de nos directeurs et formulaire d'attention directe.",
+      "cta1": "Formulaire",
+      "cta2": "Cartes de Visite"
+    },
+    "noticias": {
+      "eyebrow": "Outils",
+      "title": "Dernières",
+      "titleEm": "Actualités & Tendances",
+      "desc": "Restez informé des dernières nouvelles, annonces officielles et articles en vedette sur l'Expo Mexique Femme et l'autonomisation des femmes.",
+      "cta1": "Lire les Articles",
+      "cta2": "S'abonner"
+    },
+    "patrocinadores": {
+      "eyebrow": "Partenaires Commerciaux",
+      "title": "Sponsors &",
+      "titleEm": "Marques Alliées",
+      "desc": "Découvrez les entreprises et corporations qui rendent possible l'Expo Mexique Femme, stimulant le développement commercial et le leadership féminin entre le Mexique et le Canada.",
+      "cta1": "Nos Alliés",
+      "cta2": "Devenir Sponsor"
+    },
+    "invitados": {
+      "eyebrow": "Personnalités",
+      "title": "Invités",
+      "titleEm": "Spéciaux",
+      "desc": "Personnalités distinguées du monde des affaires, politique et culturel qui enrichissent notre programme avec leur vision et expérience internationale.",
+      "cta1": "Voir les Profils"
+    }
+  },
+  "cta": {
+    "title": "Prête à faire partie de",
+    "titleEm": "cette édition?",
+    "email": "Envoyez-nous un email",
+    "whatsapp": "Ouvrir WhatsApp"
+  },
+  "footer": {
+    "brandDesc": "La plateforme binationale leader de mise en réseau, culture et développement commercial entre le Mexique et le Canada.",
+    "contacto": "Contact",
+    "reservar": "Réserver une Place",
+    "derechos": "Tous droits réservés © 2027 Expo Mexique Femme.",
+    "desarrollado": "Développé par Gadiel Palma",
+    "privacidad": "Confidentialité",
+    "terminos": "Conditions"
+  },
+  "wa": {
+    "chat": {
+      "title": "EXPO MEXICO MUJER 2027",
+      "typing": "écriture...",
+      "online": "en ligne",
+      "closeChat": "Fermer le chat",
+      "today": "Aujourd'hui",
+      "greeting": "Bonjour! 👋",
+      "placeholder": "Écrivez un message...",
+      "sendLabel": "Envoyer un message à WhatsApp",
+      "openChat": "Ouvrir le chat",
+      "startChat": "Démarrer un chat sur WhatsApp"
+    },
+    "bot": {
+      "default": "Bienvenue à l'Expo Mexique Femme 2027. Comment pouvons-nous vous aider à développer votre entreprise aujourd'hui?",
+      "expositores": "Bienvenue à l'Expo Mexique Femme 2027. Souhaitez-vous sécuriser votre place en tant qu'exposante et toucher plus de clients?",
+      "embajadoras": "Bienvenue dans le programme des Ambassadrices EMM. Prête à diriger et représenter votre état?",
+      "patrocinadores": "Bienvenue à l'Expo Mexique Femme 2027. Souhaitez-vous renforcer votre marque avec nos plans de parrainage?",
+      "invitados": "Bienvenue à l'Expo Mexique Femme 2027. Avez-vous des questions sur nos invités spéciaux?",
+      "agenda": "L'Agenda EMM 2027 est rempli de conférences et de réseautage. Quelle information recherchez-vous?",
+      "academy": "Bienvenue à l'EMM Academy. Prête à vous former et à développer votre entreprise?",
+      "visa": "Nous savons que voyager au Canada nécessite une préparation. Avez-vous des questions sur votre processus de eTA ou de visa?",
+      "contacto": "Vous êtes dans notre zone de contact. Comment pouvons-nous vous aider aujourd'hui?"
+    },
+    "user": {
+      "default": "Bonjour, j'aimerais obtenir des informations sur l'Expo Mexique Femme 2027.",
+      "expositores": "Bonjour, j'aimerais recevoir le dossier et les informations pour participer en tant qu'exposante.",
+      "embajadoras": "Bonjour, j'aimerais postuler ou obtenir plus d'informations sur le programme des Ambassadrices.",
+      "patrocinadores": "Bonjour, j'aimerais connaître les options commerciales et de parrainage pour l'événement.",
+      "invitados": "Bonjour, j'aimerais obtenir plus de détails sur les invités spéciaux de l'Expo.",
+      "agenda": "Bonjour, j'aimerais obtenir plus d'informations sur l'agenda et le programme d'activités.",
+      "academy": "Bonjour, je suis intéressée par les ateliers et formations de l'EMM Academy.",
+      "visa": "Bonjour, j'ai besoin de conseils sur les procédures d'immigration (Visa/eTA) pour assister à l'Expo.",
+      "contacto": "Bonjour, j'ai une demande générale concernant l'Expo Mexique Femme 2027."
+    }
   }
 }

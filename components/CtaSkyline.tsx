@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Mail, Phone, ArrowRight } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({
   children, className = '', delay = 0, onClick, style = {},
@@ -29,23 +30,25 @@ function Reveal({
 }
 
 export default function CtaSkyline() {
+  const { t } = useLanguage();
+
   return (
     <section className="cta--lux" id="registro" aria-labelledby="cta-title">
       <div className="cta__lux-inner">
         <Reveal>
           <h2 className="cta__lux-title" id="cta-title">
-            ¿Lista para ser parte de<br />
-            <em>esta edición?</em>
+            {t('cta.title')}<br />
+            <em>{t('cta.titleEm')}</em>
           </h2>
         </Reveal>
         <Reveal delay={200}>
           <div className="cta__lux-actions">
             <a href="mailto:francisco@expomexico.ca" className="cta__lux-btn cta__lux-btn--primary">
-              <span className="cta__lux-btn-text">Escribir por correo</span>
+              <span className="cta__lux-btn-text">{t('cta.email')}</span>
               <span className="cta__lux-btn-fill" />
             </a>
             <a href="https://wa.link/jboroz" className="cta__lux-btn cta__lux-btn--outline" target="_blank" rel="noopener noreferrer">
-              Abrir WhatsApp
+              {t('cta.whatsapp')}
             </a>
           </div>
         </Reveal>

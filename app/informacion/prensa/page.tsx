@@ -76,6 +76,7 @@ export default function PrensaPage() {
       <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: '60px 48px 80px' }}>
         
         {/* 1. Sala de Prensa & Comunicados */}
+        <h1 className="sr-only">Prensa</h1>
         <div id="comunicados" style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
@@ -145,7 +146,7 @@ export default function PrensaPage() {
 
             <Reveal delay={200}>
               <div style={{ background: '#fff', borderRadius: '32px', overflow: 'hidden', height: '350px', position: 'relative', boxShadow: '0 20px 40px rgba(0,25,76,0.05)' }}>
-                <img src="/Galeria/Ponencias/IMG_5169.JPG" alt="Prensa" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/Galeria/Ponencias/IMG_5169.JPG" alt="Prensa" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="600" height="400" />
                 <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px', background: 'rgba(255,255,255,0.92)', padding: '20px', borderRadius: '16px', backdropFilter: 'blur(5px)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div>
                     <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--magenta)', textTransform: 'uppercase' }}>Carpeta Fotográfica</span>

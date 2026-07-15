@@ -166,7 +166,7 @@ export default function WomenLeadersForumPage() {
                   }}>
                     {/* COVER PHOTO */}
                     <div style={{ height: '160px', width: '100%', position: 'relative', background: '#f0f0f0' }}>
-                      <img src={speaker.cover} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <img src={speaker.cover} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="600" height="400" />
                       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.4), transparent)' }}></div>
                     </div>
 
@@ -176,7 +176,7 @@ export default function WomenLeadersForumPage() {
                       position: 'absolute', top: '125px', left: '24px', boxShadow: '0 10px 20px rgba(0,0,0,0.1)', zIndex: 10,
                       display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden'
                     }}>
-                      <img src={speaker.photo} alt={speaker.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+                      <img src={speaker.photo} alt={speaker.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} loading="lazy" width="120" height="120" />
                     </div>
 
                     {/* BODY */}

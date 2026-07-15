@@ -3,13 +3,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import styles from './WhatsAppChat.module.css';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function WhatsAppChat() {
   const [isOpen, setIsOpen] = useState(false);
-  const [step, setStep] = useState(0); // 0: closed, 1: typing, 2: message shown
+  const [step, setStep] = useState(0);
   const pathname = usePathname();
   const [inputValue, setInputValue] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const { t } = useLanguage();
+
   const toggleChat = () => {
     if (!isOpen) {
       setIsOpen(true);
@@ -30,38 +33,23 @@ export default function WhatsAppChat() {
     return () => clearTimeout(timer);
   }, [isOpen, step]);
 
-  const whatsappNumber = "1234567890"; // Reemplazar con el número real de Expo México Mujer
+  const whatsappNumber = "1234567890";
 
-  let botMessage = (
-    <>Bienvenida a <b>Expo México Mujer 2027</b>. ¿En qué podemos ayudarte a impulsar tu negocio hoy?</>
-  );
-  let userMessage = "Hola, me gustaría obtener información sobre la Expo México Mujer 2027.";
+  const getRouteKey = () => {
+    if (pathname.startsWith('/expositores')) return 'expositores';
+    if (pathname.startsWith('/embajadoras')) return 'embajadoras';
+    if (pathname.startsWith('/patrocinadores')) return 'patrocinadores';
+    if (pathname.startsWith('/invitados')) return 'invitados';
+    if (pathname.startsWith('/agenda')) return 'agenda';
+    if (pathname.startsWith('/academy')) return 'academy';
+    if (pathname.startsWith('/visa') || pathname.startsWith('/tramites')) return 'visa';
+    if (pathname.startsWith('/contacto')) return 'contacto';
+    return 'default';
+  };
 
-  if (pathname.startsWith('/expositores')) {
-    botMessage = <>Bienvenida a <b>Expo México Mujer 2027</b>. ¿Te interesa asegurar tu lugar como expositora y llegar a más clientes?</>;
-    userMessage = "Hola, me gustaría recibir el dossier e información para participar como expositora.";
-  } else if (pathname.startsWith('/embajadoras')) {
-    botMessage = <>Bienvenida al programa de <b>Embajadoras EMM</b>. ¿Lista para liderar y representar a tu estado?</>;
-    userMessage = "Hola, me gustaría postularme o recibir más información sobre el programa de Embajadoras.";
-  } else if (pathname.startsWith('/patrocinadores')) {
-    botMessage = <>Bienvenido a <b>Expo México Mujer 2027</b>. ¿Deseas potenciar tu marca con nuestros planes de patrocinio?</>;
-    userMessage = "Hola, me gustaría conocer las opciones comerciales y de patrocinio para el evento.";
-  } else if (pathname.startsWith('/invitados')) {
-    botMessage = <>Bienvenido a <b>Expo México Mujer 2027</b>. ¿Tienes dudas sobre nuestros invitados especiales?</>;
-    userMessage = "Hola, me gustaría obtener más detalles sobre los invitados especiales de la Expo.";
-  } else if (pathname.startsWith('/agenda')) {
-    botMessage = <>La <b>Agenda EMM 2027</b> está llena de conferencias y networking. ¿Qué información buscas?</>;
-    userMessage = "Hola, me gustaría obtener más información sobre la agenda y el programa de actividades.";
-  } else if (pathname.startsWith('/academy')) {
-    botMessage = <>Bienvenida a <b>EMM Academy</b>. ¿Lista para capacitarte y crecer tu negocio?</>;
-    userMessage = "Hola, me interesa conocer más sobre los talleres y capacitaciones de EMM Academy.";
-  } else if (pathname.startsWith('/visa') || pathname.startsWith('/tramites')) {
-    botMessage = <>Sabemos que viajar a Canadá requiere preparación. ¿Tienes dudas sobre el trámite de tu eTA o Visa?</>;
-    userMessage = "Hola, necesito asesoría sobre los trámites migratorios (Visa/eTA) para asistir a la Expo.";
-  } else if (pathname.startsWith('/contacto')) {
-    botMessage = <>Estás en nuestra área de contacto. ¿Cómo podemos asistirte el día de hoy?</>;
-    userMessage = "Hola, tengo una consulta general sobre la Expo México Mujer 2027.";
-  }
+  const routeKey = getRouteKey();
+  const botMessage = t(`wa.bot.${routeKey}`);
+  const userMessage = t(`wa.user.${routeKey}`);
 
   useEffect(() => {
     setInputValue(userMessage);
@@ -69,7 +57,6 @@ export default function WhatsAppChat() {
 
   useEffect(() => {
     if (textareaRef.current) {
-      // Pequeño timeout para asegurar que el DOM haya renderizado el textarea
       setTimeout(() => {
         if (textareaRef.current) {
           textareaRef.current.style.height = 'auto';
@@ -96,7 +83,6 @@ export default function WhatsAppChat() {
     <div className={styles.container}>
       <div className={`${styles.chatWindow} ${isOpen ? styles.open : ''}`}>
 
-        {/* Cabecera idéntica a WA */}
         <div className={styles.header}>
           <div className={styles.avatar}>
             <img
@@ -105,23 +91,21 @@ export default function WhatsAppChat() {
             />
           </div>
           <div className={styles.headerInfo}>
-            <h3 className={styles.headerTitle}>EXPO MEXICO MUJER 2027</h3>
+            <h3 className={styles.headerTitle}>{t('wa.chat.title')}</h3>
             <p className={styles.headerSubtitle}>
-              {step === 1 ? 'escribiendo...' : 'en línea'}
+              {step === 1 ? t('wa.chat.typing') : t('wa.chat.online')}
             </p>
           </div>
 
-          {/* Botón de cerrar dentro de la cabecera */}
-          <button className={styles.closeButton} onClick={toggleChat} aria-label="Cerrar chat">
+          <button className={styles.closeButton} onClick={toggleChat} aria-label={t('wa.chat.closeChat')}>
             <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
               <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
             </svg>
           </button>
         </div>
 
-        {/* Cuerpo con fondo y patrón oficial */}
         <div className={styles.body}>
-          <div className={styles.dateBadge}>Hoy</div>
+          <div className={styles.dateBadge}>{t('wa.chat.today')}</div>
 
           {step >= 1 && (
             <>
@@ -136,7 +120,7 @@ export default function WhatsAppChat() {
               ) : (
                 <div key="message" className={styles.messageBubble}>
                   <span>
-                    ¡Hola! 👋<br /><br />
+                    {t('wa.chat.greeting')}<br /><br />
                     {botMessage}
                   </span>
                   <span className={styles.timestamp}>{timeString}</span>
@@ -146,7 +130,6 @@ export default function WhatsAppChat() {
           )}
         </div>
 
-        {/* Área de Input de Texto Falso y Botón de Enviar */}
         <div className={styles.inputArea}>
           {step === 2 ? (
             <>
@@ -165,23 +148,21 @@ export default function WhatsAppChat() {
                     handleSend();
                   }
                 }}
-                placeholder="Escribe un mensaje..."
+                placeholder={t('wa.chat.placeholder')}
                 rows={1}
               />
               <button
                 onClick={handleSend}
                 className={styles.sendIconBtn}
-                aria-label="Enviar mensaje a WhatsApp"
+                aria-label={t('wa.chat.sendLabel')}
                 disabled={!inputValue.trim()}
               >
                 <svg width="24" height="24" viewBox="0 0 400 400" aria-hidden="true">
-                  {/* Ícono 1: Avión de papel */}
                   <path
                     className={`${styles.sendIconPath} ${inputValue.trim() ? styles.iconActive : styles.iconInactive}`}
                     style={{ fill: 'none', stroke: 'currentColor', strokeWidth: 32, strokeLinecap: 'round', strokeLinejoin: 'round' }}
                     d="M168.83 200.504H79.218L33.04 44.284a1 1 0 0 1 1.386-1.188L365.083 199.04a1 1 0 0 1 .003 1.808L34.432 357.903a1 1 0 0 1-1.388-1.187l29.42-99.427"
                   />
-                  {/* Ícono 2: Burbuja de WhatsApp */}
                   <path
                     className={`${styles.sendIconPath} ${!inputValue.trim() ? styles.iconActive : styles.iconInactive}`}
                     style={{ fill: 'currentColor', stroke: 'none' }}
@@ -191,16 +172,15 @@ export default function WhatsAppChat() {
               </button>
             </>
           ) : (
-            <div style={{ height: '48px', width: '100%' }}></div> /* Espaciador proporcional al nuevo botón */
+            <div style={{ height: '48px', width: '100%' }}></div>
           )}
         </div>
 
       </div>
 
-      {/* Botón flotante que desaparece cuando el chat está abierto */}
       <button
         type="button"
-        aria-label="Abrir chat"
+        aria-label={t('wa.chat.openChat')}
         className={`${styles.jcCustomBtn} ${isOpen ? styles.chatOpen : ''}`}
         onClick={toggleChat}
       >

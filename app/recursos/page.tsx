@@ -123,7 +123,7 @@ export default function NoticiasPage() {
               <Reveal key={news.id} delay={i * 100}>
                 <Link href={`/recursos/noticia/${news.id}`} className="news-card-full">
                   <div style={{ overflow: 'hidden', position: 'relative' }}>
-                    <img src={news.image} alt={news.title} className="news-card-full__img" />
+                    <img src={news.image} alt={news.title} className="news-card-full__img" loading="lazy" width="600" height="400" />
                     {news.featured && (
                       <div style={{ position: 'absolute', top: '16px', left: '16px', background: 'var(--magenta)', color: '#fff', padding: '6px 12px', borderRadius: '4px', fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
                         Destacado

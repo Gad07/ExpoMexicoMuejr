@@ -28,6 +28,11 @@ const nunito = Nunito_Sans({
   display: 'swap',
 });
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   title: 'Expo México Mujer 2027 | Toronto, Canadá',
   description:
@@ -37,6 +42,10 @@ export const metadata: Metadata = {
     'Expo México Mujer', 'Toronto', 'negocios', 'emprendedoras',
     'México Canadá', 'liderazgo femenino', 'EMM 2027',
   ],
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: 'Expo México Mujer 2027 | Toronto, Canadá',
     description:

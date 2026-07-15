@@ -109,5 +109,257 @@
       "featured": "Destacado",
       "verTodas": "Ver todas las noticias"
     }
+  },
+  "hero": {
+    "visa": {
+      "eyebrow": "Expo México Mujer 2027",
+      "title": "Servicios Migratorios",
+      "titleEm": "Tu viaje a Canadá",
+      "desc": "Te brindamos asesoría integral y gestoría especializada para tramitar tu visa de ingreso a Canadá. Nos encargamos de la revisión y acompañamiento de tu expediente para asegurar tu presencia en Toronto de manera rápida y sin complicaciones.",
+      "cta1": "Iniciar Asesoría",
+      "cta2": "Requisitos"
+    },
+    "nosotros": {
+      "eyebrow": "Expo México Mujer 2027",
+      "title": "Nosotros",
+      "titleEm": "Nuestra historia",
+      "desc": "Una plataforma binacional que nace con la convicción de que el liderazgo mexicano femenino merece un escenario global. Cinco días en Toronto que transforman identidad en oportunidad.",
+      "cta1": "Conocer más",
+      "cta2": "Contáctanos"
+    },
+    "contacto": {
+      "eyebrow": "Atención Personalizada",
+      "title": "Conecta con",
+      "titleEm": "los Directores",
+      "desc": "Resolución inmediata para patrocinios, espacios de exhibición y alianzas estratégicas para Expo México Mujer 2027.",
+      "cta1": "Escribir",
+      "cta2": "Sede"
+    },
+    "queEs": {
+      "eyebrow": "Identidad y Propósito",
+      "title": "¿Qué es",
+      "titleEm": "Expo México Mujer?",
+      "desc": "Descubre nuestra misión, visión y los objetivos binacionales estratégicos que consolidan la alianza comercial y cultural entre México y Canadá.",
+      "cta1": "Equipo Directivo",
+      "cta2": "Misión & Visión"
+    },
+    "industrias": {
+      "eyebrow": "Pabellones y Sectores",
+      "title": "Industrias",
+      "titleEm": "Participantes",
+      "desc": "Un recorrido completo por los 12 sectores comerciales clave que representan la innovación, calidad y tradición de México en Toronto.",
+      "cta1": "Ver Sectores"
+    },
+    "ottawa2026": {
+      "eyebrow": "Nuestra Trayectoria",
+      "title": "Expo México Mujer",
+      "titleEm": "Ottawa 2026",
+      "desc": "Revive los mejores momentos de nuestra edición anterior en la capital canadiense. Resultados históricos de vinculación comercial y cultural.",
+      "cta1": "Ver Resultados",
+      "cta2": "Galería & Videos"
+    },
+    "expositores": {
+      "eyebrow": "Participantes",
+      "title": "Expositoras",
+      "titleEm": "Talento Mexicano",
+      "desc": "Descubre a las mujeres líderes y empresarias que representarán a México en Toronto. Una muestra excepcional de innovación, cultura y calidad lista para conquistar el mercado canadiense.",
+      "cta1": "Ver Directorio",
+      "cta2": "Participar"
+    },
+    "embajadoras": {
+      "eyebrow": "Participantes",
+      "title": "Embajadoras",
+      "titleEm": "Voces de Inspiración",
+      "desc": "Conoce a las embajadoras de Expo México Mujer. Mujeres excepcionales cuya trayectoria, liderazgo e influencia conectan fronteras y elevan el orgullo mexicano a nivel internacional.",
+      "cta1": "Conocer Perfiles",
+      "cta2": "Participar"
+    },
+    "participa": {
+      "eyebrow": "Participa con Nosotros",
+      "title": "Únete a la",
+      "titleEm": "Delegación Binacional",
+      "desc": "Forma parte activa del encuentro empresarial y cultural más relevante entre México y Canadá. Stands comerciales, convocatorias estatales, patrocinios premium y ruedas de negocios.",
+      "cta1": "Quiero Participar",
+      "cta2": "Patrocinios"
+    },
+    "aliados": {
+      "eyebrow": "Nuestros Socios",
+      "title": "Aliados &",
+      "titleEm": "Organismos",
+      "desc": "Conoce a las cámaras binacionales, gobiernos e instituciones de México y Canadá que respaldan activamente a la Expo México Mujer.",
+      "cta1": "Ver Cámaras"
+    },
+    "compradores": {
+      "eyebrow": "Vinculación B2B",
+      "title": "Compradores &",
+      "titleEm": "Inversionistas",
+      "desc": "Oportunidades únicas de vinculación comercial directa con marcas premium del talento y la cultura empresarial mexicana en Canadá.",
+      "cta1": "Registro B2B"
+    },
+    "agenda": {
+      "eyebrow": "Herramientas",
+      "title": "Programa",
+      "titleEm": "Agenda Oficial",
+      "desc": "Descubre los eventos, conferencias magistrales, paneles y actividades culturales que darán vida a los cinco días de Expo México Mujer 2027 en Toronto.",
+      "cta1": "Descargar Agenda",
+      "cta2": "Registrarse"
+    },
+    "summit": {
+      "eyebrow": "Summit Binacional de Alto Nivel",
+      "title": "México Ontario",
+      "titleEm": "Business Summit",
+      "desc": "El encuentro estratégico diseñado para consolidar acuerdos comerciales, fomentar inversiones mutuas y tender puentes operativos directos entre la delegación de empresarias mexicanas y los líderes corporativos de Ontario.",
+      "cta1": "Ver Agenda"
+    },
+    "fashionshow": {
+      "eyebrow": "Celebración de Arte y Textil",
+      "title": "Mexican Fashion",
+      "titleEm": "Gala Show",
+      "desc": "Una noche excepcional donde la riqueza textil y artesanal de México converge con las pasarelas globales en Toronto, mostrando el talento de diseñadoras independientes a distribuidores y medios canadienses.",
+      "cta1": "Ver Programa"
+    },
+    "womenleaders": {
+      "eyebrow": "Empoderamiento y Alta Dirección",
+      "title": "Women Leaders",
+      "titleEm": "Forum",
+      "desc": "Un espacio intelectual e interactivo para debatir, compartir y asentar directrices sobre el papel fundamental del liderazgo femenino y el crecimiento corporativo global en la relación bilateral México-Canadá.",
+      "cta1": "Ver Programa"
+    },
+    "mision": {
+      "eyebrow": "Expansión y Delegaciones",
+      "title": "Misión Comercial",
+      "titleEm": "Montreal",
+      "desc": "Exploración de mercados directos en la provincia de Quebec. La delegación empresarial viaja para analizar canales locales y concretar encuentros de negocios previos a la exhibición central en Toronto.",
+      "cta1": "Ver Itinerario"
+    },
+    "academy": {
+      "eyebrow": "Herramientas",
+      "title": "Academy",
+      "titleEm": "Formación y Liderazgo",
+      "desc": "Potencia tus habilidades y conocimientos con nuestro programa educativo. Sesiones exclusivas diseñadas para impulsar el crecimiento de mujeres emprendedoras en el mercado global.",
+      "cta1": "Explorar Cursos",
+      "cta2": "Inscripciones"
+    },
+    "informacion": {
+      "eyebrow": "Recursos & Servicios",
+      "title": "Guía de",
+      "titleEm": "Participantes",
+      "desc": "Encuentra el manual técnico de montaje, herramientas de exportación y logística, tarifas con hoteles sede y canales de contacto directo.",
+      "cta1": "Manual del Expositor",
+      "cta2": "Logística"
+    },
+    "prensa": {
+      "eyebrow": "Sala de Prensa",
+      "title": "Cobertura &",
+      "titleEm": "Comunicados",
+      "desc": "Accede a comunicados de prensa, cobertura de medios, entrevistas de la delegación y galería fotográfica de la Expo México Mujer.",
+      "cta1": "Ver Comunicados",
+      "cta2": "Multimedia"
+    },
+    "participantes": {
+      "eyebrow": "Delegación de Expositores",
+      "title": "Manual del",
+      "titleEm": "Expositor",
+      "desc": "Instrucciones técnicas de montaje, requerimientos de stands, reglamentos generales y respuestas a preguntas frecuentes.",
+      "cta1": "Manual Técnico",
+      "cta2": "Preguntas Frecuentes"
+    },
+    "logistica": {
+      "eyebrow": "Comercio Binacional",
+      "title": "Logística Internacional",
+      "titleEm": "& Exportación",
+      "desc": "Pautas operativas para importaciones temporales y definitivas, consolidación de mercancía y servicios aduanales México-Canadá.",
+      "cta1": "Asesoría Aduanal",
+      "cta2": "Socios Logísticos"
+    },
+    "viajero": {
+      "eyebrow": "Soporte y Estadía",
+      "title": "Servicios al",
+      "titleEm": "Viajero",
+      "desc": "Tarifas preferentes de hospedaje, información de vuelos recomendados y guías operativas de transporte local en Toronto.",
+      "cta1": "Hoteles Sede",
+      "cta2": "Vuelos y Traslado"
+    },
+    "contactoInfo": {
+      "eyebrow": "Atención Directa",
+      "title": "Contacto",
+      "desc": "Dirección de la sede, tarjetas de presentación digital de nuestros directores y formulario de atención directa.",
+      "cta1": "Formulario",
+      "cta2": "Business Cards"
+    },
+    "noticias": {
+      "eyebrow": "Herramientas",
+      "title": "Noticias",
+      "titleEm": "Actualidad y Tendencias",
+      "desc": "Mantente al tanto de las últimas novedades, anuncios oficiales y artículos destacados sobre Expo México Mujer y el empoderamiento femenino.",
+      "cta1": "Leer Artículos",
+      "cta2": "Suscribirse"
+    },
+    "patrocinadores": {
+      "eyebrow": "Socios Comerciales",
+      "title": "Patrocinadores",
+      "titleEm": "& Marcas Aliadas",
+      "desc": "Conoce a las empresas y corporativos que hacen posible Expo México Mujer, impulsando el desarrollo comercial y el liderazgo femenino entre México y Canadá.",
+      "cta1": "Nuestros Aliados",
+      "cta2": "Ser Patrocinador"
+    },
+    "invitados": {
+      "eyebrow": "Personalidades",
+      "title": "Invitados",
+      "titleEm": "Especiales",
+      "desc": "Figuras destacadas del ámbito empresarial, político y cultural que enriquecen nuestro programa con su visión y experiencia internacional.",
+      "cta1": "Ver Perfiles"
+    }
+  },
+  "cta": {
+    "title": "¿Lista para ser parte de",
+    "titleEm": "esta edición?",
+    "email": "Escribir por correo",
+    "whatsapp": "Abrir WhatsApp"
+  },
+  "footer": {
+    "brandDesc": "La plataforma binacional líder de vinculación, cultura y desarrollo comercial entre México y Canadá.",
+    "contacto": "Contacto",
+    "reservar": "Reservar Lugar",
+    "derechos": "Todos los derechos reservados © 2027 Expo México Mujer.",
+    "desarrollado": "Desarrollado por Gadiel Palma",
+    "privacidad": "Privacidad",
+    "terminos": "Términos"
+  },
+  "wa": {
+    "chat": {
+      "title": "EXPO MEXICO MUJER 2027",
+      "typing": "escribiendo...",
+      "online": "en línea",
+      "closeChat": "Cerrar chat",
+      "today": "Hoy",
+      "greeting": "¡Hola! 👋",
+      "placeholder": "Escribe un mensaje...",
+      "sendLabel": "Enviar mensaje a WhatsApp",
+      "openChat": "Abrir chat",
+      "startChat": "Iniciar chat en WhatsApp"
+    },
+    "bot": {
+      "default": "Bienvenida a Expo México Mujer 2027. ¿En qué podemos ayudarte a impulsar tu negocio hoy?",
+      "expositores": "Bienvenida a Expo México Mujer 2027. ¿Te interesa asegurar tu lugar como expositora y llegar a más clientes?",
+      "embajadoras": "Bienvenida al programa de Embajadoras EMM. ¿Lista para liderar y representar a tu estado?",
+      "patrocinadores": "Bienvenido a Expo México Mujer 2027. ¿Deseas potenciar tu marca con nuestros planes de patrocinio?",
+      "invitados": "Bienvenido a Expo México Mujer 2027. ¿Tienes dudas sobre nuestros invitados especiales?",
+      "agenda": "La Agenda EMM 2027 está llena de conferencias y networking. ¿Qué información buscas?",
+      "academy": "Bienvenida a EMM Academy. ¿Lista para capacitarte y crecer tu negocio?",
+      "visa": "Sabemos que viajar a Canadá requiere preparación. ¿Tienes dudas sobre el trámite de tu eTA o Visa?",
+      "contacto": "Estás en nuestra área de contacto. ¿Cómo podemos asistirte el día de hoy?"
+    },
+    "user": {
+      "default": "Hola, me gustaría obtener información sobre la Expo México Mujer 2027.",
+      "expositores": "Hola, me gustaría recibir el dossier e información para participar como expositora.",
+      "embajadoras": "Hola, me gustaría postularme o recibir más información sobre el programa de Embajadoras.",
+      "patrocinadores": "Hola, me gustaría conocer las opciones comerciales y de patrocinio para el evento.",
+      "invitados": "Hola, me gustaría obtener más detalles sobre los invitados especiales de la Expo.",
+      "agenda": "Hola, me gustaría obtener más información sobre la agenda y el programa de actividades.",
+      "academy": "Hola, me interesa conocer más sobre los talleres y capacitaciones de EMM Academy.",
+      "visa": "Hola, necesito asesoría sobre los trámites migratorios (Visa/eTA) para asistir a la Expo.",
+      "contacto": "Hola, tengo una consulta general sobre la Expo México Mujer 2027."
+    }
   }
 }

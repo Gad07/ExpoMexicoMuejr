@@ -224,7 +224,7 @@ export default function ParticipaPage() {
 
           <Reveal delay={200}>
             <div style={{ background: '#eaeaea', borderRadius: '24px', overflow: 'hidden', height: '350px', position: 'relative' }}>
-              <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800" alt="Conferencia EMM" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800" alt="Conferencia EMM" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="800" height="600" />
             </div>
           </Reveal>
         </div>

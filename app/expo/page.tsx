@@ -55,6 +55,7 @@ export default function ExpoPage() {
       {/* SECCIÓN 1: ¿Qué es Expo México Mujer? */}
       <section id="que-es" style={{ maxWidth: '1200px', margin: '0 auto', padding: '160px 4% 80px' }}>
         <Reveal>
+          <h1 className="sr-only">Expo México Mujer</h1>
           <span style={{ display: 'inline-block', color: 'var(--magenta)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '16px' }}>
             Identidad y Propósito
           </span>
@@ -128,7 +129,7 @@ export default function ExpoPage() {
             <Reveal delay={100} style={{ flex: '1 1 300px', maxWidth: '400px' }}>
               <div style={{ background: '#fff', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,46,81,0.03)', textAlign: 'center', padding: '40px 24px' }}>
                 <div style={{ width: '120px', height: '120px', borderRadius: '50%', background: '#eaeaea', margin: '0 auto 24px', overflow: 'hidden' }}>
-                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200" alt="Francisco Solorio" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200" alt="Francisco Solorio" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="120" height="120" />
                 </div>
                 <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', fontWeight: 800, margin: '0 0 8px 0' }}>Francisco Solorio</h4>
                 <p style={{ color: 'var(--magenta)', fontWeight: 700, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 16px 0' }}>Director General</p>
@@ -141,7 +142,7 @@ export default function ExpoPage() {
             <Reveal delay={200} style={{ flex: '1 1 300px', maxWidth: '400px' }}>
               <div style={{ background: '#fff', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,46,81,0.03)', textAlign: 'center', padding: '40px 24px' }}>
                 <div style={{ width: '120px', height: '120px', borderRadius: '50%', background: '#eaeaea', margin: '0 auto 24px', overflow: 'hidden' }}>
-                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200" alt="Luis García" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200" alt="Luis García" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="120" height="120" />
                 </div>
                 <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', fontWeight: 800, margin: '0 0 8px 0' }}>Luis García</h4>
                 <p style={{ color: 'var(--cyan)', fontWeight: 700, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 16px 0' }}>Director de Logística y Operaciones</p>
@@ -214,7 +215,7 @@ export default function ExpoPage() {
 
           <Reveal delay={200}>
             <div style={{ background: '#eaeaea', borderRadius: '24px', overflow: 'hidden', height: '350px', position: 'relative', boxShadow: '0 20px 40px rgba(0,46,81,0.06)' }}>
-              <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800" alt="Galería Ottawa 2026" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800" alt="Galería Ottawa 2026" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="800" height="600" />
               <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px', background: 'rgba(255,255,255,0.9)', padding: '20px', borderRadius: '16px', backdropFilter: 'blur(10px)' }}>
                 <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--magenta)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Galería Fotográfica & Videos</span>
                 <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 800, margin: '4px 0 0 0', color: 'var(--navy)' }}>Revive los mejores momentos de Ottawa</h4>

@@ -784,6 +784,7 @@ export default async function NoticiaDetailPage({ params }: { params: Promise<{ 
             src={noticia.author ? noticia.author.image : noticia.image} 
             alt={noticia.title} 
             className={`vogue-hero-img ${noticia.author ? 'portrait-greyscale' : ''}`} 
+            loading="lazy" width="800" height="600"
           />
         </div>
 
@@ -872,13 +873,13 @@ function EditorialGalleryTemplate({ noticia }: { noticia: Noticia }) {
           {/* Asymmetric image feeds embedded inside standard column flow */}
           <div className="editorial-images-column">
             <div className="editorial-img-container offset-left">
-              <img src={noticia.image} alt={noticia.title} />
+              <img src={noticia.image} alt={noticia.title} loading="lazy" width="600" height="400" />
               <div className="editorial-img-caption">Imagen Principal: {noticia.title}</div>
             </div>
 
             {noticia.images && noticia.images.length > 1 && (
               <div className="editorial-img-container offset-right">
-                <img src={noticia.images[1]} alt="Colección secundaria" />
+                <img src={noticia.images[1]} alt="Colección secundaria" loading="lazy" width="600" height="400" />
                 <div className="editorial-img-caption">Perspectiva: Escenarios del proyecto</div>
               </div>
             )}
@@ -892,7 +893,7 @@ function EditorialGalleryTemplate({ noticia }: { noticia: Noticia }) {
           <div className="collage-inner">
             {noticia.images.map((img, i) => (
               <div className="collage-item" key={i}>
-                <img src={img} alt={`Colección ${i}`} />
+                <img src={img} alt={`Colección ${i}`} loading="lazy" width="600" height="400" />
               </div>
             ))}
           </div>
@@ -965,17 +966,17 @@ function CinematicVideoTemplate({ noticia }: { noticia: Noticia }) {
           <h4 className="strip-title">Fotogramas Destacados</h4>
           <div className="strip-grid">
             <div className="strip-card">
-              <img src={noticia.image} alt="Fotograma 1" />
+              <img src={noticia.image} alt="Fotograma 1" loading="lazy" width="600" height="400" />
               <div className="strip-overlay"><Play size={20} color="#fff" /></div>
             </div>
             <div className="strip-card">
-              <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=600" alt="Fotograma 2" />
+              <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=600" alt="Fotograma 2" loading="lazy" width="800" height="600" />
             </div>
             <div className="strip-card">
-              <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?auto=format&fit=crop&q=80&w=600" alt="Fotograma 3" />
+              <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?auto=format&fit=crop&q=80&w=600" alt="Fotograma 3" loading="lazy" width="800" height="600" />
             </div>
             <div className="strip-card">
-              <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&q=80&w=600" alt="Fotograma 4" />
+              <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&q=80&w=600" alt="Fotograma 4" loading="lazy" width="800" height="600" />
             </div>
           </div>
         </div>
@@ -1069,7 +1070,7 @@ function AuthorProfileTemplate({ noticia }: { noticia: Noticia }) {
 
           {/* Author biography (integrated elegantly as page credits) */}
           <div className="fashion-author-footer-card">
-            <img src={author.image} alt={author.name} className="fashion-author-footer-img" />
+            <img src={author.image} alt={author.name} className="fashion-author-footer-img" loading="lazy" width="120" height="120" />
             <div className="fashion-author-footer-details">
               <span className="fashion-author-footer-label">Crédito Editorial</span>
               <h3 className="fashion-author-footer-name">{author.name}</h3>

@@ -97,6 +97,7 @@ export default function SponsorProfile({ params }: { params: Promise<{ slug: str
               src={sponsor.personPhoto} 
               alt={sponsor.personName} 
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', animation: 'scaleDown 2s cubic-bezier(0.16, 1, 0.3, 1) forwards' }} 
+              loading="lazy" width="120" height="120"
             />
           </div>
           <style dangerouslySetInnerHTML={{__html: `
@@ -118,7 +119,7 @@ export default function SponsorProfile({ params }: { params: Promise<{ slug: str
           
           <Reveal delay={100} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <div style={{ width: '100%', maxWidth: '300px', aspectRatio: '1/1', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--cream)', borderRadius: '50%', boxShadow: '0 30px 60px rgba(0,0,0,0.05)', overflow: 'hidden' }}>
-              <img src={sponsor.logo} alt={sponsor.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+              <img src={sponsor.logo} alt={sponsor.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} loading="lazy" width="200" height="80" />
             </div>
           </Reveal>
           
@@ -156,6 +157,7 @@ export default function SponsorProfile({ params }: { params: Promise<{ slug: str
                 src={img} 
                 alt={`${sponsor.name} gallery ${idx}`} 
                 style={{ width: '100%', display: 'block', transition: 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s' }}
+                loading="lazy" width="600" height="400"
                 onMouseOver={e => {
                   e.currentTarget.style.transform = 'scale(1.05)';
                   e.currentTarget.style.filter = 'brightness(1.1)';

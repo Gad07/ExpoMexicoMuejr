@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { ChevronRight, ChevronLeft, Menu, X, ChevronDown } from 'lucide-react';
 import { navData, NavDropdown } from '@/config/navData';
 import { useLanguage } from '@/context/LanguageContext';
+import OptImage from './OptImage';
 
 export default function Nav() {
   const { language, setLanguage, t } = useLanguage();
@@ -75,7 +76,7 @@ export default function Nav() {
       </div>
       <div className="nav__inner">
         <Link href="/" className="nav__logo">
-          <img src="/logo-emm.png" alt="Expo México Mujer" width={240} height={72} className="nav__logo-img" />
+          <OptImage src="/logo-emm.png" alt="Expo México Mujer" width={240} height={72} className="nav__logo-img" priority />
         </Link>
 
         {/* Desktop Menu */}
@@ -124,7 +125,7 @@ export default function Nav() {
             onMouseLeave={handleMouseLeave}
           >
             <a href="#" className={`nav__link ${openDropdown === 'language' ? 'nav__link--active' : ''}`} style={{ display: 'flex', alignItems: 'center', gap: '6px', outline: 'none' }} onClick={(e) => { e.preventDefault(); }}>
-              <img src={`https://flagcdn.com/w20/${language === 'en' ? 'ca' : language === 'fr' ? 'fr' : 'mx'}.png`} width="20" alt={language.toUpperCase()} /> {language.toUpperCase()}
+              <img src={`https://flagcdn.com/w20/${language === 'en' ? 'ca' : language === 'fr' ? 'fr' : 'mx'}.png`} width="20" height="14" alt={language.toUpperCase()} loading="lazy" /> {language.toUpperCase()}
               <ChevronDown size={14} className="nav__mega-icon" />
             </a>
             
@@ -132,17 +133,17 @@ export default function Nav() {
               <ul className="nav__simple-list">
                 <li>
                   <button className="nav__simple-list-item" style={{ background: 'none', border: 'none', outline: 'none', width: '100%', textAlign: 'left', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }} onClick={() => { setLanguage('es'); setOpenDropdown(null); }}>
-                    <img src="https://flagcdn.com/w20/mx.png" width="20" alt="ES" /> Español
+                    <img src="https://flagcdn.com/w20/mx.png" width="20" height="14" alt="ES" loading="lazy" /> Español
                   </button>
                 </li>
                 <li>
                   <button className="nav__simple-list-item" style={{ background: 'none', border: 'none', outline: 'none', width: '100%', textAlign: 'left', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }} onClick={() => { setLanguage('en'); setOpenDropdown(null); }}>
-                    <img src="https://flagcdn.com/w20/ca.png" width="20" alt="EN" /> English
+                    <img src="https://flagcdn.com/w20/ca.png" width="20" height="14" alt="EN" loading="lazy" /> English
                   </button>
                 </li>
                 <li>
                   <button className="nav__simple-list-item" style={{ background: 'none', border: 'none', outline: 'none', width: '100%', textAlign: 'left', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }} onClick={() => { setLanguage('fr'); setOpenDropdown(null); }}>
-                    <img src="https://flagcdn.com/w20/fr.png" width="20" alt="FR" /> Français
+                    <img src="https://flagcdn.com/w20/fr.png" width="20" height="14" alt="FR" loading="lazy" /> Français
                   </button>
                 </li>
               </ul>
@@ -170,7 +171,7 @@ export default function Nav() {
           </Link>
         </div>
 
-        <button className={`nav__hamburger ${menuOpen ? 'nav__hamburger--open' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>
+        <button className={`nav__hamburger ${menuOpen ? 'nav__hamburger--open' : ''}`} onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}>
           <Menu className={!menuOpen ? 'icon-active' : 'icon-inactive'} size={28} />
           <X className={menuOpen ? 'icon-active' : 'icon-inactive'} size={28} />
         </button>
@@ -214,13 +215,13 @@ export default function Nav() {
 
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1.5rem', marginBottom: '0.5rem', gap: '15px' }}>
             <button onClick={() => setLanguage('es')} className="nav__mobile-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: language === 'es' ? 'rgba(0,46,81,0.1)' : 'rgba(0,0,0,0.03)', borderRadius: '20px', border: 'none', cursor: 'pointer', fontWeight: language === 'es' ? 700 : 400 }}>
-              <img src="https://flagcdn.com/w20/mx.png" width="20" alt="ES" /> ES
+              <img src="https://flagcdn.com/w20/mx.png" width="20" height="14" alt="ES" loading="lazy" /> ES
             </button>
             <button onClick={() => setLanguage('en')} className="nav__mobile-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: language === 'en' ? 'rgba(0,46,81,0.1)' : 'rgba(0,0,0,0.03)', borderRadius: '20px', border: 'none', cursor: 'pointer', fontWeight: language === 'en' ? 700 : 400 }}>
-              <img src="https://flagcdn.com/w20/ca.png" width="20" alt="EN" /> EN
+              <img src="https://flagcdn.com/w20/ca.png" width="20" height="14" alt="EN" loading="lazy" /> EN
             </button>
             <button onClick={() => setLanguage('fr')} className="nav__mobile-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: language === 'fr' ? 'rgba(0,46,81,0.1)' : 'rgba(0,0,0,0.03)', borderRadius: '20px', border: 'none', cursor: 'pointer', fontWeight: language === 'fr' ? 700 : 400 }}>
-              <img src="https://flagcdn.com/w20/fr.png" width="20" alt="FR" /> FR
+              <img src="https://flagcdn.com/w20/fr.png" width="20" height="14" alt="FR" loading="lazy" /> FR
             </button>
           </div>
 

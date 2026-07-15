@@ -57,6 +57,7 @@ export default function AcademyPage() {
         {/* Header & Search */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '64px' }}>
           <Reveal>
+            <h1 className="sr-only">Academy</h1>
             <span style={{ display: 'inline-block', color: 'var(--magenta)', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '16px' }}>
               Videoteca Exclusiva
             </span>
@@ -123,7 +124,7 @@ export default function AcademyPage() {
                   }}>
                     {/* COVER PHOTO */}
                     <div style={{ height: '200px', width: '100%', position: 'relative', background: '#f0f0f0' }}>
-                      <img src={course.coverImage} alt={course.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <img src={course.coverImage} alt={course.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="600" height="400" />
                       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.6), transparent)' }}></div>
                       
                       {/* CATEGORY PILL */}
@@ -138,7 +139,7 @@ export default function AcademyPage() {
                       position: 'absolute', top: '165px', left: '24px', boxShadow: '0 10px 20px rgba(0,0,0,0.1)', zIndex: 10,
                       display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden'
                     }}>
-                      <img src={course.instructorPhoto} alt={course.instructor} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+                      <img src={course.instructorPhoto} alt={course.instructor} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} loading="lazy" width="120" height="120" />
                     </div>
 
                     {/* BODY */}

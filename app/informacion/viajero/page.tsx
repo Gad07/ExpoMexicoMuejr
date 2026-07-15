@@ -63,6 +63,7 @@ export default function ViajeroPage() {
       <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: '60px 48px 80px' }}>
         
         {/* 1. Hospedaje Sede */}
+        <h1 className="sr-only">Servicios al Viajero</h1>
         <div id="hospedaje" style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
@@ -75,7 +76,7 @@ export default function ViajeroPage() {
               <Reveal key={hotel.name} delay={idx * 100}>
                 <div style={{ background: '#fff', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,25,76,0.03)', height: '100%', border: '1px solid rgba(0,0,0,0.01)', display: 'flex', flexDirection: 'column' }}>
                   <div style={{ height: '200px', width: '100%', position: 'relative' }}>
-                    <img src={hotel.photo} alt={hotel.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <img src={hotel.photo} alt={hotel.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="600" height="400" />
                     <span style={{ position: 'absolute', top: '16px', right: '16px', padding: '6px 16px', background: 'rgba(255,255,255,0.92)', color: 'var(--navy)', borderRadius: '20px', fontSize: '0.75rem', fontWeight: 800 }}>
                       {hotel.stars}
                     </span>

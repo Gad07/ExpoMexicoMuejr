@@ -1,4 +1,5 @@
 import React from 'react';
+import OptImage from './OptImage';
 
 type HeroProps = {
   image?: string;
@@ -30,10 +31,14 @@ export default function Hero({
   return (
     <section className="hero-gradient" id="inicio" aria-label="Sección principal">
       <div className="hero-gradient__bg">
-        <img
+        <OptImage
           className="hero-gradient__image"
           src={image}
           alt=""
+          fill
+          priority
+          sizes="100vw"
+          quality={75}
           style={imagePosition ? { objectPosition: imagePosition } : undefined}
         />
         <div className={`hero-gradient__overlay ${overlayVariant === 'strong' ? 'hero-gradient__overlay--strong' : ''}`}></div>

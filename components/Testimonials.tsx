@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Play } from 'lucide-react';
+import LazyVideo from './LazyVideo';
 
 const MOCK_VIDEOS = [
   {
@@ -129,7 +130,9 @@ export default function Testimonials() {
           line-height: 1;
           text-transform: uppercase;
           letter-spacing: -0.03em;
-          margin: 0 0 32px 0;
+          margin: 0 auto 32px auto;
+          max-width: 380px;
+          width: 100%;
         }
         
         .editorial-title em {
@@ -145,6 +148,7 @@ export default function Testimonials() {
           width: auto;
           height: auto;
           max-height: 75vh;
+          max-width: 380px;
           aspect-ratio: 9 / 16;
           overflow: hidden;
           background: transparent;
@@ -313,7 +317,7 @@ export default function Testimonials() {
             Voces <em>Nuestras</em>
           </h2>
           <div className="testim-main">
-            <video
+            <LazyVideo
               key={activeIndex}
               ref={videoRef}
               src={encodeURI(MOCK_VIDEOS[activeIndex].url)}
@@ -343,7 +347,7 @@ export default function Testimonials() {
                 >
                   <span className="testim-number">{num}</span>
                   <div className="testim-thumb-wrap">
-                    <video
+                    <LazyVideo
                       src={`${encodeURI(video.url)}#t=${video.thumbTime}`}
                       className="testim-thumb"
                       style={{ objectPosition: video.thumbPos || 'center' }}

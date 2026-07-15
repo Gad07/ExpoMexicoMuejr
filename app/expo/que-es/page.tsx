@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Target, Globe, Award, ArrowLeft, Mail, Phone, Calendar, CheckCircle, ArrowRight } from 'lucide-react';
 import { Mariposa } from '@/components/BrandAssets';
+import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({
   children, className = '', delay = 0, style = {},
@@ -56,6 +57,7 @@ const mockDirectors = [
 ];
 
 export default function QueEsPage() {
+  const { t } = useLanguage();
   return (
     <div style={{ background: 'var(--cream)', color: 'var(--navy)', minHeight: '100vh', paddingBottom: '120px' }}>
       
@@ -197,7 +199,7 @@ export default function QueEsPage() {
             {/* Francisco Solorio */}
             <div className="c-card">
               <div className="c-avatar-box">
-                <img src="/fotos perfil/Foto Francisco.jpg" alt="Francisco Solorio" />
+                <img src="/fotos perfil/Foto Francisco.jpg" alt="" loading="lazy" width="120" height="120" />
               </div>
               <h2 className="c-name">Francisco Solorio</h2>
               <div className="c-role">Director General</div>
@@ -214,7 +216,7 @@ export default function QueEsPage() {
               </div>
 
               <a href="https://wa.me/525527199694" className="c-action" target="_blank" rel="noopener noreferrer">
-                <span>Iniciar chat en WhatsApp</span>
+                <span>{t('wa.chat.startChat')}</span>
                 <ArrowRight size={22} className="c-action-icon" />
               </a>
             </div>
@@ -222,7 +224,7 @@ export default function QueEsPage() {
             {/* Luis García */}
             <div className="c-card">
               <div className="c-avatar-box">
-                <img src="/fotos perfil/Foto Luis.jpg" alt="Luis García" />
+                <img src="/fotos perfil/Foto Luis.jpg" alt="" loading="lazy" width="120" height="120" />
               </div>
               <h2 className="c-name">Luis García</h2>
               <div className="c-role">Director de Operaciones</div>
@@ -239,7 +241,7 @@ export default function QueEsPage() {
               </div>
 
               <a href="https://wa.me/527225514645" className="c-action" target="_blank" rel="noopener noreferrer">
-                <span>Iniciar chat en WhatsApp</span>
+                <span>{t('wa.chat.startChat')}</span>
                 <ArrowRight size={22} className="c-action-icon" />
               </a>
             </div>

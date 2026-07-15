@@ -38,6 +38,7 @@ export default function AliadosPage() {
       
       <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '160px 4% 80px' }}>
         <Reveal>
+          <h1 className="sr-only">Aliados Estratégicos</h1>
           <span style={{ display: 'inline-block', color: 'var(--magenta)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '16px' }}>
             Vinculación Institucional
           </span>

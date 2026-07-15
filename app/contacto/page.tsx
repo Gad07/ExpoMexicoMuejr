@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { Mail, Phone, MapPin, Globe, ArrowRight } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -21,6 +22,7 @@ function Reveal({ children, className = '', delay = 0 }: { children: React.React
 }
 
 export default function ContactoPage() {
+  const { t } = useLanguage();
   return (
     <main className="page-content-wrapper">
       <style>{`
@@ -125,13 +127,14 @@ export default function ContactoPage() {
       `}</style>
 
       {/* Grid */}
+      <h1 className="sr-only">Contacto</h1>
       <section className="c-grid-section">
         <div className="c-grid">
           
           {/* Francisco Solorio */}
           <Reveal delay={100} className="c-card">
             <div className="c-avatar-box">
-              <img src="/fotos perfil/Foto Francisco.jpg" alt="Francisco Solorio" />
+              <img src="/fotos perfil/Foto Francisco.jpg" alt="" loading="lazy" width="120" height="120" />
             </div>
             <h2 className="c-name">Francisco Solorio</h2>
             <div className="c-role">Director General</div>
@@ -148,7 +151,7 @@ export default function ContactoPage() {
             </div>
 
             <a href="https://wa.me/525527199694" className="c-action" target="_blank" rel="noopener noreferrer">
-              <span>Iniciar chat en WhatsApp</span>
+              <span>{t('wa.chat.startChat')}</span>
               <ArrowRight size={22} className="c-action-icon" />
             </a>
           </Reveal>
@@ -156,7 +159,7 @@ export default function ContactoPage() {
           {/* Luis García */}
           <Reveal delay={200} className="c-card">
             <div className="c-avatar-box">
-              <img src="/fotos perfil/Foto Luis.jpg" alt="Luis García" />
+              <img src="/fotos perfil/Foto Luis.jpg" alt="" loading="lazy" width="120" height="120" />
             </div>
             <h2 className="c-name">Luis García</h2>
             <div className="c-role">Director de Operaciones</div>
@@ -173,7 +176,7 @@ export default function ContactoPage() {
             </div>
 
             <a href="https://wa.me/527225514645" className="c-action" target="_blank" rel="noopener noreferrer">
-              <span>Iniciar chat en WhatsApp</span>
+              <span>{t('wa.chat.startChat')}</span>
               <ArrowRight size={22} className="c-action-icon" />
             </a>
           </Reveal>
@@ -185,7 +188,7 @@ export default function ContactoPage() {
       <section className="hq-section" id="sede">
         <Reveal className="hq-inner">
           <div className="hq-image-box">
-            <img src="https://images.pexels.com/photos/935474/toronto-beauty-clouds-skyline-935474.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" alt="Toronto Skyline" />
+            <img src="https://images.pexels.com/photos/935474/toronto-beauty-clouds-skyline-935474.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" alt="Toronto Skyline" loading="lazy" width="800" height="600" />
           </div>
           <div className="hq-content">
             <div className="hq-icon"><MapPin size={32} /></div>

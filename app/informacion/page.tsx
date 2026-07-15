@@ -65,6 +65,7 @@ export default function InformacionPage() {
       {/* SECCIÓN 1: Prensa */}
       <section id="prensa" style={{ maxWidth: '1200px', margin: '0 auto', padding: '160px 4% 80px' }}>
         <Reveal>
+          <h1 className="sr-only">Información</h1>
           <span style={{ display: 'inline-block', color: 'var(--magenta)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '16px' }}>
             Sala de Redacción
           </span>
@@ -182,7 +183,7 @@ export default function InformacionPage() {
 
           <Reveal delay={200}>
             <div style={{ background: '#eaeaea', borderRadius: '24px', overflow: 'hidden', height: '350px', position: 'relative', boxShadow: '0 20px 40px rgba(0,46,81,0.06)' }}>
-              <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=800" alt="Logística y Carga" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=800" alt="Logística y Carga" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="800" height="600" />
             </div>
           </Reveal>
         </div>
