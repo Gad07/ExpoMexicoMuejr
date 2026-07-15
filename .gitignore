@@ -38,3 +38,4 @@ next-env.d.ts
 # video files
 *.mp4
 *.MP4
+!public/Videos Testimonios EMM/
