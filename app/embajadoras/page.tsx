@@ -338,7 +338,6 @@ function EmbajadorasContent() {
 
             <Reveal>
               <div style={{ marginBottom: '56px' }}>
-                <span className="section__label">Directorio de Embajadoras</span>
                 <h2 className="section__title" style={{ marginTop: '8px' }}>
                   Embajadoras de <br /><em>{activeState}</em>
                 </h2>
@@ -481,8 +480,7 @@ function EmbajadorasContent() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'start', marginBottom: '100px' }}>
             <Reveal delay={100}>
               <div>
-                <span className="section__label" style={{ marginBottom: '12px' }}>Convocatoria Nacional</span>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '24px', lineHeight: 1.15 }}>
+                <h3 className="section__title">
                   Embajadoras de <br /><em>Expo México Mujer</em>
                 </h3>
                 <p style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'var(--text)', marginBottom: '32px' }}>
@@ -524,7 +522,6 @@ function EmbajadorasContent() {
 
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: '80px', maxWidth: '800px', margin: '0 auto 80px', paddingTop: '80px', borderTop: '1px solid rgba(0,0,0,0.1)' }}>
-              <span className="section__label">Representantes por Estado</span>
               <h2 className="section__title section__title--center" style={{ marginTop: '16px' }}>
                 Conoce a nuestras <br /><em>Embajadoras de México</em>
               </h2>

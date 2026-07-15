@@ -118,7 +118,6 @@ export default function FashionGalaPage() {
         {/* 1. Diseñadoras Grid */}
         <div style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>
-            <span className="section__label">Talento Creativo</span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
               Diseñadoras Expositores
             </h2>
@@ -199,7 +198,6 @@ export default function FashionGalaPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center', marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal delay={100}>
             <div>
-              <span className="section__label">Desfiles Programados</span>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '24px' }}>
                 Pasarelas y Bloques Temáticos
               </h2>
@@ -231,7 +229,6 @@ export default function FashionGalaPage() {
         {/* 3. Programa Completo */}
         <div id="programa" style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>
-            <span className="section__label">Cronograma</span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
               Programa de la Gala
             </h2>
@@ -269,7 +266,6 @@ export default function FashionGalaPage() {
         {/* 4. Invitados Destacados */}
         <div style={{ borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px', textAlign: 'center' }}>
-            <span className="section__label">Asistencia Especial</span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
               Invitados a la Gala
             </h2>

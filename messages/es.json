@@ -1,19 +1,113 @@
 {
   "nav": {
-    "nosotros": "Nosotros",
-    "participantes": "Participantes",
-    "expositores": "Expositores",
-    "embajadoras": "Embajadoras EMM",
-    "patrocinadores": "Patrocinadores",
-    "invitados": "Invitados Especiales",
-    "herramientas": "Herramientas",
-    "agenda": "Agenda EMM 2027",
-    "academy": "EMM Academy",
-    "visa": "Visas y Trámites",
-    "contacto": "Contacto",
     "registrate": "Regístrate",
-    "idioma": "ES",
-    "volver": "Volver al menú",
-    "idiomaTitulo": "Idioma"
+    "expo": {
+      "title": "Expo México Mujer",
+      "queEs": "¿Qué es Expo México Mujer?",
+      "industrias": "Industrias",
+      "ottawa2026": "Expo México Mujer Ottawa 2026",
+      "noticias": "Noticias",
+      "visas": "Visas y Trámites"
+    },
+    "participa": {
+      "title": "Participa",
+      "expositoras": "Expositoras",
+      "patrocinadores": "Patrocinadores",
+      "embajadoras": "Embajadoras Expo México Mujer",
+      "aliados": "Aliados",
+      "invitados": "Invitados Especiales",
+      "compradores": "Compradores e Inversionistas"
+    },
+    "agenda": {
+      "title": "Agenda",
+      "toronto2027": "Expo México Mujer Toronto 2027",
+      "summit": "México Ontario Business Summit",
+      "fashionshow": "Mexican Fashion Gala Show",
+      "womenleaders": "Women Leaders Forum",
+      "mision": "Misión Comercial Montreal"
+    },
+    "academy": {
+      "title": "Academy",
+      "ingles": "Inglés Online",
+      "executive": "Executive Global Skills",
+      "capacitacion": "Capacitación Empresarial"
+    },
+    "informacion": {
+      "title": "Información",
+      "prensa": "Prensa",
+      "participantes": "Participantes",
+      "logistica": "Logística Internacional y Exportación",
+      "viajero": "Servicios al Viajero",
+      "contacto": "Contacto"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Expo México Mujer 2027",
+      "location": "Toronto · Canadá",
+      "dates": "9–13 Junio 2027"
+    },
+    "countdown": {
+      "label": "El evento comienza en",
+      "days": "Días",
+      "hrs": "Hrs",
+      "min": "Min",
+      "seg": "Seg"
+    },
+    "concept": {
+      "title": "Nuestra",
+      "titleEm": "Misión",
+      "p1": "Expo México Mujer 2027 es una plataforma de encuentros internacionales que transforma el liderazgo mexicano en acciones concretas, creando oportunidades de desarrollo económico y fortaleciendo la identidad de México en el extranjero.",
+      "p2": "Nuestra misión es fortalecer los puentes comerciales, culturales y sociales entre México y Canadá, consolidando una comunidad binacional que impulse el crecimiento de empresas, productos y talentos mexicanos."
+    },
+    "audience": {
+      "title": "Esto es para quienes",
+      "titleEm": "construyen puentes",
+      "desc": "Un espacio diseñado para que cada visitante encuentre su lugar en la expo y defina su rol en esta historia binacional.",
+      "item1": "Emprendedoras buscando expandirse a Canadá",
+      "item2": "Empresas que quieren patrocinar con propósito",
+      "item3": "Expositoras y compradores binacionales",
+      "item4": "Medios, cámaras y aliados institucionales",
+      "quote": "La expo necesita una presencia que se sienta institucional, contemporánea y lista para convertir liderazgo en legado.",
+      "quoteAttr": "— Dirección creativa, EMM 2027"
+    },
+    "agenda": {
+      "title": "Agenda Oficial",
+      "titleEm": "Impacto Binacional",
+      "day1": "Día 01",
+      "day1Title": "Apertura y relaciones institucionales",
+      "day1Text": "Bienvenida, presentación de visión binacional y encuentros con aliados estratégicos. Ceremonia inaugural.",
+      "day2": "Día 02",
+      "day2Title": "Negocios, exportación y oportunidades",
+      "day2Text": "Paneles de exposición comercial, networking, ruedas de negocio y vitrinas sectoriales.",
+      "day3": "Día 03",
+      "day3Title": "Marca, comunidad y prensa",
+      "day3Text": "Activaciones de marca, contenido para medios, entrevistas en vivo y campañas de visibilidad social.",
+      "day4": "Día 04–05",
+      "day4Title": "Cierre, seguimiento y expansión",
+      "day4Text": "Reuniones bilaterales, continuidad post evento, firma de acuerdos y nuevas rutas de colaboración."
+    },
+    "stmt": {
+      "location": "Toronto · Canadá",
+      "headline1": "El liderazgo",
+      "headline2": "mexicano",
+      "headline3Em": "no tiene",
+      "headline4Em": "fronteras",
+      "dateLabel": "Fecha del evento",
+      "dateMonth": "Junio 2027",
+      "cta": "Reservar lugar",
+      "sub": "5 días · Plataforma binacional"
+    },
+    "pillars": {
+      "title": "Nuestros Resultados",
+      "sub": "Expo México Mujer 2026, Ottawa, Canadá."
+    },
+    "noticias": {
+      "title": "Últimas",
+      "titleEm": "noticias",
+      "desc": "Mantente al tanto de los avances, convocatorias y anuncios oficiales rumbo a Expo México Mujer.",
+      "featured": "Destacado",
+      "verTodas": "Ver todas las noticias"
+    }
   }
 }

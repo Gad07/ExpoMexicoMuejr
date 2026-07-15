@@ -127,7 +127,6 @@ export default function IndustriasPage() {
         <div style={{ marginBottom: '80px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center' }}>
             <Reveal>
-              <span className="section__label">Pabellones de Exhibición</span>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.8rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '24px', lineHeight: 1.1 }}>
                 Sectores que impulsan el desarrollo binacional
               </h2>
@@ -158,7 +157,6 @@ export default function IndustriasPage() {
         {/* 12 Industries Grid */}
         <div id="sectores" style={{ borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>
-            <span className="section__label">Sectores Oficiales</span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
               Sectores & Industrias Participantes
             </h2>

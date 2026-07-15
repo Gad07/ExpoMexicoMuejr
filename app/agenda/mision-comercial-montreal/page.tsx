@@ -97,7 +97,6 @@ export default function MontrealMissionPage() {
         {/* 1. Programa General del 5 al 9 de Junio */}
         <div id="itinerario" style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>
-            <span className="section__label">Cronograma de Viaje</span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
               Programa del 5 al 9 de Junio de 2027
             </h2>
@@ -120,7 +119,6 @@ export default function MontrealMissionPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center', marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal delay={100}>
             <div>
-              <span className="section__label">Respaldo Institucional</span>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '24px' }}>
                 Vinculación con COMCE Región Sur
               </h2>
@@ -158,7 +156,6 @@ export default function MontrealMissionPage() {
         {/* 3. Agenda Comercial Día a Día */}
         <div style={{ borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>
-            <span className="section__label">Encuentros de Negocio</span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
               Agenda Comercial de la Misión
             </h2>

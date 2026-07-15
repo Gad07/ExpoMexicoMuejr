@@ -57,7 +57,6 @@ export default function PatrocinadoresPage() {
         <div style={{ marginBottom: '80px' }}>
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <span className="section__label">Patrocinios Expo México Mujer</span>
               <h2 className="section__title section__title--center" style={{ marginTop: '16px' }}>Paquetes de <br /><em>Patrocinio</em></h2>
             </div>
           </Reveal>

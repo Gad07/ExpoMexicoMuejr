@@ -8,7 +8,7 @@ import { navData, NavDropdown } from '@/config/navData';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Nav() {
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeMobileMenu, setActiveMobileMenu] = useState<string | null>(null);
@@ -84,7 +84,7 @@ export default function Nav() {
             if ('href' in item) {
               return (
                 <Link key={index} href={item.href} className="nav__link">
-                  {item.label}
+                  {t(item.label)}
                 </Link>
               );
             } else {
@@ -95,17 +95,17 @@ export default function Nav() {
                   onMouseEnter={() => handleMouseEnter(item.label)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <Link href={item.basePath || '#'} className={`nav__link ${openDropdown === item.label ? 'nav__link--active' : ''}`}>
-                    {item.label}
+                  <a href="#" className={`nav__link ${openDropdown === item.label ? 'nav__link--active' : ''}`} onClick={(e) => e.preventDefault()}>
+                    {t(item.label)}
                     <ChevronDown size={14} className="nav__mega-icon" />
-                  </Link>
+                  </a>
                   
                   {/* Simple Dropdown Panel */}
                   <div className="nav__simple-panel">
                     <ul className="nav__simple-list">
                       {item.items.map((link, linkIdx) => (
                         <li key={linkIdx}>
-                          <Link href={link.href} className="nav__simple-list-item" onClick={() => setMenuOpen(false)}>{link.label}</Link>
+                          <Link href={link.href} className="nav__simple-list-item" onClick={() => setMenuOpen(false)}>{t(link.label)}</Link>
                         </li>
                       ))}
                     </ul>
@@ -118,10 +118,35 @@ export default function Nav() {
 
         {/* Desktop Actions (Right Side) */}
         <div className="nav__desktop-actions">
-          <div className="nav__lang-selector">
-            <span className="nav__link" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <img src="https://flagcdn.com/w20/mx.png" width="20" alt="ES" /> ES
-            </span>
+          <div 
+            className={`nav__simple-dropdown-wrap nav__lang-selector ${openDropdown === 'language' ? 'nav__simple-dropdown-wrap--open' : ''}`}
+            onMouseEnter={() => handleMouseEnter('language')}
+            onMouseLeave={handleMouseLeave}
+          >
+            <a href="#" className={`nav__link ${openDropdown === 'language' ? 'nav__link--active' : ''}`} style={{ display: 'flex', alignItems: 'center', gap: '6px', outline: 'none' }} onClick={(e) => { e.preventDefault(); }}>
+              <img src={`https://flagcdn.com/w20/${language === 'en' ? 'ca' : language === 'fr' ? 'fr' : 'mx'}.png`} width="20" alt={language.toUpperCase()} /> {language.toUpperCase()}
+              <ChevronDown size={14} className="nav__mega-icon" />
+            </a>
+            
+            <div className="nav__simple-panel">
+              <ul className="nav__simple-list">
+                <li>
+                  <button className="nav__simple-list-item" style={{ background: 'none', border: 'none', outline: 'none', width: '100%', textAlign: 'left', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }} onClick={() => { setLanguage('es'); setOpenDropdown(null); }}>
+                    <img src="https://flagcdn.com/w20/mx.png" width="20" alt="ES" /> Español
+                  </button>
+                </li>
+                <li>
+                  <button className="nav__simple-list-item" style={{ background: 'none', border: 'none', outline: 'none', width: '100%', textAlign: 'left', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }} onClick={() => { setLanguage('en'); setOpenDropdown(null); }}>
+                    <img src="https://flagcdn.com/w20/ca.png" width="20" alt="EN" /> English
+                  </button>
+                </li>
+                <li>
+                  <button className="nav__simple-list-item" style={{ background: 'none', border: 'none', outline: 'none', width: '100%', textAlign: 'left', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }} onClick={() => { setLanguage('fr'); setOpenDropdown(null); }}>
+                    <img src="https://flagcdn.com/w20/fr.png" width="20" alt="FR" /> Français
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Social Links */}
@@ -136,12 +161,12 @@ export default function Nav() {
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.44v6.3zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.44c.98 0 1.79-.77 1.79-1.73V1.73C24 .77 23.2 0 22.22 0z" /></svg>
             </a>
             <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="nav__social-link" aria-label="TikTok">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z" /></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.24-2.61.94-5.26 3.03-6.72 1.48-1.03 3.27-1.45 5.03-1.38v4.07c-1.25-.09-2.54.19-3.57.87-1.16.74-1.87 2.06-1.78 3.42.06 1.49 1.25 2.82 2.72 3.1 1.22.25 2.53-.1 3.43-.88.94-.82 1.43-2.06 1.41-3.32V.02h-4.34z" /></svg>
             </a>
           </div>
 
           <Link href="/contacto" className="nav__cta">
-            Regístrate
+            {t('nav.registrate')}
           </Link>
         </div>
 
@@ -158,7 +183,7 @@ export default function Nav() {
             if ('href' in item) {
               return (
                 <Link key={index} href={item.href} className="nav__mobile-link" onClick={() => setMenuOpen(false)}>
-                  {item.label}
+                  {t(item.label)}
                 </Link>
               );
             } else {
@@ -166,27 +191,16 @@ export default function Nav() {
               return (
                 <div key={index} className="nav__mobile-accordion">
                   <button className="nav__mobile-accordion-btn" onClick={() => toggleMobileMenu(item.label)}>
-                    {item.label}
+                    {t(item.label)}
                     {isOpen ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
                   </button>
                   <div className={`nav__mobile-accordion-content ${isOpen ? 'nav__mobile-accordion-content--open' : ''}`}>
-                    {item.basePath && (
-                      <div className="nav__mobile-group">
-                        <ul className="nav__mobile-group-list">
-                          <li>
-                            <Link href={item.basePath} className="nav__mobile-group-item" style={{ fontWeight: 700, color: 'var(--magenta)' }} onClick={() => setMenuOpen(false)}>
-                              Ver todo {item.label}
-                            </Link>
-                          </li>
-                        </ul>
-                      </div>
-                    )}
                     {item.items.map((link, linkIdx) => (
                       <div key={linkIdx} className="nav__mobile-group">
                         <ul className="nav__mobile-group-list">
-                          <li>
-                            <Link href={link.href} className="nav__mobile-group-item" onClick={() => setMenuOpen(false)}>
-                              {link.label}
+                          <li key={linkIdx}>
+                            <Link href={link.href} className="nav__mobile-sublink" onClick={() => setMenuOpen(false)}>
+                              {t(link.label)}
                             </Link>
                           </li>
                         </ul>
@@ -198,8 +212,20 @@ export default function Nav() {
             }
           })}
 
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1.5rem', marginBottom: '0.5rem', gap: '15px' }}>
+            <button onClick={() => setLanguage('es')} className="nav__mobile-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: language === 'es' ? 'rgba(0,46,81,0.1)' : 'rgba(0,0,0,0.03)', borderRadius: '20px', border: 'none', cursor: 'pointer', fontWeight: language === 'es' ? 700 : 400 }}>
+              <img src="https://flagcdn.com/w20/mx.png" width="20" alt="ES" /> ES
+            </button>
+            <button onClick={() => setLanguage('en')} className="nav__mobile-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: language === 'en' ? 'rgba(0,46,81,0.1)' : 'rgba(0,0,0,0.03)', borderRadius: '20px', border: 'none', cursor: 'pointer', fontWeight: language === 'en' ? 700 : 400 }}>
+              <img src="https://flagcdn.com/w20/ca.png" width="20" alt="EN" /> EN
+            </button>
+            <button onClick={() => setLanguage('fr')} className="nav__mobile-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: language === 'fr' ? 'rgba(0,46,81,0.1)' : 'rgba(0,0,0,0.03)', borderRadius: '20px', border: 'none', cursor: 'pointer', fontWeight: language === 'fr' ? 700 : 400 }}>
+              <img src="https://flagcdn.com/w20/fr.png" width="20" alt="FR" /> FR
+            </button>
+          </div>
+
           <Link href="/contacto" className="nav__cta" style={{ textAlign: 'center', marginTop: '1rem', display: 'flex', justifyContent: 'center' }} onClick={() => setMenuOpen(false)}>
-            Regístrate
+            {t('nav.registrate')}
           </Link>
 
           {/* Social links mobile */}

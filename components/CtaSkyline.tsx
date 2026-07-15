@@ -33,7 +33,6 @@ export default function CtaSkyline() {
     <section className="cta--lux" id="registro" aria-labelledby="cta-title">
       <div className="cta__lux-inner">
         <Reveal>
-          <div className="cta__lux-eyebrow">Únete a la plataforma</div>
           <h2 className="cta__lux-title" id="cta-title">
             ¿Lista para ser parte de<br />
             <em>esta edición?</em>

@@ -78,7 +78,6 @@ export default function PrensaPage() {
         {/* 1. Sala de Prensa & Comunicados */}
         <div id="comunicados" style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>
-            <span className="section__label">Sala de Redacción</span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
               Comunicados Oficiales
             </h2>
@@ -106,7 +105,6 @@ export default function PrensaPage() {
         {/* 2. Entrevistas */}
         <div id="entrevistas" style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>
-            <span className="section__label">Cobertura</span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
               Entrevistas Destacadas
             </h2>
@@ -134,7 +132,6 @@ export default function PrensaPage() {
         <div id="galeria" style={{ borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center' }}>
             <Reveal>
-              <span className="section__label">Recursos de Prensa</span>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '24px' }}>
                 Kit de Prensa & Galería Multimedia
               </h2>

@@ -49,7 +49,6 @@ export default function LogisticaPage() {
         <div id="aduanas" style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center' }}>
             <Reveal>
-              <span className="section__label">Aduanas y Regulaciones</span>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '24px' }}>
                 Esquemas de Exportación
               </h2>
@@ -94,7 +93,6 @@ export default function LogisticaPage() {
         {/* 2. Asesoría Logística & Soluciones de Transporte */}
         <div id="transporte" style={{ borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px', textAlign: 'center' }}>
-            <span className="section__label">Operaciones</span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
               Asesoría & Soluciones de Transporte
             </h2>

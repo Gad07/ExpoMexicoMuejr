@@ -75,7 +75,6 @@ export default function ParticipantesPage() {
         <div id="manual" style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center' }}>
             <Reveal>
-              <span className="section__label">Manual Técnico</span>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '24px' }}>
                 Manual Técnico del Expositor
               </h2>
@@ -112,7 +111,6 @@ export default function ParticipantesPage() {
         {/* 2. Requisitos */}
         <div id="requisitos" style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>
-            <span className="section__label">Normativa</span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
               Requisitos de Participación
             </h2>
@@ -154,7 +152,6 @@ export default function ParticipantesPage() {
         {/* 3. Preguntas Frecuentes (FAQ Accordion) */}
         <div id="faq" style={{ borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px', textAlign: 'center' }}>
-            <span className="section__label">Dudas Comunes</span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
               Preguntas Frecuentes
             </h2>

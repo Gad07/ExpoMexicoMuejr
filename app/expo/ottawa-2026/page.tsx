@@ -65,7 +65,6 @@ export default function OttawaPage() {
         <div style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center' }}>
             <Reveal>
-              <span className="section__label">Trayectoria Histórica</span>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.8rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '24px', lineHeight: 1.1 }}>
                 El gran precedente en la capital canadiense
               </h2>
@@ -106,7 +105,6 @@ export default function OttawaPage() {
         {/* 2. Resultados e Impacto (Dashboard de estadísticas) */}
         <div id="resultados" style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px', textAlign: 'center' }}>
-            <span className="section__label">Cifras Oficiales</span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
               Resultados e Impacto Económico
             </h2>
@@ -133,7 +131,6 @@ export default function OttawaPage() {
         {/* 3. Galería Fotográfica y Videos */}
         <div id="galeria" style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>
-            <span className="section__label">Archivo Visual</span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
               Galería Fotográfica
             </h2>
@@ -165,7 +162,6 @@ export default function OttawaPage() {
         {/* 4. Videos Recopilatorios */}
         <div style={{ borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px', textAlign: 'center' }}>
-            <span className="section__label">Memorias en Movimiento</span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
               Videos e Intervenciones
             </h2>

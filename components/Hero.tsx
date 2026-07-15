@@ -43,7 +43,6 @@ export default function Hero({
       <div className="hero-gradient__content-wrapper">
         <div className="hero-gradient__left">
           <div className="hero-gradient__content">
-            <div className="hero-gradient__eyebrow">{eyebrow}</div>
             <h1 className="hero-gradient__title">
               {title}
             </h1>

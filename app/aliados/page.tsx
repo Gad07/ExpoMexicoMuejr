@@ -85,7 +85,6 @@ export default function AliadosPage() {
         <div style={{ marginTop: '100px', paddingTop: '80px', borderTop: '1px solid rgba(0,0,0,0.1)' }}>
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-              <span className="section__label">Nuestras Alianzas</span>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', marginTop: '16px' }}>
                 Aliados Oficiales
               </h2>

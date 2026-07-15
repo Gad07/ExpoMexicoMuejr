@@ -111,7 +111,6 @@ export default function WomenLeadersForumPage() {
         {/* 1. Temáticas Section */}
         <div style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>
-            <span className="section__label">Líneas de Discusión</span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
               Temáticas del Foro
             </h2>
@@ -133,7 +132,6 @@ export default function WomenLeadersForumPage() {
         {/* 2. Conferencistas Grid */}
         <div style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px', textAlign: 'center' }}>
-            <span className="section__label">Keynotes Destacadas</span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
               Conferencistas del Foro
             </h2>
@@ -210,7 +208,6 @@ export default function WomenLeadersForumPage() {
         {/* 3. Programa Completo */}
         <div id="programa" style={{ borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>
-            <span className="section__label">Cronograma</span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
               Programa del Foro
             </h2>

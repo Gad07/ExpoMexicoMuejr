@@ -499,12 +499,7 @@ export default function BusinessCardPage({ params }: { params: Promise<{ slug: s
 
             {/* Content */}
             <div className="mag-content-side">
-              <Reveal delay={80}>
-                <div className="mag-ey">
-                  <span className="mag-ey__line" />
-                  <span className="mag-ey__text">Perfil ejecutivo · {D.cargo}</span>
-                </div>
-              </Reveal>
+              {/* Removed mag-ey eyebrow */}
 
               <Reveal delay={140}>
                 <h1 className="mag-name">

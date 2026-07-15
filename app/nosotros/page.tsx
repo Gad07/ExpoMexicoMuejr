@@ -87,7 +87,6 @@ function MissionVision() {
     <section className="mv-split" id="mision" aria-labelledby="mv-title">
       <div className="mv-split__inner">
         <Reveal>
-          <span className="section__label">Nuestra razón de ser</span>
           <h2 className="section__title" id="mv-title">
             México en el mundo, <em>con todo su poder</em>
           </h2>
@@ -180,7 +179,6 @@ function ValuesGrid() {
     <section className="vals" id="valores" aria-labelledby="vals-title">
       <div className="vals__inner">
         <Reveal>
-          <span className="section__label">Nuestros principios</span>
           <h2 className="section__title" id="vals-title">
             Lo que nos define, <em>nos distingue</em>
           </h2>
@@ -207,7 +205,6 @@ function Timeline() {
     <section className="tl" id="historia" aria-labelledby="tl-title">
       <div className="tl__inner">
         <Reveal>
-          <span className="section__label">Nuestra trayectoria</span>
           <h2 className="section__title" id="tl-title">
             De la visión a la <em>realidad</em>
           </h2>

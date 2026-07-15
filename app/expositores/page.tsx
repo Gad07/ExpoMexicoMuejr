@@ -374,7 +374,6 @@ function ExpositoresContent() {
 
             <Reveal>
               <div style={{ marginBottom: '64px' }}>
-                <span className="section__label">Directorio de Expositoras</span>
                 <h2 className="section__title" style={{ marginTop: '8px' }}>
                   Marcas en <br /><em>{activeCategory}</em>
                 </h2>
@@ -680,7 +679,6 @@ function ExpositoresContent() {
           
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: '40px', maxWidth: '800px', margin: '0 auto 40px' }}>
-              <span className="section__label">Directorio de Expositoras</span>
               <h2 className="section__title" style={{ marginTop: '16px' }}>
                 Descubre el talento por <br /><em>Categoría de Negocio</em>
               </h2>
@@ -774,7 +772,6 @@ function ExpositoresContent() {
           {/* Header del Grid de Estados */}
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: '40px', maxWidth: '800px', margin: '0 auto 40px' }}>
-              <span className="section__label">Directorio de Expositoras</span>
               <h2 className="section__title section__title--center" style={{ marginTop: '16px' }}>
                 Descubre el talento por <br /><em>Categoría de Negocio</em>
               </h2>

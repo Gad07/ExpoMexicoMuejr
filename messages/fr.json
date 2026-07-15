@@ -1,19 +1,113 @@
 {
   "nav": {
-    "nosotros": "À Propos",
-    "participantes": "Participants",
-    "expositores": "Exposants",
-    "embajadoras": "Ambassadrices EMM",
-    "patrocinadores": "Sponsors",
-    "invitados": "Invités Spéciaux",
-    "herramientas": "Outils",
-    "agenda": "Agenda 2027",
-    "academy": "EMM Academy",
-    "visa": "Visas & Voyage",
-    "contacto": "Contact",
     "registrate": "S'inscrire",
-    "idioma": "FR",
-    "volver": "Retour au menu",
-    "idiomaTitulo": "Langue"
+    "expo": {
+      "title": "Expo Mexique Femme",
+      "queEs": "Qu'est-ce que l'Expo Mexique Femme?",
+      "industrias": "Industries",
+      "ottawa2026": "Expo Mexique Femme Ottawa 2026",
+      "noticias": "Actualités",
+      "visas": "Visas et Procédures"
+    },
+    "participa": {
+      "title": "Participer",
+      "expositoras": "Exposantes",
+      "patrocinadores": "Sponsors",
+      "embajadoras": "Ambassadrices EMM",
+      "aliados": "Partenaires",
+      "invitados": "Invités Spéciaux",
+      "compradores": "Acheteurs et Investisseurs"
+    },
+    "agenda": {
+      "title": "Agenda",
+      "toronto2027": "Expo Mexique Femme Toronto 2027",
+      "summit": "Sommet d'Affaires Mexique Ontario",
+      "fashionshow": "Mexican Fashion Gala Show",
+      "womenleaders": "Women Leaders Forum",
+      "mision": "Mission Commerciale Montréal"
+    },
+    "academy": {
+      "title": "Academy",
+      "ingles": "Anglais en Ligne",
+      "executive": "Executive Global Skills",
+      "capacitacion": "Formation en Entreprise"
+    },
+    "informacion": {
+      "title": "Information",
+      "prensa": "Presse",
+      "participantes": "Participants",
+      "logistica": "Logistique Internationale & Exportation",
+      "viajero": "Services aux Voyageurs",
+      "contacto": "Contact"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Expo Mexique Femme 2027",
+      "location": "Toronto · Canada",
+      "dates": "9–13 Juin 2027"
+    },
+    "countdown": {
+      "label": "L'événement commence dans",
+      "days": "Jours",
+      "hrs": "Hrs",
+      "min": "Min",
+      "seg": "Sec"
+    },
+    "concept": {
+      "title": "Notre",
+      "titleEm": "Mission",
+      "p1": "Expo Mexique Femme 2027 est une plateforme de rencontres internationales qui transforme le leadership mexicain en actions concrètes, créant des opportunités de développement économique et renforçant l'identité du Mexique à l'étranger.",
+      "p2": "Notre mission est de renforcer les ponts commerciaux, culturels et sociaux entre le Mexique et le Canada, en consolidant une communauté binationale qui stimule la croissance des entreprises, produits et talents mexicains."
+    },
+    "audience": {
+      "title": "C'est pour ceux qui",
+      "titleEm": "construisent des ponts",
+      "desc": "Un espace conçu pour que chaque visiteur trouve sa place à l'expo et définisse son rôle dans cette histoire binationale.",
+      "item1": "Entrepreneuses cherchant à s'étendre au Canada",
+      "item2": "Entreprises qui veulent parrainer avec un but",
+      "item3": "Exposantes et acheteurs binationales",
+      "item4": "Médias, chambres et alliés institutionnels",
+      "quote": "L'expo a besoin d'une présence qui se sente institutionnelle, contemporaine et prête à convertir le leadership en héritage.",
+      "quoteAttr": "— Direction créative, EMM 2027"
+    },
+    "agenda": {
+      "title": "Agenda Officiel",
+      "titleEm": "Impact Binational",
+      "day1": "Jour 01",
+      "day1Title": "Ouverture & Relations Institutionnelles",
+      "day1Text": "Bienvenue, présentation de la vision binationale et rencontres avec des alliés stratégiques. Cérémonie d'inauguration.",
+      "day2": "Jour 02",
+      "day2Title": "Affaires, Exportation & Opportunités",
+      "day2Text": "Panneaux d'exposition commerciale, réseautage, matchmaking d'affaires et vitrines sectorielles.",
+      "day3": "Jour 03",
+      "day3Title": "Marque, Communauté & Presse",
+      "day3Text": "Activations de marque, contenu pour médias, interviews en direct et campagnes de visibilité sociale.",
+      "day4": "Jour 04–05",
+      "day4Title": "Clôture, Suivi & Expansion",
+      "day4Text": "Réunions bilatérales, continuité post-événement, signature d'accords et nouvelles routes de collaboration."
+    },
+    "stmt": {
+      "location": "Toronto · Canada",
+      "headline1": "Le leadership",
+      "headline2": "mexicain",
+      "headline3Em": "n'a pas de",
+      "headline4Em": "frontières",
+      "dateLabel": "Date de l'événement",
+      "dateMonth": "Juin 2027",
+      "cta": "Réserver une place",
+      "sub": "5 jours · Plateforme binationale"
+    },
+    "pillars": {
+      "title": "Nos Résultats",
+      "sub": "Expo Mexique Femme 2026, Ottawa, Canada."
+    },
+    "noticias": {
+      "title": "Dernières",
+      "titleEm": "actualités",
+      "desc": "Restez informé des avancées, appels et annonces officiels en route vers l'Expo Mexique Femme.",
+      "featured": "En vedette",
+      "verTodas": "Voir toutes les actualités"
+    }
   }
 }

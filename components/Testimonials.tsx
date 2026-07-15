@@ -6,43 +6,75 @@ import { Play } from 'lucide-react';
 const MOCK_VIDEOS = [
   {
     id: 1,
-    title: 'La experiencia de crecer en Canadá',
-    name: 'María González',
-    role: 'Emprendedora',
-    url: '/Galeria/Videos/bg_home.mp4',
-    thumbnail: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=400&h=700'
+    title: 'Testimonio EMM',
+    name: 'Adriana Perdomo',
+    role: 'Participante',
+    url: '/Videos Testimonios EMM/AdrianaPerdomo_EMM.mp4',
+    thumbTime: 25.0,
+    thumbPos: 'center 35%'
   },
   {
     id: 2,
-    title: 'Oportunidades de inversión',
-    name: 'Ana Silva',
-    role: 'Inversora',
-    url: '/Galeria/Videos/bg_home.mp4',
-    thumbnail: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400&h=700'
+    title: 'Experiencia',
+    name: 'Erika Tapia',
+    role: 'Expositora',
+    url: '/Videos Testimonios EMM/Erika Tapia.mp4',
+    thumbTime: 22.0,
+    thumbPos: 'center center'
   },
   {
     id: 3,
-    title: 'Abriendo mercados',
-    name: 'Laura Méndez',
-    role: 'Directora Comercial',
-    url: '/Galeria/Videos/bg_home.mp4',
-    thumbnail: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400&h=700'
+    title: 'Testimonio',
+    name: 'Leonor Alarcón',
+    role: 'Expositora',
+    url: '/Videos Testimonios EMM/TestimonioExpositorasLeonorAlarcón_EMM.mp4',
+    thumbTime: 16.0,
+    thumbPos: 'center center'
   },
   {
     id: 4,
-    title: 'Visión a futuro',
-    name: 'Carmen Robles',
-    role: 'Consultora',
-    url: '/Galeria/Videos/bg_home.mp4',
-    thumbnail: 'https://images.unsplash.com/photo-1531123897727-8f129e1bf98c?auto=format&fit=crop&q=80&w=400&h=700'
+    title: 'Testimonio',
+    name: 'Leticia Texis',
+    role: 'Participante',
+    url: '/Videos Testimonios EMM/LeticiaTexis_EMM.mp4',
+    thumbTime: 8.0,
+    thumbPos: 'center 35%'
   },
   {
     id: 5,
-    title: 'Empoderamiento y liderazgo',
-    name: 'Diana Reyes',
-    role: 'CEO',
-    url: '/Galeria/Videos/bg_home.mp4',
-    thumbnail: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400&h=700'
+    title: 'Experiencia',
+    name: 'Arlene Eunice',
+    role: 'Participante',
+    url: '/Videos Testimonios EMM/Testimonio3ArleneEunice_EMM.mp4',
+    thumbTime: 25.0,
+    thumbPos: 'center center'
+  },
+  {
+    id: 6,
+    title: 'Testimonio',
+    name: 'Ana Yolanda López',
+    role: 'Participante',
+    url: '/Videos Testimonios EMM/TestimonioAnaYolandaLopez_EMM.mp4',
+    thumbTime: 22.0,
+    thumbPos: 'center center'
+  },
+  {
+    id: 7,
+    title: 'Experiencia',
+    name: 'Expositora',
+    role: 'Participante',
+    url: '/Videos Testimonios EMM/Expositora_Testimonio.mp4',
+    thumbTime: 24.0,
+    thumbPos: 'center 20%'
+  },
+  {
+    id: 8,
+    title: 'Testimonio',
+    name: 'Participante',
+    role: 'Expo México Mujer',
+    url: '/Videos Testimonios EMM/TestimonioSiete_EMM.mp4',
+    thumbTime: 6.0,
+    thumbPos: 'center center'
   }
 ];
 
@@ -59,7 +91,7 @@ export default function Testimonials() {
     setTimeout(() => {
       setActiveIndex(index);
       setIsTransitioning(false);
-    }, 400); 
+    }, 400);
   };
 
   useEffect(() => {
@@ -71,7 +103,7 @@ export default function Testimonials() {
 
   return (
     <section className="section" id="testimonios" style={{ background: 'var(--cream)', padding: '140px 24px', position: 'relative' }}>
-      
+
       <style>{`
         .testim-container {
           max-width: 1400px;
@@ -110,12 +142,15 @@ export default function Testimonials() {
         /* MAIN VIDEO PLAYER */
         .testim-main {
           position: relative;
-          width: 100%;
-          aspect-ratio: 3 / 4;
+          width: auto;
+          height: auto;
+          max-height: 75vh;
+          aspect-ratio: 9 / 16;
           overflow: hidden;
-          background: #000;
+          background: transparent;
           border-radius: 16px;
           box-shadow: 0 20px 40px rgba(0,46,81,0.1);
+          margin: 0 auto;
         }
 
         .testim-main-video {
@@ -134,64 +169,93 @@ export default function Testimonials() {
         .testim-playlist {
           display: flex;
           flex-direction: column;
-          border-top: 1px solid rgba(0,46,81,1);
+          gap: 4px;
+          padding-right: 12px;
+          max-height: 75vh;
+          overflow-y: auto;
+          scrollbar-width: thin;
+          scrollbar-color: rgba(0,46,81,0.2) transparent;
+        }
+
+        .testim-playlist::-webkit-scrollbar {
+          width: 6px;
+        }
+        .testim-playlist::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .testim-playlist::-webkit-scrollbar-thumb {
+          background-color: rgba(0,46,81,0.2);
+          border-radius: 10px;
         }
 
         .testim-item {
           display: grid;
-          grid-template-columns: 40px 80px 1fr;
+          grid-template-columns: 24px 120px 1fr;
           align-items: center;
-          gap: 32px;
-          padding: 24px 0;
+          gap: 24px;
+          padding: 16px;
           cursor: pointer;
-          border-bottom: 1px solid rgba(0,46,81,0.15);
-          transition: all 0.4s ease;
+          border-radius: 12px;
+          border-bottom: 1px solid rgba(0,46,81,0.05);
+          transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
           position: relative;
         }
 
         .testim-item:hover {
-          border-bottom-color: var(--navy);
+          background: rgba(0,46,81,0.02);
+          border-bottom-color: transparent;
+        }
+        
+        .testim-item.active {
+          background: #ffffff;
+          box-shadow: 0 10px 30px rgba(0,46,81,0.08);
+          border-bottom-color: transparent;
+          transform: scale(1.02);
+          z-index: 2;
         }
 
         .testim-number {
           font-family: var(--font-display);
-          font-size: 1.2rem;
-          font-weight: 300;
+          font-size: 1rem;
+          font-weight: 400;
           color: rgba(0,46,81,0.4);
           transition: color 0.4s ease;
         }
 
         .testim-item.active .testim-number {
           color: var(--magenta);
-          font-weight: 600;
+          font-weight: 700;
         }
 
         .testim-thumb-wrap {
           position: relative;
           width: 100%;
-          aspect-ratio: 3/4;
+          aspect-ratio: 4/3;
+          border-radius: 8px;
           overflow: hidden;
           background: #e0e0e0;
+          box-shadow: 0 4px 15px rgba(0,46,81,0.1);
         }
-
+        
         .testim-thumb {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          filter: grayscale(100%);
-          opacity: 0.6;
-          transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-
-        .testim-item:hover .testim-thumb {
-          transform: scale(1.05);
+          object-position: center;
           opacity: 0.8;
+          transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         .testim-item.active .testim-thumb {
-          filter: grayscale(0%);
           opacity: 1;
         }
+
+        .testim-item:hover .testim-thumb {
+          opacity: 1;
+          transform: scale(1.08);
+        }
+
+
 
         .testim-item-info {
           display: flex;
@@ -200,14 +264,18 @@ export default function Testimonials() {
 
         .testim-item-title {
           font-family: var(--font-display);
-          font-size: 1.5rem;
-          font-weight: 700;
+          font-size: 1.15rem;
+          font-weight: 800;
           color: var(--navy);
           text-transform: uppercase;
-          letter-spacing: 1px;
-          line-height: 1.1;
-          margin-bottom: 8px;
-          transition: transform 0.4s ease, color 0.4s ease;
+          letter-spacing: 0.02em;
+          line-height: 1.25;
+          margin-bottom: 6px;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          transition: color 0.4s ease;
         }
 
         .testim-item.active .testim-item-title {
@@ -234,20 +302,10 @@ export default function Testimonials() {
         }
         
         .testim-play-indicator {
-          position: absolute;
-          right: 0;
-          top: 50%;
-          transform: translateY(-50%);
-          color: var(--magenta);
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-
-        .testim-item.active .testim-play-indicator {
-          opacity: 1;
+          display: none;
         }
       `}</style>
-      
+
       <div className="testim-container">
         {/* Left: Main Player */}
         <div style={{ position: 'relative' }}>
@@ -256,14 +314,14 @@ export default function Testimonials() {
           </h2>
           <div className="testim-main">
             <video
+              key={activeIndex}
               ref={videoRef}
+              src={encodeURI(MOCK_VIDEOS[activeIndex].url)}
               className={`testim-main-video ${isTransitioning ? 'transitioning' : ''}`}
-              src={activeVideo.url}
               autoPlay
               loop
               muted
               playsInline
-              poster={activeVideo.thumbnail}
             />
           </div>
         </div>
@@ -278,14 +336,21 @@ export default function Testimonials() {
               const isActive = index === activeIndex;
               const num = String(index + 1).padStart(2, '0');
               return (
-                <div 
-                  key={video.id} 
+                <div
+                  key={video.id}
                   className={`testim-item ${isActive ? 'active' : ''}`}
                   onClick={() => handleSelect(index)}
                 >
                   <span className="testim-number">{num}</span>
                   <div className="testim-thumb-wrap">
-                    <img src={video.thumbnail} alt={video.title} className="testim-thumb" />
+                    <video
+                      src={`${encodeURI(video.url)}#t=${video.thumbTime}`}
+                      className="testim-thumb"
+                      style={{ objectPosition: video.thumbPos || 'center' }}
+                      preload="metadata"
+                      muted
+                      playsInline
+                    />
                   </div>
                   <div className="testim-item-info">
                     <span className="testim-item-title">{video.title}</span>

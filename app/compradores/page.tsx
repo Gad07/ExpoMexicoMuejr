@@ -65,7 +65,6 @@ export default function CompradoresPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center', marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal delay={100}>
             <div>
-              <span className="section__label" style={{ marginBottom: '12px' }}>Modelo de Matchmaking</span>
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '24px', lineHeight: 1.15 }}>
                 Rueda de Negocios <br /><em>Vinculación Efectiva</em>
               </h3>
@@ -117,7 +116,6 @@ export default function CompradoresPage() {
           
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '48px' }}>
             <Reveal>
-              <span className="section__label">Empresas Participantes</span>
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 900, color: 'var(--navy)', marginTop: '8px', margin: 0 }}>
                 Directorio Digital de Compradores
               </h3>

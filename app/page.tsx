@@ -7,6 +7,7 @@ import { WordMark, Mariposa, DecoMariposa, ArrowDown } from '@/components/BrandA
 import Hero from '@/components/Hero';
 import Testimonials from '@/components/Testimonials';
 import Link from 'next/link';
+import { useLanguage } from '@/context/LanguageContext';
 /* ══════════════════════════════════════════════════════════════
    HOOKS
 ══════════════════════════════════════════════════════════════ */
@@ -223,6 +224,7 @@ function CrossoverButterfly({ side = 'left', speed = 0.06, style }: { side?: 'le
    VIDEO HERO
 ══════════════════════════════════════════════════════════════ */
 function VideoHero() {
+  const { t } = useLanguage();
   return (
     <section className="video-hero">
       <div className="video-hero__bg">
@@ -239,9 +241,9 @@ function VideoHero() {
         <div className="video-hero__overlay" style={{ background: 'linear-gradient(to bottom, rgba(0,25,76,0.3) 0%, rgba(0,25,76,0.85) 100%)' }} />
       </div>
       <div className="video-hero__content">
-        <h1 className="video-hero__title">Expo México Mujer 2027</h1>
-        <p className="video-hero__sub">Toronto · Canadá</p>
-        <p className="video-hero__sub" style={{ fontSize: '1.2em', marginTop: '0.5rem', fontWeight: 600, color: '#fff', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>9–13 Junio 2027</p>
+        <h1 className="video-hero__title">{t('home.hero.title')}</h1>
+        <p className="video-hero__sub">{t('home.hero.location')}</p>
+        <p className="video-hero__sub" style={{ fontSize: '1.2em', marginTop: '0.5rem', fontWeight: 600, color: '#fff', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>{t('home.hero.dates')}</p>
       </div>
     </section>
   );
@@ -253,6 +255,7 @@ function VideoHero() {
    STATEMENT STRIP — Premium Editorial Redesign
 ══════════════════════════════════════════════════════════════ */
 function StatementStrip() {
+  const { t } = useLanguage();
   return (
     <div className="stmt" aria-label="Evento principal">
       {/* Scan-line texture overlay */}
@@ -277,12 +280,12 @@ function StatementStrip() {
         <div className="stmt__col stmt__col--left">
           <span className="stmt__location">
             <span className="stmt__location-dot" />
-            Toronto · Canadá
+            {t('home.stmt.location')}
           </span>
           <h2 className="stmt__headline">
-            El liderazgo<br />
-            mexicano<br />
-            <em>no tiene<br />fronteras</em>
+            {t('home.stmt.headline1')}<br />
+            {t('home.stmt.headline2')}<br />
+            <em>{t('home.stmt.headline3Em')}<br />{t('home.stmt.headline4Em')}</em>
           </h2>
         </div>
 
@@ -296,21 +299,21 @@ function StatementStrip() {
         {/* RIGHT — Date + CTA */}
         <div className="stmt__col stmt__col--right">
           <div className="stmt__date-unit">
-            <span className="stmt__date-label">Fecha del evento</span>
+            <span className="stmt__date-label">{t('home.stmt.dateLabel')}</span>
             <span className="stmt__date-num">9–13</span>
-            <span className="stmt__date-month">Junio 2027</span>
+            <span className="stmt__date-month">{t('home.stmt.dateMonth')}</span>
           </div>
 
           <a href="#registro" className="stmt__cta">
             <span className="stmt__cta-fill" />
-            <span className="stmt__cta-text">Reservar lugar</span>
+            <span className="stmt__cta-text">{t('home.stmt.cta')}</span>
             <svg className="stmt__cta-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </a>
 
           <p className="stmt__sub">
-            5 días · Plataforma binacional
+            {t('home.stmt.sub')}
           </p>
         </div>
       </div>
@@ -374,38 +377,29 @@ function MarqueeBottom() {
    CONCEPT (Minimalist High-End)
 ══════════════════════════════════════════════════════════════ */
 function Concept() {
+  const { t } = useLanguage();
   const scrollY = useScrollY();
   return (
     <section className="concept--lux" id="concepto" aria-labelledby="concepto-title">
       <div className="concept__lux-inner">
 
-        <Reveal className="concept__lux-eyebrow">
-          <span className="concept__lux-line" />
-          Misión Binacional
-        </Reveal>
-
         <Reveal delay={100} className="concept__lux-title-wrap">
           <h2 className="concept__lux-title" id="concepto-title">
-            Consolidar la proyección<br />
-            <em>internacional de México</em>
+            {t('home.concept.title')}<br />
+            <em>{t('home.concept.titleEm')}</em>
           </h2>
         </Reveal>
 
         <div className="concept__lux-grid">
           <Reveal delay={200} className="concept__lux-text-block">
             <p>
-              Expo México Mujer 2027 es una plataforma de encuentros internacionales que
-              transforma el liderazgo mexicano en acciones concretas, creando oportunidades
-              de desarrollo económico y fortaleciendo la identidad de México
-              en el extranjero.
+              {t('home.concept.p1')}
             </p>
           </Reveal>
 
           <Reveal delay={300} className="concept__lux-text-block">
             <p>
-              Nuestra misión es fortalecer los puentes comerciales, culturales y sociales
-              entre México y Canadá, consolidando una comunidad binacional que impulse el
-              crecimiento de empresas, productos y talentos mexicanos.
+              {t('home.concept.p2')}
             </p>
           </Reveal>
         </div>
@@ -421,16 +415,16 @@ function Concept() {
    PILLARS
 ══════════════════════════════════════════════════════════════ */
 function Pillars() {
+  const { t } = useLanguage();
   return (
     <section className="section section--alt" id="impacto" aria-labelledby="impacto-title">
       <div className="section__inner" style={{ textAlign: 'center', maxWidth: '1400px', margin: '0 auto' }}>
         <Reveal>
-          <span className="section__label">El impacto de la Expo México Mujer 2026</span>
           <h2 className="section__title section__title--center" id="impacto-title" style={{ color: 'var(--magenta)' }}>
-            Nuestros Resultados
+            {t('home.pillars.title')}
           </h2>
           <p className="section__desc section__desc--center" style={{ marginBottom: 0 }}>
-            Expo México Mujer 2026, Ottawa, Canadá.
+            {t('home.pillars.sub')}
           </p>
         </Reveal>
         <style>{`
@@ -517,7 +511,6 @@ function MexicanStates() {
     <section className="section" id="estados" aria-labelledby="estados-title">
       <div className="section__inner" style={{ textAlign: 'center' }}>
         <Reveal>
-          <span className="section__label">Directorio Nacional</span>
           <h2 className="section__title section__title--center" id="estados-title">
             Descubre el talento por. <em>Estados de México.</em>
           </h2>
@@ -612,18 +605,25 @@ function MexicanStates() {
    AGENDA
 ══════════════════════════════════════════════════════════════ */
 function Agenda() {
+  const { t } = useLanguage();
+  const agendaItems = [
+    { day: t('home.agenda.day1'), title: t('home.agenda.day1Title'), text: t('home.agenda.day1Text') },
+    { day: t('home.agenda.day2'), title: t('home.agenda.day2Title'), text: t('home.agenda.day2Text') },
+    { day: t('home.agenda.day3'), title: t('home.agenda.day3Title'), text: t('home.agenda.day3Text') },
+    { day: t('home.agenda.day4'), title: t('home.agenda.day4Title'), text: t('home.agenda.day4Text') },
+  ];
   return (
     <section className="section section--alt" id="agenda" aria-labelledby="agenda-title">
       <div className="section__inner">
         <Reveal>
           <h2 className="agenda__title" id="agenda-title">
-            Agenda Oficial <br />
-            <em>Impacto Binacional</em>
+            {t('home.agenda.title')} <br />
+            <em>{t('home.agenda.titleEm')}</em>
           </h2>
         </Reveal>
 
         <div className="agenda-timeline">
-          {agenda.map((item, i) => (
+          {agendaItems.map((item, i) => (
             <Reveal key={item.day} className="agenda-item" delay={i * 100}>
               <div className="agenda-item__day">{item.day}</div>
               <div className="agenda-item__content">
@@ -642,26 +642,25 @@ function Agenda() {
    AUDIENCE
 ══════════════════════════════════════════════════════════════ */
 function Audience() {
+  const { t } = useLanguage();
   return (
     <section className="section" id="audiencia" aria-labelledby="audiencia-title">
       <div className="section__inner">
         <div className="audience-grid">
           <div>
             <Reveal>
-              <span className="section__label">Para quién es</span>
               <h2 className="section__title" id="audiencia-title">
-                Esto es para quienes <em>construyen puentes</em>
+                {t('home.audience.title')} <em>{t('home.audience.titleEm')}</em>
               </h2>
               <p className="section__desc" style={{ marginBottom: 32 }}>
-                Un espacio diseñado para que cada visitante encuentre su lugar
-                en la expo y defina su rol en esta historia binacional.
+                {t('home.audience.desc')}
               </p>
             </Reveal>
             <div className="audience-list reveal-stagger">
-              {audiences.map((a) => (
-                <Reveal key={a} className="audience-item">
+              {([1,2,3,4] as const).map((n) => (
+                <Reveal key={n} className="audience-item">
                   <span className="audience-item__dot" aria-hidden="true" />
-                  <span className="audience-item__text">{a}</span>
+                  <span className="audience-item__text">{t(`home.audience.item${n}`)}</span>
                 </Reveal>
               ))}
             </div>
@@ -671,10 +670,9 @@ function Audience() {
               <span className="quote-block__mark" aria-hidden="true">&ldquo;</span>
               <div className="quote-block__line" />
               <p className="quote-block__text">
-                La expo necesita una presencia que se sienta institucional,
-                contemporánea y lista para convertir liderazgo en legado.
+                {t('home.audience.quote')}
               </p>
-              <span className="quote-block__attr">— Dirección creativa, EMM 2027</span>
+              <span className="quote-block__attr">{t('home.audience.quoteAttr')}</span>
             </div>
           </Reveal>
         </div>
@@ -730,6 +728,7 @@ const noticiasData = [
 ];
 
 function Noticias() {
+  const { t } = useLanguage();
   const featured = noticiasData[0];
   const list = noticiasData.slice(1);
 
@@ -738,12 +737,11 @@ function Noticias() {
       <div className="section__inner">
         <Reveal>
           <div className="section__header" style={{ marginBottom: '60px' }}>
-            <span className="section__label">Actualidad</span>
             <h2 className="section__title">
-              Últimas <em>noticias</em>
+              {t('home.noticias.title')} <em>{t('home.noticias.titleEm')}</em>
             </h2>
             <p className="section__desc">
-              Mantente al tanto de los avances, convocatorias y anuncios oficiales rumbo a Expo México Mujer.
+              {t('home.noticias.desc')}
             </p>
           </div>
         </Reveal>
@@ -846,7 +844,6 @@ function Ubicacion() {
           <div className="location-gradient__right">
             <div className="location-gradient__content">
               <Reveal>
-                <span className="section__label">Ubicación</span>
                 <h2 className="section__title" id="ubicacion-title">
                   Toronto, Canadá <em>Te esperamos</em>
                 </h2>
@@ -901,7 +898,6 @@ function ServiciosMigratorios() {
           {/* Left Column: Info & CTA */}
           <div className="sm-info-col">
             <Reveal>
-              <span className="sm-badge">Acompañamiento Integral</span>
               <h2 className="section__title" id="servicios-title" style={{ fontSize: 'clamp(3rem, 5vw, 4rem)', color: 'var(--navy)', marginBottom: '24px', lineHeight: 1.1 }}>
                 Servicios <em>Migratorios</em>
               </h2>
@@ -1055,7 +1051,6 @@ function Costos() {
     <section className="section section--alt" id="costos" aria-labelledby="costos-title">
       <div className="section__inner" style={{ textAlign: 'center' }}>
         <Reveal>
-          <span className="section__label">Inversión y Costos</span>
           <h2 className="section__title section__title--center" id="costos-title">
             Aparta tu <em>espacio</em>
           </h2>
@@ -1131,7 +1126,6 @@ function ExpositoresCta() {
     <section className="section" style={{ background: 'var(--cream)', padding: '100px 24px', textAlign: 'center' }}>
       <div className="section__inner">
         <Reveal>
-          <span className="section__label">Directorio</span>
           <h2 className="section__title section__title--center">
             Conoce a nuestras <br /><em>Expositoras.</em>
           </h2>
@@ -1245,6 +1239,7 @@ function Contacto() {
    COUNTDOWN TAPE
 ══════════════════════════════════════════════════════════════ */
 function CountdownTape() {
+  const { t } = useLanguage();
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
@@ -1269,6 +1264,13 @@ function CountdownTape() {
     return () => clearInterval(interval);
   }, []);
 
+  const units = [
+    { label: t('home.countdown.days'), value: timeLeft.days },
+    { label: t('home.countdown.hrs'), value: timeLeft.hours },
+    { label: t('home.countdown.min'), value: timeLeft.minutes },
+    { label: t('home.countdown.seg'), value: timeLeft.seconds }
+  ];
+
   return (
     <div className="countdown-tape" style={{
       background: 'var(--magenta)',
@@ -1286,16 +1288,11 @@ function CountdownTape() {
       borderBottom: '1px solid rgba(255,255,255,0.2)'
     }}>
       <div style={{ fontSize: '1.2rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '5px', opacity: 0.95 }}>
-        El evento comienza en
+        {t('home.countdown.label')}
       </div>
 
       <div style={{ display: 'flex', gap: '48px', alignItems: 'center' }}>
-        {[
-          { label: 'Días', value: timeLeft.days },
-          { label: 'Hrs', value: timeLeft.hours },
-          { label: 'Min', value: timeLeft.minutes },
-          { label: 'Seg', value: timeLeft.seconds }
-        ].map((item, i) => (
+        {units.map((item, i) => (
           <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: '48px' }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px' }}>
               <span style={{ fontSize: '4.5rem', fontWeight: 300, lineHeight: 1, letterSpacing: '-0.02em', textShadow: '0 1px 15px rgba(0,0,0,0.05)' }}>
@@ -1319,45 +1316,39 @@ function CountdownTape() {
    PAGE ROOT
 ══════════════════════════════════════════════════════════════ */
 export default function HomePage() {
+  const { t } = useLanguage();
   return (
     <>
       <VideoHero />
 
       <div className="page-content-wrapper">
         <CountdownTape />
-        <MarqueeTop />
         <Hero
           image="/home-hero-2.jpg"
-          eyebrow="Sobre el evento"
-          title={<>Nuestra<br /><em>Misión</em></>}
+          title={<>{t('home.concept.title')}<br /><em>{t('home.concept.titleEm')}</em></>}
           description={
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', textAlign: 'left', marginTop: '32px' }}>
               <p style={{ margin: 0, fontSize: '1.15rem', lineHeight: 1.6 }}>
-                Expo México Mujer 2027 es una plataforma de encuentros internacionales que transforma el liderazgo mexicano en acciones concretas, creando oportunidades de desarrollo económico y fortaleciendo la identidad de México en el extranjero.
+                {t('home.concept.p1')}
               </p>
               <p style={{ margin: 0, fontSize: '1.15rem', lineHeight: 1.6 }}>
-                Nuestra misión es fortalecer los puentes comerciales, culturales y sociales entre México y Canadá, consolidando una comunidad binacional que impulse el crecimiento de empresas, productos y talentos mexicanos.
+                {t('home.concept.p2')}
               </p>
 
               <div style={{ marginTop: '48px' }}>
                 <h3 style={{ fontSize: '1.1rem', color: 'var(--magenta)', marginBottom: '16px', fontFamily: 'var(--font-display)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 700 }}>
-                  Para quién es
+                  {t('home.audience.title')} <em>{t('home.audience.titleEm')}</em>
                 </h3>
                 <p style={{ margin: 0, marginBottom: '24px', fontSize: '1.1rem', color: '#555', lineHeight: 1.6, maxWidth: '600px' }}>
-                  Un espacio diseñado para que cada visitante encuentre su lugar en la expo y defina su rol en esta historia binacional. Esto es para quienes construyen puentes.
+                  {t('home.audience.desc')}
                 </p>
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  {[
-                    'Emprendedoras buscando expandirse a Canadá',
-                    'Empresas que quieren patrocinar con propósito',
-                    'Expositoras y compradores binacionales',
-                    'Medios, cámaras y aliados institucionales'
-                  ].map((item, i) => (
-                    <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', fontSize: '1.05rem', color: 'var(--navy)', fontWeight: 500, lineHeight: 1.5 }}>
+                  {([1, 2, 3, 4] as const).map((n) => (
+                    <li key={n} style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', fontSize: '1.05rem', color: 'var(--navy)', fontWeight: 500, lineHeight: 1.5 }}>
                       <svg style={{ marginTop: '3px', flexShrink: 0, color: 'var(--magenta)' }} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <polyline points="20 6 9 17 4 12"></polyline>
                       </svg>
-                      {item}
+                      {t(`home.audience.item${n}`)}
                     </li>
                   ))}
                 </ul>
@@ -1367,11 +1358,11 @@ export default function HomePage() {
           primaryCta={null}
           secondaryCta={null}
         />
-        <MarqueeBottom />
+        <MarqueeTop />
 
         <Pillars />
         <Testimonials />
-        <Costos />
+        {/* <Costos /> */}
         <Noticias />
         <Contacto />
         <CrossoverButterfly side="right" speed={0.04} />

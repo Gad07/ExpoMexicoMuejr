@@ -60,7 +60,7 @@ export default function GlobalHero() {
         eyebrow="Atención Personalizada"
         title={<>Conecta con<br /><em>los Directores</em></>}
         description="Resolución inmediata para patrocinios, espacios de exhibición y alianzas estratégicas para Expo México Mujer 2027."
-        image="https://images.unsplash.com/photo-1516387938699-a93567ec168e?auto=format&fit=crop&q=80&w=800"
+        image="/Galleria/Otras_Fotos/IMG_6099.JPG"
         primaryCta={{ text: "Escribir", href: "mailto:francisco@expomexico.ca" }}
         secondaryCta={{ text: "Sede", href: "#sede" }}
       />
@@ -86,7 +86,7 @@ export default function GlobalHero() {
         eyebrow="Pabellones y Sectores"
         title={<>Industrias<br /><em>Participantes</em></>}
         description="Un recorrido completo por los 12 sectores comerciales clave que representan la innovación, calidad y tradición de México en Toronto."
-        image="/Galeria/Moda_y_textiles/IMG_5423.JPG"
+        image="/Galleria/Otras_Fotos/IMG_5984.JPG"
         primaryCta={{ text: "Ver Sectores", href: "#sectores" }}
       />
     );
@@ -98,7 +98,7 @@ export default function GlobalHero() {
         eyebrow="Nuestra Trayectoria"
         title={<>Expo México Mujer<br /><em>Ottawa 2026</em></>}
         description="Revive los mejores momentos de nuestra edición anterior en la capital canadiense. Resultados históricos de vinculación comercial y cultural."
-        image="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800"
+        image="/Galleria/Otras_Fotos/IMG_6066.JPG"
         primaryCta={{ text: "Ver Resultados", href: "#resultados" }}
         secondaryCta={{ text: "Galería & Videos", href: "#galeria" }}
       />
@@ -139,7 +139,7 @@ export default function GlobalHero() {
         eyebrow="Participa con Nosotros"
         title={<>Únete a la<br /><em>Delegación Binacional</em></>}
         description="Forma parte activa del encuentro empresarial y cultural más relevante entre México y Canadá. Stands comerciales, convocatorias estatales, patrocinios premium y ruedas de negocios."
-        image="/Galeria/Otros/IMG_5602.JPG"
+        image="/Galleria/Otras_Fotos/IMG_6068.JPG"
         primaryCta={{ text: "Quiero Participar", href: "/expositores" }}
         secondaryCta={{ text: "Patrocinios", href: "/patrocinadores" }}
       />
@@ -152,7 +152,7 @@ export default function GlobalHero() {
         eyebrow="Nuestros Socios"
         title={<>Aliados &<br /><em>Organismos</em></>}
         description="Conoce a las cámaras binacionales, gobiernos e instituciones de México y Canadá que respaldan activamente a la Expo México Mujer."
-        image="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800"
+        image="/Galleria/Otras_Fotos/IMG_6078.JPG"
         primaryCta={{ text: "Ver Cámaras", href: "#aliados" }}
       />
     );
@@ -164,7 +164,7 @@ export default function GlobalHero() {
         eyebrow="Vinculación B2B"
         title={<>Compradores &<br /><em>Inversionistas</em></>}
         description="Oportunidades únicas de vinculación comercial directa con marcas premium del talento y la cultura empresarial mexicana en Canadá."
-        image="https://images.unsplash.com/photo-1516387938699-a93567ec168e?auto=format&fit=crop&q=80&w=800"
+        image="/Galleria/Otras_Fotos/IMG_6118.JPG"
         primaryCta={{ text: "Registro B2B", href: "/contacto" }}
       />
     );
@@ -189,7 +189,7 @@ export default function GlobalHero() {
         eyebrow="Summit Binacional de Alto Nivel"
         title={<>México Ontario<br /><em>Business Summit</em></>}
         description="El encuentro estratégico diseñado para consolidar acuerdos comerciales, fomentar inversiones mutuas y tender puentes operativos directos entre la delegación de empresarias mexicanas y los líderes corporativos de Ontario."
-        image="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800"
+        image="/Galleria/Otras_Fotos/IMG_6230.JPG"
         primaryCta={{ text: "Ver Agenda", href: "#agenda" }}
       />
     );
@@ -201,7 +201,7 @@ export default function GlobalHero() {
         eyebrow="Celebración de Arte y Textil"
         title={<>Mexican Fashion<br /><em>Gala Show</em></>}
         description="Una noche excepcional donde la riqueza textil y artesanal de México converge con las pasarelas globales en Toronto, mostrando el talento de diseñadoras independientes a distribuidores y medios canadienses."
-        image="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800"
+        image="/Galleria/Moda/IMG_6039.JPG"
         primaryCta={{ text: "Ver Programa", href: "#programa" }}
       />
     );
@@ -213,7 +213,7 @@ export default function GlobalHero() {
         eyebrow="Empoderamiento y Alta Dirección"
         title={<>Women Leaders<br /><em>Forum</em></>}
         description="Un espacio intelectual e interactivo para debatir, compartir y asentar directrices sobre el papel fundamental del liderazgo femenino y el crecimiento corporativo global en la relación bilateral México-Canadá."
-        image="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=800"
+        image="/Galleria/Otras_Fotos/IMG_5916.JPG"
         primaryCta={{ text: "Ver Programa", href: "#programa" }}
       />
     );
@@ -225,7 +225,7 @@ export default function GlobalHero() {
         eyebrow="Expansión y Delegaciones"
         title={<>Misión Comercial<br /><em>Montreal</em></>}
         description="Exploración de mercados directos en la provincia de Quebec. La delegación empresarial viaja para analizar canales locales y concretar encuentros de negocios previos a la exhibición central en Toronto."
-        image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800"
+        image="https://wanderingwheatleys.com/wp-content/uploads/2023/02/best-things-to-do-in-montreal-canada-header-1800x1080.jpg"
         primaryCta={{ text: "Ver Itinerario", href: "#itinerario" }}
       />
     );
@@ -263,7 +263,7 @@ export default function GlobalHero() {
         eyebrow="Sala de Prensa"
         title={<>Cobertura &<br /><em>Comunicados</em></>}
         description="Accede a comunicados de prensa, cobertura de medios, entrevistas de la delegación y galería fotográfica de la Expo México Mujer."
-        image="/Galeria/Ponencias/IMG_4931.JPG"
+        image="/Galleria/Energia/IMG_5915.JPG"
         primaryCta={{ text: "Ver Comunicados", href: "#comunicados" }}
         secondaryCta={{ text: "Multimedia", href: "#galeria" }}
       />
@@ -289,7 +289,7 @@ export default function GlobalHero() {
         eyebrow="Comercio Binacional"
         title={<>Logística Internacional<br /><em>& Exportación</em></>}
         description="Pautas operativas para importaciones temporales y definitivas, consolidación de mercancía y servicios aduanales México-Canadá."
-        image="/Galeria/Otros/IMG_4805.JPG"
+        image="https://img.magnific.com/free-photo/industrial-port-container-yard_1112-1200.jpg?t=st=1784092959~exp=1784096559~hmac=274f78bf242dcc50365d8a28d23978850f0af302ff36efa4b358fc10b5fcc4be&w=1480"
         primaryCta={{ text: "Asesoría Aduanal", href: "#aduanas" }}
         secondaryCta={{ text: "Socios Logísticos", href: "#transporte" }}
       />
@@ -302,7 +302,7 @@ export default function GlobalHero() {
         eyebrow="Soporte y Estadía"
         title={<>Servicios al<br /><em>Viajero</em></>}
         description="Tarifas preferentes de hospedaje, información de vuelos recomendados y guías operativas de transporte local en Toronto."
-        image="/Galeria/Turismo/IMG_6140.JPG"
+        image="https://img.magnific.com/free-photo/you-are-all-set-your-vacations-sales-representative-giving-passports-plane-tickets-young-woman-man-their-holiday-trip-travel-agency_662251-2215.jpg?t=st=1784093032~exp=1784096632~hmac=04e8e4bd4b89f8f6053a8b4a576351cdd7f6cf2e777af7aa5675908e9f387f7b&w=1480"
         primaryCta={{ text: "Hoteles Sede", href: "#hospedaje" }}
         secondaryCta={{ text: "Vuelos y Traslado", href: "#vuelos" }}
       />
@@ -331,6 +331,32 @@ export default function GlobalHero() {
         image="/Galleria/Otras_Fotos/IMG_6260.JPG"
         primaryCta={{ text: "Leer Artículos", href: "#noticias" }}
         secondaryCta={{ text: "Suscribirse", href: "/#contacto" }}
+      />
+    );
+  }
+
+  if (pathname === '/patrocinadores') {
+    return (
+      <Hero
+        eyebrow="Socios Comerciales"
+        title={<>Patrocinadores<br /><em>& Marcas Aliadas</em></>}
+        description="Conoce a las empresas y corporativos que hacen posible Expo México Mujer, impulsando el desarrollo comercial y el liderazgo femenino entre México y Canadá."
+        image="/Galleria/Otras_Fotos/IMG_6078.JPG"
+        primaryCta={{ text: "Nuestros Aliados", href: "#aliados" }}
+        secondaryCta={{ text: "Ser Patrocinador", href: "/#contacto" }}
+      />
+    );
+  }
+
+  if (pathname === '/invitados') {
+    return (
+      <Hero
+        eyebrow="Personalidades"
+        title={<>Invitados<br /><em>Especiales</em></>}
+        description="Figuras destacadas del ámbito empresarial, político y cultural que enriquecen nuestro programa con su visión y experiencia internacional."
+        image="/Galeria/Otros/IMG_5682.JPG"
+        imagePosition="center"
+        primaryCta={{ text: "Ver Perfiles", href: "#invitados" }}
       />
     );
   }

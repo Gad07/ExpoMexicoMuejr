@@ -999,7 +999,7 @@ ul {
 .nav__link {
   position: relative;
   font-family: var(--font-display), sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1141,14 +1141,14 @@ ul {
 }
 
 .nav__logo-img {
-  height: 56px;
+  height: 61px;
   width: auto;
   transition: height 0.3s;
 }
 
 .nav.nav--scrolled .nav__logo-img,
 .nav.nav--inner .nav__logo-img {
-  height: 46px;
+  height: 51px;
 }
 
 /* ─── VIDEO HERO ──────────────────────────────────────────────── */
@@ -1577,10 +1577,6 @@ ul {
 
 .section__title em {
   font-style: italic;
-  color: var(--magenta);
-  font-weight: 300;
-  font-family: 'Georgia', serif;
-  text-transform: none;
 }
 
 .section__title--center {
@@ -4587,10 +4583,10 @@ ul {
 
 /* ─── RADICAL NEW FOOTER V2 (Pure White Editorial) ─── */
 .v2-footer {
-  background: #ffffff;
-  color: var(--navy);
+  background: var(--magenta);
+  color: #ffffff;
   padding: 80px 0 40px;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: none;
   position: relative;
   z-index: 2;
 }
@@ -4604,24 +4600,26 @@ ul {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 64px;
+  gap: 48px 32px;
 }
 
 .v2-footer__brand {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  grid-row: span 2;
 }
 
 .v2-footer__logomark {
-  height: 60px;
+  height: 120px;
   width: auto;
   align-self: flex-start;
+  filter: brightness(0) invert(1);
 }
 
 .v2-footer__brand-desc {
   font-size: 0.9rem;
-  color: #555;
+  color: #ffffff;
   line-height: 1.75;
   font-weight: 500;
   max-width: 28ch;
@@ -4633,21 +4631,21 @@ ul {
 }
 
 .v2-footer__social-link {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 46, 81, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--navy);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
   transition: all 0.3s;
 }
 
 .v2-footer__social-link:hover {
-  background: var(--navy);
-  color: #fff;
-  border-color: var(--navy);
+  background: #ffffff;
+  color: var(--magenta);
+  border-color: #ffffff;
 }
 
 .v2-footer__col {
@@ -4661,8 +4659,8 @@ ul {
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--navy);
-  border-bottom: 2px solid var(--magenta);
+  color: #ffffff;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
   padding-bottom: 8px;
   align-self: flex-start;
 }
@@ -4675,14 +4673,16 @@ ul {
 
 .v2-footer__link {
   font-size: 0.88rem;
-  color: #666;
-  transition: color 0.3s;
+  color: #ffffff;
+  opacity: 0.9;
+  transition: opacity 0.3s, color 0.3s;
   text-decoration: none;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .v2-footer__link:hover {
-  color: var(--magenta);
+  color: #ffffff;
+  opacity: 1;
 }
 
 .v2-footer__cta-btn {
@@ -4690,8 +4690,8 @@ ul {
   align-items: center;
   justify-content: center;
   padding: 10px 20px;
-  background: var(--navy);
-  color: #fff;
+  background: #ffffff;
+  color: var(--magenta);
   border-radius: 30px;
   font-size: 0.72rem;
   font-weight: 600;
@@ -4703,13 +4703,15 @@ ul {
 }
 
 .v2-footer__cta-btn:hover {
-  background: var(--magenta);
+  background: var(--navy);
+  color: #fff;
   transform: translateY(-2px);
 }
 
 .v2-footer__bottom {
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
-  padding-top: 32px;
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .v2-footer__bottom-inner {
@@ -4724,8 +4726,9 @@ ul {
 
 .v2-footer__copy {
   font-size: 0.82rem;
-  color: #888;
-  font-weight: 300;
+  color: #ffffff;
+  opacity: 0.85;
+  font-weight: 400;
 }
 
 .v2-footer__bottom-links {
@@ -4735,13 +4738,14 @@ ul {
 
 .v2-footer__bottom-link {
   font-size: 0.82rem;
-  color: #888;
-  transition: color 0.3s;
+  color: #ffffff;
+  opacity: 0.85;
+  transition: opacity 0.3s;
   text-decoration: none;
 }
 
 .v2-footer__bottom-link:hover {
-  color: var(--navy);
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {

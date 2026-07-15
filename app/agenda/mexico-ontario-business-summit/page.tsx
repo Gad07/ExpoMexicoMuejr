@@ -73,7 +73,6 @@ export default function BusinessSummitPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center', marginBottom: '100px' }}>
           <Reveal delay={100}>
             <div>
-              <span className="section__label" style={{ marginBottom: '12px' }}>Objetivo Comercial</span>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '24px', lineHeight: 1.15 }}>
                 Encuentro de la Delegación Mexicana y Contrapartes Canadienses
               </h2>
@@ -126,7 +125,6 @@ export default function BusinessSummitPage() {
         {/* Sección 2: Agenda */}
         <div id="agenda" style={{ marginTop: '80px', paddingTop: '80px', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
           <Reveal style={{ marginBottom: '48px' }}>
-            <span className="section__label">Programa Oficial</span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
               Agenda del Summit
             </h2>
