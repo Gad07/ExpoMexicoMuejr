@@ -1,0 +1,126 @@
+[
+  {
+    "id": "spon-1",
+    "slug": "banco-internacional",
+    "tier": {
+      "es": "Socio Diamante",
+      "en": "Diamond Partner",
+      "fr": "Partenaire Diamant"
+    },
+    "name": "Banco Internacional Femenino",
+    "logo": "https://images.unsplash.com/photo-1554774853-719586f82d77?auto=format&fit=crop&q=80&w=200",
+    "description": {
+      "es": "Institución financiera comprometida con el empoderamiento económico de las mujeres a nivel global. Proveemos herramientas, créditos y fondos semilla para que las emprendedoras lleven sus negocios al siguiente nivel.",
+      "en": "Financial institution committed to the economic empowerment of women globally. We provide tools, credits and seed funds for female entrepreneurs to take their businesses to the next level.",
+      "fr": "Institution financière engagée dans l'autonomisation économique des femmes à l'échelle mondiale. Nous fournissons des outils, des crédits et des fonds d'amorçage pour que les entrepreneures passent au niveau supérieur."
+    },
+    "website": "www.bancofemenino.com",
+    "contact": "alianzas@bancofemenino.com",
+    "personName": "Elena Martínez",
+    "personPhoto": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
+    "bio": {
+      "es": "CEO y Directora General. Nombrada entre las 50 mujeres más poderosas de las finanzas en Norteamérica, liderando estrategias de inversión con perspectiva de género.",
+      "en": "CEO and General Director. Named among the 50 most powerful women in finance in North America, leading investment strategies with a gender perspective.",
+      "fr": "PDG et directrice générale. Nommée parmi les 50 femmes les plus puissantes de la finance en Amérique du Nord, elle dirige des stratégies d'investissement avec une perspective de genre."
+    },
+    "gallery": [
+      "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=600&h=800",
+      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800&h=800",
+      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=600&h=900",
+      "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&q=80&w=1000&h=600",
+      "https://images.unsplash.com/photo-1572021335469-31706a17aaef?auto=format&fit=crop&q=80&w=800&h=800",
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600&h=800"
+    ]
+  },
+  {
+    "id": "spon-2",
+    "slug": "aerolineas-unidas",
+    "tier": {
+      "es": "Socio Oro",
+      "en": "Gold Partner",
+      "fr": "Partenaire Or"
+    },
+    "name": "Aerolíneas Unidas",
+    "logo": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=200",
+    "description": {
+      "es": "Conectamos México y Canadá a través de nuestra extensa red de vuelos. Promovemos el turismo de negocios y el intercambio cultural binacional.",
+      "en": "We connect Mexico and Canada through our extensive flight network. We promote business tourism and binational cultural exchange.",
+      "fr": "Nous relions le Mexique et le Canada grâce à notre vaste réseau de vols. Nous promouvons le tourisme d'affaires et les échanges culturels binationaux."
+    },
+    "website": "www.aerolineasunidas.mx",
+    "contact": "patrocinios@aerolineasunidas.mx",
+    "personName": "Andrea Lozano",
+    "personPhoto": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800",
+    "bio": {
+      "es": "Directora de Relaciones Institucionales. Pionera en la creación de puentes aéreos que facilitan el libre comercio y la unión de comunidades latinas en el extranjero.",
+      "en": "Director of Institutional Relations. Pioneer in creating air bridges that facilitate free trade and union of Latino communities abroad.",
+      "fr": "Directrice des relations institutionnelles. Pionnière dans la création de ponts aériens qui facilitent le libre-échange et l'union des communautés latines à l'étranger."
+    },
+    "gallery": [
+      "https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1473273180425-4161f3640e11?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&q=80&w=800"
+    ]
+  },
+  {
+    "id": "spon-3",
+    "slug": "tech-solutions",
+    "tier": {
+      "es": "Socio Plata",
+      "en": "Silver Partner",
+      "fr": "Partenaire Argent"
+    },
+    "name": "Tech Solutions Global",
+    "logo": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=200",
+    "description": {
+      "es": "Transformación digital a la medida. Apoyamos a empresas lideradas por mujeres a implementar software de última generación, inteligencia artificial y automatización de procesos.",
+      "en": "Custom digital transformation. We support female-led companies to implement state-of-the-art software, artificial intelligence and process automation.",
+      "fr": "Transformation numérique sur mesure. Nous aidons les entreprises dirigées par des femmes à mettre en œuvre des logiciels de pointe, de l'intelligence artificielle et l'automatisation des processus."
+    },
+    "website": "www.techsolutions.io",
+    "contact": "hello@techsolutions.io",
+    "personName": "Sofía Reyes",
+    "personPhoto": "https://images.unsplash.com/photo-1508214751196-bfd141134b44?auto=format&fit=crop&q=80&w=800",
+    "bio": {
+      "es": "Fundadora de Tech Solutions y evangelizadora de STEM. Su objetivo es cerrar la brecha tecnológica de género en América Latina y Canadá.",
+      "en": "Founder of Tech Solutions and STEM evangelist. Her goal is to close the technological gender gap in Latin America and Canada.",
+      "fr": "Fondatrice de Tech Solutions et évangéliste des STEM. Son objectif est de combler le fossé technologique entre les genres en Amérique latine et au Canada."
+    },
+    "gallery": [
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800"
+    ]
+  },
+  {
+    "id": "spon-4",
+    "slug": "logistica-norte",
+    "tier": {
+      "es": "Socio Bronce",
+      "en": "Bronze Partner",
+      "fr": "Partenaire Bronze"
+    },
+    "name": "Logística Norteamérica",
+    "logo": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=200",
+    "description": {
+      "es": "Expertos en cadena de suministro y exportación. Facilitamos que los productos de artesanas mexicanas lleguen a los estantes canadienses de forma segura, rápida y económica.",
+      "en": "Supply chain and export experts. We facilitate that the products of Mexican female artisans reach Canadian shelves in a safe, fast and affordable way.",
+      "fr": "Experts en chaîne d'approvisionnement et en exportation. Nous facilitons l'arrivée des produits des artisanes mexicaines sur les étagères canadiennes de manière sûre, rapide et économique."
+    },
+    "website": "www.logisticanorte.com",
+    "contact": "comercial@logisticanorte.com",
+    "personName": "Diana Bernal",
+    "personPhoto": "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=800",
+    "bio": {
+      "es": "Especialista en aduanas y comercio exterior. Cuenta con más de 20 años optimizando rutas logísticas entre México y Norteamérica.",
+      "en": "Specialist in customs and foreign trade. She has over 20 years optimizing logistics routes between Mexico and North America.",
+      "fr": "Spécialiste en douane et commerce extérieur. Elle a passé plus de 20 ans à optimiser les itinéraires logistiques entre le Mexique et l'Amérique du Nord."
+    },
+    "gallery": [
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1580674684081-77673ce96f13?auto=format&fit=crop&q=80&w=800"
+    ]
+  }
+]

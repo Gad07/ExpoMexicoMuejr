@@ -56,13 +56,7 @@ export const metadata: Metadata = {
   },
 };
 
-import Nav from '@/components/Nav';
-import GlobalHero from '@/components/GlobalHero';
-import Footer from '@/components/Footer';
-import CtaSkyline from '@/components/CtaSkyline';
-import ScrollToTop from '@/components/ScrollToTop';
-import InitialLoader from '@/components/InitialLoader';
-import WhatsAppChat from '@/components/WhatsAppChat';
+import PublicLayoutWrapper from '@/components/PublicLayoutWrapper';
 
 export default function RootLayout({
   children,
@@ -71,14 +65,7 @@ export default function RootLayout({
     <html lang="es" className={`${futura.variable} ${nunito.variable}`}>
       <body>
         <LanguageProvider>
-          <InitialLoader />
-        <ScrollToTop />
-        <Nav />
-        <GlobalHero />
-        <main>{children}</main>
-        <CtaSkyline />
-        <Footer />
-        <WhatsAppChat />
+          <PublicLayoutWrapper>{children}</PublicLayoutWrapper>
         </LanguageProvider>
       </body>
     </html>

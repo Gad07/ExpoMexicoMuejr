@@ -350,7 +350,7 @@
       "visa": "Nous savons que voyager au Canada nécessite une préparation. Avez-vous des questions sur votre processus de eTA ou de visa?",
       "contacto": "Vous êtes dans notre zone de contact. Comment pouvons-nous vous aider aujourd'hui?"
     },
-    "user": {
+      "user": {
       "default": "Bonjour, j'aimerais obtenir des informations sur l'Expo Mexique Femme 2027.",
       "expositores": "Bonjour, j'aimerais recevoir le dossier et les informations pour participer en tant qu'exposante.",
       "embajadoras": "Bonjour, j'aimerais postuler ou obtenir plus d'informations sur le programme des Ambassadrices.",
@@ -360,6 +360,607 @@
       "academy": "Bonjour, je suis intéressée par les ateliers et formations de l'EMM Academy.",
       "visa": "Bonjour, j'ai besoin de conseils sur les procédures d'immigration (Visa/eTA) pour assister à l'Expo.",
       "contacto": "Bonjour, j'ai une demande générale concernant l'Expo Mexique Femme 2027."
+    }
+  },
+  "pages": {
+    "prensa": {
+      "srOnly": "Presse",
+      "comunicados": {
+        "title": "Communiqués Officiels",
+        "category1": "Communiqué Officiel",
+        "date1": "10 Juin, 2026",
+        "title1": "L'Expo Mexique Femme annonce officiellement son prochain lieu à Toronto pour 2027",
+        "desc1": "À la suite de l'impact retentissant d'Ottawa, la direction confirme l'alliance avec la Chambre de Commerce de l'Ontario pour la mise en place commerciale de 2027.",
+        "category2": "Communiqué de Presse",
+        "date2": "28 Mai, 2026",
+        "title2": "Inauguration spectaculaire de l'Expo Mexique Femme au Centre des Congrès d'Ottawa",
+        "desc2": "En présence consulaire et de délégées d'affaires de tout le Mexique, l'événement binationale le plus important de l'année est officiellement inauguré.",
+        "leerMas": "Lire la suite"
+      },
+      "entrevistas": {
+        "title": "Entretiens en Vedette",
+        "interview1": {
+          "quote": "Le lien binaire est plus que des traités ; il s'agit de créer des ponts directs et réels entre les marques mexicaines et les canaux de distribution au Canada.",
+          "person": "Francisco Solorio",
+          "role": "Directeur Général EMM",
+          "media": "Canadá Business Daily"
+        },
+        "interview2": {
+          "quote": "Apporter le logiciel et le talent technologique entre les mains de Mexicaines aux entreprises canadiennes brise les paradigmes de l'industrie nord-américaine.",
+          "person": "María López",
+          "role": "Fondatrice de Mujeres en STEM",
+          "media": "Télévision Consulaire"
+        }
+      },
+      "galeria": {
+        "title": "Kit de Presse & Galerie Multimédia",
+        "desc": "Nous mettons à la disposition des médias, des journalistes et des institutions le kit officiel de presse comprenant les logos en haute résolution, les profils biographiques de l'équipe de direction et les photographies autorisées de l'événement Ottawa 2026.",
+        "descargar": "Télécharger le Kit de Presse",
+        "carpeta": "Dossier Photographique",
+        "imagenes": "Images d'Ottawa 2026"
+      }
+    },
+    "viajero": {
+      "srOnly": "Services aux Voyageurs",
+      "hospedaje": {
+        "title": "Hébergement & Hôtels Officiels",
+        "hotel1": {
+          "name": "The Westin Harbour Castle",
+          "stars": "4,5 étoiles",
+          "desc": "Hôtel officiel situé à quelques pas du lac Ontario. Tarifs préférentiels exclusifs pour les exposantes de la délégation EMM.",
+          "rate": "À partir de 240 CAD / nuit",
+          "reservar": "Réserver le tarif"
+        },
+        "hotel2": {
+          "name": "Sheraton Centre Toronto",
+          "stars": "4,0 étoiles",
+          "desc": "Emplacement central au cœur du quartier financier de Toronto. Connexion directe au PATH et accès facile en transport en commun aux lieux de l'événement.",
+          "rate": "À partir de 195 CAD / nuit",
+          "reservar": "Réserver le tarif"
+        }
+      },
+      "vuelos": {
+        "title": "Vols et Transfert Aérien",
+        "desc": "Nous disposons de codes promotionnels officiels de réduction sur les compagnies aériennes partenaires (Air Canada et Aeroméxico) applicables aux trajets directs vers l'Aéroport International de Toronto Pearson (YYZ).",
+        "descuento1": "Réductions allant jusqu'à 15% sur les vols en classe affaires et économique.",
+        "descuento2": "Support direct pour l'émission de billets de groupe d'entreprise.",
+        "transporte": {
+          "title": "Transport Local à Toronto",
+          "upExpress": {
+            "title": "UP Express (Train de l'Aéroport)",
+            "desc": "Connecte Pearson (YYZ) à Union Station en seulement 25 minutes. Départs toutes les 15 minutes."
+          },
+          "ttc": {
+            "title": "Réseau TTC (Métro et Tramway)",
+            "desc": "Système de transport intégré de la ville qui relie rapidement les hôtels à tous les sites."
+          }
+        }
+      }
+    },
+    "participantes": {
+      "srOnly": "Participants",
+      "manual": {
+        "title": "Manuel Technique de l'Exposant",
+        "desc": "Accédez au document officiel contenant toute la réglementation et la logistique technique pour l'aménagement au site de Toronto. Comprend les horaires de chargement et déchargement, les spécifications électriques, les dimensions des stands et les règlements de sécurité.",
+        "descargar": "Télécharger le Manuel (PDF)"
+      },
+      "especificaciones": {
+        "title": "Spécifications des Stands",
+        "standard": "Stand Standard : 3m x 2m avec panneau séparateur et signalétique frontale.",
+        "mobiliario": "Mobilier Inclus : 1 table avec nappe, 2 chaises et raccordement électrique.",
+        "servicios": "Services Supplémentaires : Internet haut débit et entrepartagé."
+      },
+      "requisitos": {
+        "title": "Conditions de Participation",
+        "documentacion": {
+          "title": "Documentation Commerciale",
+          "desc": "Disposer d'un enregistrement fiscal (RFC), d'une marque déposée et d'une fiche technique d'exportation des produits à exposer au site."
+        },
+        "migratorio": {
+          "title": "Statut Migratoire",
+          "desc": "Passeport avec une validité minimale de 6 mois et visa canadien / eTA autorisé. L'EMM fournit des lettres d'invitation officielles pour les exposantes inscrites."
+        },
+        "sanitaria": {
+          "title": "Certification Sanitaire",
+          "desc": "Dans le secteur alimentaire ou santé et cosmétique, il est nécessaire de respecter les directives d'étiquetage et d'hygiène de Santé Canada."
+        }
+      },
+      "faq": {
+        "title": "Questions Fréquentes",
+        "q1": "Le coût du stand inclut-il le transport des marchandises ?",
+        "a1": "Non, le coût du stand couvre uniquement l'espace d'exposition et le mobilier de base. Le transport douanier est à la charge de chaque exposante. Cependant, l'équipe logistique de l'EMM propose des tarifs consolidés préférentiels avec notre partenaire transporteur officiel.",
+        "q2": "Comment obtenir une lettre d'invitation pour mon visa ?",
+        "a2": "Une fois le dépôt de confirmation de votre stand effectué, le comité organisateur émettra une lettre officiale sur papier à en-tête incluant les détails de l'événement, valable pour être présentée au consulat canadien compétent.",
+        "q3": "Que se passe-t-il si mes produits nécessitent une réfrigération ?",
+        "a3": "Vous devez en informer au moins 60 jours à l'avance par courriel au service logistique (luis.garcia@expomexico.ca) pour obtenir un devis pour l'alimentation électrique dédiée et la location de vitrines ou congélateurs sur site."
+      }
+    },
+    "logistica": {
+      "srOnly": "Logistique",
+      "esquemas": {
+        "title": "Schémas d'Exportation",
+        "desc": "Pour l'entrée de vos produits d'exposition sur le territoire canadien, le comité organisateur de l'Expo Mexique Femme offre un conseil et un accompagnement technique dans le cadre de deux principaux schémas commerciaux.",
+        "importante": "Important : Les formalités douanières doivent être engagées au moins 90 jours à l'avance pour éviter les retards à la douane frontalière.",
+        "temporal": {
+          "title": "Exportation Temporaire",
+          "desc": "Idéal pour les échantillons d'exposition, le mobilier de stand ou les pièces de défilé qui retourneront au Mexique après l'événement. Exonéré de droits de douane sous le carnet ATA ou la caution douanière temporaire."
+        },
+        "definitiva": {
+          "title": "Exportation Définitive",
+          "desc": "Recommandé pour les produits destinés à la vente directe lors de l'événement, les échantillons de dégustation consommables ou l'inventaire vendu à l'avance à des importateurs canadiens. Soumis aux taxes et à l'importation formelle au Canada."
+        }
+      },
+      "asesoria": {
+        "title": "Conseil & Solutions de Transport",
+        "consolidacion": {
+          "title": "Consolidation de Fret",
+          "desc": "Nous proposons la collecte de marchandises dans des centres stratégiques (CDMX, Guadalajara et Monterrey) pour effectuer un envoi consolidé terrestre ou aérien vers Toronto à tarifs préférentiels."
+        },
+        "brokerage": {
+          "title": "Courtage Douanier",
+          "desc": "Coordination complète avec les agences douanières à la frontière (Laredo) et aux douanes canadiennes pour accélérer la classification tarifaire et la libération des envois commerciaux."
+        },
+        "entrega": {
+          "title": "Service de Livraison Finale",
+          "desc": "Réception des marchandises à l'entrepôt de Toronto avant l'événement, garde assurée et livraison directe des caisses au stand attribué à chaque déléguée exposante."
+        }
+      }
+    },
+    "expositores": {
+      "loading": "Chargement du répertoire...",
+      "vista1": {
+        "sectionTitle1": "Découvrez le talent par",
+        "sectionTitleEm1": "Catégorie Commerciale",
+        "sectionDesc1": "Explorez les marques, produits et services que les femmes entrepreneures du Mexique apportent à Toronto. Cliquez sur une catégorie pour voir son répertoire.",
+        "infraestructura": "Infrastructure Premium",
+        "standsTitle": "Stands et Espaces",
+        "standsTitleEm": "d'Exposition",
+        "standsDesc": "Nous concevons chaque espace pour projeter la présence corporative maximale. Nos stands de 3x3 et 2x2 mètres sont entièrement équipés avec la signalétique officielle de la marque, l'éclairage LED directionnel et les connexions électriques 110v prêtes à l'emploi dans le centre des congrès de Toronto.",
+        "montaje": "Montage Complet",
+        "convencion": "Centre des Congrès",
+        "convencionLugar": "Toronto, Canada 2027",
+        "retorno": "Retour sur Investissement",
+        "beneficiosTitle": "Avantages Clés de",
+        "beneficiosTitleEm": "Votre Participation",
+        "beneficio1Title": "Répertoire des Exposantes",
+        "beneficio1Desc": "Présence en vedette dans le catalogue officiel pour les acheteurs et distributeurs en Amérique du Nord.",
+        "beneficio2Title": "Campagnes de Diffusion",
+        "beneficio2Desc": "Apparaître dans les communiqués de presse binationaux, les réseaux sociaux officiels et la couverture médiatique locale.",
+        "beneficio3Title": "Tables Rondes B2B",
+        "beneficio3Desc": "Planification intelligente de rendez-vous individuels basée sur les intérêts et les profils des acheteurs.",
+        "sectionTitle2": "Découvrez le talent par",
+        "sectionTitleEm2": "Catégorie Commerciale",
+        "sectionDesc2": "Explorez les marques, produits et services que les femmes entrepreneures du Mexique apportent à Toronto. Cliquez sur une catégorie pour voir son répertoire.",
+        "buscarCategoria": "Rechercher une catégorie...",
+        "registro": {
+          "title": "Inscription Officielle des Exposantes",
+          "desc": "Remplissez le formulaire d'inscription officiel pour demander votre stand d'exposition à l'Expo Mexique Femme Toronto."
+        }
+      },
+      "vista2": {
+        "buscar": "Rechercher une marque ou un exposant...",
+        "sinResultats": "Aucune exposante trouvée",
+        "sinResultatsDesc": "Essayez avec une autre marque ou un autre nom d'exposant.",
+        "por": "par",
+        "agendarCita": "Planifier un Rendez-vous en Personne",
+        "verMapa": "Voir sur la Carte",
+        "cerrar": "Fermer",
+        "modalCita": "Rendez-vous en Personne",
+        "modalEvento": "Expo Mexique Femme 2027",
+        "modalDuracion": "30 minutes",
+        "modalStand": "Stand",
+        "reservaLugar": "Réservez votre place",
+        "eligeFecha": "Choisissez la date et l'heure",
+        "vendredi": "Vendredi",
+        "samedi": "Samedi",
+        "jun2027": "Juin 2027",
+        "horarioDisponible": "Horaire disponible",
+        "tusDatos": "Vos coordonnées",
+        "nombreCompleto": "Nom complet",
+        "nombrePlaceholder": "Ex. Laura González",
+        "correo": "E-mail",
+        "correoPlaceholder": "email@exemple.com",
+        "whatsapp": "WhatsApp",
+        "whatsappPlaceholder": "+52 55 1234 5678",
+        "confirmarCita": "Confirmer le Rendez-vous en Personne",
+        "citaConfirmada": "Rendez-vous Confirmé !",
+        "citaConfirmadaDesc1": "Nous nous voyons le",
+        "citaConfirmadaDesc2": "à",
+        "citaConfirmadaEmail": "Nous vous avons envoyé la confirmation à",
+        "cerrarModal": "Fermer",
+        "completarCampos": "Veuillez remplir tous les champs.",
+        "ubicacionStand": "Emplacement du Stand",
+        "planoCargando": "Plan interactif en chargement..."
+      }
+    },
+    "embajadoras": {
+      "loading": "Chargement des ambassadrices...",
+      "vista1": {
+        "title1": "Ambassadrices de",
+        "titleEm1": "l'Expo Mexique Femme",
+        "desc1": "Nous recherchons des femmes entrepreneures, des gestionnaires culturels et des dirigeantes à vision mondiale dans chaque état de la République Mexicaine pour être les porte-parole du talent de leurs régions à Toronto, Canada.",
+        "requisitos": "Conditions",
+        "req1": "Leadership et proposition active",
+        "req2": "Projet à identité régionale",
+        "req3": "Documents de voyage en cours de validité",
+        "fechas": "Dates Clés",
+        "fecha1Label": "Ouverture :",
+        "fecha1": "Mai 2026",
+        "fecha2Label": "Clôture :",
+        "fecha2": "Septembre 2026",
+        "fecha3Label": "Résultats :",
+        "fecha3": "Octobre 2026",
+        "conexion": "Lien Binationale",
+        "representacion": "Représentation Officielle 2027",
+        "sectionTitle": "Découvrez nos",
+        "sectionTitleEm": "Ambassadrices du Mexique",
+        "sectionDesc": "Les Ambassadrices de l'Expo Mexique Femme sont des dirigeantes engagées dans le développement économique et social de leurs communautés. Sélectionnez un état pour les découvrir.",
+        "buscarEstado": "Rechercher un état...",
+        "registro": {
+          "title": "Inscription Officielle des Ambassadrices",
+          "desc": "Remplissez le formulaire de candidature officiel pour demander à être l'ambassadrice représentante de votre état à l'Expo Mexique Femme Toronto."
+        }
+      },
+      "vista2": {
+        "buscar": "Rechercher une ambassadrice...",
+        "sinResultats": "Aucune ambassadrice enregistrée",
+        "sinResultatsDesc": "Le répertoire complet des ambassadrices de {state} sera bientôt annoncé.",
+        "verUbicacion": "Voir l'Emplacement",
+        "cerrarMapa": "Fermer la carte",
+        "ubicacion": "Emplacement",
+        "planoCargando": "Plan interactif en chargement..."
+      }
+    },
+    "compradores": {
+      "srOnly": "Acheteurs et Investisseurs",
+      "vinculacion": "Réseautage Commercial B2B",
+      "sectionTitle": "Acheteurs &",
+      "sectionTitleEm": "Investisseurs",
+      "sectionDesc": "Le lien direct pour les importateurs, distributeurs et acheteurs corporatifs au Canada intéressés par l'acquisition de produits mexicains de la plus haute qualité et l'établissement d'alliances d'investissement.",
+      "rueda": {
+        "title": "Tables Rondes d'Affaires",
+        "titleEm": "Réseautage Efficace",
+        "desc": "Grâce au programme de mise en relation, nous organisons des agendas B2B personnalisés. Les acheteurs canadiens peuvent pré-sélectionner les exposantes selon leur secteur, leur capacité d'exportation et leurs certifications, optimisant au maximum les rencontres à Toronto.",
+        "perfilamiento": {
+          "title": "Profilage Intelligent",
+          "desc": "Nous filtrons les propositions des entrepreneures pour garantir l'adéquation avec leurs lignes d'achat."
+        },
+        "agenda": {
+          "title": "Agenda Stratégique",
+          "desc": "Des rendez-vous individuels structurés de 20 minutes planifiés des semaines avant l'événement."
+        },
+        "proyeccion": {
+          "title": "Projection Internationale",
+          "desc": "Nous facilitons la logistique d'envoi d'échantillons et le suivi commercial ultérieur."
+        }
+      },
+      "directorio": {
+        "title": "Répertoire Numérique des Acheteurs",
+        "buscar": "Rechercher par entreprise ou secteur...",
+        "verPerfil": "Voir le profil complet",
+        "sinResultats": "Aucune corporation acheteuse trouvée."
+      },
+      "registro": {
+        "title": "Inscription Officielle des Acheteurs",
+        "desc": "Remplissez le formulaire officiel d'inscription pour les acheteurs corporatifs et investisseurs canadiens."
+      }
+    },
+    "participa": {
+      "expositoras": {
+        "eyebrow": "Participation Commerciale",
+        "title": "Exposantes",
+        "stands": {
+          "title": "Stands et Espaces",
+          "desc": "Nous disposons d'espaces d'exposition premium conçus pour maximiser la visibilité de votre marque et de vos produits dans le centre des congrès de Toronto.",
+          "li1": "Stands de 3x3 et 2x2 mètres entièrement équipés.",
+          "li2": "Montage premium avec éclairage et signalétique personnalisés.",
+          "li3": "Zones B2B et espaces de réseautage exclusifs."
+        },
+        "beneficios": {
+          "title": "Avantages de Participation",
+          "desc": "Positionnez votre entreprise à l'échelle internationale et interagissez directement avec les importateurs, distributeurs et le grand public canadien.",
+          "li1": "Accès direct au Répertoire Numérique officiel des exposantes.",
+          "li2": "Présence dans les médias et campagnes publicitaires.",
+          "li3": "Planification préalable de rendez-vous d'affaires (Matchmaking)."
+        },
+        "cta1": "Inscription Officielle des Exposantes",
+        "cta2": "Voir le Répertoire Numérique"
+      },
+      "patrocinadores": {
+        "eyebrow": "Alliances Corporatives",
+        "title": "Sponsors",
+        "categorias": {
+          "title": "Catégories de Parrainage",
+          "desc": "Nous proposons différentes modalités de mise en relation commerciale pour s'adapter à la taille et à l'impact de votre société : Platine, Or, Argent et Bronze, ainsi que des parrainages spéciaux dans des domaines thématiques spécifiques tels que la gastronomie, la mode ou la technologie."
+        },
+        "beneficios": {
+          "title": "Avantages du Parrainage",
+          "desc": "Les sponsors officiels bénéficient d'une visibilité de marque inégalée sur toutes les plateformes numériques, physiques, imprimées et espaces VIP de l'événement, ainsi que d'opportunités directes de mise en relation avec des délégations d'affaires de haut niveau."
+        }
+      },
+      "embajadoras": {
+        "eyebrow": "Leadership Territorial",
+        "title": "Ambassadrices Expo Mexique Femme",
+        "convocatoria": {
+          "title": "Appel à Candidatures National",
+          "desc": "Nous recherchons des femmes leaders dans chaque coin du pays qui souhaitent représenter les valeurs d'innovation, de culture et d'effort de la femme mexicaine au Canada."
+        },
+        "representacion": {
+          "title": "Représentation Étatique",
+          "desc": "Les ambassadrices coordonnent la participation territoriale de leurs états, apportant des échantillons artisanaux, gastronomiques et industriels représentatifs de l'intérieur du pays."
+        },
+        "registro": {
+          "title": "Inscription des Candidats",
+          "desc": "Si vous souhaitez postuler ou proposer une leader de votre communauté, remplissez notre formulaire officiel pour être évaluée par le comité de direction."
+        }
+      },
+      "aliados": {
+        "title": "Nos Partenaires",
+        "estrategicos": {
+          "title": "Partenaires Stratégiques",
+          "desc": "Entreprises leaders du secteur privé national et international qui apportent innovation, ressources et support opérationnel clé pour matérialiser la vision binationale de l'événement."
+        },
+        "institucionales": {
+          "title": "Partenaires Institutionnels",
+          "desc": "Entités gouvernementales, consulats et ambassades du Mexique et du Canada qui offrent un soutien officiel, une légitimité et un accompagnement politique dans tous les échanges."
+        },
+        "camaras": {
+          "title": "Chambres d'Affaires",
+          "desc": "Chambres binationales et associations commerciales qui promouvent les échanges commerciaux."
+        }
+      },
+      "invitados": {
+        "eyebrow": "Conférenciers et Leaders",
+        "title": "Invités Spéciaux",
+        "desc": "Notre programme s'enrichit de l'expérience de dirigeants d'affaires exceptionnels, de conférencières inspirantes et de personnalités influentes dans le domaine du commerce international et de l'autonomisation des femmes au Canada et en Amérique latine."
+      },
+      "compradores": {
+        "eyebrow": "Réseautage B2B",
+        "title": "Acheteurs & Investisseurs",
+        "desc": "Si vous êtes distributeur, acheteur corporatif ou investisseur au Canada et souhaitez contacter des produits mexicains premium, c'est votre espace de mise en relation.",
+        "registro": {
+          "title": "Inscription des Acheteurs",
+          "desc": "Obtenez des accréditations VIP et accédez aux agendas exclusifs de rendez-vous individuels d'affaires pendant l'événement."
+        },
+        "directorio": {
+          "title": "Répertoire des Acheteurs",
+          "desc": "Répertoire dynamique qui facilite l'identification et la connexion avec les profils d'intérêt commercial pour les marques."
+        },
+        "vinculacion": {
+          "title": "Mise en Relation Commerciale",
+          "desc": "Tables rondes de négociation sectorielles guidées par des mentors commerciaux certifiés."
+        }
+      }
+    },
+    "aliados": {
+      "srOnly": "Partenaires Stratégiques",
+      "eyebrow": "Mise en Relation Institutionnelle",
+      "title": "Partenaires Stratégiques & Chambres",
+      "desc": "L'Expo Mexique Femme bénéficie du soutien et de la mise en relation active d'organismes gouvernementaux, de chambres de commerce binationales et d'associations d'affaires engagées dans l'intégration économique et le leadership féminin.",
+      "aliado1": {
+        "title": "Partenaires Stratégiques",
+        "desc": "Entreprises leaders du secteur privé national et international qui apportent innovation, ressources et support opérationnel clé pour matérialiser la vision binationale de l'événement."
+      },
+      "aliado2": {
+        "title": "Partenaires Institutionnels",
+        "desc": "Entités gouvernementales, consulats et ambassades du Mexique et du Canada qui offrent un soutien officiel, une légitimité et un accompagnement politique dans tous les échanges."
+      },
+      "aliado3": {
+        "title": "Chambres d'Affaires",
+        "desc": "Organisations et intermédiaires commerciaux (comme le COMCE, les chambres hispaniques et les associations locales de l'Ontario) qui catalysent les tables rondes et le réseautage commercial."
+      },
+      "oficiales": {
+        "title": "Partenaires Officiels",
+        "desc": "Mise en relation active avec les organismes institutionnels et les chambres de commerce."
+      }
+    },
+    "nosotros": {
+      "missionVision": {
+        "title": "Le Mexique dans le monde,",
+        "titleEm": "avec toute sa puissance",
+        "mision": {
+          "label": "Mission",
+          "title": "Connecter le talent mexicain avec le monde",
+          "text": "Consolider la projection internationale du Mexique à travers une plateforme qui connecte le talent, la culture et les produits mexicains avec des opportunités concrètes au Canada, stimulant le développement économique et renforçant l'identité nationale à l'étranger."
+        },
+        "vision": {
+          "label": "Vision",
+          "title": "Être la référence binationale du leadership féminin",
+          "text": "Être la référence binationale la plus importante pour le leadership féminin mexicain, créant un écosystème d'affaires, de culture et de communauté qui transcende les générations et les frontières."
+        }
+      },
+      "stats": {
+        "location": "Toronto · Canada",
+        "headline1": "Le leadership",
+        "headline2": "mexicain",
+        "headline3Em": "n'a pas de",
+        "headline4Em": "frontières",
+        "item1": {
+          "value": "+5 000",
+          "label": "Participants Prévus",
+          "desc": "Femmes leaders, cadres et entrepreneures à fort impact."
+        },
+        "item2": {
+          "value": "50+",
+          "label": "Conférences Principales",
+          "desc": "Voix internationales qui inspirent et transforment les industries."
+        },
+        "item3": {
+          "value": "B2B",
+          "label": "Réseautage Stratégique",
+          "desc": "Tables d'affaires pour conclure des alliances commerciales binationales."
+        },
+        "item4": {
+          "value": "100%",
+          "label": "Talent Mexicain",
+          "desc": "Projection globale de notre culture, innovation et excellence."
+        }
+      },
+      "valores": {
+        "title": "Ce qui nous définit,",
+        "titleEm": "nous distingue",
+        "desc": "Quatre valeurs qui guident chaque décision, chaque alliance et chaque pas.",
+        "valor1": {
+          "title": "Identité sans frontières",
+          "text": "Nous projetons le meilleur du Mexique vers le monde, célébrant notre culture, talent et créativité comme pont d'entente entre les nations."
+        },
+        "valor2": {
+          "title": "Leadership avec un but",
+          "text": "Nous plaçons les femmes mexicaines au centre, stimulant leur développement économique, professionnel et social comme moteur de transformation."
+        },
+        "valor3": {
+          "title": "Connexion qui transcende",
+          "text": "Nous construisons des réseaux binationaux solides entre le Mexique et le Canada, créant des opportunités d'affaires, de collaboration et de croissance mutuelle."
+        },
+        "valor4": {
+          "title": "Impact mesurable",
+          "text": "Chaque action est conçue pour générer des résultats concrets : exportations, alliances stratégiques et projets de développement durable."
+        }
+      },
+      "timeline": {
+        "title": "De la vision à la",
+        "titleEm": "réalité",
+        "desc": "Chaque édition a été un pas ferme vers la consolidation d'une communauté binationale qui stimule le talent mexicain.",
+        "item1": {
+          "year": "2023",
+          "title": "Première édition",
+          "text": "Naissance de l'Expo Mexique Femme en tant que plateforme pour connecter le talent mexicain avec les opportunités internationales."
+        },
+        "item2": {
+          "year": "2024",
+          "title": "Expansion binationale",
+          "text": "Consolidation de l'événement avec la participation de plus de 12 industries et l'arrivée d'acheteurs canadiens."
+        },
+        "item3": {
+          "year": "2025",
+          "title": "Reconnaissance institutionnelle",
+          "text": "Des partenaires stratégiques gouvernementaux, des chambres de commerce et des organismes internationaux rejoignent le projet."
+        },
+        "item4": {
+          "year": "2027",
+          "title": "Édition historique",
+          "text": "Cinq jours à Toronto avec la participation de leaders, entrepreneures et créatrices qui transforment le leadership mexicain en héritage."
+        }
+      }
+    },
+    "visa": {
+      "intro": {
+        "category": "Services Binationaux // Canada 2027",
+        "title": "Gestion des Visas pour les Exposantes",
+        "p1": "Voyager au Canada représente une opportunité commerciale inégalée pour consolider et développer votre entreprise sur le marché nord-américain. Cependant, disposer de la documentation légale adéquate est la première et la plus importante étape de votre planification de voyage.",
+        "p2": "À l'Expo Mexique Femme 2027, nous comprenons les défis administratifs que cela représente. C'est pourquoi nous mettons à votre disposition une équipe de consultants spécialisés en droit migratoire canadien pour coordonner, réviser et suivre complètement votre procédure de visa.",
+        "alerta": "Important (Mise à jour de Voyage) : À partir de 2024, le gouvernement du Canada a réintroduit l'exigence de Visa de Visiteur pour les citoyens mexicains. Si vous ne disposez pas d'un visa américain en cours de validité ou d'un visa canadien antérieur au cours des 10 dernières années (conditions pour obtenir une eTA rapide), vous devez effectuer une procédure complète de visa physique. Nous vous recommandons de commencer votre demande dès aujourd'hui."
+      },
+      "pasos": {
+        "category": "Méthodologie Pas à Pas",
+        "title": "Le Processus de Conseil",
+        "paso1": {
+          "title": "Diagnostic initial",
+          "desc": "Nous analysons votre historique de voyages et votre statut actuel. Nous évaluons si vous êtes éligible à une eTA (Autorisation Électronique de Voyage si vous avez un visa américain en cours) ou si vous avez besoin d'un Visa de Visiteur complet."
+        },
+        "paso2": {
+          "title": "Préparation du dossier",
+          "desc": "Nous vous fournissons une liste de contrôle personnalisée de documents. Nous examinons vos preuves de solvabilité économique et d'ancrage au Mexique, en traduisant et en organisant le dossier pour répondre aux normes de l'IRCC."
+        },
+        "paso3": {
+          "title": "Dépôt et paiement consulaire",
+          "desc": "Nous remplissons les formulaires officiels sur le portail du gouvernement du Canada et téléchargeons votre dossier. Nous vous assistons dans le paiement des frais consulaires (185 CAD incluant les frais de biométrie)."
+        },
+        "paso4": {
+          "title": "Prélèvement biométrique",
+          "desc": "Nous programmons votre rendez-vous au Centre de Demande de Visa officiel (VFS Global) à CDMX, Monterrey ou Guadalajara pour la capture de vos empreintes digitales et de votre photo numérique."
+        },
+        "paso5": {
+          "title": "Approbation et tamponnage",
+          "desc": "Nous suivons la réponse de l'ambassade. Une fois approuvée, nous vous guidons dans l'envoi sécurisé de votre passeport physique par messagerie autorisée pour le tamponnage du visa."
+        }
+      },
+      "requisitos": {
+        "category": "Organisateur Personnel",
+        "title": "Conditions Générales",
+        "desc": "Interagissez avec l'organisateur en cliquant sur les conditions que vous avez déjà prêtes pour garder le contrôle de votre dossier :",
+        "item1": "Passeport mexicain avec une validité minimale de 6 mois après le voyage.",
+        "item2": "Visa américain en cours de validité (si éligible pour la procédure eTA rapide).",
+        "item3": "Preuves de solvabilité économique (relevés bancaires des 3 derniers mois, bulletins de paie ou déclarations fiscales).",
+        "item4": "Documents d'ancrage au Mexique (lettre d'emploi, titres de propriété ou attestations d'études).",
+        "item5": "Lettre d'invitation officielle émise par la direction de l'Expo Mexique Femme 2027.",
+        "item6": "Photo numérique récente répondant aux exigences du gouvernement canadien."
+      },
+      "faq": {
+        "category": "Réponses Directes",
+        "title": "Questions Fréquentes",
+        "q1": "Combien de temps prend le processus d'approbation du visa canadien ?",
+        "a1": "Le traitement officiel du gouvernement du Canada (IRCC) prend généralement entre 4 et 8 semaines à partir du prélèvement biométrique. Nous recommandons d'engager votre procédure au moins 3 mois avant les dates de l'événement (juin 2027) pour voyager en toute sérénité.",
+        "q2": "Qui est éligible pour entrer au Canada avec une eTA rapide ?",
+        "a2": "Vous pouvez demander une eTA (qui est approuvée en minutes ou en heures) si vous voyagez par voie aérienne et si vous remplissez l'une de ces conditions : 1) Vous avez un visa de non-immigrant des États-Unis en cours de validité (visa touristique), ou 2) Vous avez eu un visa de visiteur canadien au cours des 10 dernières années. Si vous entrez par voie terrestre ou si vous n'avez pas ces documents, vous devez demander un visa de visiteur complet.",
+        "q3": "Quels frais consulaires dois-je payer directement au gouvernement du Canada ?",
+        "a3": "La demande de Visa de Visiteur complet coûte 100 CAD plus 85 CAD pour la collecte des données biométriques (total de 185 CAD). Si vous êtes éligible à une eTA, le coût est de seulement 7 CAD. Ces frais sont payés par carte directement sur le portail officiel canadien.",
+        "q4": "Le service de gestion garantit-il l'approbation de mon visa ?",
+        "a4": "La décision finale de délivrer un visa relève de la compétence exclusive des officiers consulaires du gouvernement du Canada. Notre service optimise votre dossier, en veillant à ce qu'il n'y ait pas d'erreurs de remplissage, que les traductions soient correctes et que la justification de votre voyage, d'ancrage et de solvabilité soit structurée avec la plus grande solidité, maximisant ainsi les chances de succès.",
+        "q5": "L'Expo Mexique Femme émet-elle des lettres d'invitation pour la procédure ?",
+        "a5": "Oui. Nous émettons des lettres d'invitation personnalisées à caractère officiel d'affaires et de participation pour toutes les exposantes confirmées, les sponsors et les conférenciers. Ce document officiel est un élément de soutien clé auprès de l'officier consulaire."
+      },
+      "formulario": {
+        "category": "Contact Immédiat",
+        "title": "Commencez Votre Demande",
+        "desc": "Remplissez le formulaire dans le panneau de droite avec vos données de base. Un conseiller en visas de l'Expo Mexique Femme examinera votre profil gratuitement et vous contactera dans un délai de 24 heures via WhatsApp ou courriel pour planifier votre appel de diagnostic.",
+        "tiempoRespuesta": "Temps de\nRéponse",
+        "asesoria": "Conseil\nPersonnalisé",
+        "nombreCompleto": "Nom Complet",
+        "nombrePlaceholder": "Ex. María González Pérez",
+        "correoElectronico": "Adresse Électronique",
+        "correoPlaceholder": "Ex. maria@exemple.com",
+        "telefono": "Téléphone (WhatsApp)",
+        "telefonoPlaceholder": "Ex. +52 55 1234 5678",
+        "visaAmericana": "Disposez-vous d'un Visa Américain ?",
+        "visaSi": "Oui, j'ai un visa américain en cours de validité",
+        "visaNo": "Je n'ai pas de visa américain",
+        "visaCanadiense": "Oui, j'ai eu un visa canadien (10 dernières années)",
+        "seleccionar": "Sélectionnez...",
+        "estatusEMM": "Statut à l'EMM 2027",
+        "estatusExpositora": "Exposante Inscrite / Confirmée",
+        "estatusInteresada": "Intéressée par l'inscription d'un Stand",
+        "estatusVisitante": "Visiteur, Accompagnateur ou Grand Public",
+        "mensaje": "Message additionnel ou questions spécifiques",
+        "mensajePlaceholder": "Écrivez ici si vous avez une question particulière sur vos documents ou votre historique...",
+        "enviar": "Envoyer la Demande",
+        "procesando": "Traitement en cours...",
+        "terminos": "En envoyant cette demande, vous acceptez nos",
+        "condiciones": "Conditions Générales",
+        "et": "et notre",
+        "privacidad": "Avis de Confidentialité",
+        "exito": {
+          "title": "Demande Enregistrée !",
+          "desc": "Merci pour votre confiance. Nous avons bien reçu vos données. L'un de nos consultants certifiés vous enverra un diagnostic initial par WhatsApp ou courriel dans les prochaines heures."
+        },
+        "validarCampos": "Veuillez remplir tous les champs requis."
+      }
+    },
+    "agenda": {
+      "label": "Programme Officiel",
+      "title": "Agenda de l'Événement",
+      "subtitle": "Conférences principales, panels et ateliers conçus pour stimuler le leadership et l'action.",
+      "hasta": "jusqu'à"
+    },
+    "contacto": {
+      "srOnly": "Contact",
+      "francisco": {
+        "name": "Francisco Solorio",
+        "role": "Directeur Général"
+      },
+      "luis": {
+        "name": "Luis García",
+        "role": "Directeur des Opérations"
+      },
+      "sede": {
+        "title": "Site Officiel 2027",
+        "desc": "Metro Toronto Convention Centre. L'événement binationale le plus important de l'année au cœur du quartier financier de Toronto.",
+        "visitar": "Visiter le site du lieu"
+      },
+      "formulario": {
+        "title": "Formulaire de Contact",
+        "desc": "Remplissez le formulaire officiel d'inscription suivant pour nous envoyer vos questions, propositions ou commentaires."
+      }
     }
   }
 }

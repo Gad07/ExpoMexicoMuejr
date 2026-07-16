@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { mexicanStates, mockAmbassadors } from '../data/embajadoras';
 import { Search, ChevronLeft, MapPin, Calendar, Clock, X, User } from 'lucide-react';
 import { useSearchParams, useRouter } from 'next/navigation';
+import { useLanguage } from '@/context/LanguageContext';
 
 /* ─── Reveal Animation Component ─── */
 function Reveal({
@@ -44,25 +45,37 @@ function Reveal({
 function EmbajadorasContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const { language } = useLanguage();
+  const [ambassadors, setAmbassadors] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetch('/api/admin/embajadoras')
+      .then(res => res.json())
+      .then(data => {
+        if (data.ambassadors) setAmbassadors(data.ambassadors);
+      })
+      .catch(() => {});
+  }, []);
 
   const activeState = searchParams ? searchParams.get('estado') : null;
   const [searchQuery, setSearchQuery] = useState('');
   const [stateSearchQuery, setStateSearchQuery] = useState('');
 
   const [showMap, setShowMap] = useState(false);
-  const [selectedAmbassador, setSelectedAmbassador] = useState<typeof mockAmbassadors[0] | null>(null);
+  const [selectedAmbassador, setSelectedAmbassador] = useState<any | null>(null);
 
-  const openMap = (amb: typeof mockAmbassadors[0]) => {
+  const openMap = (amb: any) => {
     setSelectedAmbassador(amb);
     setShowMap(true);
   };
 
   /* ─── VISTA 2: Lista de Embajadoras por Estado ─── */
   if (activeState) {
-    const filteredAmbassadors = mockAmbassadors.filter(amb => {
+    const filteredAmbassadors = ambassadors.filter(amb => {
       const matchState = amb.state === activeState;
+      const descVal = amb.description && (amb.description[language] || amb.description.es || amb.description || '');
       const matchSearch = amb.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          amb.description.toLowerCase().includes(searchQuery.toLowerCase());
+                          descVal.toLowerCase().includes(searchQuery.toLowerCase());
       return matchState && matchSearch;
     });
 
@@ -360,7 +373,7 @@ function EmbajadorasContent() {
                       <div className="emb-body">
                         <h3 className="emb-name">{amb.name}</h3>
                         <p className="emb-state"><MapPin size={13} /> {amb.state}</p>
-                        <p className="emb-desc">{amb.description}</p>
+                        <p className="emb-desc">{amb.description && (amb.description[language] || amb.description.es || amb.description)}</p>
                       </div>
 
                       {/* Acciones */}

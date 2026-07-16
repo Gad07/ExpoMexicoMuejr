@@ -361,5 +361,622 @@
       "visa": "Hello, I need advice on immigration procedures (Visa/eTA) to attend the Expo.",
       "contacto": "Hello, I have a general inquiry about Expo Mexico Mujer 2027."
     }
+  },
+  "pages": {
+    "prensa": {
+      "srOnly": "Press",
+      "comunicados": {
+        "title": "Official Press Releases",
+        "card1": {
+          "category": "Official Statement",
+          "date": "June 10, 2026",
+          "title": "Expo Mexico Mujer officially announces its next venue in Toronto for 2027",
+          "desc": "Following the overwhelming impact in Ottawa, the board confirms the alliance with the Ontario Chamber of Commerce for the 2027 commercial exhibition.",
+          "readMore": "Read more"
+        },
+        "card2": {
+          "category": "Press Release",
+          "date": "May 28, 2026",
+          "title": "Star-studded inauguration of Expo Mexico Mujer at the Ottawa Convention Centre",
+          "desc": "With consular presence and business delegations from all over Mexico, the most relevant binational event of the year is formally inaugurated.",
+          "readMore": "Read more"
+        }
+      },
+      "entrevistas": {
+        "title": "Featured Interviews",
+        "interview1": {
+          "person": "Francisco Solorio",
+          "role": "EMM General Director",
+          "media": "Canada Business Daily",
+          "quote": "Binational linkage is more than treaties; it's about building direct and real bridges between Mexican brands and Canadian retail channels."
+        },
+        "interview2": {
+          "person": "Maria Lopez",
+          "role": "Founder of Women in STEM",
+          "media": "Consular Television",
+          "quote": "Bringing software and technology talent in the hands of Mexican women to Canadian corporations breaks paradigms in the North American industry."
+        }
+      },
+      "galeria": {
+        "title": "Press Kit & Multimedia Gallery",
+        "desc": "We make the official press kit available to media, journalists, and institutions, which includes high-resolution logos, biographical profiles of the executive team, and authorized photographs from the Ottawa 2026 event.",
+        "downloadKit": "Download Press Kit",
+        "fotografica": "Photo Folder",
+        "imagenes": "Ottawa 2026 Images"
+      }
+    },
+    "viajero": {
+      "srOnly": "Traveler Services",
+      "hospedaje": {
+        "title": "Accommodation & Host Hotels",
+        "hotel1": {
+          "name": "The Westin Harbour Castle",
+          "stars": "4.5★",
+          "desc": "Official host hotel located steps from Lake Ontario. Features exclusive preferential rates for exhibitors from the EMM delegation.",
+          "rate": "From $240 CAD / night",
+          "bookRate": "Book rate"
+        },
+        "hotel2": {
+          "name": "Sheraton Centre Toronto",
+          "stars": "4.0★",
+          "desc": "Central location in the heart of Toronto's financial district. Direct connection to the PATH and easy public transit access to event venues.",
+          "rate": "From $195 CAD / night",
+          "bookRate": "Book rate"
+        }
+      },
+      "vuelos": {
+        "title": "Flights & Air Transportation",
+        "desc": "We have official promotional discount codes from allied airlines (Air Canada and Aeromexico) applicable for direct flights to Toronto Pearson International Airport (YYZ).",
+        "discount1": "Up to 15% discounts on business and economy class flights.",
+        "discount2": "Direct support for issuing group corporate tickets.",
+        "transporte": {
+          "title": "Local Transportation in Toronto",
+          "upExpress": {
+            "title": "UP Express (Airport Train)",
+            "desc": "Connects Pearson (YYZ) with Union Station in just 25 minutes. Departures every 15 minutes."
+          },
+          "ttc": {
+            "title": "TTC Network (Subway & Streetcar)",
+            "desc": "The city's integrated transit system that quickly connects hotels with all venues."
+          }
+        }
+      }
+    },
+    "participantes": {
+      "srOnly": "Participants",
+      "manual": {
+        "title": "Exhibitor Technical Manual",
+        "desc": "Access the official document containing all technical regulations and logistics for setup at the Toronto venue. Includes loading and unloading schedules, electrical specifications, booth dimensions, and safety regulations.",
+        "download": "Download Manual (PDF)"
+      },
+      "stands": {
+        "title": "Booth Specifications",
+        "standard": "<strong>Standard Booth:</strong> 3m x 2m with dividing panel and front signage.",
+        "mobiliario": "<strong>Furniture Included:</strong> 1 table with tablecloth, 2 chairs and electrical connection.",
+        "servicios": "<strong>Additional Services:</strong> High-speed internet and shared storage."
+      },
+      "requisitos": {
+        "title": "Participation Requirements",
+        "documentacion": {
+          "title": "Business Documentation",
+          "desc": "Have a tax registration (RFC), registered trademark, and export technical data sheet for products to be exhibited at the venue."
+        },
+        "migratorio": {
+          "title": "Immigration Status",
+          "desc": "Passport with minimum 6 months validity and Canadian visa / authorized eTA. EMM provides official invitation letters for registered exhibitors."
+        },
+        "sanitaria": {
+          "title": "Health Certification",
+          "desc": "In the food or health and cosmetics sector, it is required to comply with Health Canada labeling and health directives."
+        }
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "q1": "Does the booth cost include merchandise shipping?",
+        "a1": "No, the booth cost only covers the exhibition space and basic furniture. Customs transportation is the responsibility of each exhibitor; however, EMM's logistics team provides consolidated preferential rates with our official carrier partner.",
+        "q2": "How can I get an invitation letter for my visa?",
+        "a2": "Once you have made the booth confirmation deposit, the organizing committee will issue an official letterhead letter including event details, endorsed for presentation to the corresponding Canadian consulate.",
+        "q3": "What happens if my products require refrigeration?",
+        "a3": "You must notify at least 60 days in advance to the logistics email (luis.garcia@expomexico.ca) to quote dedicated electrical supply and showcase or freezer rental at the venue."
+      }
+    },
+    "logistica": {
+      "srOnly": "Logistics",
+      "aduanas": {
+        "title": "Export Schemes",
+        "desc": "For bringing your exhibition products into Canadian territory, the Expo Mexico Mujer organizing committee offers technical advisory and support in two main commercial schemes.",
+        "importante": "<strong>Important:</strong> Customs procedures must be initiated at least 90 days in advance to avoid delays at border customs.",
+        "temporal": {
+          "title": "Temporary Export",
+          "desc": "Ideal for exhibition samples, booth furniture, or runway pieces that will return to Mexico after the event. Exempt from duty payment under the ATA carnet or temporary customs bond."
+        },
+        "definitiva": {
+          "title": "Permanent Export",
+          "desc": "Recommended for products intended for direct sale at the event, consumable tasting samples, or inventory previously sold to Canadian importers. Subject to taxes and formal Canadian import."
+        }
+      },
+      "transporte": {
+        "title": "Advisory & Transportation Solutions",
+        "consolidacion": {
+          "title": "Cargo Consolidation",
+          "desc": "We offer merchandise collection at strategic hubs (CDMX, Guadalajara, and Monterrey) for consolidated ground or air shipping to Toronto with preferential rates."
+        },
+        "brokerage": {
+          "title": "Customs Brokerage",
+          "desc": "Comprehensive coordination with customs agencies at the border (Laredo) and at Canadian customs to expedite tariff classification and commercial shipment clearance."
+        },
+        "entrega": {
+          "title": "Final Delivery Service",
+          "desc": "Merchandise reception at the Toronto warehouse prior to the event, insured custody, and direct delivery of boxes to each exhibitor's assigned booth."
+        }
+      }
+    },
+    "expositores": {
+      "loading": "Loading directory...",
+      "busqueda": {
+        "placeholder": "Search brand or exhibitor..."
+      },
+      "vista1": {
+        "title1": "Discover talent by",
+        "title2": "Business Category",
+        "desc": "Explore the brands, products, and services that Mexican women entrepreneurs bring to Toronto. Click on a category to view its directory.",
+        "infraestructura": "Premium Infrastructure",
+        "standsTitle": "Booths & Exhibition",
+        "standsTitle2": "Spaces",
+        "standsDesc": "We design each space to project maximum corporate presence. Our 3x3 and 2x2 meter booths are fully equipped with official brand signage, directional LED lighting, and 110v electrical connections ready to use at the Toronto convention center.",
+        "montaje": "Full Setup",
+        "convencion": "Convention Center",
+        "convencionSub": "Toronto, Canada 2027",
+        "roi": "Return on Investment",
+        "beneficiosTitle": "Key Benefits of",
+        "beneficiosTitle2": "Your Participation",
+        "directorio": {
+          "title": "Exhibitors Directory",
+          "desc": "Featured presence in the official catalog for buyers and distributors in North America."
+        },
+        "campanas": {
+          "title": "Promotional Campaigns",
+          "desc": "Appear in binational press releases, official social media, and local press coverage."
+        },
+        "ruedas": {
+          "title": "B2B Business Roundtables",
+          "desc": "Smart one-on-one appointment scheduling based on interests and buyer profiles."
+        },
+        "registro": "Official Exhibitor Registration",
+        "registroDesc": "Complete the official enrollment form to request your exhibition booth at Expo Mexico Mujer Toronto."
+      },
+      "vista2": {
+        "busquedaPlaceholder": "Search brand or exhibitor...",
+        "marcasEn": "Brands in",
+        "agendarCita": "Schedule In-Person Appointment",
+        "verMapa": "View on Map",
+        "noResultados": "No exhibitors found",
+        "noResultadosDesc": "Try another brand or exhibitor name."
+      },
+      "modal": {
+        "citaPresencial": "In-Person Appointment",
+        "por": "by",
+        "stand": "Booth",
+        "evento": "Event",
+        "eventoNombre": "Expo Mexico Mujer 2027",
+        "duracion": "Duration",
+        "duracionVal": "30 minutes",
+        "citaConfirmada": "Appointment Confirmed!",
+        "citaConfirmadaDesc": "See you on",
+        "viernes": "Friday",
+        "sabado": "Saturday",
+        "deJunio": "of June",
+        "aLas": "at",
+        "confirmacionEnv": "We sent the confirmation to",
+        "cerrar": "Close",
+        "reservaTuLugar": "Reserve your spot",
+        "eligeFecha": "Choose date and time",
+        "horarioDisponible": "Available time",
+        "tusDatos": "Your information",
+        "nombreCompleto": "Full name",
+        "nombrePlaceholder": "E.g. Laura Gonzalez",
+        "correo": "Email",
+        "correoPlaceholder": "email@example.com",
+        "whatsapp": "WhatsApp",
+        "whatsappPlaceholder": "+52 55 1234 5678",
+        "confirmarCita": "Confirm In-Person Appointment",
+        "completarCampos": "Please fill in all fields.",
+        "ubicacionStand": "Booth Location",
+        "planoCargando": "Interactive map loading..."
+      }
+    },
+    "embajadoras": {
+      "loading": "Loading ambassadors...",
+      "busqueda": {
+        "placeholder": "Search state..."
+      },
+      "vista1": {
+        "title1": "Ambassadors of",
+        "title2": "Expo Mexico Mujer",
+        "desc": "We are looking for business leaders, cultural managers, and entrepreneurs with a global vision in every state of the Mexican Republic to be the spokespersons for their regions' talent in Toronto, Canada.",
+        "requisitos": "Requirements",
+        "req1": "Leadership and active proposal",
+        "req2": "Project with regional identity",
+        "req3": "Valid travel documentation",
+        "fechasClave": "Key Dates",
+        "apertura": "Opening:",
+        "aperturaVal": "May 2026",
+        "cierre": "Deadline:",
+        "cierreVal": "September 2026",
+        "resultados": "Results:",
+        "resultadosVal": "October 2026",
+        "conexionBinacional": "Binational Connection",
+        "representacion": "Official Representation 2027",
+        "conoce": "Meet our",
+        "conoce2": "Ambassadors of Mexico",
+        "conoceDesc": "The Expo Mexico Mujer Ambassadors are leaders committed to the economic and social development of their communities. Select a state to learn about them.",
+        "registro": "Official Ambassador Registration",
+        "registroDesc": "Complete the official application form to become the representative ambassador for your state at Expo Mexico Mujer Toronto."
+      },
+      "vista2": {
+        "busquedaPlaceholder": "Search ambassador...",
+        "embajadorasDe": "Ambassadors of",
+        "verUbicacion": "View Location",
+        "noEmbajadoras": "No registered ambassadors",
+        "noEmbajadorasDesc": "The complete directory of ambassadors from {state} will be announced soon."
+      },
+      "modal": {
+        "ubicacion": "Location",
+        "planoCargando": "Interactive map loading..."
+      }
+    },
+    "compradores": {
+      "srOnly": "Buyers and Investors",
+      "vinculacion": "B2B Networking",
+      "title1": "Buyers &",
+      "title2": "Investors",
+      "desc": "The direct bridge for importers, distributors, and corporate buyers in Canada interested in acquiring top-quality Mexican products and establishing investment alliances.",
+      "ruedaNegocios": {
+        "title": "Business Roundtables",
+        "title2": "Effective Linkage",
+        "desc": "Through our linkage program, we organize customized B2B agendas. Canadian buyers can pre-select exhibitors based on their industry, export capacity, and certifications, optimizing meetings in Toronto to the fullest.",
+        "perfilamiento": {
+          "title": "Smart Profiling",
+          "desc": "We filter proposals from businesswomen to ensure alignment with your purchasing lines."
+        },
+        "agenda": {
+          "title": "Strategic Agenda",
+          "desc": "Structured one-on-one meetings of 20 minutes scheduled weeks before the event."
+        },
+        "proyeccion": {
+          "title": "International Reach",
+          "desc": "We facilitate sample shipping logistics and follow-up commercial support."
+        },
+        "ruedaLabel": "Business Roundtables",
+        "ontarioSummit": "Ontario Business Summit 2027"
+      },
+      "directorio": {
+        "title": "Digital Buyers Directory",
+        "busqueda": "Search by company or sector...",
+        "verPerfil": "View full profile",
+        "noResultados": "No buyer corporations found."
+      },
+      "registro": {
+        "title": "Official Buyer Registration",
+        "desc": "Complete the official enrollment form for corporate buyers and Canadian investors."
+      }
+    },
+    "participa": {
+      "expositoras": {
+        "tag": "Commercial Participation",
+        "title": "Exhibitors",
+        "stands": {
+          "title": "Booths & Spaces",
+          "desc": "We have premium exhibition spaces designed to maximize the visibility of your brand and products at the Toronto convention center.",
+          "li1": "3x3 and 2x2 meter booths fully equipped.",
+          "li2": "Premium setup with lighting and personalized signage.",
+          "li3": "B2B zones and exclusive networking areas."
+        },
+        "beneficios": {
+          "title": "Participation Benefits",
+          "desc": "Position your business internationally and interact directly with importers, distributors, and the general Canadian public.",
+          "li1": "Direct access to the official exhibitors Digital Directory.",
+          "li2": "Presence in press media and advertising campaigns.",
+          "li3": "Pre-scheduled business matchmaking appointments."
+        },
+        "registroOficial": "Official Exhibitor Registration",
+        "verDirectorio": "View Digital Directory"
+      },
+      "patrocinadores": {
+        "tag": "Corporate Alliances",
+        "title": "Sponsors",
+        "categorias": {
+          "title": "Sponsorship Categories",
+          "desc": "We offer different commercial linkage modalities to suit the size and impact of your corporation: Platinum, Gold, Silver, and Bronze, plus special sponsorships in specific thematic areas such as gastronomy, fashion, or technology."
+        },
+        "beneficios": {
+          "title": "Sponsorship Benefits",
+          "desc": "Official sponsors receive unparalleled brand exposure across all digital, physical, print, and VIP spaces of the event, plus direct opportunities for linkage with high-level business delegations."
+        }
+      },
+      "embajadoras": {
+        "tag": "Territorial Leadership",
+        "title": "Expo Mexico Mujer Ambassadors",
+        "convocatoria": {
+          "title": "National Call",
+          "desc": "We are looking for women leaders in every corner of the country who want to represent the values of innovation, culture, and effort of Mexican women in Canada."
+        },
+        "representacion": {
+          "title": "State Representation",
+          "desc": "Ambassadors coordinate the territorial participation of their states, bringing representative artisanal, gastronomic, and industrial samples from the interior of the country."
+        },
+        "registro": {
+          "title": "Applicant Registration",
+          "desc": "If you wish to apply or nominate a leader from your community, complete our official form to be evaluated by the board of directors."
+        }
+      },
+      "aliados": {
+        "title": "Our Partners",
+        "estrategicos": {
+          "title": "Strategic Partners",
+          "desc": "Companies and development agencies that co-create value and sustain the event's structure."
+        },
+        "institucionales": {
+          "title": "Institutional Partners",
+          "desc": "State governments, embassies, and consulates from both countries supporting operations."
+        },
+        "camaras": {
+          "title": "Business Chambers",
+          "desc": "Binational chambers and trade associations promoting commercial exchanges."
+        }
+      },
+      "invitados": {
+        "tag": "Speakers and Leaders",
+        "title": "Special Guests",
+        "desc": "Our program is enriched by outstanding business leaders, inspiring speakers, and influential personalities in international trade and women's empowerment from Canada and Latin America."
+      },
+      "compradores": {
+        "tag": "B2B Networking",
+        "title": "Buyers & Investors",
+        "desc": "If you are a distributor, corporate buyer, or investor in Canada looking to connect with premium Mexican products, this is your networking space.",
+        "registroCompradores": {
+          "title": "Buyer Registration",
+          "desc": "Get VIP credentials and access to exclusive one-on-one business matchmaking agendas during the event."
+        },
+        "directorioCompradores": {
+          "title": "Buyers Directory",
+          "desc": "A dynamic directory that helps brands identify and connect with profiles of commercial interest."
+        },
+        "vinculacionEmpresarial": {
+          "title": "Business Linkage",
+          "desc": "Sectoral negotiation roundtables led by certified trade mentors."
+        }
+      }
+    },
+    "aliados": {
+      "srOnly": "Strategic Partners",
+      "tag": "Institutional Linkage",
+      "title": "Strategic Partners & Chambers",
+      "desc": "Expo Mexico Mujer has the active support and linkage of government organizations, binational chambers of commerce, and business associations committed to economic integration and women's leadership.",
+      "aliadoEstrategico": {
+        "title": "Strategic Partners",
+        "desc": "Leading national and international private sector companies that provide innovation, resources, and key operational support to materialize the event's binational vision."
+      },
+      "aliadoInstitucional": {
+        "title": "Institutional Partners",
+        "desc": "Government entities, consulates, and embassies of Mexico and Canada that provide official endorsement, legitimacy, and political support in all exchanges."
+      },
+      "camarasEmpresariales": {
+        "title": "Business Chambers",
+        "desc": "Organizations and business intermediaries (such as COMCE, Hispanic chambers, and local Ontario associations) that catalyze business roundtables and commercial networking."
+      },
+      "aliadosOficiales": "Official Partners",
+      "aliadosOficialesDesc": "Active linkage with institutional organizations and commercial chambers."
+    },
+    "nosotros": {
+      "mision": {
+        "title": "Mexico in the world,",
+        "titleEm": "with all its power",
+        "misionLabel": "Mission",
+        "misionTitle": "Connect Mexican talent with the world",
+        "misionText": "Strengthen Mexico's international projection through a platform that connects Mexican talent, culture, and products with concrete opportunities in Canada, driving economic development and strengthening national identity abroad.",
+        "visionLabel": "Vision",
+        "visionTitle": "Be the binational benchmark for women's leadership",
+        "visionText": "Be the most important binational benchmark for Mexican women's leadership, creating a business, culture, and community ecosystem that transcends generations and borders."
+      },
+      "stats": {
+        "location": "Toronto, Canada",
+        "headline": "Mexican leadership has no borders",
+        "stat1": {
+          "value": "+5,000",
+          "label": "Projected Attendees",
+          "desc": "High-impact women leaders, executives, and entrepreneurs."
+        },
+        "stat2": {
+          "value": "50+",
+          "label": "Keynote Conferences",
+          "desc": "International voices that inspire and transform industries."
+        },
+        "stat3": {
+          "value": "B2B",
+          "label": "Strategic Networking",
+          "desc": "Business roundtables to close binational commercial alliances."
+        },
+        "stat4": {
+          "value": "100%",
+          "label": "Mexican Talent",
+          "desc": "Global projection of our culture, innovation, and excellence."
+        }
+      },
+      "valores": {
+        "title": "What defines us,",
+        "titleEm": "distinguishes us",
+        "desc": "Four values that guide every decision, every alliance, and every step.",
+        "val1": {
+          "title": "Identity without borders",
+          "text": "We project the best of Mexico to the world, celebrating our culture, talent, and creativity as a bridge of understanding between nations."
+        },
+        "val2": {
+          "title": "Leadership with purpose",
+          "text": "We place Mexican women at the center, driving their economic, professional, and social development as an engine of transformation."
+        },
+        "val3": {
+          "title": "Connection that transcends",
+          "text": "We build strong binational networks between Mexico and Canada, generating business opportunities, collaboration, and mutual growth."
+        },
+        "val4": {
+          "title": "Measurable impact",
+          "text": "Every action is designed to generate concrete results: exports, strategic alliances, and sustainable development projects."
+        }
+      },
+      "timeline": {
+        "title": "From vision to",
+        "titleEm": "reality",
+        "desc": "Each edition has been a firm step toward consolidating a binational community that drives Mexican talent.",
+        "milestone1": {
+          "year": "2023",
+          "title": "First edition",
+          "text": "The birth of Expo Mexico Mujer as a platform to connect Mexican talent with international opportunities."
+        },
+        "milestone2": {
+          "year": "2024",
+          "title": "Binational expansion",
+          "text": "Consolidation of the event with the participation of more than 12 industries and the arrival of Canadian buyers."
+        },
+        "milestone3": {
+          "year": "2025",
+          "title": "Institutional recognition",
+          "text": "Strategic partners from government, chambers of commerce, and international organizations join the project."
+        },
+        "milestone4": {
+          "year": "2027",
+          "title": "Historic edition",
+          "text": "Five days in Toronto with the participation of leaders, entrepreneurs, and creators who transform Mexican leadership into legacy."
+        }
+      }
+    },
+    "visa": {
+      "intro": {
+        "category": "Binational Services // Canada 2027",
+        "title": "Visa Management for Exhibitors",
+        "desc1": "Traveling to Canada represents an unrivaled commercial opportunity to consolidate and expand your business in the North American market. However, having the proper legal documentation is the first and most important step in your travel planning.",
+        "desc2": "At **Expo Mexico Mujer 2027**, we understand the administrative challenges this represents. That is why we provide a team of consultants specializing in Canadian immigration law to coordinate, review, and follow up on your visa application.",
+        "alertTitle": "Important (Travel Update):",
+        "alertDesc": "Since 2024, the Canadian government has reintroduced the <strong>Visitor Visa</strong> requirement for Mexican citizens. If you do not have a valid US visa or a previous Canadian visa in the last 10 years (requirements for a fast eTA), you must complete a full physical visa application. We recommend starting your application today."
+      },
+      "pasos": {
+        "category": "Step-by-Step Methodology",
+        "title": "The Advisory Process",
+        "step1": {
+          "num": "01",
+          "title": "Initial Assessment",
+          "desc": "We analyze your travel history and current status. We evaluate whether you are eligible for an eTA (Electronic Travel Authorization if you have a valid US visa) or if you require a complete Visitor Visa."
+        },
+        "step2": {
+          "num": "02",
+          "title": "Document Preparation",
+          "desc": "We provide you with a personalized document checklist. We review your proof of financial solvency and ties to Mexico, translating and organizing the file to meet IRCC standards."
+        },
+        "step3": {
+          "num": "03",
+          "title": "Submission & Consular Payment",
+          "desc": "We complete the official forms on the Canadian government portal and upload your file. We assist you with the consular fee payment ($185 CAD including the biometrics charge)."
+        },
+        "step4": {
+          "num": "04",
+          "title": "Biometrics Appointment",
+          "desc": "We schedule your appointment at the official Visa Application Centre (VFS Global) in CDMX, Monterrey, or Guadalajara for fingerprint capture and digital photography."
+        },
+        "step5": {
+          "num": "05",
+          "title": "Approval & Visa Stamp",
+          "desc": "We monitor the embassy's response. Once approved, we guide you through the secure shipment of your physical passport via authorized courier for the visa stamp."
+        }
+      },
+      "checklist": {
+        "category": "Personal Organizer",
+        "title": "General Requirements",
+        "desc": "Interact with the organizer by clicking on the requirements you already have ready to keep track of your file:",
+        "item1": "Mexican passport with minimum 6 months validity after the trip.",
+        "item2": "Valid US visa (if applicable for the fast eTA route).",
+        "item3": "Proof of financial solvency (bank statements from the last 3 months, pay stubs, or tax returns).",
+        "item4": "Documents proving ties to Mexico (employment letter, property deeds, or enrollment certificates).",
+        "item5": "Official invitation letter issued by the Expo Mexico Mujer 2027 management.",
+        "item6": "Recent digital photograph meeting Canadian government requirements."
+      },
+      "faq": {
+        "category": "Direct Answers",
+        "title": "Frequently Asked Questions",
+        "q1": "How long does the Canadian visa approval process take?",
+        "a1": "Official processing by the Canadian government (IRCC) usually takes between 4 and 8 weeks from the biometrics appointment. We recommend starting your process at least 3 months before the event dates (June 2027) to travel with complete peace of mind.",
+        "q2": "Who is eligible to enter Canada with a fast eTA?",
+        "a2": "You can apply for an eTA (which is approved in minutes or hours) if you are traveling by air and meet one of these requirements: 1) You have a valid US non-immigrant visa (tourist visa), or 2) You had a Canadian visitor visa in the last 10 years. If you are entering by land or do not have these documents, you need to apply for a complete visitor visa.",
+        "q3": "What consular fees do I need to pay directly to the Canadian government?",
+        "a3": "The complete Visitor Visa application costs $100 CAD plus $85 CAD for biometric data collection (total of $185 CAD). If you are eligible for an eTA, the cost is only $7 CAD. These charges are paid by card directly on the official Canadian portal.",
+        "q4": "Does the advisory service guarantee my visa approval?",
+        "a4": "The final decision to issue a visa is at the sole discretion of Canadian government consular officers. Our service optimizes your file, ensuring there are no form errors, that translations are correct, and that the justification for your trip, ties to Mexico, and financial solvency are structured with the utmost strength, maximizing the chances of success.",
+        "q5": "Does Expo Mexico Mujer issue invitation letters for the process?",
+        "a5": "Yes. We issue personalized official business and participation invitation letters for all confirmed exhibitors, sponsors, and speakers. This official document is a key support element for the consular officer."
+      },
+      "formulario": {
+        "category": "Immediate Contact",
+        "title": "Start Your Application",
+        "desc": "Complete the form on the right panel with your basic information. An Expo Mexico Mujer visa advisor will review your profile free of charge and contact you within 24 hours via WhatsApp or email to schedule your diagnostic call.",
+        "badgeRespuesta": "Response Time",
+        "badgeAsesoria": "Personalized Advisory",
+        "exito": {
+          "title": "Application Registered!",
+          "desc": "Thank you for your trust. We have received your information correctly. One of our certified consultants will send you an initial diagnostic via WhatsApp or Email in the coming hours."
+        },
+        "fields": {
+          "nombre": "Full Name",
+          "nombrePlaceholder": "E.g. Maria Gonzalez Perez",
+          "correo": "Email Address",
+          "correoPlaceholder": "E.g. maria@example.com",
+          "telefono": "Phone (WhatsApp)",
+          "telefonoPlaceholder": "E.g. +52 55 1234 5678",
+          "visaUSA": "Do you have a US Visa?",
+          "visaOpcion1": "Select...",
+          "visaOpcion2": "Yes, I have a valid US visa",
+          "visaOpcion3": "I do not have a US visa",
+          "visaOpcion4": "Yes, I had a Canadian visa (last 10 years)",
+          "estatus": "EMM 2027 Status",
+          "estatusOpcion1": "Select...",
+          "estatusOpcion2": "Registered / Confirmed Exhibitor",
+          "estatusOpcion3": "Interested in registering a booth",
+          "estatusOpcion4": "Visitor, Companion, or General Public",
+          "mensaje": "Additional message or specific questions",
+          "mensajePlaceholder": "Write here if you have any specific questions about your documents or history...",
+          "enviar": "Submit Application",
+          "procesando": "Processing...",
+          "terminos": "By submitting this application, you accept our",
+          "terminosLink": "Terms and Conditions",
+          "privacidad": "and our",
+          "privacidadLink": "Privacy Notice",
+          "completarCampos": "Please fill in all required fields."
+        }
+      }
+    },
+    "agenda": {
+      "label": "Official Program",
+      "title": "Event Agenda",
+      "subtitle": "Keynote speeches, panels, and workshops designed to drive leadership and action.",
+      "until": "until"
+    },
+    "contacto": {
+      "srOnly": "Contact",
+      "francisco": {
+        "name": "Francisco Solorio",
+        "role": "General Director"
+      },
+      "luis": {
+        "name": "Luis Garcia",
+        "role": "Director of Operations"
+      },
+      "sede": {
+        "title": "Official Venue 2027",
+        "desc": "<strong>Metro Toronto Convention Centre.</strong> The most important binational event of the year in the heart of Toronto's financial district.",
+        "btn": "Visit venue website"
+      },
+      "formulario": {
+        "title": "Contact Form",
+        "desc": "Complete the following official registration form to send us your questions, proposals, or comments."
+      }
+    }
   }
 }

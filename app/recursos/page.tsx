@@ -30,13 +30,16 @@ function Reveal({ children, delay = 0, className = "", style = {} }: {
     </div>
   );
 }
-import { ALL_NOTICIAS } from '../data/noticias';
+import { ALL_NOTICIAS, Noticia } from '../data/noticias';
+import { useLanguage } from '@/context/LanguageContext';
+
 export default function NoticiasPage() {
+  const { language } = useLanguage();
   const [search, setSearch] = useState("");
   
-  const filtered = ALL_NOTICIAS.filter(n => 
-    n.title.toLowerCase().includes(search.toLowerCase()) || 
-    n.excerpt.toLowerCase().includes(search.toLowerCase())
+  const filtered = ALL_NOTICIAS.filter((n: Noticia) => 
+    n.title[language].toLowerCase().includes(search.toLowerCase()) || 
+    n.excerpt[language].toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -119,11 +122,11 @@ export default function NoticiasPage() {
           </div>
 
           <div className="news-grid">
-            {filtered.map((news, i) => (
+            {filtered.map((news: Noticia, i: number) => (
               <Reveal key={news.id} delay={i * 100}>
                 <Link href={`/recursos/noticia/${news.id}`} className="news-card-full">
                   <div style={{ overflow: 'hidden', position: 'relative' }}>
-                    <img src={news.image} alt={news.title} className="news-card-full__img" loading="lazy" width="600" height="400" />
+                    <img src={news.image} alt={news.title[language]} className="news-card-full__img" loading="lazy" width="600" height="400" />
                     {news.featured && (
                       <div style={{ position: 'absolute', top: '16px', left: '16px', background: 'var(--magenta)', color: '#fff', padding: '6px 12px', borderRadius: '4px', fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
                         Destacado
@@ -132,12 +135,12 @@ export default function NoticiasPage() {
                   </div>
                   <div className="news-card-full__body">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                      <span style={{ fontFamily: 'var(--font-body)', fontWeight: 700, fontSize: '0.75rem', color: 'var(--magenta)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{news.category}</span>
+                      <span style={{ fontFamily: 'var(--font-body)', fontWeight: 700, fontSize: '0.75rem', color: 'var(--magenta)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{news.category[language]}</span>
                       <span style={{ color: 'var(--line)' }}>•</span>
                       <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.8rem', color: 'var(--text-muted)' }}>{news.date}</span>
                     </div>
-                    <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.4rem', color: 'var(--navy)', marginBottom: '12px', lineHeight: 1.2 }}>{news.title}</h3>
-                    <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', color: 'var(--text)', lineHeight: 1.6, marginBottom: '24px' }}>{news.excerpt}</p>
+                    <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.4rem', color: 'var(--navy)', marginBottom: '12px', lineHeight: 1.2 }}>{news.title[language]}</h3>
+                    <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', color: 'var(--text)', lineHeight: 1.6, marginBottom: '24px' }}>{news.excerpt[language]}</p>
                     <span style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--cyan)', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
                       Leer nota <ArrowRight size={16} />
                     </span>

@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Newspaper, Download, Play, BookOpen, Image as ImageIcon } from 'lucide-react';
 import { Mariposa } from '@/components/BrandAssets';
+import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({
   children, className = '', delay = 0, style = {},
@@ -34,37 +35,11 @@ function Reveal({
   );
 }
 
-const mockPressReleases = [
-  {
-    date: "10 de Junio, 2026",
-    title: "Expo México Mujer anuncia oficialmente su próxima sede en Toronto para el 2027",
-    category: "Comunicado Oficial",
-    desc: "Tras el contundente impacto de Ottawa, la directiva confirma la alianza con la Cámara de Comercio de Ontario para el montaje comercial de 2027."
-  },
-  {
-    date: "28 de Mayo, 2026",
-    title: "Inauguración estelar de la Expo México Mujer en el Ottawa Convention Centre",
-    category: "Comunicado de Prensa",
-    desc: "Con presencia consular y delegadas empresariales de todo México, se inaugura formalmente el evento binacional más relevante del año."
-  }
-];
-
-const mockInterviews = [
-  {
-    person: "Francisco Solorio",
-    role: "Director General EMM",
-    media: "Canadá Business Daily",
-    quote: "La vinculación binacional es más que tratados; se trata de tender puentes directos y reales entre marcas mexicanas y canales de retail en Canadá."
-  },
-  {
-    person: "María López",
-    role: "Fundadora de Mujeres en STEM",
-    media: "Televisión Consular",
-    quote: "Llevar software y talento tecnológico en manos de mexicanas a corporativos canadienses rompe paradigmas en la industria norteamericana."
-  }
-];
-
 export default function PrensaPage() {
+  const { t } = useLanguage();
+
+  const mockPressReleases = t('pages.prensa.mockPressReleases') as Array<{ date: string; title: string; category: string; desc: string }>;
+  const mockInterviews = t('pages.prensa.mockInterviews') as Array<{ person: string; role: string; media: string; quote: string }>;
   return (
     <div style={{ background: 'var(--cream)', color: 'var(--navy)', minHeight: '100vh', paddingBottom: '120px' }}>
       
@@ -76,11 +51,11 @@ export default function PrensaPage() {
       <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: '60px 48px 80px' }}>
         
         {/* 1. Sala de Prensa & Comunicados */}
-        <h1 className="sr-only">Prensa</h1>
+        <h1 className="sr-only">{t('pages.prensa.srOnly')}</h1>
         <div id="comunicados" style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
-              Comunicados Oficiales
+              {t('pages.prensa.comunicadosTitle')}
             </h2>
           </Reveal>
 
@@ -107,7 +82,7 @@ export default function PrensaPage() {
         <div id="entrevistas" style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
-              Entrevistas Destacadas
+              {t('pages.prensa.entrevistasTitle')}
             </h2>
           </Reveal>
 
@@ -134,14 +109,14 @@ export default function PrensaPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center' }}>
             <Reveal>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '24px' }}>
-                Kit de Prensa & Galería Multimedia
+                {t('pages.prensa.galeriaTitle')}
               </h2>
               <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'var(--text)', marginBottom: '32px' }}>
-                Ponemos a disposición de medios de comunicación, periodistas e instituciones el kit oficial de prensa que incluye logotipos en alta resolución, perfiles biográficos del equipo directivo y fotografías autorizadas del evento Ottawa 2026.
+                {t('pages.prensa.galeriaDesc')}
               </p>
-              <a href="#" style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: 'var(--cyan)', color: '#fff', padding: '16px 36px', borderRadius: '100px', textDecoration: 'none', fontWeight: 700, fontSize: '0.9rem', letterSpacing: '0.05em', textTransform: 'uppercase', boxShadow: '0 15px 30px rgba(0,186,211,0.25)' }}>
-                Descargar Kit de Prensa <Download size={18} />
-              </a>
+              <Link href="/recursos" style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: 'var(--cyan)', color: '#fff', padding: '16px 36px', borderRadius: '100px', textDecoration: 'none', fontWeight: 700, fontSize: '0.9rem', letterSpacing: '0.05em', textTransform: 'uppercase', boxShadow: '0 15px 30px rgba(0,186,211,0.25)' }}>
+                {t('pages.prensa.galeriaBtn')} <Download size={18} />
+              </Link>
             </Reveal>
 
             <Reveal delay={200}>
@@ -149,8 +124,8 @@ export default function PrensaPage() {
                 <img src="/Galeria/Ponencias/IMG_5169.JPG" alt="Prensa" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="600" height="400" />
                 <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px', background: 'rgba(255,255,255,0.92)', padding: '20px', borderRadius: '16px', backdropFilter: 'blur(5px)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div>
-                    <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--magenta)', textTransform: 'uppercase' }}>Carpeta Fotográfica</span>
-                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.05rem', fontWeight: 800, margin: '4px 0 0 0', color: 'var(--navy)' }}>Imágenes de Ottawa 2026</h4>
+                    <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--magenta)', textTransform: 'uppercase' }}>{t('pages.prensa.carpetaLabel')}</span>
+                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.05rem', fontWeight: 800, margin: '4px 0 0 0', color: 'var(--navy)' }}>{t('pages.prensa.carpetaSubtitle')}</h4>
                   </div>
                   <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--magenta)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
                     <ImageIcon size={18} />

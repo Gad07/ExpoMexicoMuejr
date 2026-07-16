@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "title": {
+      "es": "Anuncian fecha oficial para la edición 2027 en Toronto",
+      "en": "Official date announced for the 2027 edition in Toronto",
+      "fr": "Date officielle annoncée pour l'édition 2027 à Toronto"
+    },
+    "slug": "anuncian-fecha-oficial-toronto-2027",
+    "date": "15 Oct 2026",
+    "category": {
+      "es": "Institucional",
+      "en": "Institutional",
+      "fr": "Institutionnel"
+    },
+    "image": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&q=80&w=800",
+    "excerpt": {
+      "es": "El Metro Toronto Convention Centre será la sede del evento binacional más importante del año para el liderazgo femenino.",
+      "en": "The Metro Toronto Convention Centre will host the most important binational event of the year for women's leadership.",
+      "fr": "Le Metro Toronto Convention Centre accueillera l'événement binational le plus important de l'année pour le leadership féminin."
+    },
+    "content": {
+      "es": "Estamos muy emocionados de anunciar formalmente que Expo México Mujer 2027 tendrá lugar en el Metro Toronto Convention Centre. Esta edición busca fortalecer los lazos comerciales, culturales y de liderazgo entre empresarias mexicanas y el mercado canadiense. Esperamos contar con más de 200 expositoras destacadas de todos los estados de México, en un evento que marcará un antes y un después en la historia del emprendimiento femenino binacional.",
+      "en": "We are very excited to formally announce that Expo Mexico Mujer 2027 will take place at the Metro Toronto Convention Centre. This edition seeks to strengthen commercial, cultural and leadership ties between Mexican entrepreneurs and the Canadian market. We expect to have more than 200 prominent exhibitors from all states of Mexico, in an event that will mark a before and after in the history of binational women's entrepreneurship.",
+      "fr": "Nous sommes très heureux d'annoncer officiellement qu'Expo México Mujer 2027 aura lieu au Metro Toronto Convention Centre. Cette édition vise à renforcer les liens commerciaux, culturels et de leadership entre les entrepreneurs mexicains et le marché canadien. Nous espérons compter plus de 200 exposantes de tous les États du Mexique, dans un événement qui marquera un avant et un après dans l'histoire de l'entrepreneuriat féminin binational."
+    },
+    "featured": true,
+    "template": "standard",
+    "images": [],
+    "videoUrl": "",
+    "author": null
+  }
+]

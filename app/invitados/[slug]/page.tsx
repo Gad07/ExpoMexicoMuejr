@@ -1,11 +1,12 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { mockInvitados } from '../../data/invitados';
 import { ExternalLink, Mail, ArrowRight, Quote } from 'lucide-react';
 import { Mariposa } from '@/components/BrandAssets';
+import { useLanguage } from '../../context/LanguageContext';
 
 function Reveal({
   children, className = '', delay = 0, style = {}
@@ -37,7 +38,51 @@ function Reveal({
 
 export default function InvitadoProfile({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = React.use(params);
-  const invitado = mockInvitados.find(ex => ex.slug === resolvedParams.slug);
+  const [invitado, setInvitado] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const { language } = useLanguage();
+
+  useEffect(() => {
+    fetch('/api/admin/invitados')
+      .then(res => res.json())
+      .then(data => {
+        if (data.invitados) {
+          const found = data.invitados.find((ex: any) => ex.slug === resolvedParams.slug);
+          setInvitado(found || null);
+        }
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  }, [resolvedParams.slug]);
+
+  if (loading) {
+    return (
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '100vh',
+        background: '#FAF8F5',
+        fontFamily: 'system-ui, sans-serif',
+      }}>
+        <div style={{ textAlign: 'center' }}>
+          <div style={{
+            width: '48px',
+            height: '48px',
+            border: '3px solid #E4007C',
+            borderTopColor: 'transparent',
+            borderRadius: '50%',
+            animation: 'spin 0.8s linear infinite',
+            margin: '0 auto 16px',
+          }} />
+          <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+          <div style={{ color: '#002E51', fontWeight: 600 }}>Cargando invitado...</div>
+        </div>
+      </div>
+    );
+  }
 
   if (!invitado) {
     notFound();
@@ -66,7 +111,7 @@ export default function InvitadoProfile({ params }: { params: Promise<{ slug: st
             <div style={{ position: 'relative', paddingLeft: '40px', marginBottom: '48px' }}>
               <Quote size={80} color="var(--magenta)" style={{ position: 'absolute', left: '-20px', top: '-30px', opacity: 0.1, zIndex: -1 }} />
               <p style={{ fontSize: '1.4rem', lineHeight: 1.6, color: 'var(--navy)', fontWeight: 500, maxWidth: '600px', margin: '0 0 16px 0', fontStyle: 'italic' }}>
-                "{invitado.bio}"
+                "{invitado.bio && (invitado.bio[language] || invitado.bio.es || invitado.bio)}"
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                 <div style={{ width: '30px', height: '2px', background: 'var(--cyan)' }}></div>
@@ -129,7 +174,7 @@ export default function InvitadoProfile({ params }: { params: Promise<{ slug: st
             </h2>
             <div style={{ width: '60px', height: '4px', background: 'var(--magenta)', marginBottom: '32px' }}></div>
             <p style={{ fontSize: '1.25rem', lineHeight: 1.9, color: 'var(--text)', fontWeight: 400, letterSpacing: '0.01em' }}>
-              {invitado.description}
+              {invitado.description && (invitado.description[language] || invitado.description.es || invitado.description)}
             </p>
           </Reveal>
 
@@ -151,7 +196,7 @@ export default function InvitadoProfile({ params }: { params: Promise<{ slug: st
         
         {/* Masonry Editorial Gallery */}
         <div style={{ columnCount: 3, columnGap: '20px', maxWidth: '1600px', margin: '0 auto', background: 'rgba(255,255,255,0.02)', padding: '20px', borderRadius: '16px' }}>
-          {invitado.gallery.map((img, idx) => (
+          {invitado.gallery.map((img: string, idx: number) => (
             <Reveal key={idx} delay={200 + (idx * 50)} style={{ breakInside: 'avoid', marginBottom: '20px', overflow: 'hidden', position: 'relative', borderRadius: '8px' }}>
               <img 
                 src={img} 

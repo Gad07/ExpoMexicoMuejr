@@ -224,127 +224,33 @@ export const mexicanStates = [
   }
 ];
 
-export const mockExhibitors = [
-  {
-    id: '1',
-    slug: 'artesanias-zacatecas',
-    name: 'Artesanías Zacatecanas',
-    personName: 'María Rodríguez',
-    description: 'Producción de textiles y bordados tradicionales con un toque contemporáneo. Nuestro objetivo es llevar la cultura mexicana a Canadá con alta calidad y diseño único. Cada pieza está hecha a mano por artesanas de las comunidades rurales de Zacatecas.',
-    state: 'Zacatecas',
-    category: 'Artesanías',
-    website: 'https://ejemplo.com',
-    social: '@artesaniaszacatecanas',
-    contact: 'contacto@ejemplo.com',
-    booth: 'Pabellón B - Stand 104',
-    logo: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=150&q=80',
-    personPhoto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-    bio: 'María es una emprendedora apasionada por preservar las técnicas textiles prehispánicas.',
-    gallery: ['/Galeria/Artesanias/IMG_5931.JPG']
-  },
-  {
-    id: '2',
-    slug: 'tech-women-sonora',
-    name: 'Tech Women Sonora',
-    personName: 'Ana Silvia',
-    description: 'Soluciones de software y automatización para pequeñas empresas. Liderando el sector STEM en el norte del país con desarrollo ágil y plataformas e-commerce a medida.',
-    state: 'Sonora',
-    category: 'Tecnología',
-    website: 'https://ejemplo.com',
-    social: '@techwomensonora',
-    contact: 'contacto@ejemplo.com',
-    booth: 'Pabellón Innovación - Stand 45',
-    logo: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=150&q=80',
-    personPhoto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-    bio: 'Ana Silvia fundó Tech Women Sonora para empoderar a más mujeres en áreas STEM.',
-    gallery: ['/Galeria/Otros/IMG_4805.JPG']
-  },
-  {
-    id: '3',
-    slug: 'sabor-hidrocalido',
-    name: 'Sabor Hidrocálido',
-    personName: 'Elena Martínez',
-    description: 'Exportación de dulces típicos y productos de guayaba de Aguascalientes. Llevando el dulce sabor de México a todo el mundo con certificaciones internacionales de calidad.',
-    state: 'Aguascalientes',
-    category: 'Gastronomía',
-    website: 'https://ejemplo.com',
-    social: '@saborhidrocalido',
-    contact: 'contacto@ejemplo.com',
-    booth: 'Pabellón Gastronómico - Stand 08',
-    logo: 'https://images.unsplash.com/photo-1556910110-a5a63dfd393c?auto=format&fit=crop&w=150&q=80',
-    personPhoto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-    bio: 'Con más de 10 años en la industria, Elena lleva el sabor tradicional de su tierra a nuevos mercados.',
-    gallery: ['/Galeria/Gastronomia/IMG_5940.JPG']
-  },
-  {
-    id: '4',
-    slug: 'moda-yucatan',
-    name: 'Henequén & Moda',
-    personName: 'Sofía Castillo',
-    description: 'Diseño de moda sustentable utilizando fibra de henequén de Yucatán, combinando las tendencias globales con la rica tradición maya de la península.',
-    state: 'Yucatán',
-    category: 'Moda y Textiles',
-    website: 'https://ejemplo.com',
-    social: '@henequenmoda',
-    contact: 'contacto@ejemplo.com',
-    booth: 'Pabellón Textil - Stand 22',
-    logo: 'https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=150&q=80',
-    personPhoto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-    bio: 'Sofía es una diseñadora que rescata técnicas milenarias con diseños de impacto internacional.',
-    gallery: ['/Galeria/Moda_y_textiles/IMG_6031.JPG']
-  },
-  {
-    id: '5',
-    slug: 'alejandra-orozco',
-    name: 'Oaxacan Loom Designs',
-    personName: 'Alejandra Orozco',
-    description: 'Fusión de siluetas contemporáneas con técnicas ancestrales zapotecas de teñido natural y bordados en telar de cintura.',
-    state: 'Oaxaca',
-    category: 'Moda y Textiles',
-    website: 'https://ejemplo.com',
-    social: '@alejandraorozcotextiles',
-    contact: 'contacto@ejemplo.com',
-    booth: 'Pabellón de Moda - Stand 12',
-    logo: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
-    personPhoto: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400&q=80',
-    bio: 'Alejandra es una diseñadora oaxaqueña comprometida con la sustentabilidad y el rescate de tintes orgánicos tradicionales.',
-    gallery: ['https://images.unsplash.com/photo-1590736969955-71cb94801759?auto=format&fit=crop&q=80&w=800']
-  },
-  {
-    id: '6',
-    slug: 'fernanda-covarrubias',
-    name: 'Covarrubias Costura',
-    personName: 'Fernanda Covarrubias',
-    description: 'Vestidos de gala con aplicaciones metálicas e hilos de algodón orgánico inspirados en paisajes de agave jaliscienses.',
-    state: 'Jalisco',
-    category: 'Moda y Textiles',
-    website: 'https://ejemplo.com',
-    social: '@fernandacovarrubias',
-    contact: 'contacto@ejemplo.com',
-    booth: 'Pabellón de Moda - Stand 14',
-    logo: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=150&q=80',
-    personPhoto: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400&q=80',
-    bio: 'Fernanda Covarrubias es pionera en alta costura inspirada en la herencia cultural tequilera de Jalisco.',
-    gallery: ['https://images.unsplash.com/photo-1511406361295-0a1ee814c1e4?auto=format&fit=crop&q=80&w=800']
-  },
-  {
-    id: '7',
-    slug: 'gabriela-salazar',
-    name: 'Salazar Etnia',
-    personName: 'Gabriela Salazar',
-    description: 'Colección de abrigos y bolsos estructurados que integran iconografía tzotzil brocada a mano en comunidades chiapanecas.',
-    state: 'Chiapas',
-    category: 'Moda y Textiles',
-    website: 'https://ejemplo.com',
-    social: '@gabrielasalazar',
-    contact: 'contacto@ejemplo.com',
-    booth: 'Pabellón de Moda - Stand 16',
-    logo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80',
-    personPhoto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=400&w=80',
-    bio: 'Gabriela colabora activamente con cooperativas de tejedoras de los Altos de Chiapas para crear moda contemporánea con impacto social.',
-    gallery: ['https://images.unsplash.com/photo-1565192647048-f997ded87950?auto=format&fit=crop&q=80&w=800']
-  }
-];
+import exhibitorsData from '../../data/expositores.json';
+
+export interface LocalizedString {
+  es: string;
+  en: string;
+  fr: string;
+}
+
+export interface Exhibitor {
+  id: string;
+  slug: string;
+  name: string;
+  personName: string;
+  description: LocalizedString;
+  state: string;
+  category: string;
+  website: string;
+  social: string;
+  contact: string;
+  booth: string;
+  logo: string;
+  personPhoto: string;
+  bio: LocalizedString;
+  gallery: string[];
+}
+
+export const mockExhibitors = exhibitorsData as any as Exhibitor[];
 
 export const businessCategories = [
   {

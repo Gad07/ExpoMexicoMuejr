@@ -1,0 +1,15 @@
+[
+  {
+    "id": "emb-8",
+    "slug": "fernanda-delgado",
+    "name": "Fernanda Delgado",
+    "state": "Veracruz",
+    "photo": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80",
+    "description": {
+      "es": "Vocera del talento veracruzano en los foros de la economía del Pacífico. Especialista en agronegocios liderados por mujeres y en la cadena de valor del café de altura.",
+      "en": "Spokesperson for Veracruz talent in the Pacific economy forums. Specialist in agribusinesses led by women and the high-altitude coffee value chain.",
+      "fr": "Porte-parole du talent de Veracruz dans les forums de l'économie du Pacifique. Spécialiste des agro-industries dirigées par des femmes et de la chaîne de valeur du café d'altitude."
+    },
+    "booth": "Pabellón Veracruz – Mesa G-01"
+  }
+]

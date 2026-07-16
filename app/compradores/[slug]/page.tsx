@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { mockBuyers } from '../../data/compradores';
 import { Medal, ExternalLink, Mail, ArrowRight, Quote } from 'lucide-react';
 import { Mariposa } from '@/components/BrandAssets';
+import { useLanguage } from '../../context/LanguageContext';
 
 function Reveal({
   children, className = '', delay = 0, style = {}
@@ -37,7 +38,51 @@ function Reveal({
 
 export default function BuyerProfile({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = React.use(params);
-  const buyer = mockBuyers.find(ex => ex.slug === resolvedParams.slug);
+  const [buyer, setBuyer] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const { language } = useLanguage();
+
+  useEffect(() => {
+    fetch('/api/admin/compradores')
+      .then(res => res.json())
+      .then(data => {
+        if (data.compradores) {
+          const found = data.compradores.find((ex: any) => ex.slug === resolvedParams.slug);
+          setBuyer(found || null);
+        }
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  }, [resolvedParams.slug]);
+
+  if (loading) {
+    return (
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '100vh',
+        background: '#FAF8F5',
+        fontFamily: 'system-ui, sans-serif',
+      }}>
+        <div style={{ textAlign: 'center' }}>
+          <div style={{
+            width: '48px',
+            height: '48px',
+            border: '3px solid #E4007C',
+            borderTopColor: 'transparent',
+            borderRadius: '50%',
+            animation: 'spin 0.8s linear infinite',
+            margin: '0 auto 16px',
+          }} />
+          <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+          <div style={{ color: '#002E51', fontWeight: 600 }}>Cargando comprador...</div>
+        </div>
+      </div>
+    );
+  }
 
   if (!buyer) {
     notFound();
@@ -69,12 +114,12 @@ export default function BuyerProfile({ params }: { params: Promise<{ slug: strin
             <div style={{ position: 'relative', paddingLeft: '40px', marginBottom: '48px' }}>
               <Quote size={80} color="var(--magenta)" style={{ position: 'absolute', left: '-20px', top: '-30px', opacity: 0.1, zIndex: -1 }} />
               <p style={{ fontSize: '1.4rem', lineHeight: 1.6, color: 'var(--navy)', fontWeight: 500, maxWidth: '600px', margin: '0 0 16px 0', fontStyle: 'italic' }}>
-                "{buyer.bio}"
+                "{buyer.bio && (buyer.bio[language] || buyer.bio.es || buyer.bio)}"
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                 <div style={{ width: '30px', height: '2px', background: 'var(--cyan)' }}></div>
                 <span style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--navy)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                  {buyer.name} — {buyer.role}
+                  {buyer.name} — {buyer.role && (buyer.role[language] || buyer.role.es || buyer.role)}
                 </span>
               </div>
             </div>
@@ -132,12 +177,12 @@ export default function BuyerProfile({ params }: { params: Promise<{ slug: strin
             </h2>
             <div style={{ width: '60px', height: '4px', background: 'var(--magenta)', marginBottom: '32px' }}></div>
             <p style={{ fontSize: '1.25rem', lineHeight: 1.9, color: 'var(--text)', fontWeight: 400, letterSpacing: '0.01em', marginBottom: '24px' }}>
-              {buyer.description}
+              {buyer.description && (buyer.description[language] || buyer.description.es || buyer.description)}
             </p>
             <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
               <span style={{ fontWeight: 800, textTransform: 'uppercase', color: 'var(--navy)', fontSize: '0.85rem' }}>Sector Prioritario:</span>
               <span style={{ padding: '6px 16px', background: buyer.bgColor, color: buyer.color, borderRadius: '20px', fontSize: '0.85rem', fontWeight: 800, fontFamily: 'var(--font-display)' }}>
-                {buyer.interest}
+                {buyer.interest && (buyer.interest[language] || buyer.interest.es || buyer.interest)}
               </span>
             </div>
           </Reveal>
@@ -160,7 +205,7 @@ export default function BuyerProfile({ params }: { params: Promise<{ slug: strin
           </Reveal>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px', maxWidth: '1200px', margin: '0 auto' }}>
-            {buyer.gallery.map((img, i) => (
+            {buyer.gallery.map((img: string, i: number) => (
               <Reveal key={img} delay={150 + i * 50}>
                 <div style={{ borderRadius: '20px', overflow: 'hidden', aspectRatio: '4/3', boxShadow: '0 20px 40px rgba(0,0,0,0.3)' }}>
                   <img src={img} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="600" height="400" />

@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Search, ArrowRight } from 'lucide-react';
 import { mockInvitados } from '../data/invitados';
+import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({
   children, className = '', delay = 0, style = {},
@@ -42,12 +43,24 @@ function Reveal({
 
 export default function InvitadosPage() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [invitados, setInvitados] = useState<any[]>([]);
+  const { language } = useLanguage();
+
+  useEffect(() => {
+    fetch('/api/admin/invitados')
+      .then(res => res.json())
+      .then(data => {
+        if (data.invitados) setInvitados(data.invitados);
+      })
+      .catch(() => {});
+  }, []);
 
   // Filter invitados by search term
-  const filteredInvitados = mockInvitados.filter(invitado => 
-    invitado.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-    invitado.tier.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredInvitados = invitados.filter(invitado => {
+    const tierVal = invitado.tier && (invitado.tier[language] || invitado.tier.es || invitado.tier || '');
+    return invitado.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+      tierVal.toLowerCase().includes(searchTerm.toLowerCase());
+  });
 
   return (
     <div className="invitados-page" style={{ background: 'var(--cream)', minHeight: '100vh', paddingBottom: '120px' }}>
@@ -159,7 +172,7 @@ export default function InvitadosPage() {
                           <div style={{ padding: '56px 24px 24px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '6px', lineHeight: 1.2 }}>{invitado.name}</h3>
                             
-                            <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '32px', flexGrow: 1 }}>{invitado.description.substring(0, 100)}...</p>
+                            <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '32px', flexGrow: 1 }}>{invitado.description && (invitado.description[language] || invitado.description.es || invitado.description || '').substring(0, 100)}...</p>
 
                             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '20px' }}>
                               <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--navy)' }}>Ver perfil completo</span>

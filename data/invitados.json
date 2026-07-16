@@ -1,0 +1,62 @@
+[
+  {
+    "id": "inv-6",
+    "slug": "valeria-romero",
+    "tier": {
+      "es": "Conferencista Internacional",
+      "en": "International Speaker",
+      "fr": "Conférencière Internationale"
+    },
+    "name": "Valeria Romero",
+    "logo": "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=200",
+    "description": {
+      "es": "Reconocida conferencista motivacional y especialista en el desarrollo de resiliencia empresarial y mentalidad de abundancia para mujeres líderes.",
+      "en": "Renowned motivational speaker and specialist in the development of business resilience and abundance mindset for women leaders.",
+      "fr": "Conférencière motivatrice reconnue et spécialiste du développement de la résilience d'entreprise et de la mentalité d'abondance pour les femmes leaders."
+    },
+    "website": "www.valeriaromero.mx",
+    "contact": "contacto@valeriaromero.mx",
+    "personName": "Valeria Romero",
+    "personPhoto": "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=800",
+    "bio": {
+      "es": "Autora del best-seller \"Lidera sin Límites\", mentora de negocios y fundadora de comunidades de crecimiento profesional.",
+      "en": "Author of the best-seller \"Lead without Limits\", business mentor and founder of professional growth communities.",
+      "fr": "Auteure du best-seller \"Diriger sans limites\", mentor d'affaires et fondatrice de communautés de croissance professionnelle."
+    },
+    "gallery": [
+      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=800"
+    ],
+    "category": "Conferencistas"
+  },
+  {
+    "id": "inv-9",
+    "slug": "michelle-vance",
+    "tier": {
+      "es": "Representante Oficial",
+      "en": "Official Representative",
+      "fr": "Représentante Officielle"
+    },
+    "name": "Michelle Vance",
+    "logo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200",
+    "description": {
+      "es": "Representante oficial de Global Women Initiative Canada, liderando programas de inserción comercial para empresarias extranjeras en el mercado local.",
+      "en": "Official representative of Global Women Initiative Canada, leading commercial insertion programs for foreign businesswomen in the local market.",
+      "fr": "Représentante officielle de Global Women Initiative Canada, elle dirige des programmes d'insertion commerciale pour les femmes d'affaires étrangères sur le marché local."
+    },
+    "website": "www.globalwomeninitiative.ca",
+    "contact": "mvance@globalwomen.ca",
+    "personName": "Michelle Vance",
+    "personPhoto": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800",
+    "bio": {
+      "es": "Activista e impulsora de políticas corporativas incluyentes con amplia experiencia en mentorías ejecutivas y desarrollo de redes de apoyo comercial.",
+      "en": "Activist and promoter of inclusive corporate policies with extensive experience in executive mentoring and support networks.",
+      "fr": "Activiste et promotrice de politiques d'entreprise inclusives possédant une vaste expérience en mentorat de cadres et en réseaux de soutien commercial."
+    },
+    "gallery": [
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800"
+    ],
+    "category": "Personalidades"
+  }
+]

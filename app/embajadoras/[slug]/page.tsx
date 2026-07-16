@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { mockAmbassadors } from '../../data/embajadoras';
 import { MapPin, ArrowLeft } from 'lucide-react';
 import { Mariposa } from '@/components/BrandAssets';
+import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({
   children, delay = 0, style = {}, className = ''
@@ -32,6 +33,14 @@ function Reveal({
       {children}
     </div>
   );
+}
+
+function AmbassadorDescription({ ambassador }: { ambassador: any }) {
+  const { language } = useLanguage();
+  const desc = ambassador.description
+    ? (ambassador.description[language] || ambassador.description.es || ambassador.description || '')
+    : '';
+  return <p>{desc}</p>;
 }
 
 export default function EmbajadoraProfile({ params }: { params: Promise<{ slug: string }> }) {
@@ -223,7 +232,7 @@ export default function EmbajadoraProfile({ params }: { params: Promise<{ slug: 
 
           <Reveal delay={400}>
             <div className="amb-desc">
-              <p>{ambassador.description}</p>
+              <AmbassadorDescription ambassador={ambassador} />
             </div>
           </Reveal>
           

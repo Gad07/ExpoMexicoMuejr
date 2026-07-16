@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { MapPin, ExternalLink, Mail, CheckCircle2, Phone, ArrowRight } from 'lucide-react';
 import { mexicanStates } from './data/expositores';
 import { WordMark, Mariposa, DecoMariposa, ArrowDown } from '@/components/BrandAssets';
+import { ALL_NOTICIAS } from './data/noticias';
 import Hero from '@/components/Hero';
 import Testimonials from '@/components/Testimonials';
 import Link from 'next/link';
@@ -688,53 +689,12 @@ function Audience() {
 /* ══════════════════════════════════════════════════════════════
    NOTICIAS
 ══════════════════════════════════════════════════════════════ */
-const noticiasData = [
-  {
-    id: 1,
-    title: "Anuncian fecha oficial para la edición 2027 en Toronto",
-    date: "15 Oct 2026",
-    image: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&q=80&w=800",
-    excerpt: "El Metro Toronto Convention Centre será la sede del evento binacional más importante del año para el liderazgo femenino.",
-    featured: true
-  },
-  {
-    id: 2,
-    title: "Nueva alianza estratégica con cámaras de comercio",
-    date: "02 Oct 2026",
-    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?auto=format&fit=crop&q=80&w=600",
-    excerpt: "Las principales cámaras empresariales de México y Canadá se unen al proyecto.",
-    featured: false
-  },
-  {
-    id: 3,
-    title: "Apertura de registro para expositoras",
-    date: "28 Sep 2026",
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=600",
-    excerpt: "Conoce los requisitos para ser parte de las 200 empresas mexicanas presentes en Canadá.",
-    featured: false
-  },
-  {
-    id: 4,
-    title: "Presentan el programa de mentoría binacional",
-    date: "15 Sep 2026",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600",
-    excerpt: "Líderes de ambos países compartirán su experiencia con nuevas emprendedoras.",
-    featured: false
-  },
-  {
-    id: 5,
-    title: "El impacto cultural de la Expo en Canadá",
-    date: "05 Sep 2026",
-    image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&q=80&w=600",
-    excerpt: "Una muestra de gastronomía, arte y tradiciones que cruzará fronteras.",
-    featured: false
-  }
-];
-
 function Noticias() {
+  const { language } = useLanguage();
   const { t } = useLanguage();
-  const featured = noticiasData[0];
-  const list = noticiasData.slice(1);
+  
+  const featured = ALL_NOTICIAS.find(n => n.featured) || ALL_NOTICIAS[0];
+  const list = ALL_NOTICIAS.filter(n => n.id !== featured.id).slice(0, 4);
 
   return (
     <section className="section" id="noticias" style={{ background: '#FAF8F5' }}>
@@ -753,16 +713,16 @@ function Noticias() {
         <div className="news-magazine">
           <div className="news-magazine__left">
             <Reveal>
-              <a href="/recursos" className="news-feat-card">
+              <a href={`/recursos/noticia/${featured.id}`} className="news-feat-card">
                 <div className="news-feat-img-wrap">
-                  <img src={featured.image} alt={featured.title} width={600} height={400} loading="lazy" />
+                  <img src={featured.image} alt={featured.title[language]} width={600} height={400} loading="lazy" />
                   <div className="news-feat-badge">Destacado</div>
                 </div>
                 <div className="news-feat-meta">
                   <span>{featured.date}</span>
                 </div>
-                <h3 className="news-feat-title">{featured.title}</h3>
-                <p className="news-feat-excerpt">{featured.excerpt}</p>
+                <h3 className="news-feat-title">{featured.title[language]}</h3>
+                <p className="news-feat-excerpt">{featured.excerpt[language]}</p>
               </a>
             </Reveal>
           </div>
@@ -771,13 +731,13 @@ function Noticias() {
             <div className="news-list">
               {list.map((news, i) => (
                 <Reveal key={news.id} delay={i * 100}>
-                  <a href="/recursos" className="news-list-item">
+                  <a href={`/recursos/noticia/${news.id}`} className="news-list-item">
                     <div className="news-list-content">
                       <span className="news-list-date">{news.date}</span>
-                      <h4 className="news-list-title">{news.title}</h4>
+                      <h4 className="news-list-title">{news.title[language]}</h4>
                     </div>
                     <div className="news-list-img-wrap">
-                      <img src={news.image} alt={news.title} width={200} height={150} loading="lazy" />
+                      <img src={news.image} alt={news.title[language]} width={200} height={150} loading="lazy" />
                     </div>
                   </a>
                 </Reveal>

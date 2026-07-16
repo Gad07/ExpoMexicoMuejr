@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Box, Truck, CheckCircle, AlertCircle, FileText, Anchor } from 'lucide-react';
 import { Mariposa } from '@/components/BrandAssets';
+import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({
   children, className = '', delay = 0, style = {},
@@ -35,6 +36,7 @@ function Reveal({
 }
 
 export default function LogisticaPage() {
+  const { t } = useLanguage();
   return (
     <div style={{ background: 'var(--cream)', color: 'var(--navy)', minHeight: '100vh', paddingBottom: '120px' }}>
       
@@ -46,21 +48,21 @@ export default function LogisticaPage() {
       <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: '60px 48px 80px' }}>
         
         {/* 1. Exportación Temporal vs Definitiva */}
-        <h1 className="sr-only">Logística</h1>
+        <h1 className="sr-only">{t('pages.logistica.srOnly')}</h1>
         <div id="aduanas" style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center' }}>
             <Reveal>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '24px' }}>
-                Esquemas de Exportación
+                {t('pages.logistica.esquemasTitle')}
               </h2>
               <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'var(--text)', marginBottom: '24px' }}>
-                Para el ingreso de tus productos de exhibición a territorio canadiense, el comité organizador de Expo México Mujer ofrece asesoría y acompañamiento técnico en dos esquemas comerciales principales.
+                {t('pages.logistica.esquemasDesc')}
               </p>
               
               <div style={{ background: '#fff', padding: '32px', borderRadius: '24px', boxShadow: '0 15px 35px rgba(0,25,76,0.03)', border: '1px solid rgba(0,0,0,0.01)', display: 'flex', gap: '16px', alignItems: 'start' }}>
                 <AlertCircle size={24} color="var(--magenta)" style={{ flexShrink: 0, marginTop: '4px' }} />
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.5, margin: 0 }}>
-                  <strong>Importante:</strong> Los trámites aduanales deben iniciarse al menos con 90 días de anticipación para evitar demoras en aduana fronteriza.
+                  <strong>{t('pages.logistica.importante')}</strong> {t('pages.logistica.importanteDesc')}
                 </p>
               </div>
             </Reveal>
@@ -70,20 +72,20 @@ export default function LogisticaPage() {
                 <div style={{ background: '#fff', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,25,76,0.03)', border: '1px solid rgba(0,0,0,0.01)' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
                     <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(0,186,211,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--cyan)' }}><FileText size={20} /></div>
-                    <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 800, color: 'var(--navy)', margin: 0 }}>Exportación Temporal</h3>
+                    <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 800, color: 'var(--navy)', margin: 0 }}>{t('pages.logistica.expTemporalTitle')}</h3>
                   </div>
                   <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>
-                    Ideal para muestras de exhibición, mobiliario de stand o piezas de pasarela que regresarán a México después del evento. Exento del pago de aranceles bajo el cuaderno ATA o fianza aduanal temporal.
+                    {t('pages.logistica.expTemporalDesc')}
                   </p>
                 </div>
 
                 <div style={{ background: '#fff', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,25,76,0.03)', border: '1px solid rgba(0,0,0,0.01)' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
                     <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(0,186,211,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--cyan)' }}><Anchor size={20} /></div>
-                    <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 800, color: 'var(--navy)', margin: 0 }}>Exportación Definitiva</h3>
+                    <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 800, color: 'var(--navy)', margin: 0 }}>{t('pages.logistica.expDefinitivaTitle')}</h3>
                   </div>
                   <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>
-                    Recomendado para productos destinados a la venta directa en el evento, muestras de degustación consumibles o inventario vendido previamente a importadores canadienses. Sujeto a impuestos e importación formal canadiense.
+                    {t('pages.logistica.expDefinitivaDesc')}
                   </p>
                 </div>
               </div>

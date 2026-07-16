@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { ShoppingBag, Users, Sparkles, Handshake, Search, ArrowRight, ShieldCheck, CalendarRange, Globe } from 'lucide-react';
 import { mockBuyers } from '../data/compradores';
+import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({
   children, className = '', delay = 0, style = {},
@@ -36,12 +37,24 @@ function Reveal({
 
 export default function CompradoresPage() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [buyers, setBuyers] = useState<any[]>([]);
+  const { language } = useLanguage();
 
-  const filteredBuyers = mockBuyers.filter(buyer => 
-    buyer.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    buyer.interest.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    buyer.location.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  useEffect(() => {
+    fetch('/api/admin/compradores')
+      .then(res => res.json())
+      .then(data => {
+        if (data.compradores) setBuyers(data.compradores);
+      })
+      .catch(() => {});
+  }, []);
+
+  const filteredBuyers = buyers.filter(buyer => {
+    const interestVal = buyer.interest && (buyer.interest[language] || buyer.interest.es || buyer.interest || '');
+    return buyer.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      interestVal.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      buyer.location.toLowerCase().includes(searchTerm.toLowerCase());
+  });
 
   return (
     <div className="compradores-page" style={{ background: 'var(--cream)', color: 'var(--navy)', minHeight: '100vh', paddingBottom: '120px' }}>
@@ -192,16 +205,17 @@ export default function CompradoresPage() {
                       <div style={{ padding: '56px 24px 24px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                         <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '4px', lineHeight: 1.2, textTransform: 'uppercase' }}>{buyer.name}</h3>
                         
+                        
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginBottom: '16px' }}>
                           <span style={{ fontSize: '0.8rem', fontWeight: 800, color: buyer.color, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                             {buyer.company}
                           </span>
                           <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)' }}>
-                            {buyer.role} — {buyer.location}
+                            {buyer.role && (buyer.role[language] || buyer.role.es || buyer.role)} — {buyer.location}
                           </span>
                         </div>
 
-                        <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '32px', flexGrow: 1 }}>{buyer.description}</p>
+                        <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '32px', flexGrow: 1 }}>{buyer.description && (buyer.description[language] || buyer.description.es || buyer.description)}</p>
 
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '20px' }}>
                           <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--navy)' }}>Ver perfil completo</span>

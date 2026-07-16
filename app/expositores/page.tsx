@@ -40,10 +40,22 @@ function Reveal({
 }
 
 import { useSearchParams, useRouter } from 'next/navigation';
+import { useLanguage } from '../../context/LanguageContext';
 
 function ExpositoresContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const { language } = useLanguage();
+  const [exhibitors, setExhibitors] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetch('/api/admin/expositores')
+      .then(res => res.json())
+      .then(data => {
+        if (data.exhibitors) setExhibitors(data.exhibitors);
+      })
+      .catch(() => {});
+  }, []);
   
   const activeCategory = searchParams ? searchParams.get('categoria') : null;
   const [searchQuery, setSearchQuery] = useState('');
@@ -52,7 +64,7 @@ function ExpositoresContent() {
   // Modal states for Calendar and Map
   const [showCalendar, setShowCalendar] = useState(false);
   const [showMap, setShowMap] = useState(false);
-  const [selectedExhibitor, setSelectedExhibitor] = useState<typeof mockExhibitors[0] | null>(null);
+  const [selectedExhibitor, setSelectedExhibitor] = useState<any | null>(null);
   
   const [appointmentDate, setAppointmentDate] = useState('12');
   const [appointmentTime, setAppointmentTime] = useState('10:00');
@@ -66,15 +78,16 @@ function ExpositoresContent() {
     const categoryData = businessCategories.find(cat => cat.name === activeCategory);
     
     // Filtrar expositoras
-    const filteredExhibitors = mockExhibitors.filter(ex => {
+    const filteredExhibitors = exhibitors.filter(ex => {
       const matchCategory = ex.category === activeCategory;
+      const descVal = ex.description && (ex.description[language] || ex.description.es || ex.description || '');
       const matchSearch = ex.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           ex.personName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          ex.description.toLowerCase().includes(searchQuery.toLowerCase());
+                          descVal.toLowerCase().includes(searchQuery.toLowerCase());
       return matchCategory && matchSearch;
     });
 
-    const openCalendar = (ex: typeof mockExhibitors[0]) => {
+    const openCalendar = (ex: any) => {
       setSelectedExhibitor(ex);
       setAppointmentSent(false);
       setAppointmentName('');
@@ -85,7 +98,7 @@ function ExpositoresContent() {
       setShowCalendar(true);
     };
 
-    const openMap = (ex: typeof mockExhibitors[0]) => {
+    const openMap = (ex: any) => {
       setSelectedExhibitor(ex);
       setShowMap(true);
     };
@@ -417,7 +430,7 @@ function ExpositoresContent() {
                             <MapPin size={14} /> {ex.booth}
                           </p>
                           
-                          <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '24px' }}>{ex.description.substring(0, 90)}...</p>
+                          <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '24px' }}>{(ex.description[language] || ex.description.es || ex.description || '').substring(0, 90)}...</p>
                         </div>
                       </Link>
 

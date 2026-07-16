@@ -225,77 +225,22 @@ export const mexicanStates = [
   }
 ];
 
-export const mockAmbassadors = [
-  {
-    id: 'emb-1',
-    slug: 'claudia-ramirez',
-    name: 'Claudia Ramírez',
-    state: 'Jalisco',
-    photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-    description: 'Embajadora apasionada por el desarrollo económico de las mujeres de Jalisco. Líder comunitaria con más de 15 años impulsando el talento femenino en el ámbito empresarial y cultural del occidente del país.',
-    booth: 'Pabellón Jalisco – Mesa A-01'
-  },
-  {
-    id: 'emb-2',
-    slug: 'mariana-lopez',
-    name: 'Mariana López',
-    state: 'Jalisco',
-    photo: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=400&q=80',
-    description: 'Promotora cultural y representante de las artesanas jaliscienses en foros internacionales. Su misión es visibilizar el trabajo de las mujeres creativas en el mercado de Norteamérica.',
-    booth: 'Pabellón Jalisco – Mesa A-02'
-  },
-  {
-    id: 'emb-3',
-    slug: 'patricia-moreno',
-    name: 'Patricia Moreno',
-    state: 'Ciudad de México',
-    photo: 'https://images.unsplash.com/photo-1551836022-deb4988cc6c0?auto=format&fit=crop&w=400&q=80',
-    description: 'Representante de organizaciones de mujeres emprendedoras del Valle de México. Coordina redes de apoyo para mujeres en situación de vulnerabilidad que buscan independencia económica.',
-    booth: 'Pabellón CDMX – Mesa B-01'
-  },
-  {
-    id: 'emb-4',
-    slug: 'sofia-hernandez',
-    name: 'Sofía Hernández',
-    state: 'Oaxaca',
-    photo: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80',
-    description: 'Vocera del movimiento de mujeres indígenas empresarias de Oaxaca. Conecta a comunidades artesanales con mercados internacionales, preservando lenguas y tradiciones ancestrales.',
-    booth: 'Pabellón Oaxaca – Mesa C-01'
-  },
-  {
-    id: 'emb-5',
-    slug: 'andrea-vega',
-    name: 'Andrea Vega',
-    state: 'Nuevo León',
-    photo: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=400&q=80',
-    description: 'Embajadora del ecosistema tech femenino de Monterrey. Mentora activa de startups lideradas por mujeres y promotora de la educación STEM en comunidades del noreste de México.',
-    booth: 'Pabellón NL – Mesa D-01'
-  },
-  {
-    id: 'emb-6',
-    slug: 'isabel-ruiz',
-    name: 'Isabel Ruiz',
-    state: 'Yucatán',
-    photo: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80',
-    description: 'Representante de la industria turística y textil de Yucatán. Promueve la integración de la cosmovisión maya en modelos de negocio contemporáneos con proyección global.',
-    booth: 'Pabellón Yucatán – Mesa E-01'
-  },
-  {
-    id: 'emb-7',
-    slug: 'valentina-cruz',
-    name: 'Valentina Cruz',
-    state: 'Puebla',
-    photo: 'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?auto=format&fit=crop&w=400&q=80',
-    description: 'Impulsora del sector gastronómico y textil poblano a nivel internacional. Trabaja estrechamente con cooperativas de bordadoras y cocineras tradicionales de la región de la Mixteca.',
-    booth: 'Pabellón Puebla – Mesa F-01'
-  },
-  {
-    id: 'emb-8',
-    slug: 'fernanda-delgado',
-    name: 'Fernanda Delgado',
-    state: 'Veracruz',
-    photo: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80',
-    description: 'Vocera del talento veracruzano en los foros de la economía del Pacífico. Especialista en agronegocios liderados por mujeres y en la cadena de valor del café de altura.',
-    booth: 'Pabellón Veracruz – Mesa G-01'
-  }
-];
+import ambassadorsData from '../../data/embajadoras.json';
+
+export interface LocalizedString {
+  es: string;
+  en: string;
+  fr: string;
+}
+
+export interface Ambassador {
+  id: string;
+  slug: string;
+  name: string;
+  state: string;
+  photo: string;
+  description: LocalizedString;
+  booth: string;
+}
+
+export const mockAmbassadors = ambassadorsData as any as Ambassador[];

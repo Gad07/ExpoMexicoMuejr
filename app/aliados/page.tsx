@@ -33,6 +33,17 @@ function Reveal({
 }
 
 export default function AliadosPage() {
+  const [aliados, setAliados] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetch('/api/admin/aliados')
+      .then(res => res.json())
+      .then(data => {
+        if (data.allies) setAliados(data.allies);
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <div className="aliados-page" style={{ background: 'var(--cream)', color: 'var(--navy)', minHeight: '100vh', paddingBottom: '120px' }}>
       
@@ -96,100 +107,12 @@ export default function AliadosPage() {
           </Reveal>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '24px', justifyContent: 'center' }}>
-            {[
-              {
-                name: "Consulado General de México en Toronto",
-                color: "#006847",
-                svg: (
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                    <circle cx="12" cy="11" r="3" />
-                    <path d="M12 8v6M9 11h6" />
-                  </svg>
-                )
-              },
-              {
-                name: "Embajada de México en Canadá",
-                color: "#D6A354",
-                svg: (
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M4 22h16M4 20h16M5 20V9m14 11V9M9 20V9m6 10V9M3 9l9-6 9 6H3z" />
-                  </svg>
-                )
-              },
-              {
-                name: "Cámara de Comercio de Canadá en México",
-                color: "#FF0000",
-                svg: (
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M12 3l1.5 4 4.5-.5-2.5 3.5 3 3.5-4.5-.5-2 4-2-4-4.5.5 3-3.5-2.5-3.5 4.5.5L12 3zM12 17v4" />
-                  </svg>
-                )
-              },
-              {
-                name: "COMCE",
-                color: "#002F51",
-                svg: (
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                  </svg>
-                )
-              },
-              {
-                name: "Ontario Chamber of Commerce",
-                color: "#0085A1",
-                svg: (
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M3 3v18h18M18.7 8l-5.1 5.2-2.8-2.7L7 14.3" />
-                    <path d="M15 8h3.7V11.7" />
-                  </svg>
-                )
-              },
-              {
-                name: "Government of Ontario",
-                color: "#4A90E2",
-                svg: (
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M12 2C8 6 3 12 3 15c0 4 3.5 6 9 6s9-2 9-6c0-3-5-9-9-13z" />
-                    <path d="M12 21V9M12 9c-2-2-4-2-6 0M12 9c2-2 4-2 6 0" />
-                  </svg>
-                )
-              },
-              {
-                name: "Quebec International",
-                color: "#0033A0",
-                svg: (
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M12 2c0 6-3 10-6 11 4 0 6 3 6 8 0-5 2-8 6-8-3-1-6-5-6-11z" />
-                    <path d="M2 13c5 0 9-2 10-7 1 5 5 7 10 7M12 11h.01" />
-                  </svg>
-                )
-              },
-              {
-                name: "WBE Canada",
-                color: "#E03C8A",
-                svg: (
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M12 2a5 5 0 0 0-5 5v3a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5zM12 14c-4.4 0-8 3.6-8 8h16c0-4.4-3.6-8-8-8z" />
-                    <circle cx="12" cy="7" r="1" />
-                  </svg>
-                )
-              },
-              {
-                name: "Mexican Chamber of Commerce in Canada",
-                color: "#E25C34",
-                svg: (
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
-                    <rect x="3" y="4" width="18" height="12" rx="2" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                )
-              }
-            ].map((ally, idx) => (
-              <Reveal key={ally.name} delay={idx * 40}>
-                <div 
+            {aliados.map((ally, idx) => (
+              <Reveal key={ally.id} delay={idx * 40}>
+                <a 
+                  href={ally.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   title={ally.name}
                   style={{ 
                     background: '#fff', 
@@ -201,22 +124,23 @@ export default function AliadosPage() {
                     justifyContent: 'center',
                     border: '1px solid rgba(0,0,0,0.02)',
                     transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-                    color: '#8A99AD',
-                    cursor: 'pointer'
+                    cursor: 'pointer',
+                    padding: '20px',
+                    boxSizing: 'border-box'
                   }}
-                  onMouseOver={(e) => {
+                  onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-4px)';
                     e.currentTarget.style.boxShadow = '0 12px 30px rgba(0,25,76,0.06)';
-                    e.currentTarget.style.color = ally.color;
+                    e.currentTarget.style.borderColor = ally.color || 'var(--magenta)';
                   }}
-                  onMouseOut={(e) => {
+                  onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
                     e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,25,76,0.02)';
-                    e.currentTarget.style.color = '#8A99AD';
+                    e.currentTarget.style.borderColor = 'rgba(0,0,0,0.02)';
                   }}
                 >
-                  {ally.svg}
-                </div>
+                  <img src={ally.logo} alt={ally.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                </a>
               </Reveal>
             ))}
           </div>

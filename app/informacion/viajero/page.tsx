@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Home, Plane, MapPin, Compass, DollarSign, ExternalLink } from 'lucide-react';
 import { Mariposa } from '@/components/BrandAssets';
+import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({
   children, className = '', delay = 0, style = {},
@@ -34,24 +35,26 @@ function Reveal({
   );
 }
 
-const mockHotels = [
-  {
-    name: "The Westin Harbour Castle",
-    stars: "4.5★",
-    desc: "Hotel sede oficial ubicado a pasos del lago Ontario. Cuenta con tarifas preferenciales exclusivas para expositoras de la delegación de EMM.",
-    rate: "Desde $240 CAD / noche",
-    photo: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=400"
-  },
-  {
-    name: "Sheraton Centre Toronto",
-    stars: "4.0★",
-    desc: "Ubicación céntrica en el corazón financiero de Toronto. Conexión directa al PATH y fácil acceso en transporte público a las sedes del evento.",
-    rate: "Desde $195 CAD / noche",
-    photo: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&q=80&w=400"
-  }
-];
-
 export default function ViajeroPage() {
+  const { t } = useLanguage();
+
+  const mockHotels = [
+    {
+      name: "The Westin Harbour Castle",
+      stars: "4.5★",
+      desc: t('pages.viajero.mockHotels[0].desc'),
+      rate: t('pages.viajero.mockHotels[0].rate'),
+      photo: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=400"
+    },
+    {
+      name: "Sheraton Centre Toronto",
+      stars: "4.0★",
+      desc: t('pages.viajero.mockHotels[1].desc'),
+      rate: t('pages.viajero.mockHotels[1].rate'),
+      photo: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&q=80&w=400"
+    }
+  ];
+
   return (
     <div style={{ background: 'var(--cream)', color: 'var(--navy)', minHeight: '100vh', paddingBottom: '120px' }}>
       
@@ -63,11 +66,11 @@ export default function ViajeroPage() {
       <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: '60px 48px 80px' }}>
         
         {/* 1. Hospedaje Sede */}
-        <h1 className="sr-only">Servicios al Viajero</h1>
+        <h1 className="sr-only">{t('pages.viajero.srOnly')}</h1>
         <div id="hospedaje" style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
-              Hospedaje & Hoteles Sede
+              {t('pages.viajero.hospedajeTitle')}
             </h2>
           </Reveal>
 
@@ -87,9 +90,9 @@ export default function ViajeroPage() {
                     
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '20px' }}>
                       <span style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--magenta)' }}>{hotel.rate}</span>
-                      <a href="#" style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--cyan)', textTransform: 'uppercase', textDecoration: 'none', letterSpacing: '0.05em', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                        Reservar tarifa <ExternalLink size={12} />
-                      </a>
+                      <Link href="/contacto" style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--cyan)', textTransform: 'uppercase', textDecoration: 'none', letterSpacing: '0.05em', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                        {t('pages.viajero.reservarTarifa')} <ExternalLink size={12} />
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -103,17 +106,17 @@ export default function ViajeroPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center' }}>
             <Reveal>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '24px' }}>
-                Vuelos y Traslado Aéreo
+                {t('pages.viajero.vuelosTitle')}
               </h2>
               <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'var(--text)', marginBottom: '24px' }}>
-                Contamos con códigos promocionales oficiales de descuento en aerolíneas aliadas (Air Canada y Aeroméxico) aplicables para traslados directos hacia el Aeropuerto Internacional de Toronto Pearson (YYZ).
+                {t('pages.viajero.vuelosDesc')}
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '0.95rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <Plane size={18} color="var(--magenta)" /> <span>Descuentos de hasta un 15% en vuelos de tarifa business y turista.</span>
+                  <Plane size={18} color="var(--magenta)" /> <span>{t('pages.viajero.vueloDesc1')}</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <Compass size={18} color="var(--magenta)" /> <span>Soporte directo para la emisión de boletos grupales corporativos.</span>
+                  <Compass size={18} color="var(--magenta)" /> <span>{t('pages.viajero.vueloDesc2')}</span>
                 </div>
               </div>
             </Reveal>

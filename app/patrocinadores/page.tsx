@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Search, ChevronRight, Medal, ArrowRight } from 'lucide-react';
 import { mockSponsors } from '../data/patrocinadores';
+import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({
   children, className = '', delay = 0, style = {},
@@ -42,12 +43,24 @@ function Reveal({
 
 export default function PatrocinadoresPage() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [sponsors, setSponsors] = useState<any[]>([]);
+  const { language } = useLanguage();
+
+  useEffect(() => {
+    fetch('/api/admin/patrocinadores')
+      .then(res => res.json())
+      .then(data => {
+        if (data.sponsors) setSponsors(data.sponsors);
+      })
+      .catch(() => {});
+  }, []);
 
   // Filter sponsors by search term
-  const filteredSponsors = mockSponsors.filter(sponsor => 
-    sponsor.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-    sponsor.tier.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredSponsors = sponsors.filter(sponsor => {
+    const tierVal = sponsor.tier && (sponsor.tier[language] || sponsor.tier.es || sponsor.tier || '');
+    return sponsor.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+      tierVal.toLowerCase().includes(searchTerm.toLowerCase());
+  });
 
   return (
     <div className="patrocinadores-page" style={{ background: 'var(--cream)', minHeight: '100vh', paddingBottom: '120px' }}>
@@ -183,20 +196,19 @@ export default function PatrocinadoresPage() {
           </div>
         </div>
 
-        {/* Header & Search */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '64px', paddingTop: '80px', borderTop: '1px solid rgba(0,0,0,0.1)' }}>
+        <div style={{ marginTop: '120px', paddingTop: '80px', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
           <Reveal>
-            <span style={{ display: 'inline-block', color: 'var(--magenta)', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '16px' }}>
-              Nuestros Aliados
-            </span>
-            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '3rem', fontWeight: 900, color: 'var(--navy)', margin: 0, lineHeight: 1 }}>
-              Directorio de Patrocinadores
-            </h2>
+            <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+              <span style={{ display: 'inline-block', color: 'var(--magenta)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '16px' }}>Directorio Oficial</span>
+              <h2 className="section__title section__title--center" style={{ margin: 0 }}>Nuestros <em>Socios Comerciales</em></h2>
+            </div>
           </Reveal>
 
-          <Reveal delay={100} style={{ flex: '1 1 300px', maxWidth: '400px' }}>
-            <div style={{ position: 'relative' }}>
-              <Search style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--magenta)' }} size={20} />
+          <Reveal>
+            <div style={{ position: 'relative', maxWidth: '600px', margin: '0 auto 60px' }}>
+              <div style={{ position: 'absolute', left: '20px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }}>
+                <Search size={20} />
+              </div>
               <input 
                 type="text" 
                 placeholder="Buscar patrocinador..." 
@@ -248,7 +260,7 @@ export default function PatrocinadoresPage() {
                   }}>
                     {/* COVER PHOTO */}
                     <div style={{ height: '160px', width: '100%', position: 'relative', background: '#f0f0f0' }}>
-                      {sponsor.gallery && sponsor.gallery.length > 0 && (
+                      {sponsor.gallery && sponsor.gallery.length > 0 && sponsor.gallery[0] && (
                         <img src={sponsor.gallery[0]} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="600" height="400" />
                       )}
                       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.4), transparent)' }}></div>
@@ -260,14 +272,20 @@ export default function PatrocinadoresPage() {
                       position: 'absolute', top: '125px', left: '24px', boxShadow: '0 10px 20px rgba(0,0,0,0.1)', zIndex: 10,
                       display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden'
                     }}>
-                      <img src={sponsor.logo} alt={sponsor.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} loading="lazy" width="200" height="80" />
+                      {sponsor.logo ? (
+                        <img src={sponsor.logo} alt={sponsor.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} loading="lazy" width="200" height="80" />
+                      ) : (
+                        <div style={{ color: '#aaa', fontSize: '0.65rem' }}>No Logo</div>
+                      )}
                     </div>
 
                     {/* BODY */}
                     <div style={{ padding: '56px 24px 24px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                       <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '6px', lineHeight: 1.2 }}>{sponsor.name}</h3>
                       
-                      <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '32px', flexGrow: 1 }}>{sponsor.description.substring(0, 100)}...</p>
+                      <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '32px', flexGrow: 1 }}>
+                        {sponsor.description ? `${(sponsor.description[language] || sponsor.description.es || sponsor.description || '').substring(0, 100)}...` : ''}
+                      </p>
 
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '20px' }}>
                         <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--navy)' }}>Ver perfil completo</span>

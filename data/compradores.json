@@ -1,0 +1,113 @@
+[
+  {
+    "id": "buyer-1",
+    "slug": "sarah-jenkins",
+    "name": "Sarah Jenkins",
+    "company": "Maple Trade Distributors",
+    "role": {
+      "es": "Directora de Adquisiciones",
+      "en": "Director of Procurement",
+      "fr": "Directrice des Approvisionnements"
+    },
+    "location": "Toronto, ON",
+    "interest": {
+      "es": "Alimentos Procesados & Bebidas",
+      "en": "Processed Foods & Beverages",
+      "fr": "Aliments Transformés & Boissons"
+    },
+    "description": {
+      "es": "Establecemos contacto directo con productoras mexicanas de salsas artesanales, café de altura y confitería gourmet para posicionamiento en cadenas de autoservicio de Ontario.",
+      "en": "We establish direct contact with Mexican producers of artisanal sauces, high-altitude coffee and gourmet confectionery for positioning in Ontario supermarkets.",
+      "fr": "Nous établissons un contact direct avec des productrices mexicaines de sauces artisanales, de café d'altitude et de confiserie gourmande pour un positionnement dans les supermarchés de l'Ontario."
+    },
+    "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200",
+    "cover": "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&q=80&w=800",
+    "color": "var(--magenta)",
+    "bgColor": "var(--magenta)10",
+    "bio": {
+      "es": "Nuestra misión es llevar los sabores más auténticos de México a las mesas canadienses, garantizando calidad excepcional y consistencia de suministro.",
+      "en": "Our mission is to bring the most authentic flavors of Mexico to Canadian tables, guaranteeing exceptional quality and consistency of supply.",
+      "fr": "Notre mission est d'apporter les saveurs les plus authentiques du Mexique sur les tables canadiennes, en garantissant une qualité exceptionnelle et une régularité d'approvisionnement."
+    },
+    "website": "www.mapletrade.ca",
+    "contact": "sjenkins@mapletrade.ca",
+    "gallery": [
+      "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80&w=800"
+    ]
+  },
+  {
+    "id": "buyer-3",
+    "slug": "emily-wong",
+    "name": "Dra. Emily Wong",
+    "company": "Nordic Wellness Co.",
+    "role": {
+      "es": "Directora de Desarrollo de Insumos",
+      "en": "Director of Ingredient Development",
+      "fr": "Directrice du Développement des Ingrédients"
+    },
+    "location": "Vancouver, BC",
+    "interest": {
+      "es": "Salud, Cuidado Personal & Belleza",
+      "en": "Health, Personal Care & Beauty",
+      "fr": "Santé, Soins Personnels & Beauté"
+    },
+    "description": {
+      "es": "Especializada en la compra e importación de aceites esenciales, extractos botánicos naturales e insumos orgánicos producidos por cooperativas mexicanas de mujeres.",
+      "en": "Specialized in the purchase and import of essential oils, natural botanical extracts and organic ingredients produced by Mexican cooperatives of women.",
+      "fr": "Spécialisée dans l'achat et l'importation d'huiles essentielles, d'extraits botaniques naturels et d'ingrédients biologiques produits par des coopératives mexicaines de femmes."
+    },
+    "photo": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200",
+    "cover": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800",
+    "color": "#D6A354",
+    "bgColor": "#D6A35410",
+    "bio": {
+      "es": "Valoramos los procesos sustentables, la pureza de los ingredientes y el impacto socioeconómico directo que generamos al comprar a productoras.",
+      "en": "We value sustainable processes, purity of ingredients and direct socioeconomic impact we generate by buying from producers.",
+      "fr": "Nous apprécions les processus durables, la pureté des ingrédients et l'impact socio-économique direct que nous générons en achetant auprès des productrices."
+    },
+    "website": "www.nordicwellness.ca",
+    "contact": "ewong@nordicwellness.ca",
+    "gallery": [
+      "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=800"
+    ]
+  },
+  {
+    "id": "buyer-4",
+    "slug": "marcus-vance",
+    "name": "Marcus Vance",
+    "company": "Horizon Retail Canada",
+    "role": {
+      "es": "Líder de Categoría Hogar",
+      "en": "Home Category Lead",
+      "fr": "Responsable de la Catégorie Maison"
+    },
+    "location": "Ottawa, ON",
+    "interest": {
+      "es": "Artesanías & Decoración",
+      "en": "Handicrafts & Decor",
+      "fr": "Artisanat & Décoration"
+    },
+    "description": {
+      "es": "Busca vajillas de cerámica, textiles para el hogar y piezas ornamentales hechas a mano por artesanas y diseñadoras independientes de origen mexicano.",
+      "en": "Searches for ceramic tableware, home textiles and ornamental pieces handmade by Mexican independent craftswomen and designers.",
+      "fr": "Recherche de la vaisselle en céramique, des textiles de maison et des pièces d'ornement fabriqués à la main par des artisanes et des designers indépendantes de nationalité mexicaine."
+    },
+    "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
+    "cover": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=800",
+    "color": "var(--navy)",
+    "bgColor": "var(--navy)10",
+    "bio": {
+      "es": "El diseño artesanal mexicano tiene un atractivo indiscutible en Canadá. Queremos curar las mejores piezas para nuestro portafolio de decoración.",
+      "en": "Mexican handcrafted design has an indisputable appeal in Canada. We want to curate the best pieces for our decor portfolio.",
+      "fr": "Le design artisanal mexicain a un attrait incontestable au Canada. Nous voulons sélectionner les meilleures pièces pour notre portefeuille de décoration."
+    },
+    "website": "www.horizonretail.ca",
+    "contact": "mvance@horizonretail.ca",
+    "gallery": [
+      "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=800"
+    ]
+  }
+]

@@ -1,0 +1,170 @@
+import { NextResponse } from 'next/server';
+import { readJSON, writeJSON } from '@/lib/db';
+import { getTokenFromRequest, verifyToken } from '@/lib/auth';
+
+const DB_FILE = 'expositores.json';
+
+interface LocalizedString {
+  es: string;
+  en: string;
+  fr: string;
+}
+
+interface Exhibitor {
+  id: string;
+  slug: string;
+  name: string;
+  personName: string;
+  description: LocalizedString;
+  state: string;
+  category: string;
+  website: string;
+  social: string;
+  contact: string;
+  booth: string;
+  logo: string;
+  personPhoto: string;
+  bio: LocalizedString;
+  gallery: string[];
+}
+
+function checkAuth(request: Request): boolean {
+  const cookieHeader = request.headers.get('cookie') || '';
+  if (cookieHeader.includes('next-auth.session-token') || cookieHeader.includes('__Secure-next-auth.session-token')) {
+    return true;
+  }
+  const token = getTokenFromRequest(request);
+  if (token && verifyToken(token)) {
+    return true;
+  }
+  return false;
+}
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // remove accents
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .trim();
+}
+
+function getNextId(exhibitors: Exhibitor[]): string {
+  if (exhibitors.length === 0) return '1';
+  const numericIds = exhibitors.map(e => parseInt(e.id)).filter(id => !isNaN(id));
+  if (numericIds.length === 0) return '1';
+  return (Math.max(...numericIds) + 1).toString();
+}
+
+// GET /api/admin/expositores - List all exhibitors
+export async function GET(request: Request) {
+  try {
+    const exhibitors = readJSON<Exhibitor>(DB_FILE);
+    return NextResponse.json({ exhibitors });
+  } catch {
+    return NextResponse.json({ error: 'Error al leer expositores' }, { status: 500 });
+  }
+}
+
+// POST /api/admin/expositores - Create new exhibitor
+export async function POST(request: Request) {
+  if (!checkAuth(request)) {
+    return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
+  }
+
+  try {
+    const body = await request.json();
+    const exhibitors = readJSON<Exhibitor>(DB_FILE);
+
+    const newExhibitor: Exhibitor = {
+      id: getNextId(exhibitors),
+      slug: body.slug || slugify(body.name || ''),
+      name: body.name || '',
+      personName: body.personName || '',
+      description: body.description || { es: '', en: '', fr: '' },
+      state: body.state || '',
+      category: body.category || '',
+      website: body.website || '',
+      social: body.social || '',
+      contact: body.contact || '',
+      booth: body.booth || '',
+      logo: body.logo || '',
+      personPhoto: body.personPhoto || '',
+      bio: body.bio || { es: '', en: '', fr: '' },
+      gallery: body.gallery || [],
+    };
+
+    exhibitors.push(newExhibitor);
+    writeJSON(DB_FILE, exhibitors);
+
+    return NextResponse.json({ exhibitor: newExhibitor, message: 'Expositor creado exitosamente' });
+  } catch {
+    return NextResponse.json({ error: 'Error al crear expositor' }, { status: 500 });
+  }
+}
+
+// PUT /api/admin/expositores - Update existing exhibitor
+export async function PUT(request: Request) {
+  if (!checkAuth(request)) {
+    return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
+  }
+
+  try {
+    const body = await request.json();
+    const { id, ...updates } = body;
+
+    if (!id) {
+      return NextResponse.json({ error: 'ID requerido' }, { status: 400 });
+    }
+
+    const exhibitors = readJSON<Exhibitor>(DB_FILE);
+    const index = exhibitors.findIndex(e => e.id === id);
+
+    if (index === -1) {
+      return NextResponse.json({ error: 'Expositor no encontrado' }, { status: 404 });
+    }
+
+    exhibitors[index] = {
+      ...exhibitors[index],
+      ...updates,
+      id,
+      slug: updates.slug || exhibitors[index].slug,
+    };
+
+    writeJSON(DB_FILE, exhibitors);
+    return NextResponse.json({ exhibitor: exhibitors[index], message: 'Expositor actualizado exitosamente' });
+  } catch {
+    return NextResponse.json({ error: 'Error al actualizar expositor' }, { status: 500 });
+  }
+}
+
+// DELETE /api/admin/expositores - Delete exhibitor
+export async function DELETE(request: Request) {
+  if (!checkAuth(request)) {
+    return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
+  }
+
+  try {
+    const { id } = await request.json();
+
+    if (!id) {
+      return NextResponse.json({ error: 'ID requerido' }, { status: 400 });
+    }
+
+    let exhibitors = readJSON<Exhibitor>(DB_FILE);
+    const exists = exhibitors.find(e => e.id === id);
+
+    if (!exists) {
+      return NextResponse.json({ error: 'Expositor no encontrado' }, { status: 404 });
+    }
+
+    exhibitors = exhibitors.filter(e => e.id !== id);
+    writeJSON(DB_FILE, exhibitors);
+
+    return NextResponse.json({ message: 'Expositor eliminado exitosamente' });
+  } catch {
+    return NextResponse.json({ error: 'Error al eliminar expositor' }, { status: 500 });
+  }
+}

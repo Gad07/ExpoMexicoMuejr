@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({
   children, className = '', delay = 0, style = {},
@@ -26,91 +27,35 @@ function Reveal({
 }
 
 /* ══════════════════════════════════════════════════════════════
-   DATA
-══════════════════════════════════════════════════════════════ */
-const stats = [
-  { 
-    value: '+5,000', 
-    label: 'Asistentes Proyectados',
-    desc: 'Mujeres líderes, ejecutivas y emprendedoras de alto impacto.'
-  },
-  { 
-    value: '50+', 
-    label: 'Conferencias Magistrales',
-    desc: 'Voces internacionales que inspiran y transforman industrias.'
-  },
-  { 
-    value: 'B2B', 
-    label: 'Networking Estratégico',
-    desc: 'Mesas de negocios para cerrar alianzas comerciales binacionales.'
-  },
-  { 
-    value: '100%', 
-    label: 'Talento Mexicano',
-    desc: 'Proyección global de nuestra cultura, innovación y excelencia.'
-  },
-];
-
-const values = [
-  {
-    title: 'Identidad sin fronteras',
-    text: 'Proyectamos lo mejor de México al mundo, celebrando nuestra cultura, talento y creatividad como puente de entendimiento entre naciones.',
-  },
-  {
-    title: 'Liderazgo con propósito',
-    text: 'Ponemos a las mujeres mexicanas al centro, impulsando su desarrollo económico, profesional y social como motor de transformación.',
-  },
-  {
-    title: 'Conexión que trasciende',
-    text: 'Construimos redes binacionales sólidas entre México y Canadá, generando oportunidades de negocio, colaboración y crecimiento mutuo.',
-  },
-  {
-    title: 'Impacto medible',
-    text: 'Cada acción está diseñada para generar resultados concretos: exportaciones, alianzas estratégicas y proyectos de desarrollo sostenible.',
-  },
-];
-
-const milestones = [
-  { year: '2023', title: 'Primera edición', text: 'Nacimiento de Expo México Mujer como plataforma para conectar el talento mexicano con oportunidades internacionales.' },
-  { year: '2024', title: 'Expansión binacional', text: 'Consolidación del evento con la participación de más de 12 industrias y la llegada de compradores canadienses.' },
-  { year: '2025', title: 'Reconocimiento institucional', text: 'Aliados estratégicos de gobierno, cámaras de comercio y organismos internacionales se suman al proyecto.' },
-  { year: '2027', title: 'Edición histórica', text: 'Cinco días en Toronto con la participación de líderes, empresarias y creadoras que transforman el liderazgo mexicano en legado.' },
-];
-
-/* ══════════════════════════════════════════════════════════════
    COMPONENTS
 ══════════════════════════════════════════════════════════════ */
 
 
 function MissionVision() {
+  const { t } = useLanguage();
   return (
     <section className="mv-split" id="mision" aria-labelledby="mv-title">
       <div className="mv-split__inner">
         <Reveal>
           <h2 className="section__title" id="mv-title">
-            México en el mundo, <em>con todo su poder</em>
+            {t('pages.nosotros.missionVisionTitle').split(',')[0]}, <em>{t('pages.nosotros.missionVisionTitle').split(',').slice(1).join(',').trim()}</em>
           </h2>
         </Reveal>
 
         <div className="mv-split__grid">
           <Reveal delay={150} className="mv-card">
-            <div className="mv-card__label">Misión</div>
-            <h3 className="mv-card__title">Conectar el talento mexicano con el mundo</h3>
+            <div className="mv-card__label">{t('pages.nosotros.misionLabel')}</div>
+            <h3 className="mv-card__title">{t('pages.nosotros.misionTitle')}</h3>
             <p className="mv-card__text">
-              Consolidar la proyección internacional de México a través de una plataforma
-              que conecta el talento, la cultura y los productos mexicanos con oportunidades
-              concretas en Canadá, impulsando el desarrollo económico y fortaleciendo la
-              identidad nacional en el extranjero.
+              {t('pages.nosotros.misionText')}
             </p>
           </Reveal>
 
           <Reveal delay={250} className="mv-card mv-card--vision">
-            <div className="mv-card__label">Visión</div>
-            <h3 className="mv-card__title">Ser el referente binacional del liderazgo femenino</h3>
+            <div className="mv-card__label">{t('pages.nosotros.visionLabel')}</div>
+            <h3 className="mv-card__title">{t('pages.nosotros.visionTitle')}</h3>
             <p className="mv-card__text">
-              Ser el referente binacional más importante para el liderazgo femenino
-              mexicano, creando un ecosistema de negocios, cultura y comunidad que
-              trascienda generaciones y fronteras.
+              {t('pages.nosotros.visionText')}
             </p>
           </Reveal>
         </div>
@@ -120,6 +65,31 @@ function MissionVision() {
 }
 
 function StatsBar() {
+  const { t } = useLanguage();
+
+  const stats = [
+    { 
+      value: '+5,000', 
+      label: t('pages.nosotros.statsAsistentesLabel'),
+      desc: t('pages.nosotros.statsAsistentesDesc')
+    },
+    { 
+      value: '50+', 
+      label: t('pages.nosotros.statsConferenciasLabel'),
+      desc: t('pages.nosotros.statsConferenciasDesc')
+    },
+    { 
+      value: 'B2B', 
+      label: t('pages.nosotros.statsNetworkingLabel'),
+      desc: t('pages.nosotros.statsNetworkingDesc')
+    },
+    { 
+      value: '100%', 
+      label: t('pages.nosotros.statsTalentoLabel'),
+      desc: t('pages.nosotros.statsTalentoDesc')
+    },
+  ];
+
   return (
     <section className="stmt" id="estadisticas" aria-label="Estadísticas">
       <div className="stmt__scanlines" aria-hidden="true" />
@@ -132,12 +102,12 @@ function StatsBar() {
           <Reveal>
             <span className="stmt__location">
               <span className="stmt__location-dot" />
-              Toronto · Canadá
+              {t('pages.nosotros.statsLocation')}
             </span>
             <h2 className="stmt__headline" style={{ marginTop: '16px' }}>
-              El liderazgo<br />
-              mexicano<br />
-              <em>no tiene<br />fronteras</em>
+              {t('pages.nosotros.statsHeadline').split(' ')[0]}<br />
+              {t('pages.nosotros.statsHeadline').split(' ')[1]}<br />
+              <em>{t('pages.nosotros.statsHeadline').split(' ').slice(2).join(' ').split(' ').slice(0, 1).join(' ')}<br />{t('pages.nosotros.statsHeadline').split(' ').slice(2).join(' ').split(' ').slice(1).join(' ')}</em>
             </h2>
           </Reveal>
         </div>
@@ -175,15 +145,36 @@ function StatsBar() {
 }
 
 function ValuesGrid() {
+  const { t } = useLanguage();
+
+  const values = [
+    {
+      title: t('pages.nosotros.val1Title'),
+      text: t('pages.nosotros.val1Text'),
+    },
+    {
+      title: t('pages.nosotros.val2Title'),
+      text: t('pages.nosotros.val2Text'),
+    },
+    {
+      title: t('pages.nosotros.val3Title'),
+      text: t('pages.nosotros.val3Text'),
+    },
+    {
+      title: t('pages.nosotros.val4Title'),
+      text: t('pages.nosotros.val4Text'),
+    },
+  ];
+
   return (
     <section className="vals" id="valores" aria-labelledby="vals-title">
       <div className="vals__inner">
         <Reveal>
           <h2 className="section__title" id="vals-title">
-            Lo que nos define, <em>nos distingue</em>
+            {t('pages.nosotros.valsTitle').split(',')[0]}, <em>{t('pages.nosotros.valsTitle').split(',').slice(1).join(',').trim()}</em>
           </h2>
           <p className="section__desc" style={{ marginBottom: 0 }}>
-            Cuatro valores que guían cada decisión, cada alianza y cada paso.
+            {t('pages.nosotros.valsDesc')}
           </p>
         </Reveal>
         <div className="vals__grid reveal-stagger">
@@ -201,16 +192,24 @@ function ValuesGrid() {
 }
 
 function Timeline() {
+  const { t } = useLanguage();
+
+  const milestones = [
+    { year: t('pages.nosotros.milestone1Year'), title: t('pages.nosotros.milestone1Title'), text: t('pages.nosotros.milestone1Text') },
+    { year: t('pages.nosotros.milestone2Year'), title: t('pages.nosotros.milestone2Title'), text: t('pages.nosotros.milestone2Text') },
+    { year: t('pages.nosotros.milestone3Year'), title: t('pages.nosotros.milestone3Title'), text: t('pages.nosotros.milestone3Text') },
+    { year: t('pages.nosotros.milestone4Year'), title: t('pages.nosotros.milestone4Title'), text: t('pages.nosotros.milestone4Text') },
+  ];
+
   return (
     <section className="tl" id="historia" aria-labelledby="tl-title">
       <div className="tl__inner">
         <Reveal>
           <h2 className="section__title" id="tl-title">
-            De la visión a la <em>realidad</em>
+            {t('pages.nosotros.tlTitle').split(' a ')[0]} a <em>{t('pages.nosotros.tlTitle').split(' a ')[1]}</em>
           </h2>
           <p className="section__desc" style={{ marginBottom: 0 }}>
-            Cada edición ha sido un paso firme hacia la consolidación de una comunidad
-            binacional que impulsa el talento mexicano.
+            {t('pages.nosotros.tlDesc')}
           </p>
         </Reveal>
 
