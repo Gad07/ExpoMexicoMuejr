@@ -692,10 +692,10 @@ function ExpositoresContent() {
           
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: '40px', maxWidth: '800px', margin: '0 auto 40px' }}>
-              <h2 className="section__title" style={{ marginTop: '16px' }}>
+              <h2 className="section__title section__title--center" style={{ marginTop: '16px' }}>
                 Descubre el talento por <br /><em>Categoría de Negocio</em>
               </h2>
-              <p className="section__desc">
+              <p className="section__desc section__desc--center">
                 Explora las marcas, productos y servicios que las mujeres emprendedoras de México traen a Toronto. Haz clic en una categoría para ver su directorio.
               </p>
             </div>
@@ -730,6 +730,74 @@ function ExpositoresContent() {
                 </div>
               </div>
             </Reveal>
+          </div>
+
+          {/* 1.5 Costos de Stand */}
+          <div style={{ marginBottom: '120px' }}>
+            <Reveal>
+              <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+                <h2 className="section__title section__title--center" style={{ marginTop: '16px' }}>Adquiere tu <br /><em>Stand</em></h2>
+                <p style={{ fontSize: '1.1rem', color: 'var(--navy)', marginTop: '16px', fontWeight: 600 }}>
+                  Pueden apartar su lugar con el <strong style={{ color: 'var(--magenta)' }}>50% de anticipo</strong> antes del <strong style={{ color: 'var(--gold)' }}>30 de Agosto</strong>
+                </p>
+              </div>
+            </Reveal>
+
+            <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+              
+              {/* Tarjeta del Costo Base (Horizontal) */}
+              <Reveal delay={100}>
+                <div style={{
+                  background: '#fff', borderRadius: '24px', padding: '40px',
+                  boxShadow: '0 20px 40px rgba(0,0,0,0.08)', borderLeft: '6px solid var(--navy)',
+                  display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'center'
+                }}>
+                  {/* Columna Izquierda: Información */}
+                  <div style={{ flex: '1 1 350px' }}>
+                    <div style={{ color: 'var(--navy)', fontSize: '2.5rem', fontFamily: 'var(--font-display)', fontWeight: 900, marginBottom: '8px' }}>Stand</div>
+                    
+                    <p style={{ fontSize: '1rem', color: 'var(--text-muted)', margin: '16px 0 24px', lineHeight: 1.6 }}>
+                      Asegura tu espacio en la Expo México Mujer 2027. Un lugar perfecto para exhibir tus productos y servicios en Norteamérica.
+                    </p>
+                    
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                      <li style={{ display: 'flex', marginBottom: '12px', fontSize: '0.95rem', color: 'var(--text)' }}>
+                        <span style={{ color: 'var(--magenta)', marginRight: '12px', fontWeight: 'bold' }}>✓</span> Espacio de 3x3 o 2x2 metros
+                      </li>
+                      <li style={{ display: 'flex', marginBottom: '12px', fontSize: '0.95rem', color: 'var(--text)' }}>
+                        <span style={{ color: 'var(--magenta)', marginRight: '12px', fontWeight: 'bold' }}>✓</span> Iluminación LED direccional
+                      </li>
+                      <li style={{ display: 'flex', marginBottom: '0', fontSize: '0.95rem', color: 'var(--text)' }}>
+                        <span style={{ color: 'var(--magenta)', marginRight: '12px', fontWeight: 'bold' }}>✓</span> Conexión eléctrica de 110v
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Columna Derecha: Precio y CTA */}
+                  <div style={{ 
+                    flex: '0 0 auto', minWidth: '280px', display: 'flex', flexDirection: 'column', 
+                    alignItems: 'center', textAlign: 'center', padding: '32px', 
+                    background: 'rgba(0,46,81,0.03)', borderRadius: '16px' 
+                  }}>
+                    <div style={{ fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-muted)', marginBottom: '12px' }}>Precio Regular</div>
+                    <div style={{ color: 'var(--navy)', fontSize: '3.5rem', fontFamily: 'var(--font-display)', fontWeight: 900, lineHeight: 1, marginBottom: '32px' }}>$2,000 <span style={{ fontSize: '1.2rem', color: 'var(--text-muted)' }}>CAD</span></div>
+                    
+                    <a href="mailto:francisco@expomexico.ca" style={{ 
+                      background: 'var(--navy)', color: '#fff', padding: '16px 32px', textAlign: 'center', 
+                      borderRadius: '12px', textDecoration: 'none', fontFamily: 'var(--font-display)', fontWeight: 800,
+                      textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.9rem', transition: 'transform 0.2s, box-shadow 0.2s',
+                      boxShadow: '0 10px 20px rgba(0,46,81,0.2)', width: '100%'
+                    }}
+                    onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 15px 25px rgba(0,46,81,0.3)'; }}
+                    onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 20px rgba(0,46,81,0.2)'; }}
+                    >
+                      Reservar con el 50%
+                    </a>
+                  </div>
+                </div>
+              </Reveal>
+
+            </div>
           </div>
 
           {/* 2. Beneficios de participación (Horizontal Cards Layout) */}

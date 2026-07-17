@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import { LogOut, Newspaper, LayoutDashboard, Settings, Users, User, Menu, X, Handshake, Medal, ChevronDown, ShoppingBag, Star } from 'lucide-react';
+import { LogOut, Newspaper, LayoutDashboard, Settings, Users, User, Menu, X, Handshake, Medal, ChevronDown, ShoppingBag, Star, Image as ImageIcon } from 'lucide-react';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -95,6 +95,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   const navItems = [
     { label: 'Dashboard', icon: <LayoutDashboard size={18} />, href: '/admin' },
+    { label: 'Banners', icon: <ImageIcon size={18} />, href: '/admin/banners' },
     { label: 'Noticias', icon: <Newspaper size={18} />, href: '/admin/noticias' },
     {
       label: 'Directorios',

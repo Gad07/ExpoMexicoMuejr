@@ -71,6 +71,9 @@ export default function PatrocinadoresPage() {
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: '48px' }}>
               <h2 className="section__title section__title--center" style={{ marginTop: '16px' }}>Paquetes de <br /><em>Patrocinio</em></h2>
+              <p style={{ fontSize: '1.1rem', color: 'var(--navy)', marginTop: '16px', fontWeight: 600 }}>
+                Pueden apartar su lugar con el <strong style={{ color: 'var(--magenta)' }}>50% de anticipo</strong> antes del <strong style={{ color: 'var(--gold)' }}>30 de Agosto</strong>
+              </p>
             </div>
           </Reveal>
           
@@ -89,14 +92,25 @@ export default function PatrocinadoresPage() {
             .pricing-card--oro .pricing-card__name { color: #e4b000; font-size: 2.3rem !important; }
             .pricing-card--oro .pricing-card__cta { background: #e4b000; color: #000; border: none; font-size: 1rem; padding: 20px; }
             .pricing-card--oro .pricing-card__cta:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+            
+            .discount-tag {
+              display: inline-block;
+              background: rgba(228,0,124,0.1);
+              color: var(--magenta);
+              padding: 4px 12px;
+              border-radius: 20px;
+              font-weight: 800;
+              font-size: 0.9rem;
+              margin-left: 12px;
+            }
           `}</style>
 
           <div className="pricing-tiers__grid" style={{ marginTop: 48, alignItems: 'stretch', textAlign: 'center' }}>
             {[
               {
                 name: "Patrocinio Bronce",
-                type: "Acceso Inicial",
-                discount: "Bronce",
+                type: "Nuevas Expositoras",
+                discount: "20% OFF",
                 theme: "bronce",
                 color: "#CD7F32",
                 price: "$4,000",
@@ -115,8 +129,8 @@ export default function PatrocinadoresPage() {
               },
               {
                 name: "Patrocinio Plata",
-                type: "Presencia Destacada",
-                discount: "Plata",
+                type: "Referidas",
+                discount: "25% OFF",
                 theme: "plata",
                 color: "#a0a0a0",
                 price: "$6,000",
@@ -136,8 +150,8 @@ export default function PatrocinadoresPage() {
               },
               {
                 name: "Patrocinio Oro",
-                type: "Presencia Estelar",
-                discount: "Oro",
+                type: "Expositoras 2026",
+                discount: "30% OFF",
                 theme: "oro",
                 color: "#e4b000",
                 price: "$8,000",
@@ -162,17 +176,8 @@ export default function PatrocinadoresPage() {
               <Reveal key={t.name} delay={150} className={`pricing-card pricing-card--${t.theme}`} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
                 {t.featured && <div className="pricing-card__badge" style={{ background: t.color }}>Más Popular</div>}
 
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
-                  <span style={{ padding: '6px 14px', background: `${t.color}20`, color: t.color, borderRadius: '20px', fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '0.85rem' }}>
-                    {t.type}
-                  </span>
-                  <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-muted)' }}>
-                    Nivel {t.discount}
-                  </span>
-                </div>
-
                 <div className="pricing-card__name" style={{ color: t.featured ? t.color : 'inherit', fontSize: '2rem' }}>{t.name}</div>
-                <div className="pricing-card__price">{t.price} <span>CAD</span></div>
+                <div className="pricing-card__price" style={{ color: t.color, fontSize: '3.5rem' }}>{t.discount}</div>
                 <div className="pricing-card__sub">{t.sub}</div>
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: '16px 0', lineHeight: 1.5, textAlign: 'left' }}>{t.description}</p>
 

@@ -944,7 +944,7 @@ const costTiers = [
   {
     name: 'Paquete Bronce',
     type: 'Nuevas Expositoras',
-    discount: '20%',
+    discount: '20% OFF',
     price: '$4,000',
     sub: 'CAD — Paquete base',
     featured: false,
@@ -965,7 +965,7 @@ const costTiers = [
   {
     name: 'Paquete Plata',
     type: 'Expositoras Referidas',
-    discount: '25%',
+    discount: '25% OFF',
     price: '$6,000',
     sub: 'CAD — Precio preferencial',
     featured: false,
@@ -987,7 +987,7 @@ const costTiers = [
   {
     name: 'Paquete Oro',
     type: 'Expositoras 2026',
-    discount: '30%',
+    discount: '30% OFF',
     price: '$8,000',
     sub: 'CAD — Beneficio de lealtad',
     featured: true,
@@ -1038,6 +1038,17 @@ function Costos() {
           .pricing-card--oro .pricing-card__name { color: #e4b000; font-size: 2.3rem !important; }
           .pricing-card--oro .pricing-card__cta { background: #e4b000; color: #000; border: none; font-size: 1rem; padding: 20px; }
           .pricing-card--oro .pricing-card__cta:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+
+          .discount-tag {
+            display: inline-block;
+            background: rgba(228,0,124,0.1);
+            color: var(--magenta);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-left: 12px;
+          }
         `}</style>
 
         <div className="pricing-tiers__grid" style={{ marginTop: 48, alignItems: 'stretch' }}>
@@ -1045,17 +1056,8 @@ function Costos() {
             <Reveal key={t.name} delay={150} className={`pricing-card pricing-card--${t.theme}`} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
               {t.featured && <div className="pricing-card__badge" style={{ background: t.color }}>Más Popular</div>}
 
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
-                <span style={{ padding: '6px 14px', background: `${t.color}20`, color: t.color, borderRadius: '20px', fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '0.85rem' }}>
-                  {t.type}
-                </span>
-                <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-muted)' }}>
-                  Ahorro del {t.discount}
-                </span>
-              </div>
-
               <div className="pricing-card__name" style={{ color: t.featured ? t.color : 'inherit', fontSize: '2rem' }}>{t.name}</div>
-              <div className="pricing-card__price">{t.price} <span>CAD</span></div>
+              <div className="pricing-card__price" style={{ color: t.color, fontSize: '3.5rem' }}>{t.discount}</div>
               <div className="pricing-card__sub">{t.sub}</div>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: '16px 0', lineHeight: 1.5, textAlign: 'left' }}>{t.description}</p>
 
@@ -1278,6 +1280,146 @@ function CountdownTape() {
 
 
 /* ══════════════════════════════════════════════════════════════
+   PROMO CAROUSEL (IMAGES WITH CONTROLS)
+══════════════════════════════════════════════════════════════ */
+function PromoCarousel() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [banners, setBanners] = useState<{ id: number, imageUrl: string, active: boolean, order: number }[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/api/admin/banners')
+      .then(res => res.json())
+      .then(data => {
+        if (data.banners && data.banners.length > 0) {
+          const activeBanners = data.banners.filter((b: any) => b.active).sort((a: any, b: any) => a.order - b.order);
+          if (activeBanners.length > 0) {
+            setBanners(activeBanners);
+          } else {
+            // Fallback si todos están inactivos
+            setBanners([
+              { id: 1, imageUrl: '/home-hero-2.jpg', active: true, order: 1 },
+              { id: 2, imageUrl: '/nosotros-hero.jpg', active: true, order: 2 }
+            ]);
+          }
+        } else {
+          // Fallback si no hay banners
+          setBanners([
+            { id: 1, imageUrl: '/home-hero-2.jpg', active: true, order: 1 },
+            { id: 2, imageUrl: '/nosotros-hero.jpg', active: true, order: 2 },
+            { id: 3, imageUrl: 'https://images.pexels.com/photos/935474/toronto-beauty-clouds-skyline-935474.jpeg?cs=srgb&dl=-935474.jpg&fm=jpg', active: true, order: 3 }
+          ]);
+        }
+      })
+      .catch(() => {
+        setBanners([
+          { id: 1, imageUrl: '/home-hero-2.jpg', active: true, order: 1 },
+          { id: 2, imageUrl: '/nosotros-hero.jpg', active: true, order: 2 }
+        ]);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % banners.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + banners.length) % banners.length);
+  };
+
+  useEffect(() => {
+    if (banners.length === 0) return;
+    const timer = setInterval(nextSlide, 6000);
+    return () => clearInterval(timer);
+  }, [banners.length]);
+
+  if (loading) return null;
+  if (banners.length === 0) return null;
+
+  return (
+    <div className="promo-carousel-wrapper" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: '#000', borderBottom: '1px solid rgba(0,46,81,0.05)' }}>
+      <div 
+        className="promo-carousel-inner" 
+        style={{ 
+          display: 'flex', 
+          transition: 'transform 0.5s ease-in-out', 
+          transform: `translateX(-${currentIndex * 100}%)` 
+        }}
+      >
+        {banners.map((banner, idx) => (
+          <div key={banner.id} style={{ width: '100%', flexShrink: 0, position: 'relative' }}>
+            <img 
+              src={banner.imageUrl} 
+              alt={`Banner promocional ${idx + 1}`} 
+              style={{ width: '100%', height: '100%', maxHeight: '400px', objectFit: 'cover', display: 'block', opacity: 0.9 }} 
+            />
+          </div>
+        ))}
+      </div>
+
+      {banners.length > 1 && (
+        <>
+          <button 
+            onClick={prevSlide} 
+            style={{ 
+              position: 'absolute', top: '50%', left: '24px', transform: 'translateY(-50%)', 
+              background: 'rgba(255,255,255,0.9)', border: 'none', borderRadius: '50%', width: '48px', height: '48px', 
+              display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', zIndex: 10,
+              boxShadow: '0 4px 12px rgba(0,0,0,0.15)', color: 'var(--navy)', transition: 'transform 0.2s, background 0.2s'
+            }}
+            onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)'}
+            onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(-50%) scale(1)'}
+            aria-label="Anterior banner"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+
+          <button 
+            onClick={nextSlide} 
+            style={{ 
+              position: 'absolute', top: '50%', right: '24px', transform: 'translateY(-50%)', 
+              background: 'rgba(255,255,255,0.9)', border: 'none', borderRadius: '50%', width: '48px', height: '48px', 
+              display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', zIndex: 10,
+              boxShadow: '0 4px 12px rgba(0,0,0,0.15)', color: 'var(--navy)', transition: 'transform 0.2s, background 0.2s'
+            }}
+            onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)'}
+            onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(-50%) scale(1)'}
+            aria-label="Siguiente banner"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+
+          <div style={{ position: 'absolute', bottom: '24px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '10px', zIndex: 10 }}>
+            {banners.map((_, idx) => (
+              <button 
+                key={idx} 
+                onClick={() => setCurrentIndex(idx)}
+                style={{
+                  width: currentIndex === idx ? '32px' : '10px',
+                  height: '10px',
+                  borderRadius: '6px',
+                  background: currentIndex === idx ? 'var(--magenta)' : 'rgba(255,255,255,0.7)',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                }}
+                aria-label={`Ir a la imagen ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+
+
+/* ══════════════════════════════════════════════════════════════
    PAGE ROOT
 ══════════════════════════════════════════════════════════════ */
 export default function HomePage() {
@@ -1288,6 +1430,7 @@ export default function HomePage() {
 
       <div className="page-content-wrapper">
         <CountdownTape />
+        <PromoCarousel />
         <Hero
           image="/home-hero-2.jpg"
           title={<>{t('home.concept.title')}<br /><em>{t('home.concept.titleEm')}</em></>}
