@@ -387,7 +387,7 @@ export default function AdminInvitados() {
                   </div>
 
                   <div>
-                    <div style={{ display: 'flex', justifycontent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                       <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#002E51' }}>Galería de Imágenes (Opcional)</label>
                       <button type="button" onClick={addGalleryField} style={{ background: 'none', border: 'none', color: '#E4007C', fontSize: '0.75rem', fontWeight: 700, cursor: 'pointer' }}>+ Agregar</button>
                     </div>
@@ -420,7 +420,7 @@ export default function AdminInvitados() {
                     </div>
 
                     <div style={{ padding: '0 24px 32px', position: 'relative', textAlign: 'center', marginTop: '16px' }}>
-                      <div style={{ height: '90px', display: 'flex', alignItems: 'center', justifycontent: 'center', background: '#FAF8F5', borderRadius: '16px', marginBottom: '24px', padding: '16px', margin: '0 auto 20px' }}>
+                      <div style={{ height: '90px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#FAF8F5', borderRadius: '16px', marginBottom: '24px', padding: '16px', margin: '0 auto 20px' }}>
                         {editing.logo ? <img src={editing.logo} alt="Logo" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} onError={e => e.currentTarget.style.display = 'none'} /> : <Sparkles size={40} color="#ccc" style={{ margin: '0 auto' }} />}
                       </div>
 

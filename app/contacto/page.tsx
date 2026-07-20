@@ -137,7 +137,7 @@ export default function ContactoPage() {
               <img src="/fotos perfil/Foto Francisco.jpg" alt="" loading="lazy" width="120" height="120" />
             </div>
             <h2 className="c-name">Francisco Solorio</h2>
-            <div className="c-role">Director General</div>
+            <div className="c-role">{t('pages.contacto.directorGeneral')}</div>
             
             <div className="c-links">
               <a href="mailto:francisco@expomexico.ca" className="c-link-item">
@@ -162,7 +162,7 @@ export default function ContactoPage() {
               <img src="/fotos perfil/Foto Luis.jpg" alt="" loading="lazy" width="120" height="120" />
             </div>
             <h2 className="c-name">Luis García</h2>
-            <div className="c-role">Director de Operaciones</div>
+            <div className="c-role">{t('pages.contacto.directorOperaciones')}</div>
             
             <div className="c-links">
               <a href="mailto:luis@expomexico.ca" className="c-link-item">
@@ -192,13 +192,13 @@ export default function ContactoPage() {
           </div>
           <div className="hq-content">
             <div className="hq-icon"><MapPin size={32} /></div>
-            <h2 className="hq-title">Sede Oficial 2027</h2>
+            <h2 className="hq-title">{t('pages.contacto.sedeTitle')}</h2>
             <p className="hq-desc">
-              <strong>Metro Toronto Convention Centre.</strong><br/>
-              El evento binacional más importante del año en el corazón financiero de Toronto.
+              <strong>{t('pages.contacto.sedeDesc')}</strong><br/>
+              {t('pages.contacto.sedeDesc2')}
             </p>
             <a href="https://www.mtccc.com/" className="hq-btn" target="_blank" rel="noopener noreferrer">
-              <span>Visitar sitio de la sede</span>
+              <span>{t('pages.contacto.visitarSede')}</span>
               <Globe size={20} />
             </a>
           </div>
@@ -210,10 +210,10 @@ export default function ContactoPage() {
         <Reveal>
           <div style={{ background: '#fff', padding: '60px 40px', borderRadius: '32px', boxShadow: '0 20px 50px rgba(0,25,76,0.04)', maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '16px' }}>
-              Formulario de Contacto
+              {t('pages.contacto.formularioTitle')}
             </h2>
             <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px' }}>
-              Completa el siguiente formulario oficial de registro para enviarnos tus dudas, propuestas o comentarios.
+              {t('pages.contacto.formularioDesc')}
             </p>
             
             <div style={{ width: '100%', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(0,0,0,0.05)', background: '#FAF8F5' }}>

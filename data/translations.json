@@ -245,7 +245,7 @@
         "fr": "Un espace conçu pour que chaque visiteur trouve sa place à l'expo et définisse son rôle dans cette histoire binationale."
       },
       "item1": {
-        "es": "Emprendedoras buscando expandirse a Canadá",
+        "es": " Emprendedoras buscando expandirse a Canadá PRUEBA",
         "en": "Entrepreneurs looking to expand to Canada",
         "fr": "Entrepreneuses cherchant à s'étendre au Canada"
       },
@@ -431,6 +431,562 @@
         "es": "Ver todas las noticias",
         "en": "See all news",
         "fr": "Voir toutes les actualités"
+      }
+    },
+    "impactMetrics": {
+      "0": {
+        "title": {
+          "es": "Expositoras",
+          "en": "Exhibitors",
+          "fr": "Exposants"
+        },
+        "text": {
+          "es": "Participación destacada de mujeres en la primera edición de la Expo.",
+          "en": "Outstanding participation of women in the first edition of the Expo.",
+          "fr": "Participation exceptionnelle des femmes à la première édition de l'Expo."
+        }
+      },
+      "1": {
+        "title": {
+          "es": "Estados",
+          "en": "States",
+          "fr": "États"
+        },
+        "text": {
+          "es": "60 expositoras provenientes de diversas regiones de la República Mexicana.",
+          "en": "60 exhibitors from various regions of the Mexican Republic.",
+          "fr": "60 exposants de différentes régions de la République mexicaine."
+        }
+      },
+      "2": {
+        "title": {
+          "es": "Comunidades",
+          "en": "Communities",
+          "fr": "Communautés"
+        },
+        "text": {
+          "es": "Integrantes de comunidades indígenas y afromexicanas compartiendo su riqueza cultural.",
+          "en": "Members of indigenous and Afro-Mexican communities sharing their cultural wealth.",
+          "fr": "Membres de communautés indigènes et afro-mexicaines partageant leur richesse culturelle."
+        }
+      },
+      "3": {
+        "title": {
+          "es": "Empresas",
+          "en": "Companies",
+          "fr": "Entreprises"
+        },
+        "text": {
+          "es": "Empresas mexicanas establecidas en las provincias de Ontario y Québec.",
+          "en": "Mexican companies established in the provinces of Ontario and Québec.",
+          "fr": "Entreprises mexicaines établies dans les provinces de l'Ontario et du Québec."
+        }
+      },
+      "4": {
+        "title": {
+          "es": "Marcas",
+          "en": "Brands",
+          "fr": "Marques"
+        },
+        "text": {
+          "es": "Presencia de marcas mexicanas impulsando el desarrollo económico y cultural.",
+          "en": "Presence of Mexican brands promoting economic and cultural development.",
+          "fr": "Présence de marques mexicaines favorisant le développement économique et culturel."
+        }
+      },
+      "5": {
+        "title": {
+          "es": "Artistas",
+          "en": "Artists",
+          "fr": "Artistes"
+        },
+        "text": {
+          "es": "Representando el ámbito cultural de pintura, danza, música, canto y escultura.",
+          "en": "Representing the cultural field of painting, dance, music, singing and sculpture.",
+          "fr": "Représentant le domaine culturel de la peinture, de la danse, de la musique, du chant et de la sculpture."
+        }
+      },
+      "6": {
+        "title": {
+          "es": "Artistas Mexicanas",
+          "en": "Mexican Artists",
+          "fr": "Artistes mexicains"
+        },
+        "text": {
+          "es": "Obras exhibidas en la Galería de Arte al interior del recinto.",
+          "en": "Works exhibited in the Art Gallery inside the venue.",
+          "fr": "Œuvres exposées dans la Galerie d'Art à l'intérieur du lieu."
+        }
+      },
+      "7": {
+        "title": {
+          "es": "Impresiones",
+          "en": "Impressions",
+          "fr": "Impressions"
+        },
+        "text": {
+          "es": "Más de 4 mil asistentes, 15 mil interacciones en redes y un 92% de reputación positiva.",
+          "en": "More than 4 thousand attendees, 15 thousand interactions on networks and a 92% positive reputation.",
+          "fr": "Plus de 4 mille participants, 15 mille interactions sur les réseaux et une réputation positive de 92%."
+        }
+      }
+    },
+    "marqueeTop": {
+      "0": {
+        "es": "Toronto 2027",
+        "en": "Toronto 2027",
+        "fr": "Toronto 2027"
+      },
+      "1": {
+        "es": "México – Canadá",
+        "en": "Mexico – Canada",
+        "fr": "Mexique – Canada"
+      },
+      "2": {
+        "es": "Empoderamiento",
+        "en": "Empowerment",
+        "fr": "Autonomisation"
+      },
+      "3": {
+        "es": "Negocios globales",
+        "en": "Global business",
+        "fr": "Affaires mondiales"
+      },
+      "4": {
+        "es": "Cultura mexicana",
+        "en": "Mexican culture",
+        "fr": "Culture mexicaine"
+      },
+      "5": {
+        "es": "Innovación",
+        "en": "Innovation",
+        "fr": "Innovation"
+      },
+      "6": {
+        "es": "Liderazgo femenino",
+        "en": "female leadership",
+        "fr": "leadership féminin"
+      },
+      "7": {
+        "es": "Comercio binacional",
+        "en": "Binational trade",
+        "fr": "Commerce binational"
+      }
+    },
+    "marqueeBottom": {
+      "0": {
+        "es": "9–13 Junio 2027",
+        "en": "June 9–13, 2027",
+        "fr": "Du 9 au 13 juin 2027"
+      },
+      "1": {
+        "es": "Liderazgo femenino",
+        "en": "female leadership",
+        "fr": "leadership féminin"
+      },
+      "2": {
+        "es": "Toronto · Canada",
+        "en": "Toronto · Canada",
+        "fr": "Toronto · Canada"
+      },
+      "3": {
+        "es": "Binacional",
+        "en": "Binational",
+        "fr": "Binational"
+      },
+      "4": {
+        "es": "Exportación",
+        "en": "Export",
+        "fr": "Exporter"
+      },
+      "5": {
+        "es": "Innovación",
+        "en": "Innovation",
+        "fr": "Innovation"
+      },
+      "6": {
+        "es": "Comunidad mexicana",
+        "en": "Mexican community",
+        "fr": "Communauté mexicaine"
+      },
+      "7": {
+        "es": "Empoderamiento",
+        "en": "Empowerment",
+        "fr": "Autonomisation"
+      },
+      "8": {
+        "es": "5 días · 12 industrias",
+        "en": "5 days · 12 industries",
+        "fr": "5 jours · 12 industries"
+      }
+    },
+    "mexicanStates": {
+      "title": {
+        "es": "Descubre el talento por.",
+        "en": "Discover talent by.",
+        "fr": "Découvrez les talents par."
+      },
+      "titleEm": {
+        "es": "Estados de México.",
+        "en": "States of Mexico.",
+        "fr": "États du Mexique."
+      },
+      "desc": {
+        "es": "Diversos estados con presencia destacada en la expo, reflejando la diversidad y riqueza de la oferta mexicana.",
+        "en": "Various states with a prominent presence at the expo, reflecting the diversity and richness of the Mexican offer.",
+        "fr": "Différents États avec une présence importante à l'exposition, reflétant la diversité et la richesse de l'offre mexicaine."
+      }
+    },
+    "serviciosMigratorios": {
+      "title": {
+        "es": "Servicios",
+        "en": "Services",
+        "fr": "Services"
+      },
+      "titleEm": {
+        "es": "Migratorios",
+        "en": "Migratory",
+        "fr": "Migratoire"
+      },
+      "desc": {
+        "es": "Facilitamos todos los trámites migratorios necesarios para que tu delegación comercial viaje a Toronto sin contratiempos. Nuestro equipo especializado te acompaña en cada paso, desde la solicitud hasta la aprobación.",
+        "en": "We facilitate all the necessary immigration procedures so that your commercial delegation travels to Toronto without any setbacks. Our specialized team accompanies you every step of the way, from application to approval.",
+        "fr": "Nous facilitons toutes les procédures d'immigration nécessaires pour que votre délégation commerciale se rende à Toronto sans aucun revers. Notre équipe spécialisée vous accompagne à chaque étape, de la demande à l'approbation."
+      },
+      "sponsor": {
+        "es": "Servicios operados por",
+        "en": "Services operated by",
+        "fr": "Services exploités par"
+      },
+      "sponsorName": {
+        "es": "LET",
+        "en": "LET",
+        "fr": "LAISSER"
+      },
+      "sponsorSub": {
+        "es": "Patrocinador Oficial de Expo México Mujer",
+        "en": "Official Sponsor of Expo México Mujer",
+        "fr": "Sponsor officiel de l'Expo México Mujer"
+      },
+      "cta": {
+        "es": "Conoce más en Grupo LET",
+        "en": "Learn more at LET Group",
+        "fr": "En savoir plus sur le Groupe LET"
+      },
+      "service1": {
+        "title": {
+          "es": "Visa Canadiense",
+          "en": "Canadian Visa",
+          "fr": "Visa canadien"
+        },
+        "desc": {
+          "es": "Gestión completa para el trámite de visado, garantizando que tu delegación comercial cumpla con todos los requisitos para tu viaje de negocios a Toronto.",
+          "en": "Complete management for the visa process, guaranteeing that your commercial delegation meets all the requirements for your business trip to Toronto.",
+          "fr": "Gestion complète du processus de visa, garantissant que votre délégation commerciale répond à toutes les exigences de votre voyage d'affaires à Toronto."
+        }
+      },
+      "service2": {
+        "title": {
+          "es": "eTA Canadiense",
+          "en": "Canadian eTA",
+          "fr": "AVE canadienne"
+        },
+        "desc": {
+          "es": "Procesamiento ágil de la Autorización Electrónica de Viaje (eTA) para participantes elegibles, asegurando un tránsito rápido y seguro hacia el evento.",
+          "en": "Agile processing of the Electronic Travel Authorization (eTA) for eligible participants, ensuring rapid and safe transit to the event.",
+          "fr": "Traitement agile de l'autorisation de voyage électronique (AVE) pour les participants éligibles, garantissant un transit rapide et sûr vers l'événement."
+        }
+      }
+    },
+    "costos": {
+      "bronce": {
+        "name": {
+          "es": "Paquete Bronce",
+          "en": "Bronze Package",
+          "fr": "Forfait Bronze"
+        },
+        "type": {
+          "es": "Nuevas Expositoras",
+          "en": "New Exhibitors",
+          "fr": "Nouveaux exposants"
+        },
+        "discount": {
+          "es": "20% OFF",
+          "en": "20% OFF",
+          "fr": "20% DE RÉDUCTION"
+        },
+        "sub": {
+          "es": "CAD — Paquete base",
+          "en": "CAD — Base package",
+          "fr": "CAO — Forfait de base"
+        },
+        "description": {
+          "es": "Ideal para organizaciones que desean incorporarse a Expo México Mujer y comenzar a posicionar sus servicios dentro de la comunidad y mercado canadiense.",
+          "en": "Ideal for organizations that want to join Expo México Mujer and begin to position their services within the Canadian community and market.",
+          "fr": "Idéal pour les organisations qui souhaitent se joindre à Expo México Mujer et commencer à positionner leurs services au sein de la communauté et du marché canadien."
+        },
+        "features": {
+          "0": {
+            "es": "Stand de 2 x 2 metros",
+            "en": "2 x 2 meter stand",
+            "fr": "Support de 2 x 2 mètres"
+          },
+          "1": {
+            "es": "1 acceso al Mexican Fashion Gala Show",
+            "en": "1 access to the Mexican Fashion Gala Show",
+            "fr": "1 accès au Gala de la Mode Mexicaine"
+          },
+          "2": {
+            "es": "1 acceso al Ontario – Mexico Business Summit",
+            "en": "1 access to the Ontario – Mexico Business Summit",
+            "fr": "1 accès au Sommet des affaires Ontario – Mexique"
+          },
+          "3": {
+            "es": "Presencia del logotipo en materiales promocionales",
+            "en": "Presence of the logo on promotional materials",
+            "fr": "Présence du logo sur les supports promotionnels"
+          },
+          "4": {
+            "es": "Promoción en redes sociales y sitio web oficial",
+            "en": "Promotion on social networks and official website",
+            "fr": "Promotion sur les réseaux sociaux et site officiel"
+          },
+          "5": {
+            "es": "Proyección del logotipo en pantallas",
+            "en": "Projection of the logo on screens",
+            "fr": "Projection du logo sur écrans"
+          },
+          "6": {
+            "es": "Presencia de marca mediante banners",
+            "en": "Brand presence through banners",
+            "fr": "Présence de la marque à travers des bannières"
+          },
+          "7": {
+            "es": "Reconocimiento institucional como patrocinador",
+            "en": "Institutional recognition as a sponsor",
+            "fr": "Reconnaissance institutionnelle en tant que sponsor"
+          }
+        }
+      },
+      "plata": {
+        "name": {
+          "es": "Paquete Plata",
+          "en": "Silver Package",
+          "fr": "Forfait Argent"
+        },
+        "type": {
+          "es": "Expositoras Referidas",
+          "en": "Referred Exhibitors",
+          "fr": "Exposants référencés"
+        },
+        "discount": {
+          "es": "25% OFF",
+          "en": "25% OFF",
+          "fr": "25% DE RÉDUCTION"
+        },
+        "sub": {
+          "es": "CAD — Precio preferencial",
+          "en": "CAD — Preferred price",
+          "fr": "CAD — Prix préférentiel"
+        },
+        "description": {
+          "es": "Una excelente alternativa para organizaciones que buscan una presencia destacada y una relación cercana con la comunidad empresarial mexicana – canadiense.",
+          "en": "An excellent alternative for organizations that seek a prominent presence and a close relationship with the Mexican-Canadian business community.",
+          "fr": "Une excellente alternative pour les organisations qui recherchent une présence importante et une relation étroite avec la communauté des affaires mexico-canadienne."
+        },
+        "features": {
+          "0": {
+            "es": "Stand de 4 x 3 metros",
+            "en": "4 x 3 meter stand",
+            "fr": "Support de 4 x 3 mètres"
+          },
+          "1": {
+            "es": "2 accesos al Mexican Fashion Gala Show",
+            "en": "2 access to the Mexican Fashion Gala Show",
+            "fr": "2 accès au Gala de la Mode Mexicaine"
+          },
+          "2": {
+            "es": "2 accesos al Ontario – Mexico Business Summit",
+            "en": "2 accesses to the Ontario – Mexico Business Summit",
+            "fr": "2 accès au Sommet des affaires Ontario – Mexique"
+          },
+          "3": {
+            "es": "Presencia del logotipo en materiales promocionales",
+            "en": "Presence of the logo on promotional materials",
+            "fr": "Présence du logo sur les supports promotionnels"
+          },
+          "4": {
+            "es": "Promoción en redes sociales y sitio web oficial",
+            "en": "Promotion on social networks and official website",
+            "fr": "Promotion sur les réseaux sociaux et site officiel"
+          },
+          "5": {
+            "es": "Proyección del logotipo en pantallas",
+            "en": "Projection of the logo on screens",
+            "fr": "Projection du logo sur écrans"
+          },
+          "6": {
+            "es": "Presencia de marca mediante banners",
+            "en": "Brand presence through banners",
+            "fr": "Présence de la marque à travers des bannières"
+          },
+          "7": {
+            "es": "Reconocimiento institucional",
+            "en": "Institutional recognition",
+            "fr": "Reconnaissance institutionnelle"
+          },
+          "8": {
+            "es": "Posibilidad de recibir la palabra en foro",
+            "en": "Possibility of receiving the word in the forum",
+            "fr": "Possibilité de recevoir la parole dans le forum"
+          }
+        }
+      },
+      "oro": {
+        "name": {
+          "es": "Paquete Oro",
+          "en": "Gold Package",
+          "fr": "Forfait Or"
+        },
+        "type": {
+          "es": "Expositoras 2026",
+          "en": "Exhibitors 2026",
+          "fr": "Exposants 2026"
+        },
+        "discount": {
+          "es": "30% OFF",
+          "en": "30% OFF",
+          "fr": "30% DE RÉDUCTION"
+        },
+        "sub": {
+          "es": "CAD — Beneficio de lealtad",
+          "en": "CAD — Loyalty Benefit",
+          "fr": "CAD — Avantage de fidélité"
+        },
+        "description": {
+          "es": "Nuestro paquete de mayor posicionamiento, diseñado para organizaciones que buscan una presencia sólida antes, durante y después del evento.",
+          "en": "Our highest positioning package, designed for organizations looking for a solid presence before, during and after the event.",
+          "fr": "Notre package de positionnement le plus élevé, conçu pour les organisations recherchant une présence solide avant, pendant et après l'événement."
+        },
+        "features": {
+          "0": {
+            "es": "Stand premium de 6 x 4 metros",
+            "en": "6 x 4 meter premium stand",
+            "fr": "Support premium de 6 x 4 mètres"
+          },
+          "1": {
+            "es": "3 accesos al Mexican Fashion Gala Show",
+            "en": "3 access to the Mexican Fashion Gala Show",
+            "fr": "3 accès au Gala de la Mode Mexicaine"
+          },
+          "2": {
+            "es": "2 accesos al Ontario – Mexico Business Summit",
+            "en": "2 accesses to the Ontario – Mexico Business Summit",
+            "fr": "2 accès au Sommet des affaires Ontario – Mexique"
+          },
+          "3": {
+            "es": "Presencia del logotipo en materiales promocionales",
+            "en": "Presence of the logo on promotional materials",
+            "fr": "Présence du logo sur les supports promotionnels"
+          },
+          "4": {
+            "es": "Promoción de marca mensual, antes y después",
+            "en": "Monthly brand promotion, before and after",
+            "fr": "Promotion mensuelle de la marque, avant et après"
+          },
+          "5": {
+            "es": "Participación en rueda de prensa",
+            "en": "Participation in press conference",
+            "fr": "Participation à la conférence de presse"
+          },
+          "6": {
+            "es": "Posibilidad de presentar proyectos",
+            "en": "Possibility of presenting projects",
+            "fr": "Possibilité de présenter des projets"
+          },
+          "7": {
+            "es": "Reconocimiento como Aliado Estratégico",
+            "en": "Recognition as a Strategic Ally",
+            "fr": "Reconnaissance comme allié stratégique"
+          },
+          "8": {
+            "es": "Entrevista exclusiva",
+            "en": "Exclusive interview",
+            "fr": "Entretien exclusif"
+          }
+        }
+      }
+    },
+    "ubicacion": {
+      "title": {
+        "es": "Toronto, Canadá",
+        "en": "Toronto, Canada",
+        "fr": "Toronto, Canada"
+      },
+      "titleEm": {
+        "es": "Te esperamos",
+        "en": "We are waiting for you",
+        "fr": "Nous vous attendons"
+      },
+      "desc": {
+        "es": "En el corazón del centro financiero de Toronto, a pasos de los principales puntos de interés de la ciudad.",
+        "en": "In the heart of Toronto's financial center, steps from the city's main points of interest.",
+        "fr": "Au cœur du centre financier de Toronto, à quelques pas des principaux points d'intérêt de la ville."
+      },
+      "cta": {
+        "es": "Ver en mapa",
+        "en": "See on map",
+        "fr": "Voir sur la carte"
+      },
+      "details": {
+        "llegar": {
+          "title": {
+            "es": "Cómo llegar",
+            "en": "How to get there",
+            "fr": "Comment y arriver"
+          },
+          "text": {
+            "es": "El recinto está ubicado en el corazón del centro de Toronto, a 5 minutos a pie de la estación Union Station. Fácil acceso desde el aeropuerto Pearson mediante UP Express (25 min) o taxi.",
+            "en": "The venue is located in the heart of downtown Toronto, a 5-minute walk from Union Station. Easy access from Pearson Airport via UP Express (25 min) or taxi.",
+            "fr": "Le lieu est situé au cœur du centre-ville de Toronto, à 5 minutes à pied de la gare Union. Accès facile depuis l'aéroport Pearson via UP Express (25 min) ou taxi."
+          }
+        },
+        "recinto": {
+          "title": {
+            "es": "El recinto",
+            "en": "The enclosure",
+            "fr": "L'enceinte"
+          },
+          "text": {
+            "es": "Un espacio versátil con capacidad para más de 500 asistentes, salas de exposición, auditorio principal, áreas de networking y espacios para ruedas de negocio. Accesibilidad completa.",
+            "en": "A versatile space with capacity for more than 500 attendees, exhibition rooms, main auditorium, networking areas and spaces for business conferences. Complete accessibility.",
+            "fr": "Un espace polyvalent d'une capacité de plus de 500 participants, des salles d'exposition, un auditorium principal, des zones de réseautage et des espaces pour les conférences d'affaires. Accessibilité totale."
+          }
+        },
+        "horarios": {
+          "title": {
+            "es": "Horarios",
+            "en": "Schedules",
+            "fr": "Horaires"
+          },
+          "text": {
+            "es": "El evento se llevará a cabo de <strong>9:00 a.m. a 7:00 p.m.</strong> todos los días. Registro abre a las 8:00 a.m. Sesiones de networking matutinas y eventos especiales por la tarde.",
+            "en": "The event will take place from<strong>9:00 a.m. to 7:00 p.m.</strong>every day. Registration opens at 8:00 a.m. Morning networking sessions and special afternoon events.",
+            "fr": "L'événement aura lieu de<strong>9h00 à 19h00</strong>tous les jours. Les inscriptions ouvrent à 8h00. Séances de réseautage le matin et événements spéciaux l'après-midi."
+          }
+        },
+        "estacionamiento": {
+          "title": {
+            "es": "Estacionamiento",
+            "en": "Parking lot",
+            "fr": "Parking"
+          },
+          "text": {
+            "es": "Estacionamiento público disponible en los alrededores del recinto. Tarifas desde $15 CAD por día. Recomendamos usar transporte público por la cercanía a Union Station.",
+            "en": "Public parking available around the premises. Rates from $15 CAD per day. We recommend using public transportation due to the proximity to Union Station.",
+            "fr": "Parking public disponible autour des locaux. Tarifs à partir de 15$ CAD par jour. Nous vous recommandons d'utiliser les transports en commun en raison de la proximité de la gare Union."
+          }
+        }
       }
     }
   },
@@ -802,6 +1358,16 @@
         "es": "Registrarse",
         "en": "Register",
         "fr": "S'inscrire"
+      },
+      "programa": {
+        "es": "Programa Oficial",
+        "en": "Official Program",
+        "fr": "Programme officiel"
+      },
+      "hasta": {
+        "es": "hasta",
+        "en": "until",
+        "fr": "jusqu'à"
       }
     },
     "summit": {
@@ -1439,45 +2005,89 @@
       },
       "comunicadosTitle": {
         "es": "Comunicados Oficiales",
-        "en": "",
-        "fr": ""
+        "en": "Official Announcements",
+        "fr": "Annonces officielles"
       },
       "entrevistasTitle": {
         "es": "Entrevistas Destacadas",
-        "en": "",
-        "fr": ""
+        "en": "Featured Interviews",
+        "fr": "Entretiens en vedette"
       },
       "galeriaTitle": {
         "es": "Kit de Prensa & Galería Multimedia",
-        "en": "",
-        "fr": ""
+        "en": "Press Kit & Multimedia Gallery",
+        "fr": "Dossier de presse et galerie multimédia"
       },
       "galeriaDesc": {
         "es": "Ponemos a disposición de medios de comunicación, periodistas e instituciones el kit oficial de prensa que incluye logotipos en alta resolución, perfiles biográficos del equipo directivo y fotografías autorizadas del evento Ottawa 2026.",
-        "en": "",
-        "fr": ""
+        "en": "We make available to the media, journalists and institutions the official press kit that includes high-resolution logos, biographical profiles of the management team and authorized photographs of the Ottawa 2026 event.",
+        "fr": "Nous mettons à la disposition des médias, des journalistes et des institutions le dossier de presse officiel qui comprend des logos haute résolution, des profils biographiques de l'équipe de direction et des photographies autorisées de l'événement Ottawa 2026."
       },
       "galeriaBtn": {
         "es": "Descargar Kit de Prensa",
-        "en": "",
-        "fr": ""
+        "en": "Download Press Kit",
+        "fr": "Télécharger le dossier de presse"
       },
       "carpetaLabel": {
         "es": "Carpeta Fotográfica",
-        "en": "",
-        "fr": ""
+        "en": "Photo Folder",
+        "fr": "Dossier photos"
       },
       "carpetaSubtitle": {
         "es": "Imágenes de Ottawa 2026",
-        "en": "",
-        "fr": ""
+        "en": "Images from Ottawa 2026",
+        "fr": "Images d’Ottawa 2026"
       },
       "leerMas": {
         "es": "Leer más",
-        "en": "",
-        "fr": ""
+        "en": "Read more",
+        "fr": "En savoir plus"
       },
       "mockPressReleases": {
+        "0": {
+          "date": {
+            "es": "10 de Junio, 2026",
+            "en": "",
+            "fr": ""
+          },
+          "title": {
+            "es": "Expo México Mujer anuncia oficialmente su próxima sede en Toronto para el 2027",
+            "en": "",
+            "fr": ""
+          },
+          "category": {
+            "es": "Comunicado Oficial",
+            "en": "",
+            "fr": ""
+          },
+          "desc": {
+            "es": "Tras el contundente impacto de Ottawa, la directiva confirma la alianza con la Cámara de Comercio de Ontario para el montaje comercial de 2027.",
+            "en": "",
+            "fr": ""
+          }
+        },
+        "1": {
+          "date": {
+            "es": "28 de Mayo, 2026",
+            "en": "",
+            "fr": ""
+          },
+          "title": {
+            "es": "Inauguración estelar de la Expo México Mujer en el Ottawa Convention Centre",
+            "en": "",
+            "fr": ""
+          },
+          "category": {
+            "es": "Comunicado de Prensa",
+            "en": "",
+            "fr": ""
+          },
+          "desc": {
+            "es": "Con presencia consular y delegadas empresariales de todo México, se inaugura formalmente el evento binacional más relevante del año.",
+            "en": "",
+            "fr": ""
+          }
+        },
         "es": [
           {
             "date": "10 de Junio, 2026",
@@ -1496,6 +2106,50 @@
         "fr": ""
       },
       "mockInterviews": {
+        "0": {
+          "person": {
+            "es": "Francisco Solorio",
+            "en": "",
+            "fr": ""
+          },
+          "role": {
+            "es": "Director General EMM",
+            "en": "",
+            "fr": ""
+          },
+          "media": {
+            "es": "Canadá Business Daily",
+            "en": "",
+            "fr": ""
+          },
+          "quote": {
+            "es": "La vinculación binacional es más que tratados; se trata de tender puentes directos y reales entre marcas mexicanas y canales de retail en Canadá.",
+            "en": "",
+            "fr": ""
+          }
+        },
+        "1": {
+          "person": {
+            "es": "María López",
+            "en": "",
+            "fr": ""
+          },
+          "role": {
+            "es": "Fundadora de Mujeres en STEM",
+            "en": "",
+            "fr": ""
+          },
+          "media": {
+            "es": "Televisión Consular",
+            "en": "",
+            "fr": ""
+          },
+          "quote": {
+            "es": "Llevar software y talento tecnológico en manos de mexicanas a corporativos canadienses rompe paradigmas en la industria norteamericana.",
+            "en": "",
+            "fr": ""
+          }
+        },
         "es": [
           {
             "person": "Francisco Solorio",
@@ -1512,6 +2166,86 @@
         ],
         "en": "",
         "fr": ""
+      },
+      "press1Date": {
+        "es": "10 de Junio, 2026",
+        "en": "June 10, 2026",
+        "fr": "10 juin 2026"
+      },
+      "press1Title": {
+        "es": "Expo México Mujer anuncia oficialmente su próxima sede en Toronto para el 2027",
+        "en": "Expo México Mujer officially announces its next headquarters in Toronto for 2027",
+        "fr": "Expo México Mujer annonce officiellement son prochain siège social à Toronto pour 2027"
+      },
+      "press1Category": {
+        "es": "Comunicado Oficial",
+        "en": "Official Statement",
+        "fr": "Déclaration officielle"
+      },
+      "press1Desc": {
+        "es": "Tras el contundente impacto de Ottawa, la directiva confirma la alianza con la Cámara de Comercio de Ontario para el montaje comercial de 2027.",
+        "en": "After the overwhelming impact of Ottawa, the board confirms the alliance with the Ontario Chamber of Commerce for the 2027 trade assembly.",
+        "fr": "Après l'impact écrasant d'Ottawa, le conseil d'administration confirme l'alliance avec la Chambre de commerce de l'Ontario pour l'assemblée commerciale de 2027."
+      },
+      "press2Date": {
+        "es": "15 de Mayo, 2026",
+        "en": "May 15, 2026",
+        "fr": "15 mai 2026"
+      },
+      "press2Title": {
+        "es": "Resultados históricos de vinculación B2B durante la jornada de clausura",
+        "en": "Historical B2B engagement results during the closing day",
+        "fr": "Résultats historiques de l'engagement B2B au cours de la journée de clôture"
+      },
+      "press2Category": {
+        "es": "Reporte de Resultados",
+        "en": "Results Report",
+        "fr": "Rapport de résultats"
+      },
+      "press2Desc": {
+        "es": "El pabellón de agroindustria superó las expectativas de exportación con más de 120 citas de negocio confirmadas y acuerdos comerciales por 2 MDD.",
+        "en": "The agribusiness pavilion exceeded export expectations with more than 120 confirmed business appointments and commercial agreements worth 2 million dollars.",
+        "fr": "Le pavillon de l'agro-industrie a dépassé les attentes en matière d'exportation avec plus de 120 rendez-vous commerciaux confirmés et des accords commerciaux d'une valeur de 2 millions de dollars."
+      },
+      "interview1Person": {
+        "es": "Ana Sofía Garza",
+        "en": "Ana Sofia Garza",
+        "fr": "Ana Sofia Garza"
+      },
+      "interview1Role": {
+        "es": "Directora Ejecutiva EMM",
+        "en": "EMM Executive Director",
+        "fr": "Directeur Exécutif de l'EMM"
+      },
+      "interview1Media": {
+        "es": "Toronto Star",
+        "en": "Toronto Star",
+        "fr": "Étoile de Toronto"
+      },
+      "interview1Quote": {
+        "es": "Nuestra visión no es solo exhibir productos, sino consolidar a la empresaria mexicana como un jugador clave en la cadena de suministro de Norteamérica.",
+        "en": "Our vision is not only to showcase products, but to consolidate the Mexican businesswoman as a key player in the North American supply chain.",
+        "fr": "Notre vision n'est pas seulement de mettre en valeur les produits, mais de consolider la femme d'affaires mexicaine comme actrice clé de la chaîne d'approvisionnement nord-américaine."
+      },
+      "interview2Person": {
+        "es": "Elena Rodríguez",
+        "en": "Elena Rodriguez",
+        "fr": "Elena Rodríguez"
+      },
+      "interview2Role": {
+        "es": "Expositora Destacada",
+        "en": "Featured Exhibitor",
+        "fr": "Exposant en vedette"
+      },
+      "interview2Media": {
+        "es": "Financial Post",
+        "en": "Financial Post",
+        "fr": "Poste financier"
+      },
+      "interview2Quote": {
+        "es": "La expo nos abrió las puertas de un mercado que creíamos inaccesible. Hoy nuestros textiles tienen distribución en tres provincias de Canadá.",
+        "en": "The expo opened the doors to a market that we thought was inaccessible. Today our textiles are distributed in three provinces of Canada.",
+        "fr": "L’exposition nous a ouvert les portes d’un marché que l’on pensait inaccessible. Aujourd'hui nos textiles sont distribués dans trois provinces du Canada."
       }
     },
     "viajero": {
@@ -1522,60 +2256,104 @@
       },
       "hospedajeTitle": {
         "es": "Hospedaje & Hoteles Sede",
-        "en": "",
-        "fr": ""
+        "en": "Accommodation & Headquarters Hotels",
+        "fr": "Hébergement et hôtels du siège social"
       },
       "vuelosTitle": {
         "es": "Vuelos y Traslado Aéreo",
-        "en": "",
-        "fr": ""
+        "en": "Flights and Air Transfer",
+        "fr": "Vols et transfert aérien"
       },
       "vuelosDesc": {
         "es": "Contamos con códigos promocionales oficiales de descuento en aerolíneas aliadas (Air Canada y Aeroméxico) aplicables para traslados directos hacia el Aeropuerto Internacional de Toronto Pearson (YYZ).",
-        "en": "",
-        "fr": ""
+        "en": "We have official discount promotional codes on allied airlines (Air Canada and Aeroméxico) applicable for direct transfers to Toronto Pearson International Airport (YYZ).",
+        "fr": "Nous avons des codes promotionnels de réduction officiels sur les compagnies aériennes alliées (Air Canada et Aeroméxico) applicables pour les transferts directs vers l'aéroport international Pearson de Toronto (YYZ)."
       },
       "vueloDesc1": {
         "es": "Descuentos de hasta un 15% en vuelos de tarifa business y turista.",
-        "en": "",
-        "fr": ""
+        "en": "Discounts of up to 15% on business and tourist fare flights.",
+        "fr": "Réductions jusqu'à 15 % sur les vols à tarif affaires et touristiques."
       },
       "vueloDesc2": {
         "es": "Soporte directo para la emisión de boletos grupales corporativos.",
-        "en": "",
-        "fr": ""
+        "en": "Direct support for corporate group ticketing.",
+        "fr": "Prise en charge directe de la billetterie de groupe d'entreprise."
       },
       "transporteTitle": {
         "es": "Transporte Local en Toronto",
-        "en": "",
-        "fr": ""
+        "en": "Local Transportation in Toronto",
+        "fr": "Transports locaux à Toronto"
       },
       "upExpressTitle": {
         "es": "UP Express (Tren del Aeropuerto)",
-        "en": "",
-        "fr": ""
+        "en": "UP Express (Airport Train)",
+        "fr": "UP Express (train de l'aéroport)"
       },
       "upExpressDesc": {
         "es": "Conecta Pearson (YYZ) con Union Station en solo 25 minutos. Salidas cada 15 minutos.",
-        "en": "",
-        "fr": ""
+        "en": "Connects Pearson (YYZ) to Union Station in just 25 minutes. Departures every 15 minutes.",
+        "fr": "Relie Pearson (YYZ) à la gare Union en seulement 25 minutes. Départs toutes les 15 minutes."
       },
       "ttcTitle": {
         "es": "Red TTC (Metro y Tranvía)",
-        "en": "",
-        "fr": ""
+        "en": "TTC Network (Metro and Tram)",
+        "fr": "Réseau TTC (Métro et Tram)"
       },
       "ttcDesc": {
         "es": "Sistema de tránsito integrado de la ciudad que conecta de forma rápida hoteles con todas las sedes.",
-        "en": "",
-        "fr": ""
+        "en": "Integrated city transit system that quickly connects hotels to all venues.",
+        "fr": "Système de transport en commun intégré qui relie rapidement les hôtels à tous les sites."
       },
       "reservarTarifa": {
         "es": "Reservar tarifa",
-        "en": "",
-        "fr": ""
+        "en": "Reserve rate",
+        "fr": "Taux de réserve"
       },
       "mockHotels": {
+        "0": {
+          "name": {
+            "es": "The Westin Harbour Castle",
+            "en": "",
+            "fr": ""
+          },
+          "stars": {
+            "es": "4.5★",
+            "en": "",
+            "fr": ""
+          },
+          "desc": {
+            "es": "Hotel sede oficial ubicado a pasos del lago Ontario. Cuenta con tarifas preferenciales exclusivas para expositoras de la delegación de EMM.",
+            "en": "",
+            "fr": ""
+          },
+          "rate": {
+            "es": "Desde $240 CAD / noche",
+            "en": "",
+            "fr": ""
+          }
+        },
+        "1": {
+          "name": {
+            "es": "Sheraton Centre Toronto",
+            "en": "",
+            "fr": ""
+          },
+          "stars": {
+            "es": "4.0★",
+            "en": "",
+            "fr": ""
+          },
+          "desc": {
+            "es": "Ubicación céntrica en el corazón financiero de Toronto. Conexión directa al PATH y fácil acceso en transporte público a las sedes del evento.",
+            "en": "",
+            "fr": ""
+          },
+          "rate": {
+            "es": "Desde $195 CAD / noche",
+            "en": "",
+            "fr": ""
+          }
+        },
         "es": [
           {
             "name": "The Westin Harbour Castle",
@@ -1592,6 +2370,66 @@
         ],
         "en": "",
         "fr": ""
+      },
+      "transporteItem1Title": {
+        "es": "UP Express (Tren del Aeropuerto)",
+        "en": "UP Express (Airport Train)",
+        "fr": "UP Express (train de l'aéroport)"
+      },
+      "transporteItem1Desc": {
+        "es": "Conecta Pearson (YYZ) con Union Station en solo 25 minutos. Salidas cada 15 minutos.",
+        "en": "Connects Pearson (YYZ) to Union Station in just 25 minutes. Departures every 15 minutes.",
+        "fr": "Relie Pearson (YYZ) à la gare Union en seulement 25 minutes. Départs toutes les 15 minutes."
+      },
+      "transporteItem2Title": {
+        "es": "Red TTC (Metro y Tranvía)",
+        "en": "TTC Network (Metro and Tram)",
+        "fr": "Réseau TTC (Métro et Tram)"
+      },
+      "transporteItem2Desc": {
+        "es": "Sistema de tránsito integrado de la ciudad que conecta de forma rápida hoteles con todas las sedes.",
+        "en": "Integrated city transit system that quickly connects hotels to all venues.",
+        "fr": "Système de transport en commun intégré qui relie rapidement les hôtels à tous les sites."
+      },
+      "hotel1Name": {
+        "es": "The Westin Harbour Castle",
+        "en": "The Westin Harbor Castle",
+        "fr": "Le château du port de Westin"
+      },
+      "hotel1Stars": {
+        "es": "4.5★",
+        "en": "4.5★",
+        "fr": "4,5★"
+      },
+      "hotel1Desc": {
+        "es": "Hotel sede oficial ubicado a pasos del lago Ontario. Cuenta con tarifas preferenciales exclusivas para expositoras de la delegación de EMM.",
+        "en": "Official headquarters hotel located steps from Lake Ontario. It has exclusive preferential rates for exhibitors from the EMM delegation.",
+        "fr": "Hôtel du siège officiel situé à quelques pas du lac Ontario. Il bénéficie de tarifs préférentiels exclusifs pour les exposants de la délégation EMM."
+      },
+      "hotel1Rate": {
+        "es": "Desde $240 CAD / noche",
+        "en": "From $240 CAD / night",
+        "fr": "À partir de 240$ CAD / nuit"
+      },
+      "hotel2Name": {
+        "es": "Sheraton Centre Toronto",
+        "en": "Sheraton Center Toronto",
+        "fr": "Sheraton Centre Toronto"
+      },
+      "hotel2Stars": {
+        "es": "4.0★",
+        "en": "4.0★",
+        "fr": "4.0★"
+      },
+      "hotel2Desc": {
+        "es": "Ubicación céntrica en el corazón financiero de Toronto. Conexión directa al PATH y fácil acceso en transporte público a las sedes del evento.",
+        "en": "Central location in the financial heart of Toronto. Direct connection to the PATH and easy access by public transportation to the event venues.",
+        "fr": "Emplacement central dans le cœur financier de Toronto. Connexion directe au PATH et accès facile en transports en commun aux lieux de l'événement."
+      },
+      "hotel2Rate": {
+        "es": "Desde $195 CAD / noche",
+        "en": "From $195 CAD / night",
+        "fr": "À partir de 195$ CAD / nuit"
       }
     },
     "participantes": {
@@ -1602,108 +2440,108 @@
       },
       "manualTitle": {
         "es": "Manual Técnico del Expositor",
-        "en": "",
-        "fr": ""
+        "en": "Exhibitor's Technical Manual",
+        "fr": "Manuel technique de l'exposant"
       },
       "manualDesc": {
         "es": "Accede al documento oficial que contiene toda la normativa y logística técnica para el montaje en la sede de Toronto. Incluye horarios de carga y descarga, especificaciones eléctricas, dimensiones de los stands y reglamentos de seguridad.",
-        "en": "",
-        "fr": ""
+        "en": "Access the official document that contains all the regulations and technical logistics for the assembly at the Toronto headquarters. Includes loading and unloading schedules, electrical specifications, stand dimensions and safety regulations.",
+        "fr": "Accédez au document officiel qui contient tous les règlements et la logistique technique du montage au siège de Toronto. Comprend les horaires de chargement et de déchargement, les spécifications électriques, les dimensions du stand et les règles de sécurité."
       },
       "descargarManual": {
         "es": "Descargar Manual (PDF)",
-        "en": "",
-        "fr": ""
+        "en": "Download Manual (PDF)",
+        "fr": "Télécharger le manuel (PDF)"
       },
       "especificacionesTitle": {
         "es": "Especificaciones de Stands",
-        "en": "",
-        "fr": ""
+        "en": "Stand Specifications",
+        "fr": "Spécifications du support"
       },
       "standStandard": {
         "es": "Stand Standard: 3m x 2m con panel divisor y rotulación frontal.",
-        "en": "",
-        "fr": ""
+        "en": "Standard Stand: 3m x 2m with divider panel and front lettering.",
+        "fr": "Stand standard : 3 mx 2 m avec panneau de séparation et lettrage frontal."
       },
       "mobiliarioIncluido": {
         "es": "Mobiliario Incluido: 1 mesa con mantel, 2 sillas y conexión eléctrica.",
-        "en": "",
-        "fr": ""
+        "en": "Furniture Included: 1 table with tablecloth, 2 chairs and electrical connection.",
+        "fr": "Mobilier Inclus : 1 table avec nappe, 2 chaises et branchement électrique."
       },
       "serviciosAdicionales": {
         "es": "Servicios Adicionales: Internet de alta velocidad y almacén compartido.",
-        "en": "",
-        "fr": ""
+        "en": "Additional Services: High-speed Internet and shared warehouse.",
+        "fr": "Services additionnels : Internet haute vitesse et entrepôt partagé."
       },
       "requisitosTitle": {
         "es": "Requisitos de Participación",
-        "en": "",
-        "fr": ""
+        "en": "Participation Requirements",
+        "fr": "Conditions de participation"
       },
       "docComercialTitle": {
         "es": "Documentación Comercial",
-        "en": "",
-        "fr": ""
+        "en": "Commercial Documentation",
+        "fr": "Documents commerciaux"
       },
       "docComercialDesc": {
         "es": "Contar con registro fiscal (RFC), marca registrada y ficha técnica de exportación de los productos a exhibir en la sede.",
-        "en": "",
-        "fr": ""
+        "en": "Have tax registration (RFC), registered trademark and technical export sheet for the products to be exhibited at the headquarters.",
+        "fr": "Disposer d'un enregistrement fiscal (RFC), d'une marque déposée et d'une fiche technique d'exportation des produits à exposer au siège."
       },
       "estatusMigratorioTitle": {
         "es": "Estatus Migratorio",
-        "en": "",
-        "fr": ""
+        "en": "Immigration Status",
+        "fr": "Statut d'immigration"
       },
       "estatusMigratorioDesc": {
         "es": "Pasaporte con vigencia mínima de 6 meses y visa canadiense / eTA autorizada. EMM ofrece cartas oficiales de invitación para expositoras registradas.",
-        "en": "",
-        "fr": ""
+        "en": "Passport valid for at least 6 months and authorized Canadian visa/eTA. EMM offers official invitation letters for registered exhibitors.",
+        "fr": "Passeport valide pour au moins 6 mois et visa canadien/AVE autorisé. EMM propose des lettres d'invitation officielles aux exposants inscrits."
       },
       "certSanitariaTitle": {
         "es": "Certificación Sanitaria",
-        "en": "",
-        "fr": ""
+        "en": "Health Certification",
+        "fr": "Certificat de santé"
       },
       "certSanitariaDesc": {
         "es": "En el sector de alimentos o salud y cosmética, se requiere cumplir con las directivas de etiquetado y sanidad de Health Canada.",
-        "en": "",
-        "fr": ""
+        "en": "In the food or health and cosmetics sector, compliance with Health Canada's labeling and sanitation directives is required.",
+        "fr": "Dans le secteur alimentaire ou celui de la santé et des cosmétiques, le respect des directives d'étiquetage et d'hygiène de Santé Canada est requis."
       },
       "faqTitle": {
         "es": "Preguntas Frecuentes",
-        "en": "",
-        "fr": ""
+        "en": "Frequently Asked Questions",
+        "fr": "Foire aux questions"
       },
       "faq1Q": {
         "es": "¿El costo del stand incluye traslado de mercancía?",
-        "en": "",
-        "fr": ""
+        "en": "Does the cost of the stand include transportation of merchandise?",
+        "fr": "Le coût du stand comprend-il le transport des marchandises ?"
       },
       "faq1A": {
         "es": "No, el costo del stand cubre únicamente el espacio de exhibición y el mobiliario básico. La transportación aduanal corre por cuenta de cada expositora, sin embargo, el equipo logístico de EMM brinda tarifas consolidadas preferentes con nuestro socio transportista oficial.",
-        "en": "",
-        "fr": ""
+        "en": "No, the cost of the stand covers only the exhibition space and basic furniture. Customs transportation is the responsibility of each exhibitor, however, the EMM logistics team provides preferential consolidated rates with our official transport partner.",
+        "fr": "Non, le prix du stand couvre uniquement l'espace d'exposition et le mobilier de base. Le transport sous douane est à la charge de chaque exposant, cependant, l'équipe logistique d'EMM propose des tarifs préférentiels consolidés auprès de notre partenaire transport officiel."
       },
       "faq2Q": {
         "es": "¿Cómo puedo obtener una carta de invitación para mi visa?",
-        "en": "",
-        "fr": ""
+        "en": "How can I get an invitation letter for my visa?",
+        "fr": "Comment puis-je obtenir une lettre d'invitation pour mon visa ?"
       },
       "faq2A": {
         "es": "Una vez realizado el depósito de confirmación de tu stand, el comité organizador expedirá una carta oficial membretada que incluye los detalles del evento, avalada para presentarse ante el consulado canadiense correspondiente.",
-        "en": "",
-        "fr": ""
+        "en": "Once the confirmation deposit for your stand has been made, the organizing committee will issue an official letter on letterhead that includes the details of the event, certified to be presented to the corresponding Canadian consulate.",
+        "fr": "Une fois le dépôt de confirmation de votre stand effectué, le comité organisateur émettra une lettre officielle sur papier à en-tête comprenant les détails de l'événement, certifiée pour être présentée au consulat canadien correspondant."
       },
       "faq3Q": {
         "es": "¿Qué sucede si mis productos requieren refrigeración?",
-        "en": "",
-        "fr": ""
+        "en": "What happens if my products require refrigeration?",
+        "fr": "Que se passe-t-il si mes produits nécessitent une réfrigération ?"
       },
       "faq3A": {
         "es": "Debes notificarlo con al menos 60 días de anticipación al correo de logística (luis.garcia@expomexico.ca) para cotizar el suministro eléctrico dedicado y el arrendamiento de vitrinas o congeladores en la sede.",
-        "en": "",
-        "fr": ""
+        "en": "You must notify at least 60 days in advance to the logistics email (luis.garcia@expomexico.ca) to quote the dedicated electricity supply and the rental of display cases or freezers at the headquarters.",
+        "fr": "Vous devez prévenir au moins 60 jours à l'avance au courriel logistique (luis.garcia@expomexico.ca) pour citer la fourniture d'électricité dédiée et la location de vitrines ou de congélateurs au siège."
       }
     },
     "logistica": {
@@ -1714,499 +2552,564 @@
       },
       "esquemasTitle": {
         "es": "Esquemas de Exportación",
-        "en": "",
-        "fr": ""
+        "en": "Export Schemes",
+        "fr": "Programmes d'exportation"
       },
       "esquemasDesc": {
         "es": "Para el ingreso de tus productos de exhibición a territorio canadiense, el comité organizador de Expo México Mujer ofrece asesoría y acompañamiento técnico en dos esquemas comerciales principales.",
-        "en": "",
-        "fr": ""
+        "en": "For the entry of your exhibition products into Canadian territory, the organizing committee of Expo México Mujer offers advice and technical support in two main commercial schemes.",
+        "fr": "Pour l'entrée de vos produits d'exposition sur le territoire canadien, le comité organisateur d'Expo México Mujer vous offre conseils et soutien technique dans deux principaux schémas commerciaux."
       },
       "importante": {
         "es": "Importante:",
-        "en": "",
-        "fr": ""
+        "en": "Important:",
+        "fr": "Important:"
       },
       "importanteDesc": {
         "es": "Los trámites aduanales deben iniciarse al menos con 90 días de anticipación para evitar demoras en aduana fronteriza.",
-        "en": "",
-        "fr": ""
+        "en": "Customs procedures must be started at least 90 days in advance to avoid delays at border customs.",
+        "fr": "Les procédures douanières doivent être entamées au moins 90 jours à l'avance pour éviter les retards aux douanes frontalières."
       },
       "expTemporalTitle": {
         "es": "Exportación Temporal",
-        "en": "",
-        "fr": ""
+        "en": "Temporary Export",
+        "fr": "Exportation temporaire"
       },
       "expTemporalDesc": {
         "es": "Ideal para muestras de exhibición, mobiliario de stand o piezas de pasarela que regresarán a México después del evento. Exento del pago de aranceles bajo el cuaderno ATA o fianza aduanal temporal.",
-        "en": "",
-        "fr": ""
+        "en": "Ideal for display samples, booth furniture or runway pieces that will return to Mexico after the event. Exempt from paying tariffs under the ATA carnet or temporary customs bond.",
+        "fr": "Idéal pour exposer des échantillons, des meubles de stand ou des pièces de défilé qui reviendront au Mexique après l'événement. Exonéré du paiement des droits de douane au titre du carnet ATA ou de la caution douanière temporaire."
       },
       "expDefinitivaTitle": {
         "es": "Exportación Definitiva",
-        "en": "",
-        "fr": ""
+        "en": "Definitive Export",
+        "fr": "Exportation définitive"
       },
       "expDefinitivaDesc": {
         "es": "Recomendado para productos destinados a la venta directa en el evento, muestras de degustación consumibles o inventario vendido previamente a importadores canadienses. Sujeto a impuestos e importación formal canadiense.",
-        "en": "",
-        "fr": ""
+        "en": "Recommended for products intended for direct sale at the event, consumable tasting samples, or inventory previously sold to Canadian importers. Subject to tax and formal Canadian import.",
+        "fr": "Recommandé pour les produits destinés à la vente directe lors de l'événement, les échantillons de dégustation consommables ou les stocks précédemment vendus à des importateurs canadiens. Soumis aux taxes et à l'importation formelle au Canada."
       },
       "asesoriaTitle": {
         "es": "Asesoría & Soluciones de Transporte",
-        "en": "",
-        "fr": ""
+        "en": "Transportation Consulting & Solutions",
+        "fr": "Conseils et solutions en matière de transport"
       },
       "consolidacionTitle": {
         "es": "Consolidación de Carga",
-        "en": "",
-        "fr": ""
+        "en": "Cargo Consolidation",
+        "fr": "Consolidation du fret"
       },
       "consolidacionDesc": {
         "es": "Ofrecemos recolección de mercancías en hubs estratégicos (CDMX, Guadalajara y Monterrey) para realizar un embarque consolidated terrestre o aéreo hacia Toronto con tarifas preferenciales.",
-        "en": "",
-        "fr": ""
+        "en": "We offer collection of merchandise in strategic hubs (CDMX, Guadalajara and Monterrey) to carry out a consolidated shipment by land or air to Toronto with preferential rates.",
+        "fr": "Nous proposons la collecte de marchandises dans des hubs stratégiques (CDMX, Guadalajara et Monterrey) pour effectuer un envoi groupé par voie terrestre ou aérienne vers Toronto avec des tarifs préférentiels."
       },
       "brokerageTitle": {
         "es": "Brokerage Aduanal",
-        "en": "",
-        "fr": ""
+        "en": "Customs Brokerage",
+        "fr": "Courtage en douane"
       },
       "brokerageDesc": {
         "es": "Coordinación integral con agencias aduanales en frontera (Laredo) y en las aduanas de Canadá para agilizar la clasificación arancelaria y la liberación de embarques comerciales.",
-        "en": "",
-        "fr": ""
+        "en": "Comprehensive coordination with customs agencies at the border (Laredo) and at Canadian customs to expedite the tariff classification and release of commercial shipments.",
+        "fr": "Coordination complète avec les agences douanières à la frontière (Laredo) et aux douanes canadiennes pour accélérer le classement tarifaire et la mainlevée des expéditions commerciales."
       },
       "entregaTitle": {
         "es": "Servicio de Entrega Final",
-        "en": "",
-        "fr": ""
+        "en": "Final Delivery Service",
+        "fr": "Service de livraison finale"
       },
       "entregaDesc": {
         "es": "Recepción de mercancía en el warehouse de Toronto previo al evento, custodia asegurada y entrega directa de cajas en el stand asignado a cada delegada expositora.",
-        "en": "",
-        "fr": ""
+        "en": "Reception of merchandise in the Toronto warehouse prior to the event, secured custody and direct delivery of boxes to the stand assigned to each exhibiting delegate.",
+        "fr": "Réception de la marchandise à l'entrepôt de Toronto avant l'événement, garde sécurisée et livraison directe des cartons au stand attribué à chaque délégué exposant."
       }
     },
     "expositores": {
       "cargandoDirectorio": {
         "es": "Cargando directorio...",
-        "en": "",
-        "fr": ""
+        "en": "Loading directory...",
+        "fr": "Chargement du répertoire..."
       },
       "buscarMarca": {
         "es": "Buscar marca o expositora...",
-        "en": "",
-        "fr": ""
+        "en": "Search for brand or exhibitor...",
+        "fr": "Recherche de marque ou d'exposant..."
       },
       "marcasEn": {
         "es": "Marcas en",
-        "en": "",
-        "fr": ""
+        "en": "brands on",
+        "fr": "marques sur"
       },
       "agendarCita": {
         "es": "Agendar Cita Presencial",
-        "en": "",
-        "fr": ""
+        "en": "Schedule In-Person Appointment",
+        "fr": "Planifier un rendez-vous en personne"
       },
       "verMapa": {
         "es": "Ver en Mapa",
-        "en": "",
-        "fr": ""
+        "en": "View on Map",
+        "fr": "Afficher sur la carte"
       },
       "noExpositoras": {
         "es": "No se encontraron expositoras",
-        "en": "",
-        "fr": ""
+        "en": "No exhibitors found",
+        "fr": "Aucun exposant trouvé"
       },
       "pruebaOtra": {
         "es": "Prueba con otra marca o nombre de expositora.",
-        "en": "",
-        "fr": ""
+        "en": "Try another brand or exhibitor name.",
+        "fr": "Essayez une autre marque ou un autre nom d'exposant."
       },
       "citaPresencial": {
         "es": "Cita Presencial",
-        "en": "",
-        "fr": ""
+        "en": "In-person appointment",
+        "fr": "Rendez-vous en personne"
       },
       "por": {
         "es": "por",
-        "en": "",
-        "fr": ""
+        "en": "by",
+        "fr": "par"
       },
       "standLabel": {
         "es": "Stand",
-        "en": "",
-        "fr": ""
+        "en": "Booth",
+        "fr": "Stand"
       },
       "eventoLabel": {
         "es": "Evento",
-        "en": "",
-        "fr": ""
+        "en": "Event",
+        "fr": "Événement"
       },
       "eventoVal": {
         "es": "Expo México Mujer 2027",
-        "en": "",
-        "fr": ""
+        "en": "Mexico Women's Expo 2027",
+        "fr": "Expo des femmes du Mexique 2027"
       },
       "duracionLabel": {
         "es": "Duración",
-        "en": "",
-        "fr": ""
+        "en": "Duration",
+        "fr": "Durée"
       },
       "duracionVal": {
         "es": "30 minutos",
-        "en": "",
-        "fr": ""
+        "en": "30 minutes",
+        "fr": "30 minutes"
       },
       "citaConfirmada": {
         "es": "¡Cita Confirmada!",
-        "en": "",
-        "fr": ""
+        "en": "Appointment Confirmed!",
+        "fr": "Rendez-vous confirmé !"
       },
       "citaConfirmadaDesc1": {
         "es": "Nos vemos el",
-        "en": "",
-        "fr": ""
+        "en": "See you on",
+        "fr": "Rendez-vous sur"
       },
       "citaConfirmadaDesc2": {
         "es": "de Junio",
-        "en": "",
-        "fr": ""
+        "en": "June",
+        "fr": "Juin"
       },
       "citaConfirmadaDesc3": {
         "es": "Te enviamos la confirmación a",
-        "en": "",
-        "fr": ""
+        "en": "We send you confirmation to",
+        "fr": "Nous vous envoyons une confirmation à"
       },
       "cerrar": {
         "es": "Cerrar",
-        "en": "",
-        "fr": ""
+        "en": "Close",
+        "fr": "Fermer"
       },
       "reservaTuLugar": {
         "es": "Reserva tu lugar",
-        "en": "",
-        "fr": ""
+        "en": "Reserve your place",
+        "fr": "Réservez votre place"
       },
       "eligeFechaYHora": {
         "es": "Elige fecha y hora",
-        "en": "",
-        "fr": ""
+        "en": "Choose date and time",
+        "fr": "Choisissez la date et l'heure"
       },
       "horarioDisponible": {
         "es": "Horario disponible",
-        "en": "",
-        "fr": ""
+        "en": "Available schedule",
+        "fr": "Horaire disponible"
       },
       "tusDatos": {
         "es": "Tus datos",
-        "en": "",
-        "fr": ""
+        "en": "Your data",
+        "fr": "Vos données"
       },
       "nombreCompleto": {
         "es": "Nombre completo",
-        "en": "",
-        "fr": ""
+        "en": "Full name",
+        "fr": "Nom et prénom"
       },
       "correo": {
         "es": "Correo",
-        "en": "",
-        "fr": ""
+        "en": "Mail",
+        "fr": "Mail"
       },
       "whatsappLabel": {
         "es": "WhatsApp",
-        "en": "",
-        "fr": ""
+        "en": "WhatsApp",
+        "fr": "WhatsApp"
       },
       "placeholderNombre": {
         "es": "Ej. Laura González",
-        "en": "",
-        "fr": ""
+        "en": "Ex. Laura González",
+        "fr": "Ex. Laura González"
       },
       "placeholderCorreo": {
         "es": "correo@ejemplo.com",
-        "en": "",
-        "fr": ""
+        "en": "email@example.com",
+        "fr": "email@exemple.com"
       },
       "placeholderWhatsapp": {
         "es": "+52 55 1234 5678",
-        "en": "",
-        "fr": ""
+        "en": "+52 55 1234 5678",
+        "fr": "+52 55 1234 5678"
       },
       "confirmarCita": {
         "es": "Confirmar Cita Presencial",
-        "en": "",
-        "fr": ""
+        "en": "Confirm In-Person Appointment",
+        "fr": "Confirmer un rendez-vous en personne"
       },
       "completaCampos": {
         "es": "Por favor completa todos los campos.",
-        "en": "",
-        "fr": ""
+        "en": "Please complete all fields.",
+        "fr": "Veuillez remplir tous les champs."
       },
       "ubicacionStand": {
         "es": "Ubicación del Stand",
-        "en": "",
-        "fr": ""
+        "en": "Stand Location",
+        "fr": "Emplacement du stand"
       },
       "planoInteractivo": {
         "es": "Plano interactivo cargando...",
-        "en": "",
-        "fr": ""
+        "en": "Interactive map loading...",
+        "fr": "Chargement de la carte interactive..."
       },
       "descubreTalento": {
         "es": "Descubre el talento por Categoría de Negocio",
-        "en": "",
-        "fr": ""
+        "en": "Discover talent by Business Category",
+        "fr": "Découvrez les talents par catégorie d'entreprise"
       },
       "descubreTalentoDesc": {
         "es": "Explora las marcas, productos y servicios que las mujeres emprendedoras de México traen a Toronto. Haz clic en una categoría para ver su directorio.",
-        "en": "",
-        "fr": ""
+        "en": "Explore the brands, products and services that women entrepreneurs from Mexico bring to Toronto. Click on a category to see its directory.",
+        "fr": "Découvrez les marques, produits et services que les femmes entrepreneures du Mexique apportent à Toronto. Cliquez sur une catégorie pour voir son répertoire."
       },
       "infraestructuraPremium": {
         "es": "Infraestructura Premium",
-        "en": "",
-        "fr": ""
+        "en": "Premium Infrastructure",
+        "fr": "Infrastructure haut de gamme"
       },
       "standsYEspacios": {
         "es": "Stands y Espacios de Exhibición",
-        "en": "",
-        "fr": ""
+        "en": "Stands and Exhibition Spaces",
+        "fr": "Stands et espaces d'exposition"
       },
       "standsDesc": {
         "es": "Diseñamos cada espacio para proyectar la máxima presencia corporativa. Nuestros stands de 3x3 y 2x2 metros están completamente equipados con rotulación oficial de la marca, iluminación LED direccional y conexiones eléctricas de 110v listas para usar en el centro de convenciones de Toronto.",
-        "en": "",
-        "fr": ""
+        "en": "We design each space to project the maximum corporate presence. Our 3x3 and 2x2 meter booths are fully equipped with official brand signage, directional LED lighting and 110v electrical connections ready to use at the Toronto Convention Centre.",
+        "fr": "Nous concevons chaque espace pour projeter la présence maximale de l'entreprise. Nos stands de 3x3 et 2x2 mètres sont entièrement équipés d'une signalisation officielle de la marque, d'un éclairage LED directionnel et de connexions électriques 110 V prêtes à l'emploi au Centre des congrès de Toronto."
       },
       "montajeCompleto": {
         "es": "Montaje Completo",
-        "en": "",
-        "fr": ""
+        "en": "Complete Assembly",
+        "fr": "Assemblage complet"
       },
       "centroConvenciones": {
         "es": "Centro de Convenciones",
-        "en": "",
-        "fr": ""
+        "en": "Convention Center",
+        "fr": "Centre des congrès"
       },
       "torontoCanada2027": {
         "es": "Toronto, Canadá 2027",
-        "en": "",
-        "fr": ""
+        "en": "Toronto, Canada 2027",
+        "fr": "Toronto, Canada 2027"
       },
       "retornoInversion": {
         "es": "Retorno de Inversión",
-        "en": "",
-        "fr": ""
+        "en": "Return on Investment",
+        "fr": "Retour sur investissement"
       },
       "beneficiosClave": {
         "es": "Beneficios Clave de tu Participación",
-        "en": "",
-        "fr": ""
+        "en": "Key Benefits of your Participation",
+        "fr": "Avantages clés de votre participation"
       },
       "directorioExpositoras": {
         "es": "Directorio de Expositoras",
-        "en": "",
-        "fr": ""
+        "en": "Exhibitor Directory",
+        "fr": "Annuaire des exposants"
       },
       "directorioExpositorasDesc": {
         "es": "Presencia destacada en el catálogo oficial para compradores y distribuidores en Norteamérica.",
-        "en": "",
-        "fr": ""
+        "en": "Prominent presence in the official catalog for buyers and distributors in North America.",
+        "fr": "Présence importante dans le catalogue officiel pour les acheteurs et distributeurs en Amérique du Nord."
       },
       "campanasDifusion": {
         "es": "Campañas de Difusión",
-        "en": "",
-        "fr": ""
+        "en": "Dissemination Campaigns",
+        "fr": "Campagnes de diffusion"
       },
       "campanasDifusionDesc": {
         "es": "Aparece en comunicados de prensa binacionales, redes sociales oficiales y cobertura de prensa local.",
-        "en": "",
-        "fr": ""
+        "en": "Appears in binational press releases, official social networks and local press coverage.",
+        "fr": "Apparaît dans les communiqués de presse binationaux, les réseaux sociaux officiels et la presse locale."
       },
       "ruedasNegocioB2B": {
         "es": "Ruedas de Negocio B2B",
-        "en": "",
-        "fr": ""
+        "en": "B2B Business Roundtables",
+        "fr": "Tables rondes d'affaires B2B"
       },
       "ruedasNegocioDesc": {
         "es": "Agendamiento inteligente de citas uno a uno basado en intereses y perfiles de compradores.",
-        "en": "",
-        "fr": ""
+        "en": "Intelligent scheduling of one-on-one appointments based on interests and buyer profiles.",
+        "fr": "Planification intelligente de rendez-vous individuels en fonction des intérêts et des profils d'acheteurs."
       },
       "buscarCategoria": {
         "es": "Buscar categoría...",
-        "en": "",
-        "fr": ""
+        "en": "Search category...",
+        "fr": "Catégorie de recherche..."
       },
       "registroOficial": {
         "es": "Registro Oficial de Expositoras",
-        "en": "",
-        "fr": ""
+        "en": "Official Registry of Exhibitors",
+        "fr": "Registre officiel des exposants"
       },
       "registroDesc": {
         "es": "Completa el formulario de inscripción oficial para solicitar tu stand de exhibición en Expo México Mujer Toronto.",
-        "en": "",
-        "fr": ""
+        "en": "Complete the official registration form to request your exhibition stand at Expo México Mujer Toronto.",
+        "fr": "Remplissez le formulaire d'inscription officiel pour demander votre stand d'exposition à Expo México Mujer Toronto."
+      },
+      "adquiereStand": {
+        "es": "Adquiere tu",
+        "en": "Acquire your",
+        "fr": "Acquérir votre"
+      },
+      "adquiereStandEm": {
+        "es": "Stand",
+        "en": "Booth",
+        "fr": "Stand"
+      },
+      "apartarLugar": {
+        "es": "Pueden apartar su lugar con el",
+        "en": "You can save your place with the",
+        "fr": "Vous pouvez enregistrer votre place avec le"
+      },
+      "anticipo": {
+        "es": "50% de anticipo",
+        "en": "50% advance",
+        "fr": "50% d'avance"
+      },
+      "antesDel": {
+        "es": "antes del",
+        "en": "before",
+        "fr": "avant"
+      },
+      "fechaLimite": {
+        "es": "30 de Agosto",
+        "en": "August 30",
+        "fr": "30 août"
+      },
+      "standCardTitle": {
+        "es": "Stand",
+        "en": "Booth",
+        "fr": "Stand"
+      },
+      "standCardDesc": {
+        "es": "Asegura tu espacio en la Expo México Mujer 2027. Un lugar perfecto para exhibir tus productos y servicios en Norteamérica.",
+        "en": "Secure your space at Expo México Mujer 2027. A perfect place to exhibit your products and services in North America.",
+        "fr": "Sécurisez votre espace à Expo México Mujer 2027. Un endroit parfait pour exposer vos produits et services en Amérique du Nord."
+      },
+      "standCardItem1": {
+        "es": "Espacio de 3x3 o 2x2 metros",
+        "en": "Space of 3x3 or 2x2 meters",
+        "fr": "Espacio de 3x3 o 2x2 metros"
+      },
+      "standCardItem2": {
+        "es": "Iluminación LED direccional",
+        "en": "Directional LED lighting",
+        "fr": "Éclairage LED directionnel"
+      },
+      "standCardItem3": {
+        "es": "Conexión eléctrica de 110v",
+        "en": "110v electrical connection",
+        "fr": "Conexión eléctrica de 110v"
+      },
+      "precioRegular": {
+        "es": "Precio Regular",
+        "en": "Regular Price",
+        "fr": "Prix ​​régulier"
+      },
+      "reservar50": {
+        "es": "Reservar con el 50%",
+        "en": "Reserve with 50%",
+        "fr": "Réservez avec 50%"
       }
     },
     "embajadoras": {
       "cargandoEmbajadoras": {
         "es": "Cargando embajadoras...",
-        "en": "",
-        "fr": ""
+        "en": "Loading ambassadors...",
+        "fr": "Chargement des ambassadeurs..."
       },
       "buscarEmbajadora": {
         "es": "Buscar embajadora...",
-        "en": "",
-        "fr": ""
+        "en": "Search for ambassador...",
+        "fr": "Recherche d'ambassadeur..."
       },
       "embajadorasDe": {
         "es": "Embajadoras de",
-        "en": "",
-        "fr": ""
+        "en": "ambassadors of",
+        "fr": "ambassadeurs de"
       },
       "noHayEmbajadoras": {
         "es": "No hay embajadoras registradas",
-        "en": "",
-        "fr": ""
+        "en": "There are no registered ambassadors",
+        "fr": "Il n'y a pas d'ambassadeurs enregistrés"
       },
       "proximamente": {
         "es": "Próximamente se anunciará el directorio completo de embajadoras de",
-        "en": "",
-        "fr": ""
+        "en": "The complete directory of ambassadors will be announced soon.",
+        "fr": "Le répertoire complet des ambassadeurs sera annoncé prochainement."
       },
       "verUbicacion": {
         "es": "Ver Ubicación",
-        "en": "",
-        "fr": ""
+        "en": "See Location",
+        "fr": "Voir l'emplacement"
       },
       "ubicacion": {
         "es": "Ubicación",
-        "en": "",
-        "fr": ""
+        "en": "Location",
+        "fr": "Emplacement"
       },
       "planoInteractivo": {
         "es": "Plano interactivo cargando...",
-        "en": "",
-        "fr": ""
+        "en": "Interactive map loading...",
+        "fr": "Chargement de la carte interactive..."
       },
       "embajadorasConvocatoria": {
         "es": "Embajadoras de Expo México Mujer",
-        "en": "",
-        "fr": ""
+        "en": "Expo Mexico Women Ambassadors",
+        "fr": "Femmes ambassadrices de l’Expo Mexique"
       },
       "busquedaDesc": {
         "es": "Buscamos líderes empresariales, gestoras culturales y emprendedoras con visión global en cada estado de la República Mexicana para ser las portavoces del talento de sus regiones en Toronto, Canadá.",
-        "en": "",
-        "fr": ""
+        "en": "We are looking for business leaders, cultural managers and entrepreneurs with a global vision in each state of the Mexican Republic to be spokespersons for the talent of their regions in Toronto, Canada.",
+        "fr": "Nous recherchons des chefs d'entreprise, des gestionnaires culturels et des entrepreneurs ayant une vision globale dans chaque État de la République mexicaine pour être les porte-parole du talent de leurs régions à Toronto, Canada."
       },
       "requisitos": {
         "es": "Requisitos",
-        "en": "",
-        "fr": ""
+        "en": "Requirements",
+        "fr": "Exigences"
       },
       "req1": {
         "es": "Liderazgo y propuesta activa",
-        "en": "",
-        "fr": ""
+        "en": "Leadership and active proposal",
+        "fr": "Leadership et proposition active"
       },
       "req2": {
         "es": "Proyecto con identidad regional",
-        "en": "",
-        "fr": ""
+        "en": "Project with regional identity",
+        "fr": "Projet à l'identité régionale"
       },
       "req3": {
         "es": "Documentación de viaje vigente",
-        "en": "",
-        "fr": ""
+        "en": "Current travel documentation",
+        "fr": "Documents de voyage actuels"
       },
       "fechasClave": {
         "es": "Fechas Clave",
-        "en": "",
-        "fr": ""
+        "en": "Key Dates",
+        "fr": "Dates clés"
       },
       "aperturaLabel": {
         "es": "Apertura:",
-        "en": "",
-        "fr": ""
+        "en": "Opening:",
+        "fr": "Ouverture:"
       },
       "aperturaVal": {
         "es": "Mayo 2026",
-        "en": "",
-        "fr": ""
+        "en": "May 2026",
+        "fr": "mai 2026"
       },
       "cierreLabel": {
         "es": "Cierre:",
-        "en": "",
-        "fr": ""
+        "en": "Closing:",
+        "fr": "Clôture:"
       },
       "cierreVal": {
         "es": "Septiembre 2026",
-        "en": "",
-        "fr": ""
+        "en": "September 2026",
+        "fr": "septembre 2026"
       },
       "resultadosLabel": {
         "es": "Resultados:",
-        "en": "",
-        "fr": ""
+        "en": "Results:",
+        "fr": "Résultats:"
       },
       "resultadosVal": {
         "es": "Octubre 2026",
-        "en": "",
-        "fr": ""
+        "en": "October 2026",
+        "fr": "octobre 2026"
       },
       "conexionBinacional": {
         "es": "Conexión Binacional",
-        "en": "",
-        "fr": ""
+        "en": "Binational Connection",
+        "fr": "Connexion binationale"
       },
       "representacionOficial": {
         "es": "Representación Oficial 2027",
-        "en": "",
-        "fr": ""
+        "en": "Official Representation 2027",
+        "fr": "Représentation officielle 2027"
       },
       "conoceEmbajadoras": {
         "es": "Conoce a nuestras Embajadoras de México",
-        "en": "",
-        "fr": ""
+        "en": "Meet our Mexican Ambassadors",
+        "fr": "Rencontrez nos ambassadeurs mexicains"
       },
       "conoceEmbajadorasDesc": {
         "es": "Las Embajadoras de Expo México Mujer son líderes comprometidas con el desarrollo económico y social de sus comunidades. Selecciona un estado para conocerlas.",
-        "en": "",
-        "fr": ""
+        "en": "The Expo México Mujer Ambassadors are leaders committed to the economic and social development of their communities. Select a state to see them.",
+        "fr": "Les ambassadeurs d'Expo México Mujer sont des leaders engagés dans le développement économique et social de leurs communautés. Sélectionnez un état pour les voir."
       },
       "buscarEstado": {
         "es": "Buscar estado...",
-        "en": "",
-        "fr": ""
+        "en": "Search status...",
+        "fr": "État de la recherche..."
       },
       "registroEmbajadoras": {
         "es": "Registro Oficial de Embajadoras",
-        "en": "",
-        "fr": ""
+        "en": "Official Registry of Ambassadors",
+        "fr": "Registre officiel des ambassadeurs"
       },
       "registroEmbajadorasDesc": {
         "es": "Completa el formulario de postulación oficial para solicitar ser la embajadora representante de tu estado en Expo México Mujer Toronto.",
-        "en": "",
-        "fr": ""
+        "en": "Complete the official application form to request to be the ambassador representing your state at Expo México Mujer Toronto.",
+        "fr": "Remplissez le formulaire de candidature officiel pour demander à devenir ambassadeur représentant votre État à Expo México Mujer Toronto."
       }
     },
     "compradores": {
       "vinculacionB2B": {
         "es": "Vinculación Comercial B2B",
-        "en": "",
-        "fr": ""
+        "en": "B2B Commercial Linkage",
+        "fr": "Lien commercial B2B"
       },
       "compradoresTitle": {
         "es": "Compradores e Inversionistas",
-        "en": "",
-        "fr": ""
+        "en": "Buyers and Investors",
+        "fr": "Acheteurs et investisseurs"
       },
       "compradoresDesc": {
         "es": "El puente directo para importadores, distribuidores y compradores corporativos en Canadá interesados en adquirir productos mexicanos de la más alta calidad y establecer alianzas de inversión.",
-        "en": "",
-        "fr": ""
+        "en": "The direct bridge for importers, distributors and corporate buyers in Canada interested in acquiring Mexican products of the highest quality and establishing investment alliances.",
+        "fr": "Le pont direct pour les importateurs, les distributeurs et les acheteurs corporatifs au Canada intéressés à acquérir des produits mexicains de la plus haute qualité et à établir des alliances d'investissement."
       },
       "ruedaNegocios": {
         "es": "Rueda de Negocios Vinculación Efectiva",
@@ -2229,106 +3132,121 @@
           "ruedaLabel": "Business Roundtables",
           "ontarioSummit": "Ontario Business Summit 2027"
         },
-        "fr": ""
+        "fr": "Liens efficaces entre les tables rondes d’affaires"
       },
       "ruedaDesc": {
         "es": "A través del programa de vinculación, organizamos agendas personalizadas B2B. Los compradores canadienses pueden pre-seleccionar a las expositoras según su industria, capacidad exportadora y certificaciones, optimizando al máximo los encuentros en Toronto.",
-        "en": "",
-        "fr": ""
+        "en": "Through the linking program, we organize personalized B2B agendas. Canadian buyers can pre-select exhibitors based on their industry, export capacity and certifications, optimizing meetings in Toronto to the maximum.",
+        "fr": "Grâce au programme de liaison, nous organisons des agendas B2B personnalisés. Les acheteurs canadiens peuvent présélectionner les exposants en fonction de leur secteur d'activité, de leur capacité d'exportation et de leurs certifications, optimisant ainsi au maximum les réunions à Toronto."
       },
       "perfilamiento": {
         "es": "Perfilamiento Inteligente",
-        "en": "",
-        "fr": ""
+        "en": "Smart Profiling",
+        "fr": "Profilage intelligent"
       },
       "perfilamientoDesc": {
         "es": "Filtramos las propuestas de las empresarias para asegurar el encaje con sus líneas de compra.",
-        "en": "",
-        "fr": ""
+        "en": "We filter the businesswomen's proposals to ensure they fit with their purchasing lines.",
+        "fr": "Nous filtrons les propositions des femmes d'affaires pour nous assurer qu'elles correspondent à leurs lignes d'achat."
       },
       "agendaEstrategica": {
         "es": "Agenda Estratégica",
-        "en": "",
-        "fr": ""
+        "en": "Strategic Agenda",
+        "fr": "Programme stratégique"
       },
       "agendaEstrategicaDesc": {
         "es": "Citas estructuradas uno a uno de 20 minutos programadas semanas antes del evento.",
-        "en": "",
-        "fr": ""
+        "en": "Structured one-on-one 20-minute appointments scheduled weeks before the event.",
+        "fr": "Rendez-vous individuels structurés de 20 minutes prévus des semaines avant l'événement."
       },
       "proyeccionInt": {
         "es": "Proyección Internacional",
-        "en": "",
-        "fr": ""
+        "en": "International Projection",
+        "fr": "Projection internationale"
       },
       "proyeccionDesc": {
         "es": "Facilitamos la logística de envío de muestras y seguimiento comercial posterior.",
-        "en": "",
-        "fr": ""
+        "en": "We facilitate the logistics of sending samples and subsequent commercial tracking.",
+        "fr": "Nous facilitons la logistique de l’envoi des échantillons et du suivi commercial ultérieur."
       },
       "ruedaDeNegocios": {
         "es": "Rueda de Negocios",
-        "en": "",
-        "fr": ""
+        "en": "Business Roundtable",
+        "fr": "Table ronde des entreprises"
       },
       "ontarioBusinessSummit": {
         "es": "Ontario Business Summit 2027",
-        "en": "",
-        "fr": ""
+        "en": "Ontario Business Summit 2027",
+        "fr": "Sommet des entreprises de l'Ontario 2027"
       },
       "directorioDigital": {
         "es": "Directorio Digital de Compradores",
-        "en": "",
-        "fr": ""
+        "en": "Digital Buyer Directory",
+        "fr": "Annuaire des acheteurs numériques"
       },
       "buscarEmpresa": {
         "es": "Buscar por empresa o sector...",
-        "en": "",
-        "fr": ""
+        "en": "Search by company or sector...",
+        "fr": "Recherche par entreprise ou secteur..."
       },
       "verPerfil": {
         "es": "Ver perfil completo",
-        "en": "",
-        "fr": ""
+        "en": "View full profile",
+        "fr": "Voir le profil complet"
       },
       "noCorporaciones": {
         "es": "No se encontraron corporaciones compradoras.",
-        "en": "",
-        "fr": ""
+        "en": "No purchasing corporations were found.",
+        "fr": "Aucune société d'achat n'a été trouvée."
       },
       "registroCompradores": {
         "es": "Registro Oficial de Compradores",
-        "en": "",
-        "fr": ""
+        "en": "Official Register of Buyers",
+        "fr": "Registre officiel des acheteurs"
       },
       "registroCompradoresDesc": {
         "es": "Completa el formulario oficial de inscripción para compradores corporativos e inversionistas canadienses.",
-        "en": "",
-        "fr": ""
+        "en": "Complete the official registration form for Canadian corporate buyers and investors.",
+        "fr": "Remplissez le formulaire d’inscription officiel pour les acheteurs et investisseurs corporatifs canadiens."
       }
     },
     "participa": {
       "participacionComercial": {
         "es": "Participación Comercial",
-        "en": "",
-        "fr": ""
+        "en": "Commercial Participation",
+        "fr": "Participation commerciale"
       },
       "expositorasTitle": {
         "es": "Expositoras",
-        "en": "",
-        "fr": ""
+        "en": "Exhibitors",
+        "fr": "Exposants"
       },
       "standsTitle": {
         "es": "Stands y Espacios",
-        "en": "",
-        "fr": ""
+        "en": "Stands and Spaces",
+        "fr": "Stands et espaces"
       },
       "standsDesc": {
         "es": "Disponemos de espacios de exhibición premium diseñados para maximizar la visibilidad de tu marca y productos en el centro de convenciones de Toronto.",
-        "en": "",
-        "fr": ""
+        "en": "We have premium exhibition spaces designed to maximize the visibility of your brand and products at the Toronto Convention Centre.",
+        "fr": "Nous disposons d'espaces d'exposition haut de gamme conçus pour maximiser la visibilité de votre marque et de vos produits au Centre des congrès de Toronto."
       },
       "standsItems": {
+        "0": {
+          "es": "Stands de 3x3 y 2x2 metros completamente equipados.",
+          "en": "",
+          "fr": ""
+        },
+        "1": {
+          "es": "Montaje premium con iluminación y rotulación personalizada.",
+          "en": "",
+          "fr": ""
+        },
+        "2": {
+          "es": "Zonas de B2B y áreas de networking exclusivas.",
+          "en": "",
+          "fr": ""
+        },
         "es": [
           "Stands de 3x3 y 2x2 metros completamente equipados.",
           "Montaje premium con iluminación y rotulación personalizada.",
@@ -2339,15 +3257,30 @@
       },
       "beneficiosPartTitle": {
         "es": "Beneficios de Participación",
-        "en": "",
-        "fr": ""
+        "en": "Participation Benefits",
+        "fr": "Avantages de participation"
       },
       "beneficiosPartDesc": {
         "es": "Posiciona tu negocio a nivel internacional e interactúa directamente con importadores, distribuidores y el público general canadiense.",
-        "en": "",
-        "fr": ""
+        "en": "Position your business internationally and interact directly with importers, distributors and the general Canadian public.",
+        "fr": "Positionnez votre entreprise à l'international et interagissez directement avec les importateurs, les distributeurs et le grand public canadien."
       },
       "beneficiosPartItems": {
+        "0": {
+          "es": "Acceso directo al Directorio Digital oficial de expositoras.",
+          "en": "",
+          "fr": ""
+        },
+        "1": {
+          "es": "Presencia en medios de prensa y campañas publicitarias.",
+          "en": "",
+          "fr": ""
+        },
+        "2": {
+          "es": "Agendamiento previo de citas de negocios (Matchmaking).",
+          "en": "",
+          "fr": ""
+        },
         "es": [
           "Acceso directo al Directorio Digital oficial de expositoras.",
           "Presencia en medios de prensa y campañas publicitarias.",
@@ -2358,239 +3291,486 @@
       },
       "registroExpositoras": {
         "es": "Registro Oficial de Expositoras",
-        "en": "",
-        "fr": ""
+        "en": "Official Registry of Exhibitors",
+        "fr": "Registre officiel des exposants"
       },
       "verDirectorio": {
         "es": "Ver Directorio Digital",
-        "en": "",
-        "fr": ""
+        "en": "See Digital Directory",
+        "fr": "Voir l'annuaire numérique"
       },
       "alianzasCorporativas": {
         "es": "Alianzas Corporativas",
-        "en": "",
-        "fr": ""
+        "en": "Corporate Alliances",
+        "fr": "Alliances d'entreprise"
       },
       "patrocinadoresTitle": {
         "es": "Patrocinadores",
-        "en": "",
-        "fr": ""
+        "en": "Sponsors",
+        "fr": "Commanditaires"
       },
       "categoriasPatrocinio": {
         "es": "Categorías de Patrocinio",
-        "en": "",
-        "fr": ""
+        "en": "Sponsorship Categories",
+        "fr": "Catégories de parrainage"
       },
       "categoriasPatrocinioDesc": {
         "es": "Ofrecemos distintas modalidades de vinculación comercial para adaptarnos al tamaño e impacto de tu corporación: Platino, Oro, Plata y Bronce, además de patrocinios especiales en áreas temáticas específicas como gastronomía, moda o tecnología.",
-        "en": "",
-        "fr": ""
+        "en": "We offer different types of commercial links to adapt to the size and impact of your corporation: Platinum, Gold, Silver and Bronze, as well as special sponsorships in specific thematic areas such as gastronomy, fashion or technology.",
+        "fr": "Nous proposons différents types de liens commerciaux pour nous adapter à la taille et à l'impact de votre entreprise : Platine, Or, Argent et Bronze, ainsi que des parrainages spéciaux dans des domaines thématiques spécifiques comme la gastronomie, la mode ou la technologie."
       },
       "beneficiosPatrocinio": {
         "es": "Beneficios de Patrocinio",
-        "en": "",
-        "fr": ""
+        "en": "Sponsorship Benefits",
+        "fr": "Avantages du parrainage"
       },
       "beneficiosPatrocinioDesc": {
         "es": "Los patrocinadores oficiales reciben una exposición de marca inigualable en todas las plataformas digitales, físicas, impresas y espacios VIP del evento, sumado a oportunidades directas de vinculación con delegaciones empresariales de alto nivel.",
-        "en": "",
-        "fr": ""
+        "en": "Official sponsors receive unparalleled brand exposure across all digital, physical, print and VIP event platforms, plus direct networking opportunities with high-level business delegations.",
+        "fr": "Les sponsors officiels bénéficient d'une visibilité de marque inégalée sur toutes les plateformes d'événements numériques, physiques, imprimés et VIP, ainsi que d'opportunités de réseautage direct avec des délégations commerciales de haut niveau."
       },
       "liderazgoTerritorial": {
         "es": "Liderazgo Territorial",
-        "en": "",
-        "fr": ""
+        "en": "Territorial Leadership",
+        "fr": "Leadership territorial"
       },
       "embajadorasEMM": {
         "es": "Embajadoras Expo México Mujer",
-        "en": "",
-        "fr": ""
+        "en": "Expo México Women Ambassadors",
+        "fr": "Femmes ambassadrices d’Expo México"
       },
       "convocatoriaNacional": {
         "es": "Convocatoria Nacional",
-        "en": "",
-        "fr": ""
+        "en": "National Call",
+        "fr": "Appel national"
       },
       "convocatoriaNacionalDesc": {
         "es": "Buscamos a mujeres líderes en cada rincón del país que deseen representar los valores de innovación, cultura y esfuerzo de la mujer mexicana en Canadá.",
-        "en": "",
-        "fr": ""
+        "en": "We are looking for women leaders in every corner of the country who wish to represent the values ​​of innovation, culture and effort of Mexican women in Canada.",
+        "fr": "Nous recherchons des femmes leaders aux quatre coins du pays qui souhaitent représenter les valeurs d'innovation, de culture et d'effort des femmes mexicaines au Canada."
       },
       "representacionEstatal": {
         "es": "Representación Estatal",
-        "en": "",
-        "fr": ""
+        "en": "State Representation",
+        "fr": "Représentation de l'État"
       },
       "representacionEstatalDesc": {
         "es": "Las embajadoras coordinan la participación territorial de sus estados, llevando muestras artesanales, gastronómicas e industriales representativas del interior de la república.",
-        "en": "",
-        "fr": ""
+        "en": "The ambassadors coordinate the territorial participation of their states, bringing artisanal, gastronomic and industrial samples representative of the interior of the republic.",
+        "fr": "Les ambassadeurs coordonnent la participation territoriale de leurs États, apportant des échantillons artisanaux, gastronomiques et industriels représentatifs de l'intérieur de la république."
       },
       "registroAspirantes": {
         "es": "Registro de Aspirantes",
-        "en": "",
-        "fr": ""
+        "en": "Applicant Registration",
+        "fr": "Inscription des candidats"
       },
       "registroAspirantesDesc": {
         "es": "Si deseas postularte o proponer a una líder de tu comunidad, completa nuestro formulario oficial para ser evaluada por el comité directivo.",
-        "en": "",
-        "fr": ""
+        "en": "If you wish to apply or propose a leader from your community, complete our official form to be evaluated by the steering committee.",
+        "fr": "Si vous souhaitez postuler ou proposer un leader de votre communauté, remplissez notre formulaire officiel pour être évalué par le comité directeur."
       },
       "nuestrosAliados": {
         "es": "Nuestros Aliados",
-        "en": "",
-        "fr": ""
+        "en": "Our Allies",
+        "fr": "Nos alliés"
       },
       "aliadosEstrategicos": {
         "es": "Aliados Estratégicos",
-        "en": "",
-        "fr": ""
+        "en": "Strategic Allies",
+        "fr": "Alliés stratégiques"
       },
       "aliadosEstrategicosDesc": {
         "es": "Empresas y agencias de desarrollo que co-crean valor y sustentan la estructura del evento.",
-        "en": "",
-        "fr": ""
+        "en": "Companies and development agencies that co-create value and support the structure of the event.",
+        "fr": "Entreprises et agences de développement qui co-créent de la valeur et soutiennent la structure de l'événement."
       },
       "aliadosInstitucionales": {
         "es": "Aliados Institucionales",
-        "en": "",
-        "fr": ""
+        "en": "Institutional Allies",
+        "fr": "Alliés institutionnels"
       },
       "aliadosInstitucionalesDesc": {
         "es": "Gobiernos estatales, embajadas y consulados de ambos países respaldando las operaciones.",
-        "en": "",
-        "fr": ""
+        "en": "State governments, embassies and consulates of both countries supporting the operations.",
+        "fr": "Les gouvernements des États, les ambassades et les consulats des deux pays soutiennent les opérations."
       },
       "camarasEmpresariales": {
         "es": "Cámaras Empresariales",
-        "en": "",
-        "fr": ""
+        "en": "Business Chambers",
+        "fr": "Chambres de commerce"
       },
       "camarasDesc": {
         "es": "Cámaras binacionales y asociaciones de comercio que promueven los intercambios comerciales.",
-        "en": "",
-        "fr": ""
+        "en": "Binational chambers and trade associations that promote commercial exchanges.",
+        "fr": "Chambres binationales et associations professionnelles qui favorisent les échanges commerciaux."
       },
       "ponentesLideres": {
         "es": "Ponentes y Líderes",
-        "en": "",
-        "fr": ""
+        "en": "Speakers and Leaders",
+        "fr": "Conférenciers et dirigeants"
       },
       "invitadosTitle": {
         "es": "Invitados Especiales",
-        "en": "",
-        "fr": ""
+        "en": "Special Guests",
+        "fr": "Invités spéciaux"
       },
       "invitadosDesc": {
         "es": "Nuestra agenda se nutre con la experiencia de líderes empresariales sobresalientes, conferencistas inspiradoras y personalidades influyentes en el ámbito del comercio internacional y el empoderamiento femenino de Canadá y Latinoamérica.",
-        "en": "",
-        "fr": ""
+        "en": "Our agenda is nourished by the experience of outstanding business leaders, inspiring speakers and influential personalities in the field of international trade and female empowerment from Canada and Latin America.",
+        "fr": "Notre programme est nourri par l’expérience de chefs d’entreprise exceptionnels, de conférenciers inspirants et de personnalités influentes dans le domaine du commerce international et de l’autonomisation des femmes du Canada et d’Amérique latine."
       },
       "vinculacionB2BInv": {
         "es": "Vinculación B2B",
-        "en": "",
-        "fr": ""
+        "en": "B2B Linking",
+        "fr": "Liens B2B"
       },
       "compradoresTitleInv": {
         "es": "Compradores e Inversionistas",
-        "en": "",
-        "fr": ""
+        "en": "Buyers and Investors",
+        "fr": "Acheteurs et investisseurs"
       },
       "compradoresDescInv": {
         "es": "Si eres distribuidor, comprador corporativo o inversionista en Canadá y deseas contactar con productos premium mexicanos, este es tu espacio de vinculación.",
-        "en": "",
-        "fr": ""
+        "en": "If you are a distributor, corporate buyer or investor in Canada and want to contact premium Mexican products, this is your networking space.",
+        "fr": "Si vous êtes un distributeur, un acheteur corporatif ou un investisseur au Canada et que vous souhaitez contacter des produits mexicains haut de gamme, ceci est votre espace de réseautage."
       },
       "registroCompradoresInv": {
         "es": "Registro de Compradores",
-        "en": "",
-        "fr": ""
+        "en": "Buyer Registration",
+        "fr": "Inscription de l'acheteur"
       },
       "registroCompradoresDescInv": {
         "es": "Obtén credenciales VIP y accede a las agendas exclusivas de citas de negocios uno a uno durante el evento.",
-        "en": "",
-        "fr": ""
+        "en": "Earn VIP credentials and access exclusive one-on-one business appointment schedules during the event.",
+        "fr": "Gagnez des informations d'identification VIP et accédez à des horaires de rendez-vous professionnels individuels exclusifs pendant l'événement."
       },
       "directorioCompradoresInv": {
         "es": "Directorio de Compradores",
-        "en": "",
-        "fr": ""
+        "en": "Buyers Directory",
+        "fr": "Annuaire des acheteurs"
       },
       "directorioCompradoresDescInv": {
         "es": "Directorio dinámico que facilita a las marcas identificar y conectar con perfiles de interés comercial.",
-        "en": "",
-        "fr": ""
+        "en": "Dynamic directory that makes it easier for brands to identify and connect with profiles of commercial interest.",
+        "fr": "Annuaire dynamique qui permet aux marques d'identifier plus facilement et de se connecter avec des profils d'intérêt commercial."
       },
       "vinculacionEmpresarialInv": {
         "es": "Vinculación Empresarial",
-        "en": "",
-        "fr": ""
+        "en": "Business Linkage",
+        "fr": "Lien commercial"
       },
       "vinculacionEmpresarialDescInv": {
         "es": "Mesas redondas de negociación sectoriales guiadas por mentores comerciales certificados.",
-        "en": "",
-        "fr": ""
+        "en": "Sector negotiation round tables guided by certified business mentors.",
+        "fr": "Tables rondes de négociation sectorielle guidées par des mentors d'affaires certifiés."
+      },
+      "expositoras": {
+        "eyebrow": {
+          "es": "Participación Comercial",
+          "en": "Commercial Participation",
+          "fr": "Participation commerciale"
+        },
+        "title": {
+          "es": "Expositoras",
+          "en": "Exhibitors",
+          "fr": "Exposants"
+        },
+        "card1Title": {
+          "es": "Stands y Espacios",
+          "en": "Stands and Spaces",
+          "fr": "Stands et espaces"
+        },
+        "card1Desc": {
+          "es": "Disponemos de espacios de exhibición premium diseñados para maximizar la visibilidad de tu marca y productos en el centro de convenciones de Toronto.",
+          "en": "We have premium exhibition spaces designed to maximize the visibility of your brand and products at the Toronto Convention Centre.",
+          "fr": "Nous disposons d'espaces d'exposition haut de gamme conçus pour maximiser la visibilité de votre marque et de vos produits au Centre des congrès de Toronto."
+        },
+        "card1Li1": {
+          "es": "Stands de 3x3 y 2x2 metros completamente equipados.",
+          "en": "Fully equipped 3x3 and 2x2 meter stands.",
+          "fr": "Stands entièrement équipés de 3x3 et 2x2 mètres."
+        },
+        "card1Li2": {
+          "es": "Montaje premium con iluminación y rotulación personalizada.",
+          "en": "Premium assembly with lighting and custom lettering.",
+          "fr": "Assemblage premium avec éclairage et lettrage personnalisé."
+        },
+        "card1Li3": {
+          "es": "Zonas de B2B y áreas de networking exclusivas.",
+          "en": "B2B zones and exclusive networking areas.",
+          "fr": "Zones B2B et zones de réseautage exclusives."
+        },
+        "card2Title": {
+          "es": "Beneficios de Participación",
+          "en": "Participation Benefits",
+          "fr": "Avantages de participation"
+        },
+        "card2Desc": {
+          "es": "Posiciona tu negocio a nivel internacional e interactúa directamente con importadores, distribuidores y el público general canadiense.",
+          "en": "Position your business internationally and interact directly with importers, distributors and the general Canadian public.",
+          "fr": "Positionnez votre entreprise à l'international et interagissez directement avec les importateurs, les distributeurs et le grand public canadien."
+        },
+        "card2Li1": {
+          "es": "Acceso directo al Directorio Digital oficial de expositoras.",
+          "en": "Direct access to the official Digital Directory of exhibitors.",
+          "fr": "Accès direct à l'annuaire numérique officiel des exposants."
+        },
+        "card2Li2": {
+          "es": "Presencia en medios de prensa y campañas publicitarias.",
+          "en": "Presence in the press and advertising campaigns.",
+          "fr": "Présence dans la presse et campagnes publicitaires."
+        },
+        "card2Li3": {
+          "es": "Agendamiento previo de citas de negocios (Matchmaking).",
+          "en": "Prior scheduling of business appointments (Matchmaking).",
+          "fr": "Planification préalable des rendez-vous professionnels (Matchmaking)."
+        },
+        "btn1": {
+          "es": "Registro Oficial de Expositoras",
+          "en": "Official Registry of Exhibitors",
+          "fr": "Registre officiel des exposants"
+        },
+        "btn2": {
+          "es": "Ver Directorio Digital",
+          "en": "See Digital Directory",
+          "fr": "Voir l'annuaire numérique"
+        }
+      },
+      "patrocinadores": {
+        "eyebrow": {
+          "es": "Alianzas Corporativas",
+          "en": "Corporate Alliances",
+          "fr": "Alliances d'entreprise"
+        },
+        "title": {
+          "es": "Patrocinadores",
+          "en": "Sponsors",
+          "fr": "Commanditaires"
+        },
+        "card1Title": {
+          "es": "Categorías de Patrocinio",
+          "en": "Sponsorship Categories",
+          "fr": "Catégories de parrainage"
+        },
+        "card1Desc": {
+          "es": "Ofrecemos distintas modalidades de vinculación comercial para adaptarnos al tamaño e impacto de tu corporación: Platino, Oro, Plata y Bronce, además de patrocinios especiales en áreas temáticas específicas como gastronomía, moda o tecnología.",
+          "en": "We offer different types of commercial links to adapt to the size and impact of your corporation: Platinum, Gold, Silver and Bronze, as well as special sponsorships in specific thematic areas such as gastronomy, fashion or technology.",
+          "fr": "Nous proposons différents types de liens commerciaux pour nous adapter à la taille et à l'impact de votre entreprise : Platine, Or, Argent et Bronze, ainsi que des parrainages spéciaux dans des domaines thématiques spécifiques comme la gastronomie, la mode ou la technologie."
+        },
+        "card2Title": {
+          "es": "Beneficios de Patrocinio",
+          "en": "Sponsorship Benefits",
+          "fr": "Avantages du parrainage"
+        },
+        "card2Desc": {
+          "es": "Los patrocinadores oficiales reciben una exposición de marca inigualable en todas las plataformas digitales, físicas, impresas y espacios VIP del evento, sumado a oportunidades directas de vinculación con delegaciones empresariales de alto nivel.",
+          "en": "Official sponsors receive unparalleled brand exposure across all digital, physical, print and VIP event platforms, plus direct networking opportunities with high-level business delegations.",
+          "fr": "Les sponsors officiels bénéficient d'une visibilité de marque inégalée sur toutes les plateformes d'événements numériques, physiques, imprimés et VIP, ainsi que d'opportunités de réseautage direct avec des délégations commerciales de haut niveau."
+        }
+      },
+      "embajadoras": {
+        "eyebrow": {
+          "es": "Liderazgo Territorial",
+          "en": "Territorial Leadership",
+          "fr": "Leadership territorial"
+        },
+        "title": {
+          "es": "Embajadoras Expo México Mujer",
+          "en": "Expo México Women Ambassadors",
+          "fr": "Femmes ambassadrices d’Expo México"
+        },
+        "card1Title": {
+          "es": "Convocatoria Nacional",
+          "en": "National Call",
+          "fr": "Appel national"
+        },
+        "card1Desc": {
+          "es": "Buscamos a mujeres líderes en cada rincón del país que deseen representar los valores de innovación, cultura y esfuerzo de la mujer mexicana en Canadá.",
+          "en": "We are looking for women leaders in every corner of the country who wish to represent the values ​​of innovation, culture and effort of Mexican women in Canada.",
+          "fr": "Nous recherchons des femmes leaders aux quatre coins du pays qui souhaitent représenter les valeurs d'innovation, de culture et d'effort des femmes mexicaines au Canada."
+        },
+        "card2Title": {
+          "es": "Representación Estatal",
+          "en": "State Representation",
+          "fr": "Représentation de l'État"
+        },
+        "card2Desc": {
+          "es": "Las embajadoras coordinan la participación territorial de sus estados, llevando muestras artesanales, gastronómicas e industriales representativas del interior de la república.",
+          "en": "The ambassadors coordinate the territorial participation of their states, bringing artisanal, gastronomic and industrial samples representative of the interior of the republic.",
+          "fr": "Les ambassadeurs coordonnent la participation territoriale de leurs États, apportant des échantillons artisanaux, gastronomiques et industriels représentatifs de l'intérieur de la république."
+        },
+        "card3Title": {
+          "es": "Registro de Aspirantes",
+          "en": "Applicant Registration",
+          "fr": "Inscription des candidats"
+        },
+        "card3Desc": {
+          "es": "Si deseas postularte o proponer a una líder de tu comunidad, completa nuestro formulario oficial para ser evaluada por el comité directivo.",
+          "en": "If you wish to apply or propose a leader from your community, complete our official form to be evaluated by the steering committee.",
+          "fr": "Si vous souhaitez postuler ou proposer un leader de votre communauté, remplissez notre formulaire officiel pour être évalué par le comité directeur."
+        }
+      },
+      "aliados": {
+        "title": {
+          "es": "Nuestros Aliados",
+          "en": "Our Allies",
+          "fr": "Nos alliés"
+        },
+        "card1Title": {
+          "es": "Aliados Estratégicos",
+          "en": "Strategic Allies",
+          "fr": "Alliés stratégiques"
+        },
+        "card1Desc": {
+          "es": "Empresas y agencias de desarrollo que co-crean valor y sustentan la estructura del evento.",
+          "en": "Companies and development agencies that co-create value and support the structure of the event.",
+          "fr": "Entreprises et agences de développement qui co-créent de la valeur et soutiennent la structure de l'événement."
+        },
+        "card2Title": {
+          "es": "Aliados Institucionales",
+          "en": "Institutional Allies",
+          "fr": "Alliés institutionnels"
+        },
+        "card2Desc": {
+          "es": "Gobiernos estatales, embajadas y consulados de ambos países respaldando las operaciones.",
+          "en": "State governments, embassies and consulates of both countries supporting the operations.",
+          "fr": "Les gouvernements des États, les ambassades et les consulats des deux pays soutiennent les opérations."
+        },
+        "card3Title": {
+          "es": "Cámaras Empresariales",
+          "en": "Business Chambers",
+          "fr": "Chambres de commerce"
+        },
+        "card3Desc": {
+          "es": "Cámaras binacionales y asociaciones de comercio que promueven los intercambios comerciales.",
+          "en": "Binational chambers and trade associations that promote commercial exchanges.",
+          "fr": "Chambres binationales et associations professionnelles qui favorisent les échanges commerciaux."
+        }
+      },
+      "invitados": {
+        "eyebrow": {
+          "es": "Ponentes y Líderes",
+          "en": "Speakers and Leaders",
+          "fr": "Conférenciers et dirigeants"
+        },
+        "title": {
+          "es": "Invitados Especiales",
+          "en": "Special Guests",
+          "fr": "Invités spéciaux"
+        },
+        "desc": {
+          "es": "Nuestra agenda se nutre con la experiencia de líderes empresariales sobresalientes, conferencistas inspiradoras y personalidades influyentes en el ámbito del comercio internacional y el empoderamiento femenino de Canadá y Latinoamérica.",
+          "en": "Our agenda is nourished by the experience of outstanding business leaders, inspiring speakers and influential personalities in the field of international trade and female empowerment from Canada and Latin America.",
+          "fr": "Notre programme est nourri par l’expérience de chefs d’entreprise exceptionnels, de conférenciers inspirants et de personnalités influentes dans le domaine du commerce international et de l’autonomisation des femmes du Canada et d’Amérique latine."
+        }
+      },
+      "compradores": {
+        "eyebrow": {
+          "es": "Vinculación B2B",
+          "en": "B2B Linking",
+          "fr": "Liens B2B"
+        },
+        "title": {
+          "es": "Compradores e Inversionistas",
+          "en": "Buyers and Investors",
+          "fr": "Acheteurs et investisseurs"
+        },
+        "desc": {
+          "es": "Si eres distribuidor, comprador corporativo o inversionista en Canadá y deseas contactar con productos premium mexicanos, este es tu espacio de vinculación.",
+          "en": "If you are a distributor, corporate buyer or investor in Canada and want to contact premium Mexican products, this is your networking space.",
+          "fr": "Si vous êtes un distributeur, un acheteur corporatif ou un investisseur au Canada et que vous souhaitez contacter des produits mexicains haut de gamme, ceci est votre espace de réseautage."
+        },
+        "card1Title": {
+          "es": "Registro de Compradores",
+          "en": "Buyer Registration",
+          "fr": "Inscription de l'acheteur"
+        },
+        "card1Desc": {
+          "es": "Obtén credenciales VIP y accede a las agendas exclusivas de citas de negocios uno a uno durante el evento.",
+          "en": "Earn VIP credentials and access exclusive one-on-one business appointment schedules during the event.",
+          "fr": "Gagnez des informations d'identification VIP et accédez à des horaires de rendez-vous professionnels individuels exclusifs pendant l'événement."
+        },
+        "card2Title": {
+          "es": "Directorio de Compradores",
+          "en": "Buyers Directory",
+          "fr": "Annuaire des acheteurs"
+        },
+        "card2Desc": {
+          "es": "Directorio dinámico que facilita a las marcas identificar y conectar con perfiles de interés comercial.",
+          "en": "Dynamic directory that makes it easier for brands to identify and connect with profiles of commercial interest.",
+          "fr": "Annuaire dynamique qui permet aux marques d'identifier plus facilement et de se connecter avec des profils d'intérêt commercial."
+        },
+        "card3Title": {
+          "es": "Vinculación Empresarial",
+          "en": "Business Linkage",
+          "fr": "Lien commercial"
+        },
+        "card3Desc": {
+          "es": "Mesas redondas de negociación sectoriales guiadas por mentores comerciales certificados.",
+          "en": "Sector negotiation round tables guided by certified business mentors.",
+          "fr": "Tables rondes de négociation sectorielle guidées par des mentors d'affaires certifiés."
+        }
       }
     },
     "aliados": {
       "vinculacionInstitucional": {
         "es": "Vinculación Institucional",
-        "en": "",
-        "fr": ""
+        "en": "Institutional Linkage",
+        "fr": "Lien institutionnel"
       },
       "aliadosTitle": {
         "es": "Aliados Estratégicos & Cámaras",
-        "en": "",
-        "fr": ""
+        "en": "Strategic Allies & Chambers",
+        "fr": "Alliés et chambres stratégiques"
       },
       "aliadosDesc": {
         "es": "Expo México Mujer cuenta con el respaldo y vinculación activa de organismos gubernamentales, cámaras de comercio binacionales y asociaciones empresariales comprometidas con la integración económica y el liderazgo femenino.",
-        "en": "",
-        "fr": ""
+        "en": "Expo México Mujer has the support and active involvement of government agencies, binational chambers of commerce and business associations committed to economic integration and female leadership.",
+        "fr": "Expo México Mujer bénéficie du soutien et de la participation active d'agences gouvernementales, de chambres de commerce binationales et d'associations professionnelles engagées dans l'intégration économique et le leadership féminin."
       },
       "aliadosEstTitle": {
         "es": "Aliados Estratégicos",
-        "en": "",
-        "fr": ""
+        "en": "Strategic Allies",
+        "fr": "Alliés stratégiques"
       },
       "aliadosEstDesc": {
         "es": "Empresas líderes del sector privado nacional e internacional que aportan innovación, recursos y soporte operativo clave para materializar la visión binacional del evento.",
-        "en": "",
-        "fr": ""
+        "en": "Leading companies from the national and international private sector that provide innovation, resources and key operational support to materialize the binational vision of the event.",
+        "fr": "Des entreprises leaders du secteur privé national et international qui fournissent de l'innovation, des ressources et un soutien opérationnel clé pour matérialiser la vision binationale de l'événement."
       },
       "aliadosInstTitle": {
         "es": "Aliados Institucionales",
-        "en": "",
-        "fr": ""
+        "en": "Institutional Allies",
+        "fr": "Alliés institutionnels"
       },
       "aliadosInstDesc": {
         "es": "Entidades gubernamentales, consulados y embajadas de México y Canadá que brindan respaldo oficial, legitimidad y acompañamiento político en todos los intercambios.",
-        "en": "",
-        "fr": ""
+        "en": "Government entities, consulates and embassies of Mexico and Canada that provide official support, legitimacy and political accompaniment in all exchanges.",
+        "fr": "Entités gouvernementales, consulats et ambassades du Mexique et du Canada qui fournissent un soutien officiel, une légitimité et un accompagnement politique dans tous les échanges."
       },
       "camarasEmpTitle": {
         "es": "Cámaras Empresariales",
-        "en": "",
-        "fr": ""
+        "en": "Business Chambers",
+        "fr": "Chambres de commerce"
       },
       "camarasEmpDesc": {
         "es": "Organizaciones e intermediarios de negocios (como COMCE, cámaras hispanas y asociaciones locales de Ontario) que catalizan las ruedas de negocios y el networking comercial.",
-        "en": "",
-        "fr": ""
+        "en": "Organizations and business intermediaries (such as COMCE, Hispanic chambers and local associations in Ontario) that catalyze business roundtables and commercial networking.",
+        "fr": "Organisations et intermédiaires commerciaux (comme le COMCE, les chambres hispaniques et les associations locales de l'Ontario) qui catalysent les tables rondes d'affaires et le réseautage commercial."
       },
       "aliadosOficiales": {
         "es": "Aliados Oficiales",
         "en": "Official Partners",
-        "fr": ""
+        "fr": "Alliés officiels"
       },
       "aliadosOficialesDesc": {
         "es": "Vinculación activa con organismos institucionales y cámaras comerciales.",
         "en": "Active linkage with institutional organizations and commercial chambers.",
-        "fr": ""
+        "fr": "Lien actif avec les organismes institutionnels et les chambres commerciales."
       },
       "aliado1": {
         "es": "Consulado General de México en Toronto",
-        "en": "",
+        "en": "Consulate General of Mexico in Toronto",
         "fr": {
           "title": "Partenaires Stratégiques",
           "desc": "Entreprises leaders du secteur privé national et international qui apportent innovation, ressources et support opérationnel clé pour matérialiser la vision binationale de l'événement."
@@ -2598,7 +3778,7 @@
       },
       "aliado2": {
         "es": "Embajada de México en Canadá",
-        "en": "",
+        "en": "Embassy of Mexico in Canada",
         "fr": {
           "title": "Partenaires Institutionnels",
           "desc": "Entités gouvernementales, consulats et ambassades du Mexique et du Canada qui offrent un soutien officiel, une légitimité et un accompagnement politique dans tous les échanges."
@@ -2606,7 +3786,7 @@
       },
       "aliado3": {
         "es": "Cámara de Comercio de Canadá en México",
-        "en": "",
+        "en": "Canadian Chamber of Commerce in Mexico",
         "fr": {
           "title": "Chambres d'Affaires",
           "desc": "Organisations et intermédiaires commerciaux (comme le COMCE, les chambres hispaniques et les associations locales de l'Ontario) qui catalysent les tables rondes et le réseautage commercial."
@@ -2614,656 +3794,1319 @@
       },
       "aliado4": {
         "es": "COMCE",
-        "en": "",
-        "fr": ""
+        "en": "COMCE",
+        "fr": "COMCE"
       },
       "aliado5": {
         "es": "Ontario Chamber of Commerce",
-        "en": "",
-        "fr": ""
+        "en": "Ontario Chamber of Commerce",
+        "fr": "Chambre de commerce de l'Ontario"
       },
       "aliado6": {
         "es": "Government of Ontario",
-        "en": "",
-        "fr": ""
+        "en": "Government of Ontario",
+        "fr": "Gouvernement de l'Ontario"
       },
       "aliado7": {
         "es": "Quebec International",
-        "en": "",
-        "fr": ""
+        "en": "Quebec International",
+        "fr": "Québec International"
       },
       "aliado8": {
         "es": "WBE Canada",
-        "en": "",
-        "fr": ""
+        "en": "WBE Canada",
+        "fr": "WBE Canada"
       },
       "aliado9": {
         "es": "Mexican Chamber of Commerce in Canada",
-        "en": "",
-        "fr": ""
+        "en": "Mexican Chamber of Commerce in Canada",
+        "fr": "Chambre de commerce mexicaine au Canada"
       }
     },
     "nosotros": {
       "missionVisionTitle": {
         "es": "México en el mundo, con todo su poder",
-        "en": "",
-        "fr": ""
+        "en": "Mexico in the world, with all its power",
+        "fr": "Le Mexique dans le monde, avec toute sa puissance"
       },
       "misionLabel": {
         "es": "Misión",
-        "en": "",
-        "fr": ""
+        "en": "Mission",
+        "fr": "Mission"
       },
       "misionTitle": {
         "es": "Conectar el talento mexicano con el mundo",
-        "en": "",
-        "fr": ""
+        "en": "Connect Mexican talent with the world",
+        "fr": "Connectez les talents mexicains au monde"
       },
       "misionText": {
         "es": "Consolidar la proyección internacional de México a través de una plataforma que conecta el talento, la cultura y los productos mexicanos con oportunidades concretas en Canadá, impulsando el desarrollo económico y fortaleciendo la identidad nacional en el extranjero.",
-        "en": "",
-        "fr": ""
+        "en": "Consolidate the international projection of Mexico through a platform that connects Mexican talent, culture and products with specific opportunities in Canada, promoting economic development and strengthening national identity abroad.",
+        "fr": "Consolider la projection internationale du Mexique grâce à une plateforme qui relie les talents, la culture et les produits mexicains à des opportunités spécifiques au Canada, favorisant le développement économique et renforçant l'identité nationale à l'étranger."
       },
       "visionLabel": {
         "es": "Visión",
-        "en": "",
-        "fr": ""
+        "en": "Vision",
+        "fr": "Vision"
       },
       "visionTitle": {
         "es": "Ser el referente binacional del liderazgo femenino",
-        "en": "",
-        "fr": ""
+        "en": "To be the binational reference for female leadership",
+        "fr": "Être la référence binationale du leadership féminin"
       },
       "visionText": {
         "es": "Ser el referente binacional más importante para el liderazgo femenino mexicano, creando un ecosistema de negocios, cultura y comunidad que trascienda generaciones y fronteras.",
-        "en": "",
-        "fr": ""
+        "en": "To be the most important binational reference for Mexican female leadership, creating an ecosystem of business, culture and community that transcends generations and borders.",
+        "fr": "Être la référence binationale la plus importante en matière de leadership féminin mexicain, en créant un écosystème d'affaires, de culture et de communauté qui transcende les générations et les frontières."
       },
       "statsLocation": {
         "es": "Toronto · Canadá",
-        "en": "",
-        "fr": ""
+        "en": "Toronto Canada",
+        "fr": "Toronto Canada"
       },
       "statsHeadline": {
         "es": "El liderazgo mexicano no tiene fronteras",
-        "en": "",
-        "fr": ""
+        "en": "Mexican leadership has no borders",
+        "fr": "Le leadership mexicain n’a pas de frontières"
       },
       "statsAsistentesLabel": {
         "es": "Asistentes Proyectados",
-        "en": "",
-        "fr": ""
+        "en": "Projected Attendees",
+        "fr": "Participants projetés"
       },
       "statsAsistentesDesc": {
         "es": "Mujeres líderes, ejecutivas y emprendedoras de alto impacto.",
-        "en": "",
-        "fr": ""
+        "en": "High-impact women leaders, executives and entrepreneurs.",
+        "fr": "Femmes leaders, cadres et entrepreneures à fort impact."
       },
       "statsConferenciasLabel": {
         "es": "Conferencias Magistrales",
-        "en": "",
-        "fr": ""
+        "en": "Master Conferences",
+        "fr": "Conférences de maître"
       },
       "statsConferenciasDesc": {
         "es": "Voces internacionales que inspiran y transforman industrias.",
-        "en": "",
-        "fr": ""
+        "en": "International voices that inspire and transform industries.",
+        "fr": "Des voix internationales qui inspirent et transforment les industries."
       },
       "statsNetworkingLabel": {
         "es": "Networking Estratégico",
-        "en": "",
-        "fr": ""
+        "en": "Strategic Networking",
+        "fr": "Réseautage stratégique"
       },
       "statsNetworkingDesc": {
         "es": "Mesas de negocios para cerrar alianzas comerciales binacionales.",
-        "en": "",
-        "fr": ""
+        "en": "Business tables to close binational commercial alliances.",
+        "fr": "Des tables d’affaires pour conclure des alliances commerciales binationales."
       },
       "statsTalentoLabel": {
         "es": "Talento Mexicano",
-        "en": "",
-        "fr": ""
+        "en": "Mexican Talent",
+        "fr": "Talent mexicain"
       },
       "statsTalentoDesc": {
         "es": "Proyección global de nuestra cultura, innovación y excelencia.",
-        "en": "",
-        "fr": ""
+        "en": "Global projection of our culture, innovation and excellence.",
+        "fr": "Projection mondiale de notre culture, de notre innovation et de notre excellence."
       },
       "valsTitle": {
         "es": "Lo que nos define, nos distingue",
-        "en": "",
-        "fr": ""
+        "en": "What defines us, distinguishes us",
+        "fr": "Ce qui nous définit, nous distingue"
       },
       "valsDesc": {
         "es": "Cuatro valores que guían cada decisión, cada alianza y cada paso.",
-        "en": "",
-        "fr": ""
+        "en": "Four values ​​that guide every decision, every alliance and every step.",
+        "fr": "Quatre valeurs qui guident chaque décision, chaque alliance et chaque étape."
       },
       "val1Title": {
         "es": "Identidad sin fronteras",
-        "en": "",
-        "fr": ""
+        "en": "Identity without borders",
+        "fr": "Identité sans frontières"
       },
       "val1Text": {
         "es": "Proyectamos lo mejor de México al mundo, celebrando nuestra cultura, talento y creatividad como puente de entendimiento entre naciones.",
-        "en": "",
-        "fr": ""
+        "en": "We project the best of Mexico to the world, celebrating our culture, talent and creativity as a bridge of understanding between nations.",
+        "fr": "Nous projetons le meilleur du Mexique au monde, célébrant notre culture, notre talent et notre créativité en tant que pont de compréhension entre les nations."
       },
       "val2Title": {
         "es": "Liderazgo con propósito",
-        "en": "",
-        "fr": ""
+        "en": "Leadership with purpose",
+        "fr": "Un leadership avec un but"
       },
       "val2Text": {
         "es": "Ponemos a las mujeres mexicanas al centro, impulsando su desarrollo económico, profesional y social como motor de transformación.",
-        "en": "",
-        "fr": ""
+        "en": "We put Mexican women at the center, promoting their economic, professional and social development as an engine of transformation.",
+        "fr": "Nous plaçons les femmes mexicaines au centre, en promouvant leur développement économique, professionnel et social comme moteur de transformation."
       },
       "val3Title": {
         "es": "Conexión que trasciende",
-        "en": "",
-        "fr": ""
+        "en": "Connection that transcends",
+        "fr": "Une connexion qui transcende"
       },
       "val3Text": {
         "es": "Construimos redes binacionales sólidas entre México y Canadá, generando oportunidades de negocio, colaboración y crecimiento mutuo.",
-        "en": "",
-        "fr": ""
+        "en": "We build solid binational networks between Mexico and Canada, generating business opportunities, collaboration and mutual growth.",
+        "fr": "Nous construisons de solides réseaux binationaux entre le Mexique et le Canada, générant des opportunités commerciales, une collaboration et une croissance mutuelle."
       },
       "val4Title": {
         "es": "Impacto medible",
-        "en": "",
-        "fr": ""
+        "en": "Measurable impact",
+        "fr": "Impact mesurable"
       },
       "val4Text": {
         "es": "Cada acción está diseñada para generar resultados concretos: exportaciones, alianzas estratégicas y proyectos de desarrollo sostenible.",
-        "en": "",
-        "fr": ""
+        "en": "Each action is designed to generate concrete results: exports, strategic alliances and sustainable development projects.",
+        "fr": "Chaque action est conçue pour générer des résultats concrets : exportations, alliances stratégiques et projets de développement durable."
       },
       "tlTitle": {
         "es": "De la visión a la realidad",
-        "en": "",
-        "fr": ""
+        "en": "From vision to reality",
+        "fr": "De la vision à la réalité"
       },
       "tlDesc": {
         "es": "Cada edición ha sido un paso firme hacia la consolidación de una comunidad binacional que impulsa el talento mexicano.",
-        "en": "",
-        "fr": ""
+        "en": "Each edition has been a firm step towards the consolidation of a binational community that promotes Mexican talent.",
+        "fr": "Chaque édition a été une étape décisive vers la consolidation d'une communauté binationale qui promeut les talents mexicains."
       },
       "milestone1Year": {
         "es": "2023",
-        "en": "",
-        "fr": ""
+        "en": "2023",
+        "fr": "2023"
       },
       "milestone1Title": {
         "es": "Primera edición",
-        "en": "",
-        "fr": ""
+        "en": "First edition",
+        "fr": "Première édition"
       },
       "milestone1Text": {
         "es": "Nacimiento de Expo México Mujer como plataforma para conectar el talento mexicano con oportunidades internacionales.",
-        "en": "",
-        "fr": ""
+        "en": "Birth of Expo México Mujer as a platform to connect Mexican talent with international opportunities.",
+        "fr": "Naissance d’Expo México Mujer en tant que plateforme permettant de connecter les talents mexicains aux opportunités internationales."
       },
       "milestone2Year": {
         "es": "2024",
-        "en": "",
-        "fr": ""
+        "en": "2024",
+        "fr": "2024"
       },
       "milestone2Title": {
         "es": "Expansión binacional",
-        "en": "",
-        "fr": ""
+        "en": "Binational expansion",
+        "fr": "Expansion binationale"
       },
       "milestone2Text": {
         "es": "Consolidación del evento con la participación de más de 12 industrias y la llegada de compradores canadienses.",
-        "en": "",
-        "fr": ""
+        "en": "Consolidation of the event with the participation of more than 12 industries and the arrival of Canadian buyers.",
+        "fr": "Consolidation de l'événement avec la participation de plus de 12 industries et l'arrivée d'acheteurs canadiens."
       },
       "milestone3Year": {
         "es": "2025",
-        "en": "",
-        "fr": ""
+        "en": "2025",
+        "fr": "2025"
       },
       "milestone3Title": {
         "es": "Reconocimiento institucional",
-        "en": "",
-        "fr": ""
+        "en": "Institutional recognition",
+        "fr": "Reconnaissance institutionnelle"
       },
       "milestone3Text": {
         "es": "Aliados estratégicos de gobierno, cámaras de comercio y organismos internacionales se suman al proyecto.",
-        "en": "",
-        "fr": ""
+        "en": "Strategic allies from the government, chambers of commerce and international organizations join the project.",
+        "fr": "Des alliés stratégiques du gouvernement, des chambres de commerce et des organisations internationales se joignent au projet."
       },
       "milestone4Year": {
         "es": "2027",
-        "en": "",
-        "fr": ""
+        "en": "2027",
+        "fr": "2027"
       },
       "milestone4Title": {
         "es": "Edición histórica",
-        "en": "",
-        "fr": ""
+        "en": "Historical edition",
+        "fr": "Édition historique"
       },
       "milestone4Text": {
         "es": "Cinco días en Toronto con la participación de líderes, empresarias y creadoras que transforman el liderazgo mexicano en legado.",
-        "en": "",
-        "fr": ""
+        "en": "Five days in Toronto with the participation of leaders, businesswomen and creators who transform Mexican leadership into a legacy.",
+        "fr": "Cinq jours à Toronto avec la participation de leaders, de femmes d'affaires et de créateurs qui transforment le leadership mexicain en héritage."
       }
     },
     "visa": {
       "category": {
         "es": "Servicios Binacionales // Canadá 2027",
-        "en": "",
-        "fr": ""
+        "en": "Binational Services // Canada 2027",
+        "fr": "Services binationaux // Canada 2027"
       },
       "introTitle": {
         "es": "Gestión de Visas para Expositoras",
-        "en": "",
-        "fr": ""
+        "en": "Visa Management for Exhibitors",
+        "fr": "Gestion des visas pour les exposants"
       },
       "introText1": {
         "es": "Viajar a Canadá representa una oportunidad comercial inmejorable para consolidar y expandir tu empresa en el mercado norteamericano. Sin embargo, contar con la documentación legal adecuada es el primer y más importante paso de tu planeación de viaje.",
-        "en": "",
-        "fr": ""
+        "en": "Traveling to Canada represents an unbeatable business opportunity to consolidate and expand your company in the North American market. However, having the proper legal documentation is the first and most important step in your travel planning.",
+        "fr": "Voyager au Canada représente une opportunité d'affaires imbattable pour consolider et développer votre entreprise sur le marché nord-américain. Cependant, disposer des documents juridiques appropriés est la première et la plus importante étape de la planification de votre voyage."
       },
       "introText2": {
         "es": "En Expo México Mujer 2027, entendemos los retos administrativos que esto representa. Por ello, ponemos a tu disposición un equipo de consultores especializados en derecho migratorio canadiense para coordinar, revisar y dar seguimiento completo a tu trámite de visa.",
-        "en": "",
-        "fr": ""
+        "en": "At Expo México Mujer 2027, we understand the administrative challenges this represents. For this reason, we put at your disposal a team of consultants specialized in Canadian immigration law to coordinate, review and fully monitor your visa process.",
+        "fr": "À Expo México Mujer 2027, nous comprenons les défis administratifs que cela représente. Pour cette raison, nous mettons à votre disposition une équipe de consultants spécialisés en droit canadien de l'immigration pour coordonner, réviser et suivre entièrement votre processus de visa."
       },
       "alertTitle": {
         "es": "Importante (Actualización de Viaje):",
-        "en": "",
-        "fr": ""
+        "en": "Important (Travel Update):",
+        "fr": "Important (mise à jour sur les voyages) :"
       },
       "alertDesc": {
         "es": "A partir de 2024, el gobierno de Canadá ha reintroducido el requisito de Visa de Visitante para ciudadanos mexicanos. Si no cuentas con una visa americana vigente o visa canadiense previa en los últimos 10 años (requisitos para tramitar una eTA ágil), debes realizar un trámite completo de visa física. Te recomendamos iniciar tu solicitud hoy mismo.",
-        "en": "",
-        "fr": ""
+        "en": "Starting in 2024, the Government of Canada has reintroduced the Visitor Visa requirement for Mexican citizens. If you do not have a valid American visa or a previous Canadian visa in the last 10 years (requirements to process an agile eTA), you must complete a complete physical visa process. We recommend you start your application today.",
+        "fr": "À partir de 2024, le gouvernement du Canada a réintroduit l'exigence de visa de visiteur pour les citoyens mexicains. Si vous n'avez pas de visa américain valide ou de visa canadien antérieur au cours des 10 dernières années (exigences pour traiter une AVE agile), vous devez effectuer un processus de visa physique complet. Nous vous recommandons de commencer votre candidature dès aujourd'hui."
       },
       "metodologiaLabel": {
         "es": "Metodología paso a paso",
-        "en": "",
-        "fr": ""
+        "en": "Step by step methodology",
+        "fr": "Méthodologie étape par étape"
       },
       "procesoTitle": {
         "es": "El Proceso de Asesoría",
-        "en": "",
-        "fr": ""
+        "en": "The Consulting Process",
+        "fr": "Le processus de consultation"
       },
       "step1Title": {
         "es": "Diagnóstico inicial",
-        "en": "",
-        "fr": ""
+        "en": "Initial diagnosis",
+        "fr": "Diagnostic initial"
       },
       "step1Desc": {
         "es": "Analizamos tu historial de viajes y estatus actual. Evaluamos si eres elegible para una eTA (Autorización Electrónica de Viaje si tienes visa americana vigente) o si requieres una Visa de Visitante completa.",
-        "en": "",
-        "fr": ""
+        "en": "We analyze your travel history and current status. We evaluate if you are eligible for an eTA (Electronic Travel Authorization if you have a valid American visa) or if you require a full Visitor Visa.",
+        "fr": "Nous analysons votre historique de voyage et votre statut actuel. Nous évaluons si vous êtes éligible à une AVE (Autorisation de voyage électronique si vous avez un visa américain valide) ou si vous avez besoin d'un visa de visiteur complet."
       },
       "step2Title": {
         "es": "Armado de expediente",
-        "en": "",
-        "fr": ""
+        "en": "File preparation",
+        "fr": "Préparation du dossier"
       },
       "step2Desc": {
         "es": "Te proporcionamos un checklist personalizado de documentos. Revisamos tus pruebas de solvencia económica y arraigo en México, traduciendo y ordenando el expediente para cumplir con los estándares de IRCC.",
-        "en": "",
-        "fr": ""
+        "en": "We provide you with a personalized checklist of documents. We review your evidence of economic solvency and roots in Mexico, translating and organizing the file to comply with IRCC standards.",
+        "fr": "Nous mettons à votre disposition une liste de contrôle personnalisée des documents. Nous examinons vos preuves de solvabilité économique et de vos racines au Mexique, traduisons et organisons le dossier pour qu'il soit conforme aux normes d'IRCC."
       },
       "step3Title": {
         "es": "Carga y pago consular",
-        "en": "",
-        "fr": ""
+        "en": "Consular charge and payment",
+        "fr": "Frais et paiement consulaires"
       },
       "step3Desc": {
         "es": "Completamos los formularios oficiales en el portal del gobierno de Canadá y subimos tu expediente. Te apoyamos en el pago de derechos consulares ($185 CAD que incluyen el cargo de biometría).",
-        "en": "",
-        "fr": ""
+        "en": "We complete the official forms on the Canadian government portal and upload your file. We support you in the payment of consular fees ($185 CAD that includes the biometrics fee).",
+        "fr": "Nous remplissons les formulaires officiels sur le portail du gouvernement canadien et téléchargeons votre dossier. Nous vous accompagnons dans le paiement des frais consulaires (185$ CAD qui inclut les frais de biométrie)."
       },
       "step4Title": {
         "es": "Toma de biometría",
-        "en": "",
-        "fr": ""
+        "en": "Taking biometrics",
+        "fr": "Prendre des données biométriques"
       },
       "step4Desc": {
         "es": "Programamos tu cita en el Centro de Solicitud de Visas oficial (VFS Global) en CDMX, Monterrey o Guadalajara para la captura de tus huellas dactilares y fotografía digital.",
-        "en": "",
-        "fr": ""
+        "en": "We schedule your appointment at the official Visa Application Center (VFS Global) in CDMX, Monterrey or Guadalajara to capture your fingerprints and digital photograph.",
+        "fr": "Nous planifions votre rendez-vous au centre de demande de visa officiel (VFS Global) à CDMX, Monterrey ou Guadalajara pour capturer vos empreintes digitales et votre photo numérique."
       },
       "step5Title": {
         "es": "Aprobación y estampado",
-        "en": "",
-        "fr": ""
+        "en": "Approval and stamping",
+        "fr": "Approbation et estampillage"
       },
       "step5Desc": {
         "es": "Monitoreamos la respuesta de la embajada. Una vez aprobada, te guiamos en el envío seguro de tu pasaporte físico a través de mensajería autorizada para el estampado de la visa.",
-        "en": "",
-        "fr": ""
+        "en": "We monitor the embassy's response. Once approved, we guide you in safely sending your physical passport through authorized courier for visa stamping.",
+        "fr": "Nous surveillons la réponse de l'ambassade. Une fois approuvé, nous vous guidons pour envoyer en toute sécurité votre passeport physique par courrier agréé pour le visa."
       },
       "organizerLabel": {
         "es": "Organizador Personal",
-        "en": "",
-        "fr": ""
+        "en": "Personal Organizer",
+        "fr": "Organisateur personnel"
       },
       "requisitosGeneralesTitle": {
         "es": "Requisitos Generales",
-        "en": "",
-        "fr": ""
+        "en": "General Requirements",
+        "fr": "Exigences générales"
       },
       "checklistDesc": {
         "es": "Interactúa con el organizador haciendo clic en los requisitos que ya tengas listos para llevar control de tu expediente:",
-        "en": "",
-        "fr": ""
+        "en": "Interact with the organizer by clicking on the requirements that you already have ready to keep track of your file:",
+        "fr": "Interagissez avec l'organisateur en cliquant sur les exigences que vous avez déjà prêtes pour suivre votre dossier :"
       },
       "check1": {
         "es": "Pasaporte mexicano con vigencia mínima de 6 meses posteriores al viaje.",
-        "en": "",
-        "fr": ""
+        "en": "Mexican passport valid for at least 6 months after the trip.",
+        "fr": "Passeport mexicain valable au moins 6 mois après le voyage."
       },
       "check2": {
         "es": "Visa americana vigente (si aplica para solicitar la vía eTA ágil).",
-        "en": "",
-        "fr": ""
+        "en": "Valid American visa (if applicable to request the agile eTA route).",
+        "fr": "Visa américain valide (le cas échéant pour demander l'itinéraire agile eTA)."
       },
       "check3": {
         "es": "Comprobantes de solvencia económica (estados de cuenta bancarios de los últimos 3 meses, nóminas o declaraciones de impuestos).",
-        "en": "",
-        "fr": ""
+        "en": "Proof of financial solvency (bank statements from the last 3 months, payslips or tax returns).",
+        "fr": "Preuve de solvabilité financière (relevés bancaires des 3 derniers mois, fiches de salaire ou déclarations fiscales)."
       },
       "check4": {
         "es": "Documentos de arraigo en México (carta patronal de empleo, escrituras de propiedades, o constancias de estudios).",
-        "en": "",
-        "fr": ""
+        "en": "Documents of roots in Mexico (employment letter, property deeds, or study certificates).",
+        "fr": "Documents d'origine mexicaine (lettre de travail, actes de propriété ou certificats d'études)."
       },
       "check5": {
         "es": "Carta de invitación oficial emitida por la dirección de Expo México Mujer 2027.",
-        "en": "",
-        "fr": ""
+        "en": "Official invitation letter issued by the management of Expo México Mujer 2027.",
+        "fr": "Lettre d'invitation officielle émise par la direction d'Expo México Mujer 2027."
       },
       "check6": {
         "es": "Fotografía digital reciente que cumpla con los requisitos del gobierno canadiense.",
-        "en": "",
-        "fr": ""
+        "en": "Recent digital photograph that meets Canadian government requirements.",
+        "fr": "Photographie numérique récente répondant aux exigences du gouvernement canadien."
       },
       "faqLabel": {
         "es": "Respuestas Directas",
-        "en": "",
-        "fr": ""
+        "en": "Direct Answers",
+        "fr": "Réponses directes"
       },
       "faqTitle": {
         "es": "Preguntas Frecuentes",
-        "en": "",
-        "fr": ""
+        "en": "Frequently Asked Questions",
+        "fr": "Foire aux questions"
       },
       "faq1Q": {
         "es": "¿Cuánto tiempo tarda el proceso de aprobación de la visa canadiense?",
-        "en": "",
-        "fr": ""
+        "en": "How long does the Canadian visa approval process take?",
+        "fr": "Combien de temps prend le processus d'approbation d'un visa canadien ?"
       },
       "faq1A": {
         "es": "El procesamiento oficial del gobierno de Canadá (IRCC) suele tomar entre 4 y 8 semanas a partir de la toma de biometría. Recomendamos iniciar tu trámite al menos 3 meses antes de las fechas del evento (junio de 2027) para viajar con absoluta tranquilidad.",
-        "en": "",
-        "fr": ""
+        "en": "Official processing by the Government of Canada (IRCC) typically takes 4-8 weeks from biometrics collection. We recommend starting your process at least 3 months before the event dates (June 2027) to travel with absolute peace of mind.",
+        "fr": "Le traitement officiel par le gouvernement du Canada (IRCC) prend généralement de 4 à 8 semaines à compter de la collecte des données biométriques. Nous vous recommandons de démarrer votre démarche au moins 3 mois avant les dates de l'événement (juin 2027) pour voyager en toute sérénité."
       },
       "faq2Q": {
         "es": "¿Quiénes son elegibles para ingresar a Canadá con una eTA rápida?",
-        "en": "",
-        "fr": ""
+        "en": "Who is eligible to enter Canada with an express eTA?",
+        "fr": "Qui est admissible à entrer au Canada avec une AVE express ?"
       },
       "faq2A": {
         "es": "Puedes tramitar una eTA (que se aprueba en minutos u horas) si viajas por vía aérea y cumples con alguno de estos requisitos: 1) Tienes una visa de no inmigrante de EE.UU. vigente (visa de turista), o 2) Tuviste una visa de visitante canadiense en los últimos 10 años. Si ingresas por tierra o no tienes estos documentos, necesitas tramitar una visa de visitante completa.",
-        "en": "",
-        "fr": ""
+        "en": "You can apply for an eTA (which is approved in minutes or hours) if you are traveling by air and meet any of these requirements: 1) You have a current US non-immigrant visa (tourist visa), or 2) You had a Canadian visitor visa in the last 10 years. If you enter by land or do not have these documents, you need to apply for a full visitor visa.",
+        "fr": "Vous pouvez demander une AVE (qui est approuvée en quelques minutes ou heures) si vous voyagez par avion et remplissez l'une de ces conditions : 1) Vous avez un visa américain de non-immigrant en cours (visa touristique), ou 2) Vous avez eu un visa de visiteur canadien au cours des 10 dernières années. Si vous entrez par voie terrestre ou si vous ne disposez pas de ces documents, vous devez demander un visa de visiteur complet."
       },
       "faq3Q": {
         "es": "¿Qué costos consulares debo pagar directamente al gobierno de Canadá?",
-        "en": "",
-        "fr": ""
+        "en": "What consular costs do I have to pay directly to the Canadian government?",
+        "fr": "Quels frais consulaires dois-je payer directement au gouvernement canadien ?"
       },
       "faq3A": {
         "es": "La solicitud de Visa de Visitante completa cuesta $100 CAD más $85 CAD por la toma de datos biométricos (total de $185 CAD). Si eres elegible para eTA, el costo es de únicamente $7 CAD. Estos cargos se pagan con tarjeta directamente en el portal oficial canadiense.",
-        "en": "",
-        "fr": ""
+        "en": "The complete Visitor Visa application costs $100 CAD plus $85 CAD for biometric data collection (total $185 CAD). If you are eligible for eTA, the cost is only $7 CAD. These charges are paid by card directly on the official Canadian portal.",
+        "fr": "La demande complète de visa de visiteur coûte 100 $ CAD plus 85 $ CAD pour la collecte de données biométriques (total 185 $ CAD). Si vous êtes admissible à l’AVE, le coût est de seulement 7 $ CAD. Ces frais sont payés par carte directement sur le portail officiel canadien."
       },
       "faq4Q": {
         "es": "¿El servicio de gestoría me garantiza la aprobación de mi visa?",
-        "en": "",
-        "fr": ""
+        "en": "Does the agency service guarantee the approval of my visa?",
+        "fr": "Le service de l'agence garantit-il l'approbation de mon visa ?"
       },
       "faq4A": {
         "es": "La decisión final de emitir una visa es facultad exclusiva de los oficiales consulares del gobierno de Canadá. Nuestro servicio optimiza tu expediente, asegurando que no haya errores de llenado, que las traducciones sean correctas y que la justificación de tu viaje, arraigo y solvencia esté estructurada con la mayor solidez posible, maximizando las probabilidades de éxito.",
-        "en": "",
-        "fr": ""
+        "en": "The final decision to issue a visa is the sole discretion of consular officers of the Government of Canada. Our service optimizes your file, ensuring that there are no filling errors, that the translations are correct and that the justification of your trip, residence and solvency is structured as solidly as possible, maximizing the chances of success.",
+        "fr": "La décision finale de délivrer un visa est à la seule discrétion des agents consulaires du gouvernement du Canada. Notre service optimise votre dossier, en s'assurant qu'il n'y a pas d'erreurs de remplissage, que les traductions sont correctes et que la justification de votre voyage, de votre résidence et de votre solvabilité est structurée le plus solidement possible, maximisant ainsi les chances de succès."
       },
       "faq5Q": {
         "es": "¿Expo México Mujer emite cartas de invitación para el trámite?",
-        "en": "",
-        "fr": ""
+        "en": "Does Expo México Mujer issue invitation letters for the procedure?",
+        "fr": "Expo México Mujer envoie-t-elle des lettres d'invitation pour la procédure ?"
       },
       "faq5A": {
         "es": "Sí. Emitimos cartas de invitación personalizadas de carácter oficial de negocios y participación para todas las expositoras confirmadas, patrocinadores y conferencistas. Este documento oficial es un elemento de soporte clave ante el oficial consular.",
-        "en": "",
-        "fr": ""
+        "en": "Yes. We issue personalized invitation letters of an official business and participation nature to all confirmed exhibitors, sponsors and speakers. This official document is a key support element before the consular officer.",
+        "fr": "Oui. Nous envoyons des lettres d'invitation personnalisées à caractère officiel d'affaires et de participation à tous les exposants, sponsors et conférenciers confirmés. Ce document officiel est un élément d’appui clé devant le fonctionnaire consulaire."
       },
       "contactoLabel": {
         "es": "Contacto Inmediato",
-        "en": "",
-        "fr": ""
+        "en": "Immediate Contact",
+        "fr": "Contact immédiat"
       },
       "iniciaSolicitud": {
         "es": "Inicia tu Solicitud",
-        "en": "",
-        "fr": ""
+        "en": "Start your Application",
+        "fr": "Démarrez votre candidature"
       },
       "solicitudDesc": {
         "es": "Completa el formulario en el panel derecho con tus datos básicos. Un asesor de visas de Expo México Mujer revisará tu perfil de forma gratuita y te contactará en un plazo menor a 24 horas vía WhatsApp o correo electrónico para agendar tu llamada diagnóstica.",
-        "en": "",
-        "fr": ""
+        "en": "Complete the form in the right panel with your basic information. A visa advisor from Expo México Mujer will review your profile for free and contact you within 24 hours via WhatsApp or email to schedule your diagnostic call.",
+        "fr": "Remplissez le formulaire dans le panneau de droite avec vos informations de base. Un conseiller en visas d'Expo México Mujer examinera votre profil gratuitement et vous contactera dans les 24 heures via WhatsApp ou par e-mail pour planifier votre appel de diagnostic."
       },
       "tiempoRespuesta": {
         "es": "Tiempo de Respuesta",
-        "en": "",
-        "fr": ""
+        "en": "Response Time",
+        "fr": "Temps de réponse"
       },
       "asesoriaPersonalizada": {
         "es": "Asesoría Personalizada",
-        "en": "",
-        "fr": ""
+        "en": "Personalized Advice",
+        "fr": "Conseils personnalisés"
       },
       "nombreLabel": {
         "es": "Nombre Completo",
-        "en": "",
-        "fr": ""
+        "en": "Full Name",
+        "fr": "Nom et prénom"
       },
       "correoLabel": {
         "es": "Correo Electrónico",
-        "en": "",
-        "fr": ""
+        "en": "Email",
+        "fr": "E-mail"
       },
       "telefonoLabel": {
         "es": "Teléfono (WhatsApp)",
-        "en": "",
-        "fr": ""
+        "en": "Telephone (WhatsApp)",
+        "fr": "Téléphone (WhatsApp)"
       },
       "placeholderNombre": {
         "es": "Ej. María González Pérez",
-        "en": "",
-        "fr": ""
+        "en": "Ex. María González Pérez",
+        "fr": "Ex. María González Pérez"
       },
       "placeholderCorreo": {
         "es": "Ej. maria@ejemplo.com",
-        "en": "",
-        "fr": ""
+        "en": "Maria@example.com",
+        "fr": "Maria@exemple.com"
       },
       "placeholderTelefono": {
         "es": "Ej. +52 55 1234 5678",
-        "en": "",
-        "fr": ""
+        "en": "Ex. +52 55 1234 5678",
+        "fr": "Ex. +52 55 1234 5678"
       },
       "visaAmericanaLabel": {
         "es": "¿Cuenta con Visa Americana?",
-        "en": "",
-        "fr": ""
+        "en": "Do you have an American Visa?",
+        "fr": "Avez-vous un visa américain ?"
       },
       "visaOpcionSelecciona": {
         "es": "Selecciona...",
-        "en": "",
-        "fr": ""
+        "en": "Select...",
+        "fr": "Sélectionner..."
       },
       "visaOpcionSi": {
         "es": "Sí, cuento con visa de EE.UU. vigente",
-        "en": "",
-        "fr": ""
+        "en": "Yes, I have a valid US visa",
+        "fr": "Oui, j'ai un visa américain valide"
       },
       "visaOpcionNo": {
         "es": "No cuento con visa de EE.UU.",
-        "en": "",
-        "fr": ""
+        "en": "I do not have a US visa.",
+        "fr": "Je n'ai pas de visa américain."
       },
       "visaOpcionCanadiense": {
         "es": "Sí, tuve visa canadiense (últimos 10 años)",
-        "en": "",
-        "fr": ""
+        "en": "Yes, I had a Canadian visa (last 10 years)",
+        "fr": "Oui, j'avais un visa canadien (10 dernières années)"
       },
       "estatusLabel": {
         "es": "Estatus en EMM 2027",
-        "en": "",
-        "fr": ""
+        "en": "Status in EMM 2027",
+        "fr": "Statut dans l'EMM 2027"
       },
       "estatusOpcionSelecciona": {
         "es": "Selecciona...",
-        "en": "",
-        "fr": ""
+        "en": "Select...",
+        "fr": "Sélectionner..."
       },
       "estatusOpcionExpositora": {
         "es": "Expositora Registrada / Confirmada",
-        "en": "",
-        "fr": ""
+        "en": "Registered / Confirmed Exhibitor",
+        "fr": "Exposant Inscrit / Confirmé"
       },
       "estatusOpcionInteresada": {
         "es": "Interesada en registrar Stand",
-        "en": "",
-        "fr": ""
+        "en": "Interested in registering Stand",
+        "fr": "Intéressé par l'inscription du Stand"
       },
       "estatusOpcionVisitante": {
         "es": "Visitante, Acompañante o Público General",
-        "en": "",
-        "fr": ""
+        "en": "Visitor, Companion or General Public",
+        "fr": "Visiteur, Compagnon ou Grand Public"
       },
       "mensajeLabel": {
         "es": "Mensaje adicional o dudas específicas",
-        "en": "",
-        "fr": ""
+        "en": "Additional message or specific questions",
+        "fr": "Message supplémentaire ou questions spécifiques"
       },
       "mensajePlaceholder": {
         "es": "Escribe aquí si tienes alguna duda en particular sobre tus documentos o historial...",
-        "en": "",
-        "fr": ""
+        "en": "Write here if you have any particular questions about your documents or history...",
+        "fr": "Écrivez ici si vous avez des questions particulières sur vos documents ou votre historique..."
       },
       "enviarSolicitud": {
         "es": "Enviar Solicitud",
-        "en": "",
-        "fr": ""
+        "en": "Submit Request",
+        "fr": "Soumettre la demande"
       },
       "procesando": {
         "es": "Procesando...",
-        "en": "",
-        "fr": ""
+        "en": "Processing...",
+        "fr": "Traitement..."
       },
       "completaCampos": {
         "es": "Por favor completa todos los campos requeridos.",
-        "en": "",
-        "fr": ""
+        "en": "Please complete all required fields.",
+        "fr": "Veuillez remplir tous les champs obligatoires."
       },
       "exitoTitle": {
         "es": "¡Solicitud Registrada!",
-        "en": "",
-        "fr": ""
+        "en": "Registered Application!",
+        "fr": "Candidature enregistrée !"
       },
       "exitoDesc": {
         "es": "Gracias por tu confianza. Hemos recibido tus datos correctamente. Uno de nuestros consultores certificados te enviará un diagnóstico inicial por WhatsApp o Correo en las próximas horas.",
-        "en": "",
-        "fr": ""
+        "en": "Thank you for your trust. We have received your information correctly. One of our certified consultants will send you an initial diagnosis by WhatsApp or Email in the next few hours.",
+        "fr": "Merci pour votre confiance. Nous avons reçu vos informations correctement. Un de nos consultants certifiés vous enverra un premier diagnostic par WhatsApp ou Email dans les prochaines heures."
       },
       "terminosText": {
         "es": "Al enviar esta solicitud, aceptas nuestros",
-        "en": "",
-        "fr": ""
+        "en": "By submitting this request, you agree to our",
+        "fr": "En soumettant cette demande, vous acceptez notre"
       },
       "terminosLink": {
         "es": "Términos y Condiciones",
-        "en": "",
-        "fr": ""
+        "en": "Terms and Conditions",
+        "fr": "Termes et conditions"
       },
       "privacidadLink": {
         "es": "Aviso de Privacidad",
-        "en": "",
-        "fr": ""
+        "en": "Privacy Notice",
+        "fr": "Avis de confidentialité"
       }
     },
     "agenda": {
       "programaOficial": {
         "es": "Programa Oficial",
-        "en": "",
-        "fr": ""
+        "en": "Official Program",
+        "fr": "Programme officiel"
       },
       "agendaTitle": {
         "es": "Agenda del Evento",
-        "en": "",
-        "fr": ""
+        "en": "Event Agenda",
+        "fr": "Agenda de l'événement"
       },
       "agendaSubtitle": {
         "es": "Conferencias magistrales, paneles y talleres diseñados para impulsar el liderazgo y la acción.",
-        "en": "",
-        "fr": ""
+        "en": "Keynotes, panels and workshops designed to drive leadership and action.",
+        "fr": "Keynotes, panels et ateliers conçus pour stimuler le leadership et l’action."
       },
       "hasta": {
         "es": "hasta",
-        "en": "",
+        "en": "until",
         "fr": "jusqu'à"
       }
     },
     "contacto": {
       "directorGeneral": {
         "es": "Director General",
-        "en": "",
-        "fr": ""
+        "en": "Managing director",
+        "fr": "Directeur général"
       },
       "directorOperaciones": {
         "es": "Director de Operaciones",
-        "en": "",
-        "fr": ""
+        "en": "Director of operations",
+        "fr": "Directeur des opérations"
       },
       "sedeTitle": {
         "es": "Sede Oficial 2027",
-        "en": "",
-        "fr": ""
+        "en": "Official Headquarters 2027",
+        "fr": "Siège Officiel 2027"
       },
       "sedeDesc": {
         "es": "Metro Toronto Convention Centre.",
-        "en": "",
-        "fr": ""
+        "en": "Metro Toronto Convention Centre.",
+        "fr": "Centre des congrès du Toronto métropolitain."
       },
       "sedeDesc2": {
         "es": "El evento binacional más importante del año en el corazón financiero de Toronto.",
-        "en": "",
-        "fr": ""
+        "en": "The most important binational event of the year in the financial heart of Toronto.",
+        "fr": "L'événement binational le plus important de l'année dans le cœur financier de Toronto."
       },
       "visitarSede": {
         "es": "Visitar sitio de la sede",
-        "en": "",
-        "fr": ""
+        "en": "Visit headquarters site",
+        "fr": "Visiter le site du siège social"
       },
       "formularioTitle": {
         "es": "Formulario de Contacto",
-        "en": "",
-        "fr": ""
+        "en": "Contact Form",
+        "fr": "Formulaire de contact"
       },
       "formularioDesc": {
         "es": "Completa el siguiente formulario oficial de registro para enviarnos tus dudas, propuestas o comentarios.",
-        "en": "",
-        "fr": ""
+        "en": "Complete the following official registration form to send us your questions, proposals or comments.",
+        "fr": "Remplissez le formulaire d'inscription officiel suivant pour nous faire parvenir vos questions, propositions ou commentaires."
+      }
+    },
+    "academy": {
+      "videoteca": {
+        "es": "Videoteca Exclusiva",
+        "en": "Exclusive Video Library",
+        "fr": "Vidéothèque exclusive"
+      },
+      "title": {
+        "es": "Academy",
+        "en": "Academy",
+        "fr": "Académie"
+      },
+      "desc": {
+        "es": "Revive ponencias, entrevistas y paneles inspiradores en cualquier momento y lugar.",
+        "en": "Relive inspiring presentations, interviews and panels anytime, anywhere.",
+        "fr": "Revivez des présentations, des interviews et des panels inspirants à tout moment et en tout lieu."
+      },
+      "buscarVideo": {
+        "es": "Buscar por video, ponente o tema...",
+        "en": "Search by video, speaker or topic...",
+        "fr": "Recherche par vidéo, conférencier ou sujet..."
+      },
+      "por": {
+        "es": "Por:",
+        "en": "By:",
+        "fr": "Par:"
+      },
+      "incluye": {
+        "es": "Incluye:",
+        "en": "Includes:",
+        "fr": "Comprend :"
+      },
+      "verVideo": {
+        "es": "Ver video",
+        "en": "See video",
+        "fr": "Voir la vidéo"
+      },
+      "noVideos": {
+        "es": "No se encontraron videos con ese término.",
+        "en": "No videos were found with that term.",
+        "fr": "Aucune vidéo contenant ce terme n'a été trouvée."
+      }
+    },
+    "patrocinadores": {
+      "title1": {
+        "es": "Paquetes de",
+        "en": "Packages",
+        "fr": "Forfaits"
+      },
+      "title2": {
+        "es": "Patrocinio",
+        "en": "Sponsorship",
+        "fr": "Parrainage"
+      },
+      "subtitlePre": {
+        "es": "Pueden apartar su lugar con el ",
+        "en": "You can save your place with the",
+        "fr": "Vous pouvez enregistrer votre place avec le"
+      },
+      "subtitleStrong1": {
+        "es": "50% de anticipo",
+        "en": "50% advance",
+        "fr": "50% d'avance"
+      },
+      "subtitleMid": {
+        "es": " antes del ",
+        "en": "before",
+        "fr": "avant"
+      },
+      "subtitleStrong2": {
+        "es": "30 de Agosto",
+        "en": "August 30",
+        "fr": "30 août"
+      },
+      "packages": {
+        "bronce": {
+          "name": {
+            "es": "Patrocinio Bronce",
+            "en": "Bronze Sponsorship",
+            "fr": "Parrainage Bronze"
+          },
+          "discount": {
+            "es": "20% OFF",
+            "en": "20% OFF",
+            "fr": "20% DE RÉDUCTION"
+          },
+          "sub": {
+            "es": "CAD — Paquete Base",
+            "en": "CAD — Base Package",
+            "fr": "CAO — Forfait de base"
+          },
+          "desc": {
+            "es": "Ideal para organizaciones que desean incorporarse a Expo México Mujer y comenzar a posicionar sus servicios dentro de la comunidad y mercado canadiense.",
+            "en": "Ideal for organizations that want to join Expo México Mujer and begin to position their services within the Canadian community and market.",
+            "fr": "Idéal pour les organisations qui souhaitent se joindre à Expo México Mujer et commencer à positionner leurs services au sein de la communauté et du marché canadien."
+          },
+          "f1": {
+            "es": "Stand de 2 x 2 metros",
+            "en": "2 x 2 meter stand",
+            "fr": "Support de 2 x 2 mètres"
+          },
+          "f2": {
+            "es": "1 acceso al Mexican Fashion Gala Show",
+            "en": "1 access to the Mexican Fashion Gala Show",
+            "fr": "1 accès au Gala de la Mode Mexicaine"
+          },
+          "f3": {
+            "es": "1 acceso al Ontario – Mexico Business Summit",
+            "en": "1 access to the Ontario – Mexico Business Summit",
+            "fr": "1 accès au Sommet des affaires Ontario – Mexique"
+          },
+          "f4": {
+            "es": "Presencia del logotipo en materiales oficiales",
+            "en": "Presence of the logo on official materials",
+            "fr": "Présence du logo sur les supports officiels"
+          },
+          "f5": {
+            "es": "Promoción mediante redes sociales y sitio web",
+            "en": "Promotion through social networks and website",
+            "fr": "Promotion via les réseaux sociaux et le site internet"
+          },
+          "f6": {
+            "es": "Proyección del logotipo en pantallas",
+            "en": "Projection of the logo on screens",
+            "fr": "Projection du logo sur écrans"
+          },
+          "f7": {
+            "es": "Presencia de marca mediante banners",
+            "en": "Brand presence through banners",
+            "fr": "Présence de la marque à travers des bannières"
+          },
+          "f8": {
+            "es": "Reconocimiento institucional",
+            "en": "Institutional recognition",
+            "fr": "Reconnaissance institutionnelle"
+          }
+        },
+        "plata": {
+          "name": {
+            "es": "Patrocinio Plata",
+            "en": "Silver Sponsorship",
+            "fr": "Parrainage Argent"
+          },
+          "discount": {
+            "es": "25% OFF",
+            "en": "25% OFF",
+            "fr": "25% DE RÉDUCTION"
+          },
+          "sub": {
+            "es": "CAD — Impulso Comercial",
+            "en": "CAD — Commercial Impulse",
+            "fr": "CAO — Impulsion Commerciale"
+          },
+          "desc": {
+            "es": "Una excelente alternativa para organizaciones que buscan una presencia destacada y una relación cercana con la comunidad binacional.",
+            "en": "An excellent alternative for organizations seeking a prominent presence and a close relationship with the binational community.",
+            "fr": "Une excellente alternative pour les organisations recherchant une présence marquante et une relation étroite avec la communauté binationale."
+          },
+          "f1": {
+            "es": "Stand de 4 x 3 metros",
+            "en": "4 x 3 meter stand",
+            "fr": "Support de 4 x 3 mètres"
+          },
+          "f2": {
+            "es": "2 accesos al Mexican Fashion Gala Show",
+            "en": "2 access to the Mexican Fashion Gala Show",
+            "fr": "2 accès au Gala de la Mode Mexicaine"
+          },
+          "f3": {
+            "es": "2 accesos al Ontario – Mexico Business Summit",
+            "en": "2 accesses to the Ontario – Mexico Business Summit",
+            "fr": "2 accès au Sommet des affaires Ontario – Mexique"
+          },
+          "f4": {
+            "es": "Presencia del logotipo en materiales oficiales",
+            "en": "Presence of the logo on official materials",
+            "fr": "Présence du logo sur les supports officiels"
+          },
+          "f5": {
+            "es": "Promoción mediante redes sociales y sitio web oficial",
+            "en": "Promotion through social networks and official website",
+            "fr": "Promotion via les réseaux sociaux et le site officiel"
+          },
+          "f6": {
+            "es": "Proyección del logotipo en pantallas",
+            "en": "Projection of the logo on screens",
+            "fr": "Projection du logo sur écrans"
+          },
+          "f7": {
+            "es": "Presencia de marca mediante banners",
+            "en": "Brand presence through banners",
+            "fr": "Présence de la marque à travers des bannières"
+          },
+          "f8": {
+            "es": "Reconocimiento institucional",
+            "en": "Institutional recognition",
+            "fr": "Reconnaissance institutionnelle"
+          },
+          "f9": {
+            "es": "Intervención en el Women Leaders Forum",
+            "en": "Intervention at the Women Leaders Forum",
+            "fr": "Intervention au Forum des Femmes Leaders"
+          }
+        },
+        "oro": {
+          "name": {
+            "es": "Patrocinio Oro",
+            "en": "Gold Sponsorship",
+            "fr": "Parrainage Or"
+          },
+          "discount": {
+            "es": "30% OFF",
+            "en": "30% OFF",
+            "fr": "30% DE RÉDUCTION"
+          },
+          "sub": {
+            "es": "CAD — Cobertura Completa",
+            "en": "CAD — Full Coverage",
+            "fr": "CAD — Couverture complète"
+          },
+          "desc": {
+            "es": "Nuestro paquete de mayor posicionamiento, diseñado para organizaciones que buscan una presencia sólida antes, durante y después del evento.",
+            "en": "Our highest positioning package, designed for organizations looking for a solid presence before, during and after the event.",
+            "fr": "Notre package de positionnement le plus élevé, conçu pour les organisations recherchant une présence solide avant, pendant et après l'événement."
+          },
+          "f1": {
+            "es": "Stand premium de 6 x 4 metros",
+            "en": "6 x 4 meter premium stand",
+            "fr": "Support premium de 6 x 4 mètres"
+          },
+          "f2": {
+            "es": "3 accesos al Mexican Fashion Gala Show",
+            "en": "3 access to the Mexican Fashion Gala Show",
+            "fr": "3 accès au Gala de la Mode Mexicaine"
+          },
+          "f3": {
+            "es": "2 accesos al Ontario – Mexico Business Summit",
+            "en": "2 accesses to the Ontario – Mexico Business Summit",
+            "fr": "2 accès au Sommet des affaires Ontario – Mexique"
+          },
+          "f4": {
+            "es": "Participación en la Misión Comercial a Montreal",
+            "en": "Participation in the Trade Mission to Montreal",
+            "fr": "Participation à la mission commerciale à Montréal"
+          },
+          "f5": {
+            "es": "Presencia del logotipo en todos los materiales oficiales",
+            "en": "Presence of the logo on all official materials",
+            "fr": "Présence du logo sur tous les supports officiels"
+          },
+          "f6": {
+            "es": "Promoción a través de redes sociales y sitio web oficial",
+            "en": "Promotion through social networks and official website",
+            "fr": "Promotion via les réseaux sociaux et le site officiel"
+          },
+          "f7": {
+            "es": "Proyección del logotipo en pantallas",
+            "en": "Projection of the logo on screens",
+            "fr": "Projection du logo sur écrans"
+          },
+          "f8": {
+            "es": "Presencia de marca en áreas estratégicas",
+            "en": "Brand presence in strategic areas",
+            "fr": "Présence de la marque dans les domaines stratégiques"
+          },
+          "f9": {
+            "es": "Distribución de material promocional",
+            "en": "Distribution of promotional material",
+            "fr": "Distribution de matériel promotionnel"
+          },
+          "f10": {
+            "es": "Mensaje institucional durante el evento",
+            "en": "Institutional message during the event",
+            "fr": "Message institutionnel lors de l'événement"
+          },
+          "f11": {
+            "es": "Ponentes en el Women Leaders Forum",
+            "en": "Speakers at the Women Leaders Forum",
+            "fr": "Conférencières au Forum des femmes leaders"
+          }
+        }
+      },
+      "cta": {
+        "es": "Reservar con el 50%",
+        "en": "Reserve with 50%",
+        "fr": "Réservez avec 50%"
+      },
+      "popular": {
+        "es": "Más Popular",
+        "en": "Most Popular",
+        "fr": "Les plus populaires"
+      },
+      "directorioEyebrow": {
+        "es": "Directorio Oficial",
+        "en": "Official Directory",
+        "fr": "Annuaire officiel"
+      },
+      "directorioTitle1": {
+        "es": "Nuestros",
+        "en": "Our",
+        "fr": "Notre"
+      },
+      "directorioTitle2": {
+        "es": "Socios Comerciales",
+        "en": "Business Partners",
+        "fr": "Partenaires commerciaux"
+      },
+      "searchPlaceholder": {
+        "es": "Buscar patrocinador...",
+        "en": "Find sponsor...",
+        "fr": "Trouver un sponsor..."
+      },
+      "verPerfil": {
+        "es": "Ver perfil completo",
+        "en": "View full profile",
+        "fr": "Voir le profil complet"
+      },
+      "noLogo": {
+        "es": "No Logo",
+        "en": "No Logo",
+        "fr": "Pas de logo"
+      },
+      "noResults": {
+        "es": "No se encontraron patrocinadores con ese término.",
+        "en": "No sponsors were found with that term.",
+        "fr": "Aucun sponsor n'a été trouvé avec ce terme."
+      }
+    },
+    "expo": {
+      "queEs": {
+        "intro": {
+          "title": {
+            "es": "Una plataforma que trasciende fronteras ",
+            "en": "A platform that transcends borders ",
+            "fr": "Une plateforme qui transcende les frontières "
+          },
+          "p1": {
+            "es": "Expo México Mujer es el encuentro empresarial y cultural más relevante entre México y Canadá. Nace de la necesidad de proyectar el liderazgo y talento corporativo femenino de origen mexicano hacia mercados norteamericanos de alta competitividad.",
+            "en": "Expo México Mujer is the most relevant business and cultural meeting between Mexico and Canada. It was born from the need to project female corporate leadership and talent of Mexican origin towards highly competitive North American markets.",
+            "fr": "Expo México Mujer est la rencontre commerciale et culturelle la plus importante entre le Mexique et le Canada. Elle est née de la nécessité de projeter le leadership féminin et les talents d'origine mexicaine vers des marchés nord-américains hautement compétitifs."
+          },
+          "p2": {
+            "es": "Durante 5 días en la metrópoli de Toronto, el evento reúne a delegadas de múltiples estados mexicanos con compradores globales, inversionistas institucionales y autoridades consulares en una serie de foros de alto nivel, pasarelas de moda y mesas de negociación directa.",
+            "en": "Over 5 days in the Toronto metropolis, the event brings together delegates from multiple Mexican states with global buyers, institutional investors and consular authorities in a series of high-level forums, fashion catwalks and direct negotiation tables.",
+            "fr": "Pendant 5 jours dans la métropole de Toronto, l'événement rassemble des délégués de plusieurs États mexicains avec des acheteurs mondiaux, des investisseurs institutionnels et des autorités consulaires dans une série de forums de haut niveau, de défilés de mode et de tables de négociation directe."
+          }
+        },
+        "impact": {
+          "title": {
+            "es": "Impacto México-Canadá",
+            "en": "Mexico-Canada Impact",
+            "fr": "Impact Mexique-Canada"
+          },
+          "i1": {
+            "title": {
+              "es": "Alianza Binacional",
+              "en": "Binational Alliance",
+              "fr": "Alliance binationale"
+            },
+            "desc": {
+              "es": "Fortalecimiento del comercio internacional directo al amparo del acuerdo del T-MEC.",
+              "en": "Strengthening direct international trade under the T-MEC agreement.",
+              "fr": "Renforcement du commerce international direct dans le cadre de l’accord T-MEC."
+            }
+          },
+          "i2": {
+            "title": {
+              "es": "Proyección Cultural",
+              "en": "Cultural Projection",
+              "fr": "Projection culturelle"
+            },
+            "desc": {
+              "es": "Difusión artística, textil y artesanal de alta gama en espacios museísticos y comerciales de Canadá.",
+              "en": "High-end artistic, textile and craft dissemination in museum and commercial spaces in Canada.",
+              "fr": "Diffusion artistique, textile et artisanale haut de gamme dans les musées et espaces commerciaux au Canada."
+            }
+          },
+          "i3": {
+            "title": {
+              "es": "Empoderamiento Económico",
+              "en": "Economic Empowerment",
+              "fr": "Autonomisation économique"
+            },
+            "desc": {
+              "es": "Impulso al crecimiento empresarial de mujeres mexicanas a través de redes de mentoría y acceso a financiamiento internacional.",
+              "en": "Promoting business growth for Mexican women through mentoring networks and access to international financing.",
+              "fr": "Promouvoir la croissance des entreprises pour les femmes mexicaines grâce à des réseaux de mentorat et à l’accès au financement international."
+            }
+          }
+        },
+        "mision": {
+          "title": {
+            "es": "Misión, Visión y Objetivos",
+            "en": "Mission, Vision and Objectives",
+            "fr": "Mission, vision et objectifs"
+          },
+          "m1": {
+            "title": {
+              "es": "Misión",
+              "en": "Mission",
+              "fr": "Mission"
+            },
+            "desc": {
+              "es": "Empoderar a la mujer empresaria y profesional de origen mexicano facilitando su inserción, posicionamiento e impacto en los mercados internacionales, especialmente en Canadá.",
+              "en": "Empower business and professional women of Mexican origin by facilitating their insertion, positioning and impact in international markets, especially in Canada.",
+              "fr": "Autonomiser les femmes d'affaires et professionnelles d'origine mexicaine en facilitant leur insertion, leur positionnement et leur impact sur les marchés internationaux, notamment au Canada."
+            }
+          },
+          "m2": {
+            "title": {
+              "es": "Visión",
+              "en": "Vision",
+              "fr": "Vision"
+            },
+            "desc": {
+              "es": "Ser la plataforma líder de vinculación empresarial y cultural para mujeres hispanas en Norteamérica, reconocida por su excelencia, impacto socioeconómico y resultados tangibles.",
+              "en": "To be the leading business and cultural networking platform for Hispanic women in North America, recognized for its excellence, socioeconomic impact and tangible results.",
+              "fr": "Être la principale plateforme de réseautage commercial et culturel pour les femmes hispaniques en Amérique du Nord, reconnue pour son excellence, son impact socio-économique et ses résultats tangibles."
+            }
+          },
+          "m3": {
+            "title": {
+              "es": "Objetivos",
+              "en": "Goals",
+              "fr": "Objectifs"
+            },
+            "desc": {
+              "es": "Generar alianzas comerciales sostenibles, brindar herramientas técnicas de capacitación global y proyectar el patrimonio e identidad cultural de México al más alto nivel.",
+              "en": "Generate sustainable business alliances, provide global training technical tools and project Mexico's cultural heritage and identity at the highest level.",
+              "fr": "Générer des alliances commerciales durables, fournir des outils techniques de formation mondiaux et projeter le patrimoine culturel et l'identité du Mexique au plus haut niveau."
+            }
+          }
+        },
+        "equipo": {
+          "title": {
+            "es": "Equipo Directivo",
+            "en": "Management Team",
+            "fr": "Équipe de direction"
+          },
+          "startChat": {
+            "es": "Iniciar chat",
+            "en": "Start chat",
+            "fr": "Démarrer le chat"
+          }
+        }
+      },
+      "industrias": {
+        "intro": {
+          "title": {
+            "es": "Sectores que impulsan el desarrollo binacional",
+            "en": "Sectors that promote binational development",
+            "fr": "Des secteurs qui favorisent le développement binational"
+          },
+          "p": {
+            "es": "La delegación empresarial de Expo México Mujer Toronto 2027 abarca 12 industrias clave. Cada pabellón está organizado estratégicamente para facilitar el flujo de compradores canadienses e inversionistas norteamericanos interesados en expandir sus redes de proveedores y socios comerciales.",
+            "en": "The Expo México Mujer Toronto 2027 business delegation covers 12 key industries. Each pavilion is strategically organized to facilitate the flow of Canadian buyers and North American investors interested in expanding their networks of suppliers and business partners.",
+            "fr": "La délégation commerciale de l'Expo México Mujer Toronto 2027 couvre 12 industries clés. Chaque pavillon est organisé stratégiquement pour faciliter la circulation des acheteurs canadiens et des investisseurs nord-américains intéressés à élargir leurs réseaux de fournisseurs et de partenaires commerciaux."
+          }
+        },
+        "ventajas": {
+          "title": {
+            "es": "Ventajas de Participación",
+            "en": "Advantages of Participation",
+            "fr": "Avantages de la participation"
+          },
+          "i1": {
+            "es": "Ruedas de negocios B2B personalizadas.",
+            "en": "Customized B2B business conferences.",
+            "fr": "Conférences d'affaires B2B sur mesure."
+          },
+          "i2": {
+            "es": "Espacio de exhibición comercial en la sede central de Toronto.",
+            "en": "Commercial exhibition space at Toronto headquarters.",
+            "fr": "Espace d'exposition commerciale au siège social de Toronto."
+          },
+          "i3": {
+            "es": "Vinculación directa con dependencias aduanales y logísticas.",
+            "en": "Direct link with customs and logistics agencies.",
+            "fr": "Lien direct avec les agences douanières et logistiques."
+          }
+        },
+        "grid": {
+          "title": {
+            "es": "Sectores & Industrias Participantes",
+            "en": "Participating Sectors & Industries",
+            "fr": "Secteurs et industries participants"
+          },
+          "cta": {
+            "es": "Ver expositores",
+            "en": "See exhibitors",
+            "fr": "Voir les exposants"
+          }
+        }
+      },
+      "ottawa2026": {
+        "intro": {
+          "title": {
+            "es": "El gran precedente en la capital canadiense",
+            "en": "The great precedent in the Canadian capital",
+            "fr": "Le grand précédent dans la capitale canadienne"
+          },
+          "p1": {
+            "es": "La edición de **Expo México Mujer Ottawa 2026** marcó un hito en las relaciones comerciales binacionales independientes. Durante tres días intensivos en el centro neurálgico de la capital de Canadá, consolidamos una plataforma que conectó la herencia, creatividad y capacidad productiva mexicana con redes de distribución norteamericanas.",
+            "en": "The edition of **Expo México Mujer Ottawa 2026** marked a milestone in independent binational trade relations. During three intensive days in the nerve center of Canada's capital, we consolidated a platform that connected Mexican heritage, creativity and productive capacity with North American distribution networks.",
+            "fr": "L'édition de **Expo México Mujer Ottawa 2026** a marqué une étape importante dans les relations commerciales binationales indépendantes. Pendant trois jours intensifs au centre névralgique de la capitale canadienne, nous avons consolidé une plateforme reliant l'héritage, la créativité et la capacité de production mexicains aux réseaux de distribution nord-américains."
+          },
+          "p2": {
+            "es": "Esta edición fue respaldada por embajadores, senadores, cámaras de comercio binacionales y cooperativas de empresarias, sentando las bases operativas, logísticas y de mercado para la próxima edición central de Toronto 2027.",
+            "en": "This edition was supported by ambassadors, senators, binational chambers of commerce and business cooperatives, laying the operational, logistical and market foundations for the next central edition of Toronto 2027.",
+            "fr": "Cette édition a été soutenue par des ambassadeurs, des sénateurs, des chambres de commerce binationales et des coopératives d'affaires, posant les bases opérationnelles, logistiques et commerciales de la prochaine édition centrale de Toronto 2027."
+          }
+        },
+        "detalles": {
+          "title": {
+            "es": "Detalles de la Edición",
+            "en": "Edition Details",
+            "fr": "Détails de l'édition"
+          },
+          "d1L": {
+            "es": "Fecha:",
+            "en": "Date:",
+            "fr": "Date:"
+          },
+          "d1V": {
+            "es": "Mayo, 2026",
+            "en": "May, 2026",
+            "fr": "mai 2026"
+          },
+          "d2L": {
+            "es": "Sede:",
+            "en": "Headquarters:",
+            "fr": "Quartier général:"
+          },
+          "d2V": {
+            "es": "Convention Centre, Ottawa",
+            "en": "Convention Centre, Ottawa",
+            "fr": "Centre des congrès, Ottawa"
+          },
+          "d3L": {
+            "es": "Estados particip.:",
+            "en": "Participating States:",
+            "fr": "États participants :"
+          },
+          "d3V": {
+            "es": "15 Delegaciones estatales",
+            "en": "15 state delegations",
+            "fr": "15 délégations d'État"
+          },
+          "d4L": {
+            "es": "Enfoque B2B:",
+            "en": "B2B approach:",
+            "fr": "Approche B2B :"
+          },
+          "d4V": {
+            "es": "Cadenas globales de valor",
+            "en": "Global value chains",
+            "fr": "Chaînes de valeur mondiales"
+          }
+        },
+        "resultados": {
+          "title": {
+            "es": "Resultados e Impacto Económico",
+            "en": "Results and Economic Impact",
+            "fr": "Résultats et impact économique"
+          }
+        },
+        "galeria": {
+          "title": {
+            "es": "Galería Fotográfica",
+            "en": "Photo Gallery",
+            "fr": "Galerie de photos"
+          }
+        },
+        "videos": {
+          "title": {
+            "es": "Videos e Intervenciones",
+            "en": "Videos and Interventions",
+            "fr": "Vidéos et interventions"
+          }
+        }
+      }
+    },
+    "contactoInfo": {
+      "title": {
+        "es": "Contacto",
+        "en": "Contact",
+        "fr": "Contact"
+      },
+      "desc": {
+        "es": "Nuestros canales oficiales de comunicación están a su disposición para resolver cualquier duda técnica, comercial o de logística respecto a Expo México Mujer.",
+        "en": "Our official communication channels are at your disposal to resolve any technical, commercial or logistical questions regarding Expo México Mujer.",
+        "fr": "Nos canaux de communication officiels sont à votre disposition pour résoudre toute question technique, commerciale ou logistique concernant Expo México Mujer."
+      },
+      "oficinasTitle": {
+        "es": "Oficinas Administrativas",
+        "en": "Administrative Offices",
+        "fr": "Bureaux administratifs"
+      },
+      "oficinasDesc": {
+        "es": "Av. Paseo de la Reforma 296, Juárez, Cuauhtémoc, 06600 Ciudad de México, CDMX",
+        "en": "Av. Paseo de la Reforma 296, Juárez, Cuauhtémoc, 06600 Mexico City, CDMX",
+        "fr": "Av. Paseo de la Reforma 296, Juárez, Cuauhtémoc, 06600 Mexico, CDMX"
+      },
+      "telefonoTitle": {
+        "es": "Teléfono (WhatsApp)",
+        "en": "Telephone (WhatsApp)",
+        "fr": "Téléphone (WhatsApp)"
+      },
+      "telefonoDesc": {
+        "es": "+52 (55) 1234 5678",
+        "en": "+52 (55) 1234 5678",
+        "fr": "+52 (55) 1234 5678"
+      },
+      "correoTitle": {
+        "es": "Correo Electrónico",
+        "en": "Email",
+        "fr": "E-mail"
+      },
+      "correoDesc": {
+        "es": "info@expomexico.ca",
+        "en": "info@expomexico.ca",
+        "fr": "info@expomexico.ca"
+      },
+      "horariosTitle": {
+        "es": "Horarios de Atención",
+        "en": "Office Hours",
+        "fr": "Heures de bureau"
+      },
+      "horariosDesc": {
+        "es": "Lunes a Viernes de 9:00 a.m. a 6:00 p.m. (Hora del Centro de México)",
+        "en": "Monday to Friday from 9:00 a.m. to 6:00 p.m. (Central Mexico Time)",
+        "fr": "Du lundi au vendredi de 9h00 à 18h00 (Heure centrale du Mexique)"
+      },
+      "formTitle": {
+        "es": "Envíanos un mensaje",
+        "en": "Send us a message",
+        "fr": "Envoyez-nous un message"
+      },
+      "formName": {
+        "es": "Nombre completo",
+        "en": "Full name",
+        "fr": "Nom et prénom"
+      },
+      "formEmail": {
+        "es": "Correo electrónico",
+        "en": "Email",
+        "fr": "E-mail"
+      },
+      "formEmpresa": {
+        "es": "Empresa / Organización",
+        "en": "Company / Organization",
+        "fr": "Entreprise / Organisation"
+      },
+      "formMensaje": {
+        "es": "Tu mensaje",
+        "en": "Your message",
+        "fr": "Votre message"
+      },
+      "formSubmit": {
+        "es": "Enviar mensaje",
+        "en": "Send message",
+        "fr": "Envoyer un message"
       }
     }
   }

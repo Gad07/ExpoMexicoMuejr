@@ -38,8 +38,14 @@ function Reveal({
 export default function PrensaPage() {
   const { t } = useLanguage();
 
-  const mockPressReleases = t('pages.prensa.mockPressReleases') as Array<{ date: string; title: string; category: string; desc: string }>;
-  const mockInterviews = t('pages.prensa.mockInterviews') as Array<{ person: string; role: string; media: string; quote: string }>;
+  const mockPressReleases = [
+    { date: t('pages.prensa.press1Date'), title: t('pages.prensa.press1Title'), category: t('pages.prensa.press1Category'), desc: t('pages.prensa.press1Desc') },
+    { date: t('pages.prensa.press2Date'), title: t('pages.prensa.press2Title'), category: t('pages.prensa.press2Category'), desc: t('pages.prensa.press2Desc') }
+  ];
+  const mockInterviews = [
+    { person: t('pages.prensa.interview1Person'), role: t('pages.prensa.interview1Role'), media: t('pages.prensa.interview1Media'), quote: t('pages.prensa.interview1Quote') },
+    { person: t('pages.prensa.interview2Person'), role: t('pages.prensa.interview2Role'), media: t('pages.prensa.interview2Media'), quote: t('pages.prensa.interview2Quote') }
+  ];
   return (
     <div style={{ background: 'var(--cream)', color: 'var(--navy)', minHeight: '100vh', paddingBottom: '120px' }}>
       
@@ -70,7 +76,7 @@ export default function PrensaPage() {
                   <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '12px', lineHeight: 1.25 }}>{press.title}</h3>
                   <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '24px', flexGrow: 1 }}>{press.desc}</p>
                   <Link href="/recursos" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--cyan)', fontWeight: 800, fontSize: '0.8rem', textTransform: 'uppercase', textDecoration: 'none', letterSpacing: '0.05em' }}>
-                    Leer más <ArrowRight size={14} style={{ marginLeft: '4px' }} />
+                    {t('pages.prensa.leerMas')} <ArrowRight size={14} style={{ marginLeft: '4px' }} />
                   </Link>
                 </div>
               </Reveal>

@@ -43,7 +43,7 @@ function Reveal({
 export default function InvitadosPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [invitados, setInvitados] = useState<any[]>([]);
-  const { language } = useLanguage();
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     fetch('/api/admin/invitados')
@@ -70,10 +70,10 @@ export default function InvitadosPage() {
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '64px' }}>
           <Reveal>
             <span style={{ display: 'inline-block', color: 'var(--magenta)', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '16px' }}>
-              Invitados Destacados
+              {t('pages.invitados.destacados')}
             </span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '3rem', fontWeight: 900, color: 'var(--navy)', margin: 0, lineHeight: 1 }}>
-              Invitados Especiales
+              {t('pages.invitados.title')}
             </h2>
           </Reveal>
 
@@ -82,7 +82,7 @@ export default function InvitadosPage() {
               <Search style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--magenta)' }} size={20} />
               <input 
                 type="text" 
-                placeholder="Buscar invitado..." 
+                placeholder={t('pages.invitados.buscar')} 
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 style={{ 
@@ -103,11 +103,12 @@ export default function InvitadosPage() {
         {/* INVITADOS CATEGORIES SECTIONS */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '80px' }}>
           {[
-            'Líderes empresariales',
-            'Conferencistas',
-            'Personalidades'
-          ].map((cat) => {
-            const list = filteredInvitados.filter(i => i.category === cat);
+            'lideres',
+            'conferencistas',
+            'personalidades'
+          ].map((catKey) => {
+            const cat = t(`pages.invitados.${catKey}`);
+            const list = filteredInvitados.filter(i => i.category === cat || i.category === (catKey === 'lideres' ? 'Líderes empresariales' : catKey === 'conferencistas' ? 'Conferencistas' : 'Personalidades'));
             if (list.length === 0) return null;
 
             return (
@@ -115,7 +116,7 @@ export default function InvitadosPage() {
                 <Reveal>
                   <div style={{ marginBottom: '32px' }}>
                     <span style={{ display: 'inline-block', color: 'var(--magenta)', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', fontSize: '0.8rem', marginBottom: '8px' }}>
-                      Categoría
+                      {t('pages.invitados.categoria')}
                     </span>
                     <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
                       {cat}
@@ -174,7 +175,7 @@ export default function InvitadosPage() {
                             <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '32px', flexGrow: 1 }}>{invitado.description && (invitado.description[language] || invitado.description.es || invitado.description || '').substring(0, 100)}...</p>
 
                             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '20px' }}>
-                              <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--navy)' }}>Ver perfil completo</span>
+                              <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--navy)' }}>{t('pages.invitados.verPerfil')}</span>
                               <div className="card-btn" style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'rgba(0,186,211,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--cyan)', transition: 'background 0.3s, color 0.3s' }}>
                                 <ArrowRight size={16} />
                               </div>
@@ -191,7 +192,7 @@ export default function InvitadosPage() {
 
           {filteredInvitados.length === 0 && (
             <div style={{ textAlign: 'center', padding: '64px', background: '#fff', borderRadius: '24px', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
-              <p style={{ fontSize: '1.2rem', color: 'var(--text)' }}>No se encontraron invitados con ese término.</p>
+              <p style={{ fontSize: '1.2rem', color: 'var(--text)' }}>{t('pages.invitados.noInvitados')}</p>
             </div>
           )}
         </div>

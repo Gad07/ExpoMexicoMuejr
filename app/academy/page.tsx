@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Search, PlayCircle, Clock, ArrowRight, BarChart, BookOpen } from 'lucide-react';
 import { mockAcademy } from '../data/academy';
+import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({
   children, className = '', delay = 0, style = {},
@@ -41,6 +42,7 @@ function Reveal({
 }
 
 export default function AcademyPage() {
+  const { t } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredCourses = mockAcademy.filter(course => 
@@ -57,15 +59,15 @@ export default function AcademyPage() {
         {/* Header & Search */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '64px' }}>
           <Reveal>
-            <h1 className="sr-only">Academy</h1>
+            <h1 className="sr-only">{t('pages.academy.title')}</h1>
             <span style={{ display: 'inline-block', color: 'var(--magenta)', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '16px' }}>
-              Videoteca Exclusiva
+              {t('pages.academy.videoteca')}
             </span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '4rem', fontWeight: 900, color: 'var(--navy)', margin: 0, lineHeight: 1 }}>
-              Academy
+              {t('pages.academy.title')}
             </h2>
             <p style={{ marginTop: '16px', fontSize: '1.2rem', color: 'var(--text)', maxWidth: '500px' }}>
-              Revive ponencias, entrevistas y paneles inspiradores en cualquier momento y lugar.
+              {t('pages.academy.desc')}
             </p>
           </Reveal>
 
@@ -74,7 +76,7 @@ export default function AcademyPage() {
               <Search style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--magenta)' }} size={20} />
               <input 
                 type="text" 
-                placeholder="Buscar por video, ponente o tema..." 
+                placeholder={t('pages.academy.buscarVideo')} 
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 style={{ 
@@ -146,7 +148,7 @@ export default function AcademyPage() {
                     <div style={{ padding: '48px 24px 24px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                       
                       <div style={{ color: 'var(--cyan)', fontWeight: 700, fontSize: '0.8rem', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                        Por: {course.instructor}
+                        {t('pages.academy.por')} {course.instructor}
                       </div>
 
                       <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '16px', lineHeight: 1.2 }}>
@@ -159,7 +161,7 @@ export default function AcademyPage() {
 
                       {course.features && (
                         <div style={{ marginBottom: '24px' }}>
-                          <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--magenta)', display: 'block', marginBottom: '8px' }}>Incluye:</span>
+                          <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--magenta)', display: 'block', marginBottom: '8px' }}>{t('pages.academy.incluye')}</span>
                           <ul style={{ margin: 0, paddingLeft: '16px', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.5, listStyleType: 'disc' }}>
                             {course.features.map((feature, fIdx) => (
                               <li key={fIdx} style={{ marginBottom: '4px' }}>{feature}</li>
@@ -174,7 +176,7 @@ export default function AcademyPage() {
                       </div>
 
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '20px' }}>
-                        <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--navy)' }}>Ver video</span>
+                        <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--navy)' }}>{t('pages.academy.verVideo')}</span>
                         <div className="card-btn" style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'rgba(0,186,211,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--cyan)', transition: 'background 0.3s, color 0.3s' }}>
                           <PlayCircle size={16} />
                         </div>
@@ -187,7 +189,7 @@ export default function AcademyPage() {
             ))
           ) : (
             <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '64px', background: '#fff', borderRadius: '24px' }}>
-              <p style={{ fontSize: '1.2rem', color: 'var(--text)' }}>No se encontraron videos con ese término.</p>
+              <p style={{ fontSize: '1.2rem', color: 'var(--text)' }}>{t('pages.academy.noVideos')}</p>
             </div>
           )}
         </div>

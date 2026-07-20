@@ -43,7 +43,7 @@ function Reveal({
 export default function PatrocinadoresPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [sponsors, setSponsors] = useState<any[]>([]);
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
 
   useEffect(() => {
     fetch('/api/admin/patrocinadores')
@@ -171,29 +171,29 @@ export default function PatrocinadoresPage() {
                   "Ponentes en el Women Leaders Forum"
                 ]
               }
-            ].map((t) => (
-              <Reveal key={t.name} delay={150} className={`pricing-card pricing-card--${t.theme}`} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-                {t.featured && <div className="pricing-card__badge" style={{ background: t.color }}>Más Popular</div>}
+            ].map((tier) => (
+              <Reveal key={tier.name} delay={150} className={`pricing-card pricing-card--${tier.theme}`} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                {tier.featured && <div className="pricing-card__badge" style={{ background: tier.color }}>{t('pages.patrocinadores.popular')}</div>}
 
-                <div className="pricing-card__name" style={{ color: t.featured ? t.color : 'inherit', fontSize: '2rem' }}>{t.name}</div>
-                <div className="pricing-card__price" style={{ color: t.color, fontSize: '3.5rem' }}>{t.discount}</div>
-                <div className="pricing-card__sub">{t.sub}</div>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: '16px 0', lineHeight: 1.5, textAlign: 'left' }}>{t.description}</p>
+                <div className="pricing-card__name" style={{ color: tier.featured ? tier.color : 'inherit', fontSize: '2rem' }}>{tier.name}</div>
+                <div className="pricing-card__price" style={{ color: tier.color, fontSize: '3.5rem' }}>{tier.discount}</div>
+                <div className="pricing-card__sub">{tier.sub}</div>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: '16px 0', lineHeight: 1.5, textAlign: 'left' }}>{tier.description}</p>
 
                 <div className="pricing-card__divider" />
 
                 <ul className="pricing-card__features" style={{ flex: 1 }}>
-                  {t.features.map((f) => (
+                  {tier.features.map((f) => (
                     <li key={f} className="pricing-card__feature">
-                      <svg viewBox="0 0 24 24" fill="none" stroke={t.color} strokeWidth="2" style={{ width: 16, height: 16, marginRight: 8, flexShrink: 0 }}>
+                      <svg viewBox="0 0 24 24" fill="none" stroke={tier.color} strokeWidth="2" style={{ width: 16, height: 16, marginRight: 8, flexShrink: 0 }}>
                         <polyline points="20 6 9 17 4 12"></polyline>
                       </svg>
                       {f}
                     </li>
                   ))}
                 </ul>
-                <a href="mailto:francisco@expomexico.ca" className="pricing-card__cta" style={{ ...(!t.featured ? { border: `1px solid ${t.color}`, color: t.color, background: 'transparent' } : {}), marginTop: 'auto' }}>
-                  Reservar con el 50%
+                <a href="mailto:francisco@expomexico.ca" className="pricing-card__cta" style={{ ...(!tier.featured ? { border: `1px solid ${tier.color}`, color: tier.color, background: 'transparent' } : {}), marginTop: 'auto' }}>
+                  {t('pages.patrocinadores.cta')}
                 </a>
               </Reveal>
             ))}

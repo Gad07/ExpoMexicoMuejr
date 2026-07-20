@@ -36,13 +36,60 @@ const unflattenTranslations = (flat: Record<string, any>): any => {
 
 // Definimos la relación de claves con su ruta de preview real
 const PAGES_CONFIG: Record<string, { name: string; url: string }> = {
+  // Principales
   'home': { name: 'Inicio', url: '/' },
   'nav': { name: 'Menú Principal (Nav)', url: '/' },
-  'visa': { name: 'Visas', url: '/visa' },
-  'agenda': { name: 'Agenda y Programa', url: '/programa/actividades-especiales' },
-  'contacto': { name: 'Contacto', url: '/contacto' },
-  'common': { name: 'Textos Globales (Footer)', url: '/' }
+  'hero': { name: 'Banners', url: '/' },
+  'common': { name: 'Textos Globales (Footer)', url: '/' },
+  
+  // Expo Mexico Mujer
+  'pages.expo.queEs': { name: '¿Qué es Expo México Mujer?', url: '/expo/que-es' },
+  'pages.expo.industrias': { name: 'Industrias', url: '/expo/industrias' },
+  'pages.expo.ottawa2026': { name: 'Expo México Mujer Ottawa 2026', url: '/expo/ottawa-2026' },
+  'pages.visa': { name: 'Visas y Trámites', url: '/visa' },
+  'pages.noticias': { name: 'Noticias', url: '/recursos' },
+
+  // Get Involved (Participa)
+  'pages.expositores': { name: 'Expositores', url: '/expositores' },
+  'pages.patrocinadores': { name: 'Patrocinadores', url: '/patrocinadores' },
+  'pages.embajadoras': { name: 'Embajadoras EMM', url: '/embajadoras' },
+  'pages.aliados': { name: 'Aliados', url: '/aliados' },
+  'pages.invitados': { name: 'Invitados Especiales', url: '/invitados' },
+  'pages.compradores': { name: 'Compradores e Inversionistas', url: '/compradores' },
+
+  // Agenda
+  'pages.agenda': { name: 'Agenda General', url: '/agenda' },
+  'pages.agenda.toronto2027': { name: 'Expo Toronto 2027', url: '/agenda/toronto-2027' },
+  'pages.agenda.summit': { name: 'México Ontario Business Summit', url: '/agenda/business-summit' },
+  'pages.agenda.gala': { name: 'Mexican Fashion Gala Show', url: '/agenda/fashion-gala' },
+  'pages.agenda.forum': { name: 'Women Leaders Forum', url: '/agenda/leaders-forum' },
+  'pages.agenda.mission': { name: 'Misión Comercial Montreal', url: '/agenda/montreal-mission' },
+
+  // Academy
+  'pages.academy': { name: 'Academy General', url: '/academy' },
+  'pages.academy.english': { name: 'Online English', url: '/academy/online-english' },
+  'pages.academy.skills': { name: 'Executive Global Skills', url: '/academy/executive-global-skills' },
+  'pages.academy.business': { name: 'Business Training Agenda', url: '/academy/business-training' },
+
+  // Information
+  'pages.prensa': { name: 'Prensa', url: '/informacion/prensa' },
+  'pages.participantes': { name: 'Manual del Expositor', url: '/informacion/participantes' },
+  'pages.logistica': { name: 'Logística y Aduanas', url: '/informacion/logistica' },
+  'pages.viajero': { name: 'Guía del Viajero', url: '/informacion/viajero' },
+
+  // Contact
+  'pages.contacto': { name: 'Contacto', url: '/contacto' },
 };
+
+const PAGE_GROUPS = [
+  { group: 'Principales', items: ['home', 'nav', 'hero', 'common'] },
+  { group: 'Expo México Mujer', items: ['pages.expo.queEs', 'pages.expo.industrias', 'pages.expo.ottawa2026', 'pages.visa', 'pages.noticias'] },
+  { group: 'Get Involved', items: ['pages.expositores', 'pages.patrocinadores', 'pages.embajadoras', 'pages.aliados', 'pages.invitados', 'pages.compradores'] },
+  { group: 'Agenda', items: ['pages.agenda', 'pages.agenda.toronto2027', 'pages.agenda.summit', 'pages.agenda.gala', 'pages.agenda.forum', 'pages.agenda.mission'] },
+  { group: 'Academy', items: ['pages.academy', 'pages.academy.english', 'pages.academy.skills', 'pages.academy.business'] },
+  { group: 'Información', items: ['pages.prensa', 'pages.participantes', 'pages.logistica', 'pages.viajero'] },
+  { group: 'Contacto', items: ['pages.contacto'] }
+];
 
 export default function AdminTextos() {
   const [translations, setTranslations] = useState<any>({});
@@ -64,11 +111,35 @@ export default function AdminTextos() {
           const flat = flattenTranslations(d.translations);
           setFlatDict(flat);
           
-          const cats = Array.from(new Set(Object.keys(flat).map(k => k.split('.')[0])));
+          const cats = Object.keys(PAGES_CONFIG);
           setCategories(cats);
-          if (cats.length > 0) setActiveCategory(cats[0]);
+          if (cats.length > 0) setActiveCategory('home');
         }
       });
+
+    const handleVisualUpdate = (e: MessageEvent) => {
+      if (e.data && e.data.type === 'VISUAL_EDIT_UPDATE') {
+        const { key, value, lang: iframeLang } = e.data;
+        setFlatDict(prev => {
+          const nextDict = {
+            ...prev,
+            [key]: { ...(prev[key] || { es: '', en: '', fr: '' }), [iframeLang]: value }
+          };
+          
+          const iframe = document.getElementById('preview-iframe') as HTMLIFrameElement;
+          if (iframe && iframe.contentWindow) {
+            iframe.contentWindow.postMessage({
+              type: 'UPDATE_TRANSLATIONS',
+              payload: unflattenTranslations(nextDict)
+            }, '*');
+          }
+          
+          return nextDict;
+        });
+      }
+    };
+    window.addEventListener('message', handleVisualUpdate);
+    return () => window.removeEventListener('message', handleVisualUpdate);
   }, []);
 
   const handleSave = async () => {
@@ -98,10 +169,23 @@ export default function AdminTextos() {
   };
 
   const handleUpdate = (key: string, value: string) => {
-    setFlatDict(prev => ({
-      ...prev,
-      [key]: { ...prev[key], [lang]: value }
-    }));
+    setFlatDict(prev => {
+      const nextDict = {
+        ...prev,
+        [key]: { ...prev[key], [lang]: value }
+      };
+      
+      // Update iframe live
+      const iframe = document.getElementById('preview-iframe') as HTMLIFrameElement;
+      if (iframe && iframe.contentWindow) {
+        iframe.contentWindow.postMessage({
+          type: 'UPDATE_TRANSLATIONS',
+          payload: unflattenTranslations(nextDict)
+        }, '*');
+      }
+
+      return nextDict;
+    });
   };
 
   const handlePreview = () => {
@@ -127,112 +211,94 @@ export default function AdminTextos() {
       {/* SIDEBAR */}
       <div style={{ background: '#fff', borderRight: '1px solid rgba(0,0,0,0.07)', padding: '24px 16px', display: 'flex', flexDirection: 'column', gap: '8px', overflowY: 'auto' }}>
         <h2 style={{ margin: '0 0 16px 8px', fontSize: '1.1rem', fontWeight: 800, color: '#002E51' }}>Páginas</h2>
-        {categories.map(cat => (
-          <button
-            key={cat}
-            onClick={() => setActiveCategory(cat)}
-            style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              padding: '12px 16px', borderRadius: '10px', border: 'none', cursor: 'pointer', textAlign: 'left',
-              background: activeCategory === cat ? 'rgba(228,0,124,0.08)' : 'transparent',
-              color: activeCategory === cat ? '#E4007C' : '#333',
-              fontWeight: activeCategory === cat ? 700 : 500,
-              fontSize: '0.85rem',
-              transition: 'all 0.15s',
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <FileText size={16} />
-              {PAGES_CONFIG[cat]?.name || cat.charAt(0).toUpperCase() + cat.slice(1)}
+        {PAGE_GROUPS.map(group => (
+          <div key={group.group} style={{ marginBottom: '16px' }}>
+            <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '8px', paddingLeft: '8px' }}>
+              {group.group}
             </div>
-            {activeCategory === cat && <ChevronRight size={16} />}
-          </button>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+              {group.items.map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                    padding: '8px 12px', borderRadius: '8px', border: 'none', cursor: 'pointer', textAlign: 'left',
+                    background: activeCategory === cat ? 'rgba(228,0,124,0.08)' : 'transparent',
+                    color: activeCategory === cat ? '#E4007C' : '#333',
+                    fontWeight: activeCategory === cat ? 700 : 500,
+                    fontSize: '0.8rem',
+                    transition: 'all 0.15s',
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <FileText size={14} />
+                    {PAGES_CONFIG[cat]?.name || cat}
+                  </div>
+                  {activeCategory === cat && <ChevronRight size={14} />}
+                </button>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
 
-      {/* EDITOR */}
-      <div style={{ padding: '32px 40px', overflowY: 'auto', background: '#F9F7F5' }}>
-        <div style={{ maxWidth: '1000px', margin: '0 auto', background: '#fff', borderRadius: '16px', boxShadow: '0 4px 20px rgba(0,0,0,0.03)', padding: '32px' }}>
+      {/* PREVIEW FRAME */}
+      <div style={{ background: '#eaeaea', display: 'flex', flexDirection: 'column', height: 'calc(100vh - 82px)' }}>
+        <div style={{ padding: '12px 16px', background: '#fff', borderBottom: '1px solid rgba(0,0,0,0.07)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <span style={{ fontSize: '1rem', fontWeight: 800, color: '#002E51', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Type color="#E4007C" size={18} />
+            {PAGES_CONFIG[activeCategory || '']?.name || activeCategory} (Vista Previa)
+          </span>
           
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
-            <h1 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#002E51', margin: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <Type color="#E4007C" />
-              Gestor de Contenido: {PAGES_CONFIG[activeCategory || '']?.name || activeCategory}
-            </h1>
-            <div style={{ display: 'flex', gap: '12px' }}>
-              <button onClick={handlePreview} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 24px', background: '#f1f5f9', color: '#0f172a', border: '1px solid #cbd5e1', borderRadius: '10px', fontWeight: 700, fontSize: '0.875rem', cursor: 'pointer' }}>
-                <ExternalLink size={16} /> Vista Previa
-              </button>
-              <button onClick={handleSave} disabled={saving} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 24px', background: '#002E51', color: '#fff', border: 'none', borderRadius: '10px', fontWeight: 700, fontSize: '0.875rem', cursor: saving ? 'not-allowed' : 'pointer' }}>
-                <Save size={16} /> {saving ? 'Guardando...' : 'Guardar Cambios'}
-              </button>
-            </div>
-          </div>
-
-          {message && (
-            <div style={{ padding: '12px 16px', borderRadius: '8px', marginBottom: '24px', fontSize: '0.875rem', fontWeight: 600, background: message.type === 'success' ? 'rgba(16,185,129,0.1)' : 'rgba(239,68,68,0.1)', color: message.type === 'success' ? '#059669' : '#DC2626' }}>
-              {message.text}
-            </div>
-          )}
-
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', gap: '24px' }}>
+          <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
             {/* LANGUAGE TABS */}
-            <div style={{ display: 'flex', gap: '8px', borderBottom: '1px solid rgba(0,0,0,0.06)', flex: 1 }}>
+            <div style={{ display: 'flex', gap: '4px', background: '#f1f5f9', padding: '4px', borderRadius: '8px' }}>
               {(['es', 'en', 'fr'] as Language[]).map(l => (
-                <button key={l} onClick={() => setLang(l)} style={{ padding: '12px 24px', border: 'none', background: 'transparent', cursor: 'pointer', fontWeight: 700, fontSize: '0.875rem', color: lang === l ? '#E4007C' : '#999', borderBottom: lang === l ? '2px solid #E4007C' : '2px solid transparent', textTransform: 'uppercase' }}>
+                <button 
+                  key={l} 
+                  onClick={() => {
+                    setLang(l);
+                    const iframe = document.getElementById('preview-iframe') as HTMLIFrameElement;
+                    if (iframe && iframe.contentWindow) {
+                      iframe.contentWindow.postMessage({ type: 'CHANGE_LANGUAGE', lang: l }, '*');
+                    }
+                  }} 
+                  style={{ 
+                    padding: '6px 12px', border: 'none', 
+                    background: lang === l ? '#fff' : 'transparent', 
+                    boxShadow: lang === l ? '0 2px 4px rgba(0,0,0,0.05)' : 'none',
+                    cursor: 'pointer', fontWeight: 700, fontSize: '0.75rem', 
+                    color: lang === l ? '#E4007C' : '#64748b', 
+                    borderRadius: '6px', textTransform: 'uppercase',
+                    transition: 'all 0.2s'
+                  }}>
                   {l}
                 </button>
               ))}
             </div>
 
-            {/* SEARCH */}
-            <div style={{ position: 'relative', width: '280px' }}>
-              <Search size={18} style={{ position: 'absolute', left: '12px', top: '10px', color: '#94a3b8' }} />
-              <input 
-                type="text" 
-                placeholder="Buscar texto o campo..." 
-                value={searchTerm}
-                onChange={e => setSearchTerm(e.target.value)}
-                style={{ width: '100%', padding: '10px 12px 10px 38px', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.12)', fontSize: '0.875rem', outline: 'none' }}
-              />
-            </div>
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            {visibleKeys.length === 0 ? (
-              <div style={{ textAlign: 'center', padding: '48px', color: '#94a3b8', background: '#f8fafc', borderRadius: '12px' }}>
-                No se encontraron textos que coincidan con la búsqueda.
-              </div>
-            ) : (
-              visibleKeys.map(key => {
-                const text = flatDict[key]?.[lang] || '';
-                const isLongText = text.length > 80;
-                
-                return (
-                  <div key={key} style={{ display: 'flex', flexDirection: 'column', gap: '8px', paddingBottom: '16px', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
-                    <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748b', letterSpacing: '0.5px' }}>
-                      {key.replace(activeCategory + '.', '')}
-                    </div>
-                    {isLongText ? (
-                      <textarea 
-                        value={text} 
-                        onChange={e => handleUpdate(key, e.target.value)}
-                        style={{ width: '100%', minHeight: '80px', padding: '12px', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.12)', fontSize: '0.875rem', outline: 'none', resize: 'vertical' }}
-                      />
-                    ) : (
-                      <input 
-                        type="text" 
-                        value={text} 
-                        onChange={e => handleUpdate(key, e.target.value)}
-                        style={{ width: '100%', padding: '10px 12px', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.12)', fontSize: '0.875rem', outline: 'none' }}
-                      />
-                    )}
-                  </div>
-                );
-              })
+            {message && (
+              <span style={{ fontSize: '0.8rem', fontWeight: 700, color: message.type === 'success' ? '#059669' : '#DC2626' }}>
+                {message.text}
+              </span>
             )}
+            
+            <button onClick={handleSave} disabled={saving} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '6px', padding: '8px 16px', background: '#002E51', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: 700, fontSize: '0.8rem', cursor: saving ? 'not-allowed' : 'pointer', transition: 'all 0.2s' }}>
+              <Save size={16} /> {saving ? 'Guardando...' : 'Guardar Cambios'}
+            </button>
+            
+            <button onClick={handlePreview} style={{ background: 'transparent', border: '1px solid rgba(0,46,81,0.2)', color: '#002E51', borderRadius: '8px', padding: '8px 12px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', fontWeight: 700, transition: 'all 0.2s' }}>
+               <ExternalLink size={16} />
+            </button>
           </div>
         </div>
+        <iframe
+          id="preview-iframe"
+          src={activeCategory ? (PAGES_CONFIG[activeCategory]?.url || '/') + '?visualEdit=true' : '/?visualEdit=true'}
+          style={{ width: '100%', height: '100%', border: 'none', background: '#fff' }}
+          title="Live Preview"
+        />
       </div>
     </div>
   );

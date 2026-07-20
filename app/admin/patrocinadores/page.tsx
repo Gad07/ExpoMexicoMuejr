@@ -377,7 +377,7 @@ export default function AdminPatrocinadores() {
                   </div>
 
                   <div>
-                    <div style={{ display: 'flex', justifycontent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                       <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#002E51' }}>Galería de Imágenes (Opcional)</label>
                       <button type="button" onClick={addGalleryField} style={{ background: 'none', border: 'none', color: '#E4007C', fontSize: '0.75rem', fontWeight: 700, cursor: 'pointer' }}>+ Agregar</button>
                     </div>
@@ -410,7 +410,7 @@ export default function AdminPatrocinadores() {
                     </div>
 
                     <div style={{ padding: '0 24px 32px', position: 'relative', textAlign: 'center', marginTop: '16px' }}>
-                      <div style={{ height: '90px', display: 'flex', alignItems: 'center', justifycontent: 'center', background: '#fff', borderRadius: '16px', marginBottom: '24px', padding: '16px', margin: '0 auto 20px', border: '1px solid #eee' }}>
+                      <div style={{ height: '90px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', borderRadius: '16px', marginBottom: '24px', padding: '16px', margin: '0 auto 20px', border: '1px solid #eee' }}>
                         {editing.logo ? <img src={editing.logo} alt="Logo" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} onError={e => e.currentTarget.style.display = 'none'} /> : <Medal size={40} color="#ccc" style={{ margin: '0 auto' }} />}
                       </div>
 

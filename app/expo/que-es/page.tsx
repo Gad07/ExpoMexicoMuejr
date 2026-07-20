@@ -73,42 +73,42 @@ export default function QueEsPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center' }}>
             <Reveal>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.8rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '24px', lineHeight: 1.1 }}>
-                Una plataforma que trasciende fronteras
+                {t('pages.expo.queEs.intro.title')}
               </h2>
               <p style={{ fontSize: '1.1rem', lineHeight: 1.8, color: 'var(--text)', marginBottom: '24px' }}>
-                Expo México Mujer es el encuentro empresarial y cultural más relevante entre México y Canadá. Nace de la necesidad de proyectar el liderazgo y talento corporativo femenino de origen mexicano hacia mercados norteamericanos de alta competitividad.
+                {t('pages.expo.queEs.intro.p1')}
               </p>
               <p style={{ fontSize: '1rem', lineHeight: 1.7, color: 'var(--text-muted)', marginBottom: 0 }}>
-                Durante 5 días en la metrópoli de Toronto, el evento reúne a delegadas de múltiples estados mexicanos con compradores globales, inversionistas institucionales y autoridades consulares en una serie de foros de alto nivel, pasarelas de moda y mesas de negociación directa.
+                {t('pages.expo.queEs.intro.p2')}
               </p>
             </Reveal>
 
             <Reveal delay={200}>
               <div style={{ background: '#fff', borderRadius: '32px', padding: '48px', boxShadow: '0 20px 50px rgba(0,25,76,0.04)', border: '1px solid rgba(0,0,0,0.01)', position: 'relative' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--magenta)', letterSpacing: '0.1em', textTransform: 'uppercase', display: 'block', marginBottom: '24px' }}>Impacto México-Canadá</span>
+                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--magenta)', letterSpacing: '0.1em', textTransform: 'uppercase', display: 'block', marginBottom: '24px' }}>{t('pages.expo.queEs.impact.title')}</span>
                 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                   <div style={{ display: 'flex', gap: '16px', alignItems: 'start' }}>
                     <div style={{ color: 'var(--cyan)', marginTop: '4px' }}><CheckCircle size={20} /></div>
                     <div>
-                      <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.15rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 4px 0' }}>Alianza Binacional</h4>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>Fortalecimiento del comercio internacional directo al amparo del acuerdo del T-MEC.</p>
+                      <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.15rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 4px 0' }}>{t('pages.expo.queEs.impact.i1.title')}</h4>
+                      <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>{t('pages.expo.queEs.impact.i1.desc')}</p>
                     </div>
                   </div>
 
                   <div style={{ display: 'flex', gap: '16px', alignItems: 'start' }}>
                     <div style={{ color: 'var(--cyan)', marginTop: '4px' }}><CheckCircle size={20} /></div>
                     <div>
-                      <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.15rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 4px 0' }}>Proyección Cultural</h4>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>Difusión artística, textil y artesanal de alta gama en espacios museísticos y comerciales de Canadá.</p>
+                      <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.15rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 4px 0' }}>{t('pages.expo.queEs.impact.i2.title')}</h4>
+                      <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>{t('pages.expo.queEs.impact.i2.desc')}</p>
                     </div>
                   </div>
 
                   <div style={{ display: 'flex', gap: '16px', alignItems: 'start' }}>
                     <div style={{ color: 'var(--cyan)', marginTop: '4px' }}><CheckCircle size={20} /></div>
                     <div>
-                      <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.15rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 4px 0' }}>Empoderamiento Económico</h4>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>Impulso al crecimiento empresarial de mujeres mexicanas a través de redes de mentoría y acceso a financiamiento internacional.</p>
+                      <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.15rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 4px 0' }}>{t('pages.expo.queEs.impact.i3.title')}</h4>
+                      <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>{t('pages.expo.queEs.impact.i3.desc')}</p>
                     </div>
                   </div>
                 </div>
@@ -121,7 +121,7 @@ export default function QueEsPage() {
         <div id="mision-vision" style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
-              Misión, Visión y Objetivos
+              {t('pages.expo.queEs.mision.title')}
             </h2>
           </Reveal>
 
@@ -129,9 +129,9 @@ export default function QueEsPage() {
             <Reveal delay={100}>
               <div style={{ background: '#fff', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,25,76,0.03)', height: '100%', border: '1px solid rgba(0,0,0,0.01)' }}>
                 <div style={{ color: 'var(--magenta)', marginBottom: '20px' }}><Target size={40} /></div>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '12px' }}>Misión</h3>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '12px' }}>{t('pages.expo.queEs.mision.m1.title')}</h3>
                 <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'var(--text-muted)', margin: 0 }}>
-                  Empoderar a la mujer empresaria y profesional de origen mexicano facilitando su inserción, posicionamiento e impacto en los mercados internacionales, especialmente en Canadá.
+                  {t('pages.expo.queEs.mision.m1.desc')}
                 </p>
               </div>
             </Reveal>
@@ -139,9 +139,9 @@ export default function QueEsPage() {
             <Reveal delay={200}>
               <div style={{ background: '#fff', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,25,76,0.03)', height: '100%', border: '1px solid rgba(0,0,0,0.01)' }}>
                 <div style={{ color: 'var(--cyan)', marginBottom: '20px' }}><Globe size={40} /></div>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '12px' }}>Visión</h3>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '12px' }}>{t('pages.expo.queEs.mision.m2.title')}</h3>
                 <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'var(--text-muted)', margin: 0 }}>
-                  Ser la plataforma líder de vinculación empresarial y cultural para mujeres hispanas en Norteamérica, reconocida por su excelencia, impacto socioeconómico y resultados tangibles.
+                  {t('pages.expo.queEs.mision.m2.desc')}
                 </p>
               </div>
             </Reveal>
@@ -149,9 +149,9 @@ export default function QueEsPage() {
             <Reveal delay={300}>
               <div style={{ background: '#fff', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,25,76,0.03)', height: '100%', border: '1px solid rgba(0,0,0,0.01)' }}>
                 <div style={{ color: 'var(--navy)', marginBottom: '20px' }}><Award size={40} /></div>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '12px' }}>Objetivos</h3>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '12px' }}>{t('pages.expo.queEs.mision.m3.title')}</h3>
                 <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'var(--text-muted)', margin: 0 }}>
-                  Generar alianzas comerciales sostenibles, brindar herramientas técnicas de capacitación global y proyectar el patrimonio e identidad cultural de México al más alto nivel.
+                  {t('pages.expo.queEs.mision.m3.desc')}
                 </p>
               </div>
             </Reveal>
@@ -162,7 +162,7 @@ export default function QueEsPage() {
         <div id="equipo" style={{ borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px', textAlign: 'center' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
-              Equipo Directivo
+              {t('pages.expo.queEs.equipo.title')}
             </h2>
           </Reveal>
 
@@ -216,7 +216,7 @@ export default function QueEsPage() {
               </div>
 
               <a href="https://wa.me/525527199694" className="c-action" target="_blank" rel="noopener noreferrer">
-                <span>{t('wa.chat.startChat')}</span>
+                <span>{t('pages.expo.queEs.equipo.startChat')}</span>
                 <ArrowRight size={22} className="c-action-icon" />
               </a>
             </div>
@@ -241,7 +241,7 @@ export default function QueEsPage() {
               </div>
 
               <a href="https://wa.me/527225514645" className="c-action" target="_blank" rel="noopener noreferrer">
-                <span>{t('wa.chat.startChat')}</span>
+                <span>{t('pages.expo.queEs.equipo.startChat')}</span>
                 <ArrowRight size={22} className="c-action-icon" />
               </a>
             </div>

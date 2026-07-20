@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Handshake, Users, Award, Shield } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({
   children, className = '', delay = 0, style = {},
@@ -33,6 +34,7 @@ function Reveal({
 }
 
 export default function AliadosPage() {
+  const { t } = useLanguage();
   const [aliados, setAliados] = useState<any[]>([]);
 
   useEffect(() => {
@@ -49,15 +51,15 @@ export default function AliadosPage() {
       
       <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '160px 4% 80px' }}>
         <Reveal>
-          <h1 className="sr-only">Aliados Estratégicos</h1>
+          <h1 className="sr-only">{t('pages.aliados.aliadosTitle')}</h1>
           <span style={{ display: 'inline-block', color: 'var(--magenta)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '16px' }}>
-            Vinculación Institucional
+            {t('pages.aliados.vinculacionInstitucional')}
           </span>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(3rem, 6vw, 4.5rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: '24px' }}>
-            Aliados Estratégicos & Cámaras
+            {t('pages.aliados.aliadosTitle')}
           </h2>
           <p style={{ fontSize: '1.2rem', color: 'var(--text)', maxWidth: '700px', marginBottom: '60px', lineHeight: 1.6 }}>
-            Expo México Mujer cuenta con el respaldo y vinculación activa de organismos gubernamentales, cámaras de comercio binacionales y asociaciones empresariales comprometidas con la integración económica y el liderazgo femenino.
+            {t('pages.aliados.aliadosDesc')}
           </p>
         </Reveal>
 
@@ -65,9 +67,9 @@ export default function AliadosPage() {
           <Reveal delay={100}>
             <div style={{ background: '#fff', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,46,81,0.03)', height: '100%' }}>
               <div style={{ color: 'var(--magenta)', marginBottom: '20px' }}><Handshake size={40} /></div>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 800, marginBottom: '12px' }}>Aliados Estratégicos</h3>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 800, marginBottom: '12px' }}>{t('pages.aliados.aliadosEstTitle')}</h3>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'var(--text)' }}>
-                Empresas líderes del sector privado nacional e internacional que aportan innovación, recursos y soporte operativo clave para materializar la visión binacional del evento.
+                {t('pages.aliados.aliadosEstDesc')}
               </p>
             </div>
           </Reveal>
@@ -75,9 +77,9 @@ export default function AliadosPage() {
           <Reveal delay={200}>
             <div style={{ background: '#fff', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,46,81,0.03)', height: '100%' }}>
               <div style={{ color: 'var(--cyan)', marginBottom: '20px' }}><Shield size={40} /></div>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 800, marginBottom: '12px' }}>Aliados Institucionales</h3>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 800, marginBottom: '12px' }}>{t('pages.aliados.aliadosInstTitle')}</h3>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'var(--text)' }}>
-                Entidades gubernamentales, consulados y embajadas de México y Canadá que brindan respaldo oficial, legitimidad y acompañamiento político en todos los intercambios.
+                {t('pages.aliados.aliadosInstDesc')}
               </p>
             </div>
           </Reveal>
@@ -85,9 +87,9 @@ export default function AliadosPage() {
           <Reveal delay={300}>
             <div style={{ background: '#fff', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,46,81,0.03)', height: '100%' }}>
               <div style={{ color: 'var(--navy)', marginBottom: '20px' }}><Award size={40} /></div>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 800, marginBottom: '12px' }}>Cámaras Empresariales</h3>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 800, marginBottom: '12px' }}>{t('pages.aliados.camarasEmpTitle')}</h3>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'var(--text)' }}>
-                Organizaciones e intermediarios de negocios (como COMCE, cámaras hispanas y asociaciones locales de Ontario) que catalizan las ruedas de negocios y el networking comercial.
+                {t('pages.aliados.camarasEmpDesc')}
               </p>
             </div>
           </Reveal>
@@ -98,10 +100,10 @@ export default function AliadosPage() {
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', marginTop: '16px' }}>
-                Aliados Oficiales
+                {t('pages.aliados.aliadosOficiales')}
               </h2>
               <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', maxWidth: '600px', margin: '16px auto 0', lineHeight: 1.6 }}>
-                Vinculación activa con organismos institucionales y cámaras comerciales.
+                {t('pages.aliados.aliadosOficialesDesc')}
               </p>
             </div>
           </Reveal>

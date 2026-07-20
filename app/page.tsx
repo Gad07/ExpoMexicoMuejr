@@ -108,60 +108,60 @@ const highlights = [
   { value: '12+', label: 'Industrias presentes' },
 ];
 
-const impactMetrics = [
+const getImpactMetrics = (t: any) => [
   {
     value: '+78',
-    title: 'Expositoras',
-    text: 'Participación destacada de mujeres en la primera edición de la Expo.',
+    title: t('home.impactMetrics.0.title'),
+    text: t('home.impactMetrics.0.text'),
     color: 'var(--cyan)',
     icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
   },
   {
     value: '14',
-    title: 'Estados',
-    text: '60 expositoras provenientes de diversas regiones de la República Mexicana.',
+    title: t('home.impactMetrics.1.title'),
+    text: t('home.impactMetrics.1.text'),
     color: 'var(--magenta)',
     icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
   },
   {
     value: '18',
-    title: 'Comunidades',
-    text: 'Integrantes de comunidades indígenas y afromexicanas compartiendo su riqueza cultural.',
+    title: t('home.impactMetrics.2.title'),
+    text: t('home.impactMetrics.2.text'),
     color: 'var(--gold)',
     icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
   },
   {
     value: '18',
-    title: 'Empresas',
-    text: 'Empresas mexicanas establecidas en las provincias de Ontario y Québec.',
+    title: t('home.impactMetrics.3.title'),
+    text: t('home.impactMetrics.3.text'),
     color: 'var(--green-deep)',
     icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
   },
   {
     value: '59',
-    title: 'Marcas',
-    text: 'Presencia de marcas mexicanas impulsando el desarrollo económico y cultural.',
+    title: t('home.impactMetrics.4.title'),
+    text: t('home.impactMetrics.4.text'),
     color: 'var(--navy)',
     icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
   },
   {
     value: '120',
-    title: 'Artistas',
-    text: 'Representando el ámbito cultural de pintura, danza, música, canto y escultura.',
+    title: t('home.impactMetrics.5.title'),
+    text: t('home.impactMetrics.5.text'),
     color: 'var(--magenta)',
     icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
   },
   {
     value: '+60',
-    title: 'Artistas Mexicanas',
-    text: 'Obras exhibidas en la Galería de Arte al interior del recinto.',
+    title: t('home.impactMetrics.6.title'),
+    text: t('home.impactMetrics.6.text'),
     color: 'var(--cyan)',
     icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
   },
   {
     value: '4.2M',
-    title: 'Impresiones',
-    text: 'Más de 4 mil asistentes, 15 mil interacciones en redes y un 92% de reputación positiva.',
+    title: t('home.impactMetrics.7.title'),
+    text: t('home.impactMetrics.7.text'),
     color: 'var(--gold)',
     icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
   }
@@ -195,10 +195,10 @@ const audiences = [
   'Medios, cámaras y aliados institucionales',
 ];
 
-const marqueeItems = [
-  'Toronto 2027', 'México – Canadá', 'Empoderamiento',
-  'Negocios globales', 'Cultura mexicana', 'Innovación',
-  'Liderazgo femenino', 'Comercio binacional',
+const getMarqueeItems = (t: any) => [
+  t('home.marqueeTop.0'), t('home.marqueeTop.1'), t('home.marqueeTop.2'),
+  t('home.marqueeTop.3'), t('home.marqueeTop.4'), t('home.marqueeTop.5'),
+  t('home.marqueeTop.6'), t('home.marqueeTop.7'),
 ];
 
 /* ══════════════════════════════════════════════════════════════
@@ -331,13 +331,14 @@ function StatementStrip() {
 ══════════════════════════════════════════════════════════════ */
 /* ── Cinta superior: texto grande, hacia adelante ── */
 function MarqueeTop() {
+  const { t } = useLanguage();
   return (
     <div className="marquee" aria-hidden="true">
       <div className="marquee__row">
         <div className="marquee__track">
           {[...Array(3)].map((_, i) => (
             <div key={i} className="marquee__item">
-              {marqueeItems.map((item) => (
+              {getMarqueeItems(t).map((item) => (
                 <span key={item}>
                   {item}
                   <span className="marquee__dot" />
@@ -353,10 +354,11 @@ function MarqueeTop() {
 
 /* ── Cinta inferior: texto pequeño, en reversa ── */
 function MarqueeBottom() {
+  const { t } = useLanguage();
   const items = [
-    '9–13 Junio 2027', 'Liderazgo femenino', 'Toronto · Canada',
-    'Binacional', 'Exportación', 'Innovación', 'Comunidad mexicana',
-    'Empoderamiento', '5 días · 12 industrias',
+    t('home.marqueeBottom.0'), t('home.marqueeBottom.1'), t('home.marqueeBottom.2'),
+    t('home.marqueeBottom.3'), t('home.marqueeBottom.4'), t('home.marqueeBottom.5'),
+    t('home.marqueeBottom.6'), t('home.marqueeBottom.7'), t('home.marqueeBottom.8'),
   ];
   return (
     <div className="marquee" aria-hidden="true">
@@ -481,7 +483,7 @@ function Pillars() {
         `}</style>
 
         <div className="diamond-grid reveal-stagger">
-          {impactMetrics.map((m, i) => (
+          {getImpactMetrics(t).map((m, i) => (
             <Reveal key={i} className="diamond-card" style={{ border: `1px solid color-mix(in srgb, ${m.color} 30%, transparent)` }}>
               <div className="diamond-shape" style={{ background: m.color, boxShadow: '0 8px 16px rgba(0, 0, 0, 0.06)' }}>
                 <div className="diamond-icon">
@@ -512,16 +514,16 @@ function Pillars() {
    INDUSTRIES
 ══════════════════════════════════════════════════════════════ */
 function MexicanStates() {
+  const { t } = useLanguage();
   return (
     <section className="section" id="estados" aria-labelledby="estados-title">
       <div className="section__inner" style={{ textAlign: 'center' }}>
         <Reveal>
           <h2 className="section__title section__title--center" id="estados-title">
-            Descubre el talento por. <em>Estados de México.</em>
+            {t('home.mexicanStates.title')} <em>{t('home.mexicanStates.titleEm')}</em>
           </h2>
           <p className="section__desc section__desc--center">
-            Diversos estados con presencia destacada en la expo, reflejando la
-            diversidad y riqueza de la oferta mexicana.
+            {t('home.mexicanStates.desc')}
           </p>
         </Reveal>
 
@@ -762,30 +764,31 @@ function Noticias() {
 /* ══════════════════════════════════════════════════════════════
    UBICACIÓN SECTION
 ══════════════════════════════════════════════════════════════ */
-const venueDetails = [
+const getVenueDetails = (t: any) => [
   {
     icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>,
-    title: 'Cómo llegar',
-    text: 'El recinto está ubicado en el corazón del centro de Toronto, a 5 minutos a pie de la estación Union Station. Fácil acceso desde el aeropuerto Pearson mediante UP Express (25 min) o taxi.',
+    title: t('home.ubicacion.details.llegar.title'),
+    text: t('home.ubicacion.details.llegar.text'),
   },
   {
     icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><line x1="3" y1="9" x2="21" y2="9" /><line x1="9" y1="21" x2="9" y2="9" /></svg>,
-    title: 'El recinto',
-    text: 'Un espacio versátil con capacidad para más de 500 asistentes, salas de exposición, auditorio principal, áreas de networking y espacios para ruedas de negocio. Accesibilidad completa.',
+    title: t('home.ubicacion.details.recinto.title'),
+    text: t('home.ubicacion.details.recinto.text'),
   },
   {
     icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>,
-    title: 'Horarios',
-    text: 'El evento se llevará a cabo de <strong>9:00 a.m. a 7:00 p.m.</strong> todos los días. Registro abre a las 8:00 a.m. Sesiones de networking matutinas y eventos especiales por la tarde.',
+    title: t('home.ubicacion.details.horarios.title'),
+    text: t('home.ubicacion.details.horarios.text'),
   },
   {
     icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z" /><circle cx="12" cy="10" r="3" /></svg>,
-    title: 'Estacionamiento',
-    text: 'Estacionamiento público disponible en los alrededores del recinto. Tarifas desde $15 CAD por día. Recomendamos usar transporte público por la cercanía a Union Station.',
+    title: t('home.ubicacion.details.estacionamiento.title'),
+    text: t('home.ubicacion.details.estacionamiento.text'),
   },
 ];
 
 function Ubicacion() {
+  const { t } = useLanguage();
   return (
     <div style={{ position: 'relative', zIndex: 9999 }}>
       {/* Top Divider */}
@@ -809,16 +812,15 @@ function Ubicacion() {
             <div className="location-gradient__content">
               <Reveal>
                 <h2 className="section__title" id="ubicacion-title">
-                  Toronto, Canadá <em>Te esperamos</em>
+                  {t('home.ubicacion.title')} <em>{t('home.ubicacion.titleEm')}</em>
                 </h2>
                 <p className="section__desc" style={{ marginBottom: 0 }}>
-                  En el corazón del centro financiero de Toronto, a pasos de los principales
-                  puntos de interés de la ciudad.
+                  {t('home.ubicacion.desc')}
                 </p>
               </Reveal>
 
               <div className="venue-details__grid" style={{ gridTemplateColumns: '1fr', gap: '24px', marginTop: '32px' }}>
-                {venueDetails.map((d) => (
+                {getVenueDetails(t).map((d) => (
                   <Reveal key={d.title} delay={100} className="venue-detail-card" style={{ padding: '24px', display: 'flex', flexDirection: 'column' }}>
                     <div className="venue-detail-card__icon" style={{ marginBottom: '12px' }}>{d.icon}</div>
                     <div>
@@ -832,7 +834,7 @@ function Ubicacion() {
               <Reveal delay={200}>
                 <div style={{ marginTop: 32 }}>
                   <a href="https://maps.google.com" className="btn btn--primary" target="_blank" rel="noopener noreferrer">
-                    Ver en mapa
+                    {t('home.ubicacion.cta')}
                   </a>
                 </div>
               </Reveal>
@@ -853,6 +855,7 @@ function Ubicacion() {
    SERVICIOS MIGRATORIOS SECTION
 ══════════════════════════════════════════════════════════════ */
 function ServiciosMigratorios() {
+  const { t } = useLanguage();
   return (
     <section className="section" id="servicios-migratorios" aria-labelledby="servicios-title" style={{ background: '#FAF8F5', position: 'relative', overflow: 'hidden', padding: '120px 24px' }}>
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(135deg, rgba(228,0,124,0.03) 0%, rgba(0,46,81,0.03) 100%)', pointerEvents: 'none' }} />
@@ -863,19 +866,19 @@ function ServiciosMigratorios() {
           <div className="sm-info-col">
             <Reveal>
               <h2 className="section__title" id="servicios-title" style={{ fontSize: 'clamp(3rem, 5vw, 4rem)', color: 'var(--navy)', marginBottom: '24px', lineHeight: 1.1 }}>
-                Servicios <em>Migratorios</em>
+                {t('home.serviciosMigratorios.title')} <em>{t('home.serviciosMigratorios.titleEm')}</em>
               </h2>
               <p className="section__desc" style={{ fontSize: '1.2rem', color: '#555', lineHeight: 1.7, marginBottom: '32px' }}>
-                Facilitamos todos los trámites migratorios necesarios para que tu delegación comercial viaje a Toronto sin contratiempos. Nuestro equipo especializado te acompaña en cada paso, desde la solicitud hasta la aprobación.
+                {t('home.serviciosMigratorios.desc')}
               </p>
 
               <div className="sm-sponsor">
                 <CheckCircle2 size={24} color="var(--magenta)" />
-                <span>Servicios operados por <strong>LET</strong><br /><small>Patrocinador Oficial de Expo México Mujer</small></span>
+                <span>{t('home.serviciosMigratorios.sponsor')} <strong>{t('home.serviciosMigratorios.sponsorName')}</strong><br /><small>{t('home.serviciosMigratorios.sponsorSub')}</small></span>
               </div>
 
               <a href="https://grupo-let.com" className="sm-cta-btn" target="_blank" rel="noopener noreferrer">
-                <span>Conoce más en Grupo LET</span>
+                <span>{t('home.serviciosMigratorios.cta')}</span>
                 <ArrowRight size={20} />
               </a>
             </Reveal>
@@ -889,8 +892,8 @@ function ServiciosMigratorios() {
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="4" width="18" height="16" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                 </div>
                 <div>
-                  <h3 className="sm-service-title">Visa Canadiense</h3>
-                  <p className="sm-service-desc">Gestión completa para el trámite de visado, garantizando que tu delegación comercial cumpla con todos los requisitos para tu viaje de negocios a Toronto.</p>
+                  <h3 className="sm-service-title">{t('home.serviciosMigratorios.service1.title')}</h3>
+                  <p className="sm-service-desc">{t('home.serviciosMigratorios.service1.desc')}</p>
                 </div>
               </div>
             </Reveal>
@@ -901,8 +904,8 @@ function ServiciosMigratorios() {
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                 </div>
                 <div>
-                  <h3 className="sm-service-title">eTA Canadiense</h3>
-                  <p className="sm-service-desc">Procesamiento ágil de la Autorización Electrónica de Viaje (eTA) para participantes elegibles, asegurando un tránsito rápido y seguro hacia el evento.</p>
+                  <h3 className="sm-service-title">{t('home.serviciosMigratorios.service2.title')}</h3>
+                  <p className="sm-service-desc">{t('home.serviciosMigratorios.service2.desc')}</p>
                 </div>
               </div>
             </Reveal>
@@ -940,86 +943,85 @@ function ServiciosMigratorios() {
 /* ══════════════════════════════════════════════════════════════
    COSTOS SECTION
 ══════════════════════════════════════════════════════════════ */
-const costTiers = [
+const getCostTiers = (t: any) => [
   {
-    name: 'Paquete Bronce',
-    type: 'Nuevas Expositoras',
-    discount: '20% OFF',
+    name: t('home.costos.bronce.name'),
+    type: t('home.costos.bronce.type'),
+    discount: t('home.costos.bronce.discount'),
     price: '$4,000',
-    sub: 'CAD — Paquete base',
+    sub: t('home.costos.bronce.sub'),
     featured: false,
     theme: 'bronce',
     color: '#cd7f32',
-    description: 'Ideal para organizaciones que desean incorporarse a Expo México Mujer y comenzar a posicionar sus servicios dentro de la comunidad y mercado canadiense.',
+    description: t('home.costos.bronce.description'),
     features: [
-      'Stand de 2 x 2 metros',
-      '1 acceso al Mexican Fashion Gala Show',
-      '1 acceso al Ontario – Mexico Business Summit',
-      'Presencia del logotipo en materiales promocionales',
-      'Promoción en redes sociales y sitio web oficial',
-      'Proyección del logotipo en pantallas',
-      'Presencia de marca mediante banners',
-      'Reconocimiento institucional como patrocinador'
+      t('home.costos.bronce.features.0'),
+      t('home.costos.bronce.features.1'),
+      t('home.costos.bronce.features.2'),
+      t('home.costos.bronce.features.3'),
+      t('home.costos.bronce.features.4'),
+      t('home.costos.bronce.features.5'),
+      t('home.costos.bronce.features.6'),
+      t('home.costos.bronce.features.7')
     ],
   },
   {
-    name: 'Paquete Plata',
-    type: 'Expositoras Referidas',
-    discount: '25% OFF',
+    name: t('home.costos.plata.name'),
+    type: t('home.costos.plata.type'),
+    discount: t('home.costos.plata.discount'),
     price: '$6,000',
-    sub: 'CAD — Precio preferencial',
+    sub: t('home.costos.plata.sub'),
     featured: false,
     theme: 'plata',
     color: '#a0a0a0',
-    description: 'Una excelente alternativa para organizaciones que buscan una presencia destacada y una relación cercana con la comunidad empresarial mexicana – canadiense.',
+    description: t('home.costos.plata.description'),
     features: [
-      'Stand de 4 x 3 metros',
-      '2 accesos al Mexican Fashion Gala Show',
-      '2 accesos al Ontario – Mexico Business Summit',
-      'Presencia del logotipo en materiales promocionales',
-      'Promoción en redes sociales y sitio web oficial',
-      'Proyección del logotipo en pantallas',
-      'Presencia de marca mediante banners',
-      'Reconocimiento institucional',
-      'Posibilidad de recibir la palabra en foro'
+      t('home.costos.plata.features.0'),
+      t('home.costos.plata.features.1'),
+      t('home.costos.plata.features.2'),
+      t('home.costos.plata.features.3'),
+      t('home.costos.plata.features.4'),
+      t('home.costos.plata.features.5'),
+      t('home.costos.plata.features.6'),
+      t('home.costos.plata.features.7'),
+      t('home.costos.plata.features.8')
     ],
   },
   {
-    name: 'Paquete Oro',
-    type: 'Expositoras 2026',
-    discount: '30% OFF',
+    name: t('home.costos.oro.name'),
+    type: t('home.costos.oro.type'),
+    discount: t('home.costos.oro.discount'),
     price: '$8,000',
-    sub: 'CAD — Beneficio de lealtad',
+    sub: t('home.costos.oro.sub'),
     featured: true,
     theme: 'oro',
     color: '#e4b000',
-    description: 'Nuestro paquete de mayor posicionamiento, diseñado para organizaciones que buscan una presencia sólida antes, durante y después del evento.',
+    description: t('home.costos.oro.description'),
     features: [
-      'Stand premium de 6 x 4 metros',
-      '3 accesos al Mexican Fashion Gala Show',
-      '2 accesos al Ontario – Mexico Business Summit',
-      'Participación en la Misión Comercial a Montreal',
-      'Logotipo en todos los materiales promocionales',
-      'Promoción en redes sociales y sitio web oficial',
-      'Proyección del logotipo en pantallas',
-      'Presencia de marca mediante banners',
-      'Distribución de material promocional',
-      'Mensaje institucional durante el evento',
-      'Participación como ponentes'
+      t('home.costos.oro.features.0'),
+      t('home.costos.oro.features.1'),
+      t('home.costos.oro.features.2'),
+      t('home.costos.oro.features.3'),
+      t('home.costos.oro.features.4'),
+      t('home.costos.oro.features.5'),
+      t('home.costos.oro.features.6'),
+      t('home.costos.oro.features.7'),
+      t('home.costos.oro.features.8')
     ],
-  },
+  }
 ];
 
 function Costos() {
+  const { t } = useLanguage();
   return (
     <section className="section section--alt" id="costos" aria-labelledby="costos-title">
       <div className="section__inner" style={{ textAlign: 'center' }}>
         <Reveal>
           <h2 className="section__title section__title--center" id="costos-title">
-            Aparta tu <em>espacio</em>
+            {t('home.costos.title')} <em>{t('home.costos.titleEm')}</em>
           </h2>
           <p className="section__desc section__desc--center" style={{ marginBottom: 0 }}>
-            Pueden apartar su lugar con el <strong>50% de anticipo</strong> antes de la fecha límite (Por confirmar).
+            {t('home.costos.desc')}
           </p>
         </Reveal>
 
@@ -1052,28 +1054,28 @@ function Costos() {
         `}</style>
 
         <div className="pricing-tiers__grid" style={{ marginTop: 48, alignItems: 'stretch' }}>
-          {costTiers.map((t) => (
-            <Reveal key={t.name} delay={150} className={`pricing-card pricing-card--${t.theme}`} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-              {t.featured && <div className="pricing-card__badge" style={{ background: t.color }}>Más Popular</div>}
+          {getCostTiers(t).map((tier, i) => (
+            <Reveal key={tier.name} delay={150} className={`pricing-card pricing-card--${tier.theme}`} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+              {tier.featured && <div className="pricing-card__badge" style={{ background: tier.color }}>Más Popular</div>}
 
-              <div className="pricing-card__name" style={{ color: t.featured ? t.color : 'inherit', fontSize: '2rem' }}>{t.name}</div>
-              <div className="pricing-card__price" style={{ color: t.color, fontSize: '3.5rem' }}>{t.discount}</div>
-              <div className="pricing-card__sub">{t.sub}</div>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: '16px 0', lineHeight: 1.5, textAlign: 'left' }}>{t.description}</p>
+              <div className="pricing-card__name" style={{ color: tier.featured ? tier.color : 'inherit', fontSize: '2rem' }}>{tier.name}</div>
+              <div className="pricing-card__price" style={{ color: tier.color, fontSize: '3.5rem' }}>{tier.discount}</div>
+              <div className="pricing-card__sub">{tier.sub}</div>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: '16px 0', lineHeight: 1.5, textAlign: 'left' }}>{tier.description}</p>
 
               <div className="pricing-card__divider" />
 
               <ul className="pricing-card__features">
-                {t.features.map((f) => (
+                {tier.features.map((f: string) => (
                   <li key={f} className="pricing-card__feature">
-                    <svg viewBox="0 0 24 24" fill="none" stroke={t.color} strokeWidth="2" style={{ width: 16, height: 16, marginRight: 8, flexShrink: 0 }}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke={tier.color} strokeWidth="2" style={{ width: 16, height: 16, marginRight: 8, flexShrink: 0 }}>
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
                     {f}
                   </li>
                 ))}
               </ul>
-              <a href="mailto:francisco@expomexico.ca" className="pricing-card__cta" style={{ ...(!t.featured ? { border: `1px solid ${t.color}`, color: t.color, background: 'transparent' } : {}), marginTop: 'auto' }}>
+              <a href="mailto:francisco@expomexico.ca" className="pricing-card__cta" style={{ ...(!tier.featured ? { border: `1px solid ${tier.color}`, color: tier.color, background: 'transparent' } : {}), marginTop: 'auto' }}>
                 Reservar con el 50%
               </a>
             </Reveal>

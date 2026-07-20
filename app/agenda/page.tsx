@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Clock, MapPin, User } from 'lucide-react';
 import { mockAgenda } from '../data/agenda';
 import { Mariposa } from '@/components/BrandAssets';
+import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({
   children, className = '', delay = 0, style = {},
@@ -35,6 +36,7 @@ function Reveal({
 }
 
 export default function AgendaPage() {
+  const { t } = useLanguage();
   const [activeDay, setActiveDay] = useState(mockAgenda[0].id);
   const currentDay = mockAgenda.find(d => d.id === activeDay) || mockAgenda[0];
 
@@ -269,10 +271,10 @@ export default function AgendaPage() {
 
       <div className="agenda-header">
         <Reveal>
-          <div className="agenda-label">Programa Oficial</div>
-          <h1 className="agenda-title">Agenda del Evento</h1>
+          <div className="agenda-label">{t('pages.agenda.programa')}</div>
+          <h1 className="agenda-title">{t('pages.agenda.title')}</h1>
           <p className="agenda-subtitle">
-            Conferencias magistrales, paneles y talleres diseñados para impulsar el liderazgo y la acción.
+            {t('pages.agenda.desc')}
           </p>
         </Reveal>
       </div>
@@ -320,7 +322,7 @@ export default function AgendaPage() {
                 <div className="time-col">
                   <div className="time-start">{event.time.split(' - ')[0]}</div>
                   <div className="time-end">
-                    hasta {event.time.split(' - ')[1]}
+                    {t('pages.agenda.hasta')} {event.time.split(' - ')[1]}
                   </div>
                 </div>
 

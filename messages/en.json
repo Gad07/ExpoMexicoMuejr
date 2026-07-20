@@ -542,8 +542,21 @@
           "title": "B2B Business Roundtables",
           "desc": "Smart one-on-one appointment scheduling based on interests and buyer profiles."
         },
-        "registro": "Official Exhibitor Registration",
-        "registroDesc": "Complete the official enrollment form to request your exhibition booth at Expo Mexico Mujer Toronto."
+        "registroOficial": "Official Exhibitor Registration",
+        "registroDesc": "Complete the official registration form to request your exhibition booth at Expo Mexico Mujer Toronto.",
+        "adquiereStand": "Get your",
+        "adquiereStandEm": "Booth",
+        "apartarLugar": "You can reserve your space with a",
+        "anticipo": "50% deposit",
+        "antesDel": "before",
+        "fechaLimite": "August 30th",
+        "standCardTitle": "Booth",
+        "standCardDesc": "Secure your space at Expo Mexico Mujer 2027. A perfect place to showcase your products and services in North America.",
+        "standCardItem1": "3x3 or 2x2 meter space",
+        "standCardItem2": "Directional LED lighting",
+        "standCardItem3": "110v electrical connection",
+        "precioRegular": "Regular Price",
+        "reservar50": "Reserve with 50%"
       },
       "vista2": {
         "busquedaPlaceholder": "Search brand or exhibitor...",

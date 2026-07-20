@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { Search, ChevronLeft, MapPin, Calendar, Clock, X, User } from 'lucide-react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
+import { mexicanStates } from '../data/embajadoras';
 
 /* ─── Reveal Animation Component ─── */
 function Reveal({
@@ -45,7 +46,7 @@ function Reveal({
 function EmbajadorasContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const [ambassadors, setAmbassadors] = useState<any[]>([]);
 
   useEffect(() => {
@@ -341,7 +342,7 @@ function EmbajadorasContent() {
                 <Search size={20} className="emb-search-icon" />
                 <input
                   type="text"
-                  placeholder="Buscar embajadora..."
+                  placeholder={t('pages.embajadoras.buscarEmbajadora')}
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
                   className="emb-search-input"
@@ -352,7 +353,7 @@ function EmbajadorasContent() {
             <Reveal>
               <div style={{ marginBottom: '56px' }}>
                 <h2 className="section__title" style={{ marginTop: '8px' }}>
-                  Embajadoras de <br /><em>{activeState}</em>
+                  {t('pages.embajadoras.embajadorasDe')} <br /><em>{activeState}</em>
                 </h2>
               </div>
             </Reveal>
@@ -380,7 +381,7 @@ function EmbajadorasContent() {
                       <div className="emb-actions">
                         <button className="btn-map-emb" onClick={(e) => { e.stopPropagation(); openMap(amb); }}>
                           <MapPin size={15} />
-                          Ver Ubicación
+                          {t('pages.embajadoras.verUbicacion')}
                         </button>
                       </div>
                     </div>
@@ -391,9 +392,9 @@ function EmbajadorasContent() {
               <div style={{ textAlign: 'center', padding: '80px 0', color: 'var(--text-muted)' }}>
                 <User size={48} style={{ opacity: 0.2, marginBottom: '16px' }} />
                 <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: 'var(--navy)', marginBottom: '8px' }}>
-                  No hay embajadoras registradas
+                  {t('pages.embajadoras.noHayEmbajadoras')}
                 </h3>
-                <p>Próximamente se anunciará el directorio completo de embajadoras de {activeState}.</p>
+                <p>{t('pages.embajadoras.proximamente')} {activeState}.</p>
               </div>
             )}
           </div>
@@ -406,7 +407,7 @@ function EmbajadorasContent() {
             <div className="modal-box" style={{ maxWidth: '700px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
                 <div>
-                  <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', color: 'var(--navy)', margin: 0 }}>Ubicación</h3>
+                  <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', color: 'var(--navy)', margin: 0 }}>{t('pages.embajadoras.ubicacion')}</h3>
                   <p style={{ color: 'var(--magenta)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.8rem', margin: '4px 0 0' }}>
                     {selectedAmbassador.booth}
                   </p>
@@ -421,7 +422,7 @@ function EmbajadorasContent() {
                 <div style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
                   <MapPin size={48} color="var(--magenta)" style={{ margin: '0 auto 16px' }} />
                   <p style={{ fontFamily: 'var(--font-display)', fontWeight: 800, color: 'var(--navy)', fontSize: '1.1rem' }}>{selectedAmbassador.booth}</p>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Plano interactivo cargando...</p>
+                  <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{t('pages.embajadoras.planoInteractivo')}</p>
                 </div>
               </div>
             </div>
@@ -494,28 +495,28 @@ function EmbajadorasContent() {
             <Reveal delay={100}>
               <div>
                 <h3 className="section__title">
-                  Embajadoras de <br /><em>Expo México Mujer</em>
+                  {t('pages.embajadoras.embajadorasDe')} <br /><em>Expo México Mujer</em>
                 </h3>
                 <p style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'var(--text)', marginBottom: '32px' }}>
-                  Buscamos líderes empresariales, gestoras culturales y emprendedoras con visión global en cada estado de la República Mexicana para ser las portavoces del talento de sus regiones en Toronto, Canadá. 
+                  {t('pages.embajadoras.busquedaDesc')} 
                 </p>
 
                 {/* Requisitos y Fechas en dos sub-columnas */}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginTop: '24px', borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '24px' }}>
                   <div>
-                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.15rem', color: 'var(--navy)', fontWeight: 800, marginBottom: '12px' }}>Requisitos</h4>
+                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.15rem', color: 'var(--navy)', fontWeight: 800, marginBottom: '12px' }}>{t('pages.embajadoras.requisitos')}</h4>
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-                      <li style={{ display: 'flex', gap: '8px' }}><span style={{ color: 'var(--magenta)' }}>•</span> Liderazgo y propuesta activa</li>
-                      <li style={{ display: 'flex', gap: '8px' }}><span style={{ color: 'var(--magenta)' }}>•</span> Proyecto con identidad regional</li>
-                      <li style={{ display: 'flex', gap: '8px' }}><span style={{ color: 'var(--magenta)' }}>•</span> Documentación de viaje vigente</li>
+                      <li style={{ display: 'flex', gap: '8px' }}><span style={{ color: 'var(--magenta)' }}>•</span> {t('pages.embajadoras.req1')}</li>
+                      <li style={{ display: 'flex', gap: '8px' }}><span style={{ color: 'var(--magenta)' }}>•</span> {t('pages.embajadoras.req2')}</li>
+                      <li style={{ display: 'flex', gap: '8px' }}><span style={{ color: 'var(--magenta)' }}>•</span> {t('pages.embajadoras.req3')}</li>
                     </ul>
                   </div>
                   <div>
-                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.15rem', color: 'var(--navy)', fontWeight: 800, marginBottom: '12px' }}>Fechas Clave</h4>
+                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.15rem', color: 'var(--navy)', fontWeight: 800, marginBottom: '12px' }}>{t('pages.embajadoras.fechasClave')}</h4>
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-                      <li style={{ display: 'flex', gap: '8px' }}><span style={{ color: 'var(--magenta)' }}>•</span> <strong>Apertura:</strong> Mayo 2026</li>
-                      <li style={{ display: 'flex', gap: '8px' }}><span style={{ color: 'var(--magenta)' }}>•</span> <strong>Cierre:</strong> Septiembre 2026</li>
-                      <li style={{ display: 'flex', gap: '8px' }}><span style={{ color: 'var(--magenta)' }}>•</span> <strong>Resultados:</strong> Octubre 2026</li>
+                      <li style={{ display: 'flex', gap: '8px' }}><span style={{ color: 'var(--magenta)' }}>•</span> <strong>{t('pages.embajadoras.aperturaLabel')}</strong> {t('pages.embajadoras.aperturaVal')}</li>
+                      <li style={{ display: 'flex', gap: '8px' }}><span style={{ color: 'var(--magenta)' }}>•</span> <strong>{t('pages.embajadoras.cierreLabel')}</strong> {t('pages.embajadoras.cierreVal')}</li>
+                      <li style={{ display: 'flex', gap: '8px' }}><span style={{ color: 'var(--magenta)' }}>•</span> <strong>{t('pages.embajadoras.resultadosLabel')}</strong> {t('pages.embajadoras.resultadosVal')}</li>
                     </ul>
                   </div>
                 </div>
@@ -526,8 +527,8 @@ function EmbajadorasContent() {
               <div style={{ borderRadius: '32px', overflow: 'hidden', height: '480px', position: 'relative', boxShadow: '0 20px 40px rgba(0,46,81,0.06)' }}>
                 <img src="/Galeria/Arte_y_Cultura/IMG_5945.JPG" alt="Embajadoras Convocatoria" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="600" height="400" />
                 <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px', background: 'rgba(255,255,255,0.9)', padding: '20px', borderRadius: '16px', backdropFilter: 'blur(10px)' }}>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--magenta)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Conexión Binacional</span>
-                  <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 800, margin: '4px 0 0 0', color: 'var(--navy)' }}>Representación Oficial 2027</h4>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--magenta)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{t('pages.embajadoras.conexionBinacional')}</span>
+                  <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 800, margin: '4px 0 0 0', color: 'var(--navy)' }}>{t('pages.embajadoras.representacionOficial')}</h4>
                 </div>
               </div>
             </Reveal>
@@ -536,10 +537,10 @@ function EmbajadorasContent() {
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: '80px', maxWidth: '800px', margin: '0 auto 80px', paddingTop: '80px', borderTop: '1px solid rgba(0,0,0,0.1)' }}>
               <h2 className="section__title section__title--center" style={{ marginTop: '16px' }}>
-                Conoce a nuestras <br /><em>Embajadoras de México</em>
+                {t('pages.embajadoras.conoceEmbajadoras')}
               </h2>
               <p className="section__desc section__desc--center">
-                Las Embajadoras de Expo México Mujer son líderes comprometidas con el desarrollo económico y social de sus comunidades. Selecciona un estado para conocerlas.
+                {t('pages.embajadoras.conoceEmbajadorasDesc')}
               </p>
             </div>
           </Reveal>
@@ -549,7 +550,7 @@ function EmbajadorasContent() {
               <Search size={20} style={{ position: 'absolute', left: '20px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
               <input
                 type="text"
-                placeholder="Buscar estado..."
+                placeholder={t('pages.embajadoras.buscarEstado')}
                 value={stateSearchQuery}
                 onChange={e => setStateSearchQuery(e.target.value)}
                 style={{
@@ -594,9 +595,9 @@ function EmbajadorasContent() {
           {/* Registro Oficial al final (Jotform) */}
           <Reveal delay={250} style={{ textAlign: 'center', marginTop: '100px' }}>
             <div style={{ background: '#fff', padding: '60px 40px', borderRadius: '32px', boxShadow: '0 20px 50px rgba(0,25,76,0.04)', maxWidth: '900px', margin: '0 auto' }}>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '16px' }}>Registro Oficial de Embajadoras</h3>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '16px' }}>{t('pages.embajadoras.registroEmbajadoras')}</h3>
               <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px' }}>
-                Completa el formulario de postulación oficial para solicitar ser la embajadora representante de tu estado en Expo México Mujer Toronto.
+                {t('pages.embajadoras.registroEmbajadorasDesc')}
               </p>
               
               <div style={{ width: '100%', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(0,0,0,0.05)', background: '#FAF8F5' }}>
@@ -620,10 +621,11 @@ function EmbajadorasContent() {
 }
 
 export default function EmbajadorasPage() {
+  const { t } = useLanguage();
   return (
     <React.Suspense fallback={
       <div style={{ padding: '120px 0', textAlign: 'center', fontFamily: 'var(--font-display)' }}>
-        Cargando embajadoras...
+        {t('pages.embajadoras.cargandoEmbajadoras')}
       </div>
     }>
       <EmbajadorasContent />

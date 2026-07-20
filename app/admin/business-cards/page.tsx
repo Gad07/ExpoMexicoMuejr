@@ -262,7 +262,7 @@ export default function AdminBusinessCards() {
               </div>
               
               {/* Language switcher */}
-              <div style={{ display: 'flex', gap: '4px', background: 'rgba(0,0,0,0.05)', padding: '4px', borderRadius: '8px', display: 'inline-flex' }}>
+              <div style={{ display: 'inline-flex', gap: '4px', background: 'rgba(0,0,0,0.05)', padding: '4px', borderRadius: '8px' }}>
                 {(['es', 'en', 'fr'] as Language[]).map(l => (
                   <button
                     key={l}

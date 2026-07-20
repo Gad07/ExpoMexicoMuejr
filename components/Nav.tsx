@@ -112,7 +112,7 @@ export default function Nav() {
               return (
                 <div 
                   key={index} 
-                  className={`nav__dropdown-wrap ${openDropdown === item.label ? 'nav__dropdown-wrap--open' : ''}`}
+                  className={`nav__simple-dropdown-wrap ${openDropdown === item.label ? 'nav__simple-dropdown-wrap--open' : ''}`}
                   onMouseEnter={() => handleMouseEnter(item.label)}
                   onMouseLeave={handleMouseLeave}
                 >

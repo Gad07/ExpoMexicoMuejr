@@ -40,17 +40,17 @@ export default function ViajeroPage() {
 
   const mockHotels = [
     {
-      name: "The Westin Harbour Castle",
-      stars: "4.5★",
-      desc: t('pages.viajero.mockHotels[0].desc'),
-      rate: t('pages.viajero.mockHotels[0].rate'),
+      name: t('pages.viajero.hotel1Name'),
+      stars: t('pages.viajero.hotel1Stars'),
+      desc: t('pages.viajero.hotel1Desc'),
+      rate: t('pages.viajero.hotel1Rate'),
       photo: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=400"
     },
     {
-      name: "Sheraton Centre Toronto",
-      stars: "4.0★",
-      desc: t('pages.viajero.mockHotels[1].desc'),
-      rate: t('pages.viajero.mockHotels[1].rate'),
+      name: t('pages.viajero.hotel2Name'),
+      stars: t('pages.viajero.hotel2Stars'),
+      desc: t('pages.viajero.hotel2Desc'),
+      rate: t('pages.viajero.hotel2Rate'),
       photo: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&q=80&w=400"
     }
   ];
@@ -123,15 +123,15 @@ export default function ViajeroPage() {
 
             <Reveal delay={200}>
               <div style={{ background: '#fff', borderRadius: '32px', padding: '40px', boxShadow: '0 20px 40px rgba(0,25,76,0.04)', border: '1px solid rgba(0,0,0,0.01)' }}>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '24px' }}>Transporte Local en Toronto</h3>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '24px' }}>{t('pages.viajero.transporteTitle')}</h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                   <div>
-                    <h4 style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--cyan)', margin: '0 0 4px 0', textTransform: 'uppercase' }}>UP Express (Tren del Aeropuerto)</h4>
-                    <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.5, margin: 0 }}>Conecta Pearson (YYZ) con Union Station en solo 25 minutos. Salidas cada 15 minutos.</p>
+                    <h4 style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--cyan)', margin: '0 0 4px 0', textTransform: 'uppercase' }}>{t('pages.viajero.transporteItem1Title')}</h4>
+                    <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.5, margin: 0 }}>{t('pages.viajero.transporteItem1Desc')}</p>
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--cyan)', margin: '0 0 4px 0', textTransform: 'uppercase' }}>Red TTC (Metro y Tranvía)</h4>
-                    <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.5, margin: 0 }}>Sistema de tránsito integrado de la ciudad que conecta de forma rápida hoteles con todas las sedes.</p>
+                    <h4 style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--cyan)', margin: '0 0 4px 0', textTransform: 'uppercase' }}>{t('pages.viajero.transporteItem2Title')}</h4>
+                    <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.5, margin: 0 }}>{t('pages.viajero.transporteItem2Desc')}</p>
                   </div>
                 </div>
               </div>

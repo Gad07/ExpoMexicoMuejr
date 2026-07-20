@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Play, Eye, Users, Landmark, TrendingUp, Calendar } from 'lucide-react';
 import { Mariposa } from '@/components/BrandAssets';
 import LazyVideo from '@/components/LazyVideo';
+import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({
   children, className = '', delay = 0, style = {},
@@ -52,6 +53,7 @@ const mockGallery = [
 ];
 
 export default function OttawaPage() {
+  const { t } = useLanguage();
   return (
     <div style={{ background: 'var(--cream)', color: 'var(--navy)', minHeight: '100vh', paddingBottom: '120px' }}>
       
@@ -67,35 +69,35 @@ export default function OttawaPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center' }}>
             <Reveal>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.8rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '24px', lineHeight: 1.1 }}>
-                El gran precedente en la capital canadiense
+                {t('pages.expo.ottawa2026.intro.title')}
               </h2>
               <p style={{ fontSize: '1.1rem', lineHeight: 1.8, color: 'var(--text)', marginBottom: '20px' }}>
-                La edición de **Expo México Mujer Ottawa 2026** marcó un hito en las relaciones comerciales binacionales independientes. Durante tres días intensivos en el centro neurálgico de la capital de Canadá, consolidamos una plataforma que conectó la herencia, creatividad y capacidad productiva mexicana con redes de distribución norteamericanas.
+                {t('pages.expo.ottawa2026.intro.p1')}
               </p>
               <p style={{ fontSize: '1rem', lineHeight: 1.7, color: 'var(--text-muted)', marginBottom: 0 }}>
-                Esta edición fue respaldada por embajadores, senadores, cámaras de comercio binacionales y cooperativas de empresarias, sentando las bases operativas, logísticas y de mercado para la próxima edición central de Toronto 2027.
+                {t('pages.expo.ottawa2026.intro.p2')}
               </p>
             </Reveal>
 
             <Reveal delay={200}>
               <div style={{ background: '#fff', borderRadius: '32px', padding: '40px', boxShadow: '0 20px 40px rgba(0,25,76,0.04)', border: '1px solid rgba(0,0,0,0.01)' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--magenta)', letterSpacing: '0.1em', textTransform: 'uppercase', display: 'block', marginBottom: '20px' }}>Detalles de la Edición</span>
+                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--magenta)', letterSpacing: '0.1em', textTransform: 'uppercase', display: 'block', marginBottom: '20px' }}>{t('pages.expo.ottawa2026.detalles.title')}</span>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(0,0,0,0.05)', paddingBottom: '12px' }}>
-                    <span style={{ fontWeight: 700, color: 'var(--navy)' }}>Fecha:</span>
-                    <span style={{ color: 'var(--text-muted)' }}>Mayo, 2026</span>
+                    <span style={{ fontWeight: 700, color: 'var(--navy)' }}>{t('pages.expo.ottawa2026.detalles.d1L')}</span>
+                    <span style={{ color: 'var(--text-muted)' }}>{t('pages.expo.ottawa2026.detalles.d1V')}</span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(0,0,0,0.05)', paddingBottom: '12px' }}>
-                    <span style={{ fontWeight: 700, color: 'var(--navy)' }}>Sede:</span>
-                    <span style={{ color: 'var(--text-muted)' }}>Convention Centre, Ottawa</span>
+                    <span style={{ fontWeight: 700, color: 'var(--navy)' }}>{t('pages.expo.ottawa2026.detalles.d2L')}</span>
+                    <span style={{ color: 'var(--text-muted)' }}>{t('pages.expo.ottawa2026.detalles.d2V')}</span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(0,0,0,0.05)', paddingBottom: '12px' }}>
-                    <span style={{ fontWeight: 700, color: 'var(--navy)' }}>Estados particip.:</span>
-                    <span style={{ color: 'var(--text-muted)' }}>15 Delegaciones estatales</span>
+                    <span style={{ fontWeight: 700, color: 'var(--navy)' }}>{t('pages.expo.ottawa2026.detalles.d3L')}</span>
+                    <span style={{ color: 'var(--text-muted)' }}>{t('pages.expo.ottawa2026.detalles.d3V')}</span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ fontWeight: 700, color: 'var(--navy)' }}>Enfoque B2B:</span>
-                    <span style={{ color: 'var(--text-muted)' }}>Cadenas globales de valor</span>
+                    <span style={{ fontWeight: 700, color: 'var(--navy)' }}>{t('pages.expo.ottawa2026.detalles.d4L')}</span>
+                    <span style={{ color: 'var(--text-muted)' }}>{t('pages.expo.ottawa2026.detalles.d4V')}</span>
                   </div>
                 </div>
               </div>
@@ -107,7 +109,7 @@ export default function OttawaPage() {
         <div id="resultados" style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px', textAlign: 'center' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
-              Resultados e Impacto Económico
+              {t('pages.expo.ottawa2026.resultados.title')}
             </h2>
           </Reveal>
 
@@ -133,7 +135,7 @@ export default function OttawaPage() {
         <div id="galeria" style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
-              Galería Fotográfica
+              {t('pages.expo.ottawa2026.galeria.title')}
             </h2>
           </Reveal>
 
@@ -164,7 +166,7 @@ export default function OttawaPage() {
         <div style={{ borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px', textAlign: 'center' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
-              Videos e Intervenciones
+              {t('pages.expo.ottawa2026.videos.title')}
             </h2>
           </Reveal>
 

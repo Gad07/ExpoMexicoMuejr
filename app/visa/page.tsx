@@ -5,8 +5,10 @@ import {
   FileText, Check, ChevronDown, ChevronUp, AlertCircle, 
   HelpCircle, Send, IdCard, Award, Clock, ArrowRight, ShieldCheck 
 } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function VisaPage() {
+  const { t } = useLanguage();
   // Checklist State
   const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({});
   
@@ -36,7 +38,7 @@ export default function VisaPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.phone || !formData.hasUsVisa || !formData.role) {
-      alert("Por favor completa todos los campos requeridos.");
+      alert(t('pages.visa.form.alert'));
       return;
     }
     
@@ -51,60 +53,60 @@ export default function VisaPage() {
   const visaSteps = [
     {
       num: "01",
-      title: "Diagnóstico inicial",
-      desc: "Analizamos tu historial de viajes y estatus actual. Evaluamos si eres elegible para una eTA (Autorización Electrónica de Viaje si tienes visa americana vigente) o si requieres una Visa de Visitante completa."
+      title: t('pages.visa.steps.s1.title'),
+      desc: t('pages.visa.steps.s1.desc')
     },
     {
       num: "02",
-      title: "Armado de expediente",
-      desc: "Te proporcionamos un checklist personalizado de documentos. Revisamos tus pruebas de solvencia económica y arraigo en México, traduciendo y ordenando el expediente para cumplir con los estándares de IRCC."
+      title: t('pages.visa.steps.s2.title'),
+      desc: t('pages.visa.steps.s2.desc')
     },
     {
       num: "03",
-      title: "Carga y pago consular",
-      desc: "Completamos los formularios oficiales en el portal del gobierno de Canadá y subimos tu expediente. Te apoyamos en el pago de derechos consulares ($185 CAD que incluyen el cargo de biometría)."
+      title: t('pages.visa.steps.s3.title'),
+      desc: t('pages.visa.steps.s3.desc')
     },
     {
       num: "04",
-      title: "Toma de biometría",
-      desc: "Programamos tu cita en el Centro de Solicitud de Visas oficial (VFS Global) en CDMX, Monterrey o Guadalajara para la captura de tus huellas dactilares y fotografía digital."
+      title: t('pages.visa.steps.s4.title'),
+      desc: t('pages.visa.steps.s4.desc')
     },
     {
       num: "05",
-      title: "Aprobación y estampado",
-      desc: "Monitoreamos la respuesta de la embajada. Una vez aprobada, te guiamos en el envío seguro de tu pasaporte físico a través de mensajería autorizada para el estampado de la visa."
+      title: t('pages.visa.steps.s5.title'),
+      desc: t('pages.visa.steps.s5.desc')
     }
   ];
 
   const checklistItems = [
-    { id: 1, text: "Pasaporte mexicano con vigencia mínima de 6 meses posteriores al viaje." },
-    { id: 2, text: "Visa americana vigente (si aplica para solicitar la vía eTA ágil)." },
-    { id: 3, text: "Comprobantes de solvencia económica (estados de cuenta bancarios de los últimos 3 meses, nóminas o declaraciones de impuestos)." },
-    { id: 4, text: "Documentos de arraigo en México (carta patronal de empleo, escrituras de propiedades, o constancias de estudios)." },
-    { id: 5, text: "Carta de invitación oficial emitida por la dirección de Expo México Mujer 2027." },
-    { id: 6, text: "Fotografía digital reciente que cumpla con los requisitos del gobierno canadiense." }
+    { id: 1, text: t('pages.visa.checklist.i1') },
+    { id: 2, text: t('pages.visa.checklist.i2') },
+    { id: 3, text: t('pages.visa.checklist.i3') },
+    { id: 4, text: t('pages.visa.checklist.i4') },
+    { id: 5, text: t('pages.visa.checklist.i5') },
+    { id: 6, text: t('pages.visa.checklist.i6') }
   ];
 
   const faqs = [
     {
-      q: "¿Cuánto tiempo tarda el proceso de aprobación de la visa canadiense?",
-      a: "El procesamiento oficial del gobierno de Canadá (IRCC) suele tomar entre 4 y 8 semanas a partir de la toma de biometría. Recomendamos iniciar tu trámite al menos 3 meses antes de las fechas del evento (junio de 2027) para viajar con absoluta tranquilidad."
+      q: t('pages.visa.faqs.q1'),
+      a: t('pages.visa.faqs.a1')
     },
     {
-      q: "¿Quiénes son elegibles para ingresar a Canadá con una eTA rápida?",
-      a: "Puedes tramitar una eTA (que se aprueba en minutos u horas) si viajas por vía aérea y cumples con alguno de estos requisitos: 1) Tienes una visa de no inmigrante de EE.UU. vigente (visa de turista), o 2) Tuviste una visa de visitante canadiense en los últimos 10 años. Si ingresas por tierra o no tienes estos documentos, necesitas tramitar una visa de visitante completa."
+      q: t('pages.visa.faqs.q2'),
+      a: t('pages.visa.faqs.a2')
     },
     {
-      q: "¿Qué costos consulares debo pagar directamente al gobierno de Canadá?",
-      a: "La solicitud de Visa de Visitante completa cuesta $100 CAD más $85 CAD por la toma de datos biométricos (total de $185 CAD). Si eres elegible para eTA, el costo es de únicamente $7 CAD. Estos cargos se pagan con tarjeta directamente en el portal oficial canadiense."
+      q: t('pages.visa.faqs.q3'),
+      a: t('pages.visa.faqs.a3')
     },
     {
-      q: "¿El servicio de gestoría me garantiza la aprobación de mi visa?",
-      a: "La decisión final de emitir una visa es facultad exclusiva de los oficiales consulares del gobierno de Canadá. Nuestro servicio optimiza tu expediente, asegurando que no haya errores de llenado, que las traducciones sean correctas y que la justificación de tu viaje, arraigo y solvencia esté estructurada con la mayor solidez posible, maximizando las probabilidades de éxito."
+      q: t('pages.visa.faqs.q4'),
+      a: t('pages.visa.faqs.a4')
     },
     {
-      q: "¿Expo México Mujer emite cartas de invitación para el trámite?",
-      a: "Sí. Emitimos cartas de invitación personalizadas de carácter oficial de negocios y participación para todas las expositoras confirmadas, patrocinadores y conferencistas. Este documento oficial es un elemento de soporte clave ante el oficial consular."
+      q: t('pages.visa.faqs.q5'),
+      a: t('pages.visa.faqs.a5')
     }
   ];
 
@@ -802,8 +804,8 @@ export default function VisaPage() {
       <div className="visa-container">
         <section className="visa-steps-section">
           <div className="section-header-center">
-            <span className="section-category">Metodología paso a paso</span>
-            <h3 className="section-title">El Proceso de Asesoría</h3>
+            <span className="section-category">{t('pages.visa.methodology.eyebrow')}</span>
+            <h3 className="section-title">{t('pages.visa.methodology.title')}</h3>
           </div>
 
           <div className="visa-steps-grid">
@@ -824,10 +826,10 @@ export default function VisaPage() {
           
           {/* Interactive Checklist Column */}
           <div className="visa-checklist-box">
-            <span className="section-category">Organizador Personal</span>
-            <h3 className="section-title" style={{ marginBottom: '16px' }}>Requisitos Generales</h3>
+            <span className="section-category">{t('pages.visa.requirements.eyebrow')}</span>
+            <h3 className="section-title" style={{ marginBottom: '16px' }}>{t('pages.visa.requirements.title')}</h3>
             <p className="checklist-desc">
-              Interactúa con el organizador haciendo clic en los requisitos que ya tengas listos para llevar control de tu expediente:
+              {t('pages.visa.requirements.desc')}
             </p>
 
             <div className="checklist-list">
@@ -848,8 +850,8 @@ export default function VisaPage() {
 
           {/* FAQs Accordion Column */}
           <div className="visa-faq-box">
-            <span className="section-category">Respuestas Directas</span>
-            <h3 className="section-title" style={{ marginBottom: '30px' }}>Preguntas Frecuentes</h3>
+            <span className="section-category">{t('pages.visa.faqSection.eyebrow')}</span>
+            <h3 className="section-title" style={{ marginBottom: '30px' }}>{t('pages.visa.faqSection.title')}</h3>
             
             <div className="faq-list">
               {faqs.map((faq, idx) => (
@@ -882,10 +884,10 @@ export default function VisaPage() {
             
             {/* Form text details */}
             <div className="visa-form-info">
-              <span className="section-category">Contacto Inmediato</span>
-              <h3 className="section-title" style={{ marginBottom: '24px' }}>Inicia tu Solicitud</h3>
+              <span className="section-category">{t('pages.visa.formSection.eyebrow')}</span>
+              <h3 className="section-title" style={{ marginBottom: '24px' }}>{t('pages.visa.formSection.title')}</h3>
               <p className="visa-form-info__text">
-                Completa el formulario en el panel derecho con tus datos básicos. Un asesor de visas de Expo México Mujer revisará tu perfil de forma gratuita y te contactará en un plazo menor a 24 horas vía WhatsApp o correo electrónico para agendar tu llamada diagnóstica.
+                {t('pages.visa.formSection.desc')}
               </p>
               
               <div className="visa-badge-row">
@@ -907,9 +909,9 @@ export default function VisaPage() {
                   <div className="success-icon-box">
                     <ShieldCheck size={36} />
                   </div>
-                  <h4 className="success-title">¡Solicitud Registrada!</h4>
+                  <h4 className="success-title">{t('pages.visa.form.successTitle')}</h4>
                   <p className="success-desc">
-                    Gracias por tu confianza. Hemos recibido tus datos correctamente. Uno de nuestros consultores certificados te enviará un diagnóstico inicial por WhatsApp o Correo en las próximas horas.
+                    {t('pages.visa.form.successDesc')}
                   </p>
                 </div>
               ) : (
@@ -954,40 +956,40 @@ export default function VisaPage() {
 
                   <div className="form-group-grid">
                     <div className="form-group">
-                      <label className="form-label">¿Cuenta con Visa Americana?<span className="req">*</span></label>
+                      <label className="form-label">{t('pages.visa.form.usVisa')}<span className="req">*</span></label>
                       <select 
                         className="form-select" 
                         required
                         value={formData.hasUsVisa}
                         onChange={e => setFormData({ ...formData, hasUsVisa: e.target.value })}
                       >
-                        <option value="">Selecciona...</option>
-                        <option value="si">Sí, cuento con visa de EE.UU. vigente</option>
-                        <option value="no">No cuento con visa de EE.UU.</option>
-                        <option value="canadiense">Sí, tuve visa canadiense (últimos 10 años)</option>
+                        <option value="">{t('pages.visa.form.select')}</option>
+                        <option value="si">{t('pages.visa.form.usVisaYes')}</option>
+                        <option value="no">{t('pages.visa.form.usVisaNo')}</option>
+                        <option value="canadiense">{t('pages.visa.form.usVisaCan')}</option>
                       </select>
                     </div>
                     <div className="form-group">
-                      <label className="form-label">Estatus en EMM 2027<span className="req">*</span></label>
+                      <label className="form-label">{t('pages.visa.form.status')}<span className="req">*</span></label>
                       <select 
                         className="form-select" 
                         required
                         value={formData.role}
                         onChange={e => setFormData({ ...formData, role: e.target.value })}
                       >
-                        <option value="">Selecciona...</option>
-                        <option value="expositora">Expositora Registrada / Confirmada</option>
-                        <option value="interesada">Interesada en registrar Stand</option>
-                        <option value="visitante">Visitante, Acompañante o Público General</option>
+                        <option value="">{t('pages.visa.form.select')}</option>
+                        <option value="expositora">{t('pages.visa.form.statusExpositora')}</option>
+                        <option value="interesada">{t('pages.visa.form.statusInteresada')}</option>
+                        <option value="visitante">{t('pages.visa.form.statusVisitante')}</option>
                       </select>
                     </div>
                   </div>
 
                   <div className="form-group">
-                    <label className="form-label">Mensaje adicional o dudas específicas</label>
+                    <label className="form-label">{t('pages.visa.form.message')}</label>
                     <textarea 
                       className="form-textarea" 
-                      placeholder="Escribe aquí si tienes alguna duda en particular sobre tus documentos o historial..."
+                      placeholder={t('pages.visa.form.messagePlaceholder')}
                       value={formData.message}
                       onChange={e => setFormData({ ...formData, message: e.target.value })}
                     />

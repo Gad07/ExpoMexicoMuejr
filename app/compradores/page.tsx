@@ -37,7 +37,7 @@ function Reveal({
 export default function CompradoresPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [buyers, setBuyers] = useState<any[]>([]);
-  const { language } = useLanguage();
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     fetch('/api/admin/compradores')
@@ -64,13 +64,13 @@ export default function CompradoresPage() {
         <Reveal style={{ textAlign: 'center', marginBottom: '80px', marginTop: '40px' }}>
           <h1 className="sr-only">Compradores e Inversionistas</h1>
           <span style={{ display: 'inline-block', color: 'var(--magenta)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '16px' }}>
-            Vinculación Comercial B2B
+            {t('pages.compradores.vinculacionB2B')}
           </span>
           <h2 className="section__title section__title--center" style={{ margin: '0 auto 24px' }}>
-            Compradores e <em>Inversionistas</em>
+            {t('pages.compradores.compradoresTitle')}
           </h2>
           <p className="section__desc section__desc--center" style={{ maxWidth: '750px', margin: '0 auto' }}>
-            El puente directo para importadores, distribuidores y compradores corporativos en Canadá interesados en adquirir productos mexicanos de la más alta calidad y establecer alianzas de inversión.
+            {t('pages.compradores.compradoresDesc')}
           </p>
         </Reveal>
 
@@ -79,34 +79,34 @@ export default function CompradoresPage() {
           <Reveal delay={100}>
             <div>
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '24px', lineHeight: 1.15 }}>
-                Rueda de Negocios <br /><em>Vinculación Efectiva</em>
+                {t('pages.compradores.ruedaNegocios')}
               </h3>
               <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'var(--text)', marginBottom: '32px' }}>
-                A través del programa de vinculación, organizamos agendas personalizadas B2B. Los compradores canadienses pueden pre-seleccionar a las expositoras según su industria, capacidad exportadora y certificaciones, optimizando al máximo los encuentros en Toronto.
+                {t('pages.compradores.ruedaDesc')}
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 <div style={{ display: 'flex', gap: '16px', alignItems: 'start' }}>
                   <div style={{ color: 'var(--magenta)', marginTop: '4px' }}><ShieldCheck size={24} /></div>
                   <div>
-                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 4px' }}>Perfilamiento Inteligente</h4>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0 }}>Filtramos las propuestas de las empresarias para asegurar el encaje con sus líneas de compra.</p>
+                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 4px' }}>{t('pages.compradores.perfilamiento')}</h4>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0 }}>{t('pages.compradores.perfilamientoDesc')}</p>
                   </div>
                 </div>
 
                 <div style={{ display: 'flex', gap: '16px', alignItems: 'start' }}>
                   <div style={{ color: 'var(--cyan)', marginTop: '4px' }}><CalendarRange size={24} /></div>
                   <div>
-                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 4px' }}>Agenda Estratégica</h4>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0 }}>Citas estructuradas uno a uno de 20 minutos programadas semanas antes del evento.</p>
+                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 4px' }}>{t('pages.compradores.agendaEstrategica')}</h4>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0 }}>{t('pages.compradores.agendaEstrategicaDesc')}</p>
                   </div>
                 </div>
 
                 <div style={{ display: 'flex', gap: '16px', alignItems: 'start' }}>
                   <div style={{ color: 'var(--navy)', marginTop: '4px' }}><Globe size={24} /></div>
                   <div>
-                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 4px' }}>Proyección Internacional</h4>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0 }}>Facilitamos la logística de envío de muestras y seguimiento comercial posterior.</p>
+                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 4px' }}>{t('pages.compradores.proyeccionInt')}</h4>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0 }}>{t('pages.compradores.proyeccionDesc')}</p>
                   </div>
                 </div>
               </div>
@@ -117,8 +117,8 @@ export default function CompradoresPage() {
             <div style={{ borderRadius: '32px', overflow: 'hidden', height: '480px', position: 'relative', boxShadow: '0 20px 40px rgba(0,46,81,0.06)' }}>
               <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800" alt="B2B Matchmaking" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="800" height="600" />
               <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px', background: 'rgba(255,255,255,0.9)', padding: '20px', borderRadius: '16px', backdropFilter: 'blur(10px)' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--magenta)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Rueda de Negocios</span>
-                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 800, margin: '4px 0 0 0', color: 'var(--navy)' }}>Ontario Business Summit 2027</h4>
+                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--magenta)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{t('pages.compradores.ruedaDeNegocios')}</span>
+                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 800, margin: '4px 0 0 0', color: 'var(--navy)' }}>{t('pages.compradores.ontarioBusinessSummit')}</h4>
               </div>
             </div>
           </Reveal>
@@ -130,7 +130,7 @@ export default function CompradoresPage() {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '48px' }}>
             <Reveal>
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 900, color: 'var(--navy)', marginTop: '8px', margin: 0 }}>
-                Directorio Digital de Compradores
+                {t('pages.compradores.directorioDigital')}
               </h3>
             </Reveal>
 
@@ -139,7 +139,7 @@ export default function CompradoresPage() {
                 <Search style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--magenta)' }} size={20} />
                 <input 
                   type="text" 
-                  placeholder="Buscar por empresa o sector..." 
+                  placeholder={t('pages.compradores.buscarEmpresa')}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   style={{ 
@@ -217,7 +217,7 @@ export default function CompradoresPage() {
                         <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '32px', flexGrow: 1 }}>{buyer.description && (buyer.description[language] || buyer.description.es || buyer.description)}</p>
 
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '20px' }}>
-                          <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--navy)' }}>Ver perfil completo</span>
+                          <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--navy)' }}>{t('pages.compradores.verPerfil')}</span>
                           <div className="card-btn" style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'rgba(0,186,211,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--cyan)', transition: 'background 0.3s, color 0.3s' }}>
                             <ArrowRight size={16} />
                           </div>
@@ -229,7 +229,7 @@ export default function CompradoresPage() {
               ))
             ) : (
               <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '64px', background: '#fff', borderRadius: '24px' }}>
-                <p style={{ fontSize: '1.2rem', color: 'var(--text)' }}>No se encontraron corporaciones compradoras.</p>
+                <p style={{ fontSize: '1.2rem', color: 'var(--text)' }}>{t('pages.compradores.noCorporaciones')}</p>
               </div>
             )}
           </div>
@@ -238,9 +238,9 @@ export default function CompradoresPage() {
         {/* 3. Registro Oficial de Compradores Section (Jotform) */}
         <Reveal delay={250} style={{ textAlign: 'center', marginTop: '100px' }}>
           <div style={{ background: '#fff', padding: '60px 40px', borderRadius: '32px', boxShadow: '0 20px 50px rgba(0,25,76,0.04)', maxWidth: '900px', margin: '0 auto' }}>
-            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '16px' }}>Registro Oficial de Compradores</h3>
+            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '16px' }}>{t('pages.compradores.registroCompradores')}</h3>
             <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px' }}>
-              Completa el formulario oficial de inscripción para compradores corporativos e inversionistas canadienses.
+              {t('pages.compradores.registroCompradoresDesc')}
             </p>
             
             <div style={{ width: '100%', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(0,0,0,0.05)', background: '#FAF8F5' }}>

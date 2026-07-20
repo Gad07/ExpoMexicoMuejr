@@ -7,6 +7,7 @@ import {
   Apple, Cpu, GraduationCap, Zap, Truck, Compass, ChefHat, Shirt, Palette, Building, Heart, Paintbrush 
 } from 'lucide-react';
 import { Mariposa } from '@/components/BrandAssets';
+import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({
   children, className = '', delay = 0, style = {},
@@ -113,6 +114,7 @@ const INDUSTRIES = [
 ];
 
 export default function IndustriasPage() {
+  const { t } = useLanguage();
   return (
     <div style={{ background: 'var(--cream)', color: 'var(--navy)', minHeight: '100vh', paddingBottom: '120px' }}>
       
@@ -127,27 +129,27 @@ export default function IndustriasPage() {
         <div style={{ marginBottom: '80px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center' }}>
             <Reveal>
-              <h1 className="sr-only">Industrias Participantes</h1>
+              <h1 className="sr-only">{t('pages.expo.industrias.intro.title')}</h1>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.8rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '24px', lineHeight: 1.1 }}>
-                Sectores que impulsan el desarrollo binacional
+                {t('pages.expo.industrias.intro.title')}
               </h2>
               <p style={{ fontSize: '1.1rem', lineHeight: 1.8, color: 'var(--text)', marginBottom: 0 }}>
-                La delegación empresarial de Expo México Mujer Toronto 2027 abarca 12 industrias clave. Cada pabellón está organizado estratégicamente para facilitar el flujo de compradores canadienses e inversionistas norteamericanos interesados en expandir sus redes de proveedores y socios comerciales.
+                {t('pages.expo.industrias.intro.p')}
               </p>
             </Reveal>
 
             <Reveal delay={200}>
               <div style={{ background: 'var(--navy)', color: '#fff', borderRadius: '32px', padding: '48px', boxShadow: '0 20px 40px rgba(0,0,0,0.06)' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--cyan)', letterSpacing: '0.15em', textTransform: 'uppercase', display: 'block', marginBottom: '20px' }}>Ventajas de Participación</span>
+                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--cyan)', letterSpacing: '0.15em', textTransform: 'uppercase', display: 'block', marginBottom: '20px' }}>{t('pages.expo.industrias.ventajas.title')}</span>
                 <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <li style={{ display: 'flex', gap: '12px', alignItems: 'center', fontSize: '0.95rem' }}>
-                    <span style={{ color: 'var(--cyan)' }}><Check size={18} /></span> Ruedas de negocios B2B personalizadas.
+                    <span style={{ color: 'var(--cyan)' }}><Check size={18} /></span> {t('pages.expo.industrias.ventajas.i1')}
                   </li>
                   <li style={{ display: 'flex', gap: '12px', alignItems: 'center', fontSize: '0.95rem' }}>
-                    <span style={{ color: 'var(--cyan)' }}><Check size={18} /></span> Espacio de exhibición comercial en la sede central de Toronto.
+                    <span style={{ color: 'var(--cyan)' }}><Check size={18} /></span> {t('pages.expo.industrias.ventajas.i2')}
                   </li>
                   <li style={{ display: 'flex', gap: '12px', alignItems: 'center', fontSize: '0.95rem' }}>
-                    <span style={{ color: 'var(--cyan)' }}><Check size={18} /></span> Vinculación directa con dependencias aduanales y logísticas.
+                    <span style={{ color: 'var(--cyan)' }}><Check size={18} /></span> {t('pages.expo.industrias.ventajas.i3')}
                   </li>
                 </ul>
               </div>
@@ -159,7 +161,7 @@ export default function IndustriasPage() {
         <div id="sectores" style={{ borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
-              Sectores & Industrias Participantes
+              {t('pages.expo.industrias.grid.title')}
             </h2>
           </Reveal>
 
@@ -203,7 +205,7 @@ export default function IndustriasPage() {
                       letterSpacing: '0.05em' 
                     }}
                   >
-                    Ver expositores <ArrowRight size={14} />
+                    {t('pages.expo.industrias.grid.cta')} <ArrowRight size={14} />
                   </Link>
                 </div>
               </Reveal>

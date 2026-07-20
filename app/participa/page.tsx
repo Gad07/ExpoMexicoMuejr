@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Award, CheckCircle, Handshake, Users, Sparkles, ShoppingBag } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({
   children, className = '', delay = 0, style = {},
@@ -33,6 +34,8 @@ function Reveal({
 }
 
 export default function ParticipaPage() {
+  const { t } = useLanguage();
+
   return (
     <div className="participa-page" style={{ background: 'var(--cream)', color: 'var(--navy)', minHeight: '100vh', paddingBottom: '120px' }}>
       
@@ -40,10 +43,10 @@ export default function ParticipaPage() {
       <section id="expositoras" style={{ maxWidth: '1200px', margin: '0 auto', padding: '160px 4% 80px' }}>
         <Reveal>
           <span style={{ display: 'inline-block', color: 'var(--magenta)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '16px' }}>
-            Participación Comercial
+            {t('pages.participa.expositoras.eyebrow')}
           </span>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(3rem, 6vw, 4.5rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: '40px' }}>
-            Expositoras
+            {t('pages.participa.expositoras.title')}
           </h2>
         </Reveal>
 
@@ -51,14 +54,14 @@ export default function ParticipaPage() {
           <Reveal delay={100}>
             <div style={{ background: '#fff', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,46,81,0.03)', height: '100%' }}>
               <div style={{ color: 'var(--magenta)', marginBottom: '20px' }}><Sparkles size={40} /></div>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', fontWeight: 800, marginBottom: '16px' }}>Stands y Espacios</h3>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', fontWeight: 800, marginBottom: '16px' }}>{t('pages.participa.expositoras.card1Title')}</h3>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '20px' }}>
-                Disponemos de espacios de exhibición premium diseñados para maximizar la visibilidad de tu marca y productos en el centro de convenciones de Toronto.
+                {t('pages.participa.expositoras.card1Desc')}
               </p>
               <ul style={{ paddingLeft: '20px', fontSize: '0.9rem', color: 'var(--text)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <li>Stands de 3x3 y 2x2 metros completamente equipados.</li>
-                <li>Montaje premium con iluminación y rotulación personalizada.</li>
-                <li>Zonas de B2B y áreas de networking exclusivas.</li>
+                <li>{t('pages.participa.expositoras.card1Li1')}</li>
+                <li>{t('pages.participa.expositoras.card1Li2')}</li>
+                <li>{t('pages.participa.expositoras.card1Li3')}</li>
               </ul>
             </div>
           </Reveal>
@@ -66,14 +69,14 @@ export default function ParticipaPage() {
           <Reveal delay={200}>
             <div style={{ background: '#fff', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,46,81,0.03)', height: '100%' }}>
               <div style={{ color: 'var(--cyan)', marginBottom: '20px' }}><CheckCircle size={40} /></div>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', fontWeight: 800, marginBottom: '16px' }}>Beneficios de Participación</h3>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', fontWeight: 800, marginBottom: '16px' }}>{t('pages.participa.expositoras.card2Title')}</h3>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '20px' }}>
-                Posiciona tu negocio a nivel internacional e interactúa directamente con importadores, distribuidores y el público general canadiense.
+                {t('pages.participa.expositoras.card2Desc')}
               </p>
               <ul style={{ paddingLeft: '20px', fontSize: '0.9rem', color: 'var(--text)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <li>Acceso directo al Directorio Digital oficial de expositoras.</li>
-                <li>Presencia en medios de prensa y campañas publicitarias.</li>
-                <li>Agendamiento previo de citas de negocios (Matchmaking).</li>
+                <li>{t('pages.participa.expositoras.card2Li1')}</li>
+                <li>{t('pages.participa.expositoras.card2Li2')}</li>
+                <li>{t('pages.participa.expositoras.card2Li3')}</li>
               </ul>
             </div>
           </Reveal>
@@ -84,12 +87,12 @@ export default function ParticipaPage() {
             <a href="/#contacto" style={{ display: 'inline-block', background: 'var(--magenta)', color: '#fff', padding: '16px 36px', borderRadius: '100px', fontWeight: 700, textDecoration: 'none', transition: 'background 0.3s' }}
                onMouseOver={(e) => e.currentTarget.style.background = '#d0006f'}
                onMouseOut={(e) => e.currentTarget.style.background = 'var(--magenta)'}>
-              Registro Oficial de Expositoras
+              {t('pages.participa.expositoras.btn1')}
             </a>
             <a href="/expositores" style={{ display: 'inline-block', border: '2px solid var(--navy)', color: 'var(--navy)', padding: '14px 34px', borderRadius: '100px', fontWeight: 700, textDecoration: 'none', transition: 'all 0.3s' }}
                onMouseOver={(e) => { e.currentTarget.style.background = 'var(--navy)'; e.currentTarget.style.color = '#fff'; }}
                onMouseOut={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--navy)'; }}>
-              Ver Directorio Digital
+              {t('pages.participa.expositoras.btn2')}
             </a>
           </div>
         </Reveal>
@@ -100,29 +103,29 @@ export default function ParticipaPage() {
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <Reveal>
             <span style={{ display: 'inline-block', color: 'var(--cyan)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '16px' }}>
-              Alianzas Corporativas
+              {t('pages.participa.patrocinadores.eyebrow')}
             </span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.5rem, 5vw, 3.8rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: '24px' }}>
-              Patrocinadores
+              {t('pages.participa.patrocinadores.title')}
             </h2>
           </Reveal>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '48px', marginTop: '40px' }}>
             <Reveal delay={100}>
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', fontWeight: 800, color: '#fff', marginBottom: '16px' }}>
-                Categorías de Patrocinio
+                {t('pages.participa.patrocinadores.card1Title')}
               </h3>
               <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'rgba(255,255,255,0.7)', marginBottom: '24px' }}>
-                Ofrecemos distintas modalidades de vinculación comercial para adaptarnos al tamaño e impacto de tu corporación: Platino, Oro, Plata y Bronce, además de patrocinios especiales en áreas temáticas específicas como gastronomía, moda o tecnología.
+                {t('pages.participa.patrocinadores.card1Desc')}
               </p>
             </Reveal>
 
             <Reveal delay={200}>
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', fontWeight: 800, color: '#fff', marginBottom: '16px' }}>
-                Beneficios de Patrocinio
+                {t('pages.participa.patrocinadores.card2Title')}
               </h3>
               <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'rgba(255,255,255,0.7)', marginBottom: '24px' }}>
-                Los patrocinadores oficiales reciben una exposición de marca inigualable en todas las plataformas digitales, físicas, impresas y espacios VIP del evento, sumado a oportunidades directas de vinculación con delegaciones empresariales de alto nivel.
+                {t('pages.participa.patrocinadores.card2Desc')}
               </p>
             </Reveal>
           </div>
@@ -133,37 +136,37 @@ export default function ParticipaPage() {
       <section id="embajadoras" style={{ maxWidth: '1200px', margin: '0 auto', padding: '120px 4% 80px' }}>
         <Reveal>
           <span style={{ display: 'inline-block', color: 'var(--magenta)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '16px' }}>
-            Liderazgo Territorial
+            {t('pages.participa.embajadoras.eyebrow')}
           </span>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.5rem, 5vw, 3.8rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: '40px' }}>
-            Embajadoras Expo México Mujer
+            {t('pages.participa.embajadoras.title')}
           </h2>
         </Reveal>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px' }}>
           <Reveal delay={100}>
             <div style={{ background: '#fff', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,46,81,0.03)' }}>
-              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', fontWeight: 800, marginBottom: '12px' }}>Convocatoria Nacional</h4>
+              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', fontWeight: 800, marginBottom: '12px' }}>{t('pages.participa.embajadoras.card1Title')}</h4>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'var(--text)' }}>
-                Buscamos a mujeres líderes en cada rincón del país que deseen representar los valores de innovación, cultura y esfuerzo de la mujer mexicana en Canadá.
+                {t('pages.participa.embajadoras.card1Desc')}
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={200}>
             <div style={{ background: '#fff', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,46,81,0.03)' }}>
-              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', fontWeight: 800, marginBottom: '12px' }}>Representación Estatal</h4>
+              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', fontWeight: 800, marginBottom: '12px' }}>{t('pages.participa.embajadoras.card2Title')}</h4>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'var(--text)' }}>
-                Las embajadoras coordinan la participación territorial de sus estados, llevando muestras artesanales, gastronómicas e industriales representativas del interior de la república.
+                {t('pages.participa.embajadoras.card2Desc')}
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={300}>
             <div style={{ background: '#fff', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,46,81,0.03)' }}>
-              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', fontWeight: 800, marginBottom: '12px' }}>Registro de Aspirantes</h4>
+              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', fontWeight: 800, marginBottom: '12px' }}>{t('pages.participa.embajadoras.card3Title')}</h4>
               <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'var(--text)' }}>
-                Si deseas postularte o proponer a una líder de tu comunidad, completa nuestro formulario oficial para ser evaluada por el comité directivo.
+                {t('pages.participa.embajadoras.card3Desc')}
               </p>
             </div>
           </Reveal>
@@ -175,7 +178,7 @@ export default function ParticipaPage() {
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <Reveal>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.5rem, 5vw, 3.8rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: '40px', textAlign: 'center' }}>
-              Nuestros Aliados
+              {t('pages.participa.aliados.title')}
             </h2>
           </Reveal>
 
@@ -183,24 +186,24 @@ export default function ParticipaPage() {
             <Reveal delay={100}>
               <div style={{ background: '#fff', padding: '32px', borderRadius: '20px', boxShadow: '0 10px 30px rgba(0,46,81,0.02)', textAlign: 'center' }}>
                 <div style={{ color: 'var(--magenta)', marginBottom: '16px', display: 'flex', justifyContent: 'center' }}><Handshake size={32} /></div>
-                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, marginBottom: '8px' }}>Aliados Estratégicos</h4>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.5 }}>Empresas y agencias de desarrollo que co-crean valor y sustentan la estructura del evento.</p>
+                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, marginBottom: '8px' }}>{t('pages.participa.aliados.card1Title')}</h4>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.5 }}>{t('pages.participa.aliados.card1Desc')}</p>
               </div>
             </Reveal>
 
             <Reveal delay={200}>
               <div style={{ background: '#fff', padding: '32px', borderRadius: '20px', boxShadow: '0 10px 30px rgba(0,46,81,0.02)', textAlign: 'center' }}>
                 <div style={{ color: 'var(--cyan)', marginBottom: '16px', display: 'flex', justifyContent: 'center' }}><Users size={32} /></div>
-                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, marginBottom: '8px' }}>Aliados Institucionales</h4>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.5 }}>Gobiernos estatales, embajadas y consulados de ambos países respaldando las operaciones.</p>
+                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, marginBottom: '8px' }}>{t('pages.participa.aliados.card2Title')}</h4>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.5 }}>{t('pages.participa.aliados.card2Desc')}</p>
               </div>
             </Reveal>
 
             <Reveal delay={300}>
               <div style={{ background: '#fff', padding: '32px', borderRadius: '20px', boxShadow: '0 10px 30px rgba(0,46,81,0.02)', textAlign: 'center' }}>
                 <div style={{ color: 'var(--navy)', marginBottom: '16px', display: 'flex', justifyContent: 'center' }}><Award size={32} /></div>
-                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, marginBottom: '8px' }}>Cámaras Empresariales</h4>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.5 }}>Cámaras binacionales y asociaciones de comercio que promueven los intercambios comerciales.</p>
+                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, marginBottom: '8px' }}>{t('pages.participa.aliados.card3Title')}</h4>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text)', lineHeight: 1.5 }}>{t('pages.participa.aliados.card3Desc')}</p>
               </div>
             </Reveal>
           </div>
@@ -212,13 +215,13 @@ export default function ParticipaPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '48px', alignItems: 'center' }}>
           <Reveal>
             <span style={{ display: 'inline-block', color: 'var(--cyan)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '16px' }}>
-              Ponentes y Líderes
+              {t('pages.participa.invitados.eyebrow')}
             </span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.5rem, 5vw, 3.8rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: '24px' }}>
-              Invitados Especiales
+              {t('pages.participa.invitados.title')}
             </h2>
             <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'var(--text)' }}>
-              Nuestra agenda se nutre con la experiencia de líderes empresariales sobresalientes, conferencistas inspiradoras y personalidades influyentes en el ámbito del comercio internacional y el empoderamiento femenino de Canadá y Latinoamérica.
+              {t('pages.participa.invitados.desc')}
             </p>
           </Reveal>
 
@@ -235,35 +238,35 @@ export default function ParticipaPage() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
           <Reveal>
             <span style={{ display: 'inline-block', color: 'var(--magenta)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '16px' }}>
-              Vinculación B2B
+              {t('pages.participa.compradores.eyebrow')}
             </span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.5rem, 5vw, 3.8rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: '24px' }}>
-              Compradores e Inversionistas
+              {t('pages.participa.compradores.title')}
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.15rem', maxWidth: '600px', margin: '0 auto 48px', lineHeight: 1.6 }}>
-              Si eres distribuidor, comprador corporativo o inversionista en Canadá y deseas contactar con productos premium mexicanos, este es tu espacio de vinculación.
+              {t('pages.participa.compradores.desc')}
             </p>
           </Reveal>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px', textAlign: 'left', marginBottom: '48px' }}>
             <Reveal delay={100}>
               <div style={{ background: 'rgba(255,255,255,0.05)', padding: '32px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.08)' }}>
-                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 800, marginBottom: '12px' }}>Registro de Compradores</h4>
-                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.5 }}>Obtén credenciales VIP y accede a las agendas exclusivas de citas de negocios uno a uno durante el evento.</p>
+                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 800, marginBottom: '12px' }}>{t('pages.participa.compradores.card1Title')}</h4>
+                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.5 }}>{t('pages.participa.compradores.card1Desc')}</p>
               </div>
             </Reveal>
 
             <Reveal delay={200}>
               <div style={{ background: 'rgba(255,255,255,0.05)', padding: '32px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.08)' }}>
-                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 800, marginBottom: '12px' }}>Directorio de Compradores</h4>
-                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.5 }}>Directorio dinámico que facilita a las marcas identificar y conectar con perfiles de interés comercial.</p>
+                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 800, marginBottom: '12px' }}>{t('pages.participa.compradores.card2Title')}</h4>
+                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.5 }}>{t('pages.participa.compradores.card2Desc')}</p>
               </div>
             </Reveal>
 
             <Reveal delay={300}>
               <div style={{ background: 'rgba(255,255,255,0.05)', padding: '32px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.08)' }}>
-                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 800, marginBottom: '12px' }}>Vinculación Empresarial</h4>
-                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.5 }}>Mesas redondas de negociación sectoriales guiadas por mentores comerciales certificados.</p>
+                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 800, marginBottom: '12px' }}>{t('pages.participa.compradores.card3Title')}</h4>
+                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.5 }}>{t('pages.participa.compradores.card3Desc')}</p>
               </div>
             </Reveal>
           </div>

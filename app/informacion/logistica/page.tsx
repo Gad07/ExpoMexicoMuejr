@@ -97,7 +97,7 @@ export default function LogisticaPage() {
         <div id="transporte" style={{ borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <Reveal style={{ marginBottom: '48px', textAlign: 'center' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', margin: 0 }}>
-              Asesoría & Soluciones de Transporte
+              {t('pages.logistica.asesoriaTitle')}
             </h2>
           </Reveal>
 
@@ -105,9 +105,9 @@ export default function LogisticaPage() {
             <Reveal delay={100}>
               <div style={{ background: '#fff', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,25,76,0.03)', border: '1px solid rgba(0,0,0,0.01)', height: '100%' }}>
                 <div style={{ color: 'var(--magenta)', marginBottom: '24px' }}><Truck size={36} /></div>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '12px' }}>Consolidación de Carga</h3>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '12px' }}>{t('pages.logistica.consolidacionTitle')}</h3>
                 <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text-muted)', marginBottom: 0 }}>
-                  Ofrecemos recolección de mercancías en hubs estratégicos (CDMX, Guadalajara y Monterrey) para realizar un embarque consolidated terrestre o aéreo hacia Toronto con tarifas preferenciales.
+                  {t('pages.logistica.consolidacionDesc')}
                 </p>
               </div>
             </Reveal>
@@ -115,9 +115,9 @@ export default function LogisticaPage() {
             <Reveal delay={200}>
               <div style={{ background: '#fff', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,25,76,0.03)', border: '1px solid rgba(0,0,0,0.01)', height: '100%' }}>
                 <div style={{ color: 'var(--magenta)', marginBottom: '24px' }}><CheckCircle size={36} /></div>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '12px' }}>Brokerage Aduanal</h3>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '12px' }}>{t('pages.logistica.brokerageTitle')}</h3>
                 <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text-muted)', marginBottom: 0 }}>
-                  Coordinación integral con agencias aduanales en frontera (Laredo) y en las aduanas de Canadá para agilizar la clasificación arancelaria y la liberación de embarques comerciales.
+                  {t('pages.logistica.brokerageDesc')}
                 </p>
               </div>
             </Reveal>
@@ -125,9 +125,9 @@ export default function LogisticaPage() {
             <Reveal delay={300}>
               <div style={{ background: '#fff', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,25,76,0.03)', border: '1px solid rgba(0,0,0,0.01)', height: '100%' }}>
                 <div style={{ color: 'var(--magenta)', marginBottom: '24px' }}><Box size={36} /></div>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '12px' }}>Servicio de Entrega Final</h3>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '12px' }}>{t('pages.logistica.entregaTitle')}</h3>
                 <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text-muted)', marginBottom: 0 }}>
-                  Recepción de mercancía en el warehouse de Toronto previo al evento, custodia asegurada y entrega directa de cajas en el stand asignado a cada delegada expositora.
+                  {t('pages.logistica.entregaDesc')}
                 </p>
               </div>
             </Reveal>

@@ -45,7 +45,7 @@ import { useLanguage } from '@/context/LanguageContext';
 function ExpositoresContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const [exhibitors, setExhibitors] = useState<any[]>([]);
 
   useEffect(() => {
@@ -377,7 +377,7 @@ function ExpositoresContent() {
                 <Search size={20} className="exh-search-icon" />
                 <input 
                   type="text"
-                  placeholder="Buscar marca o expositora..."
+                  placeholder={t('pages.expositores.buscarMarca')}
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
                   className="exh-search-input"
@@ -388,7 +388,7 @@ function ExpositoresContent() {
             <Reveal>
               <div style={{ marginBottom: '64px' }}>
                 <h2 className="section__title" style={{ marginTop: '8px' }}>
-                  Marcas en <br /><em>{activeCategory}</em>
+                  {t('pages.expositores.marcasEn')} <br /><em>{activeCategory}</em>
                 </h2>
               </div>
             </Reveal>
@@ -439,10 +439,10 @@ function ExpositoresContent() {
                         <button className="action-btn btn-calendar" onClick={() => openCalendar(ex)} style={{ width: '100%', padding: '12px', borderRadius: '10px', background: 'var(--magenta)', color: '#fff', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.1em', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', transition: 'background 0.25s, transform 0.2s' }}
                           onMouseOver={e => (e.currentTarget.style.background = 'var(--navy)')}
                           onMouseOut={e => (e.currentTarget.style.background = 'var(--magenta)')}>
-                          <Calendar size={15} /> Agendar Cita Presencial
+                          <Calendar size={15} /> {t('pages.expositores.agendarCita')}
                         </button>
                         <button className="action-btn btn-map" onClick={() => openMap(ex)}>
-                          <Map size={16} /> Ver en Mapa
+                          <Map size={16} /> {t('pages.expositores.verMapa')}
                         </button>
                       </div>
                     </div>
@@ -452,8 +452,8 @@ function ExpositoresContent() {
             ) : (
               <div style={{ textAlign: 'center', padding: '80px 0', color: 'var(--text-muted)' }}>
                 <Search size={48} style={{ opacity: 0.2, marginBottom: '16px' }} />
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: 'var(--navy)', marginBottom: '8px' }}>No se encontraron expositoras</h3>
-                <p>Prueba con otra marca o nombre de expositora.</p>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: 'var(--navy)', marginBottom: '8px' }}>{t('pages.expositores.noExpositoras')}</h3>
+                <p>{t('pages.expositores.pruebaOtra')}</p>
               </div>
             )}
           </div>
@@ -467,16 +467,16 @@ function ExpositoresContent() {
 
               {/* LEFT PANEL */}
               <div className="modal-left">
-                <span className="modal-left-tag">Cita Presencial</span>
+                <span className="modal-left-tag">{t('pages.expositores.citaPresencial')}</span>
                 <p className="modal-left-title">{selectedExhibitor.name}</p>
-                <p className="modal-left-sub">por {selectedExhibitor.personName}</p>
+                <p className="modal-left-sub">{t('pages.expositores.por')} {selectedExhibitor.personName}</p>
                 <div className="modal-left-divider" />
                 <div className="modal-left-info-row">
                   <div className="modal-left-info-icon">
                     <MapPin size={14} />
                   </div>
                   <div>
-                    <span className="modal-left-info-label">Stand</span>
+                    <span className="modal-left-info-label">{t('pages.expositores.standLabel')}</span>
                     <span className="modal-left-info-val">{selectedExhibitor.booth}</span>
                   </div>
                 </div>
@@ -485,8 +485,8 @@ function ExpositoresContent() {
                     <Calendar size={14} />
                   </div>
                   <div>
-                    <span className="modal-left-info-label">Evento</span>
-                    <span className="modal-left-info-val">Expo México Mujer 2027</span>
+                    <span className="modal-left-info-label">{t('pages.expositores.eventoLabel')}</span>
+                    <span className="modal-left-info-val">{t('pages.expositores.eventoVal')}</span>
                   </div>
                 </div>
                 <div className="modal-left-info-row">
@@ -494,8 +494,8 @@ function ExpositoresContent() {
                     <Clock size={14} />
                   </div>
                   <div>
-                    <span className="modal-left-info-label">Duración</span>
-                    <span className="modal-left-info-val">30 minutos</span>
+                    <span className="modal-left-info-label">{t('pages.expositores.duracionLabel')}</span>
+                    <span className="modal-left-info-val">{t('pages.expositores.duracionVal')}</span>
                   </div>
                 </div>
               </div>
@@ -505,17 +505,17 @@ function ExpositoresContent() {
                 {appointmentSent ? (
                   <div className="success-card">
                     <div className="success-ring">✓</div>
-                    <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: 'var(--navy)', margin: '0 0 10px' }}>¡Cita Confirmada!</h3>
+                    <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: 'var(--navy)', margin: '0 0 10px' }}>{t('pages.expositores.citaConfirmada')}</h3>
                     <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '28px', fontSize: '0.92rem' }}>
-                      Nos vemos el <strong>{appointmentDate === '12' ? 'Viernes 12' : 'Sábado 13'} de Junio</strong> a las <strong>{appointmentTime}</strong>.<br />
-                      Te enviamos la confirmación a <strong>{appointmentEmail}</strong>.
+                      {t('pages.expositores.citaConfirmadaDesc1')} <strong>{appointmentDate === '12' ? 'Viernes 12' : 'Sábado 13'} {t('pages.expositores.citaConfirmadaDesc2')}</strong> a las <strong>{appointmentTime}</strong>.<br />
+                      {t('pages.expositores.citaConfirmadaDesc3')} <strong>{appointmentEmail}</strong>.
                     </p>
-                    <button className="appt-btn-submit" style={{ maxWidth: '220px' }} onClick={() => setShowCalendar(false)}>Cerrar</button>
+                    <button className="appt-btn-submit" style={{ maxWidth: '220px' }} onClick={() => setShowCalendar(false)}>{t('pages.expositores.cerrar')}</button>
                   </div>
                 ) : (
                   <>
-                    <span className="modal-section-label">Reserva tu lugar</span>
-                    <h3 className="modal-section-title">Elige fecha y hora</h3>
+                    <span className="modal-section-label">{t('pages.expositores.reservaTuLugar')}</span>
+                    <h3 className="modal-section-title">{t('pages.expositores.eligeFechaYHora')}</h3>
 
                     {/* Fecha chips */}
                     <div className="date-chips">
@@ -529,7 +529,7 @@ function ExpositoresContent() {
                     </div>
 
                     {/* Horario chips */}
-                    <span className="modal-section-label">Horario disponible</span>
+                    <span className="modal-section-label">{t('pages.expositores.horarioDisponible')}</span>
                     <div className="time-chips">
                       {[{val:'10:00',label:'10:00 AM'},{val:'11:30',label:'11:30 AM'},{val:'14:00',label:'02:00 PM'},{val:'16:00',label:'04:00 PM'}].map(t => (
                         <div key={t.val} className={`time-chip ${appointmentTime === t.val ? 'active' : ''}`} onClick={() => setAppointmentTime(t.val)}>
@@ -539,33 +539,33 @@ function ExpositoresContent() {
                     </div>
 
                     {/* Datos de contacto */}
-                    <span className="modal-section-label">Tus datos</span>
+                    <span className="modal-section-label">{t('pages.expositores.tusDatos')}</span>
                     <div className="appt-form-group" style={{ marginBottom: '14px' }}>
-                      <label className="appt-form-label">Nombre completo <span>*</span></label>
-                      <input type="text" className="appt-input" placeholder="Ej. Laura González" required
+                      <label className="appt-form-label">{t('pages.expositores.nombreCompleto')} <span>*</span></label>
+                      <input type="text" className="appt-input" placeholder={t('pages.expositores.placeholderNombre')} required
                         value={appointmentName} onChange={e => setAppointmentName(e.target.value)} />
                     </div>
                     <div className="appt-form-row">
                       <div className="appt-form-group">
-                        <label className="appt-form-label">Correo <span>*</span></label>
-                        <input type="email" className="appt-input" placeholder="correo@ejemplo.com" required
+                        <label className="appt-form-label">{t('pages.expositores.correo')} <span>*</span></label>
+                        <input type="email" className="appt-input" placeholder={t('pages.expositores.placeholderCorreo')} required
                           value={appointmentEmail} onChange={e => setAppointmentEmail(e.target.value)} />
                       </div>
                       <div className="appt-form-group">
-                        <label className="appt-form-label">WhatsApp <span>*</span></label>
-                        <input type="tel" className="appt-input" placeholder="+52 55 1234 5678" required
+                        <label className="appt-form-label">{t('pages.expositores.whatsappLabel')} <span>*</span></label>
+                        <input type="tel" className="appt-input" placeholder={t('pages.expositores.placeholderWhatsapp')} required
                           value={appointmentPhone} onChange={e => setAppointmentPhone(e.target.value)} />
                       </div>
                     </div>
 
                     <button className="appt-btn-submit" onClick={() => {
                       if (!appointmentName || !appointmentEmail || !appointmentPhone) {
-                        alert('Por favor completa todos los campos.');
+                        alert(t('pages.expositores.completaCampos'));
                         return;
                       }
                       setAppointmentSent(true);
                     }}>
-                      <Calendar size={16} /> Confirmar Cita Presencial
+                      <Calendar size={16} /> {t('pages.expositores.confirmarCita')}
                     </button>
                   </>
                 )}
@@ -580,7 +580,7 @@ function ExpositoresContent() {
             <div className="modal-content" style={{ maxWidth: '800px', padding: '24px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
                 <div>
-                  <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: 'var(--navy)' }}>Ubicación del Stand</h3>
+                  <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: 'var(--navy)' }}>{t('pages.expositores.ubicacionStand')}</h3>
                   <p style={{ color: 'var(--magenta)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.85rem', marginTop: '4px' }}>{selectedExhibitor.booth}</p>
                 </div>
                 <button className="modal-close" style={{ position: 'static' }} onClick={() => setShowMap(false)} aria-label="Cerrar">×</button>
@@ -593,7 +593,7 @@ function ExpositoresContent() {
                 <div style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
                   <MapPin size={48} color="var(--magenta)" style={{ margin: '0 auto 16px' }} />
                   <p style={{ fontFamily: 'var(--font-display)', fontWeight: 800, color: 'var(--navy)', fontSize: '1.2rem' }}>{selectedExhibitor.booth}</p>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Plano interactivo cargando...</p>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>{t('pages.expositores.planoInteractivo')}</p>
                 </div>
               </div>
             </div>
@@ -706,17 +706,17 @@ function ExpositoresContent() {
             <Reveal delay={100}>
               <div>
                 <span style={{ display: 'inline-block', color: 'var(--magenta)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '12px' }}>
-                  Infraestructura Premium
+                  {t('pages.expositores.infraestructuraPremium')}
                 </span>
                 <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '24px', lineHeight: 1.15 }}>
-                  Stands y Espacios <br /><em>de Exhibición</em>
+                  {t('pages.expositores.standsYEspacios')}
                 </h3>
                 <p style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'var(--text)', marginBottom: '32px' }}>
-                  Diseñamos cada espacio para proyectar la máxima presencia corporativa. Nuestros stands de 3x3 y 2x2 metros están completamente equipados con rotulación oficial de la marca, iluminación LED direccional y conexiones eléctricas de 110v listas para usar en el centro de convenciones de Toronto.
+                  {t('pages.expositores.standsDesc')}
                 </p>
                 <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                   <div style={{ width: '48px', height: '2px', background: 'var(--magenta)' }} />
-                  <span style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--navy)', textTransform: 'uppercase', letterSpacing: '1px' }}>Montaje Completo</span>
+                  <span style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--navy)', textTransform: 'uppercase', letterSpacing: '1px' }}>{t('pages.expositores.montajeCompleto')}</span>
                 </div>
               </div>
             </Reveal>
@@ -725,8 +725,8 @@ function ExpositoresContent() {
               <div style={{ borderRadius: '32px', overflow: 'hidden', height: '400px', position: 'relative', boxShadow: '0 20px 40px rgba(0,46,81,0.06)' }}>
                 <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800" alt="Stands" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="800" height="600" />
                 <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px', background: 'rgba(255,255,255,0.9)', padding: '20px', borderRadius: '16px', backdropFilter: 'blur(10px)' }}>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--magenta)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Centro de Convenciones</span>
-                  <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 800, margin: '4px 0 0 0', color: 'var(--navy)' }}>Toronto, Canadá 2027</h4>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--magenta)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{t('pages.expositores.centroConvenciones')}</span>
+                  <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 800, margin: '4px 0 0 0', color: 'var(--navy)' }}>{t('pages.expositores.torontoCanada2027')}</h4>
                 </div>
               </div>
             </Reveal>
@@ -736,9 +736,9 @@ function ExpositoresContent() {
           <div style={{ marginBottom: '120px' }}>
             <Reveal>
               <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-                <h2 className="section__title section__title--center" style={{ marginTop: '16px' }}>Adquiere tu <br /><em>Stand</em></h2>
+                <h2 className="section__title section__title--center" style={{ marginTop: '16px' }}>{t('pages.expositores.adquiereStand')} <br /><em>{t('pages.expositores.adquiereStandEm')}</em></h2>
                 <p style={{ fontSize: '1.1rem', color: 'var(--navy)', marginTop: '16px', fontWeight: 600 }}>
-                  Pueden apartar su lugar con el <strong style={{ color: 'var(--magenta)' }}>50% de anticipo</strong> antes del <strong style={{ color: 'var(--gold)' }}>30 de Agosto</strong>
+                  {t('pages.expositores.apartarLugar')} <strong style={{ color: 'var(--magenta)' }}>{t('pages.expositores.anticipo')}</strong> {t('pages.expositores.antesDel')} <strong style={{ color: 'var(--gold)' }}>{t('pages.expositores.fechaLimite')}</strong>
                 </p>
               </div>
             </Reveal>
@@ -754,21 +754,21 @@ function ExpositoresContent() {
                 }}>
                   {/* Columna Izquierda: Información */}
                   <div style={{ flex: '1 1 350px' }}>
-                    <div style={{ color: 'var(--navy)', fontSize: '2.5rem', fontFamily: 'var(--font-display)', fontWeight: 900, marginBottom: '8px' }}>Stand</div>
+                    <div style={{ color: 'var(--navy)', fontSize: '2.5rem', fontFamily: 'var(--font-display)', fontWeight: 900, marginBottom: '8px' }}>{t('pages.expositores.standCardTitle')}</div>
                     
                     <p style={{ fontSize: '1rem', color: 'var(--text-muted)', margin: '16px 0 24px', lineHeight: 1.6 }}>
-                      Asegura tu espacio en la Expo México Mujer 2027. Un lugar perfecto para exhibir tus productos y servicios en Norteamérica.
+                      {t('pages.expositores.standCardDesc')}
                     </p>
                     
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                       <li style={{ display: 'flex', marginBottom: '12px', fontSize: '0.95rem', color: 'var(--text)' }}>
-                        <span style={{ color: 'var(--magenta)', marginRight: '12px', fontWeight: 'bold' }}>✓</span> Espacio de 3x3 o 2x2 metros
+                        <span style={{ color: 'var(--magenta)', marginRight: '12px', fontWeight: 'bold' }}>✓</span> {t('pages.expositores.standCardItem1')}
                       </li>
                       <li style={{ display: 'flex', marginBottom: '12px', fontSize: '0.95rem', color: 'var(--text)' }}>
-                        <span style={{ color: 'var(--magenta)', marginRight: '12px', fontWeight: 'bold' }}>✓</span> Iluminación LED direccional
+                        <span style={{ color: 'var(--magenta)', marginRight: '12px', fontWeight: 'bold' }}>✓</span> {t('pages.expositores.standCardItem2')}
                       </li>
                       <li style={{ display: 'flex', marginBottom: '0', fontSize: '0.95rem', color: 'var(--text)' }}>
-                        <span style={{ color: 'var(--magenta)', marginRight: '12px', fontWeight: 'bold' }}>✓</span> Conexión eléctrica de 110v
+                        <span style={{ color: 'var(--magenta)', marginRight: '12px', fontWeight: 'bold' }}>✓</span> {t('pages.expositores.standCardItem3')}
                       </li>
                     </ul>
                   </div>
@@ -779,7 +779,7 @@ function ExpositoresContent() {
                     alignItems: 'center', textAlign: 'center', padding: '32px', 
                     background: 'rgba(0,46,81,0.03)', borderRadius: '16px' 
                   }}>
-                    <div style={{ fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-muted)', marginBottom: '12px' }}>Precio Regular</div>
+                    <div style={{ fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-muted)', marginBottom: '12px' }}>{t('pages.expositores.precioRegular')}</div>
                     <div style={{ color: 'var(--navy)', fontSize: '3.5rem', fontFamily: 'var(--font-display)', fontWeight: 900, lineHeight: 1, marginBottom: '32px' }}>$2,000 <span style={{ fontSize: '1.2rem', color: 'var(--text-muted)' }}>CAD</span></div>
                     
                     <a href="mailto:francisco@expomexico.ca" style={{ 
@@ -791,7 +791,7 @@ function ExpositoresContent() {
                     onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 15px 25px rgba(0,46,81,0.3)'; }}
                     onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 20px rgba(0,46,81,0.2)'; }}
                     >
-                      Reservar con el 50%
+                      {t('pages.expositores.reservar50')}
                     </a>
                   </div>
                 </div>
@@ -804,10 +804,10 @@ function ExpositoresContent() {
           <div style={{ marginBottom: '120px' }}>
             <Reveal delay={100} style={{ textAlign: 'center', marginBottom: '48px' }}>
               <span style={{ display: 'inline-block', color: 'var(--cyan)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '12px' }}>
-                Retorno de Inversión
+                {t('pages.expositores.retornoInversion')}
               </span>
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--navy)', lineHeight: 1.15 }}>
-                Beneficios Clave de <br /><em>tu Participación</em>
+                {t('pages.expositores.beneficiosClave')}
               </h3>
             </Reveal>
 
@@ -818,8 +818,8 @@ function ExpositoresContent() {
                     <Folder size={24} color="var(--cyan)" />
                   </div>
                   <div>
-                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 10px 0' }}>Directorio de Expositoras</h4>
-                    <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.6 }}>Presencia destacada en el catálogo oficial para compradores y distribuidores en Norteamérica.</p>
+                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 10px 0' }}>{t('pages.expositores.directorioExpositoras')}</h4>
+                    <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.6 }}>{t('pages.expositores.directorioExpositorasDesc')}</p>
                   </div>
                 </div>
               </Reveal>
@@ -830,8 +830,8 @@ function ExpositoresContent() {
                     <Megaphone size={24} color="var(--magenta)" />
                   </div>
                   <div>
-                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 10px 0' }}>Campañas de Difusión</h4>
-                    <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.6 }}>Aparece en comunicados de prensa binacionales, redes sociales oficiales y cobertura de prensa local.</p>
+                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 10px 0' }}>{t('pages.expositores.campanasDifusion')}</h4>
+                    <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.6 }}>{t('pages.expositores.campanasDifusionDesc')}</p>
                   </div>
                 </div>
               </Reveal>
@@ -842,8 +842,8 @@ function ExpositoresContent() {
                     <Calendar size={24} color="var(--navy)" />
                   </div>
                   <div>
-                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 10px 0' }}>Ruedas de Negocio B2B</h4>
-                    <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.6 }}>Agendamiento inteligente de citas uno a uno basado en intereses y perfiles de compradores.</p>
+                    <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 10px 0' }}>{t('pages.expositores.ruedasNegocioB2B')}</h4>
+                    <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.6 }}>{t('pages.expositores.ruedasNegocioDesc')}</p>
                   </div>
                 </div>
               </Reveal>
@@ -854,10 +854,10 @@ function ExpositoresContent() {
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: '40px', maxWidth: '800px', margin: '0 auto 40px' }}>
               <h2 className="section__title section__title--center" style={{ marginTop: '16px' }}>
-                Descubre el talento por <br /><em>Categoría de Negocio</em>
+                {t('pages.expositores.descubreTalento')}
               </h2>
               <p className="section__desc section__desc--center">
-                Explora las marcas, productos y servicios que las mujeres emprendedoras de México traen a Toronto. Haz clic en una categoría para ver su directorio.
+                {t('pages.expositores.descubreTalentoDesc')}
               </p>
             </div>
           </Reveal>
@@ -867,7 +867,7 @@ function ExpositoresContent() {
               <Search size={20} style={{ position: 'absolute', left: '20px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
               <input 
                 type="text"
-                placeholder="Buscar categoría..."
+                placeholder={t('pages.expositores.buscarCategoria')}
                 value={categorySearchQuery}
                 onChange={(e) => setCategorySearchQuery(e.target.value)}
                 style={{
@@ -905,9 +905,9 @@ function ExpositoresContent() {
           {/* 4. Registro Oficial al final */}
           <Reveal delay={250} style={{ textAlign: 'center', marginTop: '80px' }}>
             <div style={{ background: '#fff', padding: '60px 40px', borderRadius: '32px', boxShadow: '0 20px 50px rgba(0,25,76,0.04)', maxWidth: '900px', margin: '0 auto' }}>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '16px' }}>Registro Oficial de Expositoras</h3>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '16px' }}>{t('pages.expositores.registroOficial')}</h3>
               <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px' }}>
-                Completa el formulario de inscripción oficial para solicitar tu stand de exhibición en Expo México Mujer Toronto.
+                {t('pages.expositores.registroDesc')}
               </p>
               
               <div style={{ width: '100%', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(0,0,0,0.05)', background: '#FAF8F5' }}>
@@ -931,8 +931,9 @@ function ExpositoresContent() {
 }
 
 export default function ExpositoresPage() {
+  const { t } = useLanguage();
   return (
-    <React.Suspense fallback={<div style={{ padding: '120px 0', textAlign: 'center', fontFamily: 'var(--font-display)' }}>Cargando directorio...</div>}>
+    <React.Suspense fallback={<div style={{ padding: '120px 0', textAlign: 'center', fontFamily: 'var(--font-display)' }}>{t('pages.expositores.cargandoDirectorio')}</div>}>
       <ExpositoresContent />
     </React.Suspense>
   );
