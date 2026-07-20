@@ -1,0 +1,3270 @@
+{
+  "nav": {
+    "registrate": {
+      "es": "Regístrate",
+      "en": "Register",
+      "fr": "S'inscrire"
+    },
+    "expo": {
+      "title": {
+        "es": "Expo México Mujer",
+        "en": "Expo Mexico Mujer",
+        "fr": "Expo Mexique Femme"
+      },
+      "queEs": {
+        "es": "¿Qué es Expo México Mujer?",
+        "en": "What is Expo Mexico Mujer?",
+        "fr": "Qu'est-ce que l'Expo Mexique Femme?"
+      },
+      "industrias": {
+        "es": "Industrias",
+        "en": "Industries",
+        "fr": "Industries"
+      },
+      "ottawa2026": {
+        "es": "Expo México Mujer Ottawa 2026",
+        "en": "Expo Mexico Mujer Ottawa 2026",
+        "fr": "Expo Mexique Femme Ottawa 2026"
+      },
+      "noticias": {
+        "es": "Noticias",
+        "en": "News",
+        "fr": "Actualités"
+      },
+      "visas": {
+        "es": "Visas y Trámites",
+        "en": "Visas and Procedures",
+        "fr": "Visas et Procédures"
+      }
+    },
+    "participa": {
+      "title": {
+        "es": "Participa",
+        "en": "Get Involved",
+        "fr": "Participer"
+      },
+      "expositoras": {
+        "es": "Expositoras",
+        "en": "Exhibitors",
+        "fr": "Exposantes"
+      },
+      "patrocinadores": {
+        "es": "Patrocinadores",
+        "en": "Sponsors",
+        "fr": "Sponsors"
+      },
+      "embajadoras": {
+        "es": "Embajadoras Expo México Mujer",
+        "en": "EMM Ambassadors",
+        "fr": "Ambassadrices EMM"
+      },
+      "aliados": {
+        "es": "Aliados",
+        "en": "Partners",
+        "fr": "Partenaires"
+      },
+      "invitados": {
+        "es": "Invitados Especiales",
+        "en": "Special Guests",
+        "fr": "Invités Spéciaux"
+      },
+      "compradores": {
+        "es": "Compradores e Inversionistas",
+        "en": "Buyers and Investors",
+        "fr": "Acheteurs et Investisseurs"
+      }
+    },
+    "agenda": {
+      "title": {
+        "es": "Agenda",
+        "en": "Agenda",
+        "fr": "Agenda"
+      },
+      "toronto2027": {
+        "es": "Expo México Mujer Toronto 2027",
+        "en": "Expo Mexico Mujer Toronto 2027",
+        "fr": "Expo Mexique Femme Toronto 2027"
+      },
+      "summit": {
+        "es": "México Ontario Business Summit",
+        "en": "Mexico Ontario Business Summit",
+        "fr": "Sommet d'Affaires Mexique Ontario"
+      },
+      "fashionshow": {
+        "es": "Mexican Fashion Gala Show",
+        "en": "Mexican Fashion Gala Show",
+        "fr": "Mexican Fashion Gala Show"
+      },
+      "womenleaders": {
+        "es": "Women Leaders Forum",
+        "en": "Women Leaders Forum",
+        "fr": "Women Leaders Forum"
+      },
+      "mision": {
+        "es": "Misión Comercial Montreal",
+        "en": "Montreal Trade Mission",
+        "fr": "Mission Commerciale Montréal"
+      }
+    },
+    "academy": {
+      "title": {
+        "es": "Academy",
+        "en": "Academy",
+        "fr": "Academy"
+      },
+      "ingles": {
+        "es": "Inglés Online",
+        "en": "Online English",
+        "fr": "Anglais en Ligne"
+      },
+      "executive": {
+        "es": "Executive Global Skills",
+        "en": "Executive Global Skills",
+        "fr": "Executive Global Skills"
+      },
+      "capacitacion": {
+        "es": "Capacitación Empresarial",
+        "en": "Business Training",
+        "fr": "Formation en Entreprise"
+      }
+    },
+    "informacion": {
+      "title": {
+        "es": "Información",
+        "en": "Information",
+        "fr": "Information"
+      },
+      "prensa": {
+        "es": "Prensa",
+        "en": "Press",
+        "fr": "Presse"
+      },
+      "participantes": {
+        "es": "Participantes",
+        "en": "Participants",
+        "fr": "Participants"
+      },
+      "logistica": {
+        "es": "Logística Internacional y Exportación",
+        "en": "International Logistics & Export",
+        "fr": "Logistique Internationale & Exportation"
+      },
+      "viajero": {
+        "es": "Servicios al Viajero",
+        "en": "Traveler Services",
+        "fr": "Services aux Voyageurs"
+      },
+      "contacto": {
+        "es": "Contacto",
+        "en": "Contact",
+        "fr": "Contact"
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "title": {
+        "es": "Expo México Mujer 2027",
+        "en": "Expo Mexico Mujer 2027",
+        "fr": "Expo Mexique Femme 2027"
+      },
+      "location": {
+        "es": "Toronto · Canadá",
+        "en": "Toronto · Canada",
+        "fr": "Toronto · Canada"
+      },
+      "dates": {
+        "es": "9–13 Junio 2027",
+        "en": "June 9–13, 2027",
+        "fr": "9–13 Juin 2027"
+      }
+    },
+    "countdown": {
+      "label": {
+        "es": "El evento comienza en",
+        "en": "Event begins in",
+        "fr": "L'événement commence dans"
+      },
+      "days": {
+        "es": "Días",
+        "en": "Days",
+        "fr": "Jours"
+      },
+      "hrs": {
+        "es": "Hrs",
+        "en": "Hrs",
+        "fr": "Hrs"
+      },
+      "min": {
+        "es": "Min",
+        "en": "Min",
+        "fr": "Min"
+      },
+      "seg": {
+        "es": "Seg",
+        "en": "Sec",
+        "fr": "Sec"
+      }
+    },
+    "concept": {
+      "title": {
+        "es": "Nuestra",
+        "en": "Our",
+        "fr": "Notre"
+      },
+      "titleEm": {
+        "es": "Misión",
+        "en": "Mission",
+        "fr": "Mission"
+      },
+      "p1": {
+        "es": "Expo México Mujer 2027 es una plataforma de encuentros internacionales que transforma el liderazgo mexicano en acciones concretas, creando oportunidades de desarrollo económico y fortaleciendo la identidad de México en el extranjero.",
+        "en": "Expo Mexico Mujer 2027 is a platform for international encounters that transforms Mexican leadership into concrete actions, creating economic development opportunities and strengthening Mexico's identity abroad.",
+        "fr": "Expo Mexique Femme 2027 est une plateforme de rencontres internationales qui transforme le leadership mexicain en actions concrètes, créant des opportunités de développement économique et renforçant l'identité du Mexique à l'étranger."
+      },
+      "p2": {
+        "es": "Nuestra misión es fortalecer los puentes comerciales, culturales y sociales entre México y Canadá, consolidando una comunidad binacional que impulse el crecimiento de empresas, productos y talentos mexicanos.",
+        "en": "Our mission is to strengthen commercial, cultural, and social bridges between Mexico and Canada, consolidating a binational community that drives the growth of Mexican businesses, products, and talents.",
+        "fr": "Notre mission est de renforcer les ponts commerciaux, culturels et sociaux entre le Mexique et le Canada, en consolidant une communauté binationale qui stimule la croissance des entreprises, produits et talents mexicains."
+      }
+    },
+    "audience": {
+      "title": {
+        "es": "Esto es para quienes",
+        "en": "This is for those who",
+        "fr": "C'est pour ceux qui"
+      },
+      "titleEm": {
+        "es": "construyen puentes",
+        "en": "build bridges",
+        "fr": "construisent des ponts"
+      },
+      "desc": {
+        "es": "Un espacio diseñado para que cada visitante encuentre su lugar en la expo y defina su rol en esta historia binacional.",
+        "en": "A space designed so each visitor finds their place at the expo and defines their role in this binational story.",
+        "fr": "Un espace conçu pour que chaque visiteur trouve sa place à l'expo et définisse son rôle dans cette histoire binationale."
+      },
+      "item1": {
+        "es": "Emprendedoras buscando expandirse a Canadá",
+        "en": "Entrepreneurs looking to expand to Canada",
+        "fr": "Entrepreneuses cherchant à s'étendre au Canada"
+      },
+      "item2": {
+        "es": "Empresas que quieren patrocinar con propósito",
+        "en": "Companies that want to sponsor with purpose",
+        "fr": "Entreprises qui veulent parrainer avec un but"
+      },
+      "item3": {
+        "es": "Expositoras y compradores binacionales",
+        "en": "Exhibitors and binational buyers",
+        "fr": "Exposantes et acheteurs binationales"
+      },
+      "item4": {
+        "es": "Medios, cámaras y aliados institucionales",
+        "en": "Media, chambers, and institutional allies",
+        "fr": "Médias, chambres et alliés institutionnels"
+      },
+      "quote": {
+        "es": "La expo necesita una presencia que se sienta institucional, contemporánea y lista para convertir liderazgo en legado.",
+        "en": "The expo needs a presence that feels institutional, contemporary, and ready to turn leadership into legacy.",
+        "fr": "L'expo a besoin d'une présence qui se sente institutionnelle, contemporaine et prête à convertir le leadership en héritage."
+      },
+      "quoteAttr": {
+        "es": "— Dirección creativa, EMM 2027",
+        "en": "— Creative Direction, EMM 2027",
+        "fr": "— Direction créative, EMM 2027"
+      }
+    },
+    "agenda": {
+      "title": {
+        "es": "Agenda Oficial",
+        "en": "Official Agenda",
+        "fr": "Agenda Officiel"
+      },
+      "titleEm": {
+        "es": "Impacto Binacional",
+        "en": "Binational Impact",
+        "fr": "Impact Binational"
+      },
+      "day1": {
+        "es": "Día 01",
+        "en": "Day 01",
+        "fr": "Jour 01"
+      },
+      "day1Title": {
+        "es": "Apertura y relaciones institucionales",
+        "en": "Opening & Institutional Relations",
+        "fr": "Ouverture & Relations Institutionnelles"
+      },
+      "day1Text": {
+        "es": "Bienvenida, presentación de visión binacional y encuentros con aliados estratégicos. Ceremonia inaugural.",
+        "en": "Welcome, binational vision presentation, and meetings with strategic allies. Opening ceremony.",
+        "fr": "Bienvenue, présentation de la vision binationale et rencontres avec des alliés stratégiques. Cérémonie d'inauguration."
+      },
+      "day2": {
+        "es": "Día 02",
+        "en": "Day 02",
+        "fr": "Jour 02"
+      },
+      "day2Title": {
+        "es": "Negocios, exportación y oportunidades",
+        "en": "Business, Export & Opportunities",
+        "fr": "Affaires, Exportation & Opportunités"
+      },
+      "day2Text": {
+        "es": "Paneles de exposición comercial, networking, ruedas de negocio y vitrinas sectoriales.",
+        "en": "Commercial exhibition panels, networking, business matchmaking, and sector showcases.",
+        "fr": "Panneaux d'exposition commerciale, réseautage, matchmaking d'affaires et vitrines sectorielles."
+      },
+      "day3": {
+        "es": "Día 03",
+        "en": "Day 03",
+        "fr": "Jour 03"
+      },
+      "day3Title": {
+        "es": "Marca, comunidad y prensa",
+        "en": "Brand, Community & Press",
+        "fr": "Marque, Communauté & Presse"
+      },
+      "day3Text": {
+        "es": "Activaciones de marca, contenido para medios, entrevistas en vivo y campañas de visibilidad social.",
+        "en": "Brand activations, media content, live interviews, and social visibility campaigns.",
+        "fr": "Activations de marque, contenu pour médias, interviews en direct et campagnes de visibilité sociale."
+      },
+      "day4": {
+        "es": "Día 04–05",
+        "en": "Day 04–05",
+        "fr": "Jour 04–05"
+      },
+      "day4Title": {
+        "es": "Cierre, seguimiento y expansión",
+        "en": "Closing, Follow-up & Expansion",
+        "fr": "Clôture, Suivi & Expansion"
+      },
+      "day4Text": {
+        "es": "Reuniones bilaterales, continuidad post evento, firma de acuerdos y nuevas rutas de colaboración.",
+        "en": "Bilateral meetings, post-event continuity, agreement signings, and new collaboration routes.",
+        "fr": "Réunions bilatérales, continuité post-événement, signature d'accords et nouvelles routes de collaboration."
+      }
+    },
+    "stmt": {
+      "location": {
+        "es": "Toronto · Canadá",
+        "en": "Toronto · Canada",
+        "fr": "Toronto · Canada"
+      },
+      "headline1": {
+        "es": "El liderazgo",
+        "en": "Mexican",
+        "fr": "Le leadership"
+      },
+      "headline2": {
+        "es": "mexicano",
+        "en": "leadership",
+        "fr": "mexicain"
+      },
+      "headline3Em": {
+        "es": "no tiene",
+        "en": "knows no",
+        "fr": "n'a pas de"
+      },
+      "headline4Em": {
+        "es": "fronteras",
+        "en": "borders",
+        "fr": "frontières"
+      },
+      "dateLabel": {
+        "es": "Fecha del evento",
+        "en": "Event date",
+        "fr": "Date de l'événement"
+      },
+      "dateMonth": {
+        "es": "Junio 2027",
+        "en": "June 2027",
+        "fr": "Juin 2027"
+      },
+      "cta": {
+        "es": "Reservar lugar",
+        "en": "Reserve your spot",
+        "fr": "Réserver une place"
+      },
+      "sub": {
+        "es": "5 días · Plataforma binacional",
+        "en": "5 days · Binational platform",
+        "fr": "5 jours · Plateforme binationale"
+      }
+    },
+    "pillars": {
+      "title": {
+        "es": "Nuestros Resultados",
+        "en": "Our Results",
+        "fr": "Nos Résultats"
+      },
+      "sub": {
+        "es": "Expo México Mujer 2026, Ottawa, Canadá.",
+        "en": "Expo Mexico Mujer 2026, Ottawa, Canada.",
+        "fr": "Expo Mexique Femme 2026, Ottawa, Canada."
+      }
+    },
+    "noticias": {
+      "title": {
+        "es": "Últimas",
+        "en": "Latest",
+        "fr": "Dernières"
+      },
+      "titleEm": {
+        "es": "noticias",
+        "en": "news",
+        "fr": "actualités"
+      },
+      "desc": {
+        "es": "Mantente al tanto de los avances, convocatorias y anuncios oficiales rumbo a Expo México Mujer.",
+        "en": "Stay up to date with the latest updates, calls, and official announcements heading into Expo Mexico Mujer.",
+        "fr": "Restez informé des avancées, appels et annonces officiels en route vers l'Expo Mexique Femme."
+      },
+      "featured": {
+        "es": "Destacado",
+        "en": "Featured",
+        "fr": "En vedette"
+      },
+      "verTodas": {
+        "es": "Ver todas las noticias",
+        "en": "See all news",
+        "fr": "Voir toutes les actualités"
+      }
+    }
+  },
+  "hero": {
+    "visa": {
+      "eyebrow": {
+        "es": "Expo México Mujer 2027",
+        "en": "Expo Mexico Mujer 2027",
+        "fr": "Expo Mexique Femme 2027"
+      },
+      "title": {
+        "es": "Servicios Migratorios",
+        "en": "Immigration Services",
+        "fr": "Services Migratoires"
+      },
+      "titleEm": {
+        "es": "Tu viaje a Canadá",
+        "en": "Your journey to Canada",
+        "fr": "Votre voyage au Canada"
+      },
+      "desc": {
+        "es": "Te brindamos asesoría integral y gestoría especializada para tramitar tu visa de ingreso a Canadá. Nos encargamos de la revisión y acompañamiento de tu expediente para asegurar tu presencia en Toronto de manera rápida y sin complicaciones.",
+        "en": "We provide comprehensive advice and specialized processing for your Canadian entry visa. We handle the review and follow-up of your application to ensure your presence in Toronto quickly and without complications.",
+        "fr": "Nous vous offrons des conseils complets et une gestion spécialisée pour traiter votre visa d'entrée au Canada. Nous nous occupons de la révision et du suivi de votre dossier pour assurer votre présence à Toronto rapidement et sans complications."
+      },
+      "cta1": {
+        "es": "Iniciar Asesoría",
+        "en": "Start Consultation",
+        "fr": "Commencer la Consultation"
+      },
+      "cta2": {
+        "es": "Requisitos",
+        "en": "Requirements",
+        "fr": "Conditions"
+      }
+    },
+    "nosotros": {
+      "eyebrow": {
+        "es": "Expo México Mujer 2027",
+        "en": "Expo Mexico Mujer 2027",
+        "fr": "Expo Mexique Femme 2027"
+      },
+      "title": {
+        "es": "Nosotros",
+        "en": "About Us",
+        "fr": "À Propos"
+      },
+      "titleEm": {
+        "es": "Nuestra historia",
+        "en": "Our story",
+        "fr": "Notre histoire"
+      },
+      "desc": {
+        "es": "Una plataforma binacional que nace con la convicción de que el liderazgo mexicano femenino merece un escenario global. Cinco días en Toronto que transforman identidad en oportunidad.",
+        "en": "A binational platform born from the conviction that Mexican women's leadership deserves a global stage. Five days in Toronto that transform identity into opportunity.",
+        "fr": "Une plateforme binationale née de la conviction que le leadership des femmes mexicaines mérite une scène mondiale. Cinq jours à Toronto qui transforment l'identité en opportunité."
+      },
+      "cta1": {
+        "es": "Conocer más",
+        "en": "Learn more",
+        "fr": "En savoir plus"
+      },
+      "cta2": {
+        "es": "Contáctanos",
+        "en": "Contact us",
+        "fr": "Nous contacter"
+      }
+    },
+    "contacto": {
+      "eyebrow": {
+        "es": "Atención Personalizada",
+        "en": "Personalized Attention",
+        "fr": "Attention Personnalisée"
+      },
+      "title": {
+        "es": "Conecta con",
+        "en": "Connect with",
+        "fr": "Connectez-vous avec"
+      },
+      "titleEm": {
+        "es": "los Directores",
+        "en": "the Directors",
+        "fr": "les Directeurs"
+      },
+      "desc": {
+        "es": "Resolución inmediata para patrocinios, espacios de exhibición y alianzas estratégicas para Expo México Mujer 2027.",
+        "en": "Immediate resolution for sponsorships, exhibition spaces, and strategic alliances for Expo Mexico Mujer 2027.",
+        "fr": "Résolution immédiate pour les parrainages, espaces d'exposition et alliances stratégiques pour l'Expo Mexique Femme 2027."
+      },
+      "cta1": {
+        "es": "Escribir",
+        "en": "Write to us",
+        "fr": "Écrire"
+      },
+      "cta2": {
+        "es": "Sede",
+        "en": "Venue",
+        "fr": "Lieu"
+      }
+    },
+    "queEs": {
+      "eyebrow": {
+        "es": "Identidad y Propósito",
+        "en": "Identity & Purpose",
+        "fr": "Identité & Objectif"
+      },
+      "title": {
+        "es": "¿Qué es",
+        "en": "What is",
+        "fr": "Qu'est-ce que"
+      },
+      "titleEm": {
+        "es": "Expo México Mujer?",
+        "en": "Expo Mexico Mujer?",
+        "fr": "l'Expo Mexique Femme?"
+      },
+      "desc": {
+        "es": "Descubre nuestra misión, visión y los objetivos binacionales estratégicos que consolidan la alianza comercial y cultural entre México y Canadá.",
+        "en": "Discover our mission, vision, and strategic binational objectives that consolidate the commercial and cultural alliance between Mexico and Canada.",
+        "fr": "Découvrez notre mission, vision et objectifs binationaux stratégiques qui consolident l'alliance commerciale et culturelle entre le Mexique et le Canada."
+      },
+      "cta1": {
+        "es": "Equipo Directivo",
+        "en": "Leadership Team",
+        "fr": "Équipe Dirigeante"
+      },
+      "cta2": {
+        "es": "Misión & Visión",
+        "en": "Mission & Vision",
+        "fr": "Mission & Vision"
+      }
+    },
+    "industrias": {
+      "eyebrow": {
+        "es": "Pabellones y Sectores",
+        "en": "Pavilions & Sectors",
+        "fr": "Pavillons & Secteurs"
+      },
+      "title": {
+        "es": "Industrias",
+        "en": "Participating",
+        "fr": "Industries"
+      },
+      "titleEm": {
+        "es": "Participantes",
+        "en": "Industries",
+        "fr": "Participantes"
+      },
+      "desc": {
+        "es": "Un recorrido completo por los 12 sectores comerciales clave que representan la innovación, calidad y tradición de México en Toronto.",
+        "en": "A complete tour of the 12 key commercial sectors representing Mexico's innovation, quality, and tradition in Toronto.",
+        "fr": "Un tour complet des 12 secteurs commerciaux clés qui représentent l'innovation, la qualité et la tradition du Mexique à Toronto."
+      },
+      "cta1": {
+        "es": "Ver Sectores",
+        "en": "View Sectors",
+        "fr": "Voir les Secteurs"
+      }
+    },
+    "ottawa2026": {
+      "eyebrow": {
+        "es": "Nuestra Trayectoria",
+        "en": "Our Track Record",
+        "fr": "Notre Parcours"
+      },
+      "title": {
+        "es": "Expo México Mujer",
+        "en": "Expo Mexico Mujer",
+        "fr": "Expo Mexique Femme"
+      },
+      "titleEm": {
+        "es": "Ottawa 2026",
+        "en": "Ottawa 2026",
+        "fr": "Ottawa 2026"
+      },
+      "desc": {
+        "es": "Revive los mejores momentos de nuestra edición anterior en la capital canadiense. Resultados históricos de vinculación comercial y cultural.",
+        "en": "Relive the best moments from our previous edition in the Canadian capital. Historic results in commercial and cultural networking.",
+        "fr": "Revivez les meilleurs moments de notre édition précédente dans la capitale canadienne. Résultats historiques de mise en réseau commerciale et culturelle."
+      },
+      "cta1": {
+        "es": "Ver Resultados",
+        "en": "View Results",
+        "fr": "Voir les Résultats"
+      },
+      "cta2": {
+        "es": "Galería & Videos",
+        "en": "Gallery & Videos",
+        "fr": "Galerie & Vidéos"
+      }
+    },
+    "expositores": {
+      "eyebrow": {
+        "es": "Participantes",
+        "en": "Participants",
+        "fr": "Participants"
+      },
+      "title": {
+        "es": "Expositoras",
+        "en": "Exhibitors",
+        "fr": "Exposantes"
+      },
+      "titleEm": {
+        "es": "Talento Mexicano",
+        "en": "Mexican Talent",
+        "fr": "Talent Mexicain"
+      },
+      "desc": {
+        "es": "Descubre a las mujeres líderes y empresarias que representarán a México en Toronto. Una muestra excepcional de innovación, cultura y calidad lista para conquistar el mercado canadiense.",
+        "en": "Discover the women leaders and entrepreneurs who will represent Mexico in Toronto. An exceptional showcase of innovation, culture, and quality ready to conquer the Canadian market.",
+        "fr": "Découvrez les femmes leaders et entrepreneures qui représenteront le Mexique à Toronto. Une vitrine exceptionnelle d'innovation, de culture et de qualité prête à conquérir le marché canadien."
+      },
+      "cta1": {
+        "es": "Ver Directorio",
+        "en": "View Directory",
+        "fr": "Voir le Répertoire"
+      },
+      "cta2": {
+        "es": "Participar",
+        "en": "Participate",
+        "fr": "Participer"
+      }
+    },
+    "embajadoras": {
+      "eyebrow": {
+        "es": "Participantes",
+        "en": "Participants",
+        "fr": "Participants"
+      },
+      "title": {
+        "es": "Embajadoras",
+        "en": "Ambassadors",
+        "fr": "Ambassadrices"
+      },
+      "titleEm": {
+        "es": "Voces de Inspiración",
+        "en": "Voices of Inspiration",
+        "fr": "Voix d'Inspiration"
+      },
+      "desc": {
+        "es": "Conoce a las embajadoras de Expo México Mujer. Mujeres excepcionales cuya trayectoria, liderazgo e influencia conectan fronteras y elevan el orgullo mexicano a nivel internacional.",
+        "en": "Meet the ambassadors of Expo Mexico Mujer. Exceptional women whose careers, leadership, and influence connect borders and elevate Mexican pride internationally.",
+        "fr": "Rencontrez les ambassadrices de l'Expo Mexique Femme. Des femmes exceptionnelles dont le parcours, le leadership et l'influence connectent les frontières et élèvent la fierté mexicaine au niveau international."
+      },
+      "cta1": {
+        "es": "Conocer Perfiles",
+        "en": "View Profiles",
+        "fr": "Voir les Profils"
+      },
+      "cta2": {
+        "es": "Participar",
+        "en": "Participate",
+        "fr": "Participer"
+      }
+    },
+    "participa": {
+      "eyebrow": {
+        "es": "Participa con Nosotros",
+        "en": "Join Us",
+        "fr": "Participez avec Nous"
+      },
+      "title": {
+        "es": "Únete a la",
+        "en": "Join the",
+        "fr": "Rejoignez la"
+      },
+      "titleEm": {
+        "es": "Delegación Binacional",
+        "en": "Binational Delegation",
+        "fr": "Délégation Binationale"
+      },
+      "desc": {
+        "es": "Forma parte activa del encuentro empresarial y cultural más relevante entre México y Canadá. Stands comerciales, convocatorias estatales, patrocinios premium y ruedas de negocios.",
+        "en": "Be an active part of the most relevant business and cultural encounter between Mexico and Canada. Commercial stands, state calls, premium sponsorships, and business roundtables.",
+        "fr": "Faites partie active de la rencontre commerciale et culturelle la plus pertinente entre le Mexique et le Canada. Stands commerciaux, appels d'offres étatiques, parrainages premium et tables rondes d'affaires."
+      },
+      "cta1": {
+        "es": "Quiero Participar",
+        "en": "I want to participate",
+        "fr": "Je veux participer"
+      },
+      "cta2": {
+        "es": "Patrocinios",
+        "en": "Sponsorships",
+        "fr": "Parrainages"
+      }
+    },
+    "aliados": {
+      "eyebrow": {
+        "es": "Nuestros Socios",
+        "en": "Our Partners",
+        "fr": "Nos Partenaires"
+      },
+      "title": {
+        "es": "Aliados &",
+        "en": "Partners &",
+        "fr": "Alliés &"
+      },
+      "titleEm": {
+        "es": "Organismos",
+        "en": "Organizations",
+        "fr": "Organisations"
+      },
+      "desc": {
+        "es": "Conoce a las cámaras binacionales, gobiernos e instituciones de México y Canadá que respaldan activamente a la Expo México Mujer.",
+        "en": "Meet the binational chambers, governments, and institutions from Mexico and Canada that actively support Expo Mexico Mujer.",
+        "fr": "Découvrez les chambres binationales, gouvernements et institutions du Mexique et du Canada qui soutiennent activement l'Expo Mexique Femme."
+      },
+      "cta1": {
+        "es": "Ver Cámaras",
+        "en": "View Chambers",
+        "fr": "Voir les Chambres"
+      }
+    },
+    "compradores": {
+      "eyebrow": {
+        "es": "Vinculación B2B",
+        "en": "B2B Networking",
+        "fr": "Réseautage B2B"
+      },
+      "title": {
+        "es": "Compradores &",
+        "en": "Buyers &",
+        "fr": "Acheteurs &"
+      },
+      "titleEm": {
+        "es": "Inversionistas",
+        "en": "Investors",
+        "fr": "Investisseurs"
+      },
+      "desc": {
+        "es": "Oportunidades únicas de vinculación comercial directa con marcas premium del talento y la cultura empresarial mexicana en Canadá.",
+        "en": "Unique opportunities for direct commercial networking with premium brands of Mexican talent and business culture in Canada.",
+        "fr": "Des opportunités uniques de mise en réseau commerciale directe avec des marques premium du talent et de la culture d'affaires mexicaine au Canada."
+      },
+      "cta1": {
+        "es": "Registro B2B",
+        "en": "B2B Registration",
+        "fr": "Inscription B2B"
+      }
+    },
+    "agenda": {
+      "eyebrow": {
+        "es": "Herramientas",
+        "en": "Tools",
+        "fr": "Outils"
+      },
+      "title": {
+        "es": "Programa",
+        "en": "Official",
+        "fr": "Agenda"
+      },
+      "titleEm": {
+        "es": "Agenda Oficial",
+        "en": "Agenda",
+        "fr": "Officiel"
+      },
+      "desc": {
+        "es": "Descubre los eventos, conferencias magistrales, paneles y actividades culturales que darán vida a los cinco días de Expo México Mujer 2027 en Toronto.",
+        "en": "Discover the events, keynote speeches, panels, and cultural activities that will bring the five days of Expo Mexico Mujer 2027 in Toronto to life.",
+        "fr": "Découvrez les événements, conférences principales, panels et activités culturelles qui donneront vie aux cinq jours de l'Expo Mexique Femme 2027 à Toronto."
+      },
+      "cta1": {
+        "es": "Descargar Agenda",
+        "en": "Download Agenda",
+        "fr": "Télécharger l'Agenda"
+      },
+      "cta2": {
+        "es": "Registrarse",
+        "en": "Register",
+        "fr": "S'inscrire"
+      }
+    },
+    "summit": {
+      "eyebrow": {
+        "es": "Summit Binacional de Alto Nivel",
+        "en": "High-Level Binational Summit",
+        "fr": "Sommet Binationale de Haut Niveau"
+      },
+      "title": {
+        "es": "México Ontario",
+        "en": "Mexico Ontario",
+        "fr": "Mexico Ontario"
+      },
+      "titleEm": {
+        "es": "Business Summit",
+        "en": "Business Summit",
+        "fr": "Business Summit"
+      },
+      "desc": {
+        "es": "El encuentro estratégico diseñado para consolidar acuerdos comerciales, fomentar inversiones mutuas y tender puentes operativos directos entre la delegación de empresarias mexicanas y los líderes corporativos de Ontario.",
+        "en": "The strategic encounter designed to consolidate commercial agreements, foster mutual investments, and build direct operational bridges between the Mexican businesswomen delegation and Ontario's corporate leaders.",
+        "fr": "La rencontre stratégique conçue pour consolider les accords commerciaux, encourager les investissements mutuels et établir des ponts opérationnels directs entre la délégation d'entrepreneures mexicaines et les dirigeants corporatifs de l'Ontario."
+      },
+      "cta1": {
+        "es": "Ver Agenda",
+        "en": "View Agenda",
+        "fr": "Voir l'Agenda"
+      }
+    },
+    "fashionshow": {
+      "eyebrow": {
+        "es": "Celebración de Arte y Textil",
+        "en": "Art & Textile Celebration",
+        "fr": "Célébration de l'Art et du Textile"
+      },
+      "title": {
+        "es": "Mexican Fashion",
+        "en": "Mexican Fashion",
+        "fr": "Mexican Fashion"
+      },
+      "titleEm": {
+        "es": "Gala Show",
+        "en": "Gala Show",
+        "fr": "Gala Show"
+      },
+      "desc": {
+        "es": "Una noche excepcional donde la riqueza textil y artesanal de México converge con las pasarelas globales en Toronto, mostrando el talento de diseñadoras independientes a distribuidores y medios canadienses.",
+        "en": "An exceptional night where Mexico's textile and artisanal richness converges with global runways in Toronto, showcasing the talent of independent designers to Canadian distributors and media.",
+        "fr": "Une soirée exceptionnelle où la richesse textile et artisanale du Mexique converge avec les défilés mondiaux à Toronto, mettant en valeur le talent de créatrices indépendantes auprès de distributeurs et médias canadiens."
+      },
+      "cta1": {
+        "es": "Ver Programa",
+        "en": "View Program",
+        "fr": "Voir le Programme"
+      }
+    },
+    "womenleaders": {
+      "eyebrow": {
+        "es": "Empoderamiento y Alta Dirección",
+        "en": "Empowerment & Executive Leadership",
+        "fr": "Autonomisation et Haute Direction"
+      },
+      "title": {
+        "es": "Women Leaders",
+        "en": "Women Leaders",
+        "fr": "Women Leaders"
+      },
+      "titleEm": {
+        "es": "Forum",
+        "en": "Forum",
+        "fr": "Forum"
+      },
+      "desc": {
+        "es": "Un espacio intelectual e interactivo para debatir, compartir y asentar directrices sobre el papel fundamental del liderazgo femenino y el crecimiento corporativo global en la relación bilateral México-Canadá.",
+        "en": "An intellectual and interactive space to debate, share, and establish guidelines on the fundamental role of women's leadership and global corporate growth in the Mexico-Canada bilateral relationship.",
+        "fr": "Un espace intellectuel et interactif pour débattre, partager et établir des directives sur le rôle fondamental du leadership féminin et de la croissance corporative mondiale dans la relation bilatérale Mexique-Canada."
+      },
+      "cta1": {
+        "es": "Ver Programa",
+        "en": "View Program",
+        "fr": "Voir le Programme"
+      }
+    },
+    "mision": {
+      "eyebrow": {
+        "es": "Expansión y Delegaciones",
+        "en": "Expansion & Delegations",
+        "fr": "Expansion & Délégations"
+      },
+      "title": {
+        "es": "Misión Comercial",
+        "en": "Trade Mission",
+        "fr": "Mission Commerciale"
+      },
+      "titleEm": {
+        "es": "Montreal",
+        "en": "Montreal",
+        "fr": "Montréal"
+      },
+      "desc": {
+        "es": "Exploración de mercados directos en la provincia de Quebec. La delegación empresarial viaja para analizar canales locales y concretar encuentros de negocios previos a la exhibición central en Toronto.",
+        "en": "Direct market exploration in the province of Quebec. The business delegation travels to analyze local channels and establish business meetings prior to the central exhibition in Toronto.",
+        "fr": "Exploration directe des marchés dans la province de Québec. La délégation d'affaires voyage pour analyser les canaux locaux et concrétiser des rencontres d'affaires avant l'exposition centrale à Toronto."
+      },
+      "cta1": {
+        "es": "Ver Itinerario",
+        "en": "View Itinerary",
+        "fr": "Voir l'Itinéraire"
+      }
+    },
+    "academy": {
+      "eyebrow": {
+        "es": "Herramientas",
+        "en": "Tools",
+        "fr": "Outils"
+      },
+      "title": {
+        "es": "Academy",
+        "en": "Academy",
+        "fr": "Academy"
+      },
+      "titleEm": {
+        "es": "Formación y Liderazgo",
+        "en": "Training & Leadership",
+        "fr": "Formation & Leadership"
+      },
+      "desc": {
+        "es": "Potencia tus habilidades y conocimientos con nuestro programa educativo. Sesiones exclusivas diseñadas para impulsar el crecimiento de mujeres emprendedoras en el mercado global.",
+        "en": "Boost your skills and knowledge with our educational program. Exclusive sessions designed to drive the growth of women entrepreneurs in the global market.",
+        "fr": "Boostez vos compétences et connaissances avec notre programme éducatif. Sessions exclusives conçues pour favoriser la croissance des femmes entrepreneures sur le marché mondial."
+      },
+      "cta1": {
+        "es": "Explorar Cursos",
+        "en": "Explore Courses",
+        "fr": "Explorer les Cours"
+      },
+      "cta2": {
+        "es": "Inscripciones",
+        "en": "Enrollment",
+        "fr": "Inscriptions"
+      }
+    },
+    "informacion": {
+      "eyebrow": {
+        "es": "Recursos & Servicios",
+        "en": "Resources & Services",
+        "fr": "Ressources & Services"
+      },
+      "title": {
+        "es": "Guía de",
+        "en": "Participant",
+        "fr": "Guide des"
+      },
+      "titleEm": {
+        "es": "Participantes",
+        "en": "Guide",
+        "fr": "Participants"
+      },
+      "desc": {
+        "es": "Encuentra el manual técnico de montaje, herramientas de exportación y logística, tarifas con hoteles sede y canales de contacto directo.",
+        "en": "Find the technical assembly manual, export and logistics tools, hotel rates, and direct contact channels.",
+        "fr": "Trouvez le manuel technique de montage, les outils d'exportation et de logistique, les tarifs des hôtels et les canaux de contact directs."
+      },
+      "cta1": {
+        "es": "Manual del Expositor",
+        "en": "Exhibitor Manual",
+        "fr": "Manuel de l'Exposant"
+      },
+      "cta2": {
+        "es": "Logística",
+        "en": "Logistics",
+        "fr": "Logistique"
+      }
+    },
+    "prensa": {
+      "eyebrow": {
+        "es": "Sala de Prensa",
+        "en": "Press Room",
+        "fr": "Salle de Presse"
+      },
+      "title": {
+        "es": "Cobertura &",
+        "en": "Coverage &",
+        "fr": "Couverture &"
+      },
+      "titleEm": {
+        "es": "Comunicados",
+        "en": "Press Releases",
+        "fr": "Communiqués"
+      },
+      "desc": {
+        "es": "Accede a comunicados de prensa, cobertura de medios, entrevistas de la delegación y galería fotográfica de la Expo México Mujer.",
+        "en": "Access press releases, media coverage, delegation interviews, and the Expo Mexico Mujer photo gallery.",
+        "fr": "Accédez aux communiqués de presse, couverture médiatique, entrevues de la délégation et galerie photos de l'Expo Mexique Femme."
+      },
+      "cta1": {
+        "es": "Ver Comunicados",
+        "en": "View Releases",
+        "fr": "Voir les Communiqués"
+      },
+      "cta2": {
+        "es": "Multimedia",
+        "en": "Multimedia",
+        "fr": "Multimédia"
+      }
+    },
+    "participantes": {
+      "eyebrow": {
+        "es": "Delegación de Expositores",
+        "en": "Exhibitor Delegation",
+        "fr": "Délégation d'Exposants"
+      },
+      "title": {
+        "es": "Manual del",
+        "en": "Exhibitor",
+        "fr": "Manuel de"
+      },
+      "titleEm": {
+        "es": "Expositor",
+        "en": "Manual",
+        "fr": "l'Exposant"
+      },
+      "desc": {
+        "es": "Instrucciones técnicas de montaje, requerimientos de stands, reglamentos generales y respuestas a preguntas frecuentes.",
+        "en": "Technical assembly instructions, booth requirements, general regulations, and frequently asked questions.",
+        "fr": "Instructions techniques de montage, exigences de stands, règlements généraux et réponses aux questions fréquentes."
+      },
+      "cta1": {
+        "es": "Manual Técnico",
+        "en": "Technical Manual",
+        "fr": "Manuel Technique"
+      },
+      "cta2": {
+        "es": "Preguntas Frecuentes",
+        "en": "FAQ",
+        "fr": "FAQ"
+      }
+    },
+    "logistica": {
+      "eyebrow": {
+        "es": "Comercio Binacional",
+        "en": "Binational Trade",
+        "fr": "Commerce Binationale"
+      },
+      "title": {
+        "es": "Logística Internacional",
+        "en": "International Logistics",
+        "fr": "Logistique Internationale"
+      },
+      "titleEm": {
+        "es": "& Exportación",
+        "en": "& Export",
+        "fr": "& Exportation"
+      },
+      "desc": {
+        "es": "Pautas operativas para importaciones temporales y definitivas, consolidación de mercancía y servicios aduanales México-Canadá.",
+        "en": "Operational guidelines for temporary and permanent imports, merchandise consolidation, and Mexico-Canada customs services.",
+        "fr": "Directives opérationnelles pour les importations temporaires et définitives, la consolidation de marchandises et les services douaniers Mexique-Canada."
+      },
+      "cta1": {
+        "es": "Asesoría Aduanal",
+        "en": "Customs Advisory",
+        "fr": "Conseil en Douane"
+      },
+      "cta2": {
+        "es": "Socios Logísticos",
+        "en": "Logistics Partners",
+        "fr": "Partenaires Logistiques"
+      }
+    },
+    "viajero": {
+      "eyebrow": {
+        "es": "Soporte y Estadía",
+        "en": "Support & Accommodation",
+        "fr": "Support & Hébergement"
+      },
+      "title": {
+        "es": "Servicios al",
+        "en": "Traveler",
+        "fr": "Services aux"
+      },
+      "titleEm": {
+        "es": "Viajero",
+        "en": "Services",
+        "fr": "Voyageurs"
+      },
+      "desc": {
+        "es": "Tarifas preferentes de hospedaje, información de vuelos recomendados y guías operativas de transporte local en Toronto.",
+        "en": "Preferential hotel rates, recommended flight information, and operational guides for local transportation in Toronto.",
+        "fr": "Tarifs préférentiels d'hébergement, informations de vols recommandés et guides opérationnels de transport local à Toronto."
+      },
+      "cta1": {
+        "es": "Hoteles Sede",
+        "en": "Host Hotels",
+        "fr": "Hôtels Partenaires"
+      },
+      "cta2": {
+        "es": "Vuelos y Traslado",
+        "en": "Flights & Transfers",
+        "fr": "Vols & Transferts"
+      }
+    },
+    "contactoInfo": {
+      "eyebrow": {
+        "es": "Atención Directa",
+        "en": "Direct Attention",
+        "fr": "Attention Directe"
+      },
+      "title": {
+        "es": "Contacto",
+        "en": "Contact",
+        "fr": "Contact"
+      },
+      "desc": {
+        "es": "Dirección de la sede, tarjetas de presentación digital de nuestros directores y formulario de atención directa.",
+        "en": "Venue address, digital business cards of our directors, and direct attention form.",
+        "fr": "Adresse du lieu, cartes de visite numériques de nos directeurs et formulaire d'attention directe."
+      },
+      "cta1": {
+        "es": "Formulario",
+        "en": "Form",
+        "fr": "Formulaire"
+      },
+      "cta2": {
+        "es": "Business Cards",
+        "en": "Business Cards",
+        "fr": "Cartes de Visite"
+      }
+    },
+    "noticias": {
+      "eyebrow": {
+        "es": "Herramientas",
+        "en": "Tools",
+        "fr": "Outils"
+      },
+      "title": {
+        "es": "Noticias",
+        "en": "Latest",
+        "fr": "Dernières"
+      },
+      "titleEm": {
+        "es": "Actualidad y Tendencias",
+        "en": "News & Trends",
+        "fr": "Actualités & Tendances"
+      },
+      "desc": {
+        "es": "Mantente al tanto de las últimas novedades, anuncios oficiales y artículos destacados sobre Expo México Mujer y el empoderamiento femenino.",
+        "en": "Stay up to date with the latest news, official announcements, and featured articles about Expo Mexico Mujer and women's empowerment.",
+        "fr": "Restez informé des dernières nouvelles, annonces officielles et articles en vedette sur l'Expo Mexique Femme et l'autonomisation des femmes."
+      },
+      "cta1": {
+        "es": "Leer Artículos",
+        "en": "Read Articles",
+        "fr": "Lire les Articles"
+      },
+      "cta2": {
+        "es": "Suscribirse",
+        "en": "Subscribe",
+        "fr": "S'abonner"
+      }
+    },
+    "patrocinadores": {
+      "eyebrow": {
+        "es": "Socios Comerciales",
+        "en": "Commercial Partners",
+        "fr": "Partenaires Commerciaux"
+      },
+      "title": {
+        "es": "Patrocinadores",
+        "en": "Sponsors &",
+        "fr": "Sponsors &"
+      },
+      "titleEm": {
+        "es": "& Marcas Aliadas",
+        "en": "Allied Brands",
+        "fr": "Marques Alliées"
+      },
+      "desc": {
+        "es": "Conoce a las empresas y corporativos que hacen posible Expo México Mujer, impulsando el desarrollo comercial y el liderazgo femenino entre México y Canadá.",
+        "en": "Meet the companies and corporations that make Expo Mexico Mujer possible, driving commercial development and women's leadership between Mexico and Canada.",
+        "fr": "Découvrez les entreprises et corporations qui rendent possible l'Expo Mexique Femme, stimulant le développement commercial et le leadership féminin entre le Mexique et le Canada."
+      },
+      "cta1": {
+        "es": "Nuestros Aliados",
+        "en": "Our Allies",
+        "fr": "Nos Alliés"
+      },
+      "cta2": {
+        "es": "Ser Patrocinador",
+        "en": "Become a Sponsor",
+        "fr": "Devenir Sponsor"
+      }
+    },
+    "invitados": {
+      "eyebrow": {
+        "es": "Personalidades",
+        "en": "Personalities",
+        "fr": "Personnalités"
+      },
+      "title": {
+        "es": "Invitados",
+        "en": "Special",
+        "fr": "Invités"
+      },
+      "titleEm": {
+        "es": "Especiales",
+        "en": "Guests",
+        "fr": "Spéciaux"
+      },
+      "desc": {
+        "es": "Figuras destacadas del ámbito empresarial, político y cultural que enriquecen nuestro programa con su visión y experiencia internacional.",
+        "en": "Distinguished figures from the business, political, and cultural fields who enrich our program with their vision and international experience.",
+        "fr": "Personnalités distinguées du monde des affaires, politique et culturel qui enrichissent notre programme avec leur vision et expérience internationale."
+      },
+      "cta1": {
+        "es": "Ver Perfiles",
+        "en": "View Profiles",
+        "fr": "Voir les Profils"
+      }
+    }
+  },
+  "cta": {
+    "title": {
+      "es": "¿Lista para ser parte de",
+      "en": "Ready to be part of",
+      "fr": "Prête à faire partie de"
+    },
+    "titleEm": {
+      "es": "esta edición?",
+      "en": "this edition?",
+      "fr": "cette édition?"
+    },
+    "email": {
+      "es": "Escribir por correo",
+      "en": "Send us an email",
+      "fr": "Envoyez-nous un email"
+    },
+    "whatsapp": {
+      "es": "Abrir WhatsApp",
+      "en": "Open WhatsApp",
+      "fr": "Ouvrir WhatsApp"
+    }
+  },
+  "footer": {
+    "brandDesc": {
+      "es": "La plataforma binacional líder de vinculación, cultura y desarrollo comercial entre México y Canadá.",
+      "en": "The leading binational platform for networking, culture, and commercial development between Mexico and Canada.",
+      "fr": "La plateforme binationale leader de mise en réseau, culture et développement commercial entre le Mexique et le Canada."
+    },
+    "contacto": {
+      "es": "Contacto",
+      "en": "Contact",
+      "fr": "Contact"
+    },
+    "reservar": {
+      "es": "Reservar Lugar",
+      "en": "Reserve a Spot",
+      "fr": "Réserver une Place"
+    },
+    "derechos": {
+      "es": "Todos los derechos reservados © 2027 Expo México Mujer.",
+      "en": "All rights reserved © 2027 Expo Mexico Mujer.",
+      "fr": "Tous droits réservés © 2027 Expo Mexique Femme."
+    },
+    "desarrollado": {
+      "es": "Desarrollado por Gadiel Palma",
+      "en": "Developed by Gadiel Palma",
+      "fr": "Développé par Gadiel Palma"
+    },
+    "privacidad": {
+      "es": "Privacidad",
+      "en": "Privacy",
+      "fr": "Confidentialité"
+    },
+    "terminos": {
+      "es": "Términos",
+      "en": "Terms",
+      "fr": "Conditions"
+    }
+  },
+  "wa": {
+    "chat": {
+      "title": {
+        "es": "EXPO MEXICO MUJER 2027",
+        "en": "EXPO MEXICO MUJER 2027",
+        "fr": "EXPO MEXICO MUJER 2027"
+      },
+      "typing": {
+        "es": "escribiendo...",
+        "en": "typing...",
+        "fr": "écriture..."
+      },
+      "online": {
+        "es": "en línea",
+        "en": "online",
+        "fr": "en ligne"
+      },
+      "closeChat": {
+        "es": "Cerrar chat",
+        "en": "Close chat",
+        "fr": "Fermer le chat"
+      },
+      "today": {
+        "es": "Hoy",
+        "en": "Today",
+        "fr": "Aujourd'hui"
+      },
+      "greeting": {
+        "es": "¡Hola! 👋",
+        "en": "Hello! 👋",
+        "fr": "Bonjour! 👋"
+      },
+      "placeholder": {
+        "es": "Escribe un mensaje...",
+        "en": "Type a message...",
+        "fr": "Écrivez un message..."
+      },
+      "sendLabel": {
+        "es": "Enviar mensaje a WhatsApp",
+        "en": "Send message to WhatsApp",
+        "fr": "Envoyer un message à WhatsApp"
+      },
+      "openChat": {
+        "es": "Abrir chat",
+        "en": "Open chat",
+        "fr": "Ouvrir le chat"
+      },
+      "startChat": {
+        "es": "Iniciar chat en WhatsApp",
+        "en": "Start chat on WhatsApp",
+        "fr": "Démarrer un chat sur WhatsApp"
+      }
+    },
+    "bot": {
+      "default": {
+        "es": "Bienvenida a Expo México Mujer 2027. ¿En qué podemos ayudarte a impulsar tu negocio hoy?",
+        "en": "Welcome to Expo Mexico Mujer 2027. How can we help you grow your business today?",
+        "fr": "Bienvenue à l'Expo Mexique Femme 2027. Comment pouvons-nous vous aider à développer votre entreprise aujourd'hui?"
+      },
+      "expositores": {
+        "es": "Bienvenida a Expo México Mujer 2027. ¿Te interesa asegurar tu lugar como expositora y llegar a más clientes?",
+        "en": "Welcome to Expo Mexico Mujer 2027. Are you interested in securing your spot as an exhibitor and reaching more clients?",
+        "fr": "Bienvenue à l'Expo Mexique Femme 2027. Souhaitez-vous sécuriser votre place en tant qu'exposante et toucher plus de clients?"
+      },
+      "embajadoras": {
+        "es": "Bienvenida al programa de Embajadoras EMM. ¿Lista para liderar y representar a tu estado?",
+        "en": "Welcome to the EMM Ambassadors program. Ready to lead and represent your state?",
+        "fr": "Bienvenue dans le programme des Ambassadrices EMM. Prête à diriger et représenter votre état?"
+      },
+      "patrocinadores": {
+        "es": "Bienvenido a Expo México Mujer 2027. ¿Deseas potenciar tu marca con nuestros planes de patrocinio?",
+        "en": "Welcome to Expo Mexico Mujer 2027. Would you like to boost your brand with our sponsorship plans?",
+        "fr": "Bienvenue à l'Expo Mexique Femme 2027. Souhaitez-vous renforcer votre marque avec nos plans de parrainage?"
+      },
+      "invitados": {
+        "es": "Bienvenido a Expo México Mujer 2027. ¿Tienes dudas sobre nuestros invitados especiales?",
+        "en": "Welcome to Expo Mexico Mujer 2027. Do you have questions about our special guests?",
+        "fr": "Bienvenue à l'Expo Mexique Femme 2027. Avez-vous des questions sur nos invités spéciaux?"
+      },
+      "agenda": {
+        "es": "La Agenda EMM 2027 está llena de conferencias y networking. ¿Qué información buscas?",
+        "en": "The EMM 2027 Agenda is packed with conferences and networking. What information are you looking for?",
+        "fr": "L'Agenda EMM 2027 est rempli de conférences et de réseautage. Quelle information recherchez-vous?"
+      },
+      "academy": {
+        "es": "Bienvenida a EMM Academy. ¿Lista para capacitarte y crecer tu negocio?",
+        "en": "Welcome to EMM Academy. Ready to train and grow your business?",
+        "fr": "Bienvenue à l'EMM Academy. Prête à vous former et à développer votre entreprise?"
+      },
+      "visa": {
+        "es": "Sabemos que viajar a Canadá requiere preparación. ¿Tienes dudas sobre el trámite de tu eTA o Visa?",
+        "en": "We know that traveling to Canada requires preparation. Do you have questions about your eTA or Visa process?",
+        "fr": "Nous savons que voyager au Canada nécessite une préparation. Avez-vous des questions sur votre processus de eTA ou de visa?"
+      },
+      "contacto": {
+        "es": "Estás en nuestra área de contacto. ¿Cómo podemos asistirte el día de hoy?",
+        "en": "You're in our contact area. How can we assist you today?",
+        "fr": "Vous êtes dans notre zone de contact. Comment pouvons-nous vous aider aujourd'hui?"
+      }
+    },
+    "user": {
+      "default": {
+        "es": "Hola, me gustaría obtener información sobre la Expo México Mujer 2027.",
+        "en": "Hello, I would like to get information about Expo Mexico Mujer 2027.",
+        "fr": "Bonjour, j'aimerais obtenir des informations sur l'Expo Mexique Femme 2027."
+      },
+      "expositores": {
+        "es": "Hola, me gustaría recibir el dossier e información para participar como expositora.",
+        "en": "Hello, I would like to receive the dossier and information to participate as an exhibitor.",
+        "fr": "Bonjour, j'aimerais recevoir le dossier et les informations pour participer en tant qu'exposante."
+      },
+      "embajadoras": {
+        "es": "Hola, me gustaría postularme o recibir más información sobre el programa de Embajadoras.",
+        "en": "Hello, I would like to apply or get more information about the Ambassadors program.",
+        "fr": "Bonjour, j'aimerais postuler ou obtenir plus d'informations sur le programme des Ambassadrices."
+      },
+      "patrocinadores": {
+        "es": "Hola, me gustaría conocer las opciones comerciales y de patrocinio para el evento.",
+        "en": "Hello, I would like to learn about the commercial and sponsorship options for the event.",
+        "fr": "Bonjour, j'aimerais connaître les options commerciales et de parrainage pour l'événement."
+      },
+      "invitados": {
+        "es": "Hola, me gustaría obtener más detalles sobre los invitados especiales de la Expo.",
+        "en": "Hello, I would like to get more details about the special guests at the Expo.",
+        "fr": "Bonjour, j'aimerais obtenir plus de détails sur les invités spéciaux de l'Expo."
+      },
+      "agenda": {
+        "es": "Hola, me gustaría obtener más información sobre la agenda y el programa de actividades.",
+        "en": "Hello, I would like to get more information about the agenda and activity program.",
+        "fr": "Bonjour, j'aimerais obtenir plus d'informations sur l'agenda et le programme d'activités."
+      },
+      "academy": {
+        "es": "Hola, me interesa conocer más sobre los talleres y capacitaciones de EMM Academy.",
+        "en": "Hello, I'm interested in learning more about the workshops and training at EMM Academy.",
+        "fr": "Bonjour, je suis intéressée par les ateliers et formations de l'EMM Academy."
+      },
+      "visa": {
+        "es": "Hola, necesito asesoría sobre los trámites migratorios (Visa/eTA) para asistir a la Expo.",
+        "en": "Hello, I need advice on immigration procedures (Visa/eTA) to attend the Expo.",
+        "fr": "Bonjour, j'ai besoin de conseils sur les procédures d'immigration (Visa/eTA) pour assister à l'Expo."
+      },
+      "contacto": {
+        "es": "Hola, tengo una consulta general sobre la Expo México Mujer 2027.",
+        "en": "Hello, I have a general inquiry about Expo Mexico Mujer 2027.",
+        "fr": "Bonjour, j'ai une demande générale concernant l'Expo Mexique Femme 2027."
+      }
+    }
+  },
+  "pages": {
+    "prensa": {
+      "srOnly": {
+        "es": "Prensa",
+        "en": "Press",
+        "fr": "Presse"
+      },
+      "comunicadosTitle": {
+        "es": "Comunicados Oficiales",
+        "en": "",
+        "fr": ""
+      },
+      "entrevistasTitle": {
+        "es": "Entrevistas Destacadas",
+        "en": "",
+        "fr": ""
+      },
+      "galeriaTitle": {
+        "es": "Kit de Prensa & Galería Multimedia",
+        "en": "",
+        "fr": ""
+      },
+      "galeriaDesc": {
+        "es": "Ponemos a disposición de medios de comunicación, periodistas e instituciones el kit oficial de prensa que incluye logotipos en alta resolución, perfiles biográficos del equipo directivo y fotografías autorizadas del evento Ottawa 2026.",
+        "en": "",
+        "fr": ""
+      },
+      "galeriaBtn": {
+        "es": "Descargar Kit de Prensa",
+        "en": "",
+        "fr": ""
+      },
+      "carpetaLabel": {
+        "es": "Carpeta Fotográfica",
+        "en": "",
+        "fr": ""
+      },
+      "carpetaSubtitle": {
+        "es": "Imágenes de Ottawa 2026",
+        "en": "",
+        "fr": ""
+      },
+      "leerMas": {
+        "es": "Leer más",
+        "en": "",
+        "fr": ""
+      },
+      "mockPressReleases": {
+        "es": [
+          {
+            "date": "10 de Junio, 2026",
+            "title": "Expo México Mujer anuncia oficialmente su próxima sede en Toronto para el 2027",
+            "category": "Comunicado Oficial",
+            "desc": "Tras el contundente impacto de Ottawa, la directiva confirma la alianza con la Cámara de Comercio de Ontario para el montaje comercial de 2027."
+          },
+          {
+            "date": "28 de Mayo, 2026",
+            "title": "Inauguración estelar de la Expo México Mujer en el Ottawa Convention Centre",
+            "category": "Comunicado de Prensa",
+            "desc": "Con presencia consular y delegadas empresariales de todo México, se inaugura formalmente el evento binacional más relevante del año."
+          }
+        ],
+        "en": "",
+        "fr": ""
+      },
+      "mockInterviews": {
+        "es": [
+          {
+            "person": "Francisco Solorio",
+            "role": "Director General EMM",
+            "media": "Canadá Business Daily",
+            "quote": "La vinculación binacional es más que tratados; se trata de tender puentes directos y reales entre marcas mexicanas y canales de retail en Canadá."
+          },
+          {
+            "person": "María López",
+            "role": "Fundadora de Mujeres en STEM",
+            "media": "Televisión Consular",
+            "quote": "Llevar software y talento tecnológico en manos de mexicanas a corporativos canadienses rompe paradigmas en la industria norteamericana."
+          }
+        ],
+        "en": "",
+        "fr": ""
+      }
+    },
+    "viajero": {
+      "srOnly": {
+        "es": "Servicios al Viajero",
+        "en": "Traveler Services",
+        "fr": "Services aux Voyageurs"
+      },
+      "hospedajeTitle": {
+        "es": "Hospedaje & Hoteles Sede",
+        "en": "",
+        "fr": ""
+      },
+      "vuelosTitle": {
+        "es": "Vuelos y Traslado Aéreo",
+        "en": "",
+        "fr": ""
+      },
+      "vuelosDesc": {
+        "es": "Contamos con códigos promocionales oficiales de descuento en aerolíneas aliadas (Air Canada y Aeroméxico) aplicables para traslados directos hacia el Aeropuerto Internacional de Toronto Pearson (YYZ).",
+        "en": "",
+        "fr": ""
+      },
+      "vueloDesc1": {
+        "es": "Descuentos de hasta un 15% en vuelos de tarifa business y turista.",
+        "en": "",
+        "fr": ""
+      },
+      "vueloDesc2": {
+        "es": "Soporte directo para la emisión de boletos grupales corporativos.",
+        "en": "",
+        "fr": ""
+      },
+      "transporteTitle": {
+        "es": "Transporte Local en Toronto",
+        "en": "",
+        "fr": ""
+      },
+      "upExpressTitle": {
+        "es": "UP Express (Tren del Aeropuerto)",
+        "en": "",
+        "fr": ""
+      },
+      "upExpressDesc": {
+        "es": "Conecta Pearson (YYZ) con Union Station en solo 25 minutos. Salidas cada 15 minutos.",
+        "en": "",
+        "fr": ""
+      },
+      "ttcTitle": {
+        "es": "Red TTC (Metro y Tranvía)",
+        "en": "",
+        "fr": ""
+      },
+      "ttcDesc": {
+        "es": "Sistema de tránsito integrado de la ciudad que conecta de forma rápida hoteles con todas las sedes.",
+        "en": "",
+        "fr": ""
+      },
+      "reservarTarifa": {
+        "es": "Reservar tarifa",
+        "en": "",
+        "fr": ""
+      },
+      "mockHotels": {
+        "es": [
+          {
+            "name": "The Westin Harbour Castle",
+            "stars": "4.5★",
+            "desc": "Hotel sede oficial ubicado a pasos del lago Ontario. Cuenta con tarifas preferenciales exclusivas para expositoras de la delegación de EMM.",
+            "rate": "Desde $240 CAD / noche"
+          },
+          {
+            "name": "Sheraton Centre Toronto",
+            "stars": "4.0★",
+            "desc": "Ubicación céntrica en el corazón financiero de Toronto. Conexión directa al PATH y fácil acceso en transporte público a las sedes del evento.",
+            "rate": "Desde $195 CAD / noche"
+          }
+        ],
+        "en": "",
+        "fr": ""
+      }
+    },
+    "participantes": {
+      "srOnly": {
+        "es": "Participantes",
+        "en": "Participants",
+        "fr": "Participants"
+      },
+      "manualTitle": {
+        "es": "Manual Técnico del Expositor",
+        "en": "",
+        "fr": ""
+      },
+      "manualDesc": {
+        "es": "Accede al documento oficial que contiene toda la normativa y logística técnica para el montaje en la sede de Toronto. Incluye horarios de carga y descarga, especificaciones eléctricas, dimensiones de los stands y reglamentos de seguridad.",
+        "en": "",
+        "fr": ""
+      },
+      "descargarManual": {
+        "es": "Descargar Manual (PDF)",
+        "en": "",
+        "fr": ""
+      },
+      "especificacionesTitle": {
+        "es": "Especificaciones de Stands",
+        "en": "",
+        "fr": ""
+      },
+      "standStandard": {
+        "es": "Stand Standard: 3m x 2m con panel divisor y rotulación frontal.",
+        "en": "",
+        "fr": ""
+      },
+      "mobiliarioIncluido": {
+        "es": "Mobiliario Incluido: 1 mesa con mantel, 2 sillas y conexión eléctrica.",
+        "en": "",
+        "fr": ""
+      },
+      "serviciosAdicionales": {
+        "es": "Servicios Adicionales: Internet de alta velocidad y almacén compartido.",
+        "en": "",
+        "fr": ""
+      },
+      "requisitosTitle": {
+        "es": "Requisitos de Participación",
+        "en": "",
+        "fr": ""
+      },
+      "docComercialTitle": {
+        "es": "Documentación Comercial",
+        "en": "",
+        "fr": ""
+      },
+      "docComercialDesc": {
+        "es": "Contar con registro fiscal (RFC), marca registrada y ficha técnica de exportación de los productos a exhibir en la sede.",
+        "en": "",
+        "fr": ""
+      },
+      "estatusMigratorioTitle": {
+        "es": "Estatus Migratorio",
+        "en": "",
+        "fr": ""
+      },
+      "estatusMigratorioDesc": {
+        "es": "Pasaporte con vigencia mínima de 6 meses y visa canadiense / eTA autorizada. EMM ofrece cartas oficiales de invitación para expositoras registradas.",
+        "en": "",
+        "fr": ""
+      },
+      "certSanitariaTitle": {
+        "es": "Certificación Sanitaria",
+        "en": "",
+        "fr": ""
+      },
+      "certSanitariaDesc": {
+        "es": "En el sector de alimentos o salud y cosmética, se requiere cumplir con las directivas de etiquetado y sanidad de Health Canada.",
+        "en": "",
+        "fr": ""
+      },
+      "faqTitle": {
+        "es": "Preguntas Frecuentes",
+        "en": "",
+        "fr": ""
+      },
+      "faq1Q": {
+        "es": "¿El costo del stand incluye traslado de mercancía?",
+        "en": "",
+        "fr": ""
+      },
+      "faq1A": {
+        "es": "No, el costo del stand cubre únicamente el espacio de exhibición y el mobiliario básico. La transportación aduanal corre por cuenta de cada expositora, sin embargo, el equipo logístico de EMM brinda tarifas consolidadas preferentes con nuestro socio transportista oficial.",
+        "en": "",
+        "fr": ""
+      },
+      "faq2Q": {
+        "es": "¿Cómo puedo obtener una carta de invitación para mi visa?",
+        "en": "",
+        "fr": ""
+      },
+      "faq2A": {
+        "es": "Una vez realizado el depósito de confirmación de tu stand, el comité organizador expedirá una carta oficial membretada que incluye los detalles del evento, avalada para presentarse ante el consulado canadiense correspondiente.",
+        "en": "",
+        "fr": ""
+      },
+      "faq3Q": {
+        "es": "¿Qué sucede si mis productos requieren refrigeración?",
+        "en": "",
+        "fr": ""
+      },
+      "faq3A": {
+        "es": "Debes notificarlo con al menos 60 días de anticipación al correo de logística (luis.garcia@expomexico.ca) para cotizar el suministro eléctrico dedicado y el arrendamiento de vitrinas o congeladores en la sede.",
+        "en": "",
+        "fr": ""
+      }
+    },
+    "logistica": {
+      "srOnly": {
+        "es": "Logística",
+        "en": "Logistics",
+        "fr": "Logistique"
+      },
+      "esquemasTitle": {
+        "es": "Esquemas de Exportación",
+        "en": "",
+        "fr": ""
+      },
+      "esquemasDesc": {
+        "es": "Para el ingreso de tus productos de exhibición a territorio canadiense, el comité organizador de Expo México Mujer ofrece asesoría y acompañamiento técnico en dos esquemas comerciales principales.",
+        "en": "",
+        "fr": ""
+      },
+      "importante": {
+        "es": "Importante:",
+        "en": "",
+        "fr": ""
+      },
+      "importanteDesc": {
+        "es": "Los trámites aduanales deben iniciarse al menos con 90 días de anticipación para evitar demoras en aduana fronteriza.",
+        "en": "",
+        "fr": ""
+      },
+      "expTemporalTitle": {
+        "es": "Exportación Temporal",
+        "en": "",
+        "fr": ""
+      },
+      "expTemporalDesc": {
+        "es": "Ideal para muestras de exhibición, mobiliario de stand o piezas de pasarela que regresarán a México después del evento. Exento del pago de aranceles bajo el cuaderno ATA o fianza aduanal temporal.",
+        "en": "",
+        "fr": ""
+      },
+      "expDefinitivaTitle": {
+        "es": "Exportación Definitiva",
+        "en": "",
+        "fr": ""
+      },
+      "expDefinitivaDesc": {
+        "es": "Recomendado para productos destinados a la venta directa en el evento, muestras de degustación consumibles o inventario vendido previamente a importadores canadienses. Sujeto a impuestos e importación formal canadiense.",
+        "en": "",
+        "fr": ""
+      },
+      "asesoriaTitle": {
+        "es": "Asesoría & Soluciones de Transporte",
+        "en": "",
+        "fr": ""
+      },
+      "consolidacionTitle": {
+        "es": "Consolidación de Carga",
+        "en": "",
+        "fr": ""
+      },
+      "consolidacionDesc": {
+        "es": "Ofrecemos recolección de mercancías en hubs estratégicos (CDMX, Guadalajara y Monterrey) para realizar un embarque consolidated terrestre o aéreo hacia Toronto con tarifas preferenciales.",
+        "en": "",
+        "fr": ""
+      },
+      "brokerageTitle": {
+        "es": "Brokerage Aduanal",
+        "en": "",
+        "fr": ""
+      },
+      "brokerageDesc": {
+        "es": "Coordinación integral con agencias aduanales en frontera (Laredo) y en las aduanas de Canadá para agilizar la clasificación arancelaria y la liberación de embarques comerciales.",
+        "en": "",
+        "fr": ""
+      },
+      "entregaTitle": {
+        "es": "Servicio de Entrega Final",
+        "en": "",
+        "fr": ""
+      },
+      "entregaDesc": {
+        "es": "Recepción de mercancía en el warehouse de Toronto previo al evento, custodia asegurada y entrega directa de cajas en el stand asignado a cada delegada expositora.",
+        "en": "",
+        "fr": ""
+      }
+    },
+    "expositores": {
+      "cargandoDirectorio": {
+        "es": "Cargando directorio...",
+        "en": "",
+        "fr": ""
+      },
+      "buscarMarca": {
+        "es": "Buscar marca o expositora...",
+        "en": "",
+        "fr": ""
+      },
+      "marcasEn": {
+        "es": "Marcas en",
+        "en": "",
+        "fr": ""
+      },
+      "agendarCita": {
+        "es": "Agendar Cita Presencial",
+        "en": "",
+        "fr": ""
+      },
+      "verMapa": {
+        "es": "Ver en Mapa",
+        "en": "",
+        "fr": ""
+      },
+      "noExpositoras": {
+        "es": "No se encontraron expositoras",
+        "en": "",
+        "fr": ""
+      },
+      "pruebaOtra": {
+        "es": "Prueba con otra marca o nombre de expositora.",
+        "en": "",
+        "fr": ""
+      },
+      "citaPresencial": {
+        "es": "Cita Presencial",
+        "en": "",
+        "fr": ""
+      },
+      "por": {
+        "es": "por",
+        "en": "",
+        "fr": ""
+      },
+      "standLabel": {
+        "es": "Stand",
+        "en": "",
+        "fr": ""
+      },
+      "eventoLabel": {
+        "es": "Evento",
+        "en": "",
+        "fr": ""
+      },
+      "eventoVal": {
+        "es": "Expo México Mujer 2027",
+        "en": "",
+        "fr": ""
+      },
+      "duracionLabel": {
+        "es": "Duración",
+        "en": "",
+        "fr": ""
+      },
+      "duracionVal": {
+        "es": "30 minutos",
+        "en": "",
+        "fr": ""
+      },
+      "citaConfirmada": {
+        "es": "¡Cita Confirmada!",
+        "en": "",
+        "fr": ""
+      },
+      "citaConfirmadaDesc1": {
+        "es": "Nos vemos el",
+        "en": "",
+        "fr": ""
+      },
+      "citaConfirmadaDesc2": {
+        "es": "de Junio",
+        "en": "",
+        "fr": ""
+      },
+      "citaConfirmadaDesc3": {
+        "es": "Te enviamos la confirmación a",
+        "en": "",
+        "fr": ""
+      },
+      "cerrar": {
+        "es": "Cerrar",
+        "en": "",
+        "fr": ""
+      },
+      "reservaTuLugar": {
+        "es": "Reserva tu lugar",
+        "en": "",
+        "fr": ""
+      },
+      "eligeFechaYHora": {
+        "es": "Elige fecha y hora",
+        "en": "",
+        "fr": ""
+      },
+      "horarioDisponible": {
+        "es": "Horario disponible",
+        "en": "",
+        "fr": ""
+      },
+      "tusDatos": {
+        "es": "Tus datos",
+        "en": "",
+        "fr": ""
+      },
+      "nombreCompleto": {
+        "es": "Nombre completo",
+        "en": "",
+        "fr": ""
+      },
+      "correo": {
+        "es": "Correo",
+        "en": "",
+        "fr": ""
+      },
+      "whatsappLabel": {
+        "es": "WhatsApp",
+        "en": "",
+        "fr": ""
+      },
+      "placeholderNombre": {
+        "es": "Ej. Laura González",
+        "en": "",
+        "fr": ""
+      },
+      "placeholderCorreo": {
+        "es": "correo@ejemplo.com",
+        "en": "",
+        "fr": ""
+      },
+      "placeholderWhatsapp": {
+        "es": "+52 55 1234 5678",
+        "en": "",
+        "fr": ""
+      },
+      "confirmarCita": {
+        "es": "Confirmar Cita Presencial",
+        "en": "",
+        "fr": ""
+      },
+      "completaCampos": {
+        "es": "Por favor completa todos los campos.",
+        "en": "",
+        "fr": ""
+      },
+      "ubicacionStand": {
+        "es": "Ubicación del Stand",
+        "en": "",
+        "fr": ""
+      },
+      "planoInteractivo": {
+        "es": "Plano interactivo cargando...",
+        "en": "",
+        "fr": ""
+      },
+      "descubreTalento": {
+        "es": "Descubre el talento por Categoría de Negocio",
+        "en": "",
+        "fr": ""
+      },
+      "descubreTalentoDesc": {
+        "es": "Explora las marcas, productos y servicios que las mujeres emprendedoras de México traen a Toronto. Haz clic en una categoría para ver su directorio.",
+        "en": "",
+        "fr": ""
+      },
+      "infraestructuraPremium": {
+        "es": "Infraestructura Premium",
+        "en": "",
+        "fr": ""
+      },
+      "standsYEspacios": {
+        "es": "Stands y Espacios de Exhibición",
+        "en": "",
+        "fr": ""
+      },
+      "standsDesc": {
+        "es": "Diseñamos cada espacio para proyectar la máxima presencia corporativa. Nuestros stands de 3x3 y 2x2 metros están completamente equipados con rotulación oficial de la marca, iluminación LED direccional y conexiones eléctricas de 110v listas para usar en el centro de convenciones de Toronto.",
+        "en": "",
+        "fr": ""
+      },
+      "montajeCompleto": {
+        "es": "Montaje Completo",
+        "en": "",
+        "fr": ""
+      },
+      "centroConvenciones": {
+        "es": "Centro de Convenciones",
+        "en": "",
+        "fr": ""
+      },
+      "torontoCanada2027": {
+        "es": "Toronto, Canadá 2027",
+        "en": "",
+        "fr": ""
+      },
+      "retornoInversion": {
+        "es": "Retorno de Inversión",
+        "en": "",
+        "fr": ""
+      },
+      "beneficiosClave": {
+        "es": "Beneficios Clave de tu Participación",
+        "en": "",
+        "fr": ""
+      },
+      "directorioExpositoras": {
+        "es": "Directorio de Expositoras",
+        "en": "",
+        "fr": ""
+      },
+      "directorioExpositorasDesc": {
+        "es": "Presencia destacada en el catálogo oficial para compradores y distribuidores en Norteamérica.",
+        "en": "",
+        "fr": ""
+      },
+      "campanasDifusion": {
+        "es": "Campañas de Difusión",
+        "en": "",
+        "fr": ""
+      },
+      "campanasDifusionDesc": {
+        "es": "Aparece en comunicados de prensa binacionales, redes sociales oficiales y cobertura de prensa local.",
+        "en": "",
+        "fr": ""
+      },
+      "ruedasNegocioB2B": {
+        "es": "Ruedas de Negocio B2B",
+        "en": "",
+        "fr": ""
+      },
+      "ruedasNegocioDesc": {
+        "es": "Agendamiento inteligente de citas uno a uno basado en intereses y perfiles de compradores.",
+        "en": "",
+        "fr": ""
+      },
+      "buscarCategoria": {
+        "es": "Buscar categoría...",
+        "en": "",
+        "fr": ""
+      },
+      "registroOficial": {
+        "es": "Registro Oficial de Expositoras",
+        "en": "",
+        "fr": ""
+      },
+      "registroDesc": {
+        "es": "Completa el formulario de inscripción oficial para solicitar tu stand de exhibición en Expo México Mujer Toronto.",
+        "en": "",
+        "fr": ""
+      }
+    },
+    "embajadoras": {
+      "cargandoEmbajadoras": {
+        "es": "Cargando embajadoras...",
+        "en": "",
+        "fr": ""
+      },
+      "buscarEmbajadora": {
+        "es": "Buscar embajadora...",
+        "en": "",
+        "fr": ""
+      },
+      "embajadorasDe": {
+        "es": "Embajadoras de",
+        "en": "",
+        "fr": ""
+      },
+      "noHayEmbajadoras": {
+        "es": "No hay embajadoras registradas",
+        "en": "",
+        "fr": ""
+      },
+      "proximamente": {
+        "es": "Próximamente se anunciará el directorio completo de embajadoras de",
+        "en": "",
+        "fr": ""
+      },
+      "verUbicacion": {
+        "es": "Ver Ubicación",
+        "en": "",
+        "fr": ""
+      },
+      "ubicacion": {
+        "es": "Ubicación",
+        "en": "",
+        "fr": ""
+      },
+      "planoInteractivo": {
+        "es": "Plano interactivo cargando...",
+        "en": "",
+        "fr": ""
+      },
+      "embajadorasConvocatoria": {
+        "es": "Embajadoras de Expo México Mujer",
+        "en": "",
+        "fr": ""
+      },
+      "busquedaDesc": {
+        "es": "Buscamos líderes empresariales, gestoras culturales y emprendedoras con visión global en cada estado de la República Mexicana para ser las portavoces del talento de sus regiones en Toronto, Canadá.",
+        "en": "",
+        "fr": ""
+      },
+      "requisitos": {
+        "es": "Requisitos",
+        "en": "",
+        "fr": ""
+      },
+      "req1": {
+        "es": "Liderazgo y propuesta activa",
+        "en": "",
+        "fr": ""
+      },
+      "req2": {
+        "es": "Proyecto con identidad regional",
+        "en": "",
+        "fr": ""
+      },
+      "req3": {
+        "es": "Documentación de viaje vigente",
+        "en": "",
+        "fr": ""
+      },
+      "fechasClave": {
+        "es": "Fechas Clave",
+        "en": "",
+        "fr": ""
+      },
+      "aperturaLabel": {
+        "es": "Apertura:",
+        "en": "",
+        "fr": ""
+      },
+      "aperturaVal": {
+        "es": "Mayo 2026",
+        "en": "",
+        "fr": ""
+      },
+      "cierreLabel": {
+        "es": "Cierre:",
+        "en": "",
+        "fr": ""
+      },
+      "cierreVal": {
+        "es": "Septiembre 2026",
+        "en": "",
+        "fr": ""
+      },
+      "resultadosLabel": {
+        "es": "Resultados:",
+        "en": "",
+        "fr": ""
+      },
+      "resultadosVal": {
+        "es": "Octubre 2026",
+        "en": "",
+        "fr": ""
+      },
+      "conexionBinacional": {
+        "es": "Conexión Binacional",
+        "en": "",
+        "fr": ""
+      },
+      "representacionOficial": {
+        "es": "Representación Oficial 2027",
+        "en": "",
+        "fr": ""
+      },
+      "conoceEmbajadoras": {
+        "es": "Conoce a nuestras Embajadoras de México",
+        "en": "",
+        "fr": ""
+      },
+      "conoceEmbajadorasDesc": {
+        "es": "Las Embajadoras de Expo México Mujer son líderes comprometidas con el desarrollo económico y social de sus comunidades. Selecciona un estado para conocerlas.",
+        "en": "",
+        "fr": ""
+      },
+      "buscarEstado": {
+        "es": "Buscar estado...",
+        "en": "",
+        "fr": ""
+      },
+      "registroEmbajadoras": {
+        "es": "Registro Oficial de Embajadoras",
+        "en": "",
+        "fr": ""
+      },
+      "registroEmbajadorasDesc": {
+        "es": "Completa el formulario de postulación oficial para solicitar ser la embajadora representante de tu estado en Expo México Mujer Toronto.",
+        "en": "",
+        "fr": ""
+      }
+    },
+    "compradores": {
+      "vinculacionB2B": {
+        "es": "Vinculación Comercial B2B",
+        "en": "",
+        "fr": ""
+      },
+      "compradoresTitle": {
+        "es": "Compradores e Inversionistas",
+        "en": "",
+        "fr": ""
+      },
+      "compradoresDesc": {
+        "es": "El puente directo para importadores, distribuidores y compradores corporativos en Canadá interesados en adquirir productos mexicanos de la más alta calidad y establecer alianzas de inversión.",
+        "en": "",
+        "fr": ""
+      },
+      "ruedaNegocios": {
+        "es": "Rueda de Negocios Vinculación Efectiva",
+        "en": {
+          "title": "Business Roundtables",
+          "title2": "Effective Linkage",
+          "desc": "Through our linkage program, we organize customized B2B agendas. Canadian buyers can pre-select exhibitors based on their industry, export capacity, and certifications, optimizing meetings in Toronto to the fullest.",
+          "perfilamiento": {
+            "title": "Smart Profiling",
+            "desc": "We filter proposals from businesswomen to ensure alignment with your purchasing lines."
+          },
+          "agenda": {
+            "title": "Strategic Agenda",
+            "desc": "Structured one-on-one meetings of 20 minutes scheduled weeks before the event."
+          },
+          "proyeccion": {
+            "title": "International Reach",
+            "desc": "We facilitate sample shipping logistics and follow-up commercial support."
+          },
+          "ruedaLabel": "Business Roundtables",
+          "ontarioSummit": "Ontario Business Summit 2027"
+        },
+        "fr": ""
+      },
+      "ruedaDesc": {
+        "es": "A través del programa de vinculación, organizamos agendas personalizadas B2B. Los compradores canadienses pueden pre-seleccionar a las expositoras según su industria, capacidad exportadora y certificaciones, optimizando al máximo los encuentros en Toronto.",
+        "en": "",
+        "fr": ""
+      },
+      "perfilamiento": {
+        "es": "Perfilamiento Inteligente",
+        "en": "",
+        "fr": ""
+      },
+      "perfilamientoDesc": {
+        "es": "Filtramos las propuestas de las empresarias para asegurar el encaje con sus líneas de compra.",
+        "en": "",
+        "fr": ""
+      },
+      "agendaEstrategica": {
+        "es": "Agenda Estratégica",
+        "en": "",
+        "fr": ""
+      },
+      "agendaEstrategicaDesc": {
+        "es": "Citas estructuradas uno a uno de 20 minutos programadas semanas antes del evento.",
+        "en": "",
+        "fr": ""
+      },
+      "proyeccionInt": {
+        "es": "Proyección Internacional",
+        "en": "",
+        "fr": ""
+      },
+      "proyeccionDesc": {
+        "es": "Facilitamos la logística de envío de muestras y seguimiento comercial posterior.",
+        "en": "",
+        "fr": ""
+      },
+      "ruedaDeNegocios": {
+        "es": "Rueda de Negocios",
+        "en": "",
+        "fr": ""
+      },
+      "ontarioBusinessSummit": {
+        "es": "Ontario Business Summit 2027",
+        "en": "",
+        "fr": ""
+      },
+      "directorioDigital": {
+        "es": "Directorio Digital de Compradores",
+        "en": "",
+        "fr": ""
+      },
+      "buscarEmpresa": {
+        "es": "Buscar por empresa o sector...",
+        "en": "",
+        "fr": ""
+      },
+      "verPerfil": {
+        "es": "Ver perfil completo",
+        "en": "",
+        "fr": ""
+      },
+      "noCorporaciones": {
+        "es": "No se encontraron corporaciones compradoras.",
+        "en": "",
+        "fr": ""
+      },
+      "registroCompradores": {
+        "es": "Registro Oficial de Compradores",
+        "en": "",
+        "fr": ""
+      },
+      "registroCompradoresDesc": {
+        "es": "Completa el formulario oficial de inscripción para compradores corporativos e inversionistas canadienses.",
+        "en": "",
+        "fr": ""
+      }
+    },
+    "participa": {
+      "participacionComercial": {
+        "es": "Participación Comercial",
+        "en": "",
+        "fr": ""
+      },
+      "expositorasTitle": {
+        "es": "Expositoras",
+        "en": "",
+        "fr": ""
+      },
+      "standsTitle": {
+        "es": "Stands y Espacios",
+        "en": "",
+        "fr": ""
+      },
+      "standsDesc": {
+        "es": "Disponemos de espacios de exhibición premium diseñados para maximizar la visibilidad de tu marca y productos en el centro de convenciones de Toronto.",
+        "en": "",
+        "fr": ""
+      },
+      "standsItems": {
+        "es": [
+          "Stands de 3x3 y 2x2 metros completamente equipados.",
+          "Montaje premium con iluminación y rotulación personalizada.",
+          "Zonas de B2B y áreas de networking exclusivas."
+        ],
+        "en": "",
+        "fr": ""
+      },
+      "beneficiosPartTitle": {
+        "es": "Beneficios de Participación",
+        "en": "",
+        "fr": ""
+      },
+      "beneficiosPartDesc": {
+        "es": "Posiciona tu negocio a nivel internacional e interactúa directamente con importadores, distribuidores y el público general canadiense.",
+        "en": "",
+        "fr": ""
+      },
+      "beneficiosPartItems": {
+        "es": [
+          "Acceso directo al Directorio Digital oficial de expositoras.",
+          "Presencia en medios de prensa y campañas publicitarias.",
+          "Agendamiento previo de citas de negocios (Matchmaking)."
+        ],
+        "en": "",
+        "fr": ""
+      },
+      "registroExpositoras": {
+        "es": "Registro Oficial de Expositoras",
+        "en": "",
+        "fr": ""
+      },
+      "verDirectorio": {
+        "es": "Ver Directorio Digital",
+        "en": "",
+        "fr": ""
+      },
+      "alianzasCorporativas": {
+        "es": "Alianzas Corporativas",
+        "en": "",
+        "fr": ""
+      },
+      "patrocinadoresTitle": {
+        "es": "Patrocinadores",
+        "en": "",
+        "fr": ""
+      },
+      "categoriasPatrocinio": {
+        "es": "Categorías de Patrocinio",
+        "en": "",
+        "fr": ""
+      },
+      "categoriasPatrocinioDesc": {
+        "es": "Ofrecemos distintas modalidades de vinculación comercial para adaptarnos al tamaño e impacto de tu corporación: Platino, Oro, Plata y Bronce, además de patrocinios especiales en áreas temáticas específicas como gastronomía, moda o tecnología.",
+        "en": "",
+        "fr": ""
+      },
+      "beneficiosPatrocinio": {
+        "es": "Beneficios de Patrocinio",
+        "en": "",
+        "fr": ""
+      },
+      "beneficiosPatrocinioDesc": {
+        "es": "Los patrocinadores oficiales reciben una exposición de marca inigualable en todas las plataformas digitales, físicas, impresas y espacios VIP del evento, sumado a oportunidades directas de vinculación con delegaciones empresariales de alto nivel.",
+        "en": "",
+        "fr": ""
+      },
+      "liderazgoTerritorial": {
+        "es": "Liderazgo Territorial",
+        "en": "",
+        "fr": ""
+      },
+      "embajadorasEMM": {
+        "es": "Embajadoras Expo México Mujer",
+        "en": "",
+        "fr": ""
+      },
+      "convocatoriaNacional": {
+        "es": "Convocatoria Nacional",
+        "en": "",
+        "fr": ""
+      },
+      "convocatoriaNacionalDesc": {
+        "es": "Buscamos a mujeres líderes en cada rincón del país que deseen representar los valores de innovación, cultura y esfuerzo de la mujer mexicana en Canadá.",
+        "en": "",
+        "fr": ""
+      },
+      "representacionEstatal": {
+        "es": "Representación Estatal",
+        "en": "",
+        "fr": ""
+      },
+      "representacionEstatalDesc": {
+        "es": "Las embajadoras coordinan la participación territorial de sus estados, llevando muestras artesanales, gastronómicas e industriales representativas del interior de la república.",
+        "en": "",
+        "fr": ""
+      },
+      "registroAspirantes": {
+        "es": "Registro de Aspirantes",
+        "en": "",
+        "fr": ""
+      },
+      "registroAspirantesDesc": {
+        "es": "Si deseas postularte o proponer a una líder de tu comunidad, completa nuestro formulario oficial para ser evaluada por el comité directivo.",
+        "en": "",
+        "fr": ""
+      },
+      "nuestrosAliados": {
+        "es": "Nuestros Aliados",
+        "en": "",
+        "fr": ""
+      },
+      "aliadosEstrategicos": {
+        "es": "Aliados Estratégicos",
+        "en": "",
+        "fr": ""
+      },
+      "aliadosEstrategicosDesc": {
+        "es": "Empresas y agencias de desarrollo que co-crean valor y sustentan la estructura del evento.",
+        "en": "",
+        "fr": ""
+      },
+      "aliadosInstitucionales": {
+        "es": "Aliados Institucionales",
+        "en": "",
+        "fr": ""
+      },
+      "aliadosInstitucionalesDesc": {
+        "es": "Gobiernos estatales, embajadas y consulados de ambos países respaldando las operaciones.",
+        "en": "",
+        "fr": ""
+      },
+      "camarasEmpresariales": {
+        "es": "Cámaras Empresariales",
+        "en": "",
+        "fr": ""
+      },
+      "camarasDesc": {
+        "es": "Cámaras binacionales y asociaciones de comercio que promueven los intercambios comerciales.",
+        "en": "",
+        "fr": ""
+      },
+      "ponentesLideres": {
+        "es": "Ponentes y Líderes",
+        "en": "",
+        "fr": ""
+      },
+      "invitadosTitle": {
+        "es": "Invitados Especiales",
+        "en": "",
+        "fr": ""
+      },
+      "invitadosDesc": {
+        "es": "Nuestra agenda se nutre con la experiencia de líderes empresariales sobresalientes, conferencistas inspiradoras y personalidades influyentes en el ámbito del comercio internacional y el empoderamiento femenino de Canadá y Latinoamérica.",
+        "en": "",
+        "fr": ""
+      },
+      "vinculacionB2BInv": {
+        "es": "Vinculación B2B",
+        "en": "",
+        "fr": ""
+      },
+      "compradoresTitleInv": {
+        "es": "Compradores e Inversionistas",
+        "en": "",
+        "fr": ""
+      },
+      "compradoresDescInv": {
+        "es": "Si eres distribuidor, comprador corporativo o inversionista en Canadá y deseas contactar con productos premium mexicanos, este es tu espacio de vinculación.",
+        "en": "",
+        "fr": ""
+      },
+      "registroCompradoresInv": {
+        "es": "Registro de Compradores",
+        "en": "",
+        "fr": ""
+      },
+      "registroCompradoresDescInv": {
+        "es": "Obtén credenciales VIP y accede a las agendas exclusivas de citas de negocios uno a uno durante el evento.",
+        "en": "",
+        "fr": ""
+      },
+      "directorioCompradoresInv": {
+        "es": "Directorio de Compradores",
+        "en": "",
+        "fr": ""
+      },
+      "directorioCompradoresDescInv": {
+        "es": "Directorio dinámico que facilita a las marcas identificar y conectar con perfiles de interés comercial.",
+        "en": "",
+        "fr": ""
+      },
+      "vinculacionEmpresarialInv": {
+        "es": "Vinculación Empresarial",
+        "en": "",
+        "fr": ""
+      },
+      "vinculacionEmpresarialDescInv": {
+        "es": "Mesas redondas de negociación sectoriales guiadas por mentores comerciales certificados.",
+        "en": "",
+        "fr": ""
+      }
+    },
+    "aliados": {
+      "vinculacionInstitucional": {
+        "es": "Vinculación Institucional",
+        "en": "",
+        "fr": ""
+      },
+      "aliadosTitle": {
+        "es": "Aliados Estratégicos & Cámaras",
+        "en": "",
+        "fr": ""
+      },
+      "aliadosDesc": {
+        "es": "Expo México Mujer cuenta con el respaldo y vinculación activa de organismos gubernamentales, cámaras de comercio binacionales y asociaciones empresariales comprometidas con la integración económica y el liderazgo femenino.",
+        "en": "",
+        "fr": ""
+      },
+      "aliadosEstTitle": {
+        "es": "Aliados Estratégicos",
+        "en": "",
+        "fr": ""
+      },
+      "aliadosEstDesc": {
+        "es": "Empresas líderes del sector privado nacional e internacional que aportan innovación, recursos y soporte operativo clave para materializar la visión binacional del evento.",
+        "en": "",
+        "fr": ""
+      },
+      "aliadosInstTitle": {
+        "es": "Aliados Institucionales",
+        "en": "",
+        "fr": ""
+      },
+      "aliadosInstDesc": {
+        "es": "Entidades gubernamentales, consulados y embajadas de México y Canadá que brindan respaldo oficial, legitimidad y acompañamiento político en todos los intercambios.",
+        "en": "",
+        "fr": ""
+      },
+      "camarasEmpTitle": {
+        "es": "Cámaras Empresariales",
+        "en": "",
+        "fr": ""
+      },
+      "camarasEmpDesc": {
+        "es": "Organizaciones e intermediarios de negocios (como COMCE, cámaras hispanas y asociaciones locales de Ontario) que catalizan las ruedas de negocios y el networking comercial.",
+        "en": "",
+        "fr": ""
+      },
+      "aliadosOficiales": {
+        "es": "Aliados Oficiales",
+        "en": "Official Partners",
+        "fr": ""
+      },
+      "aliadosOficialesDesc": {
+        "es": "Vinculación activa con organismos institucionales y cámaras comerciales.",
+        "en": "Active linkage with institutional organizations and commercial chambers.",
+        "fr": ""
+      },
+      "aliado1": {
+        "es": "Consulado General de México en Toronto",
+        "en": "",
+        "fr": {
+          "title": "Partenaires Stratégiques",
+          "desc": "Entreprises leaders du secteur privé national et international qui apportent innovation, ressources et support opérationnel clé pour matérialiser la vision binationale de l'événement."
+        }
+      },
+      "aliado2": {
+        "es": "Embajada de México en Canadá",
+        "en": "",
+        "fr": {
+          "title": "Partenaires Institutionnels",
+          "desc": "Entités gouvernementales, consulats et ambassades du Mexique et du Canada qui offrent un soutien officiel, une légitimité et un accompagnement politique dans tous les échanges."
+        }
+      },
+      "aliado3": {
+        "es": "Cámara de Comercio de Canadá en México",
+        "en": "",
+        "fr": {
+          "title": "Chambres d'Affaires",
+          "desc": "Organisations et intermédiaires commerciaux (comme le COMCE, les chambres hispaniques et les associations locales de l'Ontario) qui catalysent les tables rondes et le réseautage commercial."
+        }
+      },
+      "aliado4": {
+        "es": "COMCE",
+        "en": "",
+        "fr": ""
+      },
+      "aliado5": {
+        "es": "Ontario Chamber of Commerce",
+        "en": "",
+        "fr": ""
+      },
+      "aliado6": {
+        "es": "Government of Ontario",
+        "en": "",
+        "fr": ""
+      },
+      "aliado7": {
+        "es": "Quebec International",
+        "en": "",
+        "fr": ""
+      },
+      "aliado8": {
+        "es": "WBE Canada",
+        "en": "",
+        "fr": ""
+      },
+      "aliado9": {
+        "es": "Mexican Chamber of Commerce in Canada",
+        "en": "",
+        "fr": ""
+      }
+    },
+    "nosotros": {
+      "missionVisionTitle": {
+        "es": "México en el mundo, con todo su poder",
+        "en": "",
+        "fr": ""
+      },
+      "misionLabel": {
+        "es": "Misión",
+        "en": "",
+        "fr": ""
+      },
+      "misionTitle": {
+        "es": "Conectar el talento mexicano con el mundo",
+        "en": "",
+        "fr": ""
+      },
+      "misionText": {
+        "es": "Consolidar la proyección internacional de México a través de una plataforma que conecta el talento, la cultura y los productos mexicanos con oportunidades concretas en Canadá, impulsando el desarrollo económico y fortaleciendo la identidad nacional en el extranjero.",
+        "en": "",
+        "fr": ""
+      },
+      "visionLabel": {
+        "es": "Visión",
+        "en": "",
+        "fr": ""
+      },
+      "visionTitle": {
+        "es": "Ser el referente binacional del liderazgo femenino",
+        "en": "",
+        "fr": ""
+      },
+      "visionText": {
+        "es": "Ser el referente binacional más importante para el liderazgo femenino mexicano, creando un ecosistema de negocios, cultura y comunidad que trascienda generaciones y fronteras.",
+        "en": "",
+        "fr": ""
+      },
+      "statsLocation": {
+        "es": "Toronto · Canadá",
+        "en": "",
+        "fr": ""
+      },
+      "statsHeadline": {
+        "es": "El liderazgo mexicano no tiene fronteras",
+        "en": "",
+        "fr": ""
+      },
+      "statsAsistentesLabel": {
+        "es": "Asistentes Proyectados",
+        "en": "",
+        "fr": ""
+      },
+      "statsAsistentesDesc": {
+        "es": "Mujeres líderes, ejecutivas y emprendedoras de alto impacto.",
+        "en": "",
+        "fr": ""
+      },
+      "statsConferenciasLabel": {
+        "es": "Conferencias Magistrales",
+        "en": "",
+        "fr": ""
+      },
+      "statsConferenciasDesc": {
+        "es": "Voces internacionales que inspiran y transforman industrias.",
+        "en": "",
+        "fr": ""
+      },
+      "statsNetworkingLabel": {
+        "es": "Networking Estratégico",
+        "en": "",
+        "fr": ""
+      },
+      "statsNetworkingDesc": {
+        "es": "Mesas de negocios para cerrar alianzas comerciales binacionales.",
+        "en": "",
+        "fr": ""
+      },
+      "statsTalentoLabel": {
+        "es": "Talento Mexicano",
+        "en": "",
+        "fr": ""
+      },
+      "statsTalentoDesc": {
+        "es": "Proyección global de nuestra cultura, innovación y excelencia.",
+        "en": "",
+        "fr": ""
+      },
+      "valsTitle": {
+        "es": "Lo que nos define, nos distingue",
+        "en": "",
+        "fr": ""
+      },
+      "valsDesc": {
+        "es": "Cuatro valores que guían cada decisión, cada alianza y cada paso.",
+        "en": "",
+        "fr": ""
+      },
+      "val1Title": {
+        "es": "Identidad sin fronteras",
+        "en": "",
+        "fr": ""
+      },
+      "val1Text": {
+        "es": "Proyectamos lo mejor de México al mundo, celebrando nuestra cultura, talento y creatividad como puente de entendimiento entre naciones.",
+        "en": "",
+        "fr": ""
+      },
+      "val2Title": {
+        "es": "Liderazgo con propósito",
+        "en": "",
+        "fr": ""
+      },
+      "val2Text": {
+        "es": "Ponemos a las mujeres mexicanas al centro, impulsando su desarrollo económico, profesional y social como motor de transformación.",
+        "en": "",
+        "fr": ""
+      },
+      "val3Title": {
+        "es": "Conexión que trasciende",
+        "en": "",
+        "fr": ""
+      },
+      "val3Text": {
+        "es": "Construimos redes binacionales sólidas entre México y Canadá, generando oportunidades de negocio, colaboración y crecimiento mutuo.",
+        "en": "",
+        "fr": ""
+      },
+      "val4Title": {
+        "es": "Impacto medible",
+        "en": "",
+        "fr": ""
+      },
+      "val4Text": {
+        "es": "Cada acción está diseñada para generar resultados concretos: exportaciones, alianzas estratégicas y proyectos de desarrollo sostenible.",
+        "en": "",
+        "fr": ""
+      },
+      "tlTitle": {
+        "es": "De la visión a la realidad",
+        "en": "",
+        "fr": ""
+      },
+      "tlDesc": {
+        "es": "Cada edición ha sido un paso firme hacia la consolidación de una comunidad binacional que impulsa el talento mexicano.",
+        "en": "",
+        "fr": ""
+      },
+      "milestone1Year": {
+        "es": "2023",
+        "en": "",
+        "fr": ""
+      },
+      "milestone1Title": {
+        "es": "Primera edición",
+        "en": "",
+        "fr": ""
+      },
+      "milestone1Text": {
+        "es": "Nacimiento de Expo México Mujer como plataforma para conectar el talento mexicano con oportunidades internacionales.",
+        "en": "",
+        "fr": ""
+      },
+      "milestone2Year": {
+        "es": "2024",
+        "en": "",
+        "fr": ""
+      },
+      "milestone2Title": {
+        "es": "Expansión binacional",
+        "en": "",
+        "fr": ""
+      },
+      "milestone2Text": {
+        "es": "Consolidación del evento con la participación de más de 12 industrias y la llegada de compradores canadienses.",
+        "en": "",
+        "fr": ""
+      },
+      "milestone3Year": {
+        "es": "2025",
+        "en": "",
+        "fr": ""
+      },
+      "milestone3Title": {
+        "es": "Reconocimiento institucional",
+        "en": "",
+        "fr": ""
+      },
+      "milestone3Text": {
+        "es": "Aliados estratégicos de gobierno, cámaras de comercio y organismos internacionales se suman al proyecto.",
+        "en": "",
+        "fr": ""
+      },
+      "milestone4Year": {
+        "es": "2027",
+        "en": "",
+        "fr": ""
+      },
+      "milestone4Title": {
+        "es": "Edición histórica",
+        "en": "",
+        "fr": ""
+      },
+      "milestone4Text": {
+        "es": "Cinco días en Toronto con la participación de líderes, empresarias y creadoras que transforman el liderazgo mexicano en legado.",
+        "en": "",
+        "fr": ""
+      }
+    },
+    "visa": {
+      "category": {
+        "es": "Servicios Binacionales // Canadá 2027",
+        "en": "",
+        "fr": ""
+      },
+      "introTitle": {
+        "es": "Gestión de Visas para Expositoras",
+        "en": "",
+        "fr": ""
+      },
+      "introText1": {
+        "es": "Viajar a Canadá representa una oportunidad comercial inmejorable para consolidar y expandir tu empresa en el mercado norteamericano. Sin embargo, contar con la documentación legal adecuada es el primer y más importante paso de tu planeación de viaje.",
+        "en": "",
+        "fr": ""
+      },
+      "introText2": {
+        "es": "En Expo México Mujer 2027, entendemos los retos administrativos que esto representa. Por ello, ponemos a tu disposición un equipo de consultores especializados en derecho migratorio canadiense para coordinar, revisar y dar seguimiento completo a tu trámite de visa.",
+        "en": "",
+        "fr": ""
+      },
+      "alertTitle": {
+        "es": "Importante (Actualización de Viaje):",
+        "en": "",
+        "fr": ""
+      },
+      "alertDesc": {
+        "es": "A partir de 2024, el gobierno de Canadá ha reintroducido el requisito de Visa de Visitante para ciudadanos mexicanos. Si no cuentas con una visa americana vigente o visa canadiense previa en los últimos 10 años (requisitos para tramitar una eTA ágil), debes realizar un trámite completo de visa física. Te recomendamos iniciar tu solicitud hoy mismo.",
+        "en": "",
+        "fr": ""
+      },
+      "metodologiaLabel": {
+        "es": "Metodología paso a paso",
+        "en": "",
+        "fr": ""
+      },
+      "procesoTitle": {
+        "es": "El Proceso de Asesoría",
+        "en": "",
+        "fr": ""
+      },
+      "step1Title": {
+        "es": "Diagnóstico inicial",
+        "en": "",
+        "fr": ""
+      },
+      "step1Desc": {
+        "es": "Analizamos tu historial de viajes y estatus actual. Evaluamos si eres elegible para una eTA (Autorización Electrónica de Viaje si tienes visa americana vigente) o si requieres una Visa de Visitante completa.",
+        "en": "",
+        "fr": ""
+      },
+      "step2Title": {
+        "es": "Armado de expediente",
+        "en": "",
+        "fr": ""
+      },
+      "step2Desc": {
+        "es": "Te proporcionamos un checklist personalizado de documentos. Revisamos tus pruebas de solvencia económica y arraigo en México, traduciendo y ordenando el expediente para cumplir con los estándares de IRCC.",
+        "en": "",
+        "fr": ""
+      },
+      "step3Title": {
+        "es": "Carga y pago consular",
+        "en": "",
+        "fr": ""
+      },
+      "step3Desc": {
+        "es": "Completamos los formularios oficiales en el portal del gobierno de Canadá y subimos tu expediente. Te apoyamos en el pago de derechos consulares ($185 CAD que incluyen el cargo de biometría).",
+        "en": "",
+        "fr": ""
+      },
+      "step4Title": {
+        "es": "Toma de biometría",
+        "en": "",
+        "fr": ""
+      },
+      "step4Desc": {
+        "es": "Programamos tu cita en el Centro de Solicitud de Visas oficial (VFS Global) en CDMX, Monterrey o Guadalajara para la captura de tus huellas dactilares y fotografía digital.",
+        "en": "",
+        "fr": ""
+      },
+      "step5Title": {
+        "es": "Aprobación y estampado",
+        "en": "",
+        "fr": ""
+      },
+      "step5Desc": {
+        "es": "Monitoreamos la respuesta de la embajada. Una vez aprobada, te guiamos en el envío seguro de tu pasaporte físico a través de mensajería autorizada para el estampado de la visa.",
+        "en": "",
+        "fr": ""
+      },
+      "organizerLabel": {
+        "es": "Organizador Personal",
+        "en": "",
+        "fr": ""
+      },
+      "requisitosGeneralesTitle": {
+        "es": "Requisitos Generales",
+        "en": "",
+        "fr": ""
+      },
+      "checklistDesc": {
+        "es": "Interactúa con el organizador haciendo clic en los requisitos que ya tengas listos para llevar control de tu expediente:",
+        "en": "",
+        "fr": ""
+      },
+      "check1": {
+        "es": "Pasaporte mexicano con vigencia mínima de 6 meses posteriores al viaje.",
+        "en": "",
+        "fr": ""
+      },
+      "check2": {
+        "es": "Visa americana vigente (si aplica para solicitar la vía eTA ágil).",
+        "en": "",
+        "fr": ""
+      },
+      "check3": {
+        "es": "Comprobantes de solvencia económica (estados de cuenta bancarios de los últimos 3 meses, nóminas o declaraciones de impuestos).",
+        "en": "",
+        "fr": ""
+      },
+      "check4": {
+        "es": "Documentos de arraigo en México (carta patronal de empleo, escrituras de propiedades, o constancias de estudios).",
+        "en": "",
+        "fr": ""
+      },
+      "check5": {
+        "es": "Carta de invitación oficial emitida por la dirección de Expo México Mujer 2027.",
+        "en": "",
+        "fr": ""
+      },
+      "check6": {
+        "es": "Fotografía digital reciente que cumpla con los requisitos del gobierno canadiense.",
+        "en": "",
+        "fr": ""
+      },
+      "faqLabel": {
+        "es": "Respuestas Directas",
+        "en": "",
+        "fr": ""
+      },
+      "faqTitle": {
+        "es": "Preguntas Frecuentes",
+        "en": "",
+        "fr": ""
+      },
+      "faq1Q": {
+        "es": "¿Cuánto tiempo tarda el proceso de aprobación de la visa canadiense?",
+        "en": "",
+        "fr": ""
+      },
+      "faq1A": {
+        "es": "El procesamiento oficial del gobierno de Canadá (IRCC) suele tomar entre 4 y 8 semanas a partir de la toma de biometría. Recomendamos iniciar tu trámite al menos 3 meses antes de las fechas del evento (junio de 2027) para viajar con absoluta tranquilidad.",
+        "en": "",
+        "fr": ""
+      },
+      "faq2Q": {
+        "es": "¿Quiénes son elegibles para ingresar a Canadá con una eTA rápida?",
+        "en": "",
+        "fr": ""
+      },
+      "faq2A": {
+        "es": "Puedes tramitar una eTA (que se aprueba en minutos u horas) si viajas por vía aérea y cumples con alguno de estos requisitos: 1) Tienes una visa de no inmigrante de EE.UU. vigente (visa de turista), o 2) Tuviste una visa de visitante canadiense en los últimos 10 años. Si ingresas por tierra o no tienes estos documentos, necesitas tramitar una visa de visitante completa.",
+        "en": "",
+        "fr": ""
+      },
+      "faq3Q": {
+        "es": "¿Qué costos consulares debo pagar directamente al gobierno de Canadá?",
+        "en": "",
+        "fr": ""
+      },
+      "faq3A": {
+        "es": "La solicitud de Visa de Visitante completa cuesta $100 CAD más $85 CAD por la toma de datos biométricos (total de $185 CAD). Si eres elegible para eTA, el costo es de únicamente $7 CAD. Estos cargos se pagan con tarjeta directamente en el portal oficial canadiense.",
+        "en": "",
+        "fr": ""
+      },
+      "faq4Q": {
+        "es": "¿El servicio de gestoría me garantiza la aprobación de mi visa?",
+        "en": "",
+        "fr": ""
+      },
+      "faq4A": {
+        "es": "La decisión final de emitir una visa es facultad exclusiva de los oficiales consulares del gobierno de Canadá. Nuestro servicio optimiza tu expediente, asegurando que no haya errores de llenado, que las traducciones sean correctas y que la justificación de tu viaje, arraigo y solvencia esté estructurada con la mayor solidez posible, maximizando las probabilidades de éxito.",
+        "en": "",
+        "fr": ""
+      },
+      "faq5Q": {
+        "es": "¿Expo México Mujer emite cartas de invitación para el trámite?",
+        "en": "",
+        "fr": ""
+      },
+      "faq5A": {
+        "es": "Sí. Emitimos cartas de invitación personalizadas de carácter oficial de negocios y participación para todas las expositoras confirmadas, patrocinadores y conferencistas. Este documento oficial es un elemento de soporte clave ante el oficial consular.",
+        "en": "",
+        "fr": ""
+      },
+      "contactoLabel": {
+        "es": "Contacto Inmediato",
+        "en": "",
+        "fr": ""
+      },
+      "iniciaSolicitud": {
+        "es": "Inicia tu Solicitud",
+        "en": "",
+        "fr": ""
+      },
+      "solicitudDesc": {
+        "es": "Completa el formulario en el panel derecho con tus datos básicos. Un asesor de visas de Expo México Mujer revisará tu perfil de forma gratuita y te contactará en un plazo menor a 24 horas vía WhatsApp o correo electrónico para agendar tu llamada diagnóstica.",
+        "en": "",
+        "fr": ""
+      },
+      "tiempoRespuesta": {
+        "es": "Tiempo de Respuesta",
+        "en": "",
+        "fr": ""
+      },
+      "asesoriaPersonalizada": {
+        "es": "Asesoría Personalizada",
+        "en": "",
+        "fr": ""
+      },
+      "nombreLabel": {
+        "es": "Nombre Completo",
+        "en": "",
+        "fr": ""
+      },
+      "correoLabel": {
+        "es": "Correo Electrónico",
+        "en": "",
+        "fr": ""
+      },
+      "telefonoLabel": {
+        "es": "Teléfono (WhatsApp)",
+        "en": "",
+        "fr": ""
+      },
+      "placeholderNombre": {
+        "es": "Ej. María González Pérez",
+        "en": "",
+        "fr": ""
+      },
+      "placeholderCorreo": {
+        "es": "Ej. maria@ejemplo.com",
+        "en": "",
+        "fr": ""
+      },
+      "placeholderTelefono": {
+        "es": "Ej. +52 55 1234 5678",
+        "en": "",
+        "fr": ""
+      },
+      "visaAmericanaLabel": {
+        "es": "¿Cuenta con Visa Americana?",
+        "en": "",
+        "fr": ""
+      },
+      "visaOpcionSelecciona": {
+        "es": "Selecciona...",
+        "en": "",
+        "fr": ""
+      },
+      "visaOpcionSi": {
+        "es": "Sí, cuento con visa de EE.UU. vigente",
+        "en": "",
+        "fr": ""
+      },
+      "visaOpcionNo": {
+        "es": "No cuento con visa de EE.UU.",
+        "en": "",
+        "fr": ""
+      },
+      "visaOpcionCanadiense": {
+        "es": "Sí, tuve visa canadiense (últimos 10 años)",
+        "en": "",
+        "fr": ""
+      },
+      "estatusLabel": {
+        "es": "Estatus en EMM 2027",
+        "en": "",
+        "fr": ""
+      },
+      "estatusOpcionSelecciona": {
+        "es": "Selecciona...",
+        "en": "",
+        "fr": ""
+      },
+      "estatusOpcionExpositora": {
+        "es": "Expositora Registrada / Confirmada",
+        "en": "",
+        "fr": ""
+      },
+      "estatusOpcionInteresada": {
+        "es": "Interesada en registrar Stand",
+        "en": "",
+        "fr": ""
+      },
+      "estatusOpcionVisitante": {
+        "es": "Visitante, Acompañante o Público General",
+        "en": "",
+        "fr": ""
+      },
+      "mensajeLabel": {
+        "es": "Mensaje adicional o dudas específicas",
+        "en": "",
+        "fr": ""
+      },
+      "mensajePlaceholder": {
+        "es": "Escribe aquí si tienes alguna duda en particular sobre tus documentos o historial...",
+        "en": "",
+        "fr": ""
+      },
+      "enviarSolicitud": {
+        "es": "Enviar Solicitud",
+        "en": "",
+        "fr": ""
+      },
+      "procesando": {
+        "es": "Procesando...",
+        "en": "",
+        "fr": ""
+      },
+      "completaCampos": {
+        "es": "Por favor completa todos los campos requeridos.",
+        "en": "",
+        "fr": ""
+      },
+      "exitoTitle": {
+        "es": "¡Solicitud Registrada!",
+        "en": "",
+        "fr": ""
+      },
+      "exitoDesc": {
+        "es": "Gracias por tu confianza. Hemos recibido tus datos correctamente. Uno de nuestros consultores certificados te enviará un diagnóstico inicial por WhatsApp o Correo en las próximas horas.",
+        "en": "",
+        "fr": ""
+      },
+      "terminosText": {
+        "es": "Al enviar esta solicitud, aceptas nuestros",
+        "en": "",
+        "fr": ""
+      },
+      "terminosLink": {
+        "es": "Términos y Condiciones",
+        "en": "",
+        "fr": ""
+      },
+      "privacidadLink": {
+        "es": "Aviso de Privacidad",
+        "en": "",
+        "fr": ""
+      }
+    },
+    "agenda": {
+      "programaOficial": {
+        "es": "Programa Oficial",
+        "en": "",
+        "fr": ""
+      },
+      "agendaTitle": {
+        "es": "Agenda del Evento",
+        "en": "",
+        "fr": ""
+      },
+      "agendaSubtitle": {
+        "es": "Conferencias magistrales, paneles y talleres diseñados para impulsar el liderazgo y la acción.",
+        "en": "",
+        "fr": ""
+      },
+      "hasta": {
+        "es": "hasta",
+        "en": "",
+        "fr": "jusqu'à"
+      }
+    },
+    "contacto": {
+      "directorGeneral": {
+        "es": "Director General",
+        "en": "",
+        "fr": ""
+      },
+      "directorOperaciones": {
+        "es": "Director de Operaciones",
+        "en": "",
+        "fr": ""
+      },
+      "sedeTitle": {
+        "es": "Sede Oficial 2027",
+        "en": "",
+        "fr": ""
+      },
+      "sedeDesc": {
+        "es": "Metro Toronto Convention Centre.",
+        "en": "",
+        "fr": ""
+      },
+      "sedeDesc2": {
+        "es": "El evento binacional más importante del año en el corazón financiero de Toronto.",
+        "en": "",
+        "fr": ""
+      },
+      "visitarSede": {
+        "es": "Visitar sitio de la sede",
+        "en": "",
+        "fr": ""
+      },
+      "formularioTitle": {
+        "es": "Formulario de Contacto",
+        "en": "",
+        "fr": ""
+      },
+      "formularioDesc": {
+        "es": "Completa el siguiente formulario oficial de registro para enviarnos tus dudas, propuestas o comentarios.",
+        "en": "",
+        "fr": ""
+      }
+    }
+  }
+}

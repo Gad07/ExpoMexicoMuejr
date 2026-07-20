@@ -40,7 +40,7 @@ function Reveal({
 }
 
 import { useSearchParams, useRouter } from 'next/navigation';
-import { useLanguage } from '../../context/LanguageContext';
+import { useLanguage } from '@/context/LanguageContext';
 
 function ExpositoresContent() {
   const searchParams = useSearchParams();

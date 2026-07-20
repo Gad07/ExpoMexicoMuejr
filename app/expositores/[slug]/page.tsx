@@ -3,8 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { mockExhibitors, industries } from '../../data/expositores';
-import { useLanguage } from '../../context/LanguageContext';
+import { useLanguage } from '@/context/LanguageContext';
 import { MapPin, ExternalLink, Mail, ChevronLeft, ArrowRight, Quote } from 'lucide-react';
 import { Mariposa } from '@/components/BrandAssets';
 

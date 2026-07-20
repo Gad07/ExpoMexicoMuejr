@@ -8,11 +8,13 @@ type HeroProps = {
   description?: React.ReactNode;
   primaryCta?: {
     text: string;
-    href: string;
+    action?: 'link' | 'popup';
+    href?: string;
   } | null;
   secondaryCta?: {
     text: string;
-    href: string;
+    action?: 'link' | 'popup';
+    href?: string;
   } | null;
   imagePosition?: string;
   overlayVariant?: 'default' | 'strong';
@@ -57,14 +59,26 @@ export default function Hero({
             {(primaryCta || secondaryCta) && (
               <div className="hero-gradient__actions">
                 {primaryCta && (
-                  <a href={primaryCta.href} className="btn btn--primary">
-                    {primaryCta.text}
-                  </a>
+                  primaryCta.action === 'popup' ? (
+                    <button onClick={() => window.dispatchEvent(new CustomEvent('openContactModal'))} className="btn btn--primary">
+                      {primaryCta.text}
+                    </button>
+                  ) : (
+                    <a href={primaryCta.href || '#'} className="btn btn--primary">
+                      {primaryCta.text}
+                    </a>
+                  )
                 )}
                 {secondaryCta && (
-                  <a href={secondaryCta.href} className="btn btn--outline">
-                    {secondaryCta.text}
-                  </a>
+                  secondaryCta.action === 'popup' ? (
+                    <button onClick={() => window.dispatchEvent(new CustomEvent('openContactModal'))} className="btn btn--outline">
+                      {secondaryCta.text}
+                    </button>
+                  ) : (
+                    <a href={secondaryCta.href || '#'} className="btn btn--outline">
+                      {secondaryCta.text}
+                    </a>
+                  )
                 )}
               </div>
             )}

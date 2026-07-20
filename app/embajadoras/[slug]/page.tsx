@@ -1,9 +1,8 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { mockAmbassadors } from '../../data/embajadoras';
 import { MapPin, ArrowLeft } from 'lucide-react';
 import { Mariposa } from '@/components/BrandAssets';
 import { useLanguage } from '@/context/LanguageContext';
@@ -45,7 +44,40 @@ function AmbassadorDescription({ ambassador }: { ambassador: any }) {
 
 export default function EmbajadoraProfile({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = React.use(params);
-  const ambassador = mockAmbassadors.find(a => a.slug === resolvedParams.slug);
+  const [ambassador, setAmbassador] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/api/admin/embajadoras')
+      .then(res => res.json())
+      .then(data => {
+        if (data.ambassadors) {
+          const found = data.ambassadors.find((a: any) => a.slug === resolvedParams.slug);
+          setAmbassador(found || null);
+        }
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, [resolvedParams.slug]);
+
+  if (loading) {
+    return (
+      <div style={{
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        minHeight: '100vh', background: '#FAF8F5', fontFamily: 'system-ui, sans-serif',
+      }}>
+        <div style={{ textAlign: 'center' }}>
+          <div style={{
+            width: '48px', height: '48px', border: '3px solid #E4007C',
+            borderTopColor: 'transparent', borderRadius: '50%',
+            animation: 'spin 0.8s linear infinite', margin: '0 auto 16px',
+          }} />
+          <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+          <div style={{ color: '#002E51', fontWeight: 600 }}>Cargando embajadora...</div>
+        </div>
+      </div>
+    );
+  }
 
   if (!ambassador) notFound();
 

@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { ShoppingBag, Users, Sparkles, Handshake, Search, ArrowRight, ShieldCheck, CalendarRange, Globe } from 'lucide-react';
-import { mockBuyers } from '../data/compradores';
 import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({

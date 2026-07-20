@@ -15,10 +15,27 @@ function findTitleByPath(path: string): string {
   return "Página en construcción";
 }
 
+import fs from 'fs';
+import path from 'path';
+import BusinessCardPage from '@/app/business-card/[slug]/page';
+
 export default async function GenericPage({ params }: { params: Promise<{ slug: string[] }> }) {
   const { slug } = await params;
-  const path = "/" + slug.join('/');
-  const title = findTitleByPath(path);
+  const pathStr = "/" + slug.join('/');
+
+  if (slug.length === 1) {
+    try {
+      const dbPath = path.join(process.cwd(), 'data', 'business-cards.json');
+      const cards = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+      if (cards.some((c: any) => c.slug === slug[0])) {
+        return <BusinessCardPage params={Promise.resolve({ slug: slug[0] })} />;
+      }
+    } catch (e) {
+      // Ignore
+    }
+  }
+
+  const title = findTitleByPath(pathStr);
 
   return (
     <main className="main-content" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>

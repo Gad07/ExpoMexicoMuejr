@@ -81,7 +81,7 @@ export default function AdminBanners() {
         method,
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': \`Bearer \${token}\`
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(payload)
       });
@@ -107,7 +107,7 @@ export default function AdminBanners() {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': \`Bearer \${token}\`
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ id })
       });

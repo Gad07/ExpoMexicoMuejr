@@ -23,6 +23,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguageState] = useState<Language>('es');
+  const [dynamicDict, setDynamicDict] = useState<any>(null);
 
   useEffect(() => {
     // Load saved language from localStorage on mount
@@ -30,6 +31,16 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     if (savedLang && (savedLang === 'es' || savedLang === 'en' || savedLang === 'fr')) {
       setLanguageState(savedLang);
     }
+
+    // Fetch dynamic translations
+    fetch('/api/admin/translations')
+      .then(r => r.json())
+      .then(d => {
+        if (d.translations) {
+          setDynamicDict(d.translations);
+        }
+      })
+      .catch(() => {});
   }, []);
 
   const setLanguage = (lang: Language) => {
@@ -40,16 +51,31 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   // Helper to extract nested keys like "nav.nosotros"
   const t = (path: string): string => {
     const keys = path.split('.');
-    let current: any = dictionaries[language];
-
-    for (const key of keys) {
-      if (current[key] === undefined) {
-        return path; // Fallback to key if not found
+    
+    // Si tenemos diccionario dinámico, buscamos ahí primero
+    if (dynamicDict) {
+      let current: any = dynamicDict;
+      for (const key of keys) {
+        if (current[key] === undefined) {
+          current = null;
+          break;
+        }
+        current = current[key];
       }
-      current = current[key];
+      if (current && typeof current === 'object' && typeof current[language] === 'string') {
+        return current[language];
+      }
     }
 
-    return current as string;
+    // Fallback al diccionario estático original
+    let currentStatic: any = dictionaries[language];
+    for (const key of keys) {
+      if (currentStatic[key] === undefined) {
+        return path; // Fallback to key if not found
+      }
+      currentStatic = currentStatic[key];
+    }
+    return currentStatic as string;
   };
 
   return (

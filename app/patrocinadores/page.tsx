@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Search, ChevronRight, Medal, ArrowRight } from 'lucide-react';
-import { mockSponsors } from '../data/patrocinadores';
 import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({

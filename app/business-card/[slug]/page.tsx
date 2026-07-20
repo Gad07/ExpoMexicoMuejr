@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState, use } from "react";
 import { Mail, Phone, Globe, MapPin, ArrowRight } from "lucide-react";
+import { useLanguage } from '@/context/LanguageContext';
 
 /* ─── Reveal ── */
 function Reveal({ children, className = "", delay = 0 }: {
@@ -23,96 +24,47 @@ function Reveal({ children, className = "", delay = 0 }: {
   );
 }
 
-/* ─── Data ── */
-const DIRECTORS: Record<string, any> = {
-  lucia: {
-    nombre: "Lucía Martínez Reyes",
-    cargo: "Directora General",
-    empresa: "Expo México Mujer",
-    ciudad: "Toronto, Canadá · CDMX",
-    email: "lucia@expomexico.ca",
-    telefono: "+1 (416) 555-0192",
-    whatsapp: "14165550192",
-    website: "expomexico.ca",
-    linkedin: "https://linkedin.com/in/lucia-martinez",
-    instagram: "https://instagram.com/expomexico_mujer",
-    bio: "Líder visionaria con más de 15 años conectando el talento femenino mexicano con oportunidades binacionales en Canadá. Fundadora de la plataforma más importante de negocios y cultura mexicana en Toronto.",
-    bio2: "Su trayectoria como empresaria y gestora cultural la ha posicionado como una de las voces más influyentes del ecosistema emprendedor latinoamericano en Norteamérica.",
-    foto: "/directora-emm.png",
-    stats: [{ num: "+15", label: "Años de experiencia" }, { num: "500+", label: "Empresas conectadas" }, { num: "3", label: "Ediciones del evento" }],
-  },
-  francisco: {
-    nombre: "Francisco Solorio",
-    cargo: "Director General",
-    empresa: "Expo México Mujer",
-    ciudad: "Toronto, Canadá · CDMX",
-    email: "francisco@expomexico.ca",
-    telefono: "+52 55 2719 9694",
-    whatsapp: "525527199694",
-    website: "expomexico.ca",
-    linkedin: "https://linkedin.com/in/francisco-solorio",
-    instagram: "https://instagram.com/expomexico_mujer",
-    bio: "Soy especialista en cooperación internacional y desarrollo de alianzas estratégicas. Como Director General de Expo México Mujer, lidero una plataforma internacional que impulsa el talento y emprendimiento de las mujeres entre México y Canadá.",
-    bio2: "Concibo el liderazgo femenino como una fuerza vital de cambio. Mi labor responde a la convicción de que la educación y la creación de oportunidades construyen sociedades más prósperas.",
-    foto: "/fotos perfil/Foto Francisco.jpg",
-    stats: [],
-    quote: "El liderazgo femenino es un motor de transformación social y económica.",
-    fullBio: [
-      "Soy un especialista en cooperación internacional y desarrollo de alianzas estratégicas con una destacada trayectoria en la creación de proyectos de alto impacto que promueven la educación, la internacionalización, el emprendimiento y el desarrollo social entre México y Canadá.",
-      "A lo largo de mis más de trece años de experiencia profesional, he construido puentes de colaboración entre gobiernos, representaciones diplomáticas, universidades, organismos empresariales y organizaciones de la sociedad civil, consolidándome como un articulador de iniciativas que generan oportunidades de crecimiento, intercambio y desarrollo sostenible.",
-      "Mi experiencia en instituciones de atención ciudadana y derechos humanos como el Consejo Ciudadano de la Ciudad de México, fortaleció mi compromiso con la igualdad de oportunidades, la inclusión y la construcción de entornos más seguros y equitativos para las mujeres. Esta visión me ha permitido impulsar proyectos orientados al liderazgo femenino, el fortalecimiento de capacidades, la generación de redes de colaboración y el empoderamiento económico de las mujeres.",
-      "Como Director General de Expo México Mujer, lidero una plataforma internacional que impulsa el talento, el emprendimiento y el liderazgo de las mujeres mediante la creación de espacios de vinculación empresarial, cooperación institucional e intercambio cultural y económico entre México y Canadá. Bajo mi dirección, Expo México Mujer se ha consolidado como un punto de encuentro para líderes, empresarias, instituciones, organismos internacionales y agentes de cambio comprometidos con el desarrollo y la visibilidad del liderazgo femenino.",
-      "Mi trayectoria profesional incluye posiciones de liderazgo en organizaciones educativas e internacionales, entre ellas Grupo LET, Charles International School y la Universidad Humanitas, desde donde he impulsado proyectos de internacionalización y programas de formación ejecutiva desarrollados en colaboración con instituciones de prestigio mundial, como la Universidad de Harvard, el Instituto Tecnológico de Massachusetts (MIT), la Universidad de Cambridge y la Universidad de Columbia.",
-      "Soy Licenciado en Derecho por la Universidad Nacional Autónoma de México (UNAM) y cuento con una Maestría en Justicia Penal y Seguridad Pública, complementadas con formación internacional en Canadá y una amplia experiencia en el diseño y dirección de iniciativas de cooperación internacional.",
-      "He sido distinguido con el Premio Nacional a la Excelencia en Atención Ciudadana y soy Miembro Honorario de la Asociación Mexicana de Lingüística Aplicada (AMLA)."
-    ],
-    vision: [
-      "Concibo el liderazgo femenino como un motor de transformación social y económica. Mi labor al frente de Expo México Mujer responde a la convicción de que la cooperación internacional, la educación y la creación de oportunidades son herramientas fundamentales para impulsar el empoderamiento de las mujeres, promover la igualdad y construir sociedades más inclusivas, prósperas y sostenibles."
-    ]
-  },
-  luis: {
-    nombre: "Luis García González",
-    cargo: "Director de Operaciones México–Canadá",
-    empresa: "Expo México Mujer",
-    ciudad: "Toronto, Canadá · CDMX",
-    email: "luis@expomexico.ca",
-    telefono: "+52 722 551 4645",
-    whatsapp: "527225514645",
-    website: "expomexico.ca",
-    linkedin: "https://linkedin.com/in/luis-garcia",
-    instagram: "https://instagram.com/expomexico_mujer",
-    bio: "Soy experto en cooperación internacional y gestión estratégica. Como Director de Operaciones México–Canadá de Expo México Mujer, lidero la coordinación operativa con una visión de sostenibilidad e inclusión.",
-    bio2: "Mi liderazgo está orientado a fortalecer alianzas internacionales que generen oportunidades, impulsen la igualdad de género y contribuyan al desarrollo sostenible binacional.",
-    foto: "/fotos perfil/Foto Luis.jpg",
-    stats: [],
-    quote: "El empoderamiento de las mujeres constituye una condición indispensable para construir un futuro más justo, sostenible y próspero.",
-    fullBio: [
-      "Soy un líder en cooperación internacional y gestión estratégica, con una sólida trayectoria en la construcción de alianzas de alto impacto entre gobiernos, organismos internacionales, academia, sector privado y sociedad civil, orientadas al impulso del desarrollo sostenible, la inclusión social y el fortalecimiento comunitario.",
-      "A lo largo de mi trayectoria he diseñado y coordinado proyectos de alcance nacional e internacional orientados a la conservación del patrimonio natural, la resiliencia territorial y el desarrollo inclusivo, impulsando iniciativas que han ampliado las oportunidades de participación y desarrollo para las mujeres indígenas, reconociéndolas como actores fundamentales en la preservación del patrimonio biocultural y el fortalecimiento de las economías comunitarias.",
-      "Entre mis principales contribuciones destaca la articulación de alianzas estratégicas con organismos internacionales de referencia, entre ellos la Agencia Francesa de Desarrollo (AFD) y el World Wide Fund for Nature (WWF), impulsando iniciativas de cooperación para la conservación de la biodiversidad y el desarrollo de proyectos con impacto social y ambiental de largo plazo.",
-      "Asimismo, lideré proyectos de restauración ecológica y fortalecimiento territorial en la zona Patrimonio Mundial de Tláhuac, Milpa Alta y Xochimilco, promoviendo modelos de gobernanza participativa que integran la protección del patrimonio biocultural con el desarrollo local sostenible, con especial énfasis en el empoderamiento de las mujeres de los pueblos originarios y de las comunidades afromexicanas como agentes estratégicos de conservación, resiliencia y transformación social.",
-      "Mi experiencia en el sector público me ha permitido dirigir programas estratégicos en la Secretaría del Medio Ambiente de la Ciudad de México y en la Comisión de Recursos Naturales y Desarrollo Rural, encabezando equipos multidisciplinarios y desarrollando iniciativas que han fortalecido la coordinación interinstitucional, la participación ciudadana y la construcción de soluciones innovadoras frente a desafíos sociales y ambientales.",
-      "Soy Presidente y Fundador del Consejo Global Ambiental (CGA), una plataforma de cooperación nacional e internacional dedicada a promover la sostenibilidad, la gobernanza y las alianzas estratégicas para el cumplimiento de la Agenda 2030 de las Naciones Unidas. Desde este espacio he impulsado iniciativas que reconocen el papel de las mujeres como agentes esenciales de transformación, resiliencia comunitaria y protección del patrimonio natural.",
-      "Asimismo, soy autor y coautor de publicaciones científicas y de divulgación especializadas en biodiversidad, conservación y desarrollo sostenible, y columnista de la Revista Capitel, donde promuevo la reflexión y el diálogo en torno a la sostenibilidad, la educación, la acción climática y los desafíos globales desde una perspectiva de inclusión y cooperación internacional.",
-      "Como Director de Operaciones México–Canadá de Expo México Mujer, lidero la coordinación estratégica y operativa de una plataforma internacional dedicada al fortalecimiento del liderazgo femenino, la generación de alianzas institucionales y la creación de oportunidades de desarrollo económico y social para las mujeres. Mi experiencia en la construcción de proyectos internacionales y en la articulación de redes de cooperación multisectorial aporta una visión integral que fortalece la misión de Expo México Mujer como un espacio de diálogo, colaboración y transformación con impacto binacional."
-    ],
-    vision: [
-      "Promuevo una visión de desarrollo sostenible e inclusivo en la que las mujeres, particularmente las pertenecientes a pueblos originarios y comunidades afromexicanas, son protagonistas de la transformación social, la conservación del patrimonio biocultural y la construcción de comunidades resilientes.",
-      "Mi liderazgo está orientado a fortalecer alianzas internacionales que generen oportunidades, impulsen la igualdad de género y contribuyan al cumplimiento de la Agenda 2030 de las Naciones Unidas, convencido de que el empoderamiento de las mujeres constituye una condición indispensable para construir un futuro más justo, sostenible y próspero."
-    ]
-  }
-};
-
-const NOTICIAS = [
-  { fecha: "15 MAYO 2026", categoria: "Institucional", titulo: "Expo México Mujer 2027 anuncia su sede en Toronto", excerpt: "Más de 500 líderes empresariales se darán cita en el corazón de Canadá.", link: "#", img: "/Galeria/Ponencias/IMG_6323.JPG" },
-  { fecha: "28 ABRIL 2026", categoria: "Participación", titulo: "Foro Binacional de Comercio México-Canadá", excerpt: "Directiva presente como panelistas en el mayor foro de negocios binacional del año.", link: "#", img: "/Galeria/Ponencias/IMG_6117.JPG" },
-  { fecha: "10 ABRIL 2026", categoria: "Convocatoria", titulo: "Registros para expositoras 2027 superan expectativas", excerpt: "Más de 200 empresas lideradas por mujeres aseguran su espacio en la primera semana.", link: "#", img: "/Galeria/Ponencias/IMG_5999.JPG" },
-];
 
 /* ─── PAGE ── */
 export default function BusinessCardPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = use(params);
-  const D = DIRECTORS[resolvedParams.slug] || DIRECTORS["francisco"];
+  const { language } = useLanguage();
+  const [D, setD] = useState<any>(null);
+  const [news, setNews] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    Promise.all([
+      fetch(`/api/admin/business-cards?slug=${resolvedParams.slug}`).then(r => r.json()),
+      fetch('/api/admin/noticias').then(r => r.json())
+    ]).then(([cardData, newsData]) => {
+      setD(cardData.card || null);
+      if (newsData.noticias) {
+        setNews(newsData.noticias.slice(0, 3)); // Solo las 3 más recientes
+      }
+      setLoading(false);
+    }).catch(() => setLoading(false));
+  }, [resolvedParams.slug]);
+
+  if (loading) {
+    return (
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: '#FAF8F5' }}>
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ width: '48px', height: '48px', border: '3px solid #E4007C', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite', margin: '0 auto 16px' }} />
+          <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+          <div style={{ color: '#002E51', fontWeight: 600 }}>Cargando perfil...</div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!D) {
+    return (
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: '#FAF8F5', color: '#002E51', fontSize: '1.2rem', fontWeight: 600 }}>
+        Perfil no encontrado
+      </div>
+    );
+  }
 
   return (
     <main className="page-content-wrapper">
@@ -513,13 +465,13 @@ export default function BusinessCardPage({ params }: { params: Promise<{ slug: s
 
               <Reveal delay={200}>
                 <div className="mag-role">
-                  <span className="mag-role__cargo">{D.cargo}</span>
+                  <span className="mag-role__cargo">{D.cargo?.[language] || D.cargo?.es || ''}</span>
                   <span className="mag-role__empresa">{D.empresa}</span>
                 </div>
               </Reveal>
 
               <Reveal delay={250}>
-                <p className="mag-intro">{D.bio}</p>
+                <p className="mag-intro">{D.bio?.[language] || D.bio?.es || ''}</p>
               </Reveal>
 
 
@@ -580,12 +532,12 @@ export default function BusinessCardPage({ params }: { params: Promise<{ slug: s
                 Liderazgo con <strong>visión binacional</strong>
               </h2>
               <div className="mag-article__body">
-                {D.fullBio ? (
-                  D.fullBio.map((para: string, idx: number) => (
+                {D.fullBio && (D.fullBio[language]?.length > 0 || D.fullBio.es?.length > 0) ? (
+                  (D.fullBio[language]?.length > 0 ? D.fullBio[language] : D.fullBio.es).map((para: string, idx: number) => (
                     <React.Fragment key={idx}>
                       {idx === 4 && (
                         <blockquote className="mag-pull">
-                          "{D.quote || "La clave está en crear puentes reales entre el talento mexicano y las oportunidades internacionales."}"
+                          "{D.quote?.[language] || D.quote?.es || "La clave está en crear puentes reales entre el talento mexicano y las oportunidades internacionales."}"
                         </blockquote>
                       )}
                       <p>{para}</p>
@@ -593,11 +545,11 @@ export default function BusinessCardPage({ params }: { params: Promise<{ slug: s
                   ))
                 ) : (
                   <>
-                    <p>{D.bio}</p>
+                    <p>{D.bio?.[language] || D.bio?.es || ''}</p>
                     <blockquote className="mag-pull">
                       "La clave está en crear puentes reales entre el talento mexicano y las oportunidades internacionales."
                     </blockquote>
-                    <p>{D.bio2}</p>
+                    <p>{D.bio2?.[language] || D.bio2?.es || ''}</p>
                   </>
                 )}
               </div>
@@ -606,7 +558,7 @@ export default function BusinessCardPage({ params }: { params: Promise<{ slug: s
         </section>
 
         {/* ══ VISION SECTION ══ */}
-        {D.vision && D.vision.length > 0 && (
+        {D.vision && (D.vision[language]?.length > 0 || D.vision.es?.length > 0) && (
           <section className="mag-vision" style={{ background: 'var(--navy, #002E51)', color: '#fff', padding: '100px 7%', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: 0, right: 0, opacity: 0.05, pointerEvents: 'none', transform: 'translate(20%, -20%)' }}>
               <div style={{ width: '400px', height: '400px', borderRadius: '50%', border: '4px solid #fff' }}></div>
@@ -620,7 +572,7 @@ export default function BusinessCardPage({ params }: { params: Promise<{ slug: s
               </Reveal>
               <Reveal delay={150}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-                  {D.vision.map((para: string, i: number) => (
+                  {(D.vision[language]?.length > 0 ? D.vision[language] : D.vision.es).map((para: string, i: number) => (
                     <p key={i} style={{ fontSize: '1.25rem', lineHeight: 1.7, color: 'rgba(255, 255, 255, 0.9)', fontWeight: 300, margin: 0 }}>
                       {para}
                     </p>
@@ -642,16 +594,16 @@ export default function BusinessCardPage({ params }: { params: Promise<{ slug: s
             </Reveal>
 
             <div className="mag-news__grid">
-              {NOTICIAS.map((n, i) => (
+              {news.map((n, i) => (
                 <Reveal key={i} delay={i * 80}>
-                  <a href={n.link} className="mag-nc">
+                  <a href={`/noticias/${n.slug}`} className="mag-nc">
                     <div className="mag-nc__img-wrap">
-                      <img src={n.img} alt={n.titulo} className="mag-nc__img" loading="lazy" width="600" height="400" />
+                      <img src={n.image} alt={n.title?.[language] || n.title?.es} className="mag-nc__img" loading="lazy" width="600" height="400" />
                     </div>
-                    <span className="mag-nc__cat">{n.categoria}</span>
-                    <h3 className="mag-nc__title">{n.titulo}</h3>
-                    <p className="mag-nc__excerpt">{n.excerpt}</p>
-                    <span className="mag-nc__date">{n.fecha}</span>
+                    <span className="mag-nc__cat">{n.category?.[language] || n.category?.es}</span>
+                    <h3 className="mag-nc__title">{n.title?.[language] || n.title?.es}</h3>
+                    <p className="mag-nc__excerpt">{n.excerpt?.[language] || n.excerpt?.es}</p>
+                    <span className="mag-nc__date">{n.date}</span>
                   </a>
                 </Reveal>
               ))}

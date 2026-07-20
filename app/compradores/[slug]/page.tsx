@@ -3,10 +3,9 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { mockBuyers } from '../../data/compradores';
 import { Medal, ExternalLink, Mail, ArrowRight, Quote } from 'lucide-react';
 import { Mariposa } from '@/components/BrandAssets';
-import { useLanguage } from '../../context/LanguageContext';
+import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({
   children, className = '', delay = 0, style = {}

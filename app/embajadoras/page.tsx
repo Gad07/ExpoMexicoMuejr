@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { mexicanStates, mockAmbassadors } from '../data/embajadoras';
+
 import { Search, ChevronLeft, MapPin, Calendar, Clock, X, User } from 'lucide-react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';

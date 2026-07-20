@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronRight, ChevronLeft, Menu, X, ChevronDown } from 'lucide-react';
-import { navData, NavDropdown } from '@/config/navData';
 import { useLanguage } from '@/context/LanguageContext';
 import OptImage from './OptImage';
 
@@ -14,7 +13,17 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeMobileMenu, setActiveMobileMenu] = useState<string | null>(null);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [navbar, setNavbar] = useState<any[]>([]);
   const pathname = usePathname();
+
+  useEffect(() => {
+    fetch('/api/admin/navbar')
+      .then(r => r.json())
+      .then(d => {
+        if (d.navbar) setNavbar(d.navbar);
+      })
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 48);
@@ -62,6 +71,17 @@ export default function Nav() {
 
   const isInnerPage = pathname !== '/';
 
+  const dynamicNavData = navbar.map((item: any) => {
+    return {
+      ...item,
+      label: item.label?.[language] || item.label?.es || '',
+      items: item.items?.map((sub: any) => ({
+        ...sub,
+        label: sub.label?.[language] || sub.label?.es || ''
+      })) || []
+    };
+  });
+
   return (
     <nav className={`nav${scrolled ? ' nav--scrolled' : ''}${isInnerPage ? ' nav--inner' : ''}`} role="navigation">
       <div className="color-bar" aria-hidden="true">
@@ -81,32 +101,34 @@ export default function Nav() {
 
         {/* Desktop Menu */}
         <div className="nav__desktop-links">
-          {navData.map((item, index) => {
-            if ('href' in item) {
+          {dynamicNavData.map((item, index) => {
+            if (item.href) {
               return (
                 <Link key={index} href={item.href} className="nav__link">
-                  {t(item.label)}
+                  {item.label}
                 </Link>
               );
             } else {
               return (
                 <div 
                   key={index} 
-                  className={`nav__simple-dropdown-wrap ${openDropdown === item.label ? 'nav__simple-dropdown-wrap--open' : ''}`}
+                  className={`nav__dropdown-wrap ${openDropdown === item.label ? 'nav__dropdown-wrap--open' : ''}`}
                   onMouseEnter={() => handleMouseEnter(item.label)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <a href="#" className={`nav__link ${openDropdown === item.label ? 'nav__link--active' : ''}`} onClick={(e) => e.preventDefault()}>
-                    {t(item.label)}
+                  <a href="#" className={`nav__link ${openDropdown === item.label ? 'nav__link--active' : ''}`} style={{ display: 'flex', alignItems: 'center', gap: '4px', outline: 'none' }} onClick={(e) => { e.preventDefault(); }}>
+                    {item.label}
                     <ChevronDown size={14} className="nav__mega-icon" />
                   </a>
                   
-                  {/* Simple Dropdown Panel */}
+                  {/* Panel Simple (no mega menu) */}
                   <div className="nav__simple-panel">
                     <ul className="nav__simple-list">
-                      {item.items.map((link, linkIdx) => (
+                      {item.items?.map((link: any, linkIdx: number) => (
                         <li key={linkIdx}>
-                          <Link href={link.href} className="nav__simple-list-item" onClick={() => setMenuOpen(false)}>{t(link.label)}</Link>
+                          <Link href={link.href} className="nav__simple-list-item" onClick={() => setOpenDropdown(null)}>
+                            {link.label}
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -180,11 +202,11 @@ export default function Nav() {
       {/* Mobile Menu */}
       <div className={`nav__mobile-menu ${menuOpen ? 'nav__mobile-menu--open' : ''}`}>
         <div className="nav__mobile-container">
-          {navData.map((item, index) => {
-            if ('href' in item) {
+          {dynamicNavData.map((item, index) => {
+            if (item.href) {
               return (
                 <Link key={index} href={item.href} className="nav__mobile-link" onClick={() => setMenuOpen(false)}>
-                  {t(item.label)}
+                  {item.label}
                 </Link>
               );
             } else {
@@ -192,16 +214,16 @@ export default function Nav() {
               return (
                 <div key={index} className="nav__mobile-accordion">
                   <button className="nav__mobile-accordion-btn" onClick={() => toggleMobileMenu(item.label)}>
-                    {t(item.label)}
+                    {item.label}
                     {isOpen ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
                   </button>
                   <div className={`nav__mobile-accordion-content ${isOpen ? 'nav__mobile-accordion-content--open' : ''}`}>
-                    {item.items.map((link, linkIdx) => (
+                    {item.items?.map((link: any, linkIdx: number) => (
                       <div key={linkIdx} className="nav__mobile-group">
                         <ul className="nav__mobile-group-list">
                           <li key={linkIdx}>
                             <Link href={link.href} className="nav__mobile-sublink" onClick={() => setMenuOpen(false)}>
-                              {t(link.label)}
+                              {link.label}
                             </Link>
                           </li>
                         </ul>

@@ -1,0 +1,174 @@
+[
+  {
+    "id": "1",
+    "slug": "mexican-fashion-gala-show",
+    "title": {
+      "es": "Mexican Fashion Gala Show",
+      "en": "Mexican Fashion Gala Show",
+      "fr": "Mexican Fashion Gala Show"
+    },
+    "description": {
+      "es": "Descubre el talento y la creatividad de nuestras diseñadoras.",
+      "en": "Discover the talent and creativity of our designers.",
+      "fr": "Découvrez le talent et la créativité de nos créatrices."
+    },
+    "featuresTitle": {
+      "es": "Diseñadoras Expositores",
+      "en": "Exhibiting Designers",
+      "fr": "Créatrices Exposantes"
+    },
+    "features": [],
+    "highlightsTitle": {
+      "es": "Pasarelas y Bloques Temáticos",
+      "en": "Catwalks & Thematic Blocks",
+      "fr": "Défilés et Blocs Thématiques"
+    },
+    "highlightsDesc": {
+      "es": "La gala se divide en pasarelas enfocadas.",
+      "en": "The gala is divided into focused catwalks.",
+      "fr": "Le gala est divisé en défilés ciblés."
+    },
+    "highlights": [],
+    "scheduleTitle": {
+      "es": "Programa de la Gala",
+      "en": "Gala Schedule",
+      "fr": "Programme du Gala"
+    },
+    "schedule": [],
+    "guestsTitle": {
+      "es": "Invitados a la Gala",
+      "en": "Gala Guests",
+      "fr": "Invités du Gala"
+    },
+    "guests": []
+  },
+  {
+    "id": "2",
+    "slug": "mexico-ontario-business-summit",
+    "title": {
+      "es": "México Ontario Business Summit",
+      "en": "Mexico Ontario Business Summit",
+      "fr": "Sommet des Affaires Mexique Ontario"
+    },
+    "description": {
+      "es": "El evento cumbre de negocios.",
+      "en": "The summit of business.",
+      "fr": "Le sommet des affaires."
+    },
+    "featuresTitle": {
+      "es": "Ponentes Principales",
+      "en": "Keynote Speakers",
+      "fr": "Conférenciers Principaux"
+    },
+    "features": [],
+    "highlightsTitle": {
+      "es": "Ejes Temáticos",
+      "en": "Thematic Axes",
+      "fr": "Axes Thématiques"
+    },
+    "highlightsDesc": {
+      "es": "Los temas principales del summit.",
+      "en": "The main topics of the summit.",
+      "fr": "Les thèmes principaux du sommet."
+    },
+    "highlights": [],
+    "scheduleTitle": {
+      "es": "Programa del Summit",
+      "en": "Summit Schedule",
+      "fr": "Programme du Sommet"
+    },
+    "schedule": [],
+    "guestsTitle": {
+      "es": "Invitados VIP",
+      "en": "VIP Guests",
+      "fr": "Invités VIP"
+    },
+    "guests": []
+  },
+  {
+    "id": "3",
+    "slug": "women-leaders-forum",
+    "title": {
+      "es": "Women Leaders Forum",
+      "en": "Women Leaders Forum",
+      "fr": "Forum des Femmes Leaders"
+    },
+    "description": {
+      "es": "Conectando a mujeres líderes.",
+      "en": "Connecting women leaders.",
+      "fr": "Connecter les femmes leaders."
+    },
+    "featuresTitle": {
+      "es": "Líderes Destacadas",
+      "en": "Outstanding Leaders",
+      "fr": "Leaders Remarquables"
+    },
+    "features": [],
+    "highlightsTitle": {
+      "es": "Paneles de Discusión",
+      "en": "Discussion Panels",
+      "fr": "Panels de Discussion"
+    },
+    "highlightsDesc": {
+      "es": "Explorando temas clave.",
+      "en": "Exploring key topics.",
+      "fr": "Explorer des sujets clés."
+    },
+    "highlights": [],
+    "scheduleTitle": {
+      "es": "Programa del Foro",
+      "en": "Forum Schedule",
+      "fr": "Programme du Forum"
+    },
+    "schedule": [],
+    "guestsTitle": {
+      "es": "Invitadas Especiales",
+      "en": "Special Guests",
+      "fr": "Invitées Spéciales"
+    },
+    "guests": []
+  },
+  {
+    "id": "4",
+    "slug": "mision-comercial-montreal",
+    "title": {
+      "es": "Misión Comercial Montreal",
+      "en": "Montreal Trade Mission",
+      "fr": "Mission Commerciale Montréal"
+    },
+    "description": {
+      "es": "Explorando oportunidades en Montreal.",
+      "en": "Exploring opportunities in Montreal.",
+      "fr": "Explorer des opportunités à Montréal."
+    },
+    "featuresTitle": {
+      "es": "Empresas Participantes",
+      "en": "Participating Companies",
+      "fr": "Entreprises Participantes"
+    },
+    "features": [],
+    "highlightsTitle": {
+      "es": "Actividades Clave",
+      "en": "Key Activities",
+      "fr": "Activités Clés"
+    },
+    "highlightsDesc": {
+      "es": "Lo más destacado de la misión.",
+      "en": "Highlights of the mission.",
+      "fr": "Les points forts de la mission."
+    },
+    "highlights": [],
+    "scheduleTitle": {
+      "es": "Itinerario de la Misión",
+      "en": "Mission Itinerary",
+      "fr": "Itinéraire de la Mission"
+    },
+    "schedule": [],
+    "guestsTitle": {
+      "es": "Aliados Estratégicos",
+      "en": "Strategic Allies",
+      "fr": "Alliés Stratégiques"
+    },
+    "guests": []
+  }
+]

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import { LogOut, Newspaper, LayoutDashboard, Settings, Users, User, Menu, X, Handshake, Medal, ChevronDown, ShoppingBag, Star, Image as ImageIcon } from 'lucide-react';
+import { LogOut, Newspaper, LayoutDashboard, Settings, Users, User, Menu, X, Handshake, Medal, ChevronDown, ShoppingBag, Star, Image as ImageIcon, IdCard, Calendar, Navigation, AppWindow, Type } from 'lucide-react';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -93,10 +93,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     return null;
   }
 
-  const navItems = [
+    const navItems = [
     { label: 'Dashboard', icon: <LayoutDashboard size={18} />, href: '/admin' },
     { label: 'Banners', icon: <ImageIcon size={18} />, href: '/admin/banners' },
+    { label: 'Portadas', icon: <AppWindow size={18} />, href: '/admin/heroes' },
+    { label: 'Páginas', icon: <Type size={18} />, href: '/admin/paginas' },
     { label: 'Noticias', icon: <Newspaper size={18} />, href: '/admin/noticias' },
+    { label: 'Navegación', icon: <Navigation size={18} />, href: '/admin/navbar' },
+    { label: 'Agendas', icon: <Calendar size={18} />, href: '/admin/agendas' },
     {
       label: 'Directorios',
       icon: <Users size={18} />,
@@ -109,6 +113,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         { label: 'Aliados', href: '/admin/aliados', icon: <Handshake size={16} /> },
       ]
     },
+    { label: 'Business Cards', icon: <IdCard size={18} />, href: '/admin/business-cards' },
     { label: 'Configuración', icon: <Settings size={18} />, href: '/admin/config', disabled: true },
   ];
 

@@ -1,5 +1,5 @@
-import { NextAuthOptions } from 'next-auth';
-import GoogleProvider from 'next-auth/providers/google';
+import NextAuth, { NextAuthConfig } from 'next-auth';
+import Google from 'next-auth/providers/google';
 import jwt from 'jsonwebtoken';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'emm-admin-secret-key-2027';
@@ -17,20 +17,20 @@ export function verifyToken(token: string): { userId: string; role: string } | n
   }
 }
 
-// NextAuth configuration
-export const authOptions: NextAuthOptions = {
+// NextAuth v5 configuration
+export const authConfig: NextAuthConfig = {
   providers: [
-    GoogleProvider({
+    Google({
       clientId: process.env.GOOGLE_CLIENT_ID || '',
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
     }),
   ],
-  secret: JWT_SECRET,
+  secret: process.env.NEXTAUTH_SECRET || JWT_SECRET,
   callbacks: {
-    async signIn({ user, account }) {
+    async signIn({ user }) {
       // Allow only specific emails (configure in env)
       const allowedEmails = (process.env.ADMIN_EMAILS || '').split(',').map(e => e.trim().toLowerCase());
-      if (allowedEmails.length === 0) return true; // Allow all if not configured
+      if (allowedEmails.length === 0 || allowedEmails[0] === '') return true; // Allow all if not configured
       if (user.email && allowedEmails.includes(user.email.toLowerCase())) return true;
       return false;
     },
@@ -42,6 +42,11 @@ export const authOptions: NextAuthOptions = {
     signIn: '/admin/login',
   },
 };
+
+export const { handlers, auth, signIn, signOut } = NextAuth(authConfig);
+
+// Alias for legacy compatibility
+export const authOptions = authConfig;
 
 // Middleware helper - check if request has valid auth (NextAuth session OR token)
 export function getTokenFromRequest(request: Request): string | null {

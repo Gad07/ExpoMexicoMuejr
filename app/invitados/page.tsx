@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Search, ArrowRight } from 'lucide-react';
-import { mockInvitados } from '../data/invitados';
 import { useLanguage } from '@/context/LanguageContext';
 
 function Reveal({

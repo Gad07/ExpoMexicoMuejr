@@ -52,7 +52,7 @@ function getNextId(noticias: Noticia[]): number {
 export async function GET(request: Request) {
   try {
     const noticias = readJSON<Noticia>(DB_FILE);
-    // Return only id, title, date, slug, featured, template for listing
+    // Return only necessary fields for listing
     const list = noticias.map(n => ({
       id: n.id,
       title: n.title,
@@ -60,6 +60,9 @@ export async function GET(request: Request) {
       date: n.date,
       featured: n.featured,
       template: n.template,
+      category: n.category,
+      image: n.image,
+      excerpt: n.excerpt,
     }));
     return NextResponse.json({ noticias: list });
   } catch {

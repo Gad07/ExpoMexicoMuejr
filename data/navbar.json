@@ -1,0 +1,273 @@
+[
+  {
+    "id": "1",
+    "label": {
+      "es": "Expo",
+      "en": "Expo",
+      "fr": "Expo"
+    },
+    "basePath": "/expo",
+    "items": [
+      {
+        "id": "1-1",
+        "label": {
+          "es": "¿Qué es EMM?",
+          "en": "What is EMM?",
+          "fr": "Qu'est-ce que EMM?"
+        },
+        "href": "/expo/que-es"
+      },
+      {
+        "id": "1-2",
+        "label": {
+          "es": "Industrias",
+          "en": "Industries",
+          "fr": "Industries"
+        },
+        "href": "/expo/industrias"
+      },
+      {
+        "id": "1-3",
+        "label": {
+          "es": "Ottawa 2026",
+          "en": "Ottawa 2026",
+          "fr": "Ottawa 2026"
+        },
+        "href": "/expo/ottawa-2026"
+      },
+      {
+        "id": "1-4",
+        "label": {
+          "es": "Noticias",
+          "en": "News",
+          "fr": "Actualités"
+        },
+        "href": "/recursos"
+      },
+      {
+        "id": "1-5",
+        "label": {
+          "es": "Visas y Viaje",
+          "en": "Visas & Travel",
+          "fr": "Visas et Voyage"
+        },
+        "href": "/visa"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "label": {
+      "es": "Participa",
+      "en": "Participate",
+      "fr": "Participer"
+    },
+    "basePath": "/participa",
+    "items": [
+      {
+        "id": "2-1",
+        "label": {
+          "es": "Expositoras",
+          "en": "Exhibitors",
+          "fr": "Exposantes"
+        },
+        "href": "/expositores"
+      },
+      {
+        "id": "2-2",
+        "label": {
+          "es": "Patrocinadores",
+          "en": "Sponsors",
+          "fr": "Commanditaires"
+        },
+        "href": "/patrocinadores"
+      },
+      {
+        "id": "2-3",
+        "label": {
+          "es": "Embajadoras",
+          "en": "Ambassadors",
+          "fr": "Ambassadrices"
+        },
+        "href": "/embajadoras"
+      },
+      {
+        "id": "2-4",
+        "label": {
+          "es": "Aliados",
+          "en": "Allies",
+          "fr": "Alliés"
+        },
+        "href": "/aliados"
+      },
+      {
+        "id": "2-5",
+        "label": {
+          "es": "Invitados",
+          "en": "Guests",
+          "fr": "Invités"
+        },
+        "href": "/invitados"
+      },
+      {
+        "id": "2-6",
+        "label": {
+          "es": "Compradores",
+          "en": "Buyers",
+          "fr": "Acheteurs"
+        },
+        "href": "/compradores"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "label": {
+      "es": "Agenda",
+      "en": "Agenda",
+      "fr": "Agenda"
+    },
+    "basePath": "/agenda",
+    "items": [
+      {
+        "id": "3-1",
+        "label": {
+          "es": "Programa Oficial 2027",
+          "en": "Official Program 2027",
+          "fr": "Programme Officiel 2027"
+        },
+        "href": "/agenda"
+      },
+      {
+        "id": "3-2",
+        "label": {
+          "es": "México Ontario Business Summit",
+          "en": "Mexico Ontario Business Summit",
+          "fr": "Sommet des affaires"
+        },
+        "href": "/agenda/mexico-ontario-business-summit"
+      },
+      {
+        "id": "3-3",
+        "label": {
+          "es": "Mexican Fashion Gala Show",
+          "en": "Mexican Fashion Gala Show",
+          "fr": "Gala de mode"
+        },
+        "href": "/agenda/mexican-fashion-gala-show"
+      },
+      {
+        "id": "3-4",
+        "label": {
+          "es": "Women Leaders Forum",
+          "en": "Women Leaders Forum",
+          "fr": "Forum des femmes leaders"
+        },
+        "href": "/agenda/women-leaders-forum"
+      },
+      {
+        "id": "3-5",
+        "label": {
+          "es": "Misión Comercial Montreal",
+          "en": "Montreal Trade Mission",
+          "fr": "Mission commerciale"
+        },
+        "href": "/agenda/mision-comercial-montreal"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "label": {
+      "es": "Academy",
+      "en": "Academy",
+      "fr": "Académie"
+    },
+    "basePath": "/academy",
+    "items": [
+      {
+        "id": "4-1",
+        "label": {
+          "es": "Inglés Profesional",
+          "en": "Professional English",
+          "fr": "Anglais professionnel"
+        },
+        "href": "/academy/ingles-profesional"
+      },
+      {
+        "id": "4-2",
+        "label": {
+          "es": "Executive Global Skills",
+          "en": "Executive Global Skills",
+          "fr": "Compétences mondiales"
+        },
+        "href": "/academy/executive-global-skills"
+      },
+      {
+        "id": "4-3",
+        "label": {
+          "es": "Capacitación Empresarial",
+          "en": "Business Training",
+          "fr": "Formation en entreprise"
+        },
+        "href": "/academy/capacitacion-empresarial"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "label": {
+      "es": "Información",
+      "en": "Information",
+      "fr": "Information"
+    },
+    "basePath": "/informacion",
+    "items": [
+      {
+        "id": "5-1",
+        "label": {
+          "es": "Prensa",
+          "en": "Press",
+          "fr": "Presse"
+        },
+        "href": "/informacion/prensa"
+      },
+      {
+        "id": "5-2",
+        "label": {
+          "es": "Guía de Participantes",
+          "en": "Participant Guide",
+          "fr": "Guide des participants"
+        },
+        "href": "/informacion/participantes"
+      },
+      {
+        "id": "5-3",
+        "label": {
+          "es": "Logística",
+          "en": "Logistics",
+          "fr": "Logistique"
+        },
+        "href": "/informacion/logistica"
+      },
+      {
+        "id": "5-4",
+        "label": {
+          "es": "Guía del Viajero",
+          "en": "Travelers Guide",
+          "fr": "Guide du voyageur"
+        },
+        "href": "/informacion/viajero"
+      },
+      {
+        "id": "5-5",
+        "label": {
+          "es": "Contacto",
+          "en": "Contact",
+          "fr": "Contact"
+        },
+        "href": "/contacto"
+      }
+    ]
+  }
+]
