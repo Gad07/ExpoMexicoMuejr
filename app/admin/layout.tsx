@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import { LogOut, Newspaper, LayoutDashboard, Settings, Users, User, Menu, X, Handshake, Medal, ChevronDown, ShoppingBag, Star, Image as ImageIcon, IdCard, Calendar, Navigation, AppWindow, Type } from 'lucide-react';
+import { LogOut, Newspaper, LayoutDashboard, Settings, Users, User, Menu, X, Handshake, Medal, ChevronDown, ShoppingBag, Star, Image as ImageIcon, IdCard, Calendar, Navigation, AppWindow, Type, Sparkles } from 'lucide-react';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -100,6 +100,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { label: 'Páginas', icon: <Type size={18} />, href: '/admin/paginas' },
     { label: 'Noticias', icon: <Newspaper size={18} />, href: '/admin/noticias' },
     { label: 'Navegación', icon: <Navigation size={18} />, href: '/admin/navbar' },
+    { label: 'Pop-Up Promocional', icon: <Sparkles size={18} />, href: '/admin/popup' },
     { label: 'Agendas', icon: <Calendar size={18} />, href: '/admin/agendas' },
     {
       label: 'Directorios',

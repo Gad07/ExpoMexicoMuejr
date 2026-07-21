@@ -8,6 +8,7 @@ import CtaSkyline from '@/components/CtaSkyline';
 import ScrollToTop from '@/components/ScrollToTop';
 import InitialLoader from '@/components/InitialLoader';
 import WhatsAppChat from '@/components/WhatsAppChat';
+import PromoPopup from '@/components/PromoPopup';
 
 export default function PublicLayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -21,6 +22,7 @@ export default function PublicLayoutWrapper({ children }: { children: React.Reac
     <>
       <InitialLoader />
       <ScrollToTop />
+      <PromoPopup />
       <Nav />
       <GlobalHero />
       <main>{children}</main>
