@@ -706,9 +706,9 @@ function ModuleTestimonials({ module }: { module: PageModule }) {
                     <img src={t.image} alt={t.name || ''} style={{ width: '48px', height: '48px', borderRadius: '50%', objectFit: 'cover' }} />
                   )}
                   <div>
-                    <h4 style={{ fontFamily: 'var(--font-display, "Futura", sans-serif)', fontSize: '1rem', fontWeight: 800, color: 'var(--navy, #002E51)', margin: 0 }}>
+                    <h3 style={{ fontFamily: 'var(--font-display, "Futura", sans-serif)', fontSize: '1rem', fontWeight: 800, color: 'var(--navy, #002E51)', margin: 0 }}>
                       {t.name || t.title}
-                    </h4>
+                    </h3>
                     <span style={{ fontSize: '0.85rem', color: 'var(--text-muted, #6b5f4f)' }}>
                       {t.role || t.subtitle || t.company}
                     </span>

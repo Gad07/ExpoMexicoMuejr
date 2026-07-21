@@ -250,7 +250,9 @@ export default function PromoPopup() {
             gridRow: pos === 'right' ? 1 : undefined,
           }}
         >
-          <h2
+          <div
+            role="heading"
+            aria-level={2}
             style={{
               margin: '0 0 14px',
               fontSize: pos === 'top' ? '1.45rem' : '1.65rem',
@@ -261,7 +263,7 @@ export default function PromoPopup() {
             }}
           >
             {config.title}
-          </h2>
+          </div>
 
           <p
             style={{

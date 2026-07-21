@@ -84,7 +84,9 @@ export default function LanguageModal() {
         }}
       >
         {/* HEADER TITLE */}
-        <h2
+        <div
+          role="heading"
+          aria-level={2}
           style={{
             margin: '0 0 8px',
             fontSize: '1.75rem',
@@ -95,7 +97,7 @@ export default function LanguageModal() {
           }}
         >
           Selecciona tu Idioma
-        </h2>
+        </div>
 
         <p style={{ margin: '0 0 28px', color: '#64748b', fontSize: '0.92rem', lineHeight: 1.5 }}>
           Select your preferred language / Choisissez su idioma de preferencia
