@@ -112,43 +112,53 @@ export async function POST(request: Request) {
       delaySeconds: Number(body.triggerValue) || 3,
     };
 
-    const supabase = getSupabase();
-    if (supabase) {
-      await supabase.from('popups').upsert({
-        id: 'popup-main',
-        is_active: config.isActive,
-        title: config.title,
-        subtitle: config.subtitle,
-        image: config.image,
-        image_position: config.imagePosition,
-        show_button: config.showButton,
-        button_text: config.buttonText,
-        button_url: config.buttonUrl,
-        button_bg_color: config.buttonBgColor,
-        button_text_color: config.buttonTextColor,
-        button_hover_bg_color: config.buttonHoverBgColor,
-        bg_gradient: config.bgGradient,
-        text_color: config.textColor,
-        trigger_type: config.triggerType,
-        trigger_value: config.triggerValue,
-        display_target: config.displayTarget,
-        custom_pages: config.customPages,
-      });
-
-      await supabase.from('page_modules').upsert({
-        id: 'popup-main',
-        page_key: 'global',
-        module_type: 'popup',
-        title: config.title,
-        subtitle: config.subtitle,
-        items_json: config,
-      });
-    }
-
+    // Always write to local storage first
     writeJSON(DB_FILE, [config]);
 
+    const supabase = getSupabase();
+    if (supabase) {
+      try {
+        await supabase.from('popups').upsert({
+          id: 'popup-main',
+          is_active: config.isActive,
+          title: config.title,
+          subtitle: config.subtitle,
+          image: config.image,
+          image_position: config.imagePosition,
+          show_button: config.showButton,
+          button_text: config.buttonText,
+          button_url: config.buttonUrl,
+          button_bg_color: config.buttonBgColor,
+          button_text_color: config.buttonTextColor,
+          button_hover_bg_color: config.buttonHoverBgColor,
+          bg_gradient: config.bgGradient,
+          text_color: config.textColor,
+          trigger_type: config.triggerType,
+          trigger_value: config.triggerValue,
+          display_target: config.displayTarget,
+          custom_pages: config.customPages,
+        });
+      } catch (e) {
+        console.warn('Supabase popups table upsert notice:', e);
+      }
+
+      try {
+        await supabase.from('page_modules').upsert({
+          id: 'popup-main',
+          page_key: 'global',
+          module_type: 'popup',
+          title: config.title,
+          subtitle: config.subtitle,
+          items_json: config,
+        });
+      } catch (e) {
+        console.warn('Supabase page_modules popup upsert notice:', e);
+      }
+    }
+
     return NextResponse.json({ popup: config, message: 'Pop-Up guardado exitosamente' });
-  } catch {
+  } catch (err: any) {
+    console.error('Error saving Pop-Up:', err);
     return NextResponse.json({ error: 'Error al guardar Pop-Up' }, { status: 500 });
   }
 }
