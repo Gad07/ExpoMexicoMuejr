@@ -1,0 +1,16 @@
+{
+  "name": "Expo México Mujer 2027",
+  "short_name": "EMM 2027",
+  "description": "La plataforma binacional de negocios, cultura y liderazgo entre México y Canadá.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#002E51",
+  "theme_color": "#002E51",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}

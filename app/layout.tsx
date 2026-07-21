@@ -1,14 +1,13 @@
 import type { Metadata } from 'next';
 import { Nunito_Sans, Jost } from 'next/font/google';
 import { LanguageProvider } from '@/context/LanguageContext';
+import PublicLayoutWrapper from '@/components/PublicLayoutWrapper';
+import AnalyticsTracker from '@/components/AnalyticsTracker';
 import './globals.css';
 import './mega-menu.css';
 
 /**
- * Jost — geometrisk sans-serif, el substituto open-source más fiel a Futura.
- * Futura no está disponible en Google Fonts, pero Jost reproduce fielmente
- * sus características: formas circulares perfectas, terminaciones cortadas,
- * y la misma personalidad geométrica y contemporánea.
+ * Jost — sustituto open-source más fiel a Futura para titulos EMM.
  */
 const futura = Jost({
   subsets: ['latin'],
@@ -31,6 +30,7 @@ const nunito = Nunito_Sans({
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
+  themeColor: '#002E51',
 };
 
 export const metadata: Metadata = {
@@ -38,6 +38,16 @@ export const metadata: Metadata = {
   description:
     'La plataforma binacional que transforma el liderazgo mexicano en oportunidades concretas de negocio, cultura y desarrollo. Cinco días que conectan a México con Canadá.',
   metadataBase: new URL('https://expomexico.ca'),
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'EMM 2027',
+  },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
   keywords: [
     'Expo México Mujer', 'Toronto', 'negocios', 'emprendedoras',
     'México Canadá', 'liderazgo femenino', 'EMM 2027',
@@ -56,15 +66,14 @@ export const metadata: Metadata = {
   },
 };
 
-import PublicLayoutWrapper from '@/components/PublicLayoutWrapper';
-import AnalyticsTracker from '@/components/AnalyticsTracker';
-
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="es" className={`${futura.variable} ${nunito.variable}`}>
-      <body>
+      <body className="font-body antialiased bg-sand text-navy">
         <LanguageProvider>
           <AnalyticsTracker />
           <PublicLayoutWrapper>{children}</PublicLayoutWrapper>
