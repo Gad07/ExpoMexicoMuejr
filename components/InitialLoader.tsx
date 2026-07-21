@@ -126,7 +126,7 @@ export default function InitialLoader() {
 
       <video
         ref={videoRef}
-        src="/Video Project 3.mp4"
+        src="https://www.dropbox.com/scl/fi/p1gcsxb0h26xcr7ydmecp/Video-Project-3.mp4?rlkey=0gyzvmf4rcxq3kfc7c0vif0fq&st=45xip41h&raw=1"
         autoPlay
         preload="auto"
         muted
