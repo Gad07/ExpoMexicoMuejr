@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { readJSON, writeJSON } from '@/lib/db';
+import { readJSON, writeJSON, getSupabase } from '@/lib/db';
 
 const DB_FILE = 'analytics.json';
 
@@ -47,6 +47,18 @@ export async function POST(request: Request) {
       referer: referer || '',
       source,
     };
+
+    const supabase = getSupabase();
+    if (supabase) {
+      await supabase.from('analytics_logs').insert({
+        id: newRecord.id,
+        path: newRecord.path,
+        user_agent: newRecord.userAgent,
+        device: newRecord.device,
+        source: newRecord.source,
+        referer: newRecord.referer,
+      });
+    }
 
     // Keep up to 10,000 most recent logs
     const updated = [newRecord, ...logs].slice(0, 10000);

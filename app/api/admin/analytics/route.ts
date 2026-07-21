@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { readJSON, writeJSON } from '@/lib/db';
+import { readJSON, writeJSON, getSupabase } from '@/lib/db';
 
 const DB_FILE = 'analytics.json';
 const PAGES_DB = 'pages.json';
@@ -49,7 +49,26 @@ function generateSeedLogs(): AnalyticsRecord[] {
 
 export async function GET(request: Request) {
   try {
-    let logs = readJSON<AnalyticsRecord>(DB_FILE);
+    let logs: AnalyticsRecord[] = [];
+    const supabase = getSupabase();
+    if (supabase) {
+      const { data, error } = await supabase.from('analytics_logs').select('*');
+      if (!error && data && data.length > 0) {
+        logs = data.map((d: any) => ({
+          id: d.id,
+          path: d.path,
+          timestamp: d.timestamp,
+          userAgent: d.user_agent,
+          device: d.device,
+          source: d.source,
+          referer: d.referer,
+        }));
+      }
+    }
+
+    if (!logs || logs.length === 0) {
+      logs = readJSON<AnalyticsRecord>(DB_FILE);
+    }
 
     if (!logs || logs.length === 0) {
       logs = generateSeedLogs();

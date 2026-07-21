@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { readJSON, writeJSON } from '@/lib/db';
+import { readJSON, writeJSON, getSupabase } from '@/lib/db';
 import { getTokenFromRequest, verifyToken } from '@/lib/auth';
 
 const DB_FILE = 'expositores.json';
@@ -61,6 +61,13 @@ function getNextId(exhibitors: Exhibitor[]): string {
 // GET /api/admin/expositores - List all exhibitors
 export async function GET(request: Request) {
   try {
+    const supabase = getSupabase();
+    if (supabase) {
+      const { data, error } = await supabase.from('exhibitors').select('*');
+      if (!error && data && data.length > 0) {
+        return NextResponse.json({ exhibitors: data });
+      }
+    }
     const exhibitors = readJSON<Exhibitor>(DB_FILE);
     return NextResponse.json({ exhibitors });
   } catch {
@@ -95,6 +102,20 @@ export async function POST(request: Request) {
       bio: body.bio || { es: '', en: '', fr: '' },
       gallery: body.gallery || [],
     };
+
+    const supabase = getSupabase();
+    if (supabase) {
+      await supabase.from('exhibitors').upsert({
+        id: newExhibitor.id,
+        slug: newExhibitor.slug,
+        name: newExhibitor.name,
+        category: newExhibitor.category,
+        stand_number: newExhibitor.booth,
+        logo: newExhibitor.logo,
+        website: newExhibitor.website,
+        state: newExhibitor.state,
+      });
+    }
 
     exhibitors.push(newExhibitor);
     writeJSON(DB_FILE, exhibitors);
