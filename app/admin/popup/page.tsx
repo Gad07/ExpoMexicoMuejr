@@ -447,9 +447,6 @@ export default function AdminPopupPage() {
             )}
 
             <div style={{ padding: '24px', background: 'linear-gradient(135deg, #002E51 0%, #001C33 100%)', color: '#fff', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <span style={{ background: 'rgba(228,0,124,0.2)', color: '#FF6EB4', fontSize: '0.65rem', fontWeight: 800, padding: '2px 8px', borderRadius: '100px', width: 'fit-content', marginBottom: '8px', textTransform: 'uppercase' }}>
-                Anuncio Oficial
-              </span>
               <h4 style={{ margin: '0 0 8px', fontSize: '1.2rem', fontWeight: 900, lineHeight: 1.2 }}>
                 {config.title || 'Título del Pop-Up'}
               </h4>

@@ -202,26 +202,6 @@ export default function PromoPopup() {
             color: '#fff',
           }}
         >
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              background: 'rgba(228, 0, 124, 0.2)',
-              color: '#FF6EB4',
-              padding: '4px 12px',
-              borderRadius: '100px',
-              fontSize: '0.75rem',
-              fontWeight: 800,
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
-              marginBottom: '16px',
-              width: 'fit-content',
-              border: '1px solid rgba(228, 0, 124, 0.4)',
-            }}
-          >
-            <Sparkles size={14} /> Anuncio Oficial
-          </div>
 
           <h2
             style={{
