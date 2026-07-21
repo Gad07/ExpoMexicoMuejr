@@ -1,8 +1,16 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Save, Eye, Clock, MousePointer, DoorOpen, Globe, Home, Target, ArrowRight, X } from 'lucide-react';
+import { Sparkles, Save, Eye, Layout, Palette, ArrowRight, X } from 'lucide-react';
 import { PopupConfig } from '@/app/api/admin/popup/route';
+
+const COLOR_PRESETS = [
+  { name: 'Azul EMM Noche', bg: 'linear-gradient(135deg, #002E51 0%, #001C33 100%)', text: '#ffffff', btnBg: '#E4007C', btnText: '#ffffff', btnHover: '#ff0d8d' },
+  { name: 'Magenta EMM Vibrante', bg: 'linear-gradient(135deg, #E4007C 0%, #990053 100%)', text: '#ffffff', btnBg: '#002E51', btnText: '#ffffff', btnHover: '#001C33' },
+  { name: 'Dorado Luxury', bg: 'linear-gradient(135deg, #C79E45 0%, #8C6A21 100%)', text: '#ffffff', btnBg: '#002E51', btnText: '#ffffff', btnHover: '#E4007C' },
+  { name: 'Negro & Rosa Elegante', bg: 'linear-gradient(135deg, #111827 0%, #000000 100%)', text: '#ffffff', btnBg: '#E4007C', btnText: '#ffffff', btnHover: '#ff0d8d' },
+  { name: 'Blanco & Azul Moderno', bg: '#ffffff', text: '#002E51', btnBg: '#002E51', btnText: '#ffffff', btnHover: '#E4007C' },
+];
 
 export default function AdminPopupPage() {
   const [config, setConfig] = useState<PopupConfig>({
@@ -10,9 +18,15 @@ export default function AdminPopupPage() {
     title: '¡Gran Convocatoria Expo México Mujer 2027!',
     subtitle: 'Únete como Expositora o Embajadora en Toronto, Canadá. Conecta tu marca con líderes binacionales e inversionistas internacionales.',
     image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=800',
+    imagePosition: 'left',
     showButton: true,
     buttonText: 'Registrar mi Marca / Stand',
     buttonUrl: '/contacto',
+    buttonBgColor: '#E4007C',
+    buttonTextColor: '#ffffff',
+    buttonHoverBgColor: '#ff0d8d',
+    bgGradient: 'linear-gradient(135deg, #002E51 0%, #001C33 100%)',
+    textColor: '#ffffff',
     triggerType: 'timer',
     triggerValue: 3,
     displayTarget: 'all',
@@ -21,6 +35,7 @@ export default function AdminPopupPage() {
 
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [isPreviewHovered, setIsPreviewHovered] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
   useEffect(() => {
@@ -57,6 +72,17 @@ export default function AdminPopupPage() {
     setSaving(false);
   };
 
+  const applyPreset = (preset: typeof COLOR_PRESETS[0]) => {
+    setConfig({
+      ...config,
+      bgGradient: preset.bg,
+      textColor: preset.text,
+      buttonBgColor: preset.btnBg,
+      buttonTextColor: preset.btnText,
+      buttonHoverBgColor: preset.btnHover,
+    });
+  };
+
   if (loading) {
     return (
       <div style={{ padding: '40px', textAlign: 'center', color: '#002E51', fontWeight: 700 }}>
@@ -65,19 +91,29 @@ export default function AdminPopupPage() {
     );
   }
 
+  const pos = config.imagePosition || 'left';
+  const hasImage = Boolean(config.image);
+
+  let gridCols = '1fr';
+  if (hasImage) {
+    if (pos === 'left') gridCols = '1fr 1fr';
+    if (pos === 'right') gridCols = '1fr 1fr';
+    if (pos === 'top' || pos === 'background') gridCols = '1fr';
+  }
+
   return (
     <div style={{ padding: '36px 40px', maxWidth: '1400px', margin: '0 auto', fontFamily: 'system-ui, sans-serif' }}>
       {/* HEADER */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#E4007C', fontWeight: 800, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '4px' }}>
-            <Sparkles size={16} /> Módulo Promocional Flotante
+            <Sparkles size={16} /> Diseñador del Pop-Up Promocional
           </div>
           <h1 style={{ margin: 0, fontSize: '1.8rem', fontWeight: 900, color: '#002E51', letterSpacing: '-0.02em' }}>
-            Gestión del Pop-Up Promocional
+            Personalización de Diseño, Colores y Posición
           </h1>
           <p style={{ margin: '4px 0 0', color: '#64748b', fontSize: '0.9rem' }}>
-            Configura el modal emergente, disparadores (tiempo, scroll, intención de salida) y las páginas donde aparecerá.
+            Ajusta la posición de la imagen, colores de fondo, colores del botón e interacciones hover.
           </p>
         </div>
 
@@ -124,272 +160,242 @@ export default function AdminPopupPage() {
       <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '32px' }}>
         {/* EDITOR FORM */}
         <div style={{ background: '#fff', borderRadius: '20px', padding: '32px', border: '1px solid #e2e8f0', boxShadow: '0 4px 16px rgba(0,0,0,0.02)' }}>
-          <h3 style={{ margin: '0 0 24px', fontSize: '1.1rem', fontWeight: 800, color: '#002E51', borderBottom: '1px solid #f1f5f9', paddingBottom: '12px' }}>
-            1. Contenido y Apariencia
+          
+          {/* 1. LAYOUT & POSITION */}
+          <h3 style={{ margin: '0 0 20px', fontSize: '1.1rem', fontWeight: 800, color: '#002E51', borderBottom: '1px solid #f1f5f9', paddingBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Layout size={18} color="#E4007C" /> 1. Posición de la Imagen y Contenido
           </h3>
 
-          {/* TOGGLE IS ACTIVE */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#f8fafc', padding: '16px 20px', borderRadius: '14px', marginBottom: '24px', border: '1px solid #e2e8f0' }}>
-            <div>
-              <div style={{ fontWeight: 800, color: '#002E51', fontSize: '0.95rem' }}>Estado del Pop-Up</div>
-              <div style={{ fontSize: '0.8rem', color: '#64748b' }}>Activar o desactivar la aparición en el sitio público</div>
-            </div>
-            <label style={{ position: 'relative', display: 'inline-block', width: '50px', height: '26px', cursor: 'pointer' }}>
-              <input
-                type="checkbox"
-                checked={config.isActive}
-                onChange={(e) => setConfig({ ...config, isActive: e.target.checked })}
-                style={{ opacity: 0, width: 0, height: 0 }}
-              />
-              <span
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '10px', marginBottom: '24px' }}>
+            {[
+              { pos: 'left', label: '👈 Izquierda', desc: 'En columna' },
+              { pos: 'right', label: '👉 Derecha', desc: 'En columna' },
+              { pos: 'top', label: '👆 Arriba', desc: 'Banner superior' },
+              { pos: 'background', label: '🖼️ Fondo', desc: 'Fondo completo' },
+            ].map((p) => (
+              <div
+                key={p.pos}
+                onClick={() => setConfig({ ...config, imagePosition: p.pos as any })}
                 style={{
-                  position: 'absolute',
-                  inset: 0,
-                  backgroundColor: config.isActive ? '#E4007C' : '#cbd5e1',
-                  borderRadius: '34px',
-                  transition: '0.3s',
+                  padding: '12px 10px',
+                  borderRadius: '12px',
+                  border: config.imagePosition === p.pos ? '2px solid #E4007C' : '1px solid #e2e8f0',
+                  background: config.imagePosition === p.pos ? 'rgba(228,0,124,0.05)' : '#fff',
+                  cursor: 'pointer',
+                  textAlign: 'center',
+                  transition: 'all 0.2s',
                 }}
               >
-                <span
-                  style={{
-                    position: 'absolute',
-                    content: '""',
-                    height: '20px',
-                    width: '20px',
-                    left: config.isActive ? '26px' : '3px',
-                    bottom: '3px',
-                    backgroundColor: 'white',
-                    borderRadius: '50%',
-                    transition: '0.3s',
-                  }}
-                />
-              </span>
-            </label>
+                <div style={{ fontWeight: 800, fontSize: '0.8rem', color: '#002E51', marginBottom: '2px' }}>{p.label}</div>
+                <div style={{ fontSize: '0.68rem', color: '#64748b' }}>{p.desc}</div>
+              </div>
+            ))}
           </div>
 
-          {/* TITLE INPUT */}
-          <div style={{ marginBottom: '20px' }}>
-            <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: '#002E51', marginBottom: '6px' }}>
+          {/* 2. PRESET COLOR PALETTES */}
+          <h3 style={{ margin: '28px 0 20px', fontSize: '1.1rem', fontWeight: 800, color: '#002E51', borderBottom: '1px solid #f1f5f9', paddingBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Palette size={18} color="#E4007C" /> 2. Paletas de Colores Rápidas (Presets)
+          </h3>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px', marginBottom: '24px' }}>
+            {COLOR_PRESETS.map((p) => (
+              <button
+                key={p.name}
+                type="button"
+                onClick={() => applyPreset(p)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  padding: '10px 14px',
+                  borderRadius: '10px',
+                  border: '1px solid #e2e8f0',
+                  background: '#f8fafc',
+                  cursor: 'pointer',
+                  fontSize: '0.8rem',
+                  fontWeight: 700,
+                  color: '#002E51',
+                  textAlign: 'left',
+                  transition: 'all 0.2s',
+                }}
+              >
+                <span style={{ width: '20px', height: '20px', borderRadius: '50%', background: p.bg, border: '1px solid rgba(0,0,0,0.1)', flexShrink: 0 }} />
+                <span>{p.name}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* CUSTOM COLOR PICKERS */}
+          <h3 style={{ margin: '28px 0 20px', fontSize: '1.1rem', fontWeight: 800, color: '#002E51', borderBottom: '1px solid #f1f5f9', paddingBottom: '12px' }}>
+            3. Personalización Fina de Colores & Hover
+          </h3>
+
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
+            <div>
+              <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 800, color: '#002E51', marginBottom: '6px' }}>
+                Fondo / Degradado Pop-Up
+              </label>
+              <input
+                type="text"
+                value={config.bgGradient}
+                onChange={(e) => setConfig({ ...config, bgGradient: e.target.value })}
+                placeholder="linear-gradient(...)"
+                style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '0.85rem' }}
+              />
+            </div>
+            <div>
+              <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 800, color: '#002E51', marginBottom: '6px' }}>
+                Color del Texto
+              </label>
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <input
+                  type="color"
+                  value={config.textColor.startsWith('#') ? config.textColor : '#ffffff'}
+                  onChange={(e) => setConfig({ ...config, textColor: e.target.value })}
+                  style={{ width: '40px', height: '38px', padding: 0, border: 'none', borderRadius: '6px', cursor: 'pointer' }}
+                />
+                <input
+                  type="text"
+                  value={config.textColor}
+                  onChange={(e) => setConfig({ ...config, textColor: e.target.value })}
+                  style={{ flex: 1, padding: '10px 14px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '0.85rem' }}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* BUTTON COLORS */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '24px' }}>
+            <div>
+              <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: 800, color: '#002E51', marginBottom: '6px' }}>
+                Fondo Botón CTA
+              </label>
+              <div style={{ display: 'flex', gap: '6px' }}>
+                <input
+                  type="color"
+                  value={config.buttonBgColor.startsWith('#') ? config.buttonBgColor : '#E4007C'}
+                  onChange={(e) => setConfig({ ...config, buttonBgColor: e.target.value })}
+                  style={{ width: '36px', height: '36px', padding: 0, border: 'none', borderRadius: '6px', cursor: 'pointer' }}
+                />
+                <input
+                  type="text"
+                  value={config.buttonBgColor}
+                  onChange={(e) => setConfig({ ...config, buttonBgColor: e.target.value })}
+                  style={{ flex: 1, padding: '8px 10px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '0.8rem' }}
+                />
+              </div>
+            </div>
+
+            <div>
+              <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: 800, color: '#002E51', marginBottom: '6px' }}>
+                Texto Botón CTA
+              </label>
+              <div style={{ display: 'flex', gap: '6px' }}>
+                <input
+                  type="color"
+                  value={config.buttonTextColor.startsWith('#') ? config.buttonTextColor : '#ffffff'}
+                  onChange={(e) => setConfig({ ...config, buttonTextColor: e.target.value })}
+                  style={{ width: '36px', height: '36px', padding: 0, border: 'none', borderRadius: '6px', cursor: 'pointer' }}
+                />
+                <input
+                  type="text"
+                  value={config.buttonTextColor}
+                  onChange={(e) => setConfig({ ...config, buttonTextColor: e.target.value })}
+                  style={{ flex: 1, padding: '8px 10px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '0.8rem' }}
+                />
+              </div>
+            </div>
+
+            <div>
+              <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: 800, color: '#002E51', marginBottom: '6px' }}>
+                Fondo Botón (HOVER)
+              </label>
+              <div style={{ display: 'flex', gap: '6px' }}>
+                <input
+                  type="color"
+                  value={config.buttonHoverBgColor.startsWith('#') ? config.buttonHoverBgColor : '#ff0d8d'}
+                  onChange={(e) => setConfig({ ...config, buttonHoverBgColor: e.target.value })}
+                  style={{ width: '36px', height: '36px', padding: 0, border: 'none', borderRadius: '6px', cursor: 'pointer' }}
+                />
+                <input
+                  type="text"
+                  value={config.buttonHoverBgColor}
+                  onChange={(e) => setConfig({ ...config, buttonHoverBgColor: e.target.value })}
+                  style={{ flex: 1, padding: '8px 10px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '0.8rem' }}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* 4. BASIC CONTENT & TEXTS */}
+          <h3 style={{ margin: '28px 0 20px', fontSize: '1.1rem', fontWeight: 800, color: '#002E51', borderBottom: '1px solid #f1f5f9', paddingBottom: '12px' }}>
+            4. Textos, Botón e Imagen
+          </h3>
+
+          <div style={{ marginBottom: '16px' }}>
+            <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 800, color: '#002E51', marginBottom: '4px' }}>
               Título del Pop-Up
             </label>
             <input
               type="text"
               value={config.title}
               onChange={(e) => setConfig({ ...config, title: e.target.value })}
-              placeholder="Ej: ¡Gran Convocatoria Expo México Mujer!"
-              style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '0.9rem', outline: 'none', boxSizing: 'border-box' }}
+              style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '0.85rem' }}
             />
           </div>
 
-          {/* SUBTITLE / MESSAGE */}
-          <div style={{ marginBottom: '20px' }}>
-            <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: '#002E51', marginBottom: '6px' }}>
+          <div style={{ marginBottom: '16px' }}>
+            <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 800, color: '#002E51', marginBottom: '4px' }}>
               Mensaje / Descripción
             </label>
             <textarea
-              rows={3}
+              rows={2}
               value={config.subtitle}
               onChange={(e) => setConfig({ ...config, subtitle: e.target.value })}
-              placeholder="Texto explicativo del anuncio..."
-              style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '0.9rem', outline: 'none', resize: 'vertical', boxSizing: 'border-box' }}
+              style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '0.85rem' }}
             />
           </div>
 
-          {/* IMAGE URL INPUT */}
-          <div style={{ marginBottom: '20px' }}>
-            <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: '#002E51', marginBottom: '6px' }}>
+          <div style={{ marginBottom: '16px' }}>
+            <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 800, color: '#002E51', marginBottom: '4px' }}>
               URL de Imagen / Ilustración
             </label>
             <input
               type="text"
               value={config.image}
               onChange={(e) => setConfig({ ...config, image: e.target.value })}
-              placeholder="https://... (dejar vacío si no lleva imagen)"
-              style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '0.9rem', outline: 'none', boxSizing: 'border-box' }}
+              style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '0.85rem' }}
             />
           </div>
 
-          {/* SHOW BUTTON TOGGLE */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#f8fafc', padding: '14px 18px', borderRadius: '12px', marginBottom: '20px', border: '1px solid #e2e8f0' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
             <div>
-              <div style={{ fontWeight: 800, color: '#002E51', fontSize: '0.88rem' }}>¿Mostrar Botón de Llamada a la Acción (CTA)?</div>
-              <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Permite redirigir al visitante a una página o enlace</div>
-            </div>
-            <label style={{ position: 'relative', display: 'inline-block', width: '44px', height: '24px', cursor: 'pointer' }}>
-              <input
-                type="checkbox"
-                checked={config.showButton}
-                onChange={(e) => setConfig({ ...config, showButton: e.target.checked })}
-                style={{ opacity: 0, width: 0, height: 0 }}
-              />
-              <span
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  backgroundColor: config.showButton ? '#E4007C' : '#cbd5e1',
-                  borderRadius: '34px',
-                  transition: '0.3s',
-                }}
-              >
-                <span
-                  style={{
-                    position: 'absolute',
-                    content: '""',
-                    height: '18px',
-                    width: '18px',
-                    left: config.showButton ? '23px' : '3px',
-                    bottom: '3px',
-                    backgroundColor: 'white',
-                    borderRadius: '50%',
-                    transition: '0.3s',
-                  }}
-                />
-              </span>
-            </label>
-          </div>
-
-          {config.showButton && (
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '24px' }}>
-              <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: '#002E51', marginBottom: '6px' }}>
-                  Texto del Botón
-                </label>
-                <input
-                  type="text"
-                  value={config.buttonText}
-                  onChange={(e) => setConfig({ ...config, buttonText: e.target.value })}
-                  placeholder="Ej: Registrar mi Stand"
-                  style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '0.9rem', outline: 'none', boxSizing: 'border-box' }}
-                />
-              </div>
-              <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: '#002E51', marginBottom: '6px' }}>
-                  Enlace de Destino (URL)
-                </label>
-                <input
-                  type="text"
-                  value={config.buttonUrl}
-                  onChange={(e) => setConfig({ ...config, buttonUrl: e.target.value })}
-                  placeholder="Ej: /contacto o /expositores"
-                  style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '0.9rem', outline: 'none', boxSizing: 'border-box' }}
-                />
-              </div>
-            </div>
-          )}
-
-          {/* 2. TRIGGER SELECTION */}
-          <h3 style={{ margin: '32px 0 20px', fontSize: '1.1rem', fontWeight: 800, color: '#002E51', borderBottom: '1px solid #f1f5f9', paddingBottom: '12px' }}>
-            2. Regla de Disparo (Trigger)
-          </h3>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '16px' }}>
-            {[
-              { type: 'timer', label: '⏱️ Por Tiempo', desc: 'Retraso en segundos' },
-              { type: 'scroll', label: '📜 Por Scroll', desc: '% de avance en página' },
-              { type: 'exit', label: '🚪 Intención Salida', desc: 'Al mover el mouse fuera' },
-            ].map((t) => (
-              <div
-                key={t.type}
-                onClick={() => setConfig({ ...config, triggerType: t.type as any })}
-                style={{
-                  padding: '14px',
-                  borderRadius: '12px',
-                  border: config.triggerType === t.type ? '2px solid #E4007C' : '1px solid #e2e8f0',
-                  background: config.triggerType === t.type ? 'rgba(228,0,124,0.05)' : '#fff',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s',
-                }}
-              >
-                <div style={{ fontWeight: 800, fontSize: '0.85rem', color: '#002E51', marginBottom: '4px' }}>{t.label}</div>
-                <div style={{ fontSize: '0.72rem', color: '#64748b' }}>{t.desc}</div>
-              </div>
-            ))}
-          </div>
-
-          {config.triggerType === 'timer' && (
-            <div style={{ marginBottom: '24px' }}>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: '#002E51', marginBottom: '6px' }}>
-                Segundos de espera antes de mostrar (ej: 3 segundos)
-              </label>
-              <input
-                type="number"
-                min={0}
-                max={30}
-                value={config.triggerValue}
-                onChange={(e) => setConfig({ ...config, triggerValue: Number(e.target.value) || 0 })}
-                style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '0.9rem', outline: 'none', boxSizing: 'border-box' }}
-              />
-            </div>
-          )}
-
-          {config.triggerType === 'scroll' && (
-            <div style={{ marginBottom: '24px' }}>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: '#002E51', marginBottom: '6px' }}>
-                Porcentaje de Scroll para disparar (ej: 50%)
-              </label>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <input
-                  type="range"
-                  min={10}
-                  max={90}
-                  step={5}
-                  value={config.triggerValue}
-                  onChange={(e) => setConfig({ ...config, triggerValue: Number(e.target.value) })}
-                  style={{ flex: 1 }}
-                />
-                <span style={{ fontWeight: 800, color: '#E4007C', fontSize: '1rem' }}>{config.triggerValue}%</span>
-              </div>
-            </div>
-          )}
-
-          {/* 3. PAGE TARGETING */}
-          <h3 style={{ margin: '32px 0 20px', fontSize: '1.1rem', fontWeight: 800, color: '#002E51', borderBottom: '1px solid #f1f5f9', paddingBottom: '12px' }}>
-            3. Ubicación (¿En qué páginas se mostrará?)
-          </h3>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '16px' }}>
-            {[
-              { target: 'all', label: '🌐 Todas las Páginas', desc: 'Aparece en todo el sitio' },
-              { target: 'home', label: '🏠 Solo en la Inicio', desc: 'Únicamente en ruta /' },
-              { target: 'custom', label: '📍 Páginas Específicas', desc: 'Definir rutas manualmente' },
-            ].map((p) => (
-              <div
-                key={p.target}
-                onClick={() => setConfig({ ...config, displayTarget: p.target as any })}
-                style={{
-                  padding: '14px',
-                  borderRadius: '12px',
-                  border: config.displayTarget === p.target ? '2px solid #002E51' : '1px solid #e2e8f0',
-                  background: config.displayTarget === p.target ? 'rgba(0,46,81,0.05)' : '#fff',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s',
-                }}
-              >
-                <div style={{ fontWeight: 800, fontSize: '0.85rem', color: '#002E51', marginBottom: '4px' }}>{p.label}</div>
-                <div style={{ fontSize: '0.72rem', color: '#64748b' }}>{p.desc}</div>
-              </div>
-            ))}
-          </div>
-
-          {config.displayTarget === 'custom' && (
-            <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: '#002E51', marginBottom: '6px' }}>
-                Rutas específicas (separadas por coma)
+              <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 800, color: '#002E51', marginBottom: '4px' }}>
+                Texto del Botón CTA
               </label>
               <input
                 type="text"
-                value={config.customPages}
-                onChange={(e) => setConfig({ ...config, customPages: e.target.value })}
-                placeholder="Ej: /expositores, /visa, /agenda, /contacto"
-                style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '0.9rem', outline: 'none', boxSizing: 'border-box' }}
+                value={config.buttonText}
+                onChange={(e) => setConfig({ ...config, buttonText: e.target.value })}
+                style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '0.85rem' }}
               />
             </div>
-          )}
+            <div>
+              <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 800, color: '#002E51', marginBottom: '4px' }}>
+                Enlace de Destino (URL)
+              </label>
+              <input
+                type="text"
+                value={config.buttonUrl}
+                onChange={(e) => setConfig({ ...config, buttonUrl: e.target.value })}
+                style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '0.85rem' }}
+              />
+            </div>
+          </div>
         </div>
 
         {/* LIVE PREVIEW BOX */}
-        <div style={{ background: '#f8fafc', borderRadius: '20px', padding: '32px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ background: '#f8fafc', borderRadius: '20px', padding: '32px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', position: 'sticky', top: '100px', height: 'fit-content' }}>
           <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
             <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#002E51', display: 'flex', alignItems: 'center', gap: '6px' }}>
               <Eye size={16} color="#E4007C" /> Vista Previa en Tiempo Real
@@ -404,12 +410,12 @@ export default function AdminPopupPage() {
             style={{
               position: 'relative',
               width: '100%',
-              background: '#fff',
+              background: pos === 'background' ? 'none' : '#fff',
               borderRadius: '20px',
               overflow: 'hidden',
               boxShadow: '0 15px 40px rgba(0,0,0,0.12)',
               display: 'grid',
-              gridTemplateColumns: config.image ? '1fr 1fr' : '1fr',
+              gridTemplateColumns: gridCols,
               border: '1px solid #e2e8f0',
               opacity: config.isActive ? 1 : 0.4,
               transition: 'all 0.3s ease',
@@ -435,10 +441,10 @@ export default function AdminPopupPage() {
               <X size={14} />
             </div>
 
-            {config.image && (
+            {hasImage && pos === 'left' && (
               <div
                 style={{
-                  minHeight: '200px',
+                  minHeight: '180px',
                   backgroundImage: `url(${config.image})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
@@ -446,40 +452,101 @@ export default function AdminPopupPage() {
               />
             )}
 
-            <div style={{ padding: '24px', background: 'linear-gradient(135deg, #002E51 0%, #001C33 100%)', color: '#fff', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <h4 style={{ margin: '0 0 8px', fontSize: '1.2rem', fontWeight: 900, lineHeight: 1.2 }}>
+            {hasImage && pos === 'top' && (
+              <div
+                style={{
+                  height: '140px',
+                  backgroundImage: `url(${config.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              />
+            )}
+
+            {hasImage && pos === 'background' && (
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  backgroundImage: `url(${config.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  zIndex: 0,
+                }}
+              >
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: config.bgGradient,
+                    opacity: 0.88,
+                  }}
+                />
+              </div>
+            )}
+
+            <div
+              style={{
+                position: 'relative',
+                zIndex: 1,
+                padding: '24px',
+                background: pos === 'background' ? 'transparent' : config.bgGradient,
+                color: config.textColor,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                gridColumn: pos === 'right' ? 1 : undefined,
+                gridRow: pos === 'right' ? 1 : undefined,
+              }}
+            >
+              <h4 style={{ margin: '0 0 8px', fontSize: '1.15rem', fontWeight: 900, lineHeight: 1.2, color: config.textColor }}>
                 {config.title || 'Título del Pop-Up'}
               </h4>
-              <p style={{ margin: '0 0 16px', fontSize: '0.78rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.4 }}>
+              <p style={{ margin: '0 0 16px', fontSize: '0.78rem', color: config.textColor, opacity: 0.85, lineHeight: 1.4 }}>
                 {config.subtitle || 'Mensaje del Pop-Up...'}
               </p>
 
               {config.showButton && (
                 <div
+                  onMouseEnter={() => setIsPreviewHovered(true)}
+                  onMouseLeave={() => setIsPreviewHovered(false)}
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     gap: '6px',
                     padding: '10px 18px',
-                    background: '#E4007C',
-                    color: '#fff',
+                    background: isPreviewHovered ? config.buttonHoverBgColor : config.buttonBgColor,
+                    color: config.buttonTextColor,
                     borderRadius: '8px',
                     fontWeight: 800,
                     fontSize: '0.8rem',
                     width: 'fit-content',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
                   }}
                 >
                   {config.buttonText || 'Botón CTA'} <ArrowRight size={14} />
                 </div>
               )}
             </div>
+
+            {hasImage && pos === 'right' && (
+              <div
+                style={{
+                  minHeight: '180px',
+                  backgroundImage: `url(${config.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  gridColumn: 2,
+                  gridRow: 1,
+                }}
+              />
+            )}
           </div>
 
-          <div style={{ marginTop: '20px', fontSize: '0.78rem', color: '#64748b', textAlign: 'center' }}>
-            Trigger configurado: <strong>{config.triggerType === 'timer' ? `⏱️ ${config.triggerValue}s de espera` : config.triggerType === 'scroll' ? `📜 ${config.triggerValue}% de Scroll` : '🚪 Exit Intent'}</strong>
-            <br />
-            Mostrando en: <strong>{config.displayTarget === 'all' ? 'Todas las páginas' : config.displayTarget === 'home' ? 'Página de Inicio (/)' : config.customPages}</strong>
+          <div style={{ marginTop: '16px', fontSize: '0.78rem', color: '#64748b', textAlign: 'center' }}>
+            Pasa el mouse sobre el botón en la vista previa para probar el efecto <strong>Hover</strong>.
           </div>
         </div>
       </div>

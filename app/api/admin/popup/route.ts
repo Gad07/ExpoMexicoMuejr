@@ -10,15 +10,20 @@ export interface PopupConfig {
   title: string;
   subtitle: string;
   image: string;
+  imagePosition: 'left' | 'right' | 'top' | 'background';
   showButton: boolean;
   buttonText: string;
   buttonUrl: string;
+  buttonBgColor: string;
+  buttonTextColor: string;
+  buttonHoverBgColor: string;
+  bgGradient: string;
+  textColor: string;
   triggerType: 'timer' | 'scroll' | 'exit';
   triggerValue: number; // seconds for timer, percentage 1-100 for scroll
   displayTarget: 'all' | 'home' | 'custom';
   customPages: string; // Comma separated paths, e.g. "/expositores, /visa, /agenda"
   delaySeconds?: number;
-  bgGradient?: string;
 }
 
 const DEFAULT_POPUP: PopupConfig = {
@@ -27,15 +32,20 @@ const DEFAULT_POPUP: PopupConfig = {
   title: '¡Gran Convocatoria Expo México Mujer 2027!',
   subtitle: 'Únete como Expositora o Embajadora en Toronto, Canadá. Conecta tu marca con líderes binacionales e inversionistas internacionales.',
   image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=800',
+  imagePosition: 'left',
   showButton: true,
   buttonText: 'Registrar mi Marca / Stand',
   buttonUrl: '/contacto',
+  buttonBgColor: '#E4007C',
+  buttonTextColor: '#ffffff',
+  buttonHoverBgColor: '#ff0d8d',
+  bgGradient: 'linear-gradient(135deg, #002E51 0%, #001C33 100%)',
+  textColor: '#ffffff',
   triggerType: 'timer',
   triggerValue: 3,
   displayTarget: 'all',
   customPages: '/expo/que-es, /expositores, /visa',
   delaySeconds: 3,
-  bgGradient: 'linear-gradient(135deg, #002E51 0%, #001C33 100%)',
 };
 
 function checkAuth(request: Request): boolean {
@@ -86,15 +96,20 @@ export async function POST(request: Request) {
       title: body.title || '',
       subtitle: body.subtitle || '',
       image: body.image || '',
+      imagePosition: body.imagePosition || 'left',
       showButton: body.showButton !== false,
       buttonText: body.buttonText || 'Saber Más',
       buttonUrl: body.buttonUrl || '/',
+      buttonBgColor: body.buttonBgColor || '#E4007C',
+      buttonTextColor: body.buttonTextColor || '#ffffff',
+      buttonHoverBgColor: body.buttonHoverBgColor || '#ff0d8d',
+      bgGradient: body.bgGradient || 'linear-gradient(135deg, #002E51 0%, #001C33 100%)',
+      textColor: body.textColor || '#ffffff',
       triggerType: body.triggerType || 'timer',
       triggerValue: Number(body.triggerValue) || 3,
       displayTarget: body.displayTarget || 'all',
       customPages: body.customPages || '',
       delaySeconds: Number(body.triggerValue) || 3,
-      bgGradient: body.bgGradient || 'linear-gradient(135deg, #002E51 0%, #001C33 100%)',
     };
 
     const supabase = getSupabase();
