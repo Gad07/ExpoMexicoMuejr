@@ -76,9 +76,19 @@ export default function LanguageModal() {
           from { opacity: 0; transform: scale(0.9) translateY(16px); }
           to { opacity: 1; transform: scale(1) translateY(0); }
         }
+        @media (max-width: 540px) {
+          .lang-modal-card {
+            padding: 28px 20px !important;
+            border-radius: 20px !important;
+          }
+          .lang-item-row {
+            padding: 12px 14px !important;
+          }
+        }
       `}</style>
 
       <div
+        className="lang-modal-card"
         style={{
           width: '100%',
           maxWidth: '540px',

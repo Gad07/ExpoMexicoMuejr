@@ -12,6 +12,7 @@ export default function InitialLoader() {
   useEffect(() => {
     setMounted(true);
 
+    // Skip loader for automated auditing crawlers
     const isLighthouse = typeof navigator !== 'undefined' && (
       navigator.userAgent.includes('Lighthouse') ||
       navigator.userAgent.includes('Chrome-Lighthouse') ||
@@ -32,18 +33,21 @@ export default function InitialLoader() {
       return;
     }
 
+    // Check for Mobile browsers
+    const isMobile = typeof navigator !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
     // Force play video explicitly on mount
     const timer = setTimeout(() => {
       if (videoRef.current) {
         videoRef.current.muted = true;
-        videoRef.current.play().catch(() => { });
+        videoRef.current.play().catch(() => {});
       }
     }, 100);
 
-    // Fallback timer of 8s in case browser blocks video
+    // Fallback timer: 2.2s on mobile, 6s on desktop so mobile users NEVER get stuck
     fallbackRef.current = setTimeout(() => {
       handleComplete();
-    }, 8000);
+    }, isMobile ? 2200 : 6000);
 
     return () => {
       clearTimeout(timer);
@@ -69,7 +73,7 @@ export default function InitialLoader() {
     window.dispatchEvent(new Event('initial_loader_complete'));
     setTimeout(() => {
       setShow(false);
-    }, 800);
+    }, 600);
   };
 
   if (!mounted || !show) return null;
@@ -77,6 +81,8 @@ export default function InitialLoader() {
   return (
     <div
       className={`initial-loader ${isFading ? 'initial-loader--fade' : ''}`}
+      onClick={handleComplete}
+      onTouchStart={handleComplete}
       style={{
         position: 'fixed',
         top: 0,
@@ -90,10 +96,9 @@ export default function InitialLoader() {
         justifyContent: 'center',
         alignItems: 'center',
         opacity: isFading ? 0 : 1,
-        transition: 'opacity 0.8s ease-in-out',
+        transition: 'opacity 0.6s ease-in-out',
         pointerEvents: isFading ? 'none' : 'all',
-        transform: 'translate3d(0,0,0)',
-        willChange: 'opacity',
+        cursor: 'pointer',
       }}
     >
       <svg width="0" height="0" style={{ position: 'absolute' }}>
@@ -142,17 +147,15 @@ export default function InitialLoader() {
         crossOrigin="anonymous"
         onPlay={handlePlay}
         onEnded={handleComplete}
+        onError={handleComplete}
         style={{
-          width: '50vw',
-          minWidth: '320px',
-          maxWidth: '700px',
+          width: '70vw',
+          minWidth: '280px',
+          maxWidth: '600px',
           height: 'auto',
           filter: 'url(#brand-green-filter)',
           mixBlendMode: 'multiply',
           clipPath: 'inset(2px 2px 4px 2px)',
-          transform: 'translate3d(0, 0, 0)',
-          willChange: 'filter, transform',
-          backfaceVisibility: 'hidden',
         }}
       >
         <source src="https://dl.dropboxusercontent.com/scl/fi/p1gcsxb0h26xcr7ydmecp/Video-Project-3.mp4?rlkey=0gyzvmf4rcxq3kfc7c0vif0fq&st=45xip41h" type="video/mp4" />

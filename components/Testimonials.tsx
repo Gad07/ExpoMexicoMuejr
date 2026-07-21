@@ -132,6 +132,20 @@ export default function Testimonials() {
             align-items: start;
           }
         }
+        @media (max-width: 640px) {
+          .testim-item {
+            grid-template-columns: 20px 90px 1fr !important;
+            gap: 12px !important;
+            padding: 10px !important;
+          }
+          .testim-thumb-wrap {
+            height: 90px !important;
+          }
+          .editorial-title {
+            font-size: 2.2rem !important;
+            margin-bottom: 20px !important;
+          }
+        }
 
         /* FASHION EDITORIAL TYPOGRAPHY - STRUCTURED */
         .editorial-title {
