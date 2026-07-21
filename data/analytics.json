@@ -1,5 +1,68 @@
 [
   {
+    "id": "1784670527850pcp8",
+    "path": "/",
+    "timestamp": "2026-07-21T21:48:47.850Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0",
+    "device": "desktop",
+    "referer": "",
+    "source": "Directo"
+  },
+  {
+    "id": "1784670515501fgb8",
+    "path": "/",
+    "timestamp": "2026-07-21T21:48:35.501Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0",
+    "device": "desktop",
+    "referer": "",
+    "source": "Directo"
+  },
+  {
+    "id": "17846704723025u0v",
+    "path": "/",
+    "timestamp": "2026-07-21T21:47:52.302Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0",
+    "device": "desktop",
+    "referer": "",
+    "source": "Directo"
+  },
+  {
+    "id": "1784670396169lrir",
+    "path": "/",
+    "timestamp": "2026-07-21T21:46:36.169Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0",
+    "device": "desktop",
+    "referer": "",
+    "source": "Directo"
+  },
+  {
+    "id": "17846703627264cvd",
+    "path": "/",
+    "timestamp": "2026-07-21T21:46:02.726Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0",
+    "device": "desktop",
+    "referer": "",
+    "source": "Directo"
+  },
+  {
+    "id": "17846700018032s1e",
+    "path": "/",
+    "timestamp": "2026-07-21T21:40:01.803Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0",
+    "device": "desktop",
+    "referer": "",
+    "source": "Directo"
+  },
+  {
+    "id": "1784669744029jc0p",
+    "path": "/",
+    "timestamp": "2026-07-21T21:35:44.029Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0",
+    "device": "desktop",
+    "referer": "",
+    "source": "Directo"
+  },
+  {
     "id": "1784669238229ddt5",
     "path": "/",
     "timestamp": "2026-07-21T21:27:18.229Z",

@@ -80,11 +80,23 @@ const MOCK_VIDEOS = [
 ];
 
 export default function Testimonials() {
+  const [videos, setVideos] = useState<any[]>(MOCK_VIDEOS);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const activeVideo = MOCK_VIDEOS[activeIndex];
+  useEffect(() => {
+    fetch('/api/admin/testimonios')
+      .then(res => res.json())
+      .then(data => {
+        if (data.videos && data.videos.length > 0) {
+          setVideos(data.videos);
+        }
+      })
+      .catch(err => console.warn('Error loading testimonios:', err));
+  }, []);
+
+  const activeVideo = videos[activeIndex] || videos[0] || MOCK_VIDEOS[0];
 
   const handleSelect = (index: number) => {
     if (index === activeIndex) return;
@@ -100,7 +112,7 @@ export default function Testimonials() {
       videoRef.current.load();
       videoRef.current.play().catch(e => console.log('Autoplay prevented', e));
     }
-  }, [activeIndex]);
+  }, [activeIndex, videos]);
 
   return (
     <section className="section" id="testimonios" style={{ background: 'var(--cream)', padding: '140px 24px', position: 'relative' }}>
@@ -336,7 +348,7 @@ export default function Testimonials() {
             Descubre de primera mano cómo nuestras líderes y emprendedoras están transformando su entorno.
           </p>
           <div className="testim-playlist">
-            {MOCK_VIDEOS.map((video, index) => {
+            {videos.map((video, index) => {
               const isActive = index === activeIndex;
               const num = String(index + 1).padStart(2, '0');
               return (
