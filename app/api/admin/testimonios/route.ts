@@ -66,7 +66,7 @@ function formatDropboxUrl(url: string): string {
 
 export async function GET() {
   const cacheHeaders = {
-    'Cache-Control': 'public, max-age=60, s-maxage=300, stale-while-revalidate=600',
+    'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
   };
 
   try {

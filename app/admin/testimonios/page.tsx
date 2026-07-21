@@ -33,7 +33,7 @@ export default function AdminTestimoniosPage() {
       .catch(() => setLoading(false));
   }, []);
 
-  const handleSaveAll = async () => {
+  const saveVideosList = async (listToSave: TestimonioVideo[]) => {
     setSaving(true);
     setMessage('');
     try {
@@ -44,7 +44,7 @@ export default function AdminTestimoniosPage() {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
-        body: JSON.stringify({ videos }),
+        body: JSON.stringify({ videos: listToSave }),
       });
       const data = await res.json();
       if (res.ok) {
@@ -60,6 +60,10 @@ export default function AdminTestimoniosPage() {
     }
   };
 
+  const handleSaveAll = () => {
+    saveVideosList(videos);
+  };
+
   const handleAddOrUpdate = (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.url) {
@@ -67,8 +71,9 @@ export default function AdminTestimoniosPage() {
       return;
     }
 
+    let updated: TestimonioVideo[];
     if (editingId) {
-      setVideos(prev => prev.map(v => v.id === editingId ? { ...v, ...form } as TestimonioVideo : v));
+      updated = videos.map(v => v.id === editingId ? { ...v, ...form } as TestimonioVideo : v);
       setEditingId(null);
     } else {
       const newVideo: TestimonioVideo = {
@@ -80,9 +85,11 @@ export default function AdminTestimoniosPage() {
         thumbTime: form.thumbTime || 5,
         thumbPos: 'center center',
       };
-      setVideos(prev => [...prev, newVideo]);
+      updated = [...videos, newVideo];
     }
 
+    setVideos(updated);
+    saveVideosList(updated);
     setForm({ name: '', role: 'Expositora', title: 'Testimonio EMM', url: '', thumbTime: 5 });
   };
 
@@ -94,7 +101,9 @@ export default function AdminTestimoniosPage() {
 
   const handleDelete = (id: string) => {
     if (confirm('¿Estás seguro de eliminar este video de la sección Nuestras Voces?')) {
-      setVideos(prev => prev.filter(v => v.id !== id));
+      const updated = videos.filter(v => v.id !== id);
+      setVideos(updated);
+      saveVideosList(updated);
       if (editingId === id) {
         setEditingId(null);
         setForm({ name: '', role: 'Expositora', title: 'Testimonio EMM', url: '', thumbTime: 5 });
@@ -110,6 +119,7 @@ export default function AdminTestimoniosPage() {
     updated[index] = updated[newIndex];
     updated[newIndex] = temp;
     setVideos(updated);
+    saveVideosList(updated);
   };
 
   if (loading) {
