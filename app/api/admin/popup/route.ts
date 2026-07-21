@@ -114,6 +114,27 @@ export async function POST(request: Request) {
 
     const supabase = getSupabase();
     if (supabase) {
+      await supabase.from('popups').upsert({
+        id: 'popup-main',
+        is_active: config.isActive,
+        title: config.title,
+        subtitle: config.subtitle,
+        image: config.image,
+        image_position: config.imagePosition,
+        show_button: config.showButton,
+        button_text: config.buttonText,
+        button_url: config.buttonUrl,
+        button_bg_color: config.buttonBgColor,
+        button_text_color: config.buttonTextColor,
+        button_hover_bg_color: config.buttonHoverBgColor,
+        bg_gradient: config.bgGradient,
+        text_color: config.textColor,
+        trigger_type: config.triggerType,
+        trigger_value: config.triggerValue,
+        display_target: config.displayTarget,
+        custom_pages: config.customPages,
+      });
+
       await supabase.from('page_modules').upsert({
         id: 'popup-main',
         page_key: 'global',
