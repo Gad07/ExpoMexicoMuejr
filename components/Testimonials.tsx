@@ -329,15 +329,15 @@ export default function Testimonials() {
             Voces <em>Nuestras</em>
           </h2>
           <div className="testim-main">
-            <LazyVideo
-              key={activeIndex}
+            <video
+              key={activeVideo.id || activeIndex}
               ref={videoRef}
-              src={encodeURI(MOCK_VIDEOS[activeIndex].url)}
+              src={activeVideo.url}
               className={`testim-main-video ${isTransitioning ? 'transitioning' : ''}`}
+              controls
               autoPlay
-              loop
-              muted
               playsInline
+              style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '24px' }}
             />
           </div>
         </div>
@@ -353,16 +353,16 @@ export default function Testimonials() {
               const num = String(index + 1).padStart(2, '0');
               return (
                 <div
-                  key={video.id}
+                  key={video.id || index}
                   className={`testim-item ${isActive ? 'active' : ''}`}
                   onClick={() => handleSelect(index)}
                 >
                   <span className="testim-number">{num}</span>
                   <div className="testim-thumb-wrap">
-                    <LazyVideo
-                      src={`${encodeURI(video.url)}#t=${video.thumbTime}`}
+                    <video
+                      src={`${video.url}#t=${video.thumbTime || 5}`}
                       className="testim-thumb"
-                      style={{ objectPosition: video.thumbPos || 'center' }}
+                      style={{ objectFit: 'cover', objectPosition: video.thumbPos || 'center' }}
                       preload="metadata"
                       muted
                       playsInline

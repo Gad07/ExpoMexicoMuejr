@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getSupabase, readJSON, writeJSON } from '@/lib/db';
+import { getSupabase } from '@/lib/db';
 
 export type TestimonioVideo = {
   id: string;
@@ -9,9 +9,8 @@ export type TestimonioVideo = {
   url: string;
   thumbTime?: number;
   thumbPos?: string;
+  sort_order?: number;
 };
-
-const DB_FILE = 'testimonios.json';
 
 const DEFAULT_VIDEOS: TestimonioVideo[] = [
   {
@@ -55,8 +54,6 @@ const DEFAULT_VIDEOS: TestimonioVideo[] = [
 function formatDropboxUrl(url: string): string {
   if (!url) return '';
   let cleaned = url.trim();
-  
-  // Transform www.dropbox.com to dl.dropboxusercontent.com for direct streaming
   if (cleaned.includes('dropbox.com')) {
     cleaned = cleaned.replace('www.dropbox.com', 'dl.dropboxusercontent.com');
     cleaned = cleaned.replace('dl=0', 'raw=1').replace('dl=1', 'raw=1');
@@ -69,39 +66,59 @@ export async function GET() {
     'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
   };
 
+  const supabase = getSupabase();
+  if (!supabase) {
+    return NextResponse.json({ videos: DEFAULT_VIDEOS.map(v => ({ ...v, url: formatDropboxUrl(v.url) })) }, { headers: cacheHeaders });
+  }
+
   try {
-    const supabase = getSupabase();
-    if (supabase) {
-      const { data, error } = await supabase
-        .from('page_modules')
-        .select('*')
-        .eq('id', 'nuestras-voces')
-        .single();
+    // 1. Intentar leer de la tabla dedicada `testimonios` en Supabase
+    const { data: dbData, error: dbError } = await supabase
+      .from('testimonios')
+      .select('*')
+      .order('sort_order', { ascending: true });
 
-      if (!error && data && data.items_json) {
-        const items = typeof data.items_json === 'string' ? JSON.parse(data.items_json) : data.items_json;
-        if (Array.isArray(items) && items.length > 0) {
-          const formatted = items.map(v => ({ ...v, url: formatDropboxUrl(v.url) }));
-          return NextResponse.json({ videos: formatted }, { headers: cacheHeaders });
-        }
-      }
-    }
-
-    const localData = readJSON<TestimonioVideo>(DB_FILE);
-    if (localData && localData.length > 0) {
-      const formatted = localData.map(v => ({ ...v, url: formatDropboxUrl(v.url) }));
+    if (!dbError && dbData && dbData.length > 0) {
+      const formatted = dbData.map(v => ({
+        id: v.id,
+        name: v.name,
+        role: v.role,
+        title: v.title,
+        url: formatDropboxUrl(v.url),
+        thumbTime: Number(v.thumb_time) || 5,
+        thumbPos: v.thumb_pos || 'center center',
+      }));
       return NextResponse.json({ videos: formatted }, { headers: cacheHeaders });
     }
 
-    const formatted = DEFAULT_VIDEOS.map(v => ({ ...v, url: formatDropboxUrl(v.url) }));
-    return NextResponse.json({ videos: formatted }, { headers: cacheHeaders });
-  } catch {
-    const formatted = DEFAULT_VIDEOS.map(v => ({ ...v, url: formatDropboxUrl(v.url) }));
-    return NextResponse.json({ videos: formatted }, { headers: cacheHeaders });
+    // 2. Intentar leer de la tabla `page_modules` en Supabase
+    const { data: modData, error: modError } = await supabase
+      .from('page_modules')
+      .select('*')
+      .eq('id', 'nuestras-voces')
+      .single();
+
+    if (!modError && modData && modData.items_json) {
+      const items = typeof modData.items_json === 'string' ? JSON.parse(modData.items_json) : modData.items_json;
+      if (Array.isArray(items) && items.length > 0) {
+        const formatted = items.map(v => ({ ...v, url: formatDropboxUrl(v.url) }));
+        return NextResponse.json({ videos: formatted }, { headers: cacheHeaders });
+      }
+    }
+
+    return NextResponse.json({ videos: DEFAULT_VIDEOS.map(v => ({ ...v, url: formatDropboxUrl(v.url) })) }, { headers: cacheHeaders });
+  } catch (err) {
+    console.error('Error fetching testimonios from Supabase DB:', err);
+    return NextResponse.json({ videos: DEFAULT_VIDEOS.map(v => ({ ...v, url: formatDropboxUrl(v.url) })) }, { headers: cacheHeaders });
   }
 }
 
 export async function POST(request: Request) {
+  const supabase = getSupabase();
+  if (!supabase) {
+    return NextResponse.json({ error: 'Supabase client not initialized' }, { status: 500 });
+  }
+
   try {
     const body = await request.json();
     const rawVideos = Array.isArray(body.videos) ? body.videos : [];
@@ -114,12 +131,37 @@ export async function POST(request: Request) {
       url: formatDropboxUrl(v.url || ''),
       thumbTime: Number(v.thumbTime) || 5,
       thumbPos: v.thumbPos || 'center center',
+      sort_order: index,
     }));
 
-    writeJSON(DB_FILE, formattedVideos);
+    // 1. Guardar registros en la tabla dedicada `testimonios` de Supabase DB
+    const dbRecords = formattedVideos.map((v, idx) => ({
+      id: v.id,
+      name: v.name,
+      role: v.role,
+      title: v.title,
+      url: v.url,
+      thumb_time: v.thumbTime,
+      thumb_pos: v.thumbPos,
+      sort_order: idx,
+      updated_at: new Date().toISOString(),
+    }));
 
-    const supabase = getSupabase();
-    if (supabase) {
+    const { error: upsertDbErr } = await supabase.from('testimonios').upsert(dbRecords);
+    if (upsertDbErr) {
+      console.warn('Notice: Supabase testimonios table upsert:', upsertDbErr.message);
+    }
+
+    // 2. Guardar módulo en la tabla `page_modules` de Supabase DB
+    const { error: modErr } = await supabase.from('page_modules').upsert({
+      id: 'nuestras-voces',
+      page_key: 'inicio',
+      module_type: 'testimonials_video',
+      title: 'Nuestras Voces',
+      items_json: formattedVideos,
+    });
+
+    if (modErr) {
       try {
         await supabase.from('page_modules').upsert({
           id: 'nuestras-voces',
@@ -129,13 +171,16 @@ export async function POST(request: Request) {
           items_json: formattedVideos,
         });
       } catch (e) {
-        console.warn('Supabase nuestras-voces upsert notice:', e);
+        console.warn('Notice: Supabase global page_modules fallback:', e);
       }
     }
 
-    return NextResponse.json({ videos: formattedVideos, message: 'Videos de Nuestras Voces guardados exitosamente' });
+    return NextResponse.json({
+      videos: formattedVideos,
+      message: 'Videos guardados exitosamente en la base de datos de Supabase',
+    });
   } catch (err: any) {
-    console.error('Error saving testimonios:', err);
-    return NextResponse.json({ error: 'Error al guardar videos' }, { status: 500 });
+    console.error('Error writing testimonios to Supabase DB:', err);
+    return NextResponse.json({ error: err.message || 'Error al guardar en la base de datos' }, { status: 500 });
   }
 }
