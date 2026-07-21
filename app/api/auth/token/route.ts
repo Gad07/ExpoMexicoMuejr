@@ -1,14 +1,21 @@
 import { NextResponse } from 'next/server';
 import { createToken } from '@/lib/auth';
 
-const ADMIN_USER = process.env.ADMIN_USER || 'admin';
-const ADMIN_PASS = process.env.ADMIN_PASS || 'emm2027admin';
-
 export async function POST(request: Request) {
   try {
     const { username, password } = await request.json();
 
-    if (username !== ADMIN_USER || password !== ADMIN_PASS) {
+    const adminUser = process.env.ADMIN_USER;
+    const adminPass = process.env.ADMIN_PASS;
+
+    if (!adminUser || !adminPass) {
+      return NextResponse.json(
+        { error: 'El servidor no tiene configuradas las credenciales de administración.' },
+        { status: 500 }
+      );
+    }
+
+    if (username !== adminUser || password !== adminPass) {
       return NextResponse.json({ error: 'Credenciales inválidas' }, { status: 401 });
     }
 

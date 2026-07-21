@@ -16,7 +16,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const token = localStorage.getItem('admin_token');
+        const token =
+          localStorage.getItem('admin_token') ||
+          document.cookie.split('; ').find(row => row.startsWith('admin_token='))?.split('=')[1];
+
         if (token) {
           setAuthenticated(true);
           setUser({ name: 'Admin', method: 'token' });
@@ -55,7 +58,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   const handleLogout = () => {
     localStorage.removeItem('admin_token');
-    router.push('/admin/login');
+    document.cookie = 'admin_token=; path=/; max-age=0';
+    document.cookie = 'admin_preauth=; path=/; max-age=0';
+    window.location.href = '/admin/login';
   };
 
   if (pathname === '/admin/login') {

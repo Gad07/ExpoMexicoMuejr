@@ -2,47 +2,100 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Eye, EyeOff, LogIn } from 'lucide-react';
+import { KeyRound, ShieldCheck, ArrowRight, CheckCircle2, Smartphone, Lock, Eye, EyeOff } from 'lucide-react';
 
 export default function AdminLoginPage() {
   const router = useRouter();
-  const [mode, setMode] = useState<'token' | 'google'>('token');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [step, setStep] = useState<1 | 2>(1);
+  const [tokenInput, setTokenInput] = useState('');
   const [showPass, setShowPass] = useState(false);
+  const [code6, setCode6] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleTokenLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
+  // PASO 1: Verificar token
+  const handleVerifyToken = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
     setError('');
+    const cleanToken = tokenInput.trim();
+
+    if (!cleanToken) {
+      setError('Por favor ingresa el token de acceso.');
+      return;
+    }
+
     setLoading(true);
 
     try {
-      const res = await fetch('/api/auth/token', {
+      const res = await fetch('/api/auth/verify-token', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ token: cleanToken }),
       });
 
       const data = await res.json();
 
       if (!res.ok) {
-        setError(data.error || 'Error al iniciar sesión');
+        setError(data.error || 'Token de seguridad incorrecto.');
         setLoading(false);
         return;
       }
 
-      localStorage.setItem('admin_token', data.token);
-      router.push('/admin');
+      // Paso 1 completado -> Avanzar al Paso 2
+      setStep(2);
+      setError('');
     } catch {
-      setError('Error de conexión');
+      setError('Error de conexión con el servidor.');
+    } finally {
       setLoading(false);
     }
   };
 
-  const handleGoogleLogin = () => {
-    window.location.href = '/api/auth/signin/google';
+  // PASO 2: Verificar código de 6 dígitos de Google Authenticator
+  const handleVerify2FA = async (e?: React.FormEvent, customCode?: string) => {
+    if (e) e.preventDefault();
+    setError('');
+    const cleanCode = (customCode || code6).trim();
+
+    if (cleanCode.length !== 6) {
+      setError('El código debe contener 6 dígitos.');
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const res = await fetch('/api/auth/verify-2fa', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code: cleanCode }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || 'Código de Google Authenticator incorrecto.');
+        setLoading(false);
+        return;
+      }
+
+      // Guardar token en localStorage y cookie, e ir al Admin
+      localStorage.setItem('admin_token', data.token);
+      document.cookie = `admin_token=${data.token}; path=/; max-age=86400; SameSite=Lax`;
+      window.location.href = '/admin';
+    } catch {
+      setError('Error de conexión al verificar el código.');
+      setLoading(false);
+    }
+  };
+
+  // Auto-submit al completar 6 dígitos en el Paso 2
+  const handleCodeChange = (val: string) => {
+    const clean = val.replace(/\D/g, '').slice(0, 6);
+    setCode6(clean);
+    if (clean.length === 6 && !loading) {
+      handleVerify2FA(undefined, clean);
+    }
   };
 
   return (
@@ -52,7 +105,7 @@ export default function AdminLoginPage() {
       background: '#F5F2ED',
       fontFamily: 'var(--font-body), system-ui, sans-serif',
     }}>
-      {/* ── LEFT: Brand Panel ── */}
+      {/* ── PANEL IZQUIERDO: Marca y Seguridad ── */}
       <div style={{
         flex: '1',
         background: 'linear-gradient(135deg, #002E51 0%, #0D1B2A 100%)',
@@ -64,7 +117,7 @@ export default function AdminLoginPage() {
         position: 'relative',
         overflow: 'hidden',
       }}>
-        {/* Decorative pattern */}
+        {/* Patrón decorativo */}
         <div style={{
           position: 'absolute',
           inset: 0,
@@ -77,31 +130,7 @@ export default function AdminLoginPage() {
           pointerEvents: 'none',
         }} />
 
-        {/* Decorative circles */}
-        <div style={{
-          position: 'absolute',
-          width: '500px',
-          height: '500px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(228,0,124,0.06) 0%, transparent 70%)',
-          top: '-150px',
-          right: '-150px',
-          pointerEvents: 'none',
-        }} />
-        <div style={{
-          position: 'absolute',
-          width: '400px',
-          height: '400px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(199,158,69,0.04) 0%, transparent 70%)',
-          bottom: '-100px',
-          left: '-100px',
-          pointerEvents: 'none',
-        }} />
-
-        {/* Content */}
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '480px' }}>
-          {/* Logo real de la marca */}
           <div style={{ marginBottom: '48px' }}>
             <img
               src="/logo-emm.png"
@@ -130,30 +159,39 @@ export default function AdminLoginPage() {
           </h1>
 
           <p style={{
-            fontSize: '1.1rem',
-            color: 'rgba(255,255,255,0.55)',
+            fontSize: '1.05rem',
+            color: 'rgba(255,255,255,0.65)',
             lineHeight: 1.6,
             marginTop: '24px',
-            maxWidth: '380px',
+            maxWidth: '400px',
           }}>
-            Gestiona el contenido de la plataforma binacional que conecta el talento mexicano con Canadá.
+            Acceso restringido de alta seguridad con autenticación de dos factores y protección contra ataques por fuerza bruta.
           </p>
 
           <div style={{
-            marginTop: '60px',
+            marginTop: '40px',
+            padding: '20px',
+            borderRadius: '12px',
+            background: 'rgba(255,255,255,0.04)',
+            border: '1px solid rgba(255,255,255,0.08)',
             display: 'flex',
-            gap: '24px',
             alignItems: 'center',
+            gap: '16px',
           }}>
-            <div style={{ width: '40px', height: '1px', background: 'rgba(255,255,255,0.15)' }} />
-            <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.15em' }}>
-              Toronto · Canadá 2027
-            </span>
+            <ShieldCheck size={32} style={{ color: '#E4007C', flexShrink: 0 }} />
+            <div>
+              <div style={{ color: '#fff', fontWeight: 700, fontSize: '0.85rem' }}>
+                Protección IP Anti-Fuerza Bruta
+              </div>
+              <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.75rem', marginTop: '2px' }}>
+                Máximo 3 intentos fallidos. Bloqueo automático de IP por 2 horas.
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* ── RIGHT: Login Form ── */}
+      {/* ── PANEL DERECHO: Formulario ── */}
       <div style={{
         flex: '1',
         display: 'flex',
@@ -164,9 +202,9 @@ export default function AdminLoginPage() {
       }}>
         <div style={{
           width: '100%',
-          maxWidth: '440px',
+          maxWidth: '460px',
         }}>
-          <div style={{ marginBottom: '40px' }}>
+          <div style={{ marginBottom: '32px' }}>
             <h2 style={{
               fontFamily: 'var(--font-display), sans-serif',
               fontSize: '1.8rem',
@@ -175,107 +213,68 @@ export default function AdminLoginPage() {
               margin: 0,
               lineHeight: 1.1,
             }}>
-              Bienvenido
+              Acceso Seguro Admin
             </h2>
             <p style={{
-              fontSize: '0.95rem',
-              color: '#888',
+              fontSize: '0.9rem',
+              color: '#777',
               marginTop: '8px',
             }}>
-              Inicia sesión para gestionar el contenido
+              Ingresa las credenciales de administración.
             </p>
           </div>
 
-          {/* Tabs */}
+          {/* Stepper Indicator */}
           <div style={{
             display: 'flex',
-            gap: '2px',
-            background: '#E8E4DE',
-            borderRadius: '10px',
-            padding: '3px',
+            gap: '12px',
             marginBottom: '36px',
           }}>
-            <button
-              onClick={() => setMode('token')}
-              style={{
-                flex: 1,
-                padding: '12px 16px',
-                border: 'none',
-                borderRadius: '8px',
-                background: mode === 'token' ? '#fff' : 'transparent',
-                color: mode === 'token' ? '#0D1B2A' : '#999',
-                cursor: 'pointer',
-                fontSize: '0.8rem',
-                fontWeight: 600,
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                transition: 'all 0.2s',
-                boxShadow: mode === 'token' ? '0 1px 3px rgba(0,0,0,0.06)' : 'none',
-              }}
-            >
-              Acceso por Token
-            </button>
-            <button
-              onClick={() => setMode('google')}
-              style={{
-                flex: 1,
-                padding: '12px 16px',
-                border: 'none',
-                borderRadius: '8px',
-                background: mode === 'google' ? '#fff' : 'transparent',
-                color: mode === 'google' ? '#0D1B2A' : '#999',
-                cursor: 'pointer',
-                fontSize: '0.8rem',
-                fontWeight: 600,
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                transition: 'all 0.2s',
-                boxShadow: mode === 'google' ? '0 1px 3px rgba(0,0,0,0.06)' : 'none',
-              }}
-            >
-              Google Auth
-            </button>
+            <div style={{
+              flex: 1,
+              padding: '12px 14px',
+              borderRadius: '10px',
+              background: step === 1 ? '#002E51' : 'rgba(0,46,81,0.08)',
+              color: step === 1 ? '#fff' : '#002E51',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              fontSize: '0.8rem',
+              fontWeight: 700,
+              transition: 'all 0.3s',
+            }}>
+              {step > 1 ? <CheckCircle2 size={16} style={{ color: '#2E7D32' }} /> : <KeyRound size={16} />}
+              <span>1. Token de Acceso</span>
+            </div>
+
+            <div style={{
+              flex: 1,
+              padding: '12px 14px',
+              borderRadius: '10px',
+              background: step === 2 ? '#E4007C' : '#E8E4DE',
+              color: step === 2 ? '#fff' : '#888',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              fontSize: '0.8rem',
+              fontWeight: 700,
+              transition: 'all 0.3s',
+            }}>
+              <Smartphone size={16} />
+              <span>2. Código 2FA</span>
+            </div>
           </div>
 
-          {mode === 'token' ? (
-            <form onSubmit={handleTokenLogin}>
-              <div style={{ marginBottom: '20px' }}>
-                <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#555', marginBottom: '8px' }}>
-                  Usuario
+          {step === 1 ? (
+            /* ── PASO 1: Token de Acceso ── */
+            <form onSubmit={handleVerifyToken}>
+              <div style={{ marginBottom: '24px' }}>
+                <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, color: '#333', marginBottom: '8px' }}>
+                  Token de Acceso
                 </label>
-                <div style={{
-                  border: '1px solid rgba(0,0,0,0.08)',
-                  borderRadius: '10px',
-                  overflow: 'hidden',
-                  background: '#fff',
-                  transition: 'border-color 0.2s',
-                }}>
-                  <input
-                    type="text"
-                    value={username}
-                    onChange={e => setUsername(e.target.value)}
-                    placeholder="admin"
-                    style={{
-                      width: '100%',
-                      padding: '14px 16px',
-                      border: 'none',
-                      background: 'transparent',
-                      color: '#0D1B2A',
-                      fontSize: '0.95rem',
-                      outline: 'none',
-                      fontFamily: 'inherit',
-                      boxSizing: 'border-box',
-                    }}
-                  />
-                </div>
-              </div>
 
-              <div style={{ marginBottom: '28px' }}>
-                <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#555', marginBottom: '8px' }}>
-                  Contraseña
-                </label>
                 <div style={{
-                  border: '1px solid rgba(0,0,0,0.08)',
+                  border: `2px solid ${tokenInput.trim().length > 0 ? '#002E51' : 'rgba(0,0,0,0.1)'}`,
                   borderRadius: '10px',
                   overflow: 'hidden',
                   background: '#fff',
@@ -285,18 +284,21 @@ export default function AdminLoginPage() {
                 }}>
                   <input
                     type={showPass ? 'text' : 'password'}
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                    placeholder="••••••••"
+                    value={tokenInput}
+                    onChange={e => setTokenInput(e.target.value.replace(/\s/g, ''))}
+                    placeholder="••••••••••••••••••••"
                     style={{
                       flex: 1,
-                      padding: '14px 16px',
+                      padding: '16px',
                       border: 'none',
                       background: 'transparent',
                       color: '#0D1B2A',
                       fontSize: '0.95rem',
+                      letterSpacing: '0.05em',
+                      fontWeight: 600,
                       outline: 'none',
-                      fontFamily: 'inherit',
+                      fontFamily: 'monospace',
+                      boxSizing: 'border-box',
                     }}
                   />
                   <button
@@ -305,12 +307,13 @@ export default function AdminLoginPage() {
                     style={{
                       background: 'none',
                       border: 'none',
-                      color: '#aaa',
+                      color: '#888',
                       cursor: 'pointer',
-                      padding: '14px 16px',
+                      padding: '16px',
                       display: 'flex',
                       alignItems: 'center',
                     }}
+                    title={showPass ? 'Ocultar token' : 'Mostrar token'}
                   >
                     {showPass ? <EyeOff size={18} /> : <Eye size={18} />}
                   </button>
@@ -324,8 +327,10 @@ export default function AdminLoginPage() {
                   background: 'rgba(228,0,124,0.06)',
                   color: '#E4007C',
                   fontSize: '0.85rem',
-                  marginBottom: '16px',
-                  border: '1px solid rgba(228,0,124,0.1)',
+                  marginBottom: '20px',
+                  border: '1px solid rgba(228,0,124,0.15)',
+                  fontWeight: 600,
+                  lineHeight: 1.4,
                 }}>
                   {error}
                 </div>
@@ -333,87 +338,139 @@ export default function AdminLoginPage() {
 
               <button
                 type="submit"
-                disabled={loading || !username || !password}
+                disabled={loading || !tokenInput.trim()}
                 style={{
                   width: '100%',
                   padding: '16px',
                   borderRadius: '10px',
                   border: 'none',
-                  background: loading ? '#ccc' : 'linear-gradient(135deg, #E4007C, #C4006E)',
+                  background: tokenInput.trim() && !loading
+                    ? 'linear-gradient(135deg, #002E51, #0D1B2A)'
+                    : '#ccc',
                   color: '#fff',
                   fontSize: '0.95rem',
                   fontWeight: 700,
-                  cursor: loading || !username || !password ? 'not-allowed' : 'pointer',
+                  cursor: tokenInput.trim() && !loading ? 'pointer' : 'not-allowed',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '8px',
                   transition: 'all 0.2s',
-                  opacity: loading || !username || !password ? 0.5 : 1,
                 }}
               >
-                <LogIn size={18} />
-                {loading ? 'Iniciando sesión...' : 'Ingresar al Panel'}
+                <span>{loading ? 'Verificando Token...' : 'Verificar Token (Paso 1)'}</span>
+                <ArrowRight size={18} />
               </button>
-
-              <p style={{
-                textAlign: 'center',
-                marginTop: '24px',
-                fontSize: '0.75rem',
-                color: '#aaa',
-              }}>
-                Acceso restringido · Expo México Mujer 2027
-              </p>
             </form>
           ) : (
-            <div>
-              <p style={{
-                color: '#888',
-                fontSize: '0.9rem',
-                marginBottom: '28px',
-                lineHeight: 1.6,
+            /* ── PASO 2: Código de 6 dígitos Google Authenticator ── */
+            <form onSubmit={handleVerify2FA}>
+              <div style={{
+                padding: '14px',
+                borderRadius: '10px',
+                background: 'rgba(46,125,50,0.08)',
+                border: '1px solid rgba(46,125,50,0.2)',
+                color: '#2E7D32',
+                fontSize: '0.82rem',
+                fontWeight: 600,
+                marginBottom: '24px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
               }}>
-                Inicia sesión con tu cuenta de Google autorizada para acceder al panel de administración de Expo México Mujer.
-              </p>
+                <CheckCircle2 size={18} />
+                <span>Paso 1 OK: Token de acceso verificado.</span>
+              </div>
+
+              <div style={{ marginBottom: '24px' }}>
+                <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, color: '#333', marginBottom: '8px' }}>
+                  Código de 6 dígitos (Google Authenticator)
+                </label>
+                <div style={{
+                  border: `2px solid ${code6.trim().length === 6 ? '#E4007C' : 'rgba(0,0,0,0.1)'}`,
+                  borderRadius: '10px',
+                  overflow: 'hidden',
+                  background: '#fff',
+                  transition: 'border-color 0.2s',
+                }}>
+                  <input
+                    type="text"
+                    maxLength={6}
+                    autoFocus
+                    value={code6}
+                    onChange={e => handleCodeChange(e.target.value)}
+                    placeholder="000000"
+                    style={{
+                      width: '100%',
+                      padding: '16px',
+                      border: 'none',
+                      background: 'transparent',
+                      color: '#0D1B2A',
+                      fontSize: '1.4rem',
+                      letterSpacing: '0.3em',
+                      textAlign: 'center',
+                      fontWeight: 800,
+                      outline: 'none',
+                      fontFamily: 'monospace',
+                      boxSizing: 'border-box',
+                    }}
+                  />
+                </div>
+              </div>
+
+              {error && (
+                <div style={{
+                  padding: '12px 16px',
+                  borderRadius: '8px',
+                  background: 'rgba(228,0,124,0.06)',
+                  color: '#E4007C',
+                  fontSize: '0.85rem',
+                  marginBottom: '20px',
+                  border: '1px solid rgba(228,0,124,0.15)',
+                  fontWeight: 600,
+                  lineHeight: 1.4,
+                }}>
+                  {error}
+                </div>
+              )}
+
               <button
-                onClick={handleGoogleLogin}
+                type="submit"
+                disabled={loading || code6.trim().length !== 6}
                 style={{
                   width: '100%',
                   padding: '16px',
                   borderRadius: '10px',
-                  border: '1px solid rgba(0,0,0,0.08)',
-                  background: '#fff',
-                  color: '#0D1B2A',
+                  border: 'none',
+                  background: code6.trim().length === 6 && !loading
+                    ? 'linear-gradient(135deg, #E4007C, #C4006E)'
+                    : '#ccc',
+                  color: '#fff',
                   fontSize: '0.95rem',
-                  fontWeight: 600,
-                  cursor: 'pointer',
+                  fontWeight: 700,
+                  cursor: code6.trim().length === 6 && !loading ? 'pointer' : 'not-allowed',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  gap: '12px',
+                  gap: '8px',
                   transition: 'all 0.2s',
+                  boxShadow: code6.trim().length === 6 ? '0 4px 12px rgba(228,0,124,0.25)' : 'none',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = '#E4007C'; e.currentTarget.style.boxShadow = '0 2px 8px rgba(228,0,124,0.1)'; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(0,0,0,0.08)'; e.currentTarget.style.boxShadow = 'none'; }}
               >
-                <svg width="20" height="20" viewBox="0 0 24 24">
-                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/>
-                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                </svg>
-                Continuar con Google
+                <Lock size={18} />
+                <span>{loading ? 'Verificando...' : 'Ingresar al Panel (Paso 2)'}</span>
               </button>
-              <p style={{
-                textAlign: 'center',
-                marginTop: '24px',
-                fontSize: '0.75rem',
-                color: '#aaa',
-              }}>
-                Solo correos autorizados pueden acceder
-              </p>
-            </div>
+            </form>
           )}
+
+          <p style={{
+            textAlign: 'center',
+            marginTop: '32px',
+            fontSize: '0.75rem',
+            color: '#aaa',
+          }}>
+            Panel de Administración · Expo México Mujer 2027
+          </p>
         </div>
       </div>
     </div>
