@@ -1,0 +1,206 @@
+{
+  "/visa": {
+    "eyebrow": {
+      "es": "Visas y Viaje"
+    },
+    "title": {
+      "es": "Prepara tu viaje a Canadá"
+    },
+    "titleEm": {
+      "es": "Información Oficial"
+    },
+    "desc": {
+      "es": ""
+    },
+    "image": "https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&q=80&w=800",
+    "imagePosition": "center",
+    "overlayVariant": "default"
+  },
+  "/contacto": {
+    "eyebrow": {
+      "es": "Contacto"
+    },
+    "title": {
+      "es": "¿Cómo podemos"
+    },
+    "titleEm": {
+      "es": "ayudarte?"
+    },
+    "desc": {
+      "es": ""
+    },
+    "image": "https://images.unsplash.com/photo-1516387938699-a93567ec168e?auto=format&fit=crop&q=80&w=800",
+    "imagePosition": "center",
+    "overlayVariant": "default"
+  },
+  "/expo/sectores-e-industrias": {
+    "eyebrow": {
+      "es": "Sectores"
+    },
+    "title": {
+      "es": "Sectores e"
+    },
+    "titleEm": {
+      "es": "Industrias"
+    },
+    "desc": {
+      "es": ""
+    },
+    "image": "https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?auto=format&fit=crop&q=80&w=800",
+    "imagePosition": "center",
+    "overlayVariant": "default"
+  },
+  "/nosotros": {
+    "eyebrow": {
+      "es": "Nosotros"
+    },
+    "title": {
+      "es": "Conoce más sobre"
+    },
+    "titleEm": {
+      "es": "Nosotros"
+    },
+    "desc": {
+      "es": ""
+    },
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
+    "imagePosition": "center",
+    "overlayVariant": "default"
+  },
+  "/prensa/comunicados": {
+    "eyebrow": {
+      "es": "Prensa"
+    },
+    "title": {
+      "es": "Comunicados de"
+    },
+    "titleEm": {
+      "es": "Prensa"
+    },
+    "desc": {
+      "es": ""
+    },
+    "image": "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=800",
+    "imagePosition": "center",
+    "overlayVariant": "default"
+  },
+  "/programa/actividades-especiales": {
+    "eyebrow": {
+      "es": "Programa"
+    },
+    "title": {
+      "es": "Actividades"
+    },
+    "titleEm": {
+      "es": "Especiales"
+    },
+    "desc": {
+      "es": ""
+    },
+    "image": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=800",
+    "imagePosition": "center",
+    "overlayVariant": "default"
+  },
+  "/mexico-ontario-business-summit": {
+    "eyebrow": {
+      "es": "Summit"
+    },
+    "title": {
+      "es": "México Ontario"
+    },
+    "titleEm": {
+      "es": "Business Summit"
+    },
+    "desc": {
+      "es": ""
+    },
+    "image": "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=800",
+    "imagePosition": "center",
+    "overlayVariant": "default"
+  },
+  "/mexico-ontario-business-summit/programa": {
+    "eyebrow": {
+      "es": "Summit"
+    },
+    "title": {
+      "es": "Programa del"
+    },
+    "titleEm": {
+      "es": "Summit"
+    },
+    "desc": {
+      "es": ""
+    },
+    "image": "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=800",
+    "imagePosition": "center",
+    "overlayVariant": "default"
+  },
+  "/participa": {
+    "eyebrow": {
+      "es": "Participa"
+    },
+    "title": {
+      "es": "Únete a"
+    },
+    "titleEm": {
+      "es": "Nosotros"
+    },
+    "desc": {
+      "es": ""
+    },
+    "image": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800",
+    "imagePosition": "center",
+    "overlayVariant": "default"
+  },
+  "/patrocinadores": {
+    "eyebrow": {
+      "es": "Patrocinadores"
+    },
+    "title": {
+      "es": "Nuestros"
+    },
+    "titleEm": {
+      "es": "Patrocinadores"
+    },
+    "desc": {
+      "es": ""
+    },
+    "image": "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&q=80&w=800",
+    "imagePosition": "center",
+    "overlayVariant": "default"
+  },
+  "/expositores": {
+    "eyebrow": {
+      "es": "Expositores"
+    },
+    "title": {
+      "es": "Nuestros"
+    },
+    "titleEm": {
+      "es": "Expositores"
+    },
+    "desc": {
+      "es": ""
+    },
+    "image": "https://images.unsplash.com/photo-1475721025505-c310742993e1?auto=format&fit=crop&q=80&w=800",
+    "imagePosition": "center",
+    "overlayVariant": "default"
+  },
+  "/academy": {
+    "eyebrow": {
+      "es": "Academy"
+    },
+    "title": {
+      "es": "Expo México Mujer"
+    },
+    "titleEm": {
+      "es": "Academy"
+    },
+    "desc": {
+      "es": ""
+    },
+    "image": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800",
+    "imagePosition": "center",
+    "overlayVariant": "default"
+  }
+}

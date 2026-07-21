@@ -2,10 +2,9 @@ import { NextResponse } from 'next/server';
 import { readJSON, writeJSON } from '@/lib/db';
 import { getTokenFromRequest, verifyToken } from '@/lib/auth';
 
-const DB_FILE = 'navbar.json';
+const DB_FILE = 'pages.json';
 
 function checkAuth(request: Request): boolean {
-  if (process.env.NODE_ENV === 'development') return true;
   const cookieHeader = request.headers.get('cookie') || '';
   if (cookieHeader.includes('next-auth.session-token') || cookieHeader.includes('__Secure-next-auth.session-token')) {
     return true;
@@ -17,10 +16,10 @@ function checkAuth(request: Request): boolean {
 
 export async function GET() {
   try {
-    const navbar = readJSON<any>(DB_FILE);
-    return NextResponse.json({ navbar });
+    const pages = readJSON<any>(DB_FILE);
+    return NextResponse.json({ pages: Array.isArray(pages) ? pages : [] });
   } catch {
-    return NextResponse.json({ error: 'Error al leer la navegación' }, { status: 500 });
+    return NextResponse.json({ pages: [] });
   }
 }
 
@@ -30,9 +29,9 @@ export async function POST(request: Request) {
   }
   try {
     const body = await request.json();
-    writeJSON(DB_FILE, body);
-    return NextResponse.json({ message: 'Navegación actualizada exitosamente' });
+    writeJSON(DB_FILE, Array.isArray(body) ? body : []);
+    return NextResponse.json({ message: 'Páginas y módulos guardados exitosamente' });
   } catch {
-    return NextResponse.json({ error: 'Error al actualizar la navegación' }, { status: 500 });
+    return NextResponse.json({ error: 'Error al guardar las páginas' }, { status: 500 });
   }
 }

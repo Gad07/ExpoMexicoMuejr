@@ -1,0 +1,254 @@
+[
+  {
+    "key": "pages.expo.queEs",
+    "name": "¿Qué es EMM?",
+    "url": "/expo/que-es",
+    "slug": "/expo/que-es",
+    "group": "Expo",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.expo.industrias",
+    "name": "Industrias",
+    "url": "/expo/industrias",
+    "slug": "/expo/industrias",
+    "group": "Expo",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.expo.ottawa2026",
+    "name": "Ottawa 2026",
+    "url": "/expo/ottawa-2026",
+    "slug": "/expo/ottawa-2026",
+    "group": "Expo",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.noticias",
+    "name": "Noticias",
+    "url": "/recursos",
+    "slug": "/recursos",
+    "group": "Expo",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.visa",
+    "name": "Visas y Viaje",
+    "url": "/visa",
+    "slug": "/visa",
+    "group": "Expo",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.expositores",
+    "name": "Expositoras",
+    "url": "/expositores",
+    "slug": "/expositores",
+    "group": "Participa",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.patrocinadores",
+    "name": "Patrocinadores",
+    "url": "/patrocinadores",
+    "slug": "/patrocinadores",
+    "group": "Participa",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.embajadoras",
+    "name": "Embajadoras",
+    "url": "/embajadoras",
+    "slug": "/embajadoras",
+    "group": "Participa",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.aliados",
+    "name": "Aliados",
+    "url": "/aliados",
+    "slug": "/aliados",
+    "group": "Participa",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.invitados",
+    "name": "Invitados",
+    "url": "/invitados",
+    "slug": "/invitados",
+    "group": "Participa",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.compradores",
+    "name": "Compradores",
+    "url": "/compradores",
+    "slug": "/compradores",
+    "group": "Participa",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.agenda",
+    "name": "Programa Oficial 2027",
+    "url": "/agenda",
+    "slug": "/agenda",
+    "group": "Agenda",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.agenda.toronto2027",
+    "name": "Expo Toronto 2027",
+    "url": "/agenda/toronto-2027",
+    "slug": "/agenda/toronto-2027",
+    "group": "Agenda",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.agenda.summit",
+    "name": "México Ontario Business Summit",
+    "url": "/agenda/mexico-ontario-business-summit",
+    "slug": "/agenda/mexico-ontario-business-summit",
+    "group": "Agenda",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.agenda.gala",
+    "name": "Mexican Fashion Gala Show",
+    "url": "/agenda/mexican-fashion-gala-show",
+    "slug": "/agenda/mexican-fashion-gala-show",
+    "group": "Agenda",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.agenda.forum",
+    "name": "Women Leaders Forum",
+    "url": "/agenda/women-leaders-forum",
+    "slug": "/agenda/women-leaders-forum",
+    "group": "Agenda",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.agenda.mission",
+    "name": "Misión Comercial Montreal",
+    "url": "/agenda/mision-comercial-montreal",
+    "slug": "/agenda/mision-comercial-montreal",
+    "group": "Agenda",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.academy",
+    "name": "Academy General",
+    "url": "/academy",
+    "slug": "/academy",
+    "group": "Academy",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.academy.english",
+    "name": "Inglés Profesional",
+    "url": "/academy/ingles-profesional",
+    "slug": "/academy/ingles-profesional",
+    "group": "Academy",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.academy.skills",
+    "name": "Executive Global Skills",
+    "url": "/academy/executive-global-skills",
+    "slug": "/academy/executive-global-skills",
+    "group": "Academy",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.academy.business",
+    "name": "Capacitación Empresarial",
+    "url": "/academy/capacitacion-empresarial",
+    "slug": "/academy/capacitacion-empresarial",
+    "group": "Academy",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.prensa",
+    "name": "Prensa",
+    "url": "/informacion/prensa",
+    "slug": "/informacion/prensa",
+    "group": "Información",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.participantes",
+    "name": "Guía de Participantes",
+    "url": "/informacion/participantes",
+    "slug": "/informacion/participantes",
+    "group": "Información",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.logistica",
+    "name": "Logística",
+    "url": "/informacion/logistica",
+    "slug": "/informacion/logistica",
+    "group": "Información",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.viajero",
+    "name": "Guía del Viajero",
+    "url": "/informacion/viajero",
+    "slug": "/informacion/viajero",
+    "group": "Información",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.privacidad",
+    "name": "Aviso de Privacidad",
+    "url": "/privacidad",
+    "slug": "/privacidad",
+    "group": "Información",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.terminos",
+    "name": "Términos y Condiciones",
+    "url": "/terminos",
+    "slug": "/terminos",
+    "group": "Información",
+    "isCustom": false,
+    "modules": []
+  },
+  {
+    "key": "pages.contacto",
+    "name": "Contacto",
+    "url": "/contacto",
+    "slug": "/contacto",
+    "group": "Información",
+    "isCustom": false,
+    "modules": []
+  }
+]

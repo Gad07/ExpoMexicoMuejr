@@ -57,6 +57,7 @@ export const metadata: Metadata = {
 };
 
 import PublicLayoutWrapper from '@/components/PublicLayoutWrapper';
+import AnalyticsTracker from '@/components/AnalyticsTracker';
 
 export default function RootLayout({
   children,
@@ -65,6 +66,7 @@ export default function RootLayout({
     <html lang="es" className={`${futura.variable} ${nunito.variable}`}>
       <body>
         <LanguageProvider>
+          <AnalyticsTracker />
           <PublicLayoutWrapper>{children}</PublicLayoutWrapper>
         </LanguageProvider>
       </body>

@@ -23,9 +23,10 @@ export default function AdminNavbar() {
       });
   }, []);
 
-  const handleSave = async () => {
+  const handleSave = async (targetNavbar?: any[]) => {
     setSaving(true);
     setMessage(null);
+    const dataToSave = targetNavbar || navbar;
     try {
       const token = localStorage.getItem('admin_token');
       const headers: Record<string, string> = { 'Content-Type': 'application/json' };
@@ -34,7 +35,7 @@ export default function AdminNavbar() {
       const res = await fetch('/api/admin/navbar', {
         method: 'POST',
         headers,
-        body: JSON.stringify(navbar),
+        body: JSON.stringify(dataToSave),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -62,13 +63,15 @@ export default function AdminNavbar() {
 
   const handleAddMenu = () => {
     const newId = Date.now().toString();
-    setNavbar([...navbar, {
+    const newNav = [...navbar, {
       id: newId,
       label: { es: 'Nuevo Menú', en: 'New Menu', fr: 'Nouveau Menu' },
       basePath: '/',
       items: []
-    }]);
+    }];
+    setNavbar(newNav);
     setSelected(newId);
+    handleSave(newNav);
   };
 
   const handleDeleteMenu = (id: string) => {
@@ -78,6 +81,7 @@ export default function AdminNavbar() {
     if (selected === id) {
       setSelected(newNav.length > 0 ? newNav[0].id : null);
     }
+    handleSave(newNav);
   };
 
   const handleAddItem = () => {
@@ -105,7 +109,10 @@ export default function AdminNavbar() {
   const deleteItem = (itemId: string) => {
     const menu = getSelectedMenu();
     if (!menu) return;
-    updateMenu({ items: menu.items.filter((it: any) => it.id !== itemId) });
+    const nextItems = menu.items.filter((it: any) => it.id !== itemId);
+    const updatedNav = navbar.map((n) => (n.id === selected ? { ...n, items: nextItems } : n));
+    setNavbar(updatedNav);
+    handleSave(updatedNav);
   };
 
   const moveItem = (index: number, direction: 'up' | 'down') => {
@@ -166,7 +173,7 @@ export default function AdminNavbar() {
             <h1 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#002E51', margin: 0 }}>
               Administrar Navegación
             </h1>
-            <button onClick={handleSave} disabled={saving} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 24px', background: '#002E51', color: '#fff', border: 'none', borderRadius: '10px', fontWeight: 700, fontSize: '0.875rem', cursor: saving ? 'not-allowed' : 'pointer' }}>
+            <button onClick={() => handleSave()} disabled={saving} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 24px', background: '#002E51', color: '#fff', border: 'none', borderRadius: '10px', fontWeight: 700, fontSize: '0.875rem', cursor: saving ? 'not-allowed' : 'pointer' }}>
               <Save size={16} /> {saving ? 'Guardando...' : 'Guardar Cambios'}
             </button>
           </div>

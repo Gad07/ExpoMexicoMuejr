@@ -23,6 +23,14 @@ export default function Nav() {
         if (d.navbar) setNavbar(d.navbar);
       })
       .catch(() => {});
+
+    const handleMessage = (event: MessageEvent) => {
+      if (event.data && event.data.type === 'UPDATE_NAVBAR' && Array.isArray(event.data.payload)) {
+        setNavbar(event.data.payload);
+      }
+    };
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
   }, []);
 
   useEffect(() => {

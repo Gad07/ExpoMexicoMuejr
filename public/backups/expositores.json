@@ -1,0 +1,29 @@
+[
+  {
+    "id": "7",
+    "slug": "gabriela-salazar",
+    "name": "Salazar Etnia",
+    "personName": "Gabriela Salazar",
+    "description": {
+      "es": "Colección de abrigos y bolsos estructurados que integran iconografía tzotzil brocada a mano en comunidades chiapanecas.",
+      "en": "Collection of coats and structured bags that integrate hand-brocaded Tzotzil iconography in Chiapas communities.",
+      "fr": "Collection de manteaux et de sacs structurés intégrant l'iconographie tzotzil brodée à la main dans les communautés du Chiapas."
+    },
+    "state": "Chiapas",
+    "category": "Gastronomía",
+    "website": "https://ejemplo.com",
+    "social": "@gabrielazar",
+    "contact": "contacto@ejemplo.com",
+    "booth": "Pabellón de Moda - Stand 16",
+    "logo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80",
+    "personPhoto": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
+    "bio": {
+      "es": "Gabriela colabora activamente con cooperativas de tejedoras de los Altos de Chiapas para crear moda contemporánea con impacto social.",
+      "en": "Gabriela actively collaborates with weaving cooperatives in the Highlands of Chiapas to create contemporary fashion with social impact.",
+      "fr": "Gabriela collabore activement avec des coopératives de tisserandes des hauts plateaux du Chiapas pour créer une mode contemporaine à impact social."
+    },
+    "gallery": [
+      "https://images.unsplash.com/photo-1565192647048-f997ded87950?auto=format&fit=crop&q=80&w=800"
+    ]
+  }
+]

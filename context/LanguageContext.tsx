@@ -49,6 +49,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       if (event.data && event.data.type === 'UPDATE_TRANSLATIONS' && event.data.payload) {
         setDynamicDict(event.data.payload);
       }
+      if (event.data && event.data.type === 'CHANGE_LANGUAGE' && event.data.lang) {
+        setLanguageState(event.data.lang as Language);
+      }
     };
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);

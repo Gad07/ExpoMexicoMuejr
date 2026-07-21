@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1784661642431hmk1",
+    "path": "/",
+    "timestamp": "2026-07-21T19:20:42.431Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0",
+    "device": "desktop",
+    "referer": "http://localhost:3000/",
+    "source": "Referido Externe"
+  },
+  {
+    "id": "17846616412614vr7",
+    "path": "/",
+    "timestamp": "2026-07-21T19:20:41.261Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0",
+    "device": "desktop",
+    "referer": "http://localhost:3000/",
+    "source": "Referido Externe"
+  }
+]
