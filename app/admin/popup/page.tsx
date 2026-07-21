@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Save, Eye, Layout, Palette, ArrowRight, X } from 'lucide-react';
+import { Sparkles, Save, Eye, Layout, Palette, Zap, Globe, ArrowRight, X } from 'lucide-react';
 import { PopupConfig } from '@/app/api/admin/popup/route';
 
 const COLOR_PRESETS = [
@@ -54,9 +54,15 @@ export default function AdminPopupPage() {
     setSaving(true);
     setMessage(null);
     try {
+      const token = typeof window !== 'undefined' ? localStorage.getItem('admin_token') : null;
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
+
       const res = await fetch('/api/admin/popup', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify(config),
       });
 
@@ -107,13 +113,13 @@ export default function AdminPopupPage() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#E4007C', fontWeight: 800, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '4px' }}>
-            <Sparkles size={16} /> Diseñador del Pop-Up Promocional
+            <Sparkles size={16} /> Diseñador & Gestor del Pop-Up Promocional
           </div>
           <h1 style={{ margin: 0, fontSize: '1.8rem', fontWeight: 900, color: '#002E51', letterSpacing: '-0.02em' }}>
-            Personalización de Diseño, Colores y Posición
+            Gestión Completa de Pop-Up (Triggers, Páginas y Diseño)
           </h1>
           <p style={{ margin: '4px 0 0', color: '#64748b', fontSize: '0.9rem' }}>
-            Ajusta la posición de la imagen, colores de fondo, colores del botón e interacciones hover.
+            Configura disparadores (tiempo, scroll, intención de salida), páginas donde aparecerá y personalización visual.
           </p>
         </div>
 
@@ -157,13 +163,164 @@ export default function AdminPopupPage() {
       )}
 
       {/* TWO COLUMN GRID: EDITOR & LIVE PREVIEW */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '32px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1.15fr 0.85fr', gap: '32px' }}>
         {/* EDITOR FORM */}
         <div style={{ background: '#fff', borderRadius: '20px', padding: '32px', border: '1px solid #e2e8f0', boxShadow: '0 4px 16px rgba(0,0,0,0.02)' }}>
           
-          {/* 1. LAYOUT & POSITION */}
+          {/* 1. STATE TOGGLE */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#f8fafc', padding: '16px 20px', borderRadius: '14px', marginBottom: '28px', border: '1px solid #e2e8f0' }}>
+            <div>
+              <div style={{ fontWeight: 800, color: '#002E51', fontSize: '0.95rem' }}>Estado del Pop-Up</div>
+              <div style={{ fontSize: '0.8rem', color: '#64748b' }}>Activar o desactivar la aparición en el sitio público</div>
+            </div>
+            <label style={{ position: 'relative', display: 'inline-block', width: '50px', height: '26px', cursor: 'pointer' }}>
+              <input
+                type="checkbox"
+                checked={config.isActive}
+                onChange={(e) => setConfig({ ...config, isActive: e.target.checked })}
+                style={{ opacity: 0, width: 0, height: 0 }}
+              />
+              <span
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  backgroundColor: config.isActive ? '#E4007C' : '#cbd5e1',
+                  borderRadius: '34px',
+                  transition: '0.3s',
+                }}
+              >
+                <span
+                  style={{
+                    position: 'absolute',
+                    content: '""',
+                    height: '20px',
+                    width: '20px',
+                    left: config.isActive ? '26px' : '3px',
+                    bottom: '3px',
+                    backgroundColor: 'white',
+                    borderRadius: '50%',
+                    transition: '0.3s',
+                  }}
+                />
+              </span>
+            </label>
+          </div>
+
+          {/* 2. TRIGGER SELECTION SECTION */}
           <h3 style={{ margin: '0 0 20px', fontSize: '1.1rem', fontWeight: 800, color: '#002E51', borderBottom: '1px solid #f1f5f9', paddingBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Layout size={18} color="#E4007C" /> 1. Posición de la Imagen y Contenido
+            <Zap size={18} color="#E4007C" /> 1. Regla de Disparo (Triggers)
+          </h3>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '16px' }}>
+            {[
+              { type: 'timer', label: '⏱️ Por Tiempo', desc: 'Retraso en segundos' },
+              { type: 'scroll', label: '📜 Por Scroll', desc: '% de avance en página' },
+              { type: 'exit', label: '🚪 Intención Salida', desc: 'Al mover el mouse fuera' },
+            ].map((t) => (
+              <div
+                key={t.type}
+                onClick={() => setConfig({ ...config, triggerType: t.type as any })}
+                style={{
+                  padding: '14px 12px',
+                  borderRadius: '12px',
+                  border: config.triggerType === t.type ? '2px solid #E4007C' : '1px solid #e2e8f0',
+                  background: config.triggerType === t.type ? 'rgba(228,0,124,0.05)' : '#fff',
+                  cursor: 'pointer',
+                  textAlign: 'center',
+                  transition: 'all 0.2s',
+                }}
+              >
+                <div style={{ fontWeight: 800, fontSize: '0.85rem', color: '#002E51', marginBottom: '2px' }}>{t.label}</div>
+                <div style={{ fontSize: '0.7rem', color: '#64748b' }}>{t.desc}</div>
+              </div>
+            ))}
+          </div>
+
+          {config.triggerType === 'timer' && (
+            <div style={{ marginBottom: '24px' }}>
+              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: '#002E51', marginBottom: '6px' }}>
+                Segundos de espera antes de mostrar (ej: 3 segundos)
+              </label>
+              <input
+                type="number"
+                min={0}
+                max={30}
+                value={config.triggerValue}
+                onChange={(e) => setConfig({ ...config, triggerValue: Number(e.target.value) || 0 })}
+                style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '0.9rem', outline: 'none', boxSizing: 'border-box' }}
+              />
+            </div>
+          )}
+
+          {config.triggerType === 'scroll' && (
+            <div style={{ marginBottom: '24px' }}>
+              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: '#002E51', marginBottom: '6px' }}>
+                Porcentaje de Scroll para disparar (ej: 50%)
+              </label>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                <input
+                  type="range"
+                  min={10}
+                  max={90}
+                  step={5}
+                  value={config.triggerValue}
+                  onChange={(e) => setConfig({ ...config, triggerValue: Number(e.target.value) })}
+                  style={{ flex: 1 }}
+                />
+                <span style={{ fontWeight: 800, color: '#E4007C', fontSize: '1rem' }}>{config.triggerValue}%</span>
+              </div>
+            </div>
+          )}
+
+          {/* 3. PAGE TARGETING SECTION */}
+          <h3 style={{ margin: '28px 0 20px', fontSize: '1.1rem', fontWeight: 800, color: '#002E51', borderBottom: '1px solid #f1f5f9', paddingBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Globe size={18} color="#E4007C" /> 2. Ubicación (¿En qué páginas se mostrará?)
+          </h3>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '16px' }}>
+            {[
+              { target: 'all', label: '🌐 Todas las Páginas', desc: 'Aparece en todo el sitio' },
+              { target: 'home', label: '🏠 Solo en la Inicio', desc: 'Únicamente en ruta /' },
+              { target: 'custom', label: '📍 Páginas Específicas', desc: 'Definir rutas manualmente' },
+            ].map((p) => (
+              <div
+                key={p.target}
+                onClick={() => setConfig({ ...config, displayTarget: p.target as any })}
+                style={{
+                  padding: '14px 12px',
+                  borderRadius: '12px',
+                  border: config.displayTarget === p.target ? '2px solid #002E51' : '1px solid #e2e8f0',
+                  background: config.displayTarget === p.target ? 'rgba(0,46,81,0.05)' : '#fff',
+                  cursor: 'pointer',
+                  textAlign: 'center',
+                  transition: 'all 0.2s',
+                }}
+              >
+                <div style={{ fontWeight: 800, fontSize: '0.85rem', color: '#002E51', marginBottom: '2px' }}>{p.label}</div>
+                <div style={{ fontSize: '0.7rem', color: '#64748b' }}>{p.desc}</div>
+              </div>
+            ))}
+          </div>
+
+          {config.displayTarget === 'custom' && (
+            <div style={{ marginBottom: '24px' }}>
+              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 800, color: '#002E51', marginBottom: '6px' }}>
+                Rutas específicas (separadas por coma)
+              </label>
+              <input
+                type="text"
+                value={config.customPages}
+                onChange={(e) => setConfig({ ...config, customPages: e.target.value })}
+                placeholder="Ej: /expositores, /visa, /agenda, /contacto"
+                style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '0.9rem', outline: 'none', boxSizing: 'border-box' }}
+              />
+            </div>
+          )}
+
+          {/* 4. LAYOUT & POSITION */}
+          <h3 style={{ margin: '28px 0 20px', fontSize: '1.1rem', fontWeight: 800, color: '#002E51', borderBottom: '1px solid #f1f5f9', paddingBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Layout size={18} color="#E4007C" /> 3. Posición de la Imagen y Estructura
           </h3>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '10px', marginBottom: '24px' }}>
@@ -192,9 +349,9 @@ export default function AdminPopupPage() {
             ))}
           </div>
 
-          {/* 2. PRESET COLOR PALETTES */}
+          {/* 5. PRESET COLOR PALETTES */}
           <h3 style={{ margin: '28px 0 20px', fontSize: '1.1rem', fontWeight: 800, color: '#002E51', borderBottom: '1px solid #f1f5f9', paddingBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Palette size={18} color="#E4007C" /> 2. Paletas de Colores Rápidas (Presets)
+            <Palette size={18} color="#E4007C" /> 4. Paletas de Colores & Efecto Hover
           </h3>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px', marginBottom: '24px' }}>
@@ -226,10 +383,6 @@ export default function AdminPopupPage() {
           </div>
 
           {/* CUSTOM COLOR PICKERS */}
-          <h3 style={{ margin: '28px 0 20px', fontSize: '1.1rem', fontWeight: 800, color: '#002E51', borderBottom: '1px solid #f1f5f9', paddingBottom: '12px' }}>
-            3. Personalización Fina de Colores & Hover
-          </h3>
-
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
             <div>
               <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 800, color: '#002E51', marginBottom: '6px' }}>
@@ -327,9 +480,9 @@ export default function AdminPopupPage() {
             </div>
           </div>
 
-          {/* 4. BASIC CONTENT & TEXTS */}
+          {/* 6. BASIC CONTENT & TEXTS */}
           <h3 style={{ margin: '28px 0 20px', fontSize: '1.1rem', fontWeight: 800, color: '#002E51', borderBottom: '1px solid #f1f5f9', paddingBottom: '12px' }}>
-            4. Textos, Botón e Imagen
+            5. Textos, Botón e Imagen
           </h3>
 
           <div style={{ marginBottom: '16px' }}>
@@ -545,8 +698,10 @@ export default function AdminPopupPage() {
             )}
           </div>
 
-          <div style={{ marginTop: '16px', fontSize: '0.78rem', color: '#64748b', textAlign: 'center' }}>
-            Pasa el mouse sobre el botón en la vista previa para probar el efecto <strong>Hover</strong>.
+          <div style={{ marginTop: '16px', fontSize: '0.78rem', color: '#64748b', textAlign: 'center', lineHeight: 1.5 }}>
+            Trigger: <strong>{config.triggerType === 'timer' ? `⏱️ ${config.triggerValue}s` : config.triggerType === 'scroll' ? `📜 ${config.triggerValue}% Scroll` : '🚪 Exit Intent'}</strong>
+            <br />
+            Mostrando en: <strong>{config.displayTarget === 'all' ? 'Todas las páginas' : config.displayTarget === 'home' ? 'Solo Inicio (/)' : config.customPages}</strong>
           </div>
         </div>
       </div>
