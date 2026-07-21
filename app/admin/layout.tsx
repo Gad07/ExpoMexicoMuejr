@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import { LogOut, Newspaper, LayoutDashboard, Settings, Users, User, Menu, X, Handshake, Medal, ChevronDown, ShoppingBag, Star, Image as ImageIcon, IdCard, Calendar, Navigation, AppWindow, Type, Sparkles } from 'lucide-react';
+import { LogOut, Newspaper, LayoutDashboard, Settings, Users, User, Menu, X, Handshake, Medal, ChevronDown, ShoppingBag, Star, Image as ImageIcon, IdCard, Calendar, Navigation, AppWindow, Type, Sparkles, Layers } from 'lucide-react';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -11,7 +11,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<{ name?: string; email?: string; method: string } | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -93,17 +93,32 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     return null;
   }
 
-    const navItems = [
+  const navItems = [
     { label: 'Dashboard', icon: <LayoutDashboard size={18} />, href: '/admin' },
-    { label: 'Banners', icon: <ImageIcon size={18} />, href: '/admin/banners' },
-    { label: 'Portadas', icon: <AppWindow size={18} />, href: '/admin/heroes' },
-    { label: 'Páginas', icon: <Type size={18} />, href: '/admin/paginas' },
-    { label: 'Noticias', icon: <Newspaper size={18} />, href: '/admin/noticias' },
-    { label: 'Navegación', icon: <Navigation size={18} />, href: '/admin/navbar' },
-    { label: 'Pop-Up Promocional', icon: <Sparkles size={18} />, href: '/admin/popup' },
-    { label: 'Agendas', icon: <Calendar size={18} />, href: '/admin/agendas' },
     {
-      label: 'Directorios',
+      id: 'design',
+      label: 'Páginas y Diseño',
+      icon: <Layers size={18} />,
+      items: [
+        { label: 'Constructor de Páginas', href: '/admin/paginas', icon: <Type size={16} /> },
+        { label: 'Banners Promocionales', href: '/admin/banners', icon: <ImageIcon size={16} /> },
+        { label: 'Portadas & Heroes', href: '/admin/heroes', icon: <AppWindow size={16} /> },
+        { label: 'Pop-Up Promocional', href: '/admin/popup', icon: <Sparkles size={16} /> },
+        { label: 'Menú Navegación', href: '/admin/navbar', icon: <Navigation size={16} /> },
+      ],
+    },
+    {
+      id: 'content',
+      label: 'Contenido y Evento',
+      icon: <Newspaper size={18} />,
+      items: [
+        { label: 'Noticias & Prensa', href: '/admin/noticias', icon: <Newspaper size={16} /> },
+        { label: 'Agendas & Programa', href: '/admin/agendas', icon: <Calendar size={16} /> },
+      ],
+    },
+    {
+      id: 'directories',
+      label: 'Directorios y Personas',
       icon: <Users size={18} />,
       items: [
         { label: 'Expositores', href: '/admin/expositores', icon: <Users size={16} /> },
@@ -112,10 +127,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         { label: 'Invitados', href: '/admin/invitados', icon: <Star size={16} /> },
         { label: 'Patrocinadores', href: '/admin/patrocinadores', icon: <Medal size={16} /> },
         { label: 'Aliados', href: '/admin/aliados', icon: <Handshake size={16} /> },
-      ]
+        { label: 'Business Cards', href: '/admin/business-cards', icon: <IdCard size={16} /> },
+      ],
     },
-    { label: 'Business Cards', icon: <IdCard size={18} />, href: '/admin/business-cards' },
-    { label: 'Configuración', icon: <Settings size={18} />, href: '/admin/config', disabled: true },
   ];
 
   return (
@@ -298,29 +312,30 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             {navItems.map(item => {
               if (item.items) {
                 const isSubActive = item.items.some(sub => pathname.startsWith(sub.href));
+                const isOpen = openDropdown === item.id;
                 return (
                   <div
                     key={item.label}
                     className="admin-nav-dropdown-wrap"
-                    onMouseEnter={() => setDropdownOpen(true)}
-                    onMouseLeave={() => setDropdownOpen(false)}
+                    onMouseEnter={() => setOpenDropdown(item.id || item.label)}
+                    onMouseLeave={() => setOpenDropdown(null)}
                     style={{ position: 'relative' }}
                   >
                     <button className={`admin-nav-btn ${isSubActive ? 'active' : ''}`}>
                       <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{item.icon}</span>
                       <span>{item.label}</span>
-                      <ChevronDown size={14} style={{ marginLeft: '4px' }} />
+                      <ChevronDown size={14} style={{ marginLeft: '4px', transform: isOpen ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }} />
                     </button>
                     
                     {/* Dropdown panel */}
-                    <div className={`admin-dropdown-panel ${dropdownOpen ? 'open' : ''}`}>
+                    <div className={`admin-dropdown-panel ${isOpen ? 'open' : ''}`}>
                       {item.items.map(sub => {
-                        const isLinkActive = pathname === sub.href || pathname.startsWith(sub.href);
+                        const isLinkActive = pathname === sub.href || (sub.href !== '/admin' && pathname.startsWith(sub.href));
                         return (
                           <button
                             key={sub.label}
                             onClick={() => {
-                              setDropdownOpen(false);
+                              setOpenDropdown(null);
                               router.push(sub.href);
                             }}
                             className={`admin-dropdown-item ${isLinkActive ? 'active' : ''}`}
@@ -338,7 +353,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 return (
                   <button
                     key={item.label}
-                    disabled={item.disabled}
+                    disabled={(item as any).disabled}
                     onClick={() => router.push(item.href!)}
                     className={`admin-nav-btn ${isActive ? 'active' : ''}`}
                   >
@@ -473,7 +488,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             return (
               <button
                 key={item.label}
-                disabled={item.disabled}
+                disabled={(item as any).disabled}
                 onClick={() => {
                   setMobileOpen(false);
                   router.push(item.href!);

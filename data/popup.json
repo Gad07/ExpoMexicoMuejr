@@ -1,0 +1,18 @@
+[
+  {
+    "id": "popup-main",
+    "isActive": true,
+    "title": "¡Gran Convocatoria Expo México Mujer 2027!",
+    "subtitle": "Únete como Expositora o Embajadora en Toronto, Canadá. Conecta tu marca con líderes binacionales e inversionistas internacionales.",
+    "image": "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=800",
+    "showButton": true,
+    "buttonText": "Reservar",
+    "buttonUrl": "/contacto",
+    "triggerType": "scroll",
+    "triggerValue": 25,
+    "displayTarget": "all",
+    "customPages": "/expo/que-es, /expositores, /visa",
+    "delaySeconds": 25,
+    "bgGradient": "linear-gradient(135deg, #002E51 0%, #001C33 100%)"
+  }
+]
