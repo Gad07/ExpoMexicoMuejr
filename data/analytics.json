@@ -1,5 +1,50 @@
 [
   {
+    "id": "1784669238229ddt5",
+    "path": "/",
+    "timestamp": "2026-07-21T21:27:18.229Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0",
+    "device": "desktop",
+    "referer": "",
+    "source": "Directo"
+  },
+  {
+    "id": "1784669205956r9n0",
+    "path": "/",
+    "timestamp": "2026-07-21T21:26:45.956Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0",
+    "device": "desktop",
+    "referer": "",
+    "source": "Directo"
+  },
+  {
+    "id": "1784669164720q6fq",
+    "path": "/",
+    "timestamp": "2026-07-21T21:26:04.721Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0",
+    "device": "desktop",
+    "referer": "",
+    "source": "Directo"
+  },
+  {
+    "id": "1784669128224te2y",
+    "path": "/",
+    "timestamp": "2026-07-21T21:25:28.224Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0",
+    "device": "desktop",
+    "referer": "",
+    "source": "Directo"
+  },
+  {
+    "id": "1784669101628pwam",
+    "path": "/",
+    "timestamp": "2026-07-21T21:25:01.628Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0",
+    "device": "desktop",
+    "referer": "",
+    "source": "Directo"
+  },
+  {
     "id": "1784663472706s3tt",
     "path": "/",
     "timestamp": "2026-07-21T19:51:12.706Z",

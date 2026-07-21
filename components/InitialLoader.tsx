@@ -11,11 +11,11 @@ export default function InitialLoader() {
 
   useEffect(() => {
     setMounted(true);
-    
+
     // Check for sessionStorage flag
     const hasSeenLoader = sessionStorage.getItem('hasSeenLoader');
     const isTesting = typeof window !== 'undefined' && window.location.search.includes('loader=true');
-    
+
     if (hasSeenLoader && !isTesting) {
       setShow(false);
       return;
@@ -25,7 +25,7 @@ export default function InitialLoader() {
     const timer = setTimeout(() => {
       if (videoRef.current) {
         videoRef.current.muted = true;
-        videoRef.current.play().catch(() => {});
+        videoRef.current.play().catch(() => { });
       }
     }, 100);
 
@@ -99,7 +99,7 @@ export default function InitialLoader() {
             0 0 1 0 0
             -1 1 0 0 0
           " result="rawMask" />
-          
+
           <feComponentTransfer in="rawMask" result="hardMask">
             <feFuncA type="linear" slope="5" intercept="-0.1" />
           </feComponentTransfer>
@@ -145,39 +145,7 @@ export default function InitialLoader() {
         }}
       >
         <source src="https://dl.dropboxusercontent.com/scl/fi/p1gcsxb0h26xcr7ydmecp/Video-Project-3.mp4?rlkey=0gyzvmf4rcxq3kfc7c0vif0fq&st=45xip41h" type="video/mp4" />
-        <source src="/Video Project 3.mp4" type="video/mp4" />
       </video>
-
-      {/* Botón de saltar */}
-      <button
-        onClick={handleComplete}
-        style={{
-          position: 'absolute',
-          bottom: '40px',
-          right: '40px',
-          background: 'rgba(0,46,81,0.05)',
-          backdropFilter: 'blur(10px)',
-          border: '1px solid rgba(0,46,81,0.1)',
-          color: '#002E51',
-          padding: '10px 24px',
-          borderRadius: '30px',
-          fontFamily: 'var(--font-display, sans-serif)',
-          fontSize: '0.8rem',
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase',
-          cursor: 'pointer',
-          zIndex: 10,
-          transition: 'all 0.3s ease',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.background = 'rgba(0,46,81,0.1)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.background = 'rgba(0,46,81,0.05)';
-        }}
-      >
-        Saltar intro
-      </button>
     </div>
   );
 }
