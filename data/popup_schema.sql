@@ -3,7 +3,7 @@
 -- Expo México Mujer 2027 (Supabase Database)
 -- ========================================================
 
--- 1. Crear la tabla de popups si no existe
+-- 1. Crear la tabla dedicada `popups` si no existe
 CREATE TABLE IF NOT EXISTS popups (
     id VARCHAR(50) PRIMARY KEY DEFAULT 'popup-main',
     is_active BOOLEAN DEFAULT true,
@@ -37,7 +37,7 @@ CREATE POLICY "Lectura pública de popups" ON popups FOR SELECT USING (true);
 DROP POLICY IF EXISTS "Edición total de popups" ON popups;
 CREATE POLICY "Edición total de popups" ON popups FOR ALL USING (true);
 
--- 2. Insertar o actualizar la configuración por defecto
+-- 2. Insertar o actualizar la configuración en la tabla `popups`
 INSERT INTO popups (
     id,
     is_active,
@@ -96,7 +96,12 @@ INSERT INTO popups (
     custom_pages = EXCLUDED.custom_pages,
     updated_at = CURRENT_TIMESTAMP;
 
--- 3. También asegurar registro en la tabla global `page_modules`
+-- 3. Asegurar la clave foránea 'global' en la tabla `pages` si existe esa tabla
+INSERT INTO pages (page_key, name, url, slug, group_name, is_custom)
+VALUES ('global', 'Configuración Global Sistema', '/global', 'global', 'Sistema', false)
+ON CONFLICT (page_key) DO NOTHING;
+
+-- 4. Registrar en la tabla `page_modules`
 INSERT INTO page_modules (id, page_key, module_type, title, subtitle, items_json)
 VALUES (
     'popup-main',
