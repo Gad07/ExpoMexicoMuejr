@@ -9,6 +9,7 @@ import ScrollToTop from '@/components/ScrollToTop';
 import InitialLoader from '@/components/InitialLoader';
 import WhatsAppChat from '@/components/WhatsAppChat';
 import PromoPopup from '@/components/PromoPopup';
+import LanguageModal from '@/components/LanguageModal';
 
 export default function PublicLayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -21,6 +22,7 @@ export default function PublicLayoutWrapper({ children }: { children: React.Reac
   return (
     <>
       <InitialLoader />
+      <LanguageModal />
       <ScrollToTop />
       <PromoPopup />
       <Nav />
