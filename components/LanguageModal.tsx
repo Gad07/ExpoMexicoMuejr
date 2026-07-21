@@ -12,12 +12,20 @@ export default function LanguageModal() {
   useEffect(() => {
     // Check if user has already selected their preferred language
     const hasSelected = localStorage.getItem('emm_lang_selected');
-    if (!hasSelected) {
-      // Delay slightly so it appears right after initial loading animation
-      const timer = setTimeout(() => {
+    if (hasSelected) return;
+
+    const triggerShow = () => {
+      setTimeout(() => {
         setIsOpen(true);
-      }, 1200);
-      return () => clearTimeout(timer);
+      }, 400);
+    };
+
+    const hasSeenLoader = sessionStorage.getItem('hasSeenLoader');
+    if (hasSeenLoader === 'true') {
+      triggerShow();
+    } else {
+      window.addEventListener('initial_loader_complete', triggerShow);
+      return () => window.removeEventListener('initial_loader_complete', triggerShow);
     }
   }, []);
 
@@ -75,26 +83,6 @@ export default function LanguageModal() {
           border: '1px solid rgba(255,255,255,0.2)',
         }}
       >
-        {/* BRAND BADGE */}
-        <div
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            background: 'rgba(228, 0, 124, 0.1)',
-            color: '#E4007C',
-            padding: '6px 16px',
-            borderRadius: '100px',
-            fontSize: '0.8rem',
-            fontWeight: 800,
-            textTransform: 'uppercase',
-            letterSpacing: '0.08em',
-            marginBottom: '20px',
-          }}
-        >
-          <Sparkles size={16} /> Expo México Mujer 2027
-        </div>
-
         {/* HEADER TITLE */}
         <h2
           style={{

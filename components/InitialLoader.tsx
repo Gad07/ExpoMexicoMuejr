@@ -38,6 +38,7 @@ export default function InitialLoader() {
   const handleComplete = () => {
     setIsFading(true);
     sessionStorage.setItem('hasSeenLoader', 'true');
+    window.dispatchEvent(new Event('initial_loader_complete'));
     setTimeout(() => {
       setShow(false);
     }, 800); // 800ms fade duration
