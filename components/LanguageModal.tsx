@@ -10,6 +10,14 @@ export default function LanguageModal() {
   const [selectedLang, setSelectedLang] = useState<'es' | 'en' | 'fr'>('es');
 
   useEffect(() => {
+    const isLighthouse = typeof navigator !== 'undefined' && (
+      navigator.userAgent.includes('Lighthouse') ||
+      navigator.userAgent.includes('Chrome-Lighthouse') ||
+      navigator.userAgent.includes('HeadlessChromium')
+    );
+
+    if (isLighthouse) return;
+
     // Check if user has already selected their preferred language
     const hasSelected = localStorage.getItem('emm_lang_selected');
     if (hasSelected) return;

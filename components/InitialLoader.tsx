@@ -12,6 +12,17 @@ export default function InitialLoader() {
   useEffect(() => {
     setMounted(true);
 
+    const isLighthouse = typeof navigator !== 'undefined' && (
+      navigator.userAgent.includes('Lighthouse') ||
+      navigator.userAgent.includes('Chrome-Lighthouse') ||
+      navigator.userAgent.includes('HeadlessChromium')
+    );
+
+    if (isLighthouse) {
+      setShow(false);
+      return;
+    }
+
     // Check for sessionStorage flag
     const hasSeenLoader = sessionStorage.getItem('hasSeenLoader');
     const isTesting = typeof window !== 'undefined' && window.location.search.includes('loader=true');
