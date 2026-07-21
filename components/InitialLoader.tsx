@@ -11,29 +11,37 @@ export default function InitialLoader() {
 
   useEffect(() => {
     setMounted(true);
+    
+    // Check for sessionStorage flag
     const hasSeenLoader = sessionStorage.getItem('hasSeenLoader');
-    if (hasSeenLoader) {
+    const isTesting = typeof window !== 'undefined' && window.location.search.includes('loader=true');
+    
+    if (hasSeenLoader && !isTesting) {
       setShow(false);
       return;
     }
 
-    // Attempt video playback
-    if (videoRef.current) {
-      videoRef.current.play().catch(() => {});
-    }
+    // Force play video explicitly on mount
+    const timer = setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.muted = true;
+        videoRef.current.play().catch(() => {});
+      }
+    }, 100);
 
-    // Generous fallback timer (6s) in case video buffering is blocked
+    // Fallback timer of 8s in case browser blocks video
     fallbackRef.current = setTimeout(() => {
       handleComplete();
-    }, 6000);
+    }, 8000);
 
     return () => {
+      clearTimeout(timer);
       if (fallbackRef.current) clearTimeout(fallbackRef.current);
     };
   }, []);
 
   const handlePlay = () => {
-    // When video starts playing smoothly, clear the fallback timer so it plays to the end
+    // Video is playing actively
     if (fallbackRef.current) {
       clearTimeout(fallbackRef.current);
       fallbackRef.current = null;
@@ -50,7 +58,7 @@ export default function InitialLoader() {
     window.dispatchEvent(new Event('initial_loader_complete'));
     setTimeout(() => {
       setShow(false);
-    }, 800); // 800ms fade duration
+    }, 800);
   };
 
   if (!mounted || !show) return null;
@@ -64,7 +72,7 @@ export default function InitialLoader() {
         left: 0,
         width: '100vw',
         height: '100vh',
-        backgroundColor: '#ffffff', /* Fondo blanco puro */
+        backgroundColor: '#ffffff',
         zIndex: 999999,
         display: 'flex',
         flexDirection: 'column',
@@ -79,15 +87,12 @@ export default function InitialLoader() {
     >
       <svg width="0" height="0" style={{ position: 'absolute' }}>
         <filter id="brand-green-filter">
-          
-          {/* 0. Forzar el fondo a ULTRA BLANCO */}
           <feComponentTransfer in="SourceGraphic" result="brightenedSource">
             <feFuncR type="linear" slope="1.38" intercept="-0.115" />
             <feFuncG type="linear" slope="1.38" intercept="-0.115" />
             <feFuncB type="linear" slope="1.38" intercept="-0.115" />
           </feComponentTransfer>
 
-          {/* 1. Crear una máscara para aislar los pixeles verdes (Alpha = G - R) */}
           <feColorMatrix in="SourceGraphic" type="matrix" values="
             1 0 0 0 0
             0 1 0 0 0
@@ -95,42 +100,35 @@ export default function InitialLoader() {
             -1 1 0 0 0
           " result="rawMask" />
           
-          {/* Aumentar el contraste de la máscara para asegurar cobertura completa del verde */}
           <feComponentTransfer in="rawMask" result="hardMask">
             <feFuncA type="linear" slope="5" intercept="-0.1" />
           </feComponentTransfer>
 
-          {/* 2. Crear una versión de la imagen en escala de grises */}
           <feColorMatrix in="SourceGraphic" type="matrix" values="
             0.33 0.33 0.33 0 0
             0.33 0.33 0.33 0 0
             0.33 0.33 0.33 0 0
             0 0 0 1 0
           " result="gray" />
-          
-          {/* 3. Gradient Map: Mapear la luminancia a nuestro verde #044829 */}
+
           <feComponentTransfer in="gray" result="tinted">
             <feFuncR type="table" tableValues="0 0.0157 0.0157 1" />
             <feFuncG type="table" tableValues="0 0.2824 0.2824 1" />
             <feFuncB type="table" tableValues="0 0.1608 0.1608 1" />
           </feComponentTransfer>
 
-          {/* 4. Aplicar el color #044829 SOLO donde la máscara verde es visible */}
           <feComposite in="tinted" in2="hardMask" operator="in" result="maskedTint" />
-          
-          {/* 5. Combinar el verde corregido sobre la imagen ACLARADA */}
           <feComposite in="maskedTint" in2="brightenedSource" operator="over" />
-
         </filter>
       </svg>
 
       <video
         ref={videoRef}
-        src="https://www.dropbox.com/scl/fi/p1gcsxb0h26xcr7ydmecp/Video-Project-3.mp4?rlkey=0gyzvmf4rcxq3kfc7c0vif0fq&st=45xip41h&raw=1"
         autoPlay
         preload="auto"
         muted
         playsInline
+        crossOrigin="anonymous"
         onPlay={handlePlay}
         onEnded={handleComplete}
         style={{
@@ -145,7 +143,10 @@ export default function InitialLoader() {
           willChange: 'filter, transform',
           backfaceVisibility: 'hidden',
         }}
-      />
+      >
+        <source src="https://dl.dropboxusercontent.com/scl/fi/p1gcsxb0h26xcr7ydmecp/Video-Project-3.mp4?rlkey=0gyzvmf4rcxq3kfc7c0vif0fq&st=45xip41h" type="video/mp4" />
+        <source src="/Video Project 3.mp4" type="video/mp4" />
+      </video>
 
       {/* Botón de saltar */}
       <button
