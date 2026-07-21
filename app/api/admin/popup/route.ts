@@ -62,24 +62,28 @@ function checkAuth(request: Request): boolean {
 }
 
 export async function GET() {
+  const cacheHeaders = {
+    'Cache-Control': 'public, max-age=60, s-maxage=300, stale-while-revalidate=600',
+  };
+
   try {
     const supabase = getSupabase();
     if (supabase) {
       const { data, error } = await supabase.from('page_modules').select('*').eq('id', 'popup-main').single();
       if (!error && data) {
         const config = typeof data.items_json === 'string' ? JSON.parse(data.items_json) : data.items_json;
-        return NextResponse.json({ popup: { ...DEFAULT_POPUP, ...config } });
+        return NextResponse.json({ popup: { ...DEFAULT_POPUP, ...config } }, { headers: cacheHeaders });
       }
     }
 
     const localData = readJSON<PopupConfig>(DB_FILE);
     if (localData && localData.length > 0) {
-      return NextResponse.json({ popup: { ...DEFAULT_POPUP, ...localData[0] } });
+      return NextResponse.json({ popup: { ...DEFAULT_POPUP, ...localData[0] } }, { headers: cacheHeaders });
     }
 
-    return NextResponse.json({ popup: DEFAULT_POPUP });
+    return NextResponse.json({ popup: DEFAULT_POPUP }, { headers: cacheHeaders });
   } catch {
-    return NextResponse.json({ popup: DEFAULT_POPUP });
+    return NextResponse.json({ popup: DEFAULT_POPUP }, { headers: cacheHeaders });
   }
 }
 
