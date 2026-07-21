@@ -221,7 +221,7 @@ function ModuleHero({ module }: { module: PageModule }) {
             </span>
           )}
           {module.title && (
-            <h1
+            <h2
               style={{
                 fontFamily: 'var(--font-display, "Futura", sans-serif)',
                 fontSize: 'clamp(2.4rem, 5vw, 4rem)',
@@ -235,7 +235,7 @@ function ModuleHero({ module }: { module: PageModule }) {
               }}
             >
               {module.title}
-            </h1>
+            </h2>
           )}
           {module.content && (
             <p

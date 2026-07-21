@@ -12,7 +12,7 @@ const BLUR_SVG = `data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjI0
 
 export default function OptImage({
   blur = true,
-  quality = 80,
+  quality = 75,
   loading = 'lazy',
   sizes,
   style,
@@ -21,16 +21,19 @@ export default function OptImage({
 }: OptImageProps) {
   const [loaded, setLoaded] = useState(false);
 
-  const isExternal = typeof rest.src === 'string' && rest.src.startsWith('http');
-  const needsWidth = isExternal && !rest.width;
+  let src = rest.src;
+  if (typeof src === 'string' && src.includes('images.unsplash.com') && !src.includes('w=')) {
+    src = src + (src.includes('?') ? '&w=800&q=75&auto=format' : '?w=800&q=75&auto=format');
+  }
 
   return (
     <Image
       {...rest}
+      src={src}
       alt={alt || ''}
       quality={quality}
       loading={rest.priority ? undefined : loading}
-      sizes={sizes || '(max-width: 768px) 100vw, 50vw'}
+      sizes={sizes || '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'}
       placeholder={blur ? 'blur' : undefined}
       blurDataURL={blur ? BLUR_SVG : undefined}
       style={{
