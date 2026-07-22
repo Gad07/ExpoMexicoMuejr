@@ -10,6 +10,7 @@ import InitialLoader from '@/components/InitialLoader';
 import WhatsAppChat from '@/components/WhatsAppChat';
 import PromoPopup from '@/components/PromoPopup';
 import LanguageModal from '@/components/LanguageModal';
+import EmbeddedFormModal from '@/components/EmbeddedFormModal';
 
 export default function PublicLayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -23,6 +24,7 @@ export default function PublicLayoutWrapper({ children }: { children: React.Reac
     <>
       <InitialLoader />
       <LanguageModal />
+      <EmbeddedFormModal />
       <ScrollToTop />
       <PromoPopup />
       <Nav />

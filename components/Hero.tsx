@@ -62,13 +62,10 @@ export default function Hero({
                   primaryCta.action === 'popup' ? (
                     <button
                       onClick={(e) => {
-                        if (primaryCta.href && (primaryCta.href.startsWith('http://') || primaryCta.href.startsWith('https://'))) {
-                          e.preventDefault();
-                          window.open(primaryCta.href, '_blank', 'width=700,height=800,scrollbars=yes');
-                        } else {
-                          e.preventDefault();
-                          window.dispatchEvent(new CustomEvent('openContactModal'));
-                        }
+                        e.preventDefault();
+                        window.dispatchEvent(new CustomEvent('openEmbeddedFormModal', {
+                          detail: { url: primaryCta.href, title: primaryCta.text }
+                        }));
                       }}
                       className="btn btn--primary"
                     >
@@ -84,13 +81,10 @@ export default function Hero({
                   secondaryCta.action === 'popup' ? (
                     <button
                       onClick={(e) => {
-                        if (secondaryCta.href && (secondaryCta.href.startsWith('http://') || secondaryCta.href.startsWith('https://'))) {
-                          e.preventDefault();
-                          window.open(secondaryCta.href, '_blank', 'width=700,height=800,scrollbars=yes');
-                        } else {
-                          e.preventDefault();
-                          window.dispatchEvent(new CustomEvent('openContactModal'));
-                        }
+                        e.preventDefault();
+                        window.dispatchEvent(new CustomEvent('openEmbeddedFormModal', {
+                          detail: { url: secondaryCta.href, title: secondaryCta.text }
+                        }));
                       }}
                       className="btn btn--outline"
                     >
