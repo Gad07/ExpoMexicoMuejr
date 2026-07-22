@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { readJSON, writeJSON } from '@/lib/db';
+import { readJSONAsync, writeJSONAsync } from '@/lib/db';
 import { checkAuth } from '@/lib/auth';
 
 const DB_FILE = 'banners.json';
@@ -19,7 +19,7 @@ function getNextId(banners: Banner[]): number {
 // GET /api/admin/banners - List all banners
 export async function GET(request: Request) {
   try {
-    const banners = readJSON<Banner>(DB_FILE);
+    const banners = (await readJSONAsync<Banner>(DB_FILE)) || [];
     // Sort by order ascending
     const sorted = banners.sort((a, b) => a.order - b.order);
     return NextResponse.json({ banners: sorted });
@@ -36,7 +36,7 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json();
-    const banners = readJSON<Banner>(DB_FILE);
+    const banners = (await readJSONAsync<Banner>(DB_FILE)) || [];
 
     const newBanner: Banner = {
       id: getNextId(banners),
@@ -46,7 +46,7 @@ export async function POST(request: Request) {
     };
 
     banners.push(newBanner);
-    writeJSON(DB_FILE, banners);
+    await writeJSONAsync(DB_FILE, banners);
 
     return NextResponse.json({ banner: newBanner, message: 'Banner creado exitosamente' });
   } catch {
@@ -68,7 +68,7 @@ export async function PUT(request: Request) {
       return NextResponse.json({ error: 'ID requerido' }, { status: 400 });
     }
 
-    const banners = readJSON<Banner>(DB_FILE);
+    const banners = (await readJSONAsync<Banner>(DB_FILE)) || [];
     const index = banners.findIndex(b => b.id === id);
 
     if (index === -1) {
@@ -81,7 +81,7 @@ export async function PUT(request: Request) {
       id,
     };
 
-    writeJSON(DB_FILE, banners);
+    await writeJSONAsync(DB_FILE, banners);
     return NextResponse.json({ banner: banners[index], message: 'Banner actualizado exitosamente' });
   } catch {
     return NextResponse.json({ error: 'Error al actualizar banner' }, { status: 500 });
@@ -101,7 +101,7 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ error: 'ID requerido' }, { status: 400 });
     }
 
-    let banners = readJSON<Banner>(DB_FILE);
+    let banners = (await readJSONAsync<Banner>(DB_FILE)) || [];
     const exists = banners.find(b => b.id === id);
     
     if (!exists) {
@@ -109,7 +109,7 @@ export async function DELETE(request: Request) {
     }
 
     banners = banners.filter(b => b.id !== id);
-    writeJSON(DB_FILE, banners);
+    await writeJSONAsync(DB_FILE, banners);
 
     return NextResponse.json({ message: 'Banner eliminado exitosamente' });
   } catch {

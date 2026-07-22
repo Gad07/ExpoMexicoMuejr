@@ -18,7 +18,7 @@ export function ensureDataDir(): void {
   }
 }
 
-export function readJSON<T>(filename: string): T[] {
+export function readJSONLocal<T>(filename: string): T[] {
   const filepath = path.join(DATA_DIR, filename);
   const backupPath = path.join(BACKUPS_DIR, filename);
   try {
@@ -36,7 +36,31 @@ export function readJSON<T>(filename: string): T[] {
   }
 }
 
-export function writeJSON<T>(filename: string, data: T[]): void {
+export async function readJSONAsync<T>(filename: string): Promise<T[]> {
+  const supabase = getSupabase();
+  if (supabase) {
+    try {
+      const { data, error } = await supabase
+        .from('page_modules')
+        .select('items_json')
+        .eq('id', `store_${filename}`)
+        .single();
+
+      if (!error && data && data.items_json !== null && data.items_json !== undefined) {
+        return data.items_json as T[];
+      }
+    } catch {
+      // Fallback below
+    }
+  }
+  return readJSONLocal<T>(filename);
+}
+
+export function readJSON<T>(filename: string): T[] {
+  return readJSONLocal<T>(filename);
+}
+
+export async function writeJSONAsync<T>(filename: string, data: T): Promise<void> {
   try {
     ensureDataDir();
     const filepath = path.join(DATA_DIR, filename);
@@ -47,8 +71,29 @@ export function writeJSON<T>(filename: string, data: T[]): void {
       fs.writeFileSync(backupPath, JSON.stringify(data, null, 2), 'utf-8');
     }
   } catch (err) {
-    console.warn(`[writeJSON] Error writing ${filename}:`, err);
+    console.warn(`[writeJSON] Error writing local ${filename}:`, err);
   }
+
+  const supabase = getSupabase();
+  if (supabase) {
+    try {
+      await supabase.from('page_modules').upsert({
+        id: `store_${filename}`,
+        page_key: 'global',
+        module_type: 'json_store',
+        title: filename,
+        items_json: data,
+      });
+    } catch (e) {
+      console.warn(`[writeJSON] Supabase sync error for ${filename}:`, e);
+    }
+  }
+}
+
+export function writeJSON<T>(filename: string, data: T): void {
+  writeJSONAsync(filename, data).catch((err) => {
+    console.warn(`[writeJSON] Background sync error for ${filename}:`, err);
+  });
 }
 
 /**
@@ -66,5 +111,5 @@ export async function readDataFromSupabase<T>(tableName: string, fallbackJsonFil
       // Fallback below
     }
   }
-  return readJSON<T>(fallbackJsonFile);
+  return readJSONAsync<T>(fallbackJsonFile);
 }
