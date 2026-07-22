@@ -36,10 +36,22 @@ import { useLanguage } from '@/context/LanguageContext';
 export default function NoticiasPage() {
   const { language } = useLanguage();
   const [search, setSearch] = useState("");
-  
-  const filtered = ALL_NOTICIAS.filter((n: Noticia) => 
-    n.title[language].toLowerCase().includes(search.toLowerCase()) || 
-    n.excerpt[language].toLowerCase().includes(search.toLowerCase())
+  const [noticias, setNoticias] = useState<Noticia[]>(ALL_NOTICIAS);
+
+  useEffect(() => {
+    fetch('/api/admin/noticias')
+      .then(res => res.json())
+      .then(data => {
+        if (data.noticias && data.noticias.length > 0) {
+          setNoticias(data.noticias);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const filtered = noticias.filter((n: Noticia) => 
+    (n.title[language] || '').toLowerCase().includes(search.toLowerCase()) || 
+    (n.excerpt[language] || '').toLowerCase().includes(search.toLowerCase())
   );
 
   return (

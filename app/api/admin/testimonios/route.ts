@@ -1,5 +1,7 @@
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from 'next/server';
-import { readJSON, writeJSON, getSupabase } from '@/lib/db';
+import { readJSONAsync, writeJSONAsync, getSupabase } from '@/lib/db';
 import { checkAuth } from '@/lib/auth';
 
 const DB_FILE = 'testimonios.json';
@@ -97,7 +99,7 @@ export async function GET() {
     }
   }
 
-  const localVideos = readJSON<TestimonioVideo>(DB_FILE);
+  const localVideos = await readJSONAsync<TestimonioVideo>(DB_FILE);
   if (localVideos && localVideos.length > 0) {
     const formatted = localVideos.map(v => ({ ...v, url: formatDropboxUrl(v.url) }));
     return NextResponse.json({ videos: formatted }, { headers: cacheHeaders });
@@ -127,7 +129,7 @@ export async function POST(request: Request) {
     }));
 
     // Save locally
-    writeJSON(DB_FILE, formattedVideos);
+    await writeJSONAsync(DB_FILE, formattedVideos);
 
     // Also attempt Supabase upsert if client is available
     const supabase = getSupabase();

@@ -1,5 +1,7 @@
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from 'next/server';
-import { readJSON, writeJSON } from '@/lib/db';
+import { readJSONAsync, writeJSONAsync } from '@/lib/db';
 import { checkAuth } from '@/lib/auth';
 
 const DB_FILE = 'business-cards.json';
@@ -45,7 +47,7 @@ export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const slug = searchParams.get('slug');
-    const cards = readJSON<BusinessCard>(DB_FILE);
+    const cards = await readJSONAsync<BusinessCard>(DB_FILE);
     if (slug) {
       const card = cards.find(c => c.slug === slug);
       return card
@@ -66,13 +68,13 @@ export async function PUT(request: Request) {
   try {
     const body = await request.json();
     const { id, ...updates } = body;
-    const cards = readJSON<BusinessCard>(DB_FILE);
+    const cards = await readJSONAsync<BusinessCard>(DB_FILE);
     const index = cards.findIndex(c => c.id === id);
     if (index === -1) {
       return NextResponse.json({ error: 'Business card no encontrada' }, { status: 404 });
     }
     cards[index] = { ...cards[index], ...updates };
-    writeJSON(DB_FILE, cards);
+    await writeJSONAsync(DB_FILE, cards);
     return NextResponse.json({ card: cards[index], message: 'Business card actualizada exitosamente' });
   } catch {
     return NextResponse.json({ error: 'Error al actualizar' }, { status: 500 });
@@ -86,7 +88,7 @@ export async function POST(request: Request) {
   }
   try {
     const body = await request.json();
-    const cards = readJSON<BusinessCard>(DB_FILE);
+    const cards = await readJSONAsync<BusinessCard>(DB_FILE);
     
     // Generate simple ID
     const newId = Date.now().toString();
@@ -97,7 +99,7 @@ export async function POST(request: Request) {
     };
     
     cards.push(newCard);
-    writeJSON(DB_FILE, cards);
+    await writeJSONAsync(DB_FILE, cards);
     return NextResponse.json({ card: newCard, message: 'Business card creada exitosamente' });
   } catch {
     return NextResponse.json({ error: 'Error al crear' }, { status: 500 });
@@ -113,13 +115,13 @@ export async function DELETE(request: Request) {
     const { id } = await request.json();
     if (!id) return NextResponse.json({ error: 'ID requerido' }, { status: 400 });
 
-    let cards = readJSON<BusinessCard>(DB_FILE);
+    let cards = await readJSONAsync<BusinessCard>(DB_FILE);
     const exists = cards.find(c => c.id === id);
     if (!exists) {
       return NextResponse.json({ error: 'No encontrada' }, { status: 404 });
     }
     cards = cards.filter(c => c.id !== id);
-    writeJSON(DB_FILE, cards);
+    await writeJSONAsync(DB_FILE, cards);
     return NextResponse.json({ message: 'Eliminada exitosamente' });
   } catch {
     return NextResponse.json({ error: 'Error al eliminar' }, { status: 500 });

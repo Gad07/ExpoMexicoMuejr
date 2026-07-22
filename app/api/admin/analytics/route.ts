@@ -1,5 +1,7 @@
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from 'next/server';
-import { readJSON, writeJSON, getSupabase } from '@/lib/db';
+import { readJSONAsync, writeJSONAsync, getSupabase } from '@/lib/db';
 
 const DB_FILE = 'analytics.json';
 const PAGES_DB = 'pages.json';
@@ -67,12 +69,12 @@ export async function GET(request: Request) {
     }
 
     if (!logs || logs.length === 0) {
-      logs = readJSON<AnalyticsRecord>(DB_FILE);
+      logs = await readJSONAsync<AnalyticsRecord>(DB_FILE);
     }
 
     if (!logs || logs.length === 0) {
       logs = generateSeedLogs();
-      writeJSON(DB_FILE, logs);
+      await writeJSONAsync(DB_FILE, logs);
     }
 
     const { searchParams } = new URL(request.url);

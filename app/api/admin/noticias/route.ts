@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
-import { readJSON, writeJSON } from '@/lib/db';
+import { readJSONAsync, writeJSONAsync } from '@/lib/db';
 import { checkAuth } from '@/lib/auth';
+
+export const dynamic = 'force-dynamic';
 
 const DB_FILE = 'noticias.json';
 
@@ -20,8 +22,6 @@ interface Noticia {
   author: { name: string; role: string; bio: string; footer: string; image: string } | null;
 }
 
-
-
 function slugify(text: string): string {
   return text
     .toLowerCase()
@@ -37,9 +37,9 @@ function getNextId(noticias: Noticia[]): number {
 }
 
 // GET /api/admin/noticias - List all news
-export async function GET(request: Request) {
+export async function GET() {
   try {
-    const noticias = readJSON<Noticia>(DB_FILE);
+    const noticias = await readJSONAsync<Noticia>(DB_FILE);
     // Return only necessary fields for listing
     const list = noticias.map(n => ({
       id: n.id,
@@ -66,7 +66,7 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json();
-    const noticias = readJSON<Noticia>(DB_FILE);
+    const noticias = await readJSONAsync<Noticia>(DB_FILE);
 
     const newNoticia: Noticia = {
       id: getNextId(noticias),
@@ -85,7 +85,7 @@ export async function POST(request: Request) {
     };
 
     noticias.push(newNoticia);
-    writeJSON(DB_FILE, noticias);
+    await writeJSONAsync(DB_FILE, noticias);
 
     return NextResponse.json({ noticia: newNoticia, message: 'Noticia creada exitosamente' });
   } catch {
@@ -107,7 +107,7 @@ export async function PUT(request: Request) {
       return NextResponse.json({ error: 'ID requerido' }, { status: 400 });
     }
 
-    const noticias = readJSON<Noticia>(DB_FILE);
+    const noticias = await readJSONAsync<Noticia>(DB_FILE);
     const index = noticias.findIndex(n => n.id === id);
 
     if (index === -1) {
@@ -121,7 +121,7 @@ export async function PUT(request: Request) {
       slug: updates.slug || noticias[index].slug,
     };
 
-    writeJSON(DB_FILE, noticias);
+    await writeJSONAsync(DB_FILE, noticias);
     return NextResponse.json({ noticia: noticias[index], message: 'Noticia actualizada exitosamente' });
   } catch {
     return NextResponse.json({ error: 'Error al actualizar noticia' }, { status: 500 });
@@ -141,7 +141,7 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ error: 'ID requerido' }, { status: 400 });
     }
 
-    let noticias = readJSON<Noticia>(DB_FILE);
+    let noticias = await readJSONAsync<Noticia>(DB_FILE);
     const exists = noticias.find(n => n.id === id);
     
     if (!exists) {
@@ -149,7 +149,7 @@ export async function DELETE(request: Request) {
     }
 
     noticias = noticias.filter(n => n.id !== id);
-    writeJSON(DB_FILE, noticias);
+    await writeJSONAsync(DB_FILE, noticias);
 
     return NextResponse.json({ message: 'Noticia eliminada exitosamente' });
   } catch {

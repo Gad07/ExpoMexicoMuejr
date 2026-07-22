@@ -1,5 +1,7 @@
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from 'next/server';
-import { readJSON, writeJSON } from '@/lib/db';
+import { readJSONAsync, writeJSONAsync } from '@/lib/db';
 import { checkAuth } from '@/lib/auth';
 
 const DB_FILE = 'patrocinadores.json';
@@ -44,7 +46,7 @@ function getNextId(sponsors: Sponsor[]): string {
 // GET /api/admin/patrocinadores - List all sponsors
 export async function GET(request: Request) {
   try {
-    const sponsors = readJSON<Sponsor>(DB_FILE);
+    const sponsors = await readJSONAsync<Sponsor>(DB_FILE);
     return NextResponse.json({ sponsors });
   } catch {
     return NextResponse.json({ error: 'Error al leer patrocinadores' }, { status: 500 });
@@ -59,7 +61,7 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json();
-    const sponsors = readJSON<Sponsor>(DB_FILE);
+    const sponsors = await readJSONAsync<Sponsor>(DB_FILE);
 
     const newSponsor: Sponsor = {
       id: getNextId(sponsors),
@@ -77,7 +79,7 @@ export async function POST(request: Request) {
     };
 
     sponsors.push(newSponsor);
-    writeJSON(DB_FILE, sponsors);
+    await writeJSONAsync(DB_FILE, sponsors);
 
     return NextResponse.json({ sponsor: newSponsor, message: 'Patrocinador creado exitosamente' });
   } catch {
@@ -99,7 +101,7 @@ export async function PUT(request: Request) {
       return NextResponse.json({ error: 'ID requerido' }, { status: 400 });
     }
 
-    const sponsors = readJSON<Sponsor>(DB_FILE);
+    const sponsors = await readJSONAsync<Sponsor>(DB_FILE);
     const index = sponsors.findIndex(s => s.id === id);
 
     if (index === -1) {
@@ -113,7 +115,7 @@ export async function PUT(request: Request) {
       slug: updates.slug || sponsors[index].slug,
     };
 
-    writeJSON(DB_FILE, sponsors);
+    await writeJSONAsync(DB_FILE, sponsors);
     return NextResponse.json({ sponsor: sponsors[index], message: 'Patrocinador actualizado exitosamente' });
   } catch {
     return NextResponse.json({ error: 'Error al actualizar patrocinador' }, { status: 500 });
@@ -133,7 +135,7 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ error: 'ID requerido' }, { status: 400 });
     }
 
-    let sponsors = readJSON<Sponsor>(DB_FILE);
+    let sponsors = await readJSONAsync<Sponsor>(DB_FILE);
     const exists = sponsors.find(s => s.id === id);
 
     if (!exists) {
@@ -141,7 +143,7 @@ export async function DELETE(request: Request) {
     }
 
     sponsors = sponsors.filter(s => s.id !== id);
-    writeJSON(DB_FILE, sponsors);
+    await writeJSONAsync(DB_FILE, sponsors);
 
     return NextResponse.json({ message: 'Patrocinador eliminado exitosamente' });
   } catch {

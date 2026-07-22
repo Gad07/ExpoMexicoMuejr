@@ -1,5 +1,7 @@
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from 'next/server';
-import { readJSON, writeJSON } from '@/lib/db';
+import { readJSONAsync, writeJSONAsync } from '@/lib/db';
 import { checkAuth } from '@/lib/auth';
 
 const DB_FILE = 'invitados.json';
@@ -45,7 +47,7 @@ function getNextId(invitados: Invitado[]): string {
 // GET /api/admin/invitados - List all invitados
 export async function GET(request: Request) {
   try {
-    const invitados = readJSON<Invitado>(DB_FILE);
+    const invitados = await readJSONAsync<Invitado>(DB_FILE);
     return NextResponse.json({ invitados });
   } catch {
     return NextResponse.json({ error: 'Error al leer invitados' }, { status: 500 });
@@ -60,7 +62,7 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json();
-    const invitados = readJSON<Invitado>(DB_FILE);
+    const invitados = await readJSONAsync<Invitado>(DB_FILE);
 
     const newInvitado: Invitado = {
       id: getNextId(invitados),
@@ -79,7 +81,7 @@ export async function POST(request: Request) {
     };
 
     invitados.push(newInvitado);
-    writeJSON(DB_FILE, invitados);
+    await writeJSONAsync(DB_FILE, invitados);
 
     return NextResponse.json({ invitado: newInvitado, message: 'Invitado creado exitosamente' });
   } catch {
@@ -95,7 +97,7 @@ export async function PUT(request: Request) {
 
   try {
     const body = await request.json();
-    const invitados = readJSON<Invitado>(DB_FILE);
+    const invitados = await readJSONAsync<Invitado>(DB_FILE);
     const index = invitados.findIndex(a => a.id === body.id);
 
     if (index === -1) {
@@ -119,7 +121,7 @@ export async function PUT(request: Request) {
     };
 
     invitados[index] = updatedInvitado;
-    writeJSON(DB_FILE, invitados);
+    await writeJSONAsync(DB_FILE, invitados);
 
     return NextResponse.json({ invitado: updatedInvitado, message: 'Invitado actualizado exitosamente' });
   } catch {
@@ -135,14 +137,14 @@ export async function DELETE(request: Request) {
 
   try {
     const body = await request.json();
-    const invitados = readJSON<Invitado>(DB_FILE);
+    const invitados = await readJSONAsync<Invitado>(DB_FILE);
     const filtered = invitados.filter(a => a.id !== body.id);
 
     if (filtered.length === invitados.length) {
       return NextResponse.json({ error: 'Invitado no encontrado' }, { status: 404 });
     }
 
-    writeJSON(DB_FILE, filtered);
+    await writeJSONAsync(DB_FILE, filtered);
     return NextResponse.json({ message: 'Invitado eliminado exitosamente' });
   } catch {
     return NextResponse.json({ error: 'Error al eliminar invitado' }, { status: 500 });

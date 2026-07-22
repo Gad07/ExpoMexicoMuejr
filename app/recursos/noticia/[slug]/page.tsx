@@ -1,18 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
-import { ALL_NOTICIAS } from '../../../data/noticias';
+import { getNoticias, ALL_NOTICIAS } from '../../../data/noticias';
 import NoticiaDetailClient from './NoticiaDetailClient';
 
-export function generateStaticParams() {
-  return ALL_NOTICIAS.map((n) => ({
-    slug: n.id.toString(),
-  }));
-}
+export const dynamic = 'force-dynamic';
 
 export default async function NoticiaDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
-  const noticia = ALL_NOTICIAS.find(n => n.id.toString() === resolvedParams.slug);
+  const noticias = await getNoticias();
+  const noticia = noticias.find(n => n.id.toString() === resolvedParams.slug || n.slug === resolvedParams.slug) || ALL_NOTICIAS.find(n => n.id.toString() === resolvedParams.slug);
 
   if (!noticia) {
     return (

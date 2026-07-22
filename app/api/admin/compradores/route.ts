@@ -1,5 +1,7 @@
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from 'next/server';
-import { readJSON, writeJSON } from '@/lib/db';
+import { readJSONAsync, writeJSONAsync } from '@/lib/db';
 import { checkAuth } from '@/lib/auth';
 
 const DB_FILE = 'compradores.json';
@@ -48,7 +50,7 @@ function getNextId(compradores: Comprador[]): string {
 // GET /api/admin/compradores - List all buyers
 export async function GET(request: Request) {
   try {
-    const compradores = readJSON<Comprador>(DB_FILE);
+    const compradores = await readJSONAsync<Comprador>(DB_FILE);
     return NextResponse.json({ compradores });
   } catch {
     return NextResponse.json({ error: 'Error al leer compradores' }, { status: 500 });
@@ -63,7 +65,7 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json();
-    const compradores = readJSON<Comprador>(DB_FILE);
+    const compradores = await readJSONAsync<Comprador>(DB_FILE);
 
     const newComprador: Comprador = {
       id: getNextId(compradores),
@@ -85,7 +87,7 @@ export async function POST(request: Request) {
     };
 
     compradores.push(newComprador);
-    writeJSON(DB_FILE, compradores);
+    await writeJSONAsync(DB_FILE, compradores);
 
     return NextResponse.json({ comprador: newComprador, message: 'Comprador creado exitosamente' });
   } catch {
@@ -101,7 +103,7 @@ export async function PUT(request: Request) {
 
   try {
     const body = await request.json();
-    const compradores = readJSON<Comprador>(DB_FILE);
+    const compradores = await readJSONAsync<Comprador>(DB_FILE);
     const index = compradores.findIndex(a => a.id === body.id);
 
     if (index === -1) {
@@ -128,7 +130,7 @@ export async function PUT(request: Request) {
     };
 
     compradores[index] = updatedComprador;
-    writeJSON(DB_FILE, compradores);
+    await writeJSONAsync(DB_FILE, compradores);
 
     return NextResponse.json({ comprador: updatedComprador, message: 'Comprador actualizado exitosamente' });
   } catch {
@@ -144,14 +146,14 @@ export async function DELETE(request: Request) {
 
   try {
     const body = await request.json();
-    const compradores = readJSON<Comprador>(DB_FILE);
+    const compradores = await readJSONAsync<Comprador>(DB_FILE);
     const filtered = compradores.filter(a => a.id !== body.id);
 
     if (filtered.length === compradores.length) {
       return NextResponse.json({ error: 'Comprador no encontrado' }, { status: 404 });
     }
 
-    writeJSON(DB_FILE, filtered);
+    await writeJSONAsync(DB_FILE, filtered);
     return NextResponse.json({ message: 'Comprador eliminado exitosamente' });
   } catch {
     return NextResponse.json({ error: 'Error al eliminar comprador' }, { status: 500 });

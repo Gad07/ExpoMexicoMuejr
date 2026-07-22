@@ -1,5 +1,7 @@
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from 'next/server';
-import { readJSON, writeJSON } from '@/lib/db';
+import { readJSONAsync, writeJSONAsync } from '@/lib/db';
 import { checkAuth } from '@/lib/auth';
 
 const DB_FILE = 'aliados.json';
@@ -26,7 +28,7 @@ function getNextId(allies: Ally[]): string {
 // GET /api/admin/aliados - List all allies
 export async function GET(request: Request) {
   try {
-    const allies = readJSON<Ally>(DB_FILE);
+    const allies = await readJSONAsync<Ally>(DB_FILE);
     return NextResponse.json({ allies });
   } catch {
     return NextResponse.json({ error: 'Error al leer aliados' }, { status: 500 });
@@ -41,7 +43,7 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json();
-    const allies = readJSON<Ally>(DB_FILE);
+    const allies = await readJSONAsync<Ally>(DB_FILE);
 
     const newAlly: Ally = {
       id: getNextId(allies),
@@ -52,7 +54,7 @@ export async function POST(request: Request) {
     };
 
     allies.push(newAlly);
-    writeJSON(DB_FILE, allies);
+    await writeJSONAsync(DB_FILE, allies);
 
     return NextResponse.json({ ally: newAlly, message: 'Aliado creado exitosamente' });
   } catch {
@@ -74,7 +76,7 @@ export async function PUT(request: Request) {
       return NextResponse.json({ error: 'ID requerido' }, { status: 400 });
     }
 
-    const allies = readJSON<Ally>(DB_FILE);
+    const allies = await readJSONAsync<Ally>(DB_FILE);
     const index = allies.findIndex(a => a.id === id);
 
     if (index === -1) {
@@ -87,7 +89,7 @@ export async function PUT(request: Request) {
       id,
     };
 
-    writeJSON(DB_FILE, allies);
+    await writeJSONAsync(DB_FILE, allies);
     return NextResponse.json({ ally: allies[index], message: 'Aliado actualizado exitosamente' });
   } catch {
     return NextResponse.json({ error: 'Error al actualizar aliado' }, { status: 500 });
@@ -107,7 +109,7 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ error: 'ID requerido' }, { status: 400 });
     }
 
-    let allies = readJSON<Ally>(DB_FILE);
+    let allies = await readJSONAsync<Ally>(DB_FILE);
     const exists = allies.find(a => a.id === id);
 
     if (!exists) {
@@ -115,7 +117,7 @@ export async function DELETE(request: Request) {
     }
 
     allies = allies.filter(a => a.id !== id);
-    writeJSON(DB_FILE, allies);
+    await writeJSONAsync(DB_FILE, allies);
 
     return NextResponse.json({ message: 'Aliado eliminado exitosamente' });
   } catch {

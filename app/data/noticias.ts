@@ -36,6 +36,17 @@ export interface Noticia {
 }
 
 import noticiasData from '../../data/noticias.json';
+import { readJSONAsync } from '@/lib/db';
 
 // This file exports types, interfaces, and the static news data.
 export const ALL_NOTICIAS = noticiasData as unknown as Noticia[];
+
+export async function getNoticias(): Promise<Noticia[]> {
+  try {
+    const data = await readJSONAsync<Noticia>('noticias.json');
+    if (data && data.length > 0) return data;
+  } catch {
+    // fallback
+  }
+  return ALL_NOTICIAS;
+}

@@ -1,5 +1,7 @@
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from 'next/server';
-import { readJSON, writeJSON, getSupabase } from '@/lib/db';
+import { readJSONAsync, writeJSONAsync, getSupabase } from '@/lib/db';
 import { checkAuth } from '@/lib/auth';
 
 const DB_FILE = 'popup.json';
@@ -65,7 +67,7 @@ export async function GET() {
       }
     }
 
-    const localData = readJSON<PopupConfig>(DB_FILE);
+    const localData = await readJSONAsync<PopupConfig>(DB_FILE);
     if (localData && localData.length > 0) {
       return NextResponse.json({ popup: { ...DEFAULT_POPUP, ...localData[0] } }, { headers: cacheHeaders });
     }
@@ -106,7 +108,7 @@ export async function POST(request: Request) {
     };
 
     // Always write to local storage first
-    writeJSON(DB_FILE, [config]);
+    await writeJSONAsync(DB_FILE, [config]);
 
     const supabase = getSupabase();
     if (supabase) {

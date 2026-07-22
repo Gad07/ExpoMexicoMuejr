@@ -1,5 +1,7 @@
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from 'next/server';
-import { readJSON } from '@/lib/db';
+import { readJSONAsync } from '@/lib/db';
 
 const DB_FILE = 'embajadoras.json';
 
@@ -32,7 +34,7 @@ export async function GET(
       return NextResponse.json({ error: 'ID inválido' }, { status: 400 });
     }
 
-    const ambassadors = readJSON<Ambassador>(DB_FILE);
+    const ambassadors = await readJSONAsync<Ambassador>(DB_FILE);
     const ambassador = ambassadors.find(a => a.id === id);
 
     if (!ambassador) {

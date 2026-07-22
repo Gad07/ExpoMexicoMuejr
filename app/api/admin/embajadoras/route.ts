@@ -1,5 +1,7 @@
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from 'next/server';
-import { readJSON, writeJSON } from '@/lib/db';
+import { readJSONAsync, writeJSONAsync } from '@/lib/db';
 import { checkAuth } from '@/lib/auth';
 
 const DB_FILE = 'embajadoras.json';
@@ -45,7 +47,7 @@ function getNextId(ambassadors: Ambassador[]): string {
 // GET /api/admin/embajadoras - List all ambassadors
 export async function GET(request: Request) {
   try {
-    const ambassadors = readJSON<Ambassador>(DB_FILE);
+    const ambassadors = await readJSONAsync<Ambassador>(DB_FILE);
     return NextResponse.json({ ambassadors });
   } catch {
     return NextResponse.json({ error: 'Error al leer embajadoras' }, { status: 500 });
@@ -60,7 +62,7 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json();
-    const ambassadors = readJSON<Ambassador>(DB_FILE);
+    const ambassadors = await readJSONAsync<Ambassador>(DB_FILE);
 
     const newAmbassador: Ambassador = {
       id: getNextId(ambassadors),
@@ -73,7 +75,7 @@ export async function POST(request: Request) {
     };
 
     ambassadors.push(newAmbassador);
-    writeJSON(DB_FILE, ambassadors);
+    await writeJSONAsync(DB_FILE, ambassadors);
 
     return NextResponse.json({ ambassador: newAmbassador, message: 'Embajadora creada exitosamente' });
   } catch {
@@ -95,7 +97,7 @@ export async function PUT(request: Request) {
       return NextResponse.json({ error: 'ID requerido' }, { status: 400 });
     }
 
-    const ambassadors = readJSON<Ambassador>(DB_FILE);
+    const ambassadors = await readJSONAsync<Ambassador>(DB_FILE);
     const index = ambassadors.findIndex(a => a.id === id);
 
     if (index === -1) {
@@ -109,7 +111,7 @@ export async function PUT(request: Request) {
       slug: updates.slug || ambassadors[index].slug,
     };
 
-    writeJSON(DB_FILE, ambassadors);
+    await writeJSONAsync(DB_FILE, ambassadors);
     return NextResponse.json({ ambassador: ambassadors[index], message: 'Embajadora actualizada exitosamente' });
   } catch {
     return NextResponse.json({ error: 'Error al actualizar embajadora' }, { status: 500 });
@@ -129,7 +131,7 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ error: 'ID requerido' }, { status: 400 });
     }
 
-    let ambassadors = readJSON<Ambassador>(DB_FILE);
+    let ambassadors = await readJSONAsync<Ambassador>(DB_FILE);
     const exists = ambassadors.find(a => a.id === id);
 
     if (!exists) {
@@ -137,7 +139,7 @@ export async function DELETE(request: Request) {
     }
 
     ambassadors = ambassadors.filter(a => a.id !== id);
-    writeJSON(DB_FILE, ambassadors);
+    await writeJSONAsync(DB_FILE, ambassadors);
 
     return NextResponse.json({ message: 'Embajadora eliminada exitosamente' });
   } catch {

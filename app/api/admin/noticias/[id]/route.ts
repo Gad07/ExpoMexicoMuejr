@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
-import { readJSON } from '@/lib/db';
+import { readJSONAsync } from '@/lib/db';
+
+export const dynamic = 'force-dynamic';
 
 const DB_FILE = 'noticias.json';
 
@@ -32,7 +34,7 @@ export async function GET(
       return NextResponse.json({ error: 'ID inválido' }, { status: 400 });
     }
 
-    const noticias = readJSON<Noticia>(DB_FILE);
+    const noticias = await readJSONAsync<Noticia>(DB_FILE);
     const noticia = noticias.find(n => n.id === id);
 
     if (!noticia) {

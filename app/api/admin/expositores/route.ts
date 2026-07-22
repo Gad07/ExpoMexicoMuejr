@@ -1,5 +1,7 @@
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from 'next/server';
-import { readJSON, writeJSON, getSupabase } from '@/lib/db';
+import { readJSONAsync, writeJSONAsync, getSupabase } from '@/lib/db';
 import { checkAuth } from '@/lib/auth';
 
 const DB_FILE = 'expositores.json';
@@ -58,7 +60,7 @@ export async function GET(request: Request) {
         return NextResponse.json({ exhibitors: data });
       }
     }
-    const exhibitors = readJSON<Exhibitor>(DB_FILE);
+    const exhibitors = await readJSONAsync<Exhibitor>(DB_FILE);
     return NextResponse.json({ exhibitors });
   } catch {
     return NextResponse.json({ error: 'Error al leer expositores' }, { status: 500 });
@@ -73,7 +75,7 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json();
-    const exhibitors = readJSON<Exhibitor>(DB_FILE);
+    const exhibitors = await readJSONAsync<Exhibitor>(DB_FILE);
 
     const newExhibitor: Exhibitor = {
       id: getNextId(exhibitors),
@@ -108,7 +110,7 @@ export async function POST(request: Request) {
     }
 
     exhibitors.push(newExhibitor);
-    writeJSON(DB_FILE, exhibitors);
+    await writeJSONAsync(DB_FILE, exhibitors);
 
     return NextResponse.json({ exhibitor: newExhibitor, message: 'Expositor creado exitosamente' });
   } catch {
@@ -130,7 +132,7 @@ export async function PUT(request: Request) {
       return NextResponse.json({ error: 'ID requerido' }, { status: 400 });
     }
 
-    const exhibitors = readJSON<Exhibitor>(DB_FILE);
+    const exhibitors = await readJSONAsync<Exhibitor>(DB_FILE);
     const index = exhibitors.findIndex(e => e.id === id);
 
     if (index === -1) {
@@ -144,7 +146,7 @@ export async function PUT(request: Request) {
       slug: updates.slug || exhibitors[index].slug,
     };
 
-    writeJSON(DB_FILE, exhibitors);
+    await writeJSONAsync(DB_FILE, exhibitors);
     return NextResponse.json({ exhibitor: exhibitors[index], message: 'Expositor actualizado exitosamente' });
   } catch {
     return NextResponse.json({ error: 'Error al actualizar expositor' }, { status: 500 });
@@ -164,7 +166,7 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ error: 'ID requerido' }, { status: 400 });
     }
 
-    let exhibitors = readJSON<Exhibitor>(DB_FILE);
+    let exhibitors = await readJSONAsync<Exhibitor>(DB_FILE);
     const exists = exhibitors.find(e => e.id === id);
 
     if (!exists) {
@@ -172,7 +174,7 @@ export async function DELETE(request: Request) {
     }
 
     exhibitors = exhibitors.filter(e => e.id !== id);
-    writeJSON(DB_FILE, exhibitors);
+    await writeJSONAsync(DB_FILE, exhibitors);
 
     return NextResponse.json({ message: 'Expositor eliminado exitosamente' });
   } catch {
