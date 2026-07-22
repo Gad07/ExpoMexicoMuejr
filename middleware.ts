@@ -43,8 +43,8 @@ export function middleware(request: NextRequest) {
 
   const hasValidAuth = Boolean(adminToken || preauth || sessionToken || bearerToken);
 
-  // 4. Protección estricta de las APIs del Admin (/api/admin/*)
-  if (pathname.startsWith('/api/admin')) {
+  // 4. Protección estricta de las APIs del Admin (/api/admin/*) para operaciones de modificación
+  if (pathname.startsWith('/api/admin') && request.method !== 'GET') {
     if (!hasValidAuth) {
       return NextResponse.json(
         { error: 'Acceso no autorizado al API de administración' },
