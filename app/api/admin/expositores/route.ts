@@ -53,13 +53,6 @@ function getNextId(exhibitors: Exhibitor[]): string {
 // GET /api/admin/expositores - List all exhibitors
 export async function GET(request: Request) {
   try {
-    const supabase = getSupabase();
-    if (supabase) {
-      const { data, error } = await supabase.from('exhibitors').select('*');
-      if (!error && data && data.length > 0) {
-        return NextResponse.json({ exhibitors: data });
-      }
-    }
     const exhibitors = await readJSONAsync<Exhibitor>(DB_FILE);
     return NextResponse.json({ exhibitors });
   } catch {

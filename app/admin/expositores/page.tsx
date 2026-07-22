@@ -107,7 +107,12 @@ function ExhibitorCardPreview({ data }: { data: Exhibitor }) {
         )}
 
         <p style={{ fontSize: '0.85rem', lineHeight: 1.5, color: '#444', margin: '0 0 16px' }}>
-          {data.description ? (() => { const d = data.description as any; const v = d?.es || d || ''; return v.substring(0, 100) + (v.length > 100 ? '...' : ''); })() : 'Breve descripción de la marca o de su propuesta de negocio...'}
+          {(() => {
+            const d = data.description;
+            if (!d) return 'Breve descripción de la marca o de su propuesta de negocio...';
+            const v = typeof d === 'object' ? (d.es || '') : String(d);
+            return v ? (v.length > 100 ? v.substring(0, 100) + '...' : v) : 'Breve descripción...';
+          })()}
         </p>
 
         <div style={{ display: 'flex', gap: '8px', fontSize: '0.75rem', marginTop: 'auto', borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '12px' }}>

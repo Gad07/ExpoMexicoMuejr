@@ -103,12 +103,12 @@ export default function ExhibitorProfile({ params }: { params: Promise<{ slug: s
           <Reveal delay={100}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
               <span style={{ display: 'inline-block', padding: '6px 16px', border: '1px solid var(--magenta)', color: 'var(--magenta)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.75rem', borderRadius: '100px' }}>
-                {exhibitor.category}
+                {exhibitor.category || ''}
               </span>
             </div>
             
             <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(3.5rem, 7vw, 7rem)', fontWeight: 900, lineHeight: 0.9, letterSpacing: '-0.04em', margin: '0 0 40px 0', color: 'var(--navy)' }}>
-              {exhibitor.name}
+              {exhibitor.name || ''}
             </h1>
           </Reveal>
 
@@ -116,12 +116,17 @@ export default function ExhibitorProfile({ params }: { params: Promise<{ slug: s
             <div style={{ position: 'relative', paddingLeft: '40px', marginBottom: '48px' }}>
               <Quote size={80} color="var(--magenta)" style={{ position: 'absolute', left: '-20px', top: '-30px', opacity: 0.1, zIndex: -1 }} />
               <p style={{ fontSize: '1.4rem', lineHeight: 1.6, color: 'var(--navy)', fontWeight: 500, maxWidth: '600px', margin: '0 0 16px 0', fontStyle: 'italic' }}>
-                "{exhibitor.bio && (exhibitor.bio[language] || exhibitor.bio.es || exhibitor.bio)}"
+                "{(() => {
+                  const b = exhibitor.bio;
+                  if (!b) return '';
+                  if (typeof b === 'object') return b[language] || b.es || '';
+                  return String(b);
+                })()}"
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                 <div style={{ width: '30px', height: '2px', background: 'var(--cyan)' }}></div>
                 <span style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--navy)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                  {exhibitor.personName}
+                  {exhibitor.personName || ''}
                 </span>
               </div>
             </div>
@@ -129,12 +134,16 @@ export default function ExhibitorProfile({ params }: { params: Promise<{ slug: s
 
           <Reveal delay={300}>
             <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
-              <a href={`https://${exhibitor.website}`} target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: 'var(--magenta)', color: '#fff', padding: '16px 40px', borderRadius: '100px', textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem', letterSpacing: '0.1em', textTransform: 'uppercase', boxShadow: '0 15px 30px rgba(228,0,124,0.3)', transition: 'transform 0.3s, box-shadow 0.3s' }}>
-                Visitar sitio <ArrowRight size={20} />
-              </a>
-              <a href={`mailto:${exhibitor.contact}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', border: '2px solid rgba(0,25,76,0.1)', color: 'var(--navy)', padding: '16px 40px', borderRadius: '100px', textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem', letterSpacing: '0.1em', textTransform: 'uppercase', transition: 'background 0.3s, color 0.3s' }}>
-                <Mail size={20} /> Contactar
-              </a>
+              {exhibitor.website && (
+                <a href={exhibitor.website.startsWith('http') ? exhibitor.website : `https://${exhibitor.website}`} target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: 'var(--magenta)', color: '#fff', padding: '16px 40px', borderRadius: '100px', textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem', letterSpacing: '0.1em', textTransform: 'uppercase', boxShadow: '0 15px 30px rgba(228,0,124,0.3)', transition: 'transform 0.3s, box-shadow 0.3s' }}>
+                  Visitar sitio <ArrowRight size={20} />
+                </a>
+              )}
+              {exhibitor.contact && (
+                <a href={`mailto:${exhibitor.contact}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', border: '2px solid rgba(0,25,76,0.1)', color: 'var(--navy)', padding: '16px 40px', borderRadius: '100px', textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem', letterSpacing: '0.1em', textTransform: 'uppercase', transition: 'background 0.3s, color 0.3s' }}>
+                  <Mail size={20} /> Contactar
+                </a>
+              )}
             </div>
           </Reveal>
         </div>
@@ -143,12 +152,16 @@ export default function ExhibitorProfile({ params }: { params: Promise<{ slug: s
         <div style={{ flex: '1 1 400px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '10% 5%', minHeight: '60vh' }}>
           <div style={{ position: 'relative', width: '100%', maxWidth: '420px', aspectRatio: '3/4', overflow: 'hidden', borderRadius: '24px', boxShadow: '0 30px 60px rgba(0,25,76,0.15)' }}>
             <div style={{ position: 'absolute', inset: 0, background: 'var(--navy)', animation: 'slideRight 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards', zIndex: 2 }}></div>
-            <img 
-              src={exhibitor.personPhoto} 
-              alt={exhibitor.personName} 
-              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', animation: 'scaleDown 2s cubic-bezier(0.16, 1, 0.3, 1) forwards' }} 
-              loading="lazy" width="120" height="120"
-            />
+            {exhibitor.personPhoto ? (
+              <img 
+                src={exhibitor.personPhoto} 
+                alt={exhibitor.personName || ''} 
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', animation: 'scaleDown 2s cubic-bezier(0.16, 1, 0.3, 1) forwards' }} 
+                loading="lazy" width="120" height="120"
+              />
+            ) : (
+              <div style={{ width: '100%', height: '100%', background: '#002E51' }} />
+            )}
           </div>
           <style dangerouslySetInnerHTML={{__html: `
             @keyframes slideRight {
@@ -169,20 +182,31 @@ export default function ExhibitorProfile({ params }: { params: Promise<{ slug: s
           
           <Reveal delay={100} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <div style={{ width: '100%', maxWidth: '300px', aspectRatio: '1/1', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--cream)', borderRadius: '50%', boxShadow: '0 30px 60px rgba(0,0,0,0.05)', overflow: 'hidden' }}>
-              <img src={exhibitor.logo} alt={exhibitor.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} loading="lazy" width="200" height="80" />
+              {exhibitor.logo ? (
+                <img src={exhibitor.logo} alt={exhibitor.name || ''} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} loading="lazy" width="200" height="80" />
+              ) : (
+                <div style={{ width: '100%', height: '100%', background: '#eee', borderRadius: '50%' }} />
+              )}
             </div>
-            <div style={{ marginTop: '40px', display: 'inline-flex', alignItems: 'center', gap: '12px', color: 'var(--navy)', fontWeight: 800, fontSize: '1.2rem', padding: '16px 32px', background: 'rgba(0,186,211,0.1)', borderRadius: '100px' }}>
-              <MapPin size={24} color="var(--cyan)" /> Ubicación: {exhibitor.booth}
-            </div>
+            {exhibitor.booth && (
+              <div style={{ marginTop: '40px', display: 'inline-flex', alignItems: 'center', gap: '12px', color: 'var(--navy)', fontWeight: 800, fontSize: '1.2rem', padding: '16px 32px', background: 'rgba(0,186,211,0.1)', borderRadius: '100px' }}>
+                <MapPin size={24} color="var(--cyan)" /> Ubicación: {exhibitor.booth}
+              </div>
+            )}
           </Reveal>
           
           <Reveal delay={200}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '3rem', fontWeight: 900, marginBottom: '32px', color: 'var(--navy)' }}>
-              Acerca de {exhibitor.name}
+              Acerca de {exhibitor.name || ''}
             </h2>
             <div style={{ width: '60px', height: '4px', background: 'var(--magenta)', marginBottom: '32px' }}></div>
             <p style={{ fontSize: '1.25rem', lineHeight: 1.9, color: 'var(--text)', fontWeight: 400, letterSpacing: '0.01em' }}>
-              {exhibitor.description && (exhibitor.description[language] || exhibitor.description.es || exhibitor.description)}
+              {(() => {
+                const d = exhibitor.description;
+                if (!d) return '';
+                if (typeof d === 'object') return d[language] || d.es || '';
+                return String(d);
+              })()}
             </p>
           </Reveal>
 
@@ -190,40 +214,42 @@ export default function ExhibitorProfile({ params }: { params: Promise<{ slug: s
       </div>
 
       {/* EDITORIAL GALLERY */}
-      <div style={{ padding: '120px 8% 160px', background: 'var(--navy)', color: '#fff' }}>
-        <Reveal delay={100}>
-          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-            <span style={{ display: 'block', color: 'var(--cyan)', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', fontSize: '0.9rem', marginBottom: '16px' }}>
-              Portafolio
-            </span>
-            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '3.5rem', fontWeight: 900, margin: 0 }}>
-              Galería Comercial
-            </h2>
+      {exhibitor.gallery && Array.isArray(exhibitor.gallery) && exhibitor.gallery.length > 0 && (
+        <div style={{ padding: '120px 8% 160px', background: 'var(--navy)', color: '#fff' }}>
+          <Reveal delay={100}>
+            <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+              <span style={{ display: 'block', color: 'var(--cyan)', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', fontSize: '0.9rem', marginBottom: '16px' }}>
+                Portafolio
+              </span>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '3.5rem', fontWeight: 900, margin: 0 }}>
+                Galería Comercial
+              </h2>
+            </div>
+          </Reveal>
+          
+          {/* Masonry Editorial Gallery */}
+          <div style={{ columnCount: 3, columnGap: '20px', maxWidth: '1600px', margin: '0 auto', background: 'rgba(255,255,255,0.02)', padding: '20px', borderRadius: '16px' }}>
+            {exhibitor.gallery.map((img: string, idx: number) => (
+              <Reveal key={idx} delay={200 + (idx * 50)} style={{ breakInside: 'avoid', marginBottom: '20px', overflow: 'hidden', position: 'relative', borderRadius: '8px' }}>
+                <img 
+                  src={img} 
+                  alt={`${exhibitor.name || ''} gallery ${idx}`} 
+                  style={{ width: '100%', display: 'block', transition: 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s' }}
+                  loading="lazy" width="600" height="400"
+                  onMouseOver={e => {
+                    e.currentTarget.style.transform = 'scale(1.05)';
+                    e.currentTarget.style.filter = 'brightness(1.1)';
+                  }}
+                  onMouseOut={e => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                    e.currentTarget.style.filter = 'brightness(1)';
+                  }}
+                />
+              </Reveal>
+            ))}
           </div>
-        </Reveal>
-        
-        {/* Masonry Editorial Gallery */}
-        <div style={{ columnCount: 3, columnGap: '20px', maxWidth: '1600px', margin: '0 auto', background: 'rgba(255,255,255,0.02)', padding: '20px', borderRadius: '16px' }}>
-          {exhibitor.gallery.map((img: string, idx: number) => (
-            <Reveal key={idx} delay={200 + (idx * 50)} style={{ breakInside: 'avoid', marginBottom: '20px', overflow: 'hidden', position: 'relative', borderRadius: '8px' }}>
-              <img 
-                src={img} 
-                alt={`${exhibitor.name} gallery ${idx}`} 
-                style={{ width: '100%', display: 'block', transition: 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s' }}
-                loading="lazy" width="600" height="400"
-                onMouseOver={e => {
-                  e.currentTarget.style.transform = 'scale(1.05)';
-                  e.currentTarget.style.filter = 'brightness(1.1)';
-                }}
-                onMouseOut={e => {
-                  e.currentTarget.style.transform = 'scale(1)';
-                  e.currentTarget.style.filter = 'brightness(1)';
-                }}
-              />
-            </Reveal>
-          ))}
         </div>
-      </div>
+      )}
 
     </div>
   );

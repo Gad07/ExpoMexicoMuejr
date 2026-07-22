@@ -79,11 +79,16 @@ function ExpositoresContent() {
     
     // Filtrar expositoras
     const filteredExhibitors = exhibitors.filter(ex => {
+      if (!ex) return false;
       const matchCategory = ex.category === activeCategory;
-      const descVal = ex.description && (ex.description[language] || ex.description.es || ex.description || '');
-      const matchSearch = ex.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          ex.personName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          descVal.toLowerCase().includes(searchQuery.toLowerCase());
+      const descRaw = ex.description;
+      const descVal = descRaw ? (typeof descRaw === 'object' ? (descRaw[language] || descRaw.es || '') : String(descRaw)) : '';
+      const nameVal = String(ex.name || '');
+      const personVal = String(ex.personName || '');
+      const query = (searchQuery || '').toLowerCase();
+      const matchSearch = nameVal.toLowerCase().includes(query) || 
+                          personVal.toLowerCase().includes(query) ||
+                          descVal.toLowerCase().includes(query);
       return matchCategory && matchSearch;
     });
 
@@ -406,7 +411,7 @@ function ExpositoresContent() {
                       <Link href={`/expositores/${ex.slug}`} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
                         {/* COVER PHOTO */}
                         <div style={{ height: '160px', width: '100%', position: 'relative', background: '#f0f0f0' }}>
-                          {ex.gallery && ex.gallery.length > 0 && (
+                          {ex.gallery && Array.isArray(ex.gallery) && ex.gallery.length > 0 && (
                             <img src={ex.gallery[0]} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" width="600" height="400" />
                           )}
                           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.4), transparent)' }}></div>
@@ -418,19 +423,31 @@ function ExpositoresContent() {
                           position: 'absolute', top: '125px', left: '24px', boxShadow: '0 10px 20px rgba(0,0,0,0.1)', zIndex: 10,
                           display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden'
                         }}>
-                          <img src={ex.logo} alt={ex.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} loading="lazy" width="200" height="80" />
+                          {ex.logo ? (
+                            <img src={ex.logo} alt={ex.name || ''} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} loading="lazy" width="200" height="80" />
+                          ) : (
+                            <div style={{ width: '100%', height: '100%', background: '#eee', borderRadius: '50%' }} />
+                          )}
                         </div>
 
                         {/* BODY */}
                         <div style={{ padding: '56px 24px 24px', display: 'flex', flexDirection: 'column' }}>
-                          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '4px', lineHeight: 1.2 }}>{ex.name}</h3>
-                          <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '12px' }}>por {ex.personName}</p>
+                          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '4px', lineHeight: 1.2 }}>{ex.name || ''}</h3>
+                          <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '12px' }}>{ex.personName ? `por ${ex.personName}` : ''}</p>
                           
-                          <p style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--magenta)', fontWeight: 700, fontSize: '0.75rem', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                            <MapPin size={14} /> {ex.booth}
+                          {ex.booth && (
+                            <p style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--magenta)', fontWeight: 700, fontSize: '0.75rem', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                              <MapPin size={14} /> {ex.booth}
+                            </p>
+                          )}
+                          
+                          <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '24px' }}>
+                            {(() => {
+                              const d = ex.description;
+                              const val = typeof d === 'object' && d !== null ? (d[language] || d.es || '') : String(d || '');
+                              return val ? (val.length > 90 ? val.substring(0, 90) + '...' : val) : '';
+                            })()}
                           </p>
-                          
-                          <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '24px' }}>{(ex.description[language] || ex.description.es || ex.description || '').substring(0, 90)}...</p>
                         </div>
                       </Link>
 
