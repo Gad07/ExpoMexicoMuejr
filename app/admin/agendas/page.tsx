@@ -256,25 +256,30 @@ export default function AdminAgendas() {
             <Plus size={14} /> Nueva
           </button>
         </div>
-        {agendas.map(a => (
-          <button
-            key={a.id}
-            onClick={() => handleSelect(a.id)}
-            style={{
-              display: 'flex', alignItems: 'center', gap: '10px',
-              padding: '12px', borderRadius: '10px', border: 'none', cursor: 'pointer', textAlign: 'left',
-              background: selected === a.id ? 'rgba(228,0,124,0.08)' : 'transparent',
-              color: selected === a.id ? '#E4007C' : '#333',
-              fontWeight: selected === a.id ? 700 : 500,
-              transition: 'all 0.15s',
-            }}
-          >
-            <Calendar size={16} color={selected === a.id ? '#E4007C' : '#64748b'} />
-            <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-              {a.title?.es || a.title || 'Sin Título'}
-            </span>
-          </button>
-        ))}
+        {agendas.map(a => {
+          const itemTitle = getLocString(a.title, 'es') || 'Sin Título';
+          return (
+            <button
+              key={a.id}
+              onClick={() => handleSelect(a.id)}
+              title={itemTitle}
+              style={{
+                display: 'flex', alignItems: 'center', gap: '10px',
+                padding: '12px', borderRadius: '10px', border: 'none', cursor: 'pointer', textAlign: 'left',
+                background: selected === a.id ? 'rgba(228,0,124,0.08)' : 'transparent',
+                color: selected === a.id ? '#E4007C' : '#333',
+                fontWeight: selected === a.id ? 700 : 500,
+                transition: 'all 0.15s',
+                width: '100%'
+              }}
+            >
+              <Calendar size={16} style={{ flexShrink: 0 }} color={selected === a.id ? '#E4007C' : '#64748b'} />
+              <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1 }}>
+                {itemTitle}
+              </span>
+            </button>
+          );
+        })}
       </div>
 
       {/* EDITOR AREA */}

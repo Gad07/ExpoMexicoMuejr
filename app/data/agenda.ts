@@ -2,7 +2,7 @@ export const mockAgenda = [
   {
     id: 'toronto-2027',
     date: '9 al 13 de Junio, 2027',
-    title: 'Expo México Mujer Toronto 2027',
+    title: 'Programa Oficial 2027',
     description: 'La feria comercial y programa de vinculación principal en Toronto, conectando marcas mexicanas con el mercado norteamericano.',
     events: [
       {

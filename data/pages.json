@@ -108,15 +108,6 @@
     "modules": []
   },
   {
-    "key": "pages.agenda.toronto2027",
-    "name": "Expo Toronto 2027",
-    "url": "/agenda/toronto-2027",
-    "slug": "/agenda/toronto-2027",
-    "group": "Agenda",
-    "isCustom": false,
-    "modules": []
-  },
-  {
     "key": "pages.agenda.summit",
     "name": "México Ontario Business Summit",
     "url": "/agenda/mexico-ontario-business-summit",

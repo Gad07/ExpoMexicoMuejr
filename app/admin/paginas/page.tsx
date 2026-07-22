@@ -85,7 +85,6 @@ const DEFAULT_PAGES_CONFIG: Record<string, { name: string; url: string; group: s
   'pages.compradores': { name: 'Compradores', url: '/compradores', group: 'Participa' },
 
   'pages.agenda': { name: 'Programa Oficial 2027', url: '/agenda', group: 'Agenda' },
-  'pages.agenda.toronto2027': { name: 'Expo Toronto 2027', url: '/agenda/toronto-2027', group: 'Agenda' },
   'pages.agenda.summit': { name: 'México Ontario Business Summit', url: '/agenda/mexico-ontario-business-summit', group: 'Agenda' },
   'pages.agenda.gala': { name: 'Mexican Fashion Gala Show', url: '/agenda/mexican-fashion-gala-show', group: 'Agenda' },
   'pages.agenda.forum': { name: 'Women Leaders Forum', url: '/agenda/women-leaders-forum', group: 'Agenda' },

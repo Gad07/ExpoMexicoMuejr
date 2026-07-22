@@ -112,7 +112,6 @@ export async function GET(request: Request) {
       '/invitados': 'Invitados Especiales',
       '/compradores': 'Compradores e Inversionistas',
       '/agenda': 'Agenda General & Summit',
-      '/agenda/toronto-2027': 'Expo Toronto 2027',
       '/agenda/mexico-ontario-business-summit': 'México Ontario Business Summit',
       '/agenda/mexican-fashion-gala-show': 'Mexican Fashion Gala Show',
       '/agenda/women-leaders-forum': 'Women Leaders Forum',
