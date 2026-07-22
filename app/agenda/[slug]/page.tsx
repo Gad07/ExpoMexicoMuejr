@@ -237,7 +237,17 @@ export default function DynamicAgendaPage({ params }: { params: Promise<{ slug: 
               {D.guests.map((guest: any, idx: number) => (
                 <Reveal key={idx} delay={idx * 100}>
                   <div style={{ background: '#fff', padding: '30px', borderRadius: '20px', boxShadow: '0 8px 24px rgba(0,0,0,0.02)', textAlign: 'center', border: '1px solid rgba(0,0,0,0.01)' }}>
-                    <div style={{ color: 'var(--cyan)', marginBottom: '16px', display: 'inline-flex', background: 'rgba(0,186,211,0.08)', padding: '12px', borderRadius: '50%' }}><Users size={24} /></div>
+                    <div style={{
+                      width: '64px', height: '64px', borderRadius: '50%', margin: '0 auto 16px',
+                      overflow: 'hidden', background: 'rgba(0,186,211,0.08)', display: 'flex',
+                      alignItems: 'center', justifyContent: 'center', color: 'var(--cyan)'
+                    }}>
+                      {guest.image ? (
+                        <img src={guest.image} alt={guest.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      ) : (
+                        <Users size={24} />
+                      )}
+                    </div>
                     <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '4px' }}>{guest.name}</h4>
                     <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 700, margin: '0 0 6px 0', textTransform: 'uppercase' }}>
                       {guest.role?.[language] || guest.role?.es || guest.role}

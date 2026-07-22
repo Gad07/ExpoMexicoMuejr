@@ -523,7 +523,13 @@ export default function AgendaPage() {
               {guests.map((guest: any, idx: number) => (
                 <Reveal key={`g-${idx}`} delay={idx * 70}>
                   <div className="ag-guest-card">
-                    <div className="ag-guest-avatar"><Users size={24} /></div>
+                    <div className="ag-guest-avatar">
+                      {guest.image ? (
+                        <img src={guest.image} alt={guest.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      ) : (
+                        <Users size={24} />
+                      )}
+                    </div>
                     <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1rem', fontWeight: 800, color: 'var(--navy)', margin: '0 0 4px 0' }}>
                       {guest.name}
                     </h4>

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Save, ExternalLink, Plus, Trash2, Calendar, Clock, MapPin, Users, Code, Eye } from 'lucide-react';
+import { Save, ExternalLink, Plus, Trash2, Calendar, Clock, MapPin, Users, Code, Eye, User, Image as ImageIcon } from 'lucide-react';
 import Link from 'next/link';
 
 type Language = 'es' | 'en' | 'fr';
@@ -21,6 +21,7 @@ interface GuestItem {
   name: string;
   role: string | { es: string; en: string; fr: string };
   org?: string;
+  image?: string;
 }
 
 export default function AdminAgendas() {
@@ -144,7 +145,8 @@ export default function AdminAgendas() {
       id: `g-${Date.now()}`,
       name: 'Nuevo Invitado',
       role: { es: 'Conferencista', en: 'Speaker', fr: 'Conférencier' },
-      org: 'Organización / Empresa'
+      org: 'Organización / Empresa',
+      image: ''
     };
     const currentGuests = Array.isArray(editing.guests) ? editing.guests : [];
     update('guests', [...currentGuests, newGuest]);
@@ -473,22 +475,35 @@ export default function AdminAgendas() {
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '16px' }}>
                   {(editing.guests || []).map((guest: any, idx: number) => (
-                    <div key={idx} style={{ background: '#f8fafc', padding: '16px', borderRadius: '10px', border: '1px solid #cbd5e1', display: 'grid', gridTemplateColumns: '1.2fr 1.2fr 1fr 40px', gap: '12px', alignItems: 'center' }}>
-                      <div>
-                        <label style={{ display: 'block', marginBottom: '4px', fontSize: '0.75rem', fontWeight: 700, color: '#64748b' }}>Nombre Completo</label>
-                        <input type="text" placeholder="Ej: Francisco Solorio" value={guest.name || ''} onChange={e => updateGuestItem(idx, 'name', e.target.value)} style={inputStyle} />
+                    <div key={idx} style={{ background: '#f8fafc', padding: '16px', borderRadius: '12px', border: '1px solid #cbd5e1', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                      <div style={{ display: 'grid', gridTemplateColumns: '48px 1fr 1fr 1fr 40px', gap: '12px', alignItems: 'center' }}>
+                        <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#e2e8f0', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', border: '1px solid #cbd5e1', flexShrink: 0 }}>
+                          {guest.image ? (
+                            <img src={guest.image} alt={guest.name || 'Invitado'} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                          ) : (
+                            <User size={22} color="#94a3b8" />
+                          )}
+                        </div>
+                        <div>
+                          <label style={{ display: 'block', marginBottom: '4px', fontSize: '0.75rem', fontWeight: 700, color: '#64748b' }}>Nombre Completo</label>
+                          <input type="text" placeholder="Ej: Francisco Solorio" value={guest.name || ''} onChange={e => updateGuestItem(idx, 'name', e.target.value)} style={inputStyle} />
+                        </div>
+                        <div>
+                          <label style={{ display: 'block', marginBottom: '4px', fontSize: '0.75rem', fontWeight: 700, color: '#64748b' }}>Cargo / Rol ({lang.toUpperCase()})</label>
+                          <input type="text" placeholder="Ej: Presidente & Fundador" value={getLocString(guest.role)} onChange={e => updateGuestItem(idx, 'role', e.target.value)} style={inputStyle} />
+                        </div>
+                        <div>
+                          <label style={{ display: 'block', marginBottom: '4px', fontSize: '0.75rem', fontWeight: 700, color: '#64748b' }}>Empresa / Org</label>
+                          <input type="text" placeholder="Ej: Expo México Mujer" value={guest.org || ''} onChange={e => updateGuestItem(idx, 'org', e.target.value)} style={inputStyle} />
+                        </div>
+                        <button onClick={() => removeGuestItem(idx)} style={{ background: 'transparent', border: 'none', color: '#ef4444', cursor: 'pointer', padding: '8px', marginTop: '16px' }} title="Eliminar invitado">
+                          <Trash2 size={16} />
+                        </button>
                       </div>
                       <div>
-                        <label style={{ display: 'block', marginBottom: '4px', fontSize: '0.75rem', fontWeight: 700, color: '#64748b' }}>Cargo / Rol ({lang.toUpperCase()})</label>
-                        <input type="text" placeholder="Ej: Presidente & Fundador" value={getLocString(guest.role)} onChange={e => updateGuestItem(idx, 'role', e.target.value)} style={inputStyle} />
+                        <label style={{ display: 'block', marginBottom: '4px', fontSize: '0.75rem', fontWeight: 700, color: '#64748b' }}>Foto / Imagen de Perfil (URL)</label>
+                        <input type="text" placeholder="Ej: /recursos/Recurso 1.png o URL de la imagen" value={guest.image || ''} onChange={e => updateGuestItem(idx, 'image', e.target.value)} style={inputStyle} />
                       </div>
-                      <div>
-                        <label style={{ display: 'block', marginBottom: '4px', fontSize: '0.75rem', fontWeight: 700, color: '#64748b' }}>Empresa / Org</label>
-                        <input type="text" placeholder="Ej: Expo México Mujer" value={guest.org || ''} onChange={e => updateGuestItem(idx, 'org', e.target.value)} style={inputStyle} />
-                      </div>
-                      <button onClick={() => removeGuestItem(idx)} style={{ background: 'transparent', border: 'none', color: '#ef4444', cursor: 'pointer', padding: '8px', marginTop: '16px' }}>
-                        <Trash2 size={16} />
-                      </button>
                     </div>
                   ))}
 
