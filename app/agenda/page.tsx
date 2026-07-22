@@ -36,9 +36,41 @@ function Reveal({
 }
 
 export default function AgendaPage() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
+  const [agendas, setAgendas] = useState<any[]>(mockAgenda);
   const [activeDay, setActiveDay] = useState(mockAgenda[0].id);
-  const currentDay = mockAgenda.find(d => d.id === activeDay) || mockAgenda[0];
+
+  useEffect(() => {
+    fetch('/api/admin/agendas')
+      .then(res => res.json())
+      .then(data => {
+        if (data.agendas && data.agendas.length > 0) {
+          setAgendas(data.agendas);
+          setActiveDay(data.agendas[0].id);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const currentDay = agendas.find(d => d.id === activeDay || d.slug === activeDay) || agendas[0];
+
+  const getLocString = (val: any): string => {
+    if (!val) return '';
+    if (typeof val === 'string') return val;
+    return val[language] || val.es || '';
+  };
+
+  const getEvents = (day: any) => {
+    const list = day.schedule || day.events || [];
+    return list.map((e: any, idx: number) => ({
+      id: e.id || `ev-${idx}`,
+      time: e.time || '09:00 AM - 10:00 AM',
+      title: getLocString(e.title),
+      speaker: getLocString(e.desc || e.speaker),
+      location: e.location || 'Pabellón Principal',
+      type: e.type || 'Keynote'
+    }));
+  };
 
   const getTypeStyle = (type: string) => {
     switch (type.toLowerCase()) {
@@ -281,14 +313,14 @@ export default function AgendaPage() {
 
       <div className="day-selector-wrapper">
         <div className="day-selector" style={{ overflowX: 'auto', maxWidth: '100%', whiteSpace: 'nowrap' }}>
-          {mockAgenda.map((day) => (
+          {agendas.map((day) => (
             <button 
               key={day.id} 
               onClick={() => setActiveDay(day.id)}
-              className={`day-btn ${activeDay === day.id ? 'active' : ''}`}
+              className={`day-btn ${activeDay === day.id || activeDay === day.slug ? 'active' : ''}`}
               style={{ flexShrink: 0 }}
             >
-              <span style={{ fontSize: '0.95rem' }}>{day.title}</span>
+              <span style={{ fontSize: '0.95rem' }}>{getLocString(day.title)}</span>
               <span className="day-date">{day.date}</span>
             </button>
           ))}
@@ -296,15 +328,17 @@ export default function AgendaPage() {
       </div>
 
       <div style={{ maxWidth: '800px', margin: '-40px auto 60px', textAlign: 'center', padding: '0 4%', position: 'relative', zIndex: 10 }}>
-        <Reveal key={currentDay.id}>
-          <p style={{ fontSize: '1.25rem', color: 'var(--text)', lineHeight: 1.6, fontStyle: 'italic' }}>
-            {currentDay.description}
-          </p>
-        </Reveal>
+        {currentDay && (
+          <Reveal key={currentDay.id}>
+            <p style={{ fontSize: '1.25rem', color: 'var(--text)', lineHeight: 1.6, fontStyle: 'italic' }}>
+              {getLocString(currentDay.description)}
+            </p>
+          </Reveal>
+        )}
       </div>
 
       <div className="timeline-wrapper">
-        {currentDay.events.map((event, idx) => {
+        {currentDay && getEvents(currentDay).map((event: any, idx: number) => {
           const typeStyle = getTypeStyle(event.type);
           
           return (
@@ -320,9 +354,9 @@ export default function AgendaPage() {
                 
                 {/* TIMELINE LEFT */}
                 <div className="time-col">
-                  <div className="time-start">{event.time.split(' - ')[0]}</div>
+                  <div className="time-start">{(event.time || '').split(' - ')[0] || event.time}</div>
                   <div className="time-end">
-                    {t('pages.agenda.hasta')} {event.time.split(' - ')[1]}
+                    {(event.time || '').includes(' - ') ? `${t('pages.agenda.hasta')} ${event.time.split(' - ')[1]}` : ''}
                   </div>
                 </div>
 

@@ -1,174 +1,447 @@
 [
   {
-    "id": "1",
-    "slug": "mexican-fashion-gala-show",
+    "id": "toronto-2027",
+    "slug": "expo-mexico-mujer-toronto-2027",
+    "date": "9 al 13 de Junio, 2027",
     "title": {
-      "es": "Mexican Fashion Gala Show",
-      "en": "Mexican Fashion Gala Show",
-      "fr": "Mexican Fashion Gala Show"
+      "es": "Expo México Mujer Toronto 2027",
+      "en": "Expo Mexico Woman Toronto 2027",
+      "fr": "Expo Mexique Femme Toronto 2027"
     },
     "description": {
-      "es": "Descubre el talento y la creatividad de nuestras diseñadoras.",
-      "en": "Discover the talent and creativity of our designers.",
-      "fr": "Découvrez le talent et la créativité de nos créatrices."
+      "es": "La feria comercial y programa de vinculación principal en Toronto, conectando marcas mexicanas con el mercado norteamericano.",
+      "en": "The main trade fair and networking program in Toronto, connecting Mexican brands with the North American market.",
+      "fr": "La principale foire commerciale à Toronto, reliaant les marques mexicaines au marché nord-américain."
     },
-    "featuresTitle": {
-      "es": "Diseñadoras Expositores",
-      "en": "Exhibiting Designers",
-      "fr": "Créatrices Exposantes"
-    },
-    "features": [],
-    "highlightsTitle": {
-      "es": "Pasarelas y Bloques Temáticos",
-      "en": "Catwalks & Thematic Blocks",
-      "fr": "Défilés et Blocs Thématiques"
-    },
-    "highlightsDesc": {
-      "es": "La gala se divide en pasarelas enfocadas.",
-      "en": "The gala is divided into focused catwalks.",
-      "fr": "Le gala est divisé en défilés ciblés."
-    },
-    "highlights": [],
     "scheduleTitle": {
-      "es": "Programa de la Gala",
-      "en": "Gala Schedule",
-      "fr": "Programme du Gala"
+      "es": "Programa Oficial",
+      "en": "Official Program",
+      "fr": "Programme Officiel"
     },
-    "schedule": [],
+    "schedule": [
+      {
+        "id": "tor-1",
+        "time": "09:00 AM - 10:30 AM",
+        "title": {
+          "es": "Ceremonia de Apertura Oficial de la Expo",
+          "en": "Official Expo Opening Ceremony",
+          "fr": "Cérémonie d'ouverture officielle de l'Expo"
+        },
+        "desc": {
+          "es": "Francisco Solorio, Directivos e Invitados Especiales",
+          "en": "Francisco Solorio, Executives & Special Guests",
+          "fr": "Francisco Solorio et invités spéciaux"
+        },
+        "location": "Pabellón Central",
+        "type": "Keynote"
+      },
+      {
+        "id": "tor-2",
+        "time": "10:30 AM - 06:00 PM",
+        "title": {
+          "es": "Exhibición y Venta Comercial (Stands)",
+          "en": "Commercial Exhibition & Sales (Stands)",
+          "fr": "Exposition et vente commerciale"
+        },
+        "desc": {
+          "es": "Más de 100 expositoras destacadas",
+          "en": "Over 100 featured exhibitors",
+          "fr": "Plus de 100 exposantes principales"
+        },
+        "location": "Pabellón de Exhibición",
+        "type": "Expo"
+      },
+      {
+        "id": "tor-3",
+        "time": "02:00 PM - 04:00 PM",
+        "title": {
+          "es": "Agenda Oficial de Encuentros B2B",
+          "en": "Official B2B Meetings Agenda",
+          "fr": "Programme officiel de réunions B2B"
+        },
+        "desc": {
+          "es": "Compradores de Ontario y Expositoras Registradas",
+          "en": "Ontario Buyers & Registered Exhibitors",
+          "fr": "Acheteurs d'Ontario et exposantes"
+        },
+        "location": "Sala de Negocios VIP",
+        "type": "Networking"
+      }
+    ],
     "guestsTitle": {
-      "es": "Invitados a la Gala",
-      "en": "Gala Guests",
-      "fr": "Invités du Gala"
+      "es": "Invitados Destacados",
+      "en": "Featured Guests",
+      "fr": "Invités En Vedette"
     },
-    "guests": []
+    "guests": [
+      {
+        "id": "g1",
+        "name": "Francisco Solorio",
+        "role": {
+          "es": "Presidente & Fundador",
+          "en": "President & Founder",
+          "fr": "Président"
+        },
+        "org": "Expo México Mujer"
+      },
+      {
+        "id": "g2",
+        "name": "Delegación Comercial Ontario",
+        "role": {
+          "es": "Representantes Gubernamentales",
+          "en": "Government Representatives",
+          "fr": "Représentants du Gouvernement"
+        },
+        "org": "Gobierno de Ontario"
+      }
+    ]
   },
   {
-    "id": "2",
+    "id": "business-summit",
     "slug": "mexico-ontario-business-summit",
+    "date": "10 de Junio, 2027",
     "title": {
       "es": "México Ontario Business Summit",
       "en": "Mexico Ontario Business Summit",
-      "fr": "Sommet des Affaires Mexique Ontario"
+      "fr": "Sommet des affaires Mexique Ontario"
     },
     "description": {
-      "es": "El evento cumbre de negocios.",
-      "en": "The summit of business.",
-      "fr": "Le sommet des affaires."
+      "es": "Encuentro bilateral de alto nivel enfocado en inversiones, exportaciones y acuerdos comerciales estratégicos.",
+      "en": "High-level bilateral meeting focused on investments, exports, and strategic trade agreements.",
+      "fr": "Rencontre bilatérale de haut niveau axée sur les investissements et les exportations."
     },
-    "featuresTitle": {
-      "es": "Ponentes Principales",
-      "en": "Keynote Speakers",
-      "fr": "Conférenciers Principaux"
-    },
-    "features": [],
-    "highlightsTitle": {
-      "es": "Ejes Temáticos",
-      "en": "Thematic Axes",
-      "fr": "Axes Thématiques"
-    },
-    "highlightsDesc": {
-      "es": "Los temas principales del summit.",
-      "en": "The main topics of the summit.",
-      "fr": "Les thèmes principaux du sommet."
-    },
-    "highlights": [],
     "scheduleTitle": {
-      "es": "Programa del Summit",
-      "en": "Summit Schedule",
-      "fr": "Programme du Sommet"
+      "es": "Programa de Sesiones",
+      "en": "Sessions Program",
+      "fr": "Programme des sessions"
     },
-    "schedule": [],
+    "schedule": [
+      {
+        "id": "sum-1",
+        "time": "09:30 AM - 11:30 AM",
+        "title": {
+          "es": "Encuentro de Negocios: Delegación Mexicana & Contrapartes Canadienses",
+          "en": "Business Meeting: Mexican Delegation & Canadian Counterparts",
+          "fr": "Rencontre d affaires Mexique-Canada"
+        },
+        "desc": {
+          "es": "Líderes de Cámaras Empresariales y Representantes Gubernamentales",
+          "en": "Chamber of Commerce Leaders & Government Officials",
+          "fr": "Dirigeants de chambres de commerce"
+        },
+        "location": "Auditorio de Negocios",
+        "type": "Panel"
+      },
+      {
+        "id": "sum-2",
+        "time": "12:00 PM - 02:00 PM",
+        "title": {
+          "es": "Almuerzo Ejecutivo y Firma de Convenios Comerciales",
+          "en": "Executive Lunch & Commercial Agreements Signing",
+          "fr": "Déjeuner exécutif et signature d accords"
+        },
+        "desc": {
+          "es": "Francisco Solorio y Presidentes de Cámaras de Ontario",
+          "en": "Francisco Solorio & Ontario Chamber Presidents",
+          "fr": "Francisco Solorio et présidents de chambres"
+        },
+        "location": "Gran Salón Ejecutivo",
+        "type": "Networking"
+      },
+      {
+        "id": "sum-3",
+        "time": "03:00 PM - 05:00 PM",
+        "title": {
+          "es": "Sesiones de Negociación Sectoriales y Logística",
+          "en": "Sectoral Negotiation & Logistics Sessions",
+          "fr": "Sessions de négociation sectorielle"
+        },
+        "desc": {
+          "es": "Luis García y Especialistas en Exportación",
+          "en": "Luis Garcia & Export Specialists",
+          "fr": "Luis Garcia et spécialistes en exportation"
+        },
+        "location": "Salas Ejecutivas A & B",
+        "type": "Workshop"
+      }
+    ],
     "guestsTitle": {
-      "es": "Invitados VIP",
-      "en": "VIP Guests",
-      "fr": "Invités VIP"
+      "es": "Conferencistas",
+      "en": "Speakers",
+      "fr": "Conférenciers"
     },
-    "guests": []
+    "guests": [
+      {
+        "id": "g3",
+        "name": "Luis García",
+        "role": {
+          "es": "Especialista en Logística & Exportación",
+          "en": "Logistics Specialist",
+          "fr": "Spécialiste de la logistique"
+        },
+        "org": "COMCE Región Sur"
+      }
+    ]
   },
   {
-    "id": "3",
+    "id": "fashion-gala",
+    "slug": "mexican-fashion-gala-show",
+    "date": "11 de Junio, 2027",
+    "title": {
+      "es": "Mexican Fashion Gala Show",
+      "en": "Mexican Fashion Gala Show",
+      "fr": "Gala de la Mode Mexicaine"
+    },
+    "description": {
+      "es": "Un espectáculo exclusivo de moda y textiles que combina las raíces artesanales de México con las pasarelas modernas.",
+      "en": "An exclusive fashion and textile show combining Mexico artisanal roots with modern runways.",
+      "fr": "Un spectacle exclusif de mode et textiles combinant racines artisanales et défilés modernes."
+    },
+    "scheduleTitle": {
+      "es": "Programa del Gala Show",
+      "en": "Gala Show Program",
+      "fr": "Programme du gala"
+    },
+    "schedule": [
+      {
+        "id": "gal-1",
+        "time": "06:00 PM - 07:00 PM",
+        "title": {
+          "es": "Recepción Alfombra Roja & Cóctel de Invitados",
+          "en": "Red Carpet Reception & Guest Cocktail",
+          "fr": "Réception tapis rouge et cocktail"
+        },
+        "desc": {
+          "es": "Diseñadoras de Moda e Invitados de Honor",
+          "en": "Fashion Designers & Guests of Honor",
+          "fr": "Créatrices de mode"
+        },
+        "location": "Foyer Principal",
+        "type": "Networking"
+      },
+      {
+        "id": "gal-2",
+        "time": "07:00 PM - 08:30 PM",
+        "title": {
+          "es": "Pasarela Principal: Diseños y Textiles de Vanguardia",
+          "en": "Main Runway: Vanguard Designs & Textiles",
+          "fr": "Défilé principal"
+        },
+        "desc": {
+          "es": "Diseñadoras Mexicanas y Modelos en Escena",
+          "en": "Mexican Designers & Models on Runway",
+          "fr": "Créatrices mexicaines"
+        },
+        "location": "Salón de Gala Principal",
+        "type": "Show"
+      },
+      {
+        "id": "gal-3",
+        "time": "08:30 PM - 10:00 PM",
+        "title": {
+          "es": "Cena de Gala & Showroom de Piezas de Alta Costura",
+          "en": "Gala Dinner & Haute Couture Showroom",
+          "fr": "Dîner de gala et showroom"
+        },
+        "desc": {
+          "es": "Diseñadoras de textiles y compradores minoristas",
+          "en": "Textile designers & retail buyers",
+          "fr": "Acheteurs et créatrices"
+        },
+        "location": "Salón de Gala Principal",
+        "type": "Networking"
+      }
+    ],
+    "guestsTitle": {
+      "es": "Diseñadoras Destacadas",
+      "en": "Featured Designers",
+      "fr": "Créatrices En Vedette"
+    },
+    "guests": [
+      {
+        "id": "g4",
+        "name": "Colectivo de Diseñadoras Mexicanas",
+        "role": {
+          "es": "Alta Costura y Textiles",
+          "en": "Haute Couture & Textiles",
+          "fr": "Haute couture"
+        },
+        "org": "EMM Fashion"
+      }
+    ]
+  },
+  {
+    "id": "leaders-forum",
     "slug": "women-leaders-forum",
+    "date": "12 de Junio, 2027",
     "title": {
       "es": "Women Leaders Forum",
       "en": "Women Leaders Forum",
       "fr": "Forum des Femmes Leaders"
     },
     "description": {
-      "es": "Conectando a mujeres líderes.",
-      "en": "Connecting women leaders.",
-      "fr": "Connecter les femmes leaders."
+      "es": "Espacio de conferencias y discusión para debatir las temáticas clave del liderazgo femenino en la era global.",
+      "en": "Conference and discussion space key themes of women leadership in the global era.",
+      "fr": "Espace de conférences sur les thèmes clés du leadership féminin."
     },
-    "featuresTitle": {
-      "es": "Líderes Destacadas",
-      "en": "Outstanding Leaders",
-      "fr": "Leaders Remarquables"
-    },
-    "features": [],
-    "highlightsTitle": {
-      "es": "Paneles de Discusión",
-      "en": "Discussion Panels",
-      "fr": "Panels de Discussion"
-    },
-    "highlightsDesc": {
-      "es": "Explorando temas clave.",
-      "en": "Exploring key topics.",
-      "fr": "Explorer des sujets clés."
-    },
-    "highlights": [],
     "scheduleTitle": {
-      "es": "Programa del Foro",
-      "en": "Forum Schedule",
-      "fr": "Programme du Forum"
+      "es": "Programa de Paneles",
+      "en": "Panels Program",
+      "fr": "Programme des panels"
     },
-    "schedule": [],
+    "schedule": [
+      {
+        "id": "for-1",
+        "time": "10:00 AM - 11:30 AM",
+        "title": {
+          "es": "Panel: Liderazgo Femenino en Mercados Internacionales",
+          "en": "Panel: Female Leadership in International Markets",
+          "fr": "Leadership féminin sur los marchés internationaux"
+        },
+        "desc": {
+          "es": "Conferencistas destacadas y Embajadoras EMM",
+          "en": "Keynote speakers & EMM Ambassadors",
+          "fr": "Ambassadrices EMM"
+        },
+        "location": "Auditorio Magna",
+        "type": "Panel"
+      },
+      {
+        "id": "for-2",
+        "time": "12:00 PM - 01:30 PM",
+        "title": {
+          "es": "Conferencia Magistral: Habilidades de Negociación y Crecimiento Global",
+          "en": "Keynote: Negotiation Skills & Global Growth",
+          "fr": "Conférence magistrale"
+        },
+        "desc": {
+          "es": "Líderes de opinión del sector financiero",
+          "en": "Financial sector opinion leaders",
+          "fr": "Dirigeants du secteur financier"
+        },
+        "location": "Auditorio Magna",
+        "type": "Keynote"
+      },
+      {
+        "id": "for-3",
+        "time": "03:00 PM - 05:00 PM",
+        "title": {
+          "es": "Mesas Redondas y Talleres Temáticos de Liderazgo",
+          "en": "Roundtables & Leadership Workshops",
+          "fr": "Tables rondes"
+        },
+        "desc": {
+          "es": "Facilitadoras certificadas",
+          "en": "Certified facilitators",
+          "fr": "Facilitatrices certifiées"
+        },
+        "location": "Salas B, C & D",
+        "type": "Workshop"
+      }
+    ],
     "guestsTitle": {
-      "es": "Invitadas Especiales",
-      "en": "Special Guests",
-      "fr": "Invitées Spéciales"
+      "es": "Paneltistas",
+      "en": "Panelists",
+      "fr": "Panélistes"
     },
-    "guests": []
+    "guests": [
+      {
+        "id": "g5",
+        "name": "Embajadoras Expo México Mujer",
+        "role": {
+          "es": "Líderes de Opinión",
+          "en": "Opinion Leaders",
+          "fr": "Leaders d opinion"
+        },
+        "org": "Red EMM Global"
+      }
+    ]
   },
   {
-    "id": "4",
+    "id": "montreal-mission",
     "slug": "mision-comercial-montreal",
+    "date": "5 al 9 de Junio, 2027",
     "title": {
       "es": "Misión Comercial Montreal",
       "en": "Montreal Trade Mission",
       "fr": "Mission Commerciale Montréal"
     },
     "description": {
-      "es": "Explorando oportunidades en Montreal.",
-      "en": "Exploring opportunities in Montreal.",
-      "fr": "Explorer des opportunités à Montréal."
+      "es": "La delegación comercial del COMCE Región Sur viaja a Montreal para explorar mercados y vincularse con socios locales.",
+      "en": "The trade delegation travels to Montreal to explore markets and link with local partners.",
+      "fr": "La délégation commerciale se rend à Montréal pour explorer les marchés."
     },
-    "featuresTitle": {
-      "es": "Empresas Participantes",
-      "en": "Participating Companies",
-      "fr": "Entreprises Participantes"
-    },
-    "features": [],
-    "highlightsTitle": {
-      "es": "Actividades Clave",
-      "en": "Key Activities",
-      "fr": "Activités Clés"
-    },
-    "highlightsDesc": {
-      "es": "Lo más destacado de la misión.",
-      "en": "Highlights of the mission.",
-      "fr": "Les points forts de la mission."
-    },
-    "highlights": [],
     "scheduleTitle": {
-      "es": "Itinerario de la Misión",
-      "en": "Mission Itinerary",
-      "fr": "Itinéraire de la Mission"
+      "es": "Programa de la Misión",
+      "en": "Mission Program",
+      "fr": "Programme de la mission"
     },
-    "schedule": [],
+    "schedule": [
+      {
+        "id": "mon-1",
+        "time": "09:00 AM - 05:00 PM (Día a Día)",
+        "title": {
+          "es": "Agenda Comercial de Citas en Montreal",
+          "en": "Commercial B2B Agenda in Montreal",
+          "fr": "Réunions commerciales à Montréal"
+        },
+        "desc": {
+          "es": "Delegación Mexicana y Contrapartes de Quebec",
+          "en": "Mexican Delegation & Quebec Counterparts",
+          "fr": "Délégation mexicaine et Québec"
+        },
+        "location": "Centro de Negocios de Montreal",
+        "type": "B2B"
+      },
+      {
+        "id": "mon-2",
+        "time": "01:00 PM - 03:00 PM (8 de Junio)",
+        "title": {
+          "es": "Almuerzo de Vinculación con COMCE Región Sur",
+          "en": "Networking Lunch with COMCE South Region",
+          "fr": "Déjeuner de réseautage COMCE"
+        },
+        "desc": {
+          "es": "Presidentes de COMCE y Socios Locales",
+          "en": "COMCE Presidents & Local Partners",
+          "fr": "Présidents de COMCE"
+        },
+        "location": "Le Westin Montreal",
+        "type": "Networking"
+      },
+      {
+        "id": "mon-3",
+        "time": "04:00 PM - 06:00 PM (9 de Junio)",
+        "title": {
+          "es": "Recepción de Clausura de la Misión y Traslado a Toronto",
+          "en": "Mission Closing Reception & Transfer to Toronto",
+          "fr": "Réception de clôture et transfert à Toronto"
+        },
+        "desc": {
+          "es": "Delegadas comerciales",
+          "en": "Trade delegates",
+          "fr": "Déléguées commerciales"
+        },
+        "location": "Aeropuerto de Montreal (YUL) / Estación Central",
+        "type": "Logística"
+      }
+    ],
     "guestsTitle": {
-      "es": "Aliados Estratégicos",
-      "en": "Strategic Allies",
-      "fr": "Alliés Stratégiques"
+      "es": "Delegación",
+      "en": "Delegation",
+      "fr": "Délégation"
     },
-    "guests": []
+    "guests": [
+      {
+        "id": "g6",
+        "name": "COMCE Región Sur",
+        "role": {
+          "es": "Organizador de la Misión Comercial",
+          "en": "Trade Mission Organizer",
+          "fr": "Organisateur"
+        },
+        "org": "COMCE"
+      }
+    ]
   }
 ]
