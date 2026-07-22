@@ -248,6 +248,8 @@ export interface Exhibitor {
   personPhoto: string;
   bio: LocalizedString;
   gallery: string[];
+  mapImage?: string;
+  mapCoords?: string;
 }
 
 export const mockExhibitors = exhibitorsData as any as Exhibitor[];

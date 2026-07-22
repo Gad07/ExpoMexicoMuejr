@@ -31,7 +31,9 @@ const EMPTY_EXHIBITOR: Exhibitor = {
   logo: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=150&q=80',
   personPhoto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
   bio: { es: '', en: '', fr: '' } as any,
-  gallery: []
+  gallery: [],
+  mapImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=1200&q=80',
+  mapCoords: '50,50'
 };
 
 /* ══════════════════════════════════════════════════════════════
@@ -699,7 +701,51 @@ export default function AdminExpositoresPage() {
                         type="text"
                         value={editing.booth}
                         onChange={e => updateField('booth', e.target.value)}
-                        placeholder="Ej: Pabellón A - Stand 23"
+                        placeholder="Ej: Stand 2002"
+                        style={{
+                          width: '100%',
+                          padding: '12px 14px',
+                          borderRadius: '8px',
+                          border: '1px solid rgba(0,0,0,0.1)',
+                          fontSize: '0.95rem',
+                          outline: 'none',
+                          boxSizing: 'border-box',
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Floor Plan Map Image & Pin Coordinates */}
+                  <div className="expositores-sub-grid-2" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '12px' }}>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#555', marginBottom: '6px' }}>
+                        Imagen del Plano del Recinto / Mapa (URL)
+                      </label>
+                      <input
+                        type="text"
+                        value={editing.mapImage || ''}
+                        onChange={e => updateField('mapImage', e.target.value)}
+                        placeholder="Ej: https://.../plano-stand.jpg"
+                        style={{
+                          width: '100%',
+                          padding: '12px 14px',
+                          borderRadius: '8px',
+                          border: '1px solid rgba(0,0,0,0.1)',
+                          fontSize: '0.95rem',
+                          outline: 'none',
+                          boxSizing: 'border-box',
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#555', marginBottom: '6px' }}>
+                        Posición del Pin (% X, % Y)
+                      </label>
+                      <input
+                        type="text"
+                        value={editing.mapCoords || ''}
+                        onChange={e => updateField('mapCoords', e.target.value)}
+                        placeholder="Ej: 45, 55"
                         style={{
                           width: '100%',
                           padding: '12px 14px',

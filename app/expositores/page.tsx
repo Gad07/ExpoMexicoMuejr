@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { mexicanStates, mockExhibitors, businessCategories } from '../data/expositores';
-import { Search, ChevronLeft, MapPin, Calendar, Clock, Map, Ruler, Lightbulb, Handshake, Folder, Megaphone } from 'lucide-react';
+import { Search, ChevronLeft, MapPin, Calendar, Clock, Map, Ruler, Lightbulb, Handshake, Folder, Megaphone, ExternalLink } from 'lucide-react';
 
 function Reveal({
   children, className = '', delay = 0, style = {}, onClick
@@ -591,28 +591,106 @@ function ExpositoresContent() {
           </div>
         )}
 
-        {/* MAP MODAL */}
+        {/* MAP MODAL (PLANO DE UBICACIÓN EN IMAGEN) */}
         {showMap && selectedExhibitor && (
           <div className="modal-overlay" onClick={(e) => { if (e.target === e.currentTarget) setShowMap(false); }}>
-            <div className="modal-content" style={{ maxWidth: '800px', padding: '24px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-                <div>
-                  <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: 'var(--navy)' }}>{t('pages.expositores.ubicacionStand')}</h3>
-                  <p style={{ color: 'var(--magenta)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.85rem', marginTop: '4px' }}>{selectedExhibitor.booth}</p>
-                </div>
-                <button className="modal-close" style={{ position: 'static' }} onClick={() => setShowMap(false)} aria-label="Cerrar">×</button>
-              </div>
+            <div className="modal-content" style={{ maxWidth: '900px', width: '92%', padding: '0', borderRadius: '24px', overflow: 'hidden', background: '#fff', boxShadow: '0 25px 60px rgba(0,25,76,0.2)' }}>
               
-              {/* Interactive map placeholder */}
-              <div style={{ width: '100%', height: '400px', background: '#e0e5ec', borderRadius: '16px', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <div style={{ position: 'absolute', inset: 0, opacity: 0.1, backgroundImage: 'radial-gradient(var(--navy) 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
-                
-                <div style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
-                  <MapPin size={48} color="var(--magenta)" style={{ margin: '0 auto 16px' }} />
-                  <p style={{ fontFamily: 'var(--font-display)', fontWeight: 800, color: 'var(--navy)', fontSize: '1.2rem' }}>{selectedExhibitor.booth}</p>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>{t('pages.expositores.planoInteractivo')}</p>
+              {/* HEADER */}
+              <div style={{ padding: '24px 32px', background: 'var(--navy)', color: '#fff', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                  <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: '#fff', padding: '2px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    {selectedExhibitor.logo ? (
+                      <img src={selectedExhibitor.logo} alt={selectedExhibitor.name || ''} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+                    ) : (
+                      <MapPin size={22} color="var(--magenta)" />
+                    )}
+                  </div>
+                  <div>
+                    <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', color: '#fff', margin: 0, fontWeight: 800 }}>
+                      {selectedExhibitor.name || 'Expositor'}
+                    </h3>
+                    <p style={{ color: 'var(--cyan)', fontWeight: 700, fontSize: '0.82rem', margin: '2px 0 0 0', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <MapPin size={14} /> {selectedExhibitor.booth || 'Stand Asignado'} {selectedExhibitor.category ? `· ${selectedExhibitor.category}` : ''}
+                    </p>
+                  </div>
                 </div>
+                <button 
+                  onClick={() => setShowMap(false)} 
+                  style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', border: 'none', color: '#fff', fontSize: '20px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                  aria-label="Cerrar"
+                >
+                  ×
+                </button>
               </div>
+
+              {/* FLOOR PLAN IMAGE CONTAINER */}
+              <div style={{ position: 'relative', width: '100%', height: '480px', background: '#091527', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                
+                {/* Floor Plan Image */}
+                <img 
+                  src={selectedExhibitor.mapImage || "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=1600&q=80"} 
+                  alt={`Plano de ubicación ${selectedExhibitor.booth || ''}`} 
+                  style={{ width: '100%', height: '100%', objectFit: 'contain', filter: 'brightness(0.95)' }}
+                />
+
+                {/* Dynamic Pulsing Pin */}
+                {(() => {
+                  const coords = (selectedExhibitor.mapCoords || '50,50').split(',').map((n: string) => parseFloat(n.trim()));
+                  const posX = isNaN(coords[0]) ? 50 : coords[0];
+                  const posY = isNaN(coords[1]) ? 50 : coords[1];
+                  return (
+                    <div style={{ position: 'absolute', left: `${posX}%`, top: `${posY}%`, transform: 'translate(-50%, -100%)', zIndex: 10, cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                      
+                      {/* Stand Badge Tooltip */}
+                      <div style={{ background: 'var(--magenta)', color: '#fff', padding: '6px 14px', borderRadius: '100px', fontWeight: 800, fontSize: '0.8rem', fontFamily: 'var(--font-display)', whiteSpace: 'nowrap', boxShadow: '0 8px 20px rgba(228,0,124,0.4)', marginBottom: '6px', letterSpacing: '0.05em' }}>
+                        📍 {selectedExhibitor.booth || 'Stand Asignado'}
+                      </div>
+
+                      {/* Pulsing Radar Circle */}
+                      <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <div style={{ position: 'absolute', width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(228,0,124,0.4)', animation: 'pulseRadar 2s infinite' }} />
+                        <div style={{ width: '26px', height: '26px', borderRadius: '50%', background: 'var(--magenta)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', boxShadow: '0 4px 12px rgba(0,0,0,0.3)', position: 'relative', zIndex: 2 }}>
+                          <MapPin size={15} />
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })()}
+
+                {/* Floating Action Link */}
+                <div style={{ position: 'absolute', bottom: '16px', right: '16px', zIndex: 20 }}>
+                  <a 
+                    href={selectedExhibitor.mapImage || "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=1600&q=80"} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(10px)', color: 'var(--navy)', padding: '8px 16px', borderRadius: '100px', fontSize: '0.75rem', fontWeight: 700, textDecoration: 'none', boxShadow: '0 4px 15px rgba(0,0,0,0.12)', display: 'flex', alignItems: 'center', gap: '6px' }}
+                  >
+                    <ExternalLink size={14} /> Abrir Imagen del Plano
+                  </a>
+                </div>
+
+                <style dangerouslySetInnerHTML={{__html: `
+                  @keyframes pulseRadar {
+                    0% { transform: scale(0.8); opacity: 0.8; }
+                    100% { transform: scale(2.2); opacity: 0; }
+                  }
+                `}} />
+              </div>
+
+              {/* FOOTER DETAILS */}
+              <div style={{ padding: '16px 28px', background: '#FAF8F5', borderTop: '1px solid rgba(0,0,0,0.06)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+                <span style={{ fontSize: '0.82rem', color: '#555', fontWeight: 500 }}>
+                  Ubicación oficial de <strong>{selectedExhibitor.name}</strong> {selectedExhibitor.personName ? `(${selectedExhibitor.personName})` : ''}
+                </span>
+                <button 
+                  onClick={() => setShowMap(false)} 
+                  style={{ padding: '8px 22px', background: 'var(--navy)', color: '#fff', border: 'none', borderRadius: '100px', fontSize: '0.8rem', fontWeight: 700, cursor: 'pointer' }}
+                >
+                  Cerrar
+                </button>
+              </div>
+
             </div>
           </div>
         )}

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 
-import { Search, ChevronLeft, MapPin, Calendar, Clock, X, User } from 'lucide-react';
+import { Search, ChevronLeft, MapPin, Calendar, Clock, X, User, ExternalLink } from 'lucide-react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
 import { mexicanStates } from '../data/embajadoras';
@@ -401,30 +401,100 @@ function EmbajadorasContent() {
         </section>
 
 
-        {/* POPUP: Ver Ubicación */}
+        {/* POPUP: Ver Ubicación en Imagen */}
         {showMap && selectedAmbassador && (
           <div className="modal-overlay" onClick={e => { if (e.target === e.currentTarget) setShowMap(false); }}>
-            <div className="modal-box" style={{ maxWidth: '700px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-                <div>
-                  <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', color: 'var(--navy)', margin: 0 }}>{t('pages.embajadoras.ubicacion')}</h3>
-                  <p style={{ color: 'var(--magenta)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.8rem', margin: '4px 0 0' }}>
-                    {selectedAmbassador.booth}
-                  </p>
+            <div className="modal-box" style={{ maxWidth: '850px', width: '92%', padding: '0', borderRadius: '24px', overflow: 'hidden', background: '#fff', boxShadow: '0 25px 60px rgba(0,25,76,0.2)' }}>
+              
+              {/* HEADER */}
+              <div style={{ padding: '24px 32px', background: 'var(--navy)', color: '#fff', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                  <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: '#fff', padding: '2px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    {selectedAmbassador.photo || selectedAmbassador.image ? (
+                      <img src={selectedAmbassador.photo || selectedAmbassador.image} alt={selectedAmbassador.name || ''} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+                    ) : (
+                      <MapPin size={22} color="var(--magenta)" />
+                    )}
+                  </div>
+                  <div>
+                    <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', color: '#fff', margin: 0, fontWeight: 800 }}>
+                      {selectedAmbassador.name || 'Embajadora'}
+                    </h3>
+                    <p style={{ color: 'var(--cyan)', fontWeight: 700, fontSize: '0.82rem', margin: '2px 0 0 0', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <MapPin size={14} /> {selectedAmbassador.booth || 'Stand Asignado'} {selectedAmbassador.state ? `· ${selectedAmbassador.state}` : ''}
+                    </p>
+                  </div>
                 </div>
-                <button className="modal-close-btn" style={{ position: 'static' }} onClick={() => setShowMap(false)} aria-label="Cerrar mapa">
-                  <X size={18} />
+                <button 
+                  onClick={() => setShowMap(false)} 
+                  style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', border: 'none', color: '#fff', fontSize: '20px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                  aria-label="Cerrar"
+                >
+                  ×
                 </button>
               </div>
 
-              <div style={{ width: '100%', height: '340px', background: '#e0e5ec', borderRadius: '16px', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <div style={{ position: 'absolute', inset: 0, opacity: 0.1, backgroundImage: 'radial-gradient(var(--navy) 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
-                <div style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
-                  <MapPin size={48} color="var(--magenta)" style={{ margin: '0 auto 16px' }} />
-                  <p style={{ fontFamily: 'var(--font-display)', fontWeight: 800, color: 'var(--navy)', fontSize: '1.1rem' }}>{selectedAmbassador.booth}</p>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{t('pages.embajadoras.planoInteractivo')}</p>
+              {/* FLOOR PLAN IMAGE CONTAINER */}
+              <div style={{ position: 'relative', width: '100%', height: '450px', background: '#091527', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <img 
+                  src={selectedAmbassador.mapImage || "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=1600&q=80"} 
+                  alt={`Plano de ubicación ${selectedAmbassador.booth || ''}`} 
+                  style={{ width: '100%', height: '100%', objectFit: 'contain', filter: 'brightness(0.95)' }}
+                />
+
+                {/* Dynamic Pulsing Pin */}
+                {(() => {
+                  const coords = (selectedAmbassador.mapCoords || '50,50').split(',').map((n: string) => parseFloat(n.trim()));
+                  const posX = isNaN(coords[0]) ? 50 : coords[0];
+                  const posY = isNaN(coords[1]) ? 50 : coords[1];
+                  return (
+                    <div style={{ position: 'absolute', left: `${posX}%`, top: `${posY}%`, transform: 'translate(-50%, -100%)', zIndex: 10, cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                      <div style={{ background: 'var(--magenta)', color: '#fff', padding: '6px 14px', borderRadius: '100px', fontWeight: 800, fontSize: '0.8rem', fontFamily: 'var(--font-display)', whiteSpace: 'nowrap', boxShadow: '0 8px 20px rgba(228,0,124,0.4)', marginBottom: '6px', letterSpacing: '0.05em' }}>
+                        📍 {selectedAmbassador.booth || 'Stand Asignado'}
+                      </div>
+                      <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <div style={{ position: 'absolute', width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(228,0,124,0.4)', animation: 'pulseRadar 2s infinite' }} />
+                        <div style={{ width: '26px', height: '26px', borderRadius: '50%', background: 'var(--magenta)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', boxShadow: '0 4px 12px rgba(0,0,0,0.3)', position: 'relative', zIndex: 2 }}>
+                          <MapPin size={15} />
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })()}
+
+                {/* Floating Action Link */}
+                <div style={{ position: 'absolute', bottom: '16px', right: '16px', zIndex: 20 }}>
+                  <a 
+                    href={selectedAmbassador.mapImage || "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=1600&q=80"} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(10px)', color: 'var(--navy)', padding: '8px 16px', borderRadius: '100px', fontSize: '0.75rem', fontWeight: 700, textDecoration: 'none', boxShadow: '0 4px 15px rgba(0,0,0,0.12)', display: 'flex', alignItems: 'center', gap: '6px' }}
+                  >
+                    <ExternalLink size={14} /> Abrir Imagen del Plano
+                  </a>
                 </div>
+
+                <style dangerouslySetInnerHTML={{__html: `
+                  @keyframes pulseRadar {
+                    0% { transform: scale(0.8); opacity: 0.8; }
+                    100% { transform: scale(2.2); opacity: 0; }
+                  }
+                `}} />
               </div>
+
+              {/* FOOTER DETAILS */}
+              <div style={{ padding: '16px 28px', background: '#FAF8F5', borderTop: '1px solid rgba(0,0,0,0.06)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+                <span style={{ fontSize: '0.82rem', color: '#555', fontWeight: 500 }}>
+                  Ubicación oficial de <strong>{selectedAmbassador.name}</strong>
+                </span>
+                <button 
+                  onClick={() => setShowMap(false)} 
+                  style={{ padding: '8px 22px', background: 'var(--navy)', color: '#fff', border: 'none', borderRadius: '100px', fontSize: '0.8rem', fontWeight: 700, cursor: 'pointer' }}
+                >
+                  Cerrar
+                </button>
+              </div>
+
             </div>
           </div>
         )}

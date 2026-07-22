@@ -28,6 +28,8 @@ interface Exhibitor {
   personPhoto: string;
   bio: LocalizedString;
   gallery: string[];
+  mapImage?: string;
+  mapCoords?: string;
 }
 
 
@@ -86,6 +88,8 @@ export async function POST(request: Request) {
       personPhoto: body.personPhoto || '',
       bio: body.bio || { es: '', en: '', fr: '' },
       gallery: body.gallery || [],
+      mapImage: body.mapImage || '',
+      mapCoords: body.mapCoords || '',
     };
 
     const supabase = getSupabase();
