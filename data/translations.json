@@ -4718,6 +4718,21 @@
         "es": "hasta",
         "en": "until",
         "fr": "jusqu'à"
+      },
+      "programa": {
+        "es": "Programa Oficial",
+        "en": "Official Program",
+        "fr": "Programme Officiel"
+      },
+      "title": {
+        "es": "Agenda EMM 2027",
+        "en": "EMM 2027 Agenda",
+        "fr": "Agenda EMM 2027"
+      },
+      "desc": {
+        "es": "Explora las conferencias, paneles de expertas, rondas de negocios B2B y actividades especiales durante los 5 días del evento.",
+        "en": "Explore conferences, expert panels, B2B business rounds, and special activities during the 5 days of the event.",
+        "fr": "Explorez las conférences, panneaux d'experts, rencontres B2B et actividades spéciales pendant les 5 jours del evento."
       }
     },
     "contacto": {
