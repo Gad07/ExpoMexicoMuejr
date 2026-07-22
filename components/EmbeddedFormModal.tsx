@@ -1,16 +1,26 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { X, Send, CheckCircle } from 'lucide-react';
+import { X, Send, CheckCircle, ExternalLink } from 'lucide-react';
 
 interface ModalDetail {
   url?: string;
   title?: string;
 }
 
+function getCleanEmbedUrl(url?: string): string {
+  if (!url) return '';
+  let clean = url.trim();
+  // Auto-convert Jotform submit URL to form URL (submit.jotform.com -> form.jotform.com)
+  if (clean.includes('submit.jotform')) {
+    clean = clean.replace(/submit\.jotform/gi, 'form.jotform');
+  }
+  return clean;
+}
+
 export default function EmbeddedFormModal() {
   const [isOpen, setIsOpen] = useState(false);
-  const [formUrl, setFormUrl] = useState<string>('');
+  const [rawFormUrl, setRawFormUrl] = useState<string>('');
   const [title, setTitle] = useState<string>('Formulario de Contacto / Registro');
   const [loadingIframe, setLoadingIframe] = useState(true);
 
@@ -30,7 +40,7 @@ export default function EmbeddedFormModal() {
       const customEvent = e as CustomEvent<ModalDetail>;
       const detail = customEvent.detail || {};
       
-      setFormUrl(detail.url || '');
+      setRawFormUrl(detail.url || '');
       setTitle(detail.title || 'Formulario de Contacto / Registro');
       setLoadingIframe(true);
       setSubmitted(false);
@@ -38,7 +48,7 @@ export default function EmbeddedFormModal() {
     };
 
     const handleOpenContact = () => {
-      setFormUrl('');
+      setRawFormUrl('');
       setTitle('Inscripción y Contacto');
       setSubmitted(false);
       setIsOpen(true);
@@ -68,6 +78,7 @@ export default function EmbeddedFormModal() {
 
   if (!isOpen) return null;
 
+  const formUrl = getCleanEmbedUrl(rawFormUrl);
   const isExternalUrl = formUrl && (formUrl.startsWith('http://') || formUrl.startsWith('https://'));
 
   return (
@@ -101,7 +112,7 @@ export default function EmbeddedFormModal() {
         style={{
           position: 'relative',
           width: '100%',
-          maxWidth: isExternalUrl ? '850px' : '580px',
+          maxWidth: isExternalUrl ? '900px' : '580px',
           height: isExternalUrl ? '85vh' : 'auto',
           maxHeight: '90vh',
           backgroundColor: '#FFFFFF',
@@ -116,37 +127,64 @@ export default function EmbeddedFormModal() {
         {/* Header */}
         <div
           style={{
-            padding: '20px 28px',
+            padding: '16px 24px',
             background: 'linear-gradient(135deg, #002E51 0%, #00194C 100%)',
             color: '#FFFFFF',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
+            gap: '16px',
             borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
           }}
         >
-          <h3 style={{ margin: 0, fontSize: '1.2rem', fontWeight: 800, fontFamily: 'var(--font-display)' }}>
+          <h3 style={{ margin: 0, fontSize: '1.15rem', fontWeight: 800, fontFamily: 'var(--font-display)', flex: 1, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
             {title}
           </h3>
-          <button
-            onClick={handleClose}
-            style={{
-              background: 'rgba(255, 255, 255, 0.15)',
-              border: 'none',
-              borderRadius: '50%',
-              width: '36px',
-              height: '36px',
-              color: '#FFFFFF',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-              transition: 'background 0.2s'
-            }}
-            aria-label="Cerrar modal"
-          >
-            <X size={20} />
-          </button>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            {isExternalUrl && (
+              <a
+                href={formUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  color: '#FFFFFF',
+                  background: 'rgba(255, 255, 255, 0.15)',
+                  padding: '8px 14px',
+                  borderRadius: '100px',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  transition: 'background 0.2s'
+                }}
+              >
+                Abrir fuera <ExternalLink size={14} />
+              </a>
+            )}
+
+            <button
+              onClick={handleClose}
+              style={{
+                background: 'rgba(255, 255, 255, 0.15)',
+                border: 'none',
+                borderRadius: '50%',
+                width: '36px',
+                height: '36px',
+                color: '#FFFFFF',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                transition: 'background 0.2s'
+              }}
+              aria-label="Cerrar modal"
+            >
+              <X size={20} />
+            </button>
+          </div>
         </div>
 
         {/* Modal Body */}
@@ -162,20 +200,33 @@ export default function EmbeddedFormModal() {
                     width: '100%',
                     height: '100%',
                     display: 'flex',
+                    flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
                     background: '#F9F7F5',
                     color: '#002E51',
-                    fontWeight: 600
+                    fontWeight: 600,
+                    gap: '12px',
+                    zIndex: 2
                   }}
                 >
-                  Cargando formulario...
+                  <div>Cargando formulario...</div>
+                  <a
+                    href={formUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontSize: '0.85rem', color: '#E4007C', textDecoration: 'underline' }}
+                  >
+                    ¿No carga? Haz clic aquí para abrir en ventana completa
+                  </a>
                 </div>
               )}
               <iframe
                 src={formUrl}
                 style={{ width: '100%', height: '100%', border: 'none' }}
                 onLoad={() => setLoadingIframe(false)}
+                allow="geolocation; microphone; camera; payment"
+                allowFullScreen
                 title="Formulario Embebido"
               />
             </>
