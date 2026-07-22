@@ -2951,6 +2951,31 @@
         "es": "Reservar con el 50%",
         "en": "Reserve with 50%",
         "fr": "Réservez avec 50%"
+      },
+      "title": {
+        "es": "Expositoras y Marcas Participantes",
+        "en": "Exhibitors & Participating Brands",
+        "fr": "Exposants et Marques Participantes"
+      },
+      "destacadas": {
+        "es": "Directorio de Expositoras",
+        "en": "Exhibitor Directory",
+        "fr": "Annuaire des Exposants"
+      },
+      "buscar": {
+        "es": "Buscar expositora...",
+        "en": "Search exhibitor...",
+        "fr": "Rechercher exposant..."
+      },
+      "verPerfil": {
+        "es": "Ver Stand",
+        "en": "View Stand",
+        "fr": "Voir le Stand"
+      },
+      "verperfil": {
+        "es": "Ver Stand",
+        "en": "View Stand",
+        "fr": "Voir le Stand"
       }
     },
     "embajadoras": {
@@ -3093,6 +3118,21 @@
         "es": "Completa el formulario de postulación oficial para solicitar ser la embajadora representante de tu estado en Expo México Mujer Toronto.",
         "en": "Complete the official application form to request to be the ambassador representing your state at Expo México Mujer Toronto.",
         "fr": "Remplissez le formulaire de candidature officiel pour demander à devenir ambassadeur représentant votre État à Expo México Mujer Toronto."
+      },
+      "title": {
+        "es": "Embajadoras del Movimiento",
+        "en": "Movement Ambassadors",
+        "fr": "Ambassadrices du Mouvement"
+      },
+      "verPerfil": {
+        "es": "Ver Semblanza",
+        "en": "View Bio",
+        "fr": "Voir le Profil"
+      },
+      "verperfil": {
+        "es": "Ver Semblanza",
+        "en": "View Bio",
+        "fr": "Voir le Profil"
       }
     },
     "compradores": {
@@ -5047,6 +5087,16 @@
         "es": "No se encontraron patrocinadores con ese término.",
         "en": "No sponsors were found with that term.",
         "fr": "Aucun sponsor n'a été trouvé avec ce terme."
+      },
+      "title": {
+        "es": "Nuestros Patrocinadores Aliados",
+        "en": "Our Partner Sponsors",
+        "fr": "Nos Sponsors Partenaires"
+      },
+      "desc": {
+        "es": "Empresas e instituciones que impulsan el liderazgo femenino binacional.",
+        "en": "Companies and institutions driving binational female leadership.",
+        "fr": "Entreprises et institutions promouvant le leadership féminin binational."
       }
     },
     "expo": {
@@ -5390,6 +5440,48 @@
         "es": "prueba",
         "en": "",
         "fr": ""
+      }
+    },
+    "invitados": {
+      "personalidades": {
+        "es": "Personalidades e Invitadas de Honor",
+        "en": "Personalities & Guests of Honor",
+        "fr": "Personnalités et Invités d'Honneur"
+      },
+      "destacados": {
+        "es": "Invitadas Destacadas",
+        "en": "Featured Guests",
+        "fr": "Invités Vedettes"
+      },
+      "title": {
+        "es": "Personalidades e Invitadas de Honor",
+        "en": "Personalities & Guests of Honor",
+        "fr": "Personnalités et Invités d'Honneur"
+      },
+      "buscar": {
+        "es": "Buscar por nombre, cargo o empresa...",
+        "en": "Search by name, position or company...",
+        "fr": "Rechercher por nom, poste ou entreprise..."
+      },
+      "categoria": {
+        "es": "Categoría / Sector",
+        "en": "Category / Sector",
+        "fr": "Catégorie / Secteur"
+      },
+      "verPerfil": {
+        "es": "Ver perfil",
+        "en": "View profile",
+        "fr": "Voir le profil"
+      },
+      "verperfil": {
+        "es": "Ver perfil",
+        "en": "View profile",
+        "fr": "Voir le profil"
+      },
+      "noInvitados": {
+        "es": "No se encontraron invitadas con los criterios seleccionados.",
+        "en": "No guests found with the selected criteria.",
+        "fr": "Aucun invité trouvé avec les critères sélectionnés."
       }
     }
   },
