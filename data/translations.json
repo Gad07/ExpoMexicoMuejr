@@ -4380,6 +4380,282 @@
         "es": "Aviso de Privacidad",
         "en": "Privacy Notice",
         "fr": "Avis de confidentialité"
+      },
+      "methodology": {
+        "eyebrow": {
+          "es": "Metodología paso a paso",
+          "en": "Step-by-Step Methodology",
+          "fr": "Méthodologie étape par étape"
+        },
+        "title": {
+          "es": "Proceso de Acompañamiento Estratégico",
+          "en": "Strategic Support Process",
+          "fr": "Processus d'accompagnement stratégique"
+        }
+      },
+      "steps": {
+        "s1": {
+          "title": {
+            "es": "Diagnóstico Inicial de Perfil",
+            "en": "Initial Profile Diagnosis",
+            "fr": "Diagnostic initial du profil"
+          },
+          "desc": {
+            "es": "Evaluación sin costo de tu historial de viajes y estatus actual.",
+            "en": "Free evaluation of your travel history and current status.",
+            "fr": "Évaluation gratuite de votre historique de voyage et de votre statut actuel."
+          }
+        },
+        "s2": {
+          "title": {
+            "es": "Armado de Expediente Solvente",
+            "en": "File Preparation",
+            "fr": "Préparation du dossier"
+          },
+          "desc": {
+            "es": "Estructuración de estados financieros y lazos de arraigo.",
+            "en": "Structuring financial statements and ties to Mexico.",
+            "fr": "Structuring des états financiers et liens avec le Mexique."
+          }
+        },
+        "s3": {
+          "title": {
+            "es": "Traducciones y Cartas de Invitación",
+            "en": "Translations & Invitation Letters",
+            "fr": "Traductions et lettres d'invitation"
+          },
+          "desc": {
+            "es": "Emisión de carta de invitación oficial de negocios EMM 2027.",
+            "en": "Issuance of official EMM 2027 business invitation letter.",
+            "fr": "Émission de la lettre d'invitation officielle d'affaires EMM 2027."
+          }
+        },
+        "s4": {
+          "title": {
+            "es": "Llenado Oficial de Formularios IRCC",
+            "en": "Official IRCC Form Completion",
+            "fr": "Remplissage officiel des formulaires IRCC"
+          },
+          "desc": {
+            "es": "Captura libre de errores y carga en la plataforma consular.",
+            "en": "Error-free capture and upload to the consular platform.",
+            "fr": "Saisie sans erreur et téléchargement sur la plateforme consulaire."
+          }
+        },
+        "s5": {
+          "title": {
+            "es": "Cita Biométrica y Seguimiento Consular",
+            "en": "Biometrics Appointment & Monitoring",
+            "fr": "Rendez-vous biométrique et suivi"
+          },
+          "desc": {
+            "es": "Agendamiento en VAC (VFS Global) y rastreo hasta aprobación.",
+            "en": "Scheduling at VAC (VFS Global) and tracking until approval.",
+            "fr": "Planification au VAC (VFS Global) et suivi jusqu'à l'approbation."
+          }
+        }
+      },
+      "requirements": {
+        "eyebrow": {
+          "es": "Organizador Personal de Documentos",
+          "en": "Personal Document Organizer",
+          "fr": "Organisateur personnel de documents"
+        },
+        "title": {
+          "es": "Requisitos Generales de Aplicación",
+          "en": "General Application Requirements",
+          "fr": "Exigences générales de candidature"
+        },
+        "desc": {
+          "es": "Revisa los documentos básicos que necesitarás integrar para tu solicitud de visa visitante o eTA.",
+          "en": "Review the basic documents you will need to apply for a visitor visa or eTA.",
+          "fr": "Consultez les documents de base dont vous aurez besoin para su solicitud de visa."
+        }
+      },
+      "checklist": {
+        "i1": {
+          "es": "Pasaporte vigente con más de 6 meses posteriores al viaje",
+          "en": "Valid passport with more than 6 months remaining",
+          "fr": "Passeport valide de plus de 6 mois"
+        },
+        "i2": {
+          "es": "Fotografías digitales tamaño pasaporte en formato oficial IRCC",
+          "en": "Digital passport photos in official IRCC format",
+          "fr": "Photos numériques au format officiel IRCC"
+        },
+        "i3": {
+          "es": "Estados de cuenta bancarios de los últimos 3 a 4 meses",
+          "en": "Bank statements for the last 3 to 4 months",
+          "fr": "Relevés bancaires des 3 à 4 derniers mois"
+        },
+        "i4": {
+          "es": "Carta de invitación oficial emitida por Expo México Mujer",
+          "en": "Official invitation letter from Expo México Mujer",
+          "fr": "Lettre d'invitation officielle de l'Expo México Mujer"
+        },
+        "i5": {
+          "es": "Comprobante de empleo, empresa propia o propiedades (Arraigo)",
+          "en": "Proof of employment, business ownership or property",
+          "fr": "Preuve d'emploi, d'entreprise ou de propriété"
+        },
+        "i6": {
+          "es": "Historial de viajes previos o visas anteriores (si aplica)",
+          "en": "Previous travel history or prior visas (if applicable)",
+          "fr": "Historique de voyage antérieur ou visas précédents"
+        }
+      },
+      "faqSection": {
+        "eyebrow": {
+          "es": "Preguntas Frecuentes",
+          "en": "Frequently Asked Questions",
+          "fr": "Foire Aux Questions"
+        },
+        "title": {
+          "es": "Resuelve tus dudas sobre Visas y Viaje a Canadá",
+          "en": "Solve your doubts about Visas and Travel to Canada",
+          "fr": "Résolvez vos doutes sur los Visas et Voyages au Canada"
+        }
+      },
+      "faqs": {
+        "q1": {
+          "es": "¿Necesito visa canadiense o eTA para asistir a Expo México Mujer?",
+          "en": "Do I need a Canadian visa or eTA to attend Expo México Mujer?",
+          "fr": "Ai-je besoin d'un visa canadien ou d'une AVE para asister à l'Expo México Mujer ?"
+        },
+        "a1": {
+          "es": "Si cuentas con una visa de EE.UU. vigente o tuviste visa canadiense en los últimos 10 años, puedes solicitar una eTA. De lo contrario, requieres visa de visitante completa.",
+          "en": "If you have a valid US visa or had a Canadian visa in the last 10 years, you can apply for an eTA. Otherwise, a full visitor visa is required.",
+          "fr": "Si vous avez un visa américain valide ou si vous avez eu un visa canadien au cours des 10 dernières années, vous pouvez demander une AVE."
+        },
+        "q2": {
+          "es": "¿Cuánto tiempo antes debo iniciar mi trámite de visa?",
+          "en": "How far in advance should I start my visa application?",
+          "fr": "Combien de temps à l'avance dois-je commencer ma demande de visa ?"
+        },
+        "a2": {
+          "es": "Recomendamos iniciar el trámite al menos 4 a 6 meses antes de la fecha del evento (Junio 2027) para viajar sin contratiempos.",
+          "en": "We recommend starting the process at least 4 to 6 months before the event date (June 2027).",
+          "fr": "Nous vous recommandons de commencer au moins 4 à 6 mois avant la date de l'événement."
+        },
+        "q3": {
+          "es": "¿Qué costo tiene la asesoría de trámite de visa con EMM?",
+          "en": "What is the cost of visa consulting with EMM?",
+          "fr": "Quel est le coût du conseil en visa avec EMM ?"
+        },
+        "a3": {
+          "es": "El diagnóstico inicial es 100% gratuito. Para el acompañamiento completo y armado de expediente contamos con cuotas preferenciales para expositoras.",
+          "en": "The initial diagnosis is 100% free. We offer preferential rates for exhibitors.",
+          "fr": "Le diagnostic initial est 100% gratuit."
+        },
+        "q4": {
+          "es": "¿Garantizan la aprobación de la visa?",
+          "en": "Do you guarantee visa approval?",
+          "fr": "Garantissez-vous l'approbation du visa ?"
+        },
+        "a4": {
+          "es": "La decisión final es exclusiva del gobierno de Canadá (IRCC). Nuestro servicio optimiza tu expediente para maximizar la probabilidad de éxito.",
+          "en": "The final decision belongs exclusively to the Government of Canada (IRCC).",
+          "fr": "La décision finale appartient exclusivement au gouvernement du Canada."
+        },
+        "q5": {
+          "es": "¿Expo México Mujer emite cartas de invitación oficial?",
+          "en": "Does Expo México Mujer issue official invitation letters?",
+          "fr": "Expo México Mujer émet-elle des lettres d'invitation officielles ?"
+        },
+        "a5": {
+          "es": "Sí, emitimos cartas de invitación personalizadas de negocios para todas las expositoras y participantes confirmadas.",
+          "en": "Yes, we issue personalized business invitation letters for all confirmed exhibitors and participants.",
+          "fr": "Oui, nous émettons des lettres d'invitation d'affaires personnalisées."
+        }
+      },
+      "formSection": {
+        "eyebrow": {
+          "es": "Contacto Inmediato",
+          "en": "Immediate Contact",
+          "fr": "Contact Immédiat"
+        },
+        "title": {
+          "es": "Inicia tu Solicitud de Acompañamiento",
+          "en": "Start your Support Application",
+          "fr": "Commencez votre demande d'accompagnement"
+        },
+        "desc": {
+          "es": "Completa tus datos y un consultor certificado se pondrá en contacto contigo en menos de 24 horas para agendar tu llamada diagnóstica.",
+          "en": "Complete your details and a certified consultant will contact you within 24 hours.",
+          "fr": "Remplissez vos coordonnées et un consultant certifié vous contactera dans les 24 heures."
+        }
+      },
+      "form": {
+        "alert": {
+          "es": "Por favor completa todos los campos requeridos.",
+          "en": "Please complete all required fields.",
+          "fr": "Veuillez remplir tous les champs requis."
+        },
+        "usVisa": {
+          "es": "¿Cuenta con Visa Americana?",
+          "en": "Do you have an American Visa?",
+          "fr": "Avez-vous un visa américain ?"
+        },
+        "select": {
+          "es": "Selecciona...",
+          "en": "Select...",
+          "fr": "Sélectionner..."
+        },
+        "usVisaYes": {
+          "es": "Sí, cuento con visa de EE.UU. vigente",
+          "en": "Yes, I have a valid US visa",
+          "fr": "Oui, j'ai un visa américain valide"
+        },
+        "usVisaNo": {
+          "es": "No cuento con visa de EE.UU.",
+          "en": "I do not have a US visa",
+          "fr": "Je n'ai pas de visa américain"
+        },
+        "usVisaCan": {
+          "es": "Sí, tuve visa canadiense (últimos 10 años)",
+          "en": "Yes, I had a Canadian visa (last 10 years)",
+          "fr": "Oui, j'avais un visa canadien"
+        },
+        "status": {
+          "es": "Estatus en EMM 2027",
+          "en": "Status at EMM 2027",
+          "fr": "Statut à l'EMM 2027"
+        },
+        "statusExpositora": {
+          "es": "Expositora Registrada / Confirmada",
+          "en": "Registered / Confirmed Exhibitor",
+          "fr": "Exposant Inscrit / Confirmé"
+        },
+        "statusInteresada": {
+          "es": "Interesada en registrar Stand",
+          "en": "Interested in registering a Stand",
+          "fr": "Intéressé par la réservation d'un stand"
+        },
+        "statusVisitante": {
+          "es": "Visitante, Acompañante o Público General",
+          "en": "Visitor, Companion or General Public",
+          "fr": "Visiteur, Compagnon ou Grand Public"
+        },
+        "message": {
+          "es": "Mensaje adicional o dudas específicas",
+          "en": "Additional message or specific questions",
+          "fr": "Message supplémentaire"
+        },
+        "messagePlaceholder": {
+          "es": "Escribe aquí si tienes alguna duda en particular sobre tus documentos...",
+          "en": "Write here if you have any questions...",
+          "fr": "Écrivez ici si vous avez des questions..."
+        },
+        "successTitle": {
+          "es": "¡Solicitud Registrada!",
+          "en": "Request Registered!",
+          "fr": "Demande enregistrée !"
+        },
+        "successDesc": {
+          "es": "Hemos recibido tus datos correctamente. Un consultor se pondrá en contacto contigo en las próximas horas.",
+          "en": "We have received your information correctly.",
+          "fr": "Nous avons bien reçu vos informations."
+        }
       }
     },
     "agenda": {
