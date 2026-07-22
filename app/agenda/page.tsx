@@ -302,11 +302,13 @@ export default function AgendaPage() {
       </div>
 
       <div className="agenda-header">
-        <Reveal>
+        <Reveal key={currentDay ? currentDay.id : 'default-header'}>
           <div className="agenda-label">{t('pages.agenda.programa')}</div>
-          <h1 className="agenda-title">{t('pages.agenda.title')}</h1>
+          <h1 className="agenda-title">
+            {currentDay ? getLocString(currentDay.title) : t('pages.agenda.title')}
+          </h1>
           <p className="agenda-subtitle">
-            {t('pages.agenda.desc')}
+            {currentDay ? getLocString(currentDay.description) : t('pages.agenda.desc')}
           </p>
         </Reveal>
       </div>
@@ -325,16 +327,6 @@ export default function AgendaPage() {
             </button>
           ))}
         </div>
-      </div>
-
-      <div style={{ maxWidth: '800px', margin: '-40px auto 60px', textAlign: 'center', padding: '0 4%', position: 'relative', zIndex: 10 }}>
-        {currentDay && (
-          <Reveal key={currentDay.id}>
-            <p style={{ fontSize: '1.25rem', color: 'var(--text)', lineHeight: 1.6, fontStyle: 'italic' }}>
-              {getLocString(currentDay.description)}
-            </p>
-          </Reveal>
-        )}
       </div>
 
       <div className="timeline-wrapper">
