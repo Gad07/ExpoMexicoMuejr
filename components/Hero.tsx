@@ -60,7 +60,18 @@ export default function Hero({
               <div className="hero-gradient__actions">
                 {primaryCta && (
                   primaryCta.action === 'popup' ? (
-                    <button onClick={() => window.dispatchEvent(new CustomEvent('openContactModal'))} className="btn btn--primary">
+                    <button
+                      onClick={(e) => {
+                        if (primaryCta.href && (primaryCta.href.startsWith('http://') || primaryCta.href.startsWith('https://'))) {
+                          e.preventDefault();
+                          window.open(primaryCta.href, '_blank', 'width=700,height=800,scrollbars=yes');
+                        } else {
+                          e.preventDefault();
+                          window.dispatchEvent(new CustomEvent('openContactModal'));
+                        }
+                      }}
+                      className="btn btn--primary"
+                    >
                       {primaryCta.text}
                     </button>
                   ) : (
@@ -71,7 +82,18 @@ export default function Hero({
                 )}
                 {secondaryCta && (
                   secondaryCta.action === 'popup' ? (
-                    <button onClick={() => window.dispatchEvent(new CustomEvent('openContactModal'))} className="btn btn--outline">
+                    <button
+                      onClick={(e) => {
+                        if (secondaryCta.href && (secondaryCta.href.startsWith('http://') || secondaryCta.href.startsWith('https://'))) {
+                          e.preventDefault();
+                          window.open(secondaryCta.href, '_blank', 'width=700,height=800,scrollbars=yes');
+                        } else {
+                          e.preventDefault();
+                          window.dispatchEvent(new CustomEvent('openContactModal'));
+                        }
+                      }}
+                      className="btn btn--outline"
+                    >
                       {secondaryCta.text}
                     </button>
                   ) : (

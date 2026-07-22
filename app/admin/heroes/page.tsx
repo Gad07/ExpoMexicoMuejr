@@ -475,15 +475,18 @@ export default function AdminHeroes() {
                         <option value="link">Ir a un Enlace</option>
                         <option value="popup">Abrir Formulario (Pop-up)</option>
                       </select>
-                      {hero.cta1?.action !== 'popup' && (
+                      <div>
+                        <label style={{ fontSize: '0.75rem', fontWeight: 600, color: '#64748b', display: 'block', marginBottom: '4px' }}>
+                          {hero.cta1?.action === 'popup' ? 'URL del Formulario / Pop-up (Opcional)' : 'URL de destino'}
+                        </label>
                         <input
                           type="text"
-                          placeholder="URL de destino"
+                          placeholder={hero.cta1?.action === 'popup' ? 'Ej: https://forms.google.com/... o vació para modal' : 'URL de destino (ej: #registro, /contacto)'}
                           value={hero.cta1?.href || ''}
                           onChange={(e) => updateHero({ cta1: { ...hero.cta1, href: e.target.value } })}
                           style={inputStyle}
                         />
-                      )}
+                      </div>
                     </div>
                   </div>
 
@@ -502,15 +505,18 @@ export default function AdminHeroes() {
                         <option value="link">Ir a un Enlace</option>
                         <option value="popup">Abrir Formulario (Pop-up)</option>
                       </select>
-                      {hero.cta2?.action !== 'popup' && (
+                      <div>
+                        <label style={{ fontSize: '0.75rem', fontWeight: 600, color: '#64748b', display: 'block', marginBottom: '4px' }}>
+                          {hero.cta2?.action === 'popup' ? 'URL del Formulario / Pop-up (Opcional)' : 'URL de destino'}
+                        </label>
                         <input
                           type="text"
-                          placeholder="URL de destino"
+                          placeholder={hero.cta2?.action === 'popup' ? 'Ej: https://forms.google.com/... o vacío para modal' : 'URL de destino (ej: #agenda, /contacto)'}
                           value={hero.cta2?.href || ''}
                           onChange={(e) => updateHero({ cta2: { ...hero.cta2, href: e.target.value } })}
                           style={inputStyle}
                         />
-                      )}
+                      </div>
                     </div>
                   </div>
                 </div>
