@@ -5482,6 +5482,16 @@
         "es": "No se encontraron invitadas con los criterios seleccionados.",
         "en": "No guests found with the selected criteria.",
         "fr": "Aucun invité trouvé avec les critères sélectionnés."
+      },
+      "lideres": {
+        "es": "Líderes Empresariales",
+        "en": "Business Leaders",
+        "fr": "Dirigeants d'Entreprise"
+      },
+      "conferencistas": {
+        "es": "Conferencistas y Ponentes",
+        "en": "Speakers & Lecturers",
+        "fr": "Conférenciers et Intervenants"
       }
     }
   },
