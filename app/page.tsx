@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { MapPin, ExternalLink, Mail, CheckCircle2, Phone, ArrowRight } from 'lucide-react';
 import { mexicanStates } from './data/expositores';
 import { WordMark, Mariposa, DecoMariposa, ArrowDown } from '@/components/BrandAssets';
-import { ALL_NOTICIAS } from './data/noticias';
+import { ALL_NOTICIAS, Noticia } from './data/noticias';
 import Hero from '@/components/Hero';
 import Testimonials from '@/components/Testimonials';
 import Link from 'next/link';
@@ -694,9 +694,23 @@ function Audience() {
 function Noticias() {
   const { language } = useLanguage();
   const { t } = useLanguage();
-  
-  const featured = ALL_NOTICIAS.find(n => n.featured) || ALL_NOTICIAS[0];
-  const list = ALL_NOTICIAS.filter(n => n.id !== featured.id).slice(0, 4);
+  const [noticias, setNoticias] = useState<Noticia[]>(ALL_NOTICIAS);
+
+  useEffect(() => {
+    fetch('/api/admin/noticias')
+      .then(res => res.json())
+      .then(data => {
+        if (data.noticias && data.noticias.length > 0) {
+          setNoticias(data.noticias);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const featured = noticias.find(n => n.featured) || noticias[0];
+  const list = noticias.filter(n => n && featured && n.id !== featured.id).slice(0, 4);
+
+  if (!featured) return null;
 
   return (
     <section className="section" id="noticias" style={{ background: '#FAF8F5' }}>
