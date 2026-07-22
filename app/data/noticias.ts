@@ -36,17 +36,29 @@ export interface Noticia {
 }
 
 import noticiasData from '../../data/noticias.json';
-import { readJSONAsync } from '@/lib/db';
 
 // This file exports types, interfaces, and the static news data.
 export const ALL_NOTICIAS = noticiasData as unknown as Noticia[];
 
 export async function getNoticias(): Promise<Noticia[]> {
-  try {
-    const data = await readJSONAsync<Noticia>('noticias.json');
-    if (data && data.length > 0) return data;
-  } catch {
-    // fallback
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  if (url && key) {
+    try {
+      const res = await fetch(`${url}/rest/v1/page_modules?id=eq.store_noticias.json&select=items_json`, {
+        headers: {
+          'apikey': key,
+          'Authorization': `Bearer ${key}`
+        },
+        next: { revalidate: 0 }
+      });
+      const data = await res.json();
+      if (Array.isArray(data) && data.length > 0 && data[0].items_json) {
+        return data[0].items_json as Noticia[];
+      }
+    } catch {
+      // fallback
+    }
   }
   return ALL_NOTICIAS;
 }
