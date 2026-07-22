@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { readJSON, writeJSON, getSupabase } from '@/lib/db';
-import { getTokenFromRequest, verifyToken } from '@/lib/auth';
+import { checkAuth } from '@/lib/auth';
 
 const DB_FILE = 'popup.json';
 
@@ -48,18 +48,7 @@ const DEFAULT_POPUP: PopupConfig = {
   delaySeconds: 3,
 };
 
-function checkAuth(request: Request): boolean {
-  if (process.env.NODE_ENV === 'development') return true;
-  const cookieHeader = request.headers.get('cookie') || '';
-  if (cookieHeader.includes('next-auth.session-token') || cookieHeader.includes('__Secure-next-auth.session-token')) {
-    return true;
-  }
-  const token = getTokenFromRequest(request);
-  if (token) return true;
-  const authHeader = request.headers.get('authorization');
-  if (authHeader) return true;
-  return true;
-}
+
 
 export async function GET() {
   const cacheHeaders = {

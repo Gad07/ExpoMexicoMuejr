@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { readJSON, writeJSON } from '@/lib/db';
-import { getTokenFromRequest, verifyToken } from '@/lib/auth';
+import { checkAuth } from '@/lib/auth';
 
 const DB_FILE = 'noticias.json';
 
@@ -20,19 +20,7 @@ interface Noticia {
   author: { name: string; role: string; bio: string; footer: string; image: string } | null;
 }
 
-function checkAuth(request: Request): boolean {
-  // Check NextAuth session cookie
-  const cookieHeader = request.headers.get('cookie') || '';
-  if (cookieHeader.includes('next-auth.session-token') || cookieHeader.includes('__Secure-next-auth.session-token')) {
-    return true;
-  }
-  // Check Bearer token
-  const token = getTokenFromRequest(request);
-  if (token && verifyToken(token)) {
-    return true;
-  }
-  return false;
-}
+
 
 function slugify(text: string): string {
   return text

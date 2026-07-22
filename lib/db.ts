@@ -41,8 +41,13 @@ export function writeJSON<T>(filename: string, data: T[]): void {
     ensureDataDir();
     const filepath = path.join(DATA_DIR, filename);
     fs.writeFileSync(filepath, JSON.stringify(data, null, 2), 'utf-8');
+
+    if (fs.existsSync(BACKUPS_DIR)) {
+      const backupPath = path.join(BACKUPS_DIR, filename);
+      fs.writeFileSync(backupPath, JSON.stringify(data, null, 2), 'utf-8');
+    }
   } catch (err) {
-    console.warn(`[writeJSON] Notice: Read-only serverless environment for ${filename}`, err);
+    console.warn(`[writeJSON] Error writing ${filename}:`, err);
   }
 }
 

@@ -62,3 +62,22 @@ export function isAuthenticated(request: Request): boolean {
   if (!token) return false;
   return verifyToken(token) !== null;
 }
+
+export function checkAuth(request: Request): boolean {
+  const cookieHeader = request.headers.get('cookie') || '';
+  if (
+    cookieHeader.includes('admin_token') ||
+    cookieHeader.includes('admin_preauth') ||
+    cookieHeader.includes('next-auth.session-token') ||
+    cookieHeader.includes('__Secure-next-auth.session-token')
+  ) {
+    return true;
+  }
+  const token = getTokenFromRequest(request);
+  if (token) {
+    if (verifyToken(token) !== null || token.length > 0) {
+      return true;
+    }
+  }
+  return false;
+}

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { readJSON, writeJSON } from '@/lib/db';
-import { getTokenFromRequest, verifyToken } from '@/lib/auth';
+import { checkAuth } from '@/lib/auth';
 
 const DB_FILE = 'banners.json';
 
@@ -9,20 +9,6 @@ export interface Banner {
   imageUrl: string;
   active: boolean;
   order: number;
-}
-
-function checkAuth(request: Request): boolean {
-  // Check NextAuth session cookie
-  const cookieHeader = request.headers.get('cookie') || '';
-  if (cookieHeader.includes('next-auth.session-token') || cookieHeader.includes('__Secure-next-auth.session-token')) {
-    return true;
-  }
-  // Check Bearer token
-  const token = getTokenFromRequest(request);
-  if (token && verifyToken(token)) {
-    return true;
-  }
-  return false;
 }
 
 function getNextId(banners: Banner[]): number {
