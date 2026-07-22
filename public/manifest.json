@@ -13,14 +13,14 @@
       "type": "image/x-icon"
     },
     {
-      "src": "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=512&h=512",
-      "sizes": "512x512",
+      "src": "/icon.png",
+      "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=192&h=192",
-      "sizes": "192x192",
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
