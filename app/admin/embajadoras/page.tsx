@@ -25,6 +25,17 @@ const EMPTY_AMBASSADOR: Ambassador = {
    PREVIEW CARD
    ══════════════════════════════════════════════════════════════ */
 function AmbassadorCardPreview({ data }: { data: Ambassador }) {
+  const getPreviewDesc = (desc: any): string => {
+    if (!desc) return '';
+    if (typeof desc === 'string') return desc;
+    if (typeof desc === 'object' && desc !== null) {
+      return desc.es || desc.en || desc.fr || '';
+    }
+    return '';
+  };
+
+  const previewDesc = getPreviewDesc(data.description);
+
   return (
     <div style={{
       background: '#fff',
@@ -44,7 +55,7 @@ function AmbassadorCardPreview({ data }: { data: Ambassador }) {
       {/* Profile Photo */}
       <div style={{ height: '240px', width: '100%', position: 'relative', background: '#e5e7eb' }}>
         {data.photo ? (
-          <img src={data.photo} alt={data.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <img src={data.photo} alt={data.name || ''} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         ) : (
           <div style={{ width: '100%', height: '100%', background: '#eee', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <User size={48} color="#999" />
@@ -69,7 +80,7 @@ function AmbassadorCardPreview({ data }: { data: Ambassador }) {
         )}
 
         <p style={{ fontSize: '0.85rem', lineHeight: 1.6, color: '#444', margin: '0 0 16px' }}>
-          {data.description ? (() => { const d = data.description as any; return d?.es || d || 'Descripción...'; })() : 'Descripción o trayectoria de la embajadora...'}
+          {previewDesc || 'Descripción o trayectoria de la embajadora...'}
         </p>
       </div>
     </div>
@@ -127,12 +138,26 @@ export default function AdminEmbajadorasPage() {
     }
   };
 
+  function slugifyText(text: string): string {
+    return text
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .trim();
+  }
+
   const handleSave = async () => {
     if (!editing) return;
-    if (!editing.name.trim()) {
+    if (!editing.name || !editing.name.trim()) {
       setMessage({ type: 'error', text: 'El nombre de la embajadora es obligatorio' });
       return;
     }
+
+    const finalSlug = (editing.slug || '').trim() || slugifyText(editing.name);
+    const ambassadorToSave = { ...editing, slug: finalSlug };
 
     setSaving(true);
     setMessage(null);
@@ -146,7 +171,7 @@ export default function AdminEmbajadorasPage() {
       const res = await fetch('/api/admin/embajadoras', {
         method,
         headers,
-        body: JSON.stringify(editing),
+        body: JSON.stringify(ambassadorToSave),
       });
 
       const data = await res.json();
@@ -201,7 +226,11 @@ export default function AdminEmbajadorasPage() {
 
   const updateField = (field: string, value: any) => {
     if (!editing) return;
-    setEditing({ ...editing, [field]: value });
+    const updated = { ...editing, [field]: value };
+    if (field === 'name' && (isNew || !editing.slug)) {
+      updated.slug = slugifyText(value);
+    }
+    setEditing(updated);
   };
 
   const updateLocalizedField = (field: string, lang: string, value: string) => {
@@ -216,7 +245,8 @@ export default function AdminEmbajadorasPage() {
     const val: any = (editing as any)[field];
     if (!val) return '';
     if (typeof val === 'string') return lang === 'es' ? val : '';
-    return val[lang] || '';
+    if (typeof val === 'object' && val !== null) return val[lang] || '';
+    return '';
   };
 
   return (

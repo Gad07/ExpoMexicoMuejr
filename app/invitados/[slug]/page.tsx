@@ -173,7 +173,7 @@ export default function InvitadoProfile({ params }: { params: Promise<{ slug: st
             </h2>
             <div style={{ width: '60px', height: '4px', background: 'var(--magenta)', marginBottom: '32px' }}></div>
             <p style={{ fontSize: '1.25rem', lineHeight: 1.9, color: 'var(--text)', fontWeight: 400, letterSpacing: '0.01em' }}>
-              {invitado.description && (invitado.description[language] || invitado.description.es || invitado.description)}
+              {invitado.description ? (typeof invitado.description === 'string' ? invitado.description : (invitado.description[language] || invitado.description.es || invitado.description.en || '')) : ''}
             </p>
           </Reveal>
 

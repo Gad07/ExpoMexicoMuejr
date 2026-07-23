@@ -36,9 +36,13 @@ function Reveal({
 
 function AmbassadorDescription({ ambassador }: { ambassador: any }) {
   const { language } = useLanguage();
-  const desc = ambassador.description
-    ? (ambassador.description[language] || ambassador.description.es || ambassador.description || '')
-    : '';
+  if (!ambassador || !ambassador.description) return <p></p>;
+  let desc = '';
+  if (typeof ambassador.description === 'string') {
+    desc = ambassador.description;
+  } else if (typeof ambassador.description === 'object' && ambassador.description !== null) {
+    desc = ambassador.description[language] || ambassador.description.es || ambassador.description.en || ambassador.description.fr || '';
+  }
   return <p>{desc}</p>;
 }
 

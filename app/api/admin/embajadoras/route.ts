@@ -64,13 +64,36 @@ export async function POST(request: Request) {
     const body = await request.json();
     const ambassadors = await readJSONAsync<Ambassador>(DB_FILE);
 
+    const name = (body.name || '').trim();
+    if (!name) {
+      return NextResponse.json({ error: 'El nombre es obligatorio' }, { status: 400 });
+    }
+
+    let slug = (body.slug || '').trim();
+    if (!slug) {
+      slug = slugify(name);
+    }
+    if (!slug) {
+      slug = `emb-${Date.now()}`;
+    }
+
+    const description = typeof body.description === 'object' && body.description !== null
+      ? {
+          es: body.description.es || '',
+          en: body.description.en || '',
+          fr: body.description.fr || '',
+        }
+      : typeof body.description === 'string'
+      ? { es: body.description, en: '', fr: '' }
+      : { es: '', en: '', fr: '' };
+
     const newAmbassador: Ambassador = {
       id: getNextId(ambassadors),
-      slug: body.slug || slugify(body.name || ''),
-      name: body.name || '',
-      state: body.state || '',
-      photo: body.photo || '',
-      description: body.description || { es: '', en: '', fr: '' },
+      slug,
+      name,
+      state: body.state || 'Aguascalientes',
+      photo: body.photo || 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
+      description,
       booth: body.booth || '',
     };
 
@@ -78,7 +101,8 @@ export async function POST(request: Request) {
     await writeJSONAsync(DB_FILE, ambassadors);
 
     return NextResponse.json({ ambassador: newAmbassador, message: 'Embajadora creada exitosamente' });
-  } catch {
+  } catch (err) {
+    console.error('Error in POST /api/admin/embajadoras:', err);
     return NextResponse.json({ error: 'Error al crear embajadora' }, { status: 500 });
   }
 }
@@ -104,6 +128,14 @@ export async function PUT(request: Request) {
       return NextResponse.json({ error: 'Embajadora no encontrada' }, { status: 404 });
     }
 
+    if (updates.name && (!updates.slug || !updates.slug.trim())) {
+      updates.slug = slugify(updates.name);
+    }
+
+    if (updates.description && typeof updates.description === 'string') {
+      updates.description = { es: updates.description, en: '', fr: '' };
+    }
+
     ambassadors[index] = {
       ...ambassadors[index],
       ...updates,
@@ -113,7 +145,8 @@ export async function PUT(request: Request) {
 
     await writeJSONAsync(DB_FILE, ambassadors);
     return NextResponse.json({ ambassador: ambassadors[index], message: 'Embajadora actualizada exitosamente' });
-  } catch {
+  } catch (err) {
+    console.error('Error in PUT /api/admin/embajadoras:', err);
     return NextResponse.json({ error: 'Error al actualizar embajadora' }, { status: 500 });
   }
 }

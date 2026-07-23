@@ -176,12 +176,12 @@ export default function BuyerProfile({ params }: { params: Promise<{ slug: strin
             </h2>
             <div style={{ width: '60px', height: '4px', background: 'var(--magenta)', marginBottom: '32px' }}></div>
             <p style={{ fontSize: '1.25rem', lineHeight: 1.9, color: 'var(--text)', fontWeight: 400, letterSpacing: '0.01em', marginBottom: '24px' }}>
-              {buyer.description && (buyer.description[language] || buyer.description.es || buyer.description)}
+              {buyer.description ? (typeof buyer.description === 'string' ? buyer.description : (buyer.description[language] || buyer.description.es || buyer.description.en || '')) : ''}
             </p>
             <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
               <span style={{ fontWeight: 800, textTransform: 'uppercase', color: 'var(--navy)', fontSize: '0.85rem' }}>Sector Prioritario:</span>
               <span style={{ padding: '6px 16px', background: buyer.bgColor, color: buyer.color, borderRadius: '20px', fontSize: '0.85rem', fontWeight: 800, fontFamily: 'var(--font-display)' }}>
-                {buyer.interest && (buyer.interest[language] || buyer.interest.es || buyer.interest)}
+                {buyer.interest ? (typeof buyer.interest === 'string' ? buyer.interest : (buyer.interest[language] || buyer.interest.es || buyer.interest.en || '')) : ''}
               </span>
             </div>
           </Reveal>

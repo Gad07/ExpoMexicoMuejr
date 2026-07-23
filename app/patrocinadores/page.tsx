@@ -288,7 +288,7 @@ export default function PatrocinadoresPage() {
                       <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '6px', lineHeight: 1.2 }}>{sponsor.name}</h3>
                       
                       <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '32px', flexGrow: 1 }}>
-                        {sponsor.description ? `${(sponsor.description[language] || sponsor.description.es || sponsor.description || '').substring(0, 100)}...` : ''}
+                        {sponsor.description ? `${(typeof sponsor.description === 'string' ? sponsor.description : (sponsor.description[language] || sponsor.description.es || sponsor.description.en || '')).substring(0, 100)}...` : ''}
                       </p>
 
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '20px' }}>

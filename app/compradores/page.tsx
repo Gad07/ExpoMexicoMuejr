@@ -210,11 +210,11 @@ export default function CompradoresPage() {
                             {buyer.company}
                           </span>
                           <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)' }}>
-                            {buyer.role && (buyer.role[language] || buyer.role.es || buyer.role)} — {buyer.location}
+                            {buyer.role ? (typeof buyer.role === 'string' ? buyer.role : (buyer.role[language] || buyer.role.es || buyer.role.en || '')) : ''} — {buyer.location}
                           </span>
                         </div>
 
-                        <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '32px', flexGrow: 1 }}>{buyer.description && (buyer.description[language] || buyer.description.es || buyer.description)}</p>
+                        <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '32px', flexGrow: 1 }}>{buyer.description ? (typeof buyer.description === 'string' ? buyer.description : (buyer.description[language] || buyer.description.es || buyer.description.en || '')) : ''}</p>
 
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '20px' }}>
                           <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--navy)' }}>{t('pages.compradores.verPerfil')}</span>

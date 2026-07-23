@@ -42,6 +42,15 @@ function Reveal({
   );
 }
 
+function getLocString(val: any, lang: string = 'es'): string {
+  if (!val) return '';
+  if (typeof val === 'string') return val;
+  if (typeof val === 'object' && val !== null) {
+    return val[lang] || val.es || val.en || val.fr || '';
+  }
+  return String(val);
+}
+
 /* ─── Main Content ─── */
 function EmbajadorasContent() {
   const searchParams = useSearchParams();
@@ -73,9 +82,11 @@ function EmbajadorasContent() {
   /* ─── VISTA 2: Lista de Embajadoras por Estado ─── */
   if (activeState) {
     const filteredAmbassadors = ambassadors.filter(amb => {
+      if (!amb) return false;
       const matchState = amb.state === activeState;
-      const descVal = amb.description && (amb.description[language] || amb.description.es || amb.description || '');
-      const matchSearch = amb.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      const descVal = getLocString(amb.description, language);
+      const ambName = amb.name || '';
+      const matchSearch = ambName.toLowerCase().includes(searchQuery.toLowerCase()) ||
                           descVal.toLowerCase().includes(searchQuery.toLowerCase());
       return matchState && matchSearch;
     });
@@ -374,7 +385,7 @@ function EmbajadorasContent() {
                       <div className="emb-body">
                         <h3 className="emb-name">{amb.name}</h3>
                         <p className="emb-state"><MapPin size={13} /> {amb.state}</p>
-                        <p className="emb-desc">{amb.description && (amb.description[language] || amb.description.es || amb.description)}</p>
+                        <p className="emb-desc">{getLocString(amb.description, language)}</p>
                       </div>
 
                       {/* Acciones */}

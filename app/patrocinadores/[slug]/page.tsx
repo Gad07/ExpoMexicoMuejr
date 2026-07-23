@@ -173,7 +173,7 @@ export default function SponsorProfile({ params }: { params: Promise<{ slug: str
             </h2>
             <div style={{ width: '60px', height: '4px', background: 'var(--magenta)', marginBottom: '32px' }}></div>
             <p style={{ fontSize: '1.25rem', lineHeight: 1.9, color: 'var(--text)', fontWeight: 400, letterSpacing: '0.01em' }}>
-              {sponsor.description && (sponsor.description[language] || sponsor.description.es || sponsor.description)}
+              {sponsor.description ? (typeof sponsor.description === 'string' ? sponsor.description : (sponsor.description[language] || sponsor.description.es || sponsor.description.en || '')) : ''}
             </p>
           </Reveal>
 
