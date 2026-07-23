@@ -9,6 +9,7 @@ type Language = 'es' | 'en' | 'fr';
 
 interface LanguageContextType {
   language: Language;
+  lang: Language;
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
 }
@@ -235,7 +236,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, lang: language, setLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   );

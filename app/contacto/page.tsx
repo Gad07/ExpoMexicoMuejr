@@ -5,7 +5,7 @@ import { Mail, Phone, MapPin, Globe, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import OptImage from '@/components/OptImage';
 
-function Reveal({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+function Reveal({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number; suppressHydrationWarning?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {

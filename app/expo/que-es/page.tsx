@@ -9,7 +9,7 @@ import OptImage from '@/components/OptImage';
 
 function Reveal({
   children, className = '', delay = 0, style = {},
-}: { children: React.ReactNode; className?: string; delay?: number; style?: React.CSSProperties }) {
+}: { children: React.ReactNode; className?: string; delay?: number; style?: React.CSSProperties; suppressHydrationWarning?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
   

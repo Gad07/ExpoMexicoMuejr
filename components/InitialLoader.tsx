@@ -48,7 +48,6 @@ export default function InitialLoader() {
     }, isMobile ? 2200 : 6000);
 
     return () => {
-      clearTimeout(timer);
       if (fallbackRef.current) clearTimeout(fallbackRef.current);
     };
   }, []);

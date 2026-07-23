@@ -1,5 +1,23 @@
 [
   {
+    "id": "17848445884009k2t",
+    "path": "/expo/que-es",
+    "timestamp": "2026-07-23T22:09:48.400Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0",
+    "device": "desktop",
+    "referer": "http://localhost:3000/contacto",
+    "source": "Referido Externe"
+  },
+  {
+    "id": "1784844585570bcyx",
+    "path": "/expo/que-es",
+    "timestamp": "2026-07-23T22:09:45.570Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0",
+    "device": "desktop",
+    "referer": "http://localhost:3000/contacto",
+    "source": "Referido Externe"
+  },
+  {
     "id": "1784844494846veit",
     "path": "/expo/que-es",
     "timestamp": "2026-07-23T22:08:14.846Z",
