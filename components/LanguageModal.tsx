@@ -133,10 +133,10 @@ export default function LanguageModal() {
             },
             {
               code: 'en',
-              flag: '🇨🇦',
+              flag: '🇺🇸',
               title: 'English',
               greeting: 'Welcome! Continue in English',
-              region: 'Canada & International',
+              region: 'United States & International',
             },
             {
               code: 'fr',

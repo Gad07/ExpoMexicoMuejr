@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { readJSONAsync, writeJSONAsync } from '@/lib/db';
 import { checkAuth } from '@/lib/auth';
 
+import { cleanDropboxUrlsInObject } from '@/lib/dropbox';
+
 const DB_FILE = 'banners.json';
 
 export interface Banner {
@@ -22,7 +24,8 @@ export async function GET(request: Request) {
     const banners = (await readJSONAsync<Banner>(DB_FILE)) || [];
     // Sort by order ascending
     const sorted = banners.sort((a, b) => a.order - b.order);
-    return NextResponse.json({ banners: sorted });
+    const cleaned = cleanDropboxUrlsInObject(sorted);
+    return NextResponse.json({ banners: cleaned });
   } catch {
     return NextResponse.json({ error: 'Error al leer banners' }, { status: 500 });
   }
@@ -35,7 +38,8 @@ export async function POST(request: Request) {
   }
 
   try {
-    const body = await request.json();
+    const rawBody = await request.json();
+    const body = cleanDropboxUrlsInObject(rawBody);
     const banners = (await readJSONAsync<Banner>(DB_FILE)) || [];
 
     const newBanner: Banner = {

@@ -18,25 +18,39 @@ export function ensureDataDir(): void {
   }
 }
 
+const memoryCache = new Map<string, { data: any; timestamp: number }>();
+const CACHE_TTL_MS = 5000; // 5 second in-memory cache for fast response times
+
 export function readJSONLocal<T>(filename: string): T[] {
+  const cached = memoryCache.get(`local_${filename}`);
+  if (cached && Date.now() - cached.timestamp < CACHE_TTL_MS) {
+    return cached.data as T[];
+  }
+
   const filepath = path.join(DATA_DIR, filename);
   const backupPath = path.join(BACKUPS_DIR, filename);
   try {
+    let result: T[] = [];
     if (fs.existsSync(filepath)) {
       const raw = fs.readFileSync(filepath, 'utf-8');
-      return JSON.parse(raw);
-    }
-    if (fs.existsSync(backupPath)) {
+      result = JSON.parse(raw);
+    } else if (fs.existsSync(backupPath)) {
       const raw = fs.readFileSync(backupPath, 'utf-8');
-      return JSON.parse(raw);
+      result = JSON.parse(raw);
     }
-    return [];
+    memoryCache.set(`local_${filename}`, { data: result, timestamp: Date.now() });
+    return result;
   } catch {
     return [];
   }
 }
 
 export async function readJSONAsync<T>(filename: string): Promise<T[]> {
+  const cached = memoryCache.get(`async_${filename}`);
+  if (cached && Date.now() - cached.timestamp < CACHE_TTL_MS) {
+    return cached.data as T[];
+  }
+
   const supabase = getSupabase();
   if (supabase) {
     try {
@@ -47,13 +61,17 @@ export async function readJSONAsync<T>(filename: string): Promise<T[]> {
         .single();
 
       if (!error && data && data.items_json !== null && data.items_json !== undefined) {
-        return data.items_json as T[];
+        const res = data.items_json as T[];
+        memoryCache.set(`async_${filename}`, { data: res, timestamp: Date.now() });
+        return res;
       }
     } catch {
       // Fallback below
     }
   }
-  return readJSONLocal<T>(filename);
+  const localRes = readJSONLocal<T>(filename);
+  memoryCache.set(`async_${filename}`, { data: localRes, timestamp: Date.now() });
+  return localRes;
 }
 
 export function readJSON<T>(filename: string): T[] {
@@ -61,6 +79,8 @@ export function readJSON<T>(filename: string): T[] {
 }
 
 export async function writeJSONAsync<T>(filename: string, data: T): Promise<void> {
+  memoryCache.delete(`local_${filename}`);
+  memoryCache.delete(`async_${filename}`);
   try {
     ensureDataDir();
     const filepath = path.join(DATA_DIR, filename);

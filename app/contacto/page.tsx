@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Mail, Phone, MapPin, Globe, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import OptImage from '@/components/OptImage';
 
 function Reveal({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -22,9 +23,49 @@ function Reveal({ children, className = '', delay = 0 }: { children: React.React
 }
 
 export default function ContactoPage() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const [mounted, setMounted] = useState(false);
+  const [cards, setCards] = useState<any[]>([]);
+
+  useEffect(() => {
+    setMounted(true);
+    fetch('/api/admin/business-cards')
+      .then(res => res.json())
+      .then(data => {
+        if (data.cards && Array.isArray(data.cards) && data.cards.length > 0) {
+          setCards(data.cards);
+        }
+      })
+      .catch(err => console.error('Error fetching business cards:', err));
+  }, []);
+
+  const FALLBACK_CARDS = [
+    {
+      id: "1",
+      slug: "francisco-solorio",
+      nombre: "Francisco Solorio",
+      cargo: { es: "Director General" },
+      email: "francisco@expomexico.ca",
+      telefono: "+52 55 2719 9694",
+      whatsapp: "525527199694",
+      foto: "https://dl.dropboxusercontent.com/scl/fo/rz6jn3fv9jihppxtf4kfa/AC_6E-DB3TM7pKHqXtbX7C4/BRAND%20KIT/FOTO%20PERFIL/BRAND%20KIT%20EMM%202027_Mesa%20de%20trabajo%201.jpg?rlkey=5dsdca8p0wqpzmkbg3am9qtnt&st=h6srbm92&raw=1"
+    },
+    {
+      id: "2",
+      slug: "luis-garcia",
+      nombre: "Luis García",
+      cargo: { es: "Director de Operaciones" },
+      email: "luis@expomexico.ca",
+      telefono: "+52 722 551 4645",
+      whatsapp: "527225514645",
+      foto: "https://dl.dropboxusercontent.com/scl/fo/rz6jn3fv9jihppxtf4kfa/AKTI6khpuneoHnce3Y1nHLA/BRAND%20KIT/FOTO%20PERFIL/BRAND%20KIT%20EMM%202027_Mesa%20de%20trabajo%201%20copia.jpg?rlkey=5dsdca8p0wqpzmkbg3am9qtnt&st=bq8uwbsi&raw=1"
+    }
+  ];
+
+  const displayCards = cards.length > 0 ? cards : FALLBACK_CARDS;
+
   return (
-    <main className="page-content-wrapper">
+    <main className="page-content-wrapper" suppressHydrationWarning>
       <style>{`
         .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal.revealed { opacity: 1; transform: translateY(0); }
@@ -61,7 +102,7 @@ export default function ContactoPage() {
         }
         .c-card:hover::after { transform: scaleX(1); }
 
-        .c-avatar-box { width: 120px; height: 120px; border-radius: 24px; background: #FAF8F5; display: flex; align-items: center; justify-content: center; margin-bottom: 32px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .c-avatar-box { width: 120px; height: 120px; border-radius: 24px; background: #FAF8F5; overflow: hidden; position: relative; margin-bottom: 32px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
         .c-avatar-box img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
         
         .c-name { font-family: var(--font-display); font-size: 2.5rem; color: var(--blue); margin-bottom: 8px; font-weight: 400; line-height: 1.1; }
@@ -130,57 +171,41 @@ export default function ContactoPage() {
       <h1 className="sr-only">Contacto</h1>
       <section className="c-grid-section">
         <div className="c-grid">
-          
-          {/* Francisco Solorio */}
-          <Reveal delay={100} className="c-card">
-            <div className="c-avatar-box">
-              <img src="/fotos perfil/Foto Francisco.jpg" alt="" loading="lazy" width="120" height="120" />
-            </div>
-            <h2 className="c-name">Francisco Solorio</h2>
-            <div className="c-role">{t('pages.contacto.directorGeneral')}</div>
-            
-            <div className="c-links">
-              <a href="mailto:francisco@expomexico.ca" className="c-link-item">
-                <div className="c-link-icon-box"><Mail size={20} /></div>
-                <span>francisco@expomexico.ca</span>
-              </a>
-              <a href="tel:+525527199694" className="c-link-item">
-                <div className="c-link-icon-box"><Phone size={20} /></div>
-                <span>+52 55 2719 9694</span>
-              </a>
-            </div>
+          {displayCards.map((card, idx) => {
+            const roleStr = typeof card.cargo === 'object' && card.cargo !== null
+              ? (card.cargo[lang] || card.cargo.es || '')
+              : (card.cargo || '');
+            const waNum = (card.whatsapp || card.telefono || '').replace(/\D/g, '');
+            return (
+              <Reveal key={card.id || card.slug || idx} delay={(idx + 1) * 100} className="c-card" suppressHydrationWarning>
+                <div className="c-avatar-box" suppressHydrationWarning>
+                  <OptImage src={card.foto} alt={card.nombre} fill style={{ objectFit: 'cover' }} sizes="120px" />
+                </div>
+                <h2 className="c-name">{card.nombre}</h2>
+                <div className="c-role">{roleStr || t('pages.contacto.directorGeneral')}</div>
 
-            <a href="https://wa.me/525527199694" className="c-action" target="_blank" rel="noopener noreferrer">
-              <span>{t('wa.chat.startChat')}</span>
-              <ArrowRight size={22} className="c-action-icon" />
-            </a>
-          </Reveal>
+                <div className="c-links">
+                  {card.email && (
+                    <a href={`mailto:${card.email}`} className="c-link-item">
+                      <div className="c-link-icon-box"><Mail size={20} /></div>
+                      <span>{card.email}</span>
+                    </a>
+                  )}
+                  {card.telefono && (
+                    <a href={`tel:${card.telefono}`} className="c-link-item">
+                      <div className="c-link-icon-box"><Phone size={20} /></div>
+                      <span>{card.telefono}</span>
+                    </a>
+                  )}
+                </div>
 
-          {/* Luis García */}
-          <Reveal delay={200} className="c-card">
-            <div className="c-avatar-box">
-              <img src="/fotos perfil/Foto Luis.jpg" alt="" loading="lazy" width="120" height="120" />
-            </div>
-            <h2 className="c-name">Luis García</h2>
-            <div className="c-role">{t('pages.contacto.directorOperaciones')}</div>
-            
-            <div className="c-links">
-              <a href="mailto:luis@expomexico.ca" className="c-link-item">
-                <div className="c-link-icon-box"><Mail size={20} /></div>
-                <span>luis@expomexico.ca</span>
-              </a>
-              <a href="tel:+527225514645" className="c-link-item">
-                <div className="c-link-icon-box"><Phone size={20} /></div>
-                <span>+52 722 551 4645</span>
-              </a>
-            </div>
-
-            <a href="https://wa.me/527225514645" className="c-action" target="_blank" rel="noopener noreferrer">
-              <span>{t('wa.chat.startChat')}</span>
-              <ArrowRight size={22} className="c-action-icon" />
-            </a>
-          </Reveal>
-
+                <a href={waNum ? `https://wa.me/${waNum}` : `/${card.slug}`} className="c-action" target={waNum ? "_blank" : "_self"} rel="noopener noreferrer">
+                  <span>{t('wa.chat.startChat')}</span>
+                  <ArrowRight size={22} className="c-action-icon" />
+                </a>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 
@@ -194,39 +219,13 @@ export default function ContactoPage() {
             <div className="hq-icon"><MapPin size={32} /></div>
             <h2 className="hq-title">{t('pages.contacto.sedeTitle')}</h2>
             <p className="hq-desc">
-              <strong>{t('pages.contacto.sedeDesc')}</strong><br/>
+              <strong>{t('pages.contacto.sedeDesc')}</strong><br />
               {t('pages.contacto.sedeDesc2')}
             </p>
             <a href="https://www.mtccc.com/" className="hq-btn" target="_blank" rel="noopener noreferrer">
               <span>{t('pages.contacto.visitarSede')}</span>
               <Globe size={20} />
             </a>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* Formulario Jotform */}
-      <section style={{ padding: '80px 24px 120px', background: '#FAF8F5' }}>
-        <Reveal>
-          <div style={{ background: '#fff', padding: '60px 40px', borderRadius: '32px', boxShadow: '0 20px 50px rgba(0,25,76,0.04)', maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
-            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '16px' }}>
-              {t('pages.contacto.formularioTitle')}
-            </h2>
-            <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px' }}>
-              {t('pages.contacto.formularioDesc')}
-            </p>
-            
-            <div style={{ width: '100%', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(0,0,0,0.05)', background: '#FAF8F5' }}>
-              <iframe
-                id="JotFormIFrame-Contacto"
-                title="Formulario de Contacto"
-                src="https://form.jotform.com/241686259021053"
-                frameBorder="0"
-                style={{ width: '100%', height: '700px', border: 'none' }}
-                scrolling="yes"
-                allowFullScreen={true}
-              />
-            </div>
           </div>
         </Reveal>
       </section>

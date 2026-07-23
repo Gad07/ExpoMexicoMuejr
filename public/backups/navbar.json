@@ -15,7 +15,8 @@
           "en": "What is EMM?",
           "fr": "Qu'est-ce que EMM?"
         },
-        "href": "/expo/que-es"
+        "href": "/expo/que-es",
+        "jotformUrl": "https://form.jotform.com/262005558722051"
       },
       {
         "id": "1-2",
@@ -71,7 +72,8 @@
           "en": "Exhibitors",
           "fr": "Exposantes"
         },
-        "href": "/expositores"
+        "href": "/expositores",
+        "jotformUrl": "https://form.jotform.com/262005558722051"
       },
       {
         "id": "2-2",
@@ -276,24 +278,6 @@
           "fr": "Contact"
         },
         "href": "/contacto"
-      },
-      {
-        "id": "nav-item-17846613002717jez",
-        "label": {
-          "es": "Aviso de Privacidad",
-          "en": "Aviso de Privacidad",
-          "fr": "Aviso de Privacidad"
-        },
-        "href": "/privacidad"
-      },
-      {
-        "id": "nav-item-1784661300271oef1",
-        "label": {
-          "es": "Términos y Condiciones",
-          "en": "Términos y Condiciones",
-          "fr": "Términos y Condiciones"
-        },
-        "href": "/terminos"
       }
     ]
   }

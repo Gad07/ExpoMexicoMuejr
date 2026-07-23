@@ -4,6 +4,8 @@ import { NextResponse } from 'next/server';
 import { readJSONAsync, writeJSONAsync } from '@/lib/db';
 import { checkAuth } from '@/lib/auth';
 
+import { cleanDropboxUrlsInObject } from '@/lib/dropbox';
+
 const DB_FILE = 'embajadoras.json';
 
 interface LocalizedString {
@@ -21,8 +23,6 @@ interface Ambassador {
   description: LocalizedString;
   booth: string;
 }
-
-
 
 function slugify(text: string): string {
   return text
@@ -48,7 +48,8 @@ function getNextId(ambassadors: Ambassador[]): string {
 export async function GET(request: Request) {
   try {
     const ambassadors = await readJSONAsync<Ambassador>(DB_FILE);
-    return NextResponse.json({ ambassadors });
+    const cleaned = cleanDropboxUrlsInObject(ambassadors);
+    return NextResponse.json({ ambassadors: cleaned });
   } catch {
     return NextResponse.json({ error: 'Error al leer embajadoras' }, { status: 500 });
   }
@@ -61,7 +62,8 @@ export async function POST(request: Request) {
   }
 
   try {
-    const body = await request.json();
+    const rawBody = await request.json();
+    const body = cleanDropboxUrlsInObject(rawBody);
     const ambassadors = await readJSONAsync<Ambassador>(DB_FILE);
 
     const name = (body.name || '').trim();
@@ -114,7 +116,8 @@ export async function PUT(request: Request) {
   }
 
   try {
-    const body = await request.json();
+    const rawBody = await request.json();
+    const body = cleanDropboxUrlsInObject(rawBody);
     const { id, ...updates } = body;
 
     if (!id) {

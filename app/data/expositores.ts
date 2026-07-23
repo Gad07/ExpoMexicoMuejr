@@ -257,88 +257,88 @@ export const mockExhibitors = exhibitorsData as any as Exhibitor[];
 export const businessCategories = [
   {
     name: 'Gastronomia',
-    img: '/Galeria/Gastronomia/IMG_6008.JPG',
+    img: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop',
     size: 'wide',
-    desc: 'Productos alimenticios de alta calidad y valor agregado.',
-    carousel: ['/Galeria/Gastronomia/IMG_5940.JPG', '/Galeria/Gastronomia/IMG_5981.JPG', '/Galeria/Gastronomia/IMG_6008.JPG']
+    desc: 'Productos alimenticios de alta calidad y valor agregado gourmet.',
+    carousel: ['https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop', 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=1200&auto=format&fit=crop', '/Galeria/Gastronomia/IMG_6008.JPG']
   },
   {
     name: 'Tecnología',
-    img: '/Galeria/Otros/IMG_4805.JPG',
+    img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1200&auto=format&fit=crop',
     size: 'tall',
-    desc: 'Innovación digital, software y soluciones tecnológicas.',
-    carousel: ['/Galeria/Otros/IMG_4805.JPG', '/Galeria/Ponencias/IMG_5169.JPG', '/Galeria/Ponencias/IMG_4931.JPG']
+    desc: 'Innovación digital, desarrollo de software y transformación tecnológica.',
+    carousel: ['https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1200&auto=format&fit=crop', 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop', 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop']
   },
   {
     name: 'Educación',
-    img: '/Galeria/Ponencias/IMG_6323.JPG',
+    img: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1200&auto=format&fit=crop',
     size: 'large',
-    desc: 'Plataformas educativas, capacitación y formación profesional.',
-    carousel: ['/Galeria/Ponencias/IMG_6323.JPG', '/Galeria/Ponencias/IMG_6117.JPG', '/Galeria/Ponencias/IMG_5999.JPG']
+    desc: 'Plataformas educativas, capacitación ejecutiva y programas de formación.',
+    carousel: ['https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1200&auto=format&fit=crop', 'https://images.unsplash.com/photo-1531545514256-b1400bc00f31?q=80&w=1200&auto=format&fit=crop', '/Galeria/Ponencias/IMG_6323.JPG']
   },
   {
     name: 'Energía',
-    img: '/Galeria/Ponencias/IMG_5999.JPG',
+    img: 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=1200&auto=format&fit=crop',
     size: 'tall',
-    desc: 'Energías renovables y soluciones sustentables.',
-    carousel: ['/Galeria/Ponencias/IMG_5999.JPG', '/Galeria/Otros/IMG_4805.JPG', '/Galeria/Ponencias/IMG_4931.JPG']
+    desc: 'Energías limpias, paneles solares y soluciones sustentables.',
+    carousel: ['https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=1200&auto=format&fit=crop', 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1200&auto=format&fit=crop', 'https://images.unsplash.com/photo-1509391365360-2e959784a276?q=80&w=1200&auto=format&fit=crop']
   },
   {
     name: 'Transporte y Logística',
-    img: '/Galeria/Turismo/IMG_5990.JPG',
+    img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop',
     size: 'wide',
-    desc: 'Servicios de transporte, distribución y cadena de suministro.',
-    carousel: ['/Galeria/Turismo/IMG_5990.JPG', '/Galeria/Turismo/IMG_6140.JPG', '/Galeria/Turismo/IMG_5986.JPG']
-  },
-  {
-    name: 'Turismo',
-    img: '/Galeria/Turismo/IMG_6140.JPG',
-    size: 'large',
-    desc: 'Destinos, hospitalidad y experiencias turísticas únicas.',
-    carousel: ['/Galeria/Turismo/IMG_6140.JPG', '/Galeria/Turismo/IMG_5986.JPG', '/Galeria/Turismo/IMG_5990.JPG']
-  },
-  {
-    name: 'Restaurantes',
-    img: '/Galeria/Gastronomia/IMG_5924.JPG',
-    size: 'tall',
-    desc: 'Gastronomía, cocina mexicana y experiencias culinarias.',
-    carousel: ['/Galeria/Gastronomia/IMG_5924.JPG', '/Galeria/Gastronomia/IMG_5940.JPG', '/Galeria/Gastronomia/IMG_6008.JPG']
+    desc: 'Servicios de transporte internacional, aduanas y cadena de suministro.',
+    carousel: ['https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop', 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1200&auto=format&fit=crop', '/Galeria/Turismo/IMG_5990.JPG']
   },
   {
     name: 'Textiles',
-    img: '/Galeria/Moda_y_textiles/IMG_5423.JPG',
+    img: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop',
+    size: 'large',
+    desc: 'Moda, confección industrial y diseño textil con identidad mexicana.',
+    carousel: ['https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop', '/Galeria/Moda_y_textiles/IMG_6036.JPG', '/Galeria/Moda_y_textiles/IMG_6032.JPG']
+  },
+  {
+    name: 'Turismo',
+    img: 'https://images.unsplash.com/photo-1512813195386-6cf811ad3542?q=80&w=1200&auto=format&fit=crop',
+    size: 'tall',
+    desc: 'Promoción de destinos, experiencias culturales y hospitalidad binacional.',
+    carousel: ['https://images.unsplash.com/photo-1512813195386-6cf811ad3542?q=80&w=1200&auto=format&fit=crop', '/Galeria/Turismo/IMG_6140.JPG', '/Galeria/Turismo/IMG_5986.JPG']
+  },
+  {
+    name: 'Restaurantes',
+    img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop',
     size: 'wide',
-    desc: 'Moda, confección y diseño textil con identidad mexicana.',
-    carousel: ['/Galeria/Moda_y_textiles/IMG_6036.JPG', '/Galeria/Moda_y_textiles/IMG_6032.JPG', '/Galeria/Moda_y_textiles/IMG_6023.JPG']
+    desc: 'Cocina auténtica mexicana, alta gastronomía y experiencias culinarias.',
+    carousel: ['https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop', '/Galeria/Gastronomia/IMG_5924.JPG', 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop']
   },
   {
     name: 'Arte y Cultura',
-    img: '/Galeria/Arte_y_Cultura/IMG_6072.JPG',
+    img: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1200&auto=format&fit=crop',
     size: 'large',
-    desc: 'Expresiones artísticas, música, cine y patrimonio cultural.',
-    carousel: ['/Galeria/Arte_y_Cultura/IMG_5885.JPG', '/Galeria/Arte_y_Cultura/IMG_5967.JPG', '/Galeria/Arte_y_Cultura/IMG_6244.JPG']
+    desc: 'Expresiones artísticas de autor, pintura y patrimonio cultural vivo.',
+    carousel: ['https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1200&auto=format&fit=crop', '/Galeria/Arte_y_Cultura/IMG_5885.JPG', '/Galeria/Arte_y_Cultura/IMG_5967.JPG']
   },
   {
     name: 'Bienes Raíces',
-    img: '/Galeria/Ponencias/IMG_4931.JPG',
+    img: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop',
     size: 'tall',
-    desc: 'Desarrollos inmobiliarios, inversión y gestión de propiedades.',
-    carousel: ['/Galeria/Ponencias/IMG_4931.JPG', '/Galeria/Ponencias/IMG_5169.JPG', '/Galeria/Turismo/IMG_6140.JPG']
+    desc: 'Desarrollos inmobiliarios, gestión de propiedades e inversión.',
+    carousel: ['https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop', 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop', 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop']
   },
   {
     name: 'Salud y Belleza',
-    img: '/Galeria/Arte_y_Cultura/IMG_5945.JPG',
+    img: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1200&auto=format&fit=crop',
     size: 'wide',
-    desc: 'Bienestar, cosméticos, estética y servicios de salud.',
-    carousel: ['/Galeria/Arte_y_Cultura/IMG_5945.JPG', '/Galeria/Moda_y_textiles/IMG_6031.JPG', '/Galeria/Arte_y_Cultura/IMG_5967.JPG']
+    desc: 'Bienestar integral, cosmética natural y servicios de salud.',
+    carousel: ['https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1200&auto=format&fit=crop', '/Galeria/Arte_y_Cultura/IMG_5945.JPG', 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1200&auto=format&fit=crop']
   },
   {
     name: 'Artesanías',
-    img: '/Galeria/Artesanias/IMG_5397.JPG',
+    img: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=1200&auto=format&fit=crop',
     size: 'large',
-    desc: 'Artesanía tradicional y productos hechos a mano con identidad única.',
-    carousel: ['/Galeria/Artesanias/IMG_5931.JPG', '/Galeria/Artesanias/IMG_5928.JPG', '/Galeria/Artesanias/IMG_5932.JPG']
-  },
+    desc: 'Artesanía tradicional y creación de objetos hechos a mano.',
+    carousel: ['https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=1200&auto=format&fit=crop', '/Galeria/Artesanias/IMG_5931.JPG', '/Galeria/Artesanias/IMG_5928.JPG']
+  }
 ];
 
 export const industries = [

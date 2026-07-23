@@ -673,28 +673,6 @@ function EmbajadorasContent() {
             }
           </div>
 
-          {/* Registro Oficial al final (Jotform) */}
-          <Reveal delay={250} style={{ textAlign: 'center', marginTop: '100px' }}>
-            <div style={{ background: '#fff', padding: '60px 40px', borderRadius: '32px', boxShadow: '0 20px 50px rgba(0,25,76,0.04)', maxWidth: '900px', margin: '0 auto' }}>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '16px' }}>{t('pages.embajadoras.registroEmbajadoras')}</h3>
-              <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px' }}>
-                {t('pages.embajadoras.registroEmbajadorasDesc')}
-              </p>
-              
-              <div style={{ width: '100%', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(0,0,0,0.05)', background: '#FAF8F5' }}>
-                <iframe
-                  id="JotFormIFrame-RegistroEmbajadoras"
-                  title="Registro Oficial de Embajadoras"
-                  src="https://form.jotform.com/241686259021053"
-                  frameBorder="0"
-                  style={{ width: '100%', height: '700px', border: 'none' }}
-                  scrolling="yes"
-                  allowFullScreen={true}
-                />
-              </div>
-            </div>
-          </Reveal>
-
         </div>
       </section>
     </div>

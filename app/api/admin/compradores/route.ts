@@ -4,6 +4,8 @@ import { NextResponse } from 'next/server';
 import { readJSONAsync, writeJSONAsync } from '@/lib/db';
 import { checkAuth } from '@/lib/auth';
 
+import { cleanDropboxUrlsInObject } from '@/lib/dropbox';
+
 const DB_FILE = 'compradores.json';
 
 interface Comprador {
@@ -24,8 +26,6 @@ interface Comprador {
   contact: string;
   gallery: string[];
 }
-
-
 
 function slugify(text: string): string {
   return text
@@ -51,7 +51,8 @@ function getNextId(compradores: Comprador[]): string {
 export async function GET(request: Request) {
   try {
     const compradores = await readJSONAsync<Comprador>(DB_FILE);
-    return NextResponse.json({ compradores });
+    const cleaned = cleanDropboxUrlsInObject(compradores);
+    return NextResponse.json({ compradores: cleaned });
   } catch {
     return NextResponse.json({ error: 'Error al leer compradores' }, { status: 500 });
   }

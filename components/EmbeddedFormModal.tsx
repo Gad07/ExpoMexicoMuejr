@@ -40,7 +40,7 @@ export default function EmbeddedFormModal() {
       const customEvent = e as CustomEvent<ModalDetail>;
       const detail = customEvent.detail || {};
       
-      setRawFormUrl(detail.url || '');
+      setRawFormUrl(detail.url || 'https://form.jotform.com/241686259021053');
       setTitle(detail.title || 'Formulario de Contacto / Registro');
       setLoadingIframe(true);
       setSubmitted(false);
@@ -48,7 +48,7 @@ export default function EmbeddedFormModal() {
     };
 
     const handleOpenContact = () => {
-      setRawFormUrl('');
+      setRawFormUrl('https://form.jotform.com/241686259021053');
       setTitle('Inscripción y Contacto');
       setSubmitted(false);
       setIsOpen(true);

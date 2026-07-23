@@ -3,6 +3,7 @@ export const dynamic = 'force-dynamic';
 import { NextResponse } from 'next/server';
 import { readJSONAsync, writeJSONAsync, getSupabase } from '@/lib/db';
 import { checkAuth } from '@/lib/auth';
+import { cleanDropboxUrlsInObject } from '@/lib/dropbox';
 
 const DB_FILE = 'popup.json';
 
@@ -63,7 +64,7 @@ export async function GET() {
       const { data, error } = await supabase.from('page_modules').select('*').eq('id', 'popup-main').single();
       if (!error && data) {
         const config = typeof data.items_json === 'string' ? JSON.parse(data.items_json) : data.items_json;
-        return NextResponse.json({ popup: { ...DEFAULT_POPUP, ...config } }, { headers: cacheHeaders });
+        return NextResponse.json({ popup: cleanDropboxUrlsInObject({ ...DEFAULT_POPUP, ...config }) }, { headers: cacheHeaders });
       }
     }
 

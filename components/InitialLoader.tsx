@@ -37,12 +37,10 @@ export default function InitialLoader() {
     const isMobile = typeof navigator !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
     // Force play video explicitly on mount
-    const timer = setTimeout(() => {
-      if (videoRef.current) {
-        videoRef.current.muted = true;
-        videoRef.current.play().catch(() => {});
-      }
-    }, 100);
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {});
+    }
 
     // Fallback timer: 2.2s on mobile, 6s on desktop so mobile users NEVER get stuck
     fallbackRef.current = setTimeout(() => {
@@ -76,7 +74,7 @@ export default function InitialLoader() {
     }, 600);
   };
 
-  if (!mounted || !show) return null;
+  if (!show) return null;
 
   return (
     <div

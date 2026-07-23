@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Target, Globe, Award, ArrowLeft, Mail, Phone, Calendar, CheckCircle, ArrowRight } from 'lucide-react';
 import { Mariposa } from '@/components/BrandAssets';
 import { useLanguage } from '@/context/LanguageContext';
+import OptImage from '@/components/OptImage';
 
 function Reveal({
   children, className = '', delay = 0, style = {},
@@ -57,7 +58,46 @@ const mockDirectors = [
 ];
 
 export default function QueEsPage() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const [mounted, setMounted] = useState(false);
+  const [cards, setCards] = useState<any[]>([]);
+
+  useEffect(() => {
+    setMounted(true);
+    fetch('/api/admin/business-cards')
+      .then(res => res.json())
+      .then(data => {
+        if (data.cards && Array.isArray(data.cards) && data.cards.length > 0) {
+          setCards(data.cards);
+        }
+      })
+      .catch(err => console.error('Error fetching business cards:', err));
+  }, []);
+
+  const FALLBACK_CARDS = [
+    {
+      id: "1",
+      slug: "francisco-solorio",
+      nombre: "Francisco Solorio",
+      cargo: { es: "Director General" },
+      email: "francisco@expomexico.ca",
+      telefono: "+52 55 2719 9694",
+      whatsapp: "525527199694",
+      foto: "https://dl.dropboxusercontent.com/scl/fo/rz6jn3fv9jihppxtf4kfa/AC_6E-DB3TM7pKHqXtbX7C4/BRAND%20KIT/FOTO%20PERFIL/BRAND%20KIT%20EMM%202027_Mesa%20de%20trabajo%201.jpg?rlkey=5dsdca8p0wqpzmkbg3am9qtnt&st=h6srbm92&raw=1"
+    },
+    {
+      id: "2",
+      slug: "luis-garcia",
+      nombre: "Luis García",
+      cargo: { es: "Director de Operaciones" },
+      email: "luis@expomexico.ca",
+      telefono: "+52 722 551 4645",
+      whatsapp: "527225514645",
+      foto: "https://dl.dropboxusercontent.com/scl/fo/rz6jn3fv9jihppxtf4kfa/AKTI6khpuneoHnce3Y1nHLA/BRAND%20KIT/FOTO%20PERFIL/BRAND%20KIT%20EMM%202027_Mesa%20de%20trabajo%201%20copia.jpg?rlkey=5dsdca8p0wqpzmkbg3am9qtnt&st=bq8uwbsi&raw=1"
+    }
+  ];
+
+  const displayCards = cards.length > 0 ? cards : FALLBACK_CARDS;
   return (
     <div style={{ background: 'var(--cream)', color: 'var(--navy)', minHeight: '100vh', paddingBottom: '120px' }}>
       
@@ -180,7 +220,7 @@ export default function QueEsPage() {
               transform: scaleX(0); transform-origin: left; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             }
             .c-card:hover::after { transform: scaleX(1); }
-            .c-avatar-box { width: 120px; height: 120px; border-radius: 24px; background: #FAF8F5; display: flex; align-items: center; justify-content: center; margin-bottom: 32px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+            .c-avatar-box { width: 120px; height: 120px; border-radius: 24px; background: #FAF8F5; position: relative; overflow: hidden; margin-bottom: 32px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
             .c-avatar-box img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
             .c-name { font-family: var(--font-display); font-size: 2.5rem; color: var(--blue); margin-bottom: 8px; font-weight: 400; line-height: 1.1; }
             .c-role { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--magenta); margin-bottom: 40px; font-weight: 600; }
@@ -195,56 +235,42 @@ export default function QueEsPage() {
             .c-action:hover .c-action-icon { transform: translateX(6px); }
           `}</style>
 
-          <div className="c-grid">
-            {/* Francisco Solorio */}
-            <div className="c-card">
-              <div className="c-avatar-box">
-                <img src="/fotos perfil/Foto Francisco.jpg" alt="" loading="lazy" width="120" height="120" />
-              </div>
-              <h2 className="c-name">Francisco Solorio</h2>
-              <div className="c-role">Director General</div>
+          <div className="c-grid" suppressHydrationWarning>
+            {displayCards.map((card, idx) => {
+              const roleStr = typeof card.cargo === 'object' && card.cargo !== null
+                ? (card.cargo[lang] || card.cargo.es || '')
+                : (card.cargo || '');
+              const waNum = (card.whatsapp || card.telefono || '').replace(/\D/g, '');
+              return (
+                <Reveal key={card.id || card.slug || idx} delay={(idx + 1) * 100} className="c-card" suppressHydrationWarning>
+                  <div className="c-avatar-box" suppressHydrationWarning>
+                    <OptImage src={card.foto} alt={card.nombre} fill style={{ objectFit: 'cover' }} sizes="120px" />
+                  </div>
+                  <h2 className="c-name">{card.nombre}</h2>
+                  <div className="c-role">{roleStr || t('pages.contacto.directorGeneral')}</div>
 
-              <div className="c-links">
-                <a href="mailto:francisco@expomexico.ca" className="c-link-item">
-                  <div className="c-link-icon-box"><Mail size={20} /></div>
-                  <span>francisco@expomexico.ca</span>
-                </a>
-                <a href="tel:+525527199694" className="c-link-item">
-                  <div className="c-link-icon-box"><Phone size={20} /></div>
-                  <span>+52 55 2719 9694</span>
-                </a>
-              </div>
+                  <div className="c-links">
+                    {card.email && (
+                      <a href={`mailto:${card.email}`} className="c-link-item">
+                        <div className="c-link-icon-box"><Mail size={20} /></div>
+                        <span>{card.email}</span>
+                      </a>
+                    )}
+                    {card.telefono && (
+                      <a href={`tel:${card.telefono}`} className="c-link-item">
+                        <div className="c-link-icon-box"><Phone size={20} /></div>
+                        <span>{card.telefono}</span>
+                      </a>
+                    )}
+                  </div>
 
-              <a href="https://wa.me/525527199694" className="c-action" target="_blank" rel="noopener noreferrer">
-                <span>{t('pages.expo.queEs.equipo.startChat')}</span>
-                <ArrowRight size={22} className="c-action-icon" />
-              </a>
-            </div>
-
-            {/* Luis García */}
-            <div className="c-card">
-              <div className="c-avatar-box">
-                <img src="/fotos perfil/Foto Luis.jpg" alt="" loading="lazy" width="120" height="120" />
-              </div>
-              <h2 className="c-name">Luis García</h2>
-              <div className="c-role">Director de Operaciones</div>
-
-              <div className="c-links">
-                <a href="mailto:luis@expomexico.ca" className="c-link-item">
-                  <div className="c-link-icon-box"><Mail size={20} /></div>
-                  <span>luis@expomexico.ca</span>
-                </a>
-                <a href="tel:+527225514645" className="c-link-item">
-                  <div className="c-link-icon-box"><Phone size={20} /></div>
-                  <span>+52 722 551 4645</span>
-                </a>
-              </div>
-
-              <a href="https://wa.me/527225514645" className="c-action" target="_blank" rel="noopener noreferrer">
-                <span>{t('pages.expo.queEs.equipo.startChat')}</span>
-                <ArrowRight size={22} className="c-action-icon" />
-              </a>
-            </div>
+                  <a href={waNum ? `https://wa.me/${waNum}` : `/${card.slug}`} className="c-action" target={waNum ? "_blank" : "_self"} rel="noopener noreferrer">
+                    <span>{t('pages.expo.queEs.equipo.startChat')}</span>
+                    <ArrowRight size={22} className="c-action-icon" />
+                  </a>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
 

@@ -203,32 +203,6 @@ export default function ContactoPage() {
           </div>
         </Reveal>
       </section>
-
-      {/* Formulario Jotform */}
-      <section style={{ padding: '80px 24px 120px', background: '#FAF8F5' }}>
-        <Reveal>
-          <div style={{ background: '#fff', padding: '60px 40px', borderRadius: '32px', boxShadow: '0 20px 50px rgba(0,25,76,0.04)', maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
-            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '16px' }}>
-              Formulario de Contacto
-            </h2>
-            <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px' }}>
-              Completa el siguiente formulario oficial de registro para enviarnos tus dudas, propuestas o comentarios.
-            </p>
-            
-            <div style={{ width: '100%', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(0,0,0,0.05)', background: '#FAF8F5' }}>
-              <iframe
-                id="JotFormIFrame-Contacto"
-                title="Formulario de Contacto"
-                src="https://form.jotform.com/241686259021053"
-                frameBorder="0"
-                style={{ width: '100%', height: '700px', border: 'none' }}
-                scrolling="yes"
-                allowFullScreen={true}
-              />
-            </div>
-          </div>
-        </Reveal>
-      </section>
     </main>
   );
 }

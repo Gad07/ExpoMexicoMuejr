@@ -33,7 +33,7 @@ export default function WhatsAppChat() {
     return () => clearTimeout(timer);
   }, [isOpen, step]);
 
-  const whatsappNumber = "1234567890";
+  const whatsappNumber = "527225514645";
 
   const getRouteKey = () => {
     if (pathname.startsWith('/expositores')) return 'expositores';

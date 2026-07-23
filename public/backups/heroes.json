@@ -10,11 +10,21 @@
       "es": "Información Oficial"
     },
     "desc": {
-      "es": ""
+      "es": "esto es una prueba "
     },
-    "image": "https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&q=80&w=800",
-    "imagePosition": "center",
-    "overlayVariant": "default"
+    "image": "https://static-uat.cambiocolombia.com/s3fs-public/2022-11/visas-americana.jpg",
+    "imagePosition": "bottom",
+    "overlayVariant": "default",
+    "cta1": {
+      "action": "popup",
+      "text": {
+        "es": "prueba"
+      },
+      "href": "https://form.jotform.com/262005558722051"
+    },
+    "cta2": {
+      "action": "popup"
+    }
   },
   "/contacto": {
     "eyebrow": {
@@ -63,7 +73,7 @@
     "desc": {
       "es": ""
     },
-    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
+    "image": "https://dl.dropboxusercontent.com/scl/fi/svhu0retbxpiub5mdziev/IMG_5682.webp?rlkey=4l24tlguhwum4a5a4d2ne4s55&st=4a7gcsme&raw=1",
     "imagePosition": "center",
     "overlayVariant": "default"
   },
@@ -200,6 +210,81 @@
       "es": ""
     },
     "image": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800",
+    "imagePosition": "center",
+    "overlayVariant": "default"
+  },
+  "/": {
+    "eyebrow": {
+      "es": "EXPO MÉXICO MUJER",
+      "en": "EXPO MEXICO MUJER",
+      "fr": "EXPO MEXIQUE FEMME"
+    },
+    "title": {
+      "es": "Inicio",
+      "en": "",
+      "fr": ""
+    },
+    "titleEm": {
+      "es": "",
+      "en": "",
+      "fr": ""
+    },
+    "desc": {
+      "es": "",
+      "en": "",
+      "fr": ""
+    },
+    "image": "https://dl.dropboxusercontent.com/scl/fi/khgglibg7wh0m8w1dyv93/IMG_5717.JPG?rlkey=fxluxgqsib2rldz5wslhacasy&st=29pcci1y&raw=1",
+    "imagePosition": "center",
+    "overlayVariant": "default"
+  },
+  "/expo/que-es": {
+    "eyebrow": {
+      "es": "EXPO MÉXICO MUJER",
+      "en": "EXPO MEXICO MUJER",
+      "fr": "EXPO MEXIQUE FEMME"
+    },
+    "title": {
+      "es": "México en Toronto",
+      "en": "",
+      "fr": ""
+    },
+    "titleEm": {
+      "es": "Con todo su poder",
+      "en": "",
+      "fr": ""
+    },
+    "desc": {
+      "es": "La plataforma binacional que transforma el liderazgo mexicano en oportunidades concretas de negocio, cultura y desarrollo. Cinco días que conectan a México con Canadá.",
+      "en": "",
+      "fr": ""
+    },
+    "image": "https://dl.dropboxusercontent.com/scl/fi/n5nvkf899stzjgd6xep2w/expo-mexico-portada-3.jpeg?rlkey=kq2qarvt9sd7wpn69xzmi0xiw&st=dqh7jmd1&raw=1",
+    "imagePosition": "center",
+    "overlayVariant": "default"
+  },
+  "/expo/industrias": {
+    "eyebrow": {
+      "es": "EXPO MÉXICO MUJER",
+      "en": "EXPO MEXICO MUJER",
+      "fr": "EXPO MEXIQUE FEMME"
+    },
+    "title": {
+      "es": "Industrias",
+      "en": "",
+      "fr": ""
+    },
+    "titleEm": {
+      "es": "& Sectores",
+      "en": "",
+      "fr": ""
+    },
+    "desc": {
+      "es": "Conoce los sectores clave que impulsan el desarrollo comercial binacional México–Canadá.\n\n",
+      "en": "",
+      "fr": ""
+    },
+    "image": "https://dl.dropboxusercontent.com/scl/fi/phti6khfpxfvd7bpf5apu/IMG_5597.JPG?rlkey=27bw2a372bqcf9bxsnx1r3kdk&st=xl8kqjru&raw=1",
     "imagePosition": "center",
     "overlayVariant": "default"
   }

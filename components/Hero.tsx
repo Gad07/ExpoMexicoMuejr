@@ -40,7 +40,8 @@ export default function Hero({
           fill
           priority
           sizes="100vw"
-          quality={75}
+          quality={95}
+          unoptimized
           style={imagePosition ? { objectPosition: imagePosition } : undefined}
         />
         <div className={`hero-gradient__overlay ${overlayVariant === 'strong' ? 'hero-gradient__overlay--strong' : ''}`}></div>

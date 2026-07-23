@@ -33,7 +33,7 @@ function Reveal({
   };
 
   return (
-    <div ref={ref} className={className} style={{ ...style, ...baseStyle, ...(inView ? inViewStyle : {}) }} onClick={onClick}>
+    <div ref={ref} className={className} style={{ ...style, ...baseStyle, ...(inView ? inViewStyle : {}) }} onClick={onClick} suppressHydrationWarning>
       {children}
     </div>
   );
@@ -46,7 +46,7 @@ function ExpositoresContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const { language, t } = useLanguage();
-  const [exhibitors, setExhibitors] = useState<any[]>([]);
+  const [exhibitors, setExhibitors] = useState<any[]>(mockExhibitors);
 
   useEffect(() => {
     fetch('/api/admin/expositores')
@@ -54,18 +54,18 @@ function ExpositoresContent() {
       .then(data => {
         if (data.exhibitors) setExhibitors(data.exhibitors);
       })
-      .catch(() => {});
+      .catch(() => { });
   }, []);
-  
+
   const activeCategory = searchParams ? searchParams.get('categoria') : null;
   const [searchQuery, setSearchQuery] = useState('');
   const [categorySearchQuery, setCategorySearchQuery] = useState('');
-  
+
   // Modal states for Calendar and Map
   const [showCalendar, setShowCalendar] = useState(false);
   const [showMap, setShowMap] = useState(false);
   const [selectedExhibitor, setSelectedExhibitor] = useState<any | null>(null);
-  
+
   const [appointmentDate, setAppointmentDate] = useState('12');
   const [appointmentTime, setAppointmentTime] = useState('10:00');
   const [appointmentName, setAppointmentName] = useState('');
@@ -76,7 +76,7 @@ function ExpositoresContent() {
   // VISTA 2: Lista de Expositoras por Categoría
   if (activeCategory) {
     const categoryData = businessCategories.find(cat => cat.name === activeCategory);
-    
+
     // Filtrar expositoras
     const filteredExhibitors = exhibitors.filter(ex => {
       if (!ex) return false;
@@ -86,9 +86,9 @@ function ExpositoresContent() {
       const nameVal = String(ex.name || '');
       const personVal = String(ex.personName || '');
       const query = (searchQuery || '').toLowerCase();
-      const matchSearch = nameVal.toLowerCase().includes(query) || 
-                          personVal.toLowerCase().includes(query) ||
-                          descVal.toLowerCase().includes(query);
+      const matchSearch = nameVal.toLowerCase().includes(query) ||
+        personVal.toLowerCase().includes(query) ||
+        descVal.toLowerCase().includes(query);
       return matchCategory && matchSearch;
     });
 
@@ -374,13 +374,13 @@ function ExpositoresContent() {
 
         <section className="exhibitors-container" style={{ padding: '80px 48px', minHeight: '80vh', background: 'var(--cream)', position: 'relative' }}>
           <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto' }}>
-            
+
             {/* Top Bar: Back & Search */}
             <div className="exh-topbar" style={{ justifyContent: 'flex-end' }}>
-              
+
               <div className="exh-search-wrapper">
                 <Search size={20} className="exh-search-icon" />
-                <input 
+                <input
                   type="text"
                   placeholder={t('pages.expositores.buscarMarca')}
                   value={searchQuery}
@@ -403,8 +403,8 @@ function ExpositoresContent() {
               <div className="exh-grid">
                 {filteredExhibitors.map((ex, i) => (
                   <Reveal key={ex.id} delay={i * 50}>
-                    <div style={{ 
-                      background: '#fff', borderRadius: '24px', overflow: 'hidden', 
+                    <div style={{
+                      background: '#fff', borderRadius: '24px', overflow: 'hidden',
                       boxShadow: '0 15px 35px rgba(0,25,76,0.06)', display: 'flex',
                       flexDirection: 'column', height: '100%', position: 'relative'
                     }}>
@@ -418,7 +418,7 @@ function ExpositoresContent() {
                         </div>
 
                         {/* FLOATING LOGO */}
-                        <div style={{ 
+                        <div style={{
                           width: '70px', height: '70px', background: '#fff', borderRadius: '50%', padding: '4px',
                           position: 'absolute', top: '125px', left: '24px', boxShadow: '0 10px 20px rgba(0,0,0,0.1)', zIndex: 10,
                           display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden'
@@ -434,13 +434,13 @@ function ExpositoresContent() {
                         <div style={{ padding: '56px 24px 24px', display: 'flex', flexDirection: 'column' }}>
                           <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontWeight: 800, color: 'var(--navy)', marginBottom: '4px', lineHeight: 1.2 }}>{ex.name || ''}</h3>
                           <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '12px' }}>{ex.personName ? `por ${ex.personName}` : ''}</p>
-                          
+
                           {ex.booth && (
                             <p style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--magenta)', fontWeight: 700, fontSize: '0.75rem', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                               <MapPin size={14} /> {ex.booth}
                             </p>
                           )}
-                          
+
                           <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: '24px' }}>
                             {(() => {
                               const d = ex.description;
@@ -536,7 +536,7 @@ function ExpositoresContent() {
 
                     {/* Fecha chips */}
                     <div className="date-chips">
-                      {[{val:'12', day:'Viernes', num:'12', month:'Jun 2027'}, {val:'13', day:'Sábado', num:'13', month:'Jun 2027'}].map(d => (
+                      {[{ val: '12', day: 'Viernes', num: '12', month: 'Jun 2027' }, { val: '13', day: 'Sábado', num: '13', month: 'Jun 2027' }].map(d => (
                         <div key={d.val} className={`date-chip ${appointmentDate === d.val ? 'active' : ''}`} onClick={() => setAppointmentDate(d.val)}>
                           <span className="date-chip-day">{d.day}</span>
                           <span className="date-chip-num">{d.num}</span>
@@ -548,7 +548,7 @@ function ExpositoresContent() {
                     {/* Horario chips */}
                     <span className="modal-section-label">{t('pages.expositores.horarioDisponible')}</span>
                     <div className="time-chips">
-                      {[{val:'10:00',label:'10:00 AM'},{val:'11:30',label:'11:30 AM'},{val:'14:00',label:'02:00 PM'},{val:'16:00',label:'04:00 PM'}].map(t => (
+                      {[{ val: '10:00', label: '10:00 AM' }, { val: '11:30', label: '11:30 AM' }, { val: '14:00', label: '02:00 PM' }, { val: '16:00', label: '04:00 PM' }].map(t => (
                         <div key={t.val} className={`time-chip ${appointmentTime === t.val ? 'active' : ''}`} onClick={() => setAppointmentTime(t.val)}>
                           {t.label}
                         </div>
@@ -595,7 +595,7 @@ function ExpositoresContent() {
         {showMap && selectedExhibitor && (
           <div className="modal-overlay" onClick={(e) => { if (e.target === e.currentTarget) setShowMap(false); }}>
             <div className="modal-content" style={{ maxWidth: '900px', width: '92%', padding: '0', borderRadius: '24px', overflow: 'hidden', background: '#fff', boxShadow: '0 25px 60px rgba(0,25,76,0.2)' }}>
-              
+
               {/* HEADER */}
               <div style={{ padding: '24px 32px', background: 'var(--navy)', color: '#fff', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
@@ -615,8 +615,8 @@ function ExpositoresContent() {
                     </p>
                   </div>
                 </div>
-                <button 
-                  onClick={() => setShowMap(false)} 
+                <button
+                  onClick={() => setShowMap(false)}
                   style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', border: 'none', color: '#fff', fontSize: '20px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                   aria-label="Cerrar"
                 >
@@ -626,11 +626,11 @@ function ExpositoresContent() {
 
               {/* FLOOR PLAN IMAGE CONTAINER */}
               <div style={{ position: 'relative', width: '100%', height: '480px', background: '#091527', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                
+
                 {/* Floor Plan Image */}
-                <img 
-                  src={selectedExhibitor.mapImage || "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=1600&q=80"} 
-                  alt={`Plano de ubicación ${selectedExhibitor.booth || ''}`} 
+                <img
+                  src={selectedExhibitor.mapImage || "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=1600&q=80"}
+                  alt={`Plano de ubicación ${selectedExhibitor.booth || ''}`}
                   style={{ width: '100%', height: '100%', objectFit: 'contain', filter: 'brightness(0.95)' }}
                 />
 
@@ -641,7 +641,7 @@ function ExpositoresContent() {
                   const posY = isNaN(coords[1]) ? 50 : coords[1];
                   return (
                     <div style={{ position: 'absolute', left: `${posX}%`, top: `${posY}%`, transform: 'translate(-50%, -100%)', zIndex: 10, cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                      
+
                       {/* Stand Badge Tooltip */}
                       <div style={{ background: 'var(--magenta)', color: '#fff', padding: '6px 14px', borderRadius: '100px', fontWeight: 800, fontSize: '0.8rem', fontFamily: 'var(--font-display)', whiteSpace: 'nowrap', boxShadow: '0 8px 20px rgba(228,0,124,0.4)', marginBottom: '6px', letterSpacing: '0.05em' }}>
                         📍 {selectedExhibitor.booth || 'Stand Asignado'}
@@ -660,17 +660,18 @@ function ExpositoresContent() {
 
                 {/* Floating Action Link */}
                 <div style={{ position: 'absolute', bottom: '16px', right: '16px', zIndex: 20 }}>
-                  <a 
-                    href={selectedExhibitor.mapImage || "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=1600&q=80"} 
-                    target="_blank" 
-                    rel="noreferrer" 
+                  <a
+                    href={selectedExhibitor.mapImage || "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=1600&q=80"}
+                    target="_blank"
+                    rel="noreferrer"
                     style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(10px)', color: 'var(--navy)', padding: '8px 16px', borderRadius: '100px', fontSize: '0.75rem', fontWeight: 700, textDecoration: 'none', boxShadow: '0 4px 15px rgba(0,0,0,0.12)', display: 'flex', alignItems: 'center', gap: '6px' }}
                   >
                     <ExternalLink size={14} /> Abrir Imagen del Plano
                   </a>
                 </div>
 
-                <style dangerouslySetInnerHTML={{__html: `
+                <style dangerouslySetInnerHTML={{
+                  __html: `
                   @keyframes pulseRadar {
                     0% { transform: scale(0.8); opacity: 0.8; }
                     100% { transform: scale(2.2); opacity: 0; }
@@ -683,8 +684,8 @@ function ExpositoresContent() {
                 <span style={{ fontSize: '0.82rem', color: '#555', fontWeight: 500 }}>
                   Ubicación oficial de <strong>{selectedExhibitor.name}</strong> {selectedExhibitor.personName ? `(${selectedExhibitor.personName})` : ''}
                 </span>
-                <button 
-                  onClick={() => setShowMap(false)} 
+                <button
+                  onClick={() => setShowMap(false)}
                   style={{ padding: '8px 22px', background: 'var(--navy)', color: '#fff', border: 'none', borderRadius: '100px', fontSize: '0.8rem', fontWeight: 700, cursor: 'pointer' }}
                 >
                   Cerrar
@@ -784,7 +785,7 @@ function ExpositoresContent() {
 
       <section style={{ padding: '100px 48px', background: 'var(--cream)', minHeight: '90vh' }}>
         <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto' }}>
-          
+
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: '40px', maxWidth: '800px', margin: '0 auto 40px' }}>
               <h2 className="section__title section__title--center" style={{ marginTop: '16px' }}>
@@ -839,7 +840,7 @@ function ExpositoresContent() {
             </Reveal>
 
             <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-              
+
               {/* Tarjeta del Costo Base (Horizontal) */}
               <Reveal delay={100}>
                 <div style={{
@@ -850,11 +851,11 @@ function ExpositoresContent() {
                   {/* Columna Izquierda: Información */}
                   <div style={{ flex: '1 1 350px' }}>
                     <div style={{ color: 'var(--navy)', fontSize: '2.5rem', fontFamily: 'var(--font-display)', fontWeight: 900, marginBottom: '8px' }}>{t('pages.expositores.standCardTitle')}</div>
-                    
+
                     <p style={{ fontSize: '1rem', color: 'var(--text-muted)', margin: '16px 0 24px', lineHeight: 1.6 }}>
                       {t('pages.expositores.standCardDesc')}
                     </p>
-                    
+
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                       <li style={{ display: 'flex', marginBottom: '12px', fontSize: '0.95rem', color: 'var(--text)' }}>
                         <span style={{ color: 'var(--magenta)', marginRight: '12px', fontWeight: 'bold' }}>✓</span> {t('pages.expositores.standCardItem1')}
@@ -869,22 +870,22 @@ function ExpositoresContent() {
                   </div>
 
                   {/* Columna Derecha: Precio y CTA */}
-                  <div style={{ 
-                    flex: '0 0 auto', minWidth: '280px', display: 'flex', flexDirection: 'column', 
-                    alignItems: 'center', textAlign: 'center', padding: '32px', 
-                    background: 'rgba(0,46,81,0.03)', borderRadius: '16px' 
+                  <div style={{
+                    flex: '0 0 auto', minWidth: '280px', display: 'flex', flexDirection: 'column',
+                    alignItems: 'center', textAlign: 'center', padding: '32px',
+                    background: 'rgba(0,46,81,0.03)', borderRadius: '16px'
                   }}>
                     <div style={{ fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-muted)', marginBottom: '12px' }}>{t('pages.expositores.precioRegular')}</div>
                     <div style={{ color: 'var(--navy)', fontSize: '3.5rem', fontFamily: 'var(--font-display)', fontWeight: 900, lineHeight: 1, marginBottom: '32px' }}>$2,000 <span style={{ fontSize: '1.2rem', color: 'var(--text-muted)' }}>CAD</span></div>
-                    
-                    <a href="mailto:francisco@expomexico.ca" style={{ 
-                      background: 'var(--navy)', color: '#fff', padding: '16px 32px', textAlign: 'center', 
+
+                    <a href="mailto:francisco@expomexico.ca" style={{
+                      background: 'var(--navy)', color: '#fff', padding: '16px 32px', textAlign: 'center',
                       borderRadius: '12px', textDecoration: 'none', fontFamily: 'var(--font-display)', fontWeight: 800,
                       textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.9rem', transition: 'transform 0.2s, box-shadow 0.2s',
                       boxShadow: '0 10px 20px rgba(0,46,81,0.2)', width: '100%'
                     }}
-                    onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 15px 25px rgba(0,46,81,0.3)'; }}
-                    onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 20px rgba(0,46,81,0.2)'; }}
+                      onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 15px 25px rgba(0,46,81,0.3)'; }}
+                      onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 20px rgba(0,46,81,0.2)'; }}
                     >
                       {t('pages.expositores.reservar50')}
                     </a>
@@ -960,7 +961,7 @@ function ExpositoresContent() {
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '64px' }}>
             <div style={{ position: 'relative', width: '100%', maxWidth: '400px' }}>
               <Search size={20} style={{ position: 'absolute', left: '20px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
-              <input 
+              <input
                 type="text"
                 placeholder={t('pages.expositores.buscarCategoria')}
                 value={categorySearchQuery}
@@ -976,9 +977,9 @@ function ExpositoresContent() {
           {/* Grid de los Estados */}
           <div className="state-grid" style={{ marginBottom: '80px' }}>
             {businessCategories.filter(c => c.name.toLowerCase().includes(categorySearchQuery.toLowerCase())).map((cat, i) => (
-              <Reveal 
-                key={cat.name} 
-                delay={i * 100} 
+              <Reveal
+                key={cat.name}
+                delay={i * 100}
                 className="state-card"
                 onClick={() => {
                   router.push(`/expositores?categoria=${encodeURIComponent(cat.name)}`);
@@ -996,28 +997,6 @@ function ExpositoresContent() {
               </Reveal>
             ))}
           </div>
-
-          {/* 4. Registro Oficial al final */}
-          <Reveal delay={250} style={{ textAlign: 'center', marginTop: '80px' }}>
-            <div style={{ background: '#fff', padding: '60px 40px', borderRadius: '32px', boxShadow: '0 20px 50px rgba(0,25,76,0.04)', maxWidth: '900px', margin: '0 auto' }}>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '16px' }}>{t('pages.expositores.registroOficial')}</h3>
-              <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px' }}>
-                {t('pages.expositores.registroDesc')}
-              </p>
-              
-              <div style={{ width: '100%', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(0,0,0,0.05)', background: '#FAF8F5' }}>
-                <iframe
-                  id="JotFormIFrame-RegistroExpositores"
-                  title="Registro Oficial de Expositoras"
-                  src="https://form.jotform.com/241686259021053"
-                  frameBorder="0"
-                  style={{ width: '100%', height: '700px', border: 'none' }}
-                  scrolling="yes"
-                  allowFullScreen={true}
-                />
-              </div>
-            </div>
-          </Reveal>
 
         </div>
       </section>

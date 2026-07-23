@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useState, useEffect, forwardRef, useImperativeHandle, VideoHTMLAttributes } from 'react';
+import OptImage from './OptImage';
 
 interface LazyVideoProps extends VideoHTMLAttributes<HTMLVideoElement> {
   thumbTime?: number;
@@ -12,13 +13,14 @@ const LazyVideo = forwardRef<HTMLVideoElement, LazyVideoProps>(function LazyVide
 ) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const [shouldLoad, setShouldLoad] = useState(false);
+  const [shouldLoad, setShouldLoad] = useState(() => !!rest.autoPlay || rest.preload === 'auto');
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   useImperativeHandle(ref, () => videoRef.current!);
 
   useEffect(() => {
     const el = wrapperRef.current;
-    if (!el) return;
+    if (!el || shouldLoad) return;
 
     const obs = new IntersectionObserver(
       ([entry]) => {
@@ -27,15 +29,29 @@ const LazyVideo = forwardRef<HTMLVideoElement, LazyVideoProps>(function LazyVide
           obs.unobserve(el);
         }
       },
-      { rootMargin: '400px' }
+      { rootMargin: '600px' }
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, []);
+  }, [shouldLoad]);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !shouldLoad) return;
+
+    try {
+      video.load();
+    } catch {}
+
+    const handlePlaying = () => setIsVideoPlaying(true);
+    const handlePause = () => setIsVideoPlaying(false);
+
+    video.addEventListener('playing', handlePlaying);
+    video.addEventListener('pause', handlePause);
+
+    if (rest.autoPlay) {
+      video.play().catch(() => {});
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -45,32 +61,58 @@ const LazyVideo = forwardRef<HTMLVideoElement, LazyVideoProps>(function LazyVide
           video.pause();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.05 }
     );
     observer.observe(video);
-    return () => observer.disconnect();
+
+    return () => {
+      video.removeEventListener('playing', handlePlaying);
+      video.removeEventListener('pause', handlePause);
+      observer.disconnect();
+    };
   }, [shouldLoad, rest.autoPlay]);
 
   return (
-    <div ref={wrapperRef} style={{ position: 'relative', width: '100%', height: '100%' }}>
-      {shouldLoad ? (
-        <video
-          ref={videoRef}
-          {...rest}
-          preload={rest.preload || 'metadata'}
-        >
-          {children}
-        </video>
-      ) : (
-        rest.poster && (
-          <img
-            src={rest.poster}
-            alt=""
-            loading="lazy"
-            style={{ width: '100%', height: '100%', objectFit: rest.style?.objectFit || 'cover' }}
-          />
-        )
+    <div ref={wrapperRef} style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }} suppressHydrationWarning>
+      {rest.poster && (
+        <OptImage
+          src={rest.poster}
+          alt=""
+          fill
+          priority
+          unoptimized
+          sizes="100vw"
+          quality={95}
+          blur
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: (rest.style?.objectFit as any) || 'cover',
+            zIndex: 0,
+            opacity: isVideoPlaying ? 0 : 1,
+            transition: 'opacity 0.6s ease',
+            pointerEvents: 'none'
+          }}
+        />
       )}
+      <video
+        ref={videoRef}
+        {...rest}
+        preload={rest.preload || 'auto'}
+        suppressHydrationWarning
+        style={{
+          position: 'relative',
+          zIndex: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: (rest.style?.objectFit as any) || 'cover',
+          ...rest.style
+        }}
+      >
+        {shouldLoad ? children : null}
+      </video>
     </div>
   );
 });

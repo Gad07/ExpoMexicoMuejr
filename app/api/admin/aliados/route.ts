@@ -4,6 +4,8 @@ import { NextResponse } from 'next/server';
 import { readJSONAsync, writeJSONAsync } from '@/lib/db';
 import { checkAuth } from '@/lib/auth';
 
+import { cleanDropboxUrlsInObject } from '@/lib/dropbox';
+
 const DB_FILE = 'aliados.json';
 
 interface Ally {
@@ -13,8 +15,6 @@ interface Ally {
   website: string;
   color: string;
 }
-
-
 
 function getNextId(allies: Ally[]): string {
   if (allies.length === 0) return 'ally-1';
@@ -29,7 +29,8 @@ function getNextId(allies: Ally[]): string {
 export async function GET(request: Request) {
   try {
     const allies = await readJSONAsync<Ally>(DB_FILE);
-    return NextResponse.json({ allies });
+    const cleaned = cleanDropboxUrlsInObject(allies);
+    return NextResponse.json({ allies: cleaned });
   } catch {
     return NextResponse.json({ error: 'Error al leer aliados' }, { status: 500 });
   }
@@ -42,7 +43,8 @@ export async function POST(request: Request) {
   }
 
   try {
-    const body = await request.json();
+    const rawBody = await request.json();
+    const body = cleanDropboxUrlsInObject(rawBody);
     const allies = await readJSONAsync<Ally>(DB_FILE);
 
     const newAlly: Ally = {

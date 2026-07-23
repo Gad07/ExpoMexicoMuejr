@@ -4,6 +4,8 @@ import { NextResponse } from 'next/server';
 import { readJSONAsync, writeJSONAsync } from '@/lib/db';
 import { checkAuth } from '@/lib/auth';
 
+import { cleanDropboxUrlsInObject } from '@/lib/dropbox';
+
 const DB_FILE = 'patrocinadores.json';
 
 interface Sponsor {
@@ -20,8 +22,6 @@ interface Sponsor {
   bio: string;
   gallery: string[];
 }
-
-
 
 function slugify(text: string): string {
   return text
@@ -47,7 +47,8 @@ function getNextId(sponsors: Sponsor[]): string {
 export async function GET(request: Request) {
   try {
     const sponsors = await readJSONAsync<Sponsor>(DB_FILE);
-    return NextResponse.json({ sponsors });
+    const cleaned = cleanDropboxUrlsInObject(sponsors);
+    return NextResponse.json({ sponsors: cleaned });
   } catch {
     return NextResponse.json({ error: 'Error al leer patrocinadores' }, { status: 500 });
   }
@@ -60,7 +61,8 @@ export async function POST(request: Request) {
   }
 
   try {
-    const body = await request.json();
+    const rawBody = await request.json();
+    const body = cleanDropboxUrlsInObject(rawBody);
     const sponsors = await readJSONAsync<Sponsor>(DB_FILE);
 
     const newSponsor: Sponsor = {
@@ -94,7 +96,8 @@ export async function PUT(request: Request) {
   }
 
   try {
-    const body = await request.json();
+    const rawBody = await request.json();
+    const body = cleanDropboxUrlsInObject(rawBody);
     const { id, ...updates } = body;
 
     if (!id) {

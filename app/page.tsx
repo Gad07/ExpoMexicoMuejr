@@ -238,13 +238,13 @@ function VideoHero() {
           muted
           loop
           playsInline
-          poster="/home-hero-2.webp"
+          poster="https://img.magnific.com/free-photo/toronto-sunset_649448-3448.jpg?t=st=1784824602~exp=1784828202~hmac=caacba2a3bb3ec3f37380dac39149dc46fbfd38398b0db4ffbcd090574f9f41f&w=1480"
         >
-          <source src="/Galeria/Videos/bg_home.mp4" type="video/mp4" />
+          <source src="https://dl.dropboxusercontent.com/scl/fi/ewubaka0pdkfl1v6uv5es/bg_home.mp4?rlkey=lmbaiftm52qqvud0jd60n3u3b&st=8pkh4qbk&raw=1" type="video/mp4" />
         </LazyVideo>
-        <div className="video-hero__overlay" style={{ background: 'linear-gradient(to bottom, rgba(0,25,76,0.3) 0%, rgba(0,25,76,0.85) 100%)' }} />
+        <div className="video-hero__overlay" style={{ position: 'absolute', inset: 0, zIndex: 2, pointerEvents: 'none', background: 'linear-gradient(to bottom, rgba(0,25,76,0.35) 0%, rgba(0,25,76,0.88) 100%)' }} />
       </div>
-      <div className="video-hero__content">
+      <div className="video-hero__content" style={{ position: 'relative', zIndex: 10 }}>
         <h1 className="video-hero__title">{t('home.hero.title')}</h1>
         <p className="video-hero__sub">{t('home.hero.location')}</p>
         <p className="video-hero__sub" style={{ fontSize: '1.2em', marginTop: '0.5rem', fontWeight: 600, color: '#fff', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>{t('home.hero.dates')}</p>
@@ -387,30 +387,50 @@ function Concept() {
   const { t } = useLanguage();
   const scrollY = useScrollY();
   return (
-    <section className="concept--lux" id="concepto" aria-labelledby="concepto-title">
-      <div className="concept__lux-inner">
+    <section className="concept--lux" id="concepto" aria-labelledby="concepto-title" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Background image on the right fading to left */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        bottom: 0,
+        width: '65%',
+        zIndex: 1,
+        pointerEvents: 'none',
+      }}>
+        <OptImage
+          src="https://dl.dropboxusercontent.com/scl/fi/96yeamiebeuxqq2eikdvv/IMG_5701.JPG?rlkey=m0xg04dosley5o33s9y979q25&st=akwaymb9&raw=1"
+          alt=""
+          fill
+          style={{ objectFit: 'cover', objectPosition: 'center top' }}
+        />
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(to right, var(--cream, #FAF8F4) 0%, rgba(250, 248, 244, 0.85) 30%, rgba(250, 248, 244, 0.2) 65%, transparent 100%)'
+        }} />
+      </div>
 
-        <Reveal delay={100} className="concept__lux-title-wrap">
-          <h2 className="concept__lux-title" id="concepto-title">
-            {t('home.concept.title')}<br />
-            <em>{t('home.concept.titleEm')}</em>
-          </h2>
-        </Reveal>
-
-        <div className="concept__lux-grid">
-          <Reveal delay={200} className="concept__lux-text-block">
-            <p>
-              {t('home.concept.p1')}
-            </p>
+      <div className="concept__lux-inner" style={{ position: 'relative', zIndex: 5 }}>
+        <div style={{ maxWidth: '580px' }}>
+          <Reveal delay={100} className="concept__lux-title-wrap">
+            <h2 className="concept__lux-title" id="concepto-title">
+              {t('home.concept.title')}<br />
+              <em style={{ color: 'var(--magenta)', fontStyle: 'italic' }}>
+                {t('home.concept.titleEm')}
+              </em>
+            </h2>
           </Reveal>
 
-          <Reveal delay={300} className="concept__lux-text-block">
-            <p>
+          <Reveal delay={200} className="concept__lux-text-block">
+            <p style={{ marginBottom: '24px', fontSize: '1.1rem', lineHeight: 1.8, color: 'var(--navy)', fontWeight: 500 }}>
+              {t('home.concept.p1')}
+            </p>
+            <p style={{ fontSize: '1.1rem', lineHeight: 1.8, color: 'var(--navy)', fontWeight: 500 }}>
               {t('home.concept.p2')}
             </p>
           </Reveal>
         </div>
-
       </div>
 
       <DecoMariposa className="concept__lux-watermark" style={{ transform: `translateY(${scrollY * 0.05}px)` }} />
@@ -664,7 +684,7 @@ function Audience() {
               </p>
             </Reveal>
             <div className="audience-list reveal-stagger">
-              {([1,2,3,4] as const).map((n) => (
+              {([1, 2, 3, 4] as const).map((n) => (
                 <Reveal key={n} className="audience-item">
                   <span className="audience-item__dot" aria-hidden="true" />
                   <span className="audience-item__text">{t(`home.audience.item${n}`)}</span>
@@ -704,7 +724,7 @@ function Noticias() {
           setNoticias(data.noticias);
         }
       })
-      .catch(() => {});
+      .catch(() => { });
   }, []);
 
   const featured = noticias.find(n => n.featured) || noticias[0];
@@ -1127,7 +1147,47 @@ function ExpositoresCta() {
    CONTACTO
 ══════════════════════════════════════════════════════════════ */
 function Contacto() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const [mounted, setMounted] = useState(false);
+  const [cards, setCards] = useState<any[]>([]);
+
+  useEffect(() => {
+    setMounted(true);
+    fetch('/api/admin/business-cards')
+      .then(res => res.json())
+      .then(data => {
+        if (data.cards && Array.isArray(data.cards) && data.cards.length > 0) {
+          setCards(data.cards);
+        }
+      })
+      .catch(err => console.error('Error fetching business cards:', err));
+  }, []);
+
+  const FALLBACK_CARDS = [
+    {
+      id: "1",
+      slug: "francisco-solorio",
+      nombre: "Francisco Solorio",
+      cargo: { es: "Director General" },
+      email: "francisco@expomexico.ca",
+      telefono: "+52 55 2719 9694",
+      whatsapp: "525527199694",
+      foto: "https://dl.dropboxusercontent.com/scl/fo/rz6jn3fv9jihppxtf4kfa/AC_6E-DB3TM7pKHqXtbX7C4/BRAND%20KIT/FOTO%20PERFIL/BRAND%20KIT%20EMM%202027_Mesa%20de%20trabajo%201.jpg?rlkey=5dsdca8p0wqpzmkbg3am9qtnt&st=h6srbm92&raw=1"
+    },
+    {
+      id: "2",
+      slug: "luis-garcia",
+      nombre: "Luis García",
+      cargo: { es: "Director de Operaciones" },
+      email: "luis@expomexico.ca",
+      telefono: "+52 722 551 4645",
+      whatsapp: "527225514645",
+      foto: "https://dl.dropboxusercontent.com/scl/fo/rz6jn3fv9jihppxtf4kfa/AKTI6khpuneoHnce3Y1nHLA/BRAND%20KIT/FOTO%20PERFIL/BRAND%20KIT%20EMM%202027_Mesa%20de%20trabajo%201%20copia.jpg?rlkey=5dsdca8p0wqpzmkbg3am9qtnt&st=bq8uwbsi&raw=1"
+    }
+  ];
+
+  const displayCards = cards.length > 0 ? cards : FALLBACK_CARDS;
+
   return (
     <section className="section" id="contacto" aria-labelledby="contacto-title" style={{ background: '#fff', textAlign: 'center', padding: '100px 24px' }}>
       <div className="section__inner">
@@ -1146,7 +1206,7 @@ function Contacto() {
               transform: scaleX(0); transform-origin: left; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             }
             .c-card:hover::after { transform: scaleX(1); }
-            .c-avatar-box { width: 120px; height: 120px; border-radius: 24px; background: #FAF8F5; display: flex; align-items: center; justify-content: center; margin-bottom: 32px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+            .c-avatar-box { width: 120px; height: 120px; border-radius: 24px; background: #FAF8F5; position: relative; overflow: hidden; margin-bottom: 32px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
             .c-avatar-box img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
             .c-name { font-family: var(--font-display); font-size: 2.5rem; color: var(--blue); margin-bottom: 8px; font-weight: 400; line-height: 1.1; }
             .c-role { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--magenta); margin-bottom: 40px; font-weight: 600; }
@@ -1162,55 +1222,41 @@ function Contacto() {
           `}</style>
 
           <div className="c-grid">
-            {/* Francisco Solorio */}
-            <div className="c-card">
-              <div className="c-avatar-box">
-                <img src="/fotos perfil/Foto Francisco.jpg" alt="" loading="lazy" width="120" height="120" />
-              </div>
-              <h2 className="c-name">Francisco Solorio</h2>
-              <div className="c-role">Director General</div>
+            {displayCards.map((card, idx) => {
+              const roleStr = typeof card.cargo === 'object' && card.cargo !== null 
+                ? (card.cargo[lang] || card.cargo.es || '') 
+                : (card.cargo || '');
+              const waNum = (card.whatsapp || card.telefono || '').replace(/\D/g, '');
+              return (
+                <div key={card.id || card.slug || idx} className="c-card" suppressHydrationWarning>
+                  <div className="c-avatar-box" suppressHydrationWarning>
+                    <OptImage src={card.foto} alt={card.nombre} fill style={{ objectFit: 'cover' }} sizes="120px" />
+                  </div>
+                  <h2 className="c-name">{card.nombre}</h2>
+                  <div className="c-role">{roleStr || 'Contacto EMM'}</div>
 
-              <div className="c-links">
-                <a href="mailto:francisco@expomexico.ca" className="c-link-item">
-                  <div className="c-link-icon-box"><Mail size={20} /></div>
-                  <span>francisco@expomexico.ca</span>
-                </a>
-                <a href="tel:+525527199694" className="c-link-item">
-                  <div className="c-link-icon-box"><Phone size={20} /></div>
-                  <span>+52 55 2719 9694</span>
-                </a>
-              </div>
+                  <div className="c-links">
+                    {card.email && (
+                      <a href={`mailto:${card.email}`} className="c-link-item">
+                        <div className="c-link-icon-box"><Mail size={20} /></div>
+                        <span>{card.email}</span>
+                      </a>
+                    )}
+                    {card.telefono && (
+                      <a href={`tel:${card.telefono}`} className="c-link-item">
+                        <div className="c-link-icon-box"><Phone size={20} /></div>
+                        <span>{card.telefono}</span>
+                      </a>
+                    )}
+                  </div>
 
-              <a href="https://wa.me/525527199694" className="c-action" target="_blank" rel="noopener noreferrer">
-                <span>{t('wa.chat.startChat')}</span>
-                <ArrowRight size={22} className="c-action-icon" />
-              </a>
-            </div>
-
-            {/* Luis García */}
-            <div className="c-card">
-              <div className="c-avatar-box">
-                <img src="/fotos perfil/Foto Luis.jpg" alt="" loading="lazy" width="120" height="120" />
-              </div>
-              <h2 className="c-name">Luis García</h2>
-              <div className="c-role">Director de Operaciones</div>
-
-              <div className="c-links">
-                <a href="mailto:luis@expomexico.ca" className="c-link-item">
-                  <div className="c-link-icon-box"><Mail size={20} /></div>
-                  <span>luis@expomexico.ca</span>
-                </a>
-                <a href="tel:+527225514645" className="c-link-item">
-                  <div className="c-link-icon-box"><Phone size={20} /></div>
-                  <span>+52 722 551 4645</span>
-                </a>
-              </div>
-
-              <a href="https://wa.me/527225514645" className="c-action" target="_blank" rel="noopener noreferrer">
-                <span>{t('wa.chat.startChat')}</span>
-                <ArrowRight size={22} className="c-action-icon" />
-              </a>
-            </div>
+                  <a href={waNum ? `https://wa.me/${waNum}` : `/${card.slug}`} className="c-action" target={waNum ? "_blank" : "_self"} rel="noopener noreferrer">
+                    <span>{t('wa.chat.startChat')}</span>
+                    <ArrowRight size={22} className="c-action-icon" />
+                  </a>
+                </div>
+              );
+            })}
           </div>
         </Reveal>
       </div>
@@ -1223,12 +1269,14 @@ function Contacto() {
 ══════════════════════════════════════════════════════════════ */
 function CountdownTape() {
   const { t } = useLanguage();
+  const [mounted, setMounted] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
+    setMounted(true);
     const targetDate = new Date('2027-06-09T09:00:00').getTime();
 
-    const interval = setInterval(() => {
+    const calculate = () => {
       const now = new Date().getTime();
       const difference = targetDate - now;
 
@@ -1239,53 +1287,54 @@ function CountdownTape() {
           minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
           seconds: Math.floor((difference % (1000 * 60)) / 1000)
         });
-      } else {
-        clearInterval(interval);
       }
-    }, 1000);
+    };
 
+    calculate();
+    const interval = setInterval(calculate, 1000);
     return () => clearInterval(interval);
   }, []);
 
   const units = [
-    { label: t('home.countdown.days'), value: timeLeft.days },
-    { label: t('home.countdown.hrs'), value: timeLeft.hours },
-    { label: t('home.countdown.min'), value: timeLeft.minutes },
-    { label: t('home.countdown.seg'), value: timeLeft.seconds }
+    { label: t('home.countdown.days'), value: mounted ? timeLeft.days : 320 },
+    { label: t('home.countdown.hrs'), value: mounted ? timeLeft.hours : 17 },
+    { label: t('home.countdown.min'), value: mounted ? timeLeft.minutes : 53 },
+    { label: t('home.countdown.seg'), value: mounted ? timeLeft.seconds : 59 }
   ];
 
   return (
     <div className="countdown-tape" style={{
       background: 'var(--magenta)',
       color: '#fff',
-      padding: '40px 0',
+      padding: '28px 32px',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      gap: '5vw',
-      flexWrap: 'wrap',
+      gap: 'clamp(24px, 3.5vw, 48px)',
+      flexWrap: 'nowrap',
       fontFamily: 'var(--font-display)',
       position: 'relative',
       zIndex: 10,
       width: '100%',
-      borderBottom: '1px solid rgba(255,255,255,0.2)'
+      borderBottom: '1px solid rgba(255,255,255,0.2)',
+      overflowX: 'auto'
     }}>
-      <div style={{ fontSize: '1.2rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '5px', opacity: 0.95 }}>
+      <div style={{ fontSize: 'clamp(0.95rem, 1.35vw, 1.15rem)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '4px', opacity: 0.95, whiteSpace: 'nowrap', flexShrink: 0 }}>
         {t('home.countdown.label')}
       </div>
 
-      <div style={{ display: 'flex', gap: '48px', alignItems: 'center' }}>
+      <div style={{ display: 'flex', gap: 'clamp(20px, 3vw, 40px)', alignItems: 'center', flexWrap: 'nowrap' }}>
         {units.map((item, i) => (
-          <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: '48px' }}>
+          <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: 'clamp(20px, 3vw, 40px)' }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px' }}>
-              <span style={{ fontSize: '4.5rem', fontWeight: 300, lineHeight: 1, letterSpacing: '-0.02em', textShadow: '0 1px 15px rgba(0,0,0,0.05)' }}>
+              <span suppressHydrationWarning style={{ fontSize: 'clamp(2.6rem, 3.8vw, 3.8rem)', fontWeight: 300, lineHeight: 1, letterSpacing: '-0.02em', textShadow: '0 2px 12px rgba(0,0,0,0.1)' }}>
                 {String(item.value).padStart(2, '0')}
               </span>
-              <span style={{ fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 700, opacity: 0.9 }}>
+              <span style={{ fontSize: 'clamp(0.85rem, 1.1vw, 1rem)', textTransform: 'uppercase', letterSpacing: '2.5px', fontWeight: 800, opacity: 0.95, whiteSpace: 'nowrap' }}>
                 {item.label}
               </span>
             </div>
-            {i < 3 && <div style={{ width: '1px', height: '50px', background: 'rgba(255,255,255,0.4)' }} />}
+            {i < 3 && <div style={{ width: '1px', height: '42px', background: 'rgba(255,255,255,0.4)', flexShrink: 0 }} />}
           </div>
         ))}
       </div>
@@ -1307,31 +1356,15 @@ function PromoCarousel() {
     fetch('/api/admin/banners')
       .then(res => res.json())
       .then(data => {
-        if (data.banners && data.banners.length > 0) {
+        if (data.banners && Array.isArray(data.banners) && data.banners.length > 0) {
           const activeBanners = data.banners.filter((b: any) => b.active).sort((a: any, b: any) => a.order - b.order);
-          if (activeBanners.length > 0) {
-            setBanners(activeBanners);
-          } else {
-            // Fallback si todos están inactivos
-            setBanners([
-              { id: 1, imageUrl: '/home-hero-2.jpg', active: true, order: 1 },
-              { id: 2, imageUrl: '/nosotros-hero.jpg', active: true, order: 2 }
-            ]);
-          }
+          setBanners(activeBanners);
         } else {
-          // Fallback si no hay banners
-          setBanners([
-            { id: 1, imageUrl: '/home-hero-2.jpg', active: true, order: 1 },
-            { id: 2, imageUrl: '/nosotros-hero.jpg', active: true, order: 2 },
-            { id: 3, imageUrl: 'https://images.pexels.com/photos/935474/toronto-beauty-clouds-skyline-935474.jpeg?cs=srgb&dl=-935474.jpg&fm=jpg', active: true, order: 3 }
-          ]);
+          setBanners([]);
         }
       })
       .catch(() => {
-        setBanners([
-          { id: 1, imageUrl: '/home-hero-2.jpg', active: true, order: 1 },
-          { id: 2, imageUrl: '/nosotros-hero.jpg', active: true, order: 2 }
-        ]);
+        setBanners([]);
       })
       .finally(() => {
         setLoading(false);
@@ -1357,20 +1390,20 @@ function PromoCarousel() {
 
   return (
     <div className="promo-carousel-wrapper" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: '#000', borderBottom: '1px solid rgba(0,46,81,0.05)' }}>
-      <div 
-        className="promo-carousel-inner" 
-        style={{ 
-          display: 'flex', 
-          transition: 'transform 0.5s ease-in-out', 
-          transform: `translateX(-${currentIndex * 100}%)` 
+      <div
+        className="promo-carousel-inner"
+        style={{
+          display: 'flex',
+          transition: 'transform 0.5s ease-in-out',
+          transform: `translateX(-${currentIndex * 100}%)`
         }}
       >
         {banners.map((banner, idx) => (
           <div key={banner.id} style={{ width: '100%', flexShrink: 0, position: 'relative' }}>
-            <img 
-              src={banner.imageUrl} 
-              alt={`Banner promocional ${idx + 1}`} 
-              style={{ width: '100%', height: '100%', maxHeight: '400px', objectFit: 'cover', display: 'block', opacity: 0.9 }} 
+            <img
+              src={banner.imageUrl}
+              alt={`Banner promocional ${idx + 1}`}
+              style={{ width: '100%', height: '100%', maxHeight: '400px', objectFit: 'cover', display: 'block', opacity: 0.9 }}
             />
           </div>
         ))}
@@ -1378,11 +1411,11 @@ function PromoCarousel() {
 
       {banners.length > 1 && (
         <>
-          <button 
-            onClick={prevSlide} 
-            style={{ 
-              position: 'absolute', top: '50%', left: '24px', transform: 'translateY(-50%)', 
-              background: 'rgba(255,255,255,0.9)', border: 'none', borderRadius: '50%', width: '48px', height: '48px', 
+          <button
+            onClick={prevSlide}
+            style={{
+              position: 'absolute', top: '50%', left: '24px', transform: 'translateY(-50%)',
+              background: 'rgba(255,255,255,0.9)', border: 'none', borderRadius: '50%', width: '48px', height: '48px',
               display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', zIndex: 10,
               boxShadow: '0 4px 12px rgba(0,0,0,0.15)', color: 'var(--navy)', transition: 'transform 0.2s, background 0.2s'
             }}
@@ -1393,11 +1426,11 @@ function PromoCarousel() {
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
           </button>
 
-          <button 
-            onClick={nextSlide} 
-            style={{ 
-              position: 'absolute', top: '50%', right: '24px', transform: 'translateY(-50%)', 
-              background: 'rgba(255,255,255,0.9)', border: 'none', borderRadius: '50%', width: '48px', height: '48px', 
+          <button
+            onClick={nextSlide}
+            style={{
+              position: 'absolute', top: '50%', right: '24px', transform: 'translateY(-50%)',
+              background: 'rgba(255,255,255,0.9)', border: 'none', borderRadius: '50%', width: '48px', height: '48px',
               display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', zIndex: 10,
               boxShadow: '0 4px 12px rgba(0,0,0,0.15)', color: 'var(--navy)', transition: 'transform 0.2s, background 0.2s'
             }}
@@ -1410,8 +1443,8 @@ function PromoCarousel() {
 
           <div style={{ position: 'absolute', bottom: '24px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '10px', zIndex: 10 }}>
             {banners.map((_, idx) => (
-              <button 
-                key={idx} 
+              <button
+                key={idx}
                 onClick={() => setCurrentIndex(idx)}
                 style={{
                   width: currentIndex === idx ? '32px' : '10px',
@@ -1448,7 +1481,7 @@ export default function HomePage() {
         <CountdownTape />
         <PromoCarousel />
         <Hero
-          image="/home-hero-2.jpg"
+          image="https://dl.dropboxusercontent.com/scl/fi/r65ec3aiz66w5rk06big6/IMG_5714.JPG?rlkey=sxukc7ow65m3ql7vfi7mnvdid&st=43hrwabp&raw=1"
           title={<>{t('home.concept.title')}<br /><em>{t('home.concept.titleEm')}</em></>}
           description={
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', textAlign: 'left', marginTop: '32px' }}>

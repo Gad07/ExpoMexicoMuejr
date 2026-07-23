@@ -34,7 +34,7 @@ function Reveal({
   };
 
   return (
-    <div ref={ref} className={className} style={{ ...style, ...baseStyle, ...(inView ? inViewStyle : {}) }}>
+    <div ref={ref} className={className} style={{ ...style, ...baseStyle, ...(inView ? inViewStyle : {}) }} suppressHydrationWarning>
       {children}
     </div>
   );
@@ -44,8 +44,10 @@ export default function PatrocinadoresPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [sponsors, setSponsors] = useState<any[]>([]);
   const { language, t } = useLanguage();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     fetch('/api/admin/patrocinadores')
       .then(res => res.json())
       .then(data => {
@@ -61,59 +63,141 @@ export default function PatrocinadoresPage() {
       tierVal.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
+  if (!mounted) {
+    return <div style={{ background: 'var(--cream)', minHeight: '100vh' }} suppressHydrationWarning />;
+  }
+
   return (
-    <div className="patrocinadores-page" style={{ background: 'var(--cream)', minHeight: '100vh', paddingBottom: '120px' }}>
+    <div className="patrocinadores-page" style={{ background: 'var(--cream)', minHeight: '100vh', paddingBottom: '120px' }} suppressHydrationWarning>
       
+      <style>{`
+        .pricing-card--bronce { border-top: 6px solid #cd7f32; }
+        .pricing-card--bronce .pricing-card__name { color: #cd7f32; font-size: 2.3rem !important; }
+        .pricing-card--bronce .pricing-card__cta { background: #cd7f32; color: #fff; border: none; font-size: 1rem; padding: 20px; }
+        
+        .pricing-card--plata { border-top: 6px solid #778899; }
+        .pricing-card--plata .pricing-card__name { color: #778899; font-size: 2.3rem !important; }
+        .pricing-card--plata .pricing-card__cta { background: #778899; color: #fff; border: none; font-size: 1rem; padding: 20px; }
+
+        .pricing-card--oro { 
+          border-top: 6px solid #e4b000; 
+          transform: scale(1.05); 
+          box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+          z-index: 10; 
+          position: relative;
+          padding-top: 64px !important;
+          padding-bottom: 64px !important;
+        }
+        .pricing-card--oro .pricing-card__name { color: #e4b000; font-size: 2.3rem !important; }
+        .pricing-card--oro .pricing-card__cta { background: #e4b000; color: #000; border: none; font-size: 1rem; padding: 20px; }
+        .pricing-card--oro .pricing-card__cta:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+        
+        .discount-tag {
+          display: inline-block;
+          background: rgba(228,0,124,0.1);
+          color: var(--magenta);
+          padding: 4px 12px;
+          border-radius: 20px;
+          font-weight: 800;
+          font-size: 0.9rem;
+          margin-left: 12px;
+        }
+      `}</style>
+
       <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: '80px 48px' }}>
         
-        <div style={{ marginBottom: '80px' }}>
+        {/* ========================================================================= */}
+        {/* 1. SECCIÓN EMM - 2027: DESCUENTOS PARA EXPOSITORAS (SIN PRECIOS DE CAD) */}
+        {/* ========================================================================= */}
+        <div style={{ marginBottom: '100px' }}>
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <h2 className="section__title section__title--center" style={{ marginTop: '16px' }}>Paquetes de <br /><em>Patrocinio</em></h2>
+              <span style={{ display: 'inline-block', color: 'var(--magenta)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '12px' }}>
+                Pre-Registro Oficial
+              </span>
+              <h2 className="section__title section__title--center" style={{ marginTop: '0px' }}>
+                EMM - <em>2027</em>
+              </h2>
+              <p style={{ fontSize: '1.15rem', color: 'var(--navy)', marginTop: '16px', fontWeight: 700 }}>
+                Pueden apartar su lugar con el <strong style={{ color: 'var(--magenta)' }}>50% de anticipo</strong> antes del <strong style={{ color: 'var(--gold)' }}>30 de Agosto</strong>
+              </p>
+            </div>
+          </Reveal>
+
+          {/* TARJETAS CON LOS ESTILOS ORIGINALES PRICING-CARD MOSTRANDO ÚNICAMENTE EL PORCENTAJE */}
+          <div className="pricing-tiers__grid" style={{ marginTop: 48, alignItems: 'stretch', textAlign: 'center' }}>
+            {[
+              {
+                name: "Expositoras 2026",
+                discount: "30%",
+                sub: "Descuento Preferencial de Lealtad",
+                theme: "oro",
+                color: "#e4b000",
+                featured: true,
+                description: "Beneficio exclusivo de lealtad para las empresarias que participaron en la edición 2026."
+              },
+              {
+                name: "Referidas",
+                discount: "25%",
+                sub: "Descuento por Recomendación",
+                theme: "plata",
+                color: "#a0a0a0",
+                description: "Descuento aplicable a empresas recomendadas por nuestra red oficial de expositoras."
+              },
+              {
+                name: "Nuevas Expositoras",
+                discount: "20%",
+                sub: "Descuento Pre-Registro Inicial",
+                theme: "bronce",
+                color: "#CD7F32",
+                description: "Descuento especial de registro anticipado para empresas que se integran por primera vez."
+              }
+            ].map((tier) => (
+              <Reveal key={tier.name} delay={150} className={`pricing-card pricing-card--${tier.theme}`} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                {tier.featured && <div className="pricing-card__badge" style={{ background: tier.color }}>Pre-Registro Preferente</div>}
+
+                <div className="pricing-card__name" style={{ color: tier.featured ? tier.color : 'inherit', fontSize: '2rem' }}>{tier.name}</div>
+                {/* SOLO EL PORCENTAJE DE DESCUENTO (SIN PRECIO CAD) */}
+                <div className="pricing-card__price" style={{ color: tier.color, fontSize: '3.8rem', fontWeight: 900 }}>{tier.discount}</div>
+                <div className="pricing-card__sub">{tier.sub}</div>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: '20px 0', lineHeight: 1.6, textAlign: 'center' }}>{tier.description}</p>
+
+                <div className="pricing-card__divider" />
+
+                <a href="mailto:luis@expomexico.ca" className="pricing-card__cta" style={{ ...(!tier.featured ? { border: `1px solid ${tier.color}`, color: tier.color, background: 'transparent' } : {}), marginTop: 'auto' }}>
+                  Pre-Registrar Mi Lugar
+                </a>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        {/* ========================================================================= */}
+        {/* 2. PAQUETES DE PATROCINIO (CON COSTOS REALES EN LUGAR DE PORCENTAJES) */}
+        {/* ========================================================================= */}
+        <div style={{ marginBottom: '80px', paddingTop: '80px', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
+          <Reveal>
+            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+              <span style={{ display: 'inline-block', color: 'var(--cyan)', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '12px' }}>
+                Inversión Corporativa
+              </span>
+              <h2 className="section__title section__title--center" style={{ marginTop: '0px' }}>
+                Paquetes de <br /><em>Patrocinio</em>
+              </h2>
               <p style={{ fontSize: '1.1rem', color: 'var(--navy)', marginTop: '16px', fontWeight: 600 }}>
                 Pueden apartar su lugar con el <strong style={{ color: 'var(--magenta)' }}>50% de anticipo</strong> antes del <strong style={{ color: 'var(--gold)' }}>30 de Agosto</strong>
               </p>
             </div>
           </Reveal>
-          
-          <style>{`
-            .pricing-card--bronce { border-top: 6px solid #cd7f32; }
-            .pricing-card--plata { border-top: 6px solid #a0a0a0; }
-            .pricing-card--oro { 
-              border-top: 6px solid #e4b000; 
-              transform: scale(1.05); 
-              box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
-              z-index: 10; 
-              position: relative;
-              padding-top: 64px !important;
-              padding-bottom: 64px !important;
-            }
-            .pricing-card--oro .pricing-card__name { color: #e4b000; font-size: 2.3rem !important; }
-            .pricing-card--oro .pricing-card__cta { background: #e4b000; color: #000; border: none; font-size: 1rem; padding: 20px; }
-            .pricing-card--oro .pricing-card__cta:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
-            
-            .discount-tag {
-              display: inline-block;
-              background: rgba(228,0,124,0.1);
-              color: var(--magenta);
-              padding: 4px 12px;
-              border-radius: 20px;
-              font-weight: 800;
-              font-size: 0.9rem;
-              margin-left: 12px;
-            }
-          `}</style>
 
           <div className="pricing-tiers__grid" style={{ marginTop: 48, alignItems: 'stretch', textAlign: 'center' }}>
             {[
               {
                 name: "Patrocinio Bronce",
-                type: "Nuevas Expositoras",
-                discount: "20% OFF",
                 theme: "bronce",
                 color: "#CD7F32",
-                price: "$4,000",
-                sub: "CAD — Paquete Base",
+                price: "$4,000 CAD",
+                sub: "Paquete Base",
                 description: "Ideal para organizaciones que desean incorporarse a Expo México Mujer y comenzar a posicionar sus servicios dentro de la comunidad y mercado canadiense.",
                 features: [
                   "Stand de 2 x 2 metros",
@@ -128,12 +212,10 @@ export default function PatrocinadoresPage() {
               },
               {
                 name: "Patrocinio Plata",
-                type: "Referidas",
-                discount: "25% OFF",
                 theme: "plata",
                 color: "#a0a0a0",
-                price: "$6,000",
-                sub: "CAD — Impulso Comercial",
+                price: "$6,000 CAD",
+                sub: "Impulso Comercial",
                 description: "Una excelente alternativa para organizaciones que buscan una presencia destacada y una relación cercana con la comunidad binacional.",
                 features: [
                   "Stand de 4 x 3 metros",
@@ -149,12 +231,10 @@ export default function PatrocinadoresPage() {
               },
               {
                 name: "Patrocinio Oro",
-                type: "Expositoras 2026",
-                discount: "30% OFF",
                 theme: "oro",
                 color: "#e4b000",
-                price: "$8,000",
-                sub: "CAD — Cobertura Completa",
+                price: "$8,000 CAD",
+                sub: "Cobertura Completa",
                 featured: true,
                 description: "Nuestro paquete de mayor posicionamiento, diseñado para organizaciones que buscan una presencia sólida antes, durante y después del evento.",
                 features: [
@@ -175,8 +255,9 @@ export default function PatrocinadoresPage() {
               <Reveal key={tier.name} delay={150} className={`pricing-card pricing-card--${tier.theme}`} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
                 {tier.featured && <div className="pricing-card__badge" style={{ background: tier.color }}>{t('pages.patrocinadores.popular')}</div>}
 
-                <div className="pricing-card__name" style={{ color: tier.featured ? tier.color : 'inherit', fontSize: '2rem' }}>{tier.name}</div>
-                <div className="pricing-card__price" style={{ color: tier.color, fontSize: '3.5rem' }}>{tier.discount}</div>
+                <div className="pricing-card__name" style={{ color: tier.color, fontSize: '2.3rem', fontWeight: 900 }}>{tier.name}</div>
+                {/* COSTOS REALES EN CAD (EN UNA SOLA LÍNEA Y CON TAMAÑO DESTACADO) */}
+                <div className="pricing-card__price" style={{ color: tier.color, fontSize: 'clamp(2.1rem, 3.2vw, 3.2rem)', fontWeight: 900, whiteSpace: 'nowrap', letterSpacing: '-0.02em', lineHeight: 1.1 }}>{tier.price}</div>
                 <div className="pricing-card__sub">{tier.sub}</div>
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: '16px 0', lineHeight: 1.5, textAlign: 'left' }}>{tier.description}</p>
 
@@ -192,7 +273,7 @@ export default function PatrocinadoresPage() {
                     </li>
                   ))}
                 </ul>
-                <a href="mailto:francisco@expomexico.ca" className="pricing-card__cta" style={{ ...(!tier.featured ? { border: `1px solid ${tier.color}`, color: tier.color, background: 'transparent' } : {}), marginTop: 'auto' }}>
+                <a href="mailto:francisco@expomexico.ca" className="pricing-card__cta" style={{ background: tier.color, color: tier.theme === 'oro' ? '#000' : '#fff', border: 'none', fontSize: '1rem', padding: '20px', marginTop: 'auto' }}>
                   {t('pages.patrocinadores.cta')}
                 </a>
               </Reveal>
@@ -200,6 +281,9 @@ export default function PatrocinadoresPage() {
           </div>
         </div>
 
+        {/* ========================================================================= */}
+        {/* 3. DIRECTORIO DE PATROCINADORES */}
+        {/* ========================================================================= */}
         <div style={{ marginTop: '120px', paddingTop: '80px', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: '60px' }}>

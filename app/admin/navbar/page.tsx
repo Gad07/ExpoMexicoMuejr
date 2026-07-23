@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Save, Plus, X, ArrowUp, ArrowDown } from 'lucide-react';
+import { Save, Plus, X, ArrowUp, ArrowDown, FormInput, CheckCircle } from 'lucide-react';
 
 type Language = 'es' | 'en' | 'fr';
 
@@ -31,7 +31,7 @@ export default function AdminNavbar() {
       const token = localStorage.getItem('admin_token');
       const headers: Record<string, string> = { 'Content-Type': 'application/json' };
       if (token) headers['Authorization'] = `Bearer ${token}`;
-      
+
       const res = await fetch('/api/admin/navbar', {
         method: 'POST',
         headers,
@@ -41,7 +41,7 @@ export default function AdminNavbar() {
       if (!res.ok) {
         setMessage({ type: 'error', text: data.error || 'Error al guardar' });
       } else {
-        setMessage({ type: 'success', text: 'Navegación guardada exitosamente ✓' });
+        setMessage({ type: 'success', text: 'Navegación y enlaces de JotForm guardados exitosamente ✓' });
       }
     } catch {
       setMessage({ type: 'error', text: 'Error de conexión' });
@@ -87,7 +87,7 @@ export default function AdminNavbar() {
   const handleAddItem = () => {
     const menu = getSelectedMenu();
     if (!menu) return;
-    const newItem = { id: Date.now().toString(), label: { es: 'Nuevo Enlace', en: '', fr: '' }, href: '/' };
+    const newItem = { id: Date.now().toString(), label: { es: 'Nuevo Enlace', en: '', fr: '' }, href: '/', jotformUrl: '' };
     updateMenu({ items: [...(menu.items || []), newItem] });
   };
 
@@ -137,7 +137,7 @@ export default function AdminNavbar() {
 
   return (
     <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', minHeight: 'calc(100vh - 82px)' }}>
-      {/* SIDEBAR */}
+      {/* SIDEBAR MENUS */}
       <div style={{ background: '#fff', borderRight: '1px solid rgba(0,0,0,0.07)', padding: '24px 16px', display: 'flex', flexDirection: 'column', gap: '8px', overflowY: 'auto' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
           <h2 style={{ margin: '0 0 0 8px', fontSize: '1.1rem', fontWeight: 800, color: '#002E51' }}>Menús</h2>
@@ -168,11 +168,16 @@ export default function AdminNavbar() {
       {/* EDITOR */}
       <div style={{ padding: '32px 40px', overflowY: 'auto', background: '#F9F7F5' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', background: '#fff', borderRadius: '16px', boxShadow: '0 4px 20px rgba(0,0,0,0.03)', padding: '32px' }}>
-          
+
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
-            <h1 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#002E51', margin: 0 }}>
-              Administrar Navegación
-            </h1>
+            <div>
+              <h1 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#002E51', margin: 0 }}>
+                Administrar Navegación & JotForms
+              </h1>
+              <p style={{ margin: '4px 0 0', fontSize: '0.85rem', color: '#64748B' }}>
+                Edita los nombres de menú, rutas de enlace y sus correspondientes formularios JotForm asociados.
+              </p>
+            </div>
             <button onClick={() => handleSave()} disabled={saving} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 24px', background: '#002E51', color: '#fff', border: 'none', borderRadius: '10px', fontWeight: 700, fontSize: '0.875rem', cursor: saving ? 'not-allowed' : 'pointer' }}>
               <Save size={16} /> {saving ? 'Guardando...' : 'Guardar Cambios'}
             </button>
@@ -208,24 +213,46 @@ export default function AdminNavbar() {
 
               <div style={{ marginTop: '24px', borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '24px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                  <h3 style={{ margin: 0, fontSize: '1.1rem', color: '#0f172a' }}>Sub-enlaces</h3>
-                  <button onClick={handleAddItem} style={{ display: 'flex', alignItems: 'center', gap: '4px', padding: '6px 12px', background: 'rgba(0,46,81,0.05)', color: '#002E51', border: 'none', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 700, cursor: 'pointer' }}>
-                    <Plus size={14} /> Agregar Enlace
+                  <h3 style={{ margin: 0, fontSize: '1.1rem', color: '#0f172a', fontWeight: 800 }}>SUB-ENLACES</h3>
+                  <button onClick={handleAddItem} style={{ display: 'flex', alignItems: 'center', gap: '4px', padding: '8px 14px', background: '#F1F5F9', color: '#002E51', border: 'none', borderRadius: '8px', fontSize: '0.8rem', fontWeight: 700, cursor: 'pointer' }}>
+                    <Plus size={16} /> Agregar Enlace
                   </button>
                 </div>
-                
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   {menu.items?.map((item: any, idx: number) => (
-                    <div key={item.id} style={{ display: 'flex', gap: '12px', alignItems: 'center', background: '#f8fafc', padding: '16px', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                    <div key={item.id} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', background: '#f8fafc', padding: '20px', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', paddingTop: '8px' }}>
                         <button onClick={() => moveItem(idx, 'up')} disabled={idx === 0} style={{ background: 'none', border: 'none', cursor: idx === 0 ? 'not-allowed' : 'pointer', opacity: idx === 0 ? 0.3 : 1 }}><ArrowUp size={16} /></button>
                         <button onClick={() => moveItem(idx, 'down')} disabled={idx === menu.items.length - 1} style={{ background: 'none', border: 'none', cursor: idx === menu.items.length - 1 ? 'not-allowed' : 'pointer', opacity: idx === menu.items.length - 1 ? 0.3 : 1 }}><ArrowDown size={16} /></button>
                       </div>
-                      <div style={{ flex: 1 }}>
-                        <input type="text" placeholder={`Nombre (${lang.toUpperCase()})`} value={item.label?.[lang] || ''} onChange={e => updateItem(item.id, 'label', e.target.value)} style={{ ...inputStyle, marginBottom: '8px' }} />
-                        <input type="text" placeholder="URL (ej: /expo/que-es)" value={item.href || ''} onChange={e => updateItem(item.id, 'href', e.target.value)} style={inputStyle} />
+                      
+                      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                        <div>
+                          <label style={{ display: 'block', marginBottom: '4px', fontSize: '0.78rem', fontWeight: 700, color: '#002E51' }}>Nombre del Enlace ({lang.toUpperCase()})</label>
+                          <input type="text" placeholder={`Nombre (${lang.toUpperCase()})`} value={item.label?.[lang] || ''} onChange={e => updateItem(item.id, 'label', e.target.value)} style={inputStyle} />
+                        </div>
+
+                        <div>
+                          <label style={{ display: 'block', marginBottom: '4px', fontSize: '0.78rem', fontWeight: 700, color: '#002E51' }}>Ruta / URL del Sitio Web</label>
+                          <input type="text" placeholder="URL (ej: /expositores)" value={item.href || ''} onChange={e => updateItem(item.id, 'href', e.target.value)} style={inputStyle} />
+                        </div>
+
+                        <div>
+                          <label style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '4px', fontSize: '0.78rem', fontWeight: 800, color: '#E4007C' }}>
+                            <FormInput size={13} /> Enlace de JotForm (se embebe antes del CTA de esta sección)
+                          </label>
+                          <input
+                            type="text"
+                            placeholder="Enlace JotForm (ej: https://form.jotform.com/241686259021053)"
+                            value={item.jotformUrl || ''}
+                            onChange={e => updateItem(item.id, 'jotformUrl', e.target.value)}
+                            style={{ ...inputStyle, background: '#FFF0F6', borderColor: '#FCC2D7', fontFamily: 'monospace' }}
+                          />
+                        </div>
                       </div>
-                      <button onClick={() => deleteItem(item.id)} style={{ background: 'none', border: 'none', color: '#EF4444', cursor: 'pointer', padding: '8px' }}><X size={20} /></button>
+
+                      <button onClick={() => deleteItem(item.id)} style={{ background: 'none', border: 'none', color: '#EF4444', cursor: 'pointer', padding: '8px' }} aria-label="Eliminar enlace"><X size={20} /></button>
                     </div>
                   ))}
                   {(!menu.items || menu.items.length === 0) && (

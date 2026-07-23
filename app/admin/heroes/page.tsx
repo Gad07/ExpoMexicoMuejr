@@ -35,6 +35,20 @@ const SYSTEM_DEFAULT_PAGES: RegisteredPage[] = [
   { name: 'Contacto', url: '/contacto' },
 ];
 
+function cleanDropboxUrl(url?: string): string {
+  if (!url || typeof url !== 'string') return url || '';
+  let cleaned = url.trim();
+  if (cleaned.includes('dropbox.com')) {
+    cleaned = cleaned.replace(/https?:\/\/(www\.)?dropbox\.com/, 'https://dl.dropboxusercontent.com');
+    if (cleaned.includes('dl=0') || cleaned.includes('dl=1')) {
+      cleaned = cleaned.replace(/dl=[01]/, 'raw=1');
+    } else if (!cleaned.includes('raw=1')) {
+      cleaned += cleaned.includes('?') ? '&raw=1' : '?raw=1';
+    }
+  }
+  return cleaned;
+}
+
 export default function AdminHeroes() {
   const [heroes, setHeroes] = useState<Record<string, any>>({});
   const [registeredPages, setRegisteredPages] = useState<RegisteredPage[]>(SYSTEM_DEFAULT_PAGES);
@@ -384,7 +398,8 @@ export default function AdminHeroes() {
                     <input
                       type="text"
                       value={hero.image || ''}
-                      onChange={(e) => updateHero({ image: e.target.value })}
+                      onChange={(e) => updateHero({ image: cleanDropboxUrl(e.target.value) })}
+                      onBlur={(e) => updateHero({ image: cleanDropboxUrl(e.target.value) })}
                       style={inputStyle}
                       placeholder="/recursos/Recurso 1.png o https://..."
                     />

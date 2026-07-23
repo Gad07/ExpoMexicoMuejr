@@ -104,7 +104,7 @@ export default function Nav() {
       </div>
       <div className="nav__inner">
         <Link href="/" className="nav__logo">
-          <OptImage src="/logo-emm.png" alt="Expo México Mujer" width={240} height={72} className="nav__logo-img" priority />
+          <OptImage src="/logo-emm.png" alt="Expo México Mujer" width={240} height={72} className="nav__logo-img" priority blur={false} />
         </Link>
 
         {/* Desktop Menu */}
@@ -155,7 +155,7 @@ export default function Nav() {
             onMouseLeave={handleMouseLeave}
           >
             <a href="#" className={`nav__link ${openDropdown === 'language' ? 'nav__link--active' : ''}`} style={{ display: 'flex', alignItems: 'center', gap: '6px', outline: 'none' }} onClick={(e) => { e.preventDefault(); }}>
-              <img src={`https://flagcdn.com/w20/${language === 'en' ? 'ca' : language === 'fr' ? 'fr' : 'mx'}.png`} width="20" height="14" alt={language.toUpperCase()} loading="lazy" /> {language.toUpperCase()}
+              <img src={`https://flagcdn.com/w20/${language === 'en' ? 'us' : language === 'fr' ? 'ca' : 'mx'}.png`} width="20" height="14" alt={language.toUpperCase()} loading="lazy" /> {language.toUpperCase()}
               <ChevronDown size={14} className="nav__mega-icon" />
             </a>
             
@@ -168,12 +168,12 @@ export default function Nav() {
                 </li>
                 <li>
                   <button className="nav__simple-list-item" style={{ background: 'none', border: 'none', outline: 'none', width: '100%', textAlign: 'left', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }} onClick={() => { setLanguage('en'); setOpenDropdown(null); }}>
-                    <img src="https://flagcdn.com/w20/ca.png" width="20" height="14" alt="EN" loading="lazy" /> English
+                    <img src="https://flagcdn.com/w20/us.png" width="20" height="14" alt="EN" loading="lazy" /> English
                   </button>
                 </li>
                 <li>
                   <button className="nav__simple-list-item" style={{ background: 'none', border: 'none', outline: 'none', width: '100%', textAlign: 'left', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }} onClick={() => { setLanguage('fr'); setOpenDropdown(null); }}>
-                    <img src="https://flagcdn.com/w20/fr.png" width="20" height="14" alt="FR" loading="lazy" /> Français
+                    <img src="https://flagcdn.com/w20/ca.png" width="20" height="14" alt="FR" loading="lazy" /> Français
                   </button>
                 </li>
               </ul>
@@ -194,11 +194,9 @@ export default function Nav() {
             <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="nav__social-link" aria-label="TikTok">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.24-2.61.94-5.26 3.03-6.72 1.48-1.03 3.27-1.45 5.03-1.38v4.07c-1.25-.09-2.54.19-3.57.87-1.16.74-1.87 2.06-1.78 3.42.06 1.49 1.25 2.82 2.72 3.1 1.22.25 2.53-.1 3.43-.88.94-.82 1.43-2.06 1.41-3.32V.02h-4.34z" /></svg>
             </a>
-          </div>
-
-          <Link href="/contacto" className="nav__cta">
+          </div>          <a href="#" onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('openEmbeddedFormModal', { detail: { url: 'https://form.jotform.com/241686259021053', title: 'Registro Oficial | Expo México Mujer 2027' } })); }} className="nav__cta" style={{ cursor: 'pointer' }}>
             {t('nav.registrate')}
-          </Link>
+          </a>
         </div>
 
         <button className={`nav__hamburger ${menuOpen ? 'nav__hamburger--open' : ''}`} onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}>
@@ -248,16 +246,16 @@ export default function Nav() {
               <img src="https://flagcdn.com/w20/mx.png" width="20" height="14" alt="ES" loading="lazy" /> ES
             </button>
             <button onClick={() => setLanguage('en')} className="nav__mobile-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: language === 'en' ? 'rgba(0,46,81,0.1)' : 'rgba(0,0,0,0.03)', borderRadius: '20px', border: 'none', cursor: 'pointer', fontWeight: language === 'en' ? 700 : 400 }}>
-              <img src="https://flagcdn.com/w20/ca.png" width="20" height="14" alt="EN" loading="lazy" /> EN
+              <img src="https://flagcdn.com/w20/us.png" width="20" height="14" alt="EN" loading="lazy" /> EN
             </button>
             <button onClick={() => setLanguage('fr')} className="nav__mobile-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: language === 'fr' ? 'rgba(0,46,81,0.1)' : 'rgba(0,0,0,0.03)', borderRadius: '20px', border: 'none', cursor: 'pointer', fontWeight: language === 'fr' ? 700 : 400 }}>
-              <img src="https://flagcdn.com/w20/fr.png" width="20" height="14" alt="FR" loading="lazy" /> FR
+              <img src="https://flagcdn.com/w20/ca.png" width="20" height="14" alt="FR" loading="lazy" /> FR
             </button>
           </div>
 
-          <Link href="/contacto" className="nav__cta" style={{ textAlign: 'center', marginTop: '1rem', display: 'flex', justifyContent: 'center' }} onClick={() => setMenuOpen(false)}>
+          <a href="#" onClick={(e) => { e.preventDefault(); setMenuOpen(false); window.dispatchEvent(new CustomEvent('openEmbeddedFormModal', { detail: { url: 'https://form.jotform.com/241686259021053', title: 'Registro Oficial | Expo México Mujer 2027' } })); }} className="nav__cta" style={{ textAlign: 'center', marginTop: '1rem', display: 'flex', justifyContent: 'center', cursor: 'pointer' }}>
             {t('nav.registrate')}
-          </Link>
+          </a>
 
           {/* Social links mobile */}
           <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginTop: '24px', paddingTop: '24px', borderTop: '1px solid rgba(0,0,0,0.07)' }}>

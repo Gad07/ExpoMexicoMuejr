@@ -4,6 +4,8 @@ import { checkAuth } from '@/lib/auth';
 
 export const dynamic = 'force-dynamic';
 
+import { cleanDropboxUrlsInObject } from '@/lib/dropbox';
+
 const DB_FILE = 'noticias.json';
 
 interface Noticia {
@@ -40,8 +42,9 @@ function getNextId(noticias: Noticia[]): number {
 export async function GET() {
   try {
     const noticias = await readJSONAsync<Noticia>(DB_FILE);
+    const cleanedNoticias = cleanDropboxUrlsInObject(noticias);
     // Return only necessary fields for listing
-    const list = noticias.map(n => ({
+    const list = cleanedNoticias.map(n => ({
       id: n.id,
       title: n.title,
       slug: n.slug,

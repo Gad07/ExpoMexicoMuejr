@@ -72,6 +72,8 @@ export const metadata: Metadata = {
   },
 };
 
+import TopProgressBar from '@/components/TopProgressBar';
+
 export default function RootLayout({
   children,
 }: {
@@ -79,8 +81,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={`${futura.variable} ${nunito.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://dl.dropboxusercontent.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://dl.dropboxusercontent.com" />
+        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+      </head>
       <body className="font-body antialiased bg-sand text-navy">
         <LanguageProvider>
+          <TopProgressBar />
           <AnalyticsTracker />
           <PublicLayoutWrapper>{children}</PublicLayoutWrapper>
         </LanguageProvider>

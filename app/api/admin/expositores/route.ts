@@ -4,6 +4,8 @@ import { NextResponse } from 'next/server';
 import { readJSONAsync, writeJSONAsync, getSupabase } from '@/lib/db';
 import { checkAuth } from '@/lib/auth';
 
+import { cleanDropboxUrlsInObject } from '@/lib/dropbox';
+
 const DB_FILE = 'expositores.json';
 
 interface LocalizedString {
@@ -32,8 +34,6 @@ interface Exhibitor {
   mapCoords?: string;
 }
 
-
-
 function slugify(text: string): string {
   return text
     .toLowerCase()
@@ -56,7 +56,8 @@ function getNextId(exhibitors: Exhibitor[]): string {
 export async function GET(request: Request) {
   try {
     const exhibitors = await readJSONAsync<Exhibitor>(DB_FILE);
-    return NextResponse.json({ exhibitors });
+    const cleaned = cleanDropboxUrlsInObject(exhibitors);
+    return NextResponse.json({ exhibitors: cleaned });
   } catch {
     return NextResponse.json({ error: 'Error al leer expositores' }, { status: 500 });
   }
@@ -69,7 +70,8 @@ export async function POST(request: Request) {
   }
 
   try {
-    const body = await request.json();
+    const rawBody = await request.json();
+    const body = cleanDropboxUrlsInObject(rawBody);
     const exhibitors = await readJSONAsync<Exhibitor>(DB_FILE);
 
     const newExhibitor: Exhibitor = {
@@ -122,7 +124,8 @@ export async function PUT(request: Request) {
   }
 
   try {
-    const body = await request.json();
+    const rawBody = await request.json();
+    const body = cleanDropboxUrlsInObject(rawBody);
     const { id, ...updates } = body;
 
     if (!id) {

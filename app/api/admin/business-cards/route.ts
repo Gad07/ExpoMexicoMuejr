@@ -3,6 +3,7 @@ export const dynamic = 'force-dynamic';
 import { NextResponse } from 'next/server';
 import { readJSONAsync, writeJSONAsync } from '@/lib/db';
 import { checkAuth } from '@/lib/auth';
+import { cleanDropboxUrlsInObject } from '@/lib/dropbox';
 
 const DB_FILE = 'business-cards.json';
 
@@ -40,21 +41,20 @@ interface BusinessCard {
   vision: LocalizedStringArray;
 }
 
-
-
 // GET - list all or get one by slug
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const slug = searchParams.get('slug');
     const cards = await readJSONAsync<BusinessCard>(DB_FILE);
+    const cleaned = cleanDropboxUrlsInObject(cards);
     if (slug) {
-      const card = cards.find(c => c.slug === slug);
+      const card = cleaned.find(c => c.slug === slug);
       return card
         ? NextResponse.json({ card })
         : NextResponse.json({ error: 'No encontrado' }, { status: 404 });
     }
-    return NextResponse.json({ cards });
+    return NextResponse.json({ cards: cleaned });
   } catch {
     return NextResponse.json({ error: 'Error al leer' }, { status: 500 });
   }
@@ -66,7 +66,8 @@ export async function PUT(request: Request) {
     return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
   }
   try {
-    const body = await request.json();
+    const rawBody = await request.json();
+    const body = cleanDropboxUrlsInObject(rawBody);
     const { id, ...updates } = body;
     const cards = await readJSONAsync<BusinessCard>(DB_FILE);
     const index = cards.findIndex(c => c.id === id);
@@ -87,7 +88,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
   }
   try {
-    const body = await request.json();
+    const rawBody = await request.json();
+    const body = cleanDropboxUrlsInObject(rawBody);
     const cards = await readJSONAsync<BusinessCard>(DB_FILE);
     
     // Generate simple ID
