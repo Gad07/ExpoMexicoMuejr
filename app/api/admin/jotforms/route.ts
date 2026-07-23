@@ -12,6 +12,9 @@ const DEFAULT_JOTFORMS: Record<string, string> = {
   invitados: "https://form.jotform.com/241686259021053",
 };
 
+// Cache pública 30 min en CDN — JotForms rara vez cambian
+const CACHE_30MIN = { 'Cache-Control': 'public, s-maxage=1800, stale-while-revalidate=3600' };
+
 export async function GET() {
   try {
     const rawData = await readJSONAsync<any>('jotforms.json');
@@ -23,9 +26,9 @@ export async function GET() {
       jotforms = { ...DEFAULT_JOTFORMS, ...jotforms };
     }
 
-    return NextResponse.json({ success: true, jotforms });
+    return NextResponse.json({ success: true, jotforms }, { headers: CACHE_30MIN });
   } catch (error) {
-    return NextResponse.json({ success: true, jotforms: DEFAULT_JOTFORMS });
+    return NextResponse.json({ success: true, jotforms: DEFAULT_JOTFORMS }, { headers: CACHE_30MIN });
   }
 }
 

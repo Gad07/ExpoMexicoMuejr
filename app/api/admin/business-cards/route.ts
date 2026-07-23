@@ -41,6 +41,9 @@ interface BusinessCard {
   vision: LocalizedStringArray;
 }
 
+// Cache pública 10 min en CDN — el equipo directivo rara vez cambia
+const CACHE_10MIN = { 'Cache-Control': 'public, s-maxage=600, stale-while-revalidate=1200' };
+
 // GET - list all or get one by slug
 export async function GET(request: Request) {
   try {
@@ -51,10 +54,10 @@ export async function GET(request: Request) {
     if (slug) {
       const card = cleaned.find(c => c.slug === slug);
       return card
-        ? NextResponse.json({ card })
+        ? NextResponse.json({ card }, { headers: CACHE_10MIN })
         : NextResponse.json({ error: 'No encontrado' }, { status: 404 });
     }
-    return NextResponse.json({ cards: cleaned });
+    return NextResponse.json({ cards: cleaned }, { headers: CACHE_10MIN });
   } catch {
     return NextResponse.json({ error: 'Error al leer' }, { status: 500 });
   }
