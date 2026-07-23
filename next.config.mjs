@@ -24,6 +24,16 @@ const nextConfig = {
         ],
       },
       {
+        // Cache public static images for 1 year
+        source: '/(.*\\.(?:png|jpg|jpeg|gif|webp|avif|svg|ico))',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, must-revalidate',
+          },
+        ],
+      },
+      {
         source: '/(.*)',
         headers: [
           {
@@ -49,6 +59,20 @@ const nextConfig = {
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.jotform.com https://www.googletagmanager.com https://www.google-analytics.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' https://fonts.gstatic.com",
+              "img-src 'self' data: blob: https: http:",
+              "media-src 'self' https://dl.dropboxusercontent.com blob:",
+              "connect-src 'self' https://*.supabase.co https://www.google-analytics.com https://dl.dropboxusercontent.com",
+              "frame-src 'self' https://*.jotform.com https://www.youtube.com https://player.vimeo.com",
+              "worker-src 'self' blob:",
+            ].join('; '),
           },
         ],
       },

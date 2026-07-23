@@ -138,7 +138,7 @@ export default function InitialLoader() {
       <video
         ref={videoRef}
         autoPlay
-        preload="auto"
+        preload="metadata"
         muted
         playsInline
         crossOrigin="anonymous"

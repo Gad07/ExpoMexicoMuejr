@@ -80,9 +80,8 @@ const LazyVideo = forwardRef<HTMLVideoElement, LazyVideoProps>(function LazyVide
           alt=""
           fill
           priority
-          unoptimized
           sizes="100vw"
-          quality={95}
+          quality={80}
           blur
           style={{
             position: 'absolute',
@@ -100,7 +99,7 @@ const LazyVideo = forwardRef<HTMLVideoElement, LazyVideoProps>(function LazyVide
       <video
         ref={videoRef}
         {...rest}
-        preload={rest.preload || 'auto'}
+        preload={rest.preload || 'none'}
         suppressHydrationWarning
         style={{
           position: 'relative',

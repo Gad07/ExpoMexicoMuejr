@@ -245,7 +245,7 @@ function VideoHero() {
         <div className="video-hero__overlay" style={{ position: 'absolute', inset: 0, zIndex: 2, pointerEvents: 'none', background: 'linear-gradient(to bottom, rgba(0,25,76,0.35) 0%, rgba(0,25,76,0.88) 100%)' }} />
       </div>
       <div className="video-hero__content" style={{ position: 'relative', zIndex: 10 }}>
-        <h1 className="video-hero__title">{t('home.hero.title')}</h1>
+        <h2 className="video-hero__title">{t('home.hero.title')}</h2>
         <p className="video-hero__sub">{t('home.hero.location')}</p>
         <p className="video-hero__sub" style={{ fontSize: '1.2em', marginTop: '0.5rem', fontWeight: 600, color: '#fff', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>{t('home.hero.dates')}</p>
       </div>

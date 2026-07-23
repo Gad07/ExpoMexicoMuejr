@@ -39,7 +39,6 @@ export default function OptImage({
     }
   }
 
-  const isDropbox = typeof src === 'string' && src.includes('dropboxusercontent.com');
   const isTransparentImage = typeof src === 'string' && (
     src.toLowerCase().includes('.png') ||
     src.toLowerCase().includes('.svg') ||
@@ -54,8 +53,8 @@ export default function OptImage({
       suppressHydrationWarning
       src={src}
       alt={alt || ''}
-      quality={quality || 90}
-      unoptimized={isDropbox ? true : rest.unoptimized}
+      quality={quality}
+      unoptimized={rest.unoptimized}
       loading={rest.priority ? undefined : loading}
       sizes={sizes || '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'}
       placeholder={enableBlur ? 'blur' : undefined}
