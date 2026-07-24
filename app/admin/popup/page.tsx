@@ -43,6 +43,7 @@ export default function AdminPopupPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [isPreviewHovered, setIsPreviewHovered] = useState(false);
+  const [showModalTest, setShowModalTest] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
   useEffect(() => {
@@ -758,13 +759,13 @@ export default function AdminPopupPage() {
             </div>
 
             {/* LIVE PREVIEW BOX */}
-            <div style={{ background: '#f8fafc', borderRadius: '20px', padding: '32px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', position: 'sticky', top: '100px', height: 'fit-content' }}>
-              <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+            <div style={{ background: '#f8fafc', borderRadius: '20px', padding: '24px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'sticky', top: '90px', maxHeight: 'calc(100vh - 110px)', overflowY: 'auto' }}>
+              <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
                 <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#002E51', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <Eye size={16} color="#E4007C" /> Vista Previa en Tiempo Real
+                  <Eye size={16} color="#E4007C" /> Vista Previa
                 </span>
-                <span style={{ fontSize: '0.75rem', fontWeight: 800, padding: '3px 10px', borderRadius: '100px', background: config.isActive ? '#ecfdf5' : '#fef2f2', color: config.isActive ? '#047857' : '#b91c1c', border: `1px solid ${config.isActive ? '#a7f3d0' : '#fecaca'}` }}>
-                  {config.isActive ? 'POP-UP ACTIVO' : 'POP-UP INACTIVO'}
+                <span style={{ fontSize: '0.72rem', fontWeight: 800, padding: '3px 10px', borderRadius: '100px', background: config.isActive ? '#ecfdf5' : '#fef2f2', color: config.isActive ? '#047857' : '#b91c1c', border: `1px solid ${config.isActive ? '#a7f3d0' : '#fecaca'}` }}>
+                  {config.isActive ? 'ACTIVO' : 'INACTIVO'}
                 </span>
               </div>
 
@@ -774,9 +775,9 @@ export default function AdminPopupPage() {
                   position: 'relative',
                   width: '100%',
                   background: pos === 'background' ? 'none' : '#fff',
-                  borderRadius: '20px',
+                  borderRadius: '16px',
                   overflow: 'hidden',
-                  boxShadow: '0 15px 40px rgba(0,0,0,0.12)',
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
                   display: 'grid',
                   gridTemplateColumns: gridCols,
                   border: '1px solid #e2e8f0',
@@ -788,11 +789,11 @@ export default function AdminPopupPage() {
                 <div
                   style={{
                     position: 'absolute',
-                    top: '12px',
-                    right: '12px',
+                    top: '10px',
+                    right: '10px',
                     zIndex: 5,
-                    width: '28px',
-                    height: '28px',
+                    width: '26px',
+                    height: '26px',
                     borderRadius: '50%',
                     background: 'rgba(0,0,0,0.4)',
                     color: '#fff',
@@ -807,7 +808,7 @@ export default function AdminPopupPage() {
                 {hasImage && pos === 'left' && (
                   <div
                     style={{
-                      minHeight: '180px',
+                      minHeight: '140px',
                       backgroundImage: `url(${config.image})`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
@@ -818,7 +819,7 @@ export default function AdminPopupPage() {
                 {hasImage && pos === 'top' && (
                   <div
                     style={{
-                      height: '140px',
+                      height: '110px',
                       backgroundImage: `url(${config.image})`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
@@ -852,7 +853,7 @@ export default function AdminPopupPage() {
                   style={{
                     position: 'relative',
                     zIndex: 1,
-                    padding: '24px',
+                    padding: '18px 20px',
                     background: pos === 'background' ? 'transparent' : config.bgGradient,
                     color: config.textColor,
                     display: 'flex',
@@ -862,10 +863,10 @@ export default function AdminPopupPage() {
                     gridRow: pos === 'right' ? 1 : undefined,
                   }}
                 >
-                  <h4 style={{ margin: '0 0 8px', fontSize: '1.15rem', fontWeight: 900, lineHeight: 1.2, color: config.textColor }}>
+                  <h4 style={{ margin: '0 0 6px', fontSize: '1rem', fontWeight: 900, lineHeight: 1.2, color: config.textColor }}>
                     {config.title || 'Título del Pop-Up'}
                   </h4>
-                  <p style={{ margin: '0 0 16px', fontSize: '0.78rem', color: config.textColor, opacity: 0.85, lineHeight: 1.4 }}>
+                  <p style={{ margin: '0 0 12px', fontSize: '0.74rem', color: config.textColor, opacity: 0.85, lineHeight: 1.35 }}>
                     {config.subtitle || 'Mensaje del Pop-Up...'}
                   </p>
 
@@ -878,18 +879,18 @@ export default function AdminPopupPage() {
                         alignItems: 'center',
                         justifyContent: 'center',
                         gap: '6px',
-                        padding: '10px 18px',
+                        padding: '8px 14px',
                         background: isPreviewHovered ? config.buttonHoverBgColor : config.buttonBgColor,
                         color: config.buttonTextColor,
                         borderRadius: '8px',
                         fontWeight: 800,
-                        fontSize: '0.8rem',
+                        fontSize: '0.75rem',
                         width: 'fit-content',
                         cursor: 'pointer',
                         transition: 'all 0.2s ease',
                       }}
                     >
-                      {config.buttonText || 'Botón CTA'} <ArrowRight size={14} />
+                      {config.buttonText || 'Botón CTA'} <ArrowRight size={12} />
                     </div>
                   )}
                 </div>
@@ -897,7 +898,7 @@ export default function AdminPopupPage() {
                 {hasImage && pos === 'right' && (
                   <div
                     style={{
-                      minHeight: '180px',
+                      minHeight: '140px',
                       backgroundImage: `url(${config.image})`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
@@ -908,16 +909,154 @@ export default function AdminPopupPage() {
                 )}
               </div>
 
-              <div style={{ marginTop: '16px', fontSize: '0.78rem', color: '#64748b', textAlign: 'center', lineHeight: 1.5 }}>
+              <div style={{ marginTop: '12px', fontSize: '0.74rem', color: '#64748b', textAlign: 'center', lineHeight: 1.4 }}>
                 Trigger: <strong>{config.triggerType === 'timer' ? `⏱️ ${config.triggerValue}s` : config.triggerType === 'scroll' ? `📜 ${config.triggerValue}% Scroll` : '🚪 Exit Intent'}</strong>
                 <br />
-                Mostrando en: <strong>{config.displayTarget === 'all' ? 'Todas las páginas' : config.displayTarget === 'home' ? 'Solo Inicio (/)' : config.customPages}</strong>
+                Páginas: <strong>{config.displayTarget === 'all' ? 'Todas' : config.displayTarget === 'home' ? 'Inicio (/)' : config.customPages}</strong>
               </div>
+
+              <button
+                onClick={() => setShowModalTest(true)}
+                style={{
+                  marginTop: '16px',
+                  width: '100%',
+                  padding: '10px',
+                  borderRadius: '10px',
+                  border: '1px solid #002E51',
+                  background: 'rgba(0,46,81,0.05)',
+                  color: '#002E51',
+                  fontWeight: 800,
+                  fontSize: '0.8rem',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '6px',
+                  transition: 'all 0.2s',
+                }}
+              >
+                <Eye size={14} /> Probar Modal Completo
+              </button>
             </div>
           </div>
 
         </div>
       </div>
+
+      {/* FULL SCREEN TEST MODAL OVERLAY */}
+      {showModalTest && (
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 99999,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '20px',
+            background: 'rgba(0, 28, 51, 0.78)',
+            backdropFilter: 'blur(8px)',
+          }}
+        >
+          <div
+            style={{
+              position: 'relative',
+              width: '100%',
+              maxWidth: pos === 'top' ? '600px' : '820px',
+              background: pos === 'background' ? 'none' : '#fff',
+              borderRadius: '24px',
+              overflow: 'hidden',
+              boxShadow: '0 25px 60px rgba(0,0,0,0.35)',
+              display: 'grid',
+              gridTemplateColumns: hasImage && pos === 'left' ? '1.1fr 1fr' : hasImage && pos === 'right' ? '1fr 1.1fr' : '1fr',
+            }}
+          >
+            {/* CLOSE BUTTON */}
+            <button
+              onClick={() => setShowModalTest(false)}
+              style={{
+                position: 'absolute',
+                top: '16px',
+                right: '16px',
+                zIndex: 10,
+                width: '36px',
+                height: '36px',
+                borderRadius: '50%',
+                background: 'rgba(0,0,0,0.5)',
+                color: '#fff',
+                border: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+              }}
+            >
+              <X size={18} />
+            </button>
+
+            {hasImage && pos === 'left' && (
+              <div style={{ minHeight: '300px', backgroundImage: `url(${config.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+            )}
+
+            {hasImage && pos === 'top' && (
+              <div style={{ height: '220px', backgroundImage: `url(${config.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+            )}
+
+            {hasImage && pos === 'background' && (
+              <div style={{ position: 'absolute', inset: 0, backgroundImage: `url(${config.image})`, backgroundSize: 'cover', backgroundPosition: 'center', zIndex: 0 }}>
+                <div style={{ position: 'absolute', inset: 0, background: config.bgGradient, opacity: 0.88 }} />
+              </div>
+            )}
+
+            <div
+              style={{
+                position: 'relative',
+                zIndex: 1,
+                padding: pos === 'top' ? '28px 32px 36px' : '40px 36px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                background: pos === 'background' ? 'transparent' : config.bgGradient,
+                color: config.textColor,
+                gridColumn: pos === 'right' ? 1 : undefined,
+                gridRow: pos === 'right' ? 1 : undefined,
+              }}
+            >
+              <h2 style={{ margin: '0 0 14px', fontSize: pos === 'top' ? '1.45rem' : '1.65rem', fontWeight: 900, lineHeight: 1.2, color: config.textColor }}>
+                {config.title || 'Título del Pop-Up'}
+              </h2>
+              <p style={{ margin: '0 0 24px', fontSize: '0.92rem', color: config.textColor, opacity: 0.9, lineHeight: 1.5 }}>
+                {config.subtitle || 'Mensaje del Pop-Up...'}
+              </p>
+
+              {config.showButton && (
+                <div
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '10px',
+                    padding: '14px 28px',
+                    background: config.buttonBgColor,
+                    color: config.buttonTextColor,
+                    borderRadius: '12px',
+                    fontWeight: 800,
+                    fontSize: '0.95rem',
+                    width: 'fit-content',
+                  }}
+                >
+                  {config.buttonText || 'Botón CTA'} <ArrowRight size={18} />
+                </div>
+              )}
+            </div>
+
+            {hasImage && pos === 'right' && (
+              <div style={{ minHeight: '300px', backgroundImage: `url(${config.image})`, backgroundSize: 'cover', backgroundPosition: 'center', gridColumn: 2, gridRow: 1 }} />
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
+
