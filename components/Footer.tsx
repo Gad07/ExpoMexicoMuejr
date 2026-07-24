@@ -50,7 +50,7 @@ export default function Footer() {
             <span className="v2-footer__col-title">{t('footer.contacto')}</span>
             <nav className="v2-footer__links">
               <a href="mailto:francisco@expomexico.ca" className="v2-footer__link">francisco@expomexico.ca</a>
-              <a href="https://wa.link/jboroz" className="v2-footer__link" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a href="https://wa.me/527225514645" className="v2-footer__link" target="_blank" rel="noopener noreferrer">WhatsApp</a>
               <div style={{ height: '8px' }}></div>
               <a href="/contacto" className="v2-footer__cta-btn" style={{ width: 'fit-content' }}>{t('footer.reservar')}</a>
             </nav>
