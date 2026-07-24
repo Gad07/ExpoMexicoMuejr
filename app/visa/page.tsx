@@ -1005,17 +1005,6 @@ export default function VisaPage() {
                     )}
                   </button>
 
-                  <p style={{ fontSize: '0.75rem', color: '#666', marginTop: '16px', textAlign: 'center', lineHeight: '1.4' }}>
-                    Al enviar esta solicitud, aceptas nuestros{' '}
-                    <a href="/terminos" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--magenta, #E4007C)', textDecoration: 'underline' }}>
-                      Términos y Condiciones
-                    </a>{' '}
-                    y nuestro{' '}
-                    <a href="/privacidad" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--magenta, #E4007C)', textDecoration: 'underline' }}>
-                      Aviso de Privacidad
-                    </a>.
-                  </p>
-
                 </form>
               )}
             </div>
