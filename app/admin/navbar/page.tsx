@@ -240,11 +240,11 @@ export default function AdminNavbar() {
 
                         <div>
                           <label style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '4px', fontSize: '0.78rem', fontWeight: 800, color: '#E4007C' }}>
-                            <FormInput size={13} /> Enlace de JotForm (se embebe antes del CTA de esta sección)
+                            <FormInput size={13} /> Enlace de JotForm (Dejar vacío para ocultar el formulario en esta página)
                           </label>
                           <input
                             type="text"
-                            placeholder="Enlace JotForm (ej: https://form.jotform.com/241686259021053)"
+                            placeholder="https://form.jotform.com/... (o dejar vacío para no mostrar)"
                             value={item.jotformUrl || ''}
                             onChange={e => updateItem(item.id, 'jotformUrl', e.target.value)}
                             style={{ ...inputStyle, background: '#FFF0F6', borderColor: '#FCC2D7', fontFamily: 'monospace' }}

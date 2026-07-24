@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Plus, Trash2, Save, X, Globe, Image, Check, AlertCircle, Handshake } from 'lucide-react';
+import { Plus, Trash2, Save, X, Globe, Image, Check, AlertCircle, Handshake, GripVertical, ArrowUp, ArrowDown } from 'lucide-react';
 
 interface Ally {
   id: string;
@@ -27,6 +27,10 @@ export default function AdminAliados() {
   const [notification, setNotification] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
   const [isSaving, setIsSaving] = useState(false);
 
+  // Drag & drop state
+  const [draggedIndex, setDraggedIndex] = useState<number | null>(null);
+  const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
+
   useEffect(() => {
     fetchAllies();
   }, []);
@@ -44,6 +48,77 @@ export default function AdminAliados() {
   const showNotification = (text: string, type: 'success' | 'error' = 'success') => {
     setNotification({ text, type });
     setTimeout(() => setNotification(null), 4000);
+  };
+
+  const saveAlliesOrder = async (newList: Ally[]) => {
+    try {
+      const token = localStorage.getItem('admin_token');
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+      if (token) headers['Authorization'] = `Bearer ${token}`;
+
+      const res = await fetch('/api/admin/aliados', {
+        method: 'PUT',
+        headers,
+        body: JSON.stringify({ allies: newList }),
+      });
+
+      if (res.ok) {
+        showNotification('Orden de aliados guardado correctamente');
+      } else {
+        showNotification('Error al guardar el nuevo orden', 'error');
+      }
+    } catch {
+      showNotification('Error de conexión al guardar el orden', 'error');
+    }
+  };
+
+  const handleDragStart = (e: React.DragEvent, index: number) => {
+    setDraggedIndex(index);
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/plain', index.toString());
+  };
+
+  const handleDragOver = (e: React.DragEvent, index: number) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    if (dragOverIndex !== index) {
+      setDragOverIndex(index);
+    }
+  };
+
+  const handleDragLeave = () => {
+    setDragOverIndex(null);
+  };
+
+  const handleDrop = async (e: React.DragEvent, targetIndex: number) => {
+    e.preventDefault();
+    if (draggedIndex === null || draggedIndex === targetIndex) {
+      setDraggedIndex(null);
+      setDragOverIndex(null);
+      return;
+    }
+
+    const updated = [...allies];
+    const [movedItem] = updated.splice(draggedIndex, 1);
+    updated.splice(targetIndex, 0, movedItem);
+
+    setAllies(updated);
+    setDraggedIndex(null);
+    setDragOverIndex(null);
+
+    await saveAlliesOrder(updated);
+  };
+
+  const moveAlly = async (index: number, direction: 'up' | 'down') => {
+    const targetIndex = direction === 'up' ? index - 1 : index + 1;
+    if (targetIndex < 0 || targetIndex >= allies.length) return;
+
+    const updated = [...allies];
+    const [movedItem] = updated.splice(index, 1);
+    updated.splice(targetIndex, 0, movedItem);
+
+    setAllies(updated);
+    await saveAlliesOrder(updated);
   };
 
   const handleEdit = (ally: Ally) => {
@@ -164,7 +239,7 @@ export default function AdminAliados() {
             Gestionar Aliados Oficiales
           </h1>
           <p style={{ margin: '4px 0 0', color: '#888', fontSize: '0.85rem' }}>
-            Configura los logotipos, enlaces y colores de la sección de Aliados Oficiales del sitio.
+            Configura los logotipos, enlaces y colores. 💡 <strong>Arrastra y suelta las tarjetas</strong> para cambiar el orden en que aparecen en el sitio.
           </p>
         </div>
 
@@ -212,120 +287,176 @@ export default function AdminAliados() {
             </div>
           ) : (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' }}>
-              {allies.map(ally => (
-                <div
-                  key={ally.id}
-                  style={{
-                    border: '1px solid rgba(0,0,0,0.05)',
-                    borderRadius: '16px',
-                    padding: '20px',
-                    position: 'relative',
-                    transition: 'all 0.2s',
-                    background: selectedAlly?.id === ally.id ? 'rgba(0,46,81,0.02)' : '#fff',
-                    borderColor: selectedAlly?.id === ally.id ? '#002E51' : 'rgba(0,0,0,0.05)',
-                  }}
-                >
-                  {/* Color preview bar */}
-                  <div style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: '4px',
-                    background: ally.color,
-                    borderRadius: '16px 16px 0 0',
-                  }} />
+              {allies.map((ally, index) => {
+                const isDragging = draggedIndex === index;
+                const isOver = dragOverIndex === index;
 
-                  {/* Logo Container */}
-                  <div style={{
-                    height: '100px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    background: '#FAF8F5',
-                    borderRadius: '12px',
-                    marginBottom: '16px',
-                    border: '1px solid rgba(0,0,0,0.02)',
-                    padding: '12px',
-                    boxSizing: 'border-box',
-                  }}>
-                    {ally.logo ? (
-                      <img
-                        src={ally.logo}
-                        alt={ally.name}
-                        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
-                        onError={e => {
-                          e.currentTarget.src = 'https://placehold.co/150x150/e0e0e0/555555?text=Error';
-                        }}
-                      />
-                    ) : (
-                      <div style={{ color: '#aaa', fontSize: '0.8rem' }}>Sin logo</div>
-                    )}
-                  </div>
-
-                  <h3 style={{ margin: '0 0 4px', fontSize: '0.95rem', fontWeight: 800, color: '#002E51', lineHeight: 1.3 }}>
-                    {ally.name}
-                  </h3>
-
-                  <a
-                    href={ally.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                return (
+                  <div
+                    key={ally.id}
+                    draggable
+                    onDragStart={e => handleDragStart(e, index)}
+                    onDragOver={e => handleDragOver(e, index)}
+                    onDragLeave={handleDragLeave}
+                    onDrop={e => handleDrop(e, index)}
+                    onDragEnd={() => { setDraggedIndex(null); setDragOverIndex(null); }}
                     style={{
-                      fontSize: '0.8rem',
-                      color: '#E4007C',
-                      textDecoration: 'none',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '4px',
-                      marginBottom: '20px',
-                      fontWeight: 600,
+                      border: isOver ? '2px dashed #E4007C' : '1px solid rgba(0,0,0,0.08)',
+                      borderRadius: '16px',
+                      padding: '20px',
+                      position: 'relative',
+                      transition: 'all 0.2s ease',
+                      background: selectedAlly?.id === ally.id ? 'rgba(0,46,81,0.02)' : isOver ? '#FFF0F6' : '#fff',
+                      opacity: isDragging ? 0.4 : 1,
+                      transform: isOver ? 'translateY(-4px)' : 'none',
+                      boxShadow: isOver ? '0 8px 24px rgba(228,0,124,0.15)' : '0 2px 8px rgba(0,0,0,0.02)',
+                      cursor: 'grab',
                     }}
                   >
-                    <Globe size={12} />
-                    <span>Visitar sitio</span>
-                  </a>
+                    {/* Color preview bar */}
+                    <div style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      height: '4px',
+                      background: ally.color,
+                      borderRadius: '16px 16px 0 0',
+                    }} />
 
-                  {/* Actions */}
-                  <div style={{ display: 'flex', gap: '8px', borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '16px' }}>
-                    <button
-                      onClick={() => handleEdit(ally)}
+                    {/* Drag Handle & Quick Reorder Header */}
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#94A3B8', fontSize: '0.75rem', fontWeight: 700 }}>
+                        <GripVertical size={18} style={{ cursor: 'grab' }} />
+                        <span>#{index + 1}</span>
+                      </div>
+                      <div style={{ display: 'flex', gap: '4px' }}>
+                        <button
+                          onClick={() => moveAlly(index, 'up')}
+                          disabled={index === 0}
+                          style={{
+                            border: '1px solid rgba(0,0,0,0.08)',
+                            background: '#FAF8F5',
+                            padding: '4px 8px',
+                            borderRadius: '6px',
+                            cursor: index === 0 ? 'not-allowed' : 'pointer',
+                            opacity: index === 0 ? 0.3 : 1,
+                            color: '#002E51',
+                          }}
+                          title="Mover arriba"
+                        >
+                          <ArrowUp size={13} />
+                        </button>
+                        <button
+                          onClick={() => moveAlly(index, 'down')}
+                          disabled={index === allies.length - 1}
+                          style={{
+                            border: '1px solid rgba(0,0,0,0.08)',
+                            background: '#FAF8F5',
+                            padding: '4px 8px',
+                            borderRadius: '6px',
+                            cursor: index === allies.length - 1 ? 'not-allowed' : 'pointer',
+                            opacity: index === allies.length - 1 ? 0.3 : 1,
+                            color: '#002E51',
+                          }}
+                          title="Mover abajo"
+                        >
+                          <ArrowDown size={13} />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Logo Container */}
+                    <div style={{
+                      height: '100px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      background: '#FAF8F5',
+                      borderRadius: '12px',
+                      marginBottom: '16px',
+                      border: '1px solid rgba(0,0,0,0.02)',
+                      padding: '12px',
+                      boxSizing: 'border-box',
+                    }}>
+                      {ally.logo ? (
+                        <img
+                          src={ally.logo}
+                          alt={ally.name}
+                          style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+                          onError={e => {
+                            e.currentTarget.src = 'https://placehold.co/150x150/e0e0e0/555555?text=Error';
+                          }}
+                        />
+                      ) : (
+                        <div style={{ color: '#aaa', fontSize: '0.8rem' }}>Sin logo</div>
+                      )}
+                    </div>
+
+                    <h3 style={{ margin: '0 0 4px', fontSize: '0.95rem', fontWeight: 800, color: '#002E51', lineHeight: 1.3 }}>
+                      {ally.name}
+                    </h3>
+
+                    <a
+                      href={ally.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       style={{
-                        flex: 1,
-                        background: '#FAF8F5',
-                        border: '1px solid rgba(0,0,0,0.08)',
-                        padding: '8px',
-                        borderRadius: '8px',
                         fontSize: '0.8rem',
+                        color: '#E4007C',
+                        textDecoration: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                        marginBottom: '20px',
                         fontWeight: 600,
-                        color: '#002E51',
-                        cursor: 'pointer',
-                        transition: 'all 0.2s',
                       }}
-                      onMouseEnter={e => e.currentTarget.style.background = '#002E510A'}
-                      onMouseLeave={e => e.currentTarget.style.background = '#FAF8F5'}
                     >
-                      Editar
-                    </button>
-                    <button
-                      onClick={() => handleDelete(ally.id)}
-                      style={{
-                        padding: '8px 12px',
-                        background: 'transparent',
-                        border: '1px solid rgba(239,68,68,0.2)',
-                        color: '#EF4444',
-                        borderRadius: '8px',
-                        cursor: 'pointer',
-                        transition: 'all 0.2s',
-                      }}
-                      onMouseEnter={e => e.currentTarget.style.background = '#EF44440A'}
-                      onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
-                    >
-                      <Trash2 size={14} />
-                    </button>
+                      <Globe size={12} />
+                      <span>Visitar sitio</span>
+                    </a>
+
+                    {/* Actions */}
+                    <div style={{ display: 'flex', gap: '8px', borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '16px' }}>
+                      <button
+                        onClick={() => handleEdit(ally)}
+                        style={{
+                          flex: 1,
+                          background: '#FAF8F5',
+                          border: '1px solid rgba(0,0,0,0.08)',
+                          padding: '8px',
+                          borderRadius: '8px',
+                          fontSize: '0.8rem',
+                          fontWeight: 600,
+                          color: '#002E51',
+                          cursor: 'pointer',
+                          transition: 'all 0.2s',
+                        }}
+                        onMouseEnter={e => e.currentTarget.style.background = '#002E510A'}
+                        onMouseLeave={e => e.currentTarget.style.background = '#FAF8F5'}
+                      >
+                        Editar
+                      </button>
+                      <button
+                        onClick={() => handleDelete(ally.id)}
+                        style={{
+                          padding: '8px 12px',
+                          background: 'transparent',
+                          border: '1px solid rgba(239,68,68,0.2)',
+                          color: '#EF4444',
+                          borderRadius: '8px',
+                          cursor: 'pointer',
+                          transition: 'all 0.2s',
+                        }}
+                        onMouseEnter={e => e.currentTarget.style.background = '#EF44440A'}
+                        onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+                      >
+                        <Trash2 size={14} />
+                      </button>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           )}
         </div>

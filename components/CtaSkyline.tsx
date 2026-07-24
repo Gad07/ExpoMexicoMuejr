@@ -33,7 +33,7 @@ function Reveal({
 export default function CtaSkyline() {
   const { t } = useLanguage();
   const pathname = usePathname();
-  const [jotformUrl, setJotformUrl] = useState<string>('https://form.jotform.com/241686259021053');
+  const [jotformUrl, setJotformUrl] = useState<string>('');
 
   useEffect(() => {
     Promise.all([
@@ -41,15 +41,16 @@ export default function CtaSkyline() {
       fetch('/api/admin/navbar').then(r => r.json()).catch(() => ({}))
     ]).then(([jotData, navData]) => {
       let url = '';
+      let navbarMatchFound = false;
       const cleanPath = pathname === '/' ? '/' : pathname.replace(/\/$/, '');
 
-      // 1. Check if navbar has a sub-link matching current pathname with a custom jotformUrl
+      // 1. Check if navbar has a sub-link matching current pathname
       if (navData.navbar && Array.isArray(navData.navbar)) {
         for (const menu of navData.navbar) {
           if (menu.items && Array.isArray(menu.items)) {
             // First check exact href match
             let found = menu.items.find((it: any) => {
-              if (!it.href || !it.jotformUrl) return false;
+              if (!it.href) return false;
               const itemHref = it.href === '/' ? '/' : it.href.replace(/\/$/, '');
               return itemHref === cleanPath;
             });
@@ -57,14 +58,15 @@ export default function CtaSkyline() {
             // Second check prefix match (excluding root '/')
             if (!found) {
               found = menu.items.find((it: any) => {
-                if (!it.href || !it.jotformUrl || it.href === '/') return false;
+                if (!it.href || it.href === '/') return false;
                 const itemHref = it.href.replace(/\/$/, '');
                 return cleanPath.startsWith(itemHref);
               });
             }
 
-            if (found && found.jotformUrl) {
-              url = found.jotformUrl;
+            if (found) {
+              navbarMatchFound = true;
+              url = (found.jotformUrl || '').trim();
               break;
             }
           }
@@ -72,7 +74,7 @@ export default function CtaSkyline() {
       }
 
       // 2. If not found in navbar items, fallback to page-based jotforms config
-      if (!url && jotData.jotforms) {
+      if (!navbarMatchFound && jotData.jotforms) {
         let pageKey = 'default';
         if (cleanPath === '/') pageKey = 'home';
         else if (cleanPath.startsWith('/contacto')) pageKey = 'contacto';
@@ -82,10 +84,10 @@ export default function CtaSkyline() {
         else if (cleanPath.startsWith('/patrocinadores')) pageKey = 'patrocinadores';
         else if (cleanPath.startsWith('/invitados')) pageKey = 'invitados';
 
-        url = jotData.jotforms[pageKey] || jotData.jotforms.default || '';
+        url = (jotData.jotforms[pageKey] || '').trim();
       }
 
-      setJotformUrl(url || 'https://form.jotform.com/241686259021053');
+      setJotformUrl(url);
     });
   }, [pathname]);
 

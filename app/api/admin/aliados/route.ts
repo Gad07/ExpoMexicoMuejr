@@ -64,7 +64,7 @@ export async function POST(request: Request) {
   }
 }
 
-// PUT /api/admin/aliados - Update existing ally
+// PUT /api/admin/aliados - Update existing ally or reorder all allies
 export async function PUT(request: Request) {
   if (!checkAuth(request)) {
     return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
@@ -72,6 +72,20 @@ export async function PUT(request: Request) {
 
   try {
     const body = await request.json();
+
+    // Check if reordering full array
+    if (body.allies && Array.isArray(body.allies)) {
+      const cleaned = cleanDropboxUrlsInObject(body.allies);
+      await writeJSONAsync(DB_FILE, cleaned);
+      return NextResponse.json({ allies: cleaned, message: 'Orden actualizado exitosamente' });
+    }
+
+    if (Array.isArray(body)) {
+      const cleaned = cleanDropboxUrlsInObject(body);
+      await writeJSONAsync(DB_FILE, cleaned);
+      return NextResponse.json({ allies: cleaned, message: 'Orden actualizado exitosamente' });
+    }
+
     const { id, ...updates } = body;
 
     if (!id) {
