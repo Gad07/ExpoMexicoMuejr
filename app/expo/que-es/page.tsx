@@ -12,7 +12,7 @@ function Reveal({
 }: { children: React.ReactNode; className?: string; delay?: number; style?: React.CSSProperties; suppressHydrationWarning?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
-  
+
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -100,14 +100,14 @@ export default function QueEsPage() {
   const displayCards = cards.length > 0 ? cards : FALLBACK_CARDS;
   return (
     <div style={{ background: 'var(--cream)', color: 'var(--navy)', minHeight: '100vh', paddingBottom: '120px' }}>
-      
+
       {/* Background Decor */}
       <div style={{ position: 'absolute', top: 0, right: 0, opacity: 0.02, pointerEvents: 'none' }}>
         <Mariposa width={600} height={600} />
       </div>
 
       <div style={{ maxWidth: 'var(--container-width)', margin: '0 auto', padding: '60px 48px 80px' }}>
-        
+
         {/* 1. Presentación del evento */}
         <div style={{ marginBottom: '100px', borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: '80px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center' }}>
@@ -126,7 +126,7 @@ export default function QueEsPage() {
             <Reveal delay={200}>
               <div style={{ background: '#fff', borderRadius: '32px', padding: '48px', boxShadow: '0 20px 50px rgba(0,25,76,0.04)', border: '1px solid rgba(0,0,0,0.01)', position: 'relative' }}>
                 <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--magenta)', letterSpacing: '0.1em', textTransform: 'uppercase', display: 'block', marginBottom: '24px' }}>{t('pages.expo.queEs.impact.title')}</span>
-                
+
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                   <div style={{ display: 'flex', gap: '16px', alignItems: 'start' }}>
                     <div style={{ color: 'var(--cyan)', marginTop: '4px' }}><CheckCircle size={20} /></div>
@@ -264,7 +264,7 @@ export default function QueEsPage() {
                     )}
                   </div>
 
-                  <a href={waNum ? `https://wa.me/${waNum}` : `/${card.slug}`} className="c-action" target={waNum ? "_blank" : "_self"} rel="noopener noreferrer">
+                  <a href={waNum ? `https://wa.me/${waNum}` : (card.slug ? `/${card.slug.replace(/^\//, '')}` : '#')} className="c-action" target={waNum ? "_blank" : "_self"} rel="noopener noreferrer">
                     <span>{t('pages.expo.queEs.equipo.startChat')}</span>
                     <ArrowRight size={22} className="c-action-icon" />
                   </a>

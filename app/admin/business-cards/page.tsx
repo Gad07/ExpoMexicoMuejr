@@ -252,7 +252,7 @@ export default function AdminBusinessCards() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
                 <h1 style={{ margin: 0, fontSize: '1.5rem', fontWeight: 800, color: '#002E51' }}>{editing.nombre}</h1>
                 <a 
-                  href={`/${editing.slug}`} 
+                  href={editing.slug ? `/${editing.slug.replace(/^\//, '')}` : '#'} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '6px', background: 'rgba(0,46,81,0.06)', color: '#002E51', textDecoration: 'none' }}

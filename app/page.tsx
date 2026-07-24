@@ -1223,8 +1223,8 @@ function Contacto() {
 
           <div className="c-grid">
             {displayCards.map((card, idx) => {
-              const roleStr = typeof card.cargo === 'object' && card.cargo !== null 
-                ? (card.cargo[lang] || card.cargo.es || '') 
+              const roleStr = typeof card.cargo === 'object' && card.cargo !== null
+                ? (card.cargo[lang] || card.cargo.es || '')
                 : (card.cargo || '');
               const waNum = (card.whatsapp || card.telefono || '').replace(/\D/g, '');
               return (
@@ -1250,7 +1250,7 @@ function Contacto() {
                     )}
                   </div>
 
-                  <a href={waNum ? `https://wa.me/${waNum}` : `/${card.slug}`} className="c-action" target={waNum ? "_blank" : "_self"} rel="noopener noreferrer">
+                  <a href={waNum ? `https://wa.me/${waNum}` : (card.slug ? `/${card.slug.replace(/^\//, '')}` : '#')} className="c-action" target={waNum ? "_blank" : "_self"} rel="noopener noreferrer">
                     <span>{t('wa.chat.startChat')}</span>
                     <ArrowRight size={22} className="c-action-icon" />
                   </a>

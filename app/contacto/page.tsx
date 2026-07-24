@@ -199,7 +199,7 @@ export default function ContactoPage() {
                   )}
                 </div>
 
-                <a href={waNum ? `https://wa.me/${waNum}` : `/${card.slug}`} className="c-action" target={waNum ? "_blank" : "_self"} rel="noopener noreferrer">
+                <a href={waNum ? `https://wa.me/${waNum}` : (card.slug ? `/${card.slug.replace(/^\//, '')}` : '#')} className="c-action" target={waNum ? "_blank" : "_self"} rel="noopener noreferrer">
                   <span>{t('wa.chat.startChat')}</span>
                   <ArrowRight size={22} className="c-action-icon" />
                 </a>

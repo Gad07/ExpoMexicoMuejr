@@ -52,7 +52,8 @@ export async function GET(request: Request) {
     const cards = await readJSONAsync<BusinessCard>(DB_FILE);
     const cleaned = cleanDropboxUrlsInObject(cards);
     if (slug) {
-      const card = cleaned.find(c => c.slug === slug);
+      const cleanTarget = slug.replace(/^\//, '');
+      const card = cleaned.find(c => (c.slug || '').replace(/^\//, '') === cleanTarget);
       return card
         ? NextResponse.json({ card }, { headers: CACHE_10MIN })
         : NextResponse.json({ error: 'No encontrado' }, { status: 404 });

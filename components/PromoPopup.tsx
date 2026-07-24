@@ -18,33 +18,50 @@ export default function PromoPopup() {
     if (pathname.startsWith('/admin')) return;
 
     // Check if user already dismissed pop-up in current session
-    const seen = sessionStorage.getItem('emm_popup_seen');
-    if (seen === 'true') return;
+    const seenKey = `emm_popup_seen_${pathname}`;
+    const globalSeen = sessionStorage.getItem('emm_popup_seen_global');
+    if (globalSeen === 'true') return;
+    if (sessionStorage.getItem(seenKey) === 'true') return;
 
     fetch('/api/admin/popup')
       .then((res) => res.json())
       .then((data) => {
-        if (!data?.popup || !data.popup.isActive) return;
+        const activeList: PopupConfig[] = data.activePopups || (data.popup && data.popup.isActive ? [data.popup] : []);
+        if (!activeList || activeList.length === 0) return;
 
-        const pop: PopupConfig = data.popup;
+        // Find matching active pop-up for current pathname
+        const currentPath = pathname.toLowerCase() === '/' ? '/' : pathname.toLowerCase().replace(/\/$/, '');
 
-        // Check Page Targeting Match
-        let pageMatch = false;
-        if (pop.displayTarget === 'all') {
-          pageMatch = true;
-        } else if (pop.displayTarget === 'home') {
-          pageMatch = pathname === '/' || pathname === '/home';
-        } else if (pop.displayTarget === 'custom' && pop.customPages) {
-          const allowedPaths = pop.customPages.split(',').map((p) => p.trim().toLowerCase());
-          pageMatch = allowedPaths.some((p) => p && (pathname.toLowerCase() === p || pathname.toLowerCase().startsWith(p)));
-        }
+        const matchingPop = activeList.find((pop) => {
+          if (!pop.isActive) return false;
 
-        if (!pageMatch) return;
-        setConfig(pop);
+          if (pop.displayTarget === 'all') return true;
+
+          if (pop.displayTarget === 'home') {
+            return currentPath === '/' || currentPath === '/home';
+          }
+
+          if (pop.displayTarget === 'custom' && pop.customPages) {
+            const allowedPaths = pop.customPages
+              .split(',')
+              .map((p) => p.trim().toLowerCase())
+              .filter(Boolean)
+              .map((p) => (p === '/' ? '/' : p.replace(/\/$/, '')));
+
+            return allowedPaths.some(
+              (p) => currentPath === p || (p !== '/' && currentPath.startsWith(p))
+            );
+          }
+
+          return false;
+        });
+
+        if (!matchingPop) return;
+        setConfig(matchingPop);
 
         // Configure Triggers
-        const triggerType = pop.triggerType || 'timer';
-        const triggerVal = Number(pop.triggerValue) || 3;
+        const triggerType = matchingPop.triggerType || 'timer';
+        const triggerVal = Number(matchingPop.triggerValue) || 3;
 
         if (triggerType === 'timer') {
           const timer = setTimeout(() => {
@@ -82,7 +99,8 @@ export default function PromoPopup() {
 
   const handleClose = () => {
     setVisible(false);
-    sessionStorage.setItem('emm_popup_seen', 'true');
+    sessionStorage.setItem(`emm_popup_seen_${pathname}`, 'true');
+    sessionStorage.setItem('emm_popup_seen_global', 'true');
   };
 
   const handleCta = () => {

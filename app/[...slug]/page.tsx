@@ -29,7 +29,10 @@ export default async function GenericPage({ params }: { params: Promise<{ slug: 
       const dbPath = path.join(process.cwd(), 'data', 'business-cards.json');
       if (fs.existsSync(dbPath)) {
         const cards = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
-        if (Array.isArray(cards) && cards.some((c: any) => c.slug === slug[0])) {
+        if (Array.isArray(cards) && cards.some((c: any) => {
+          const s = (c.slug || '').replace(/^\//, '');
+          return s === slug[0];
+        })) {
           return <BusinessCardPage params={Promise.resolve({ slug: slug[0] })} />;
         }
       }
